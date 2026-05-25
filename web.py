@@ -54,7 +54,7 @@ def chat():
     data = request.json
     messages = data.get('messages', [])
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-5-20251022",
         max_tokens=1000,
         system=SYSTEM,
         messages=messages
