@@ -175,10 +175,17 @@ def chat():
                     "content": str(result)
                 })
         
-        messages = messages + [
-            {"role": "assistant", "content": response.content},
-            {"role": "user", "content": tool_results}
-        ]
+       assistant_content = []
+for block in response.content:
+    if block.type == "tool_use":
+        assistant_content.append({"type": "tool_use", "id": block.id, "name": block.name, "input": block.input})
+    elif hasattr(block, "text"):
+        assistant_content.append({"type": "text", "text": block.text})
+
+messages = messages + [
+    {"role": "assistant", "content": assistant_content},
+    {"role": "user", "content": tool_results}
+]
         
         response = client.messages.create(
             model="claude-sonnet-4-5",
