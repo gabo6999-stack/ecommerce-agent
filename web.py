@@ -90,11 +90,11 @@ SYSTEM = """Eres un agente SEO especializado en la tienda peptidosysuplementos.m
 
 Tienes acceso a dos herramientas:
 1. get_products: obtiene los productos de la tienda
-2. update_product: actualiza título, descripción o meta datos de un producto
+2. update_product: actualiza título o descripción de un producto
 
-Cuando el usuario pida ver productos, analizar SEO u optimizar, SIEMPRE usa get_products primero para obtener datos reales.
+Cuando el usuario pida ver productos, analizar SEO u optimizar, usa get_products primero para obtener datos reales.
 
-Para optimizar títulos SEO sigue estas reglas:
+Para optimizar títulos SEO:
 - Incluir palabra clave principal al inicio
 - Máximo 60 caracteres
 - Sin caracteres especiales innecesarios
@@ -105,17 +105,21 @@ Para meta descripciones:
 - Incluir llamada a la acción
 - Mencionar beneficio y palabra clave
 
-Cuando propongas cambios, pregunta confirmación antes de aplicarlos con update_product.
+Cuando propongas cambios, pregunta confirmación antes de aplicarlos.
 Responde siempre en español. Sé concreto y profesional."""
 
-tools = [
+TOOLS = [
     {
         "name": "get_products",
         "description": "Obtiene productos de la tienda WooCommerce",
         "input_schema": {
             "type": "object",
             "properties": {
-                "per_page": {"type": "integer", "description": "Número de productos a obtener (máximo 50)", "default": 10}
+                "per_page": {
+                    "type": "integer",
+                    "description": "Número de productos a obtener (máximo 50)",
+                    "default": 10
+                }
             }
         }
     },
@@ -127,13 +131,27 @@ tools = [
             "properties": {
                 "product_id": {"type": "integer", "description": "ID del producto"},
                 "name": {"type": "string", "description": "Nuevo título del producto"},
-                "description": {"type": "string", "description": "Nueva descripción del producto"},
+                "description": {"type": "string", "description": "Nueva descripción"},
                 "short_description": {"type": "string", "description": "Nueva descripción corta"}
             },
             "required": ["product_id"]
         }
     }
 ]
+
+def run_tool(name, inputs):
+    if name == "get_products":
+        return get_products(inputs.get("per_page", 10))
+    elif name == "update_product":
+        data = {}
+        if "name" in inputs:
+            data["name"] = inputs["name"]
+        if "description" in inputs:
+            data["description"] = inputs["description"]
+        if "short_description" in inputs:
+            data["short_description"] = inputs["short_description"]
+        return update_product(inputs["product_id"], data)
+    return {"error": "herramienta desconocida"}
 
 @app.route('/')
 def index():
@@ -143,63 +161,61 @@ def index():
 def chat():
     data = request.json
     messages = data.get('messages', [])
-    
+
     response = client.messages.create(
         model="claude-sonnet-4-5",
-        max_tokens=5096,
+        max_tokens=4096,
         system=SYSTEM,
-        tools=tools,
+        tools=TOOLS,
         messages=messages
     )
-    
-    # Procesar tool calls
-    while response.stop_reason == "tool_use":
-        tool_results = []
-        for block in response.content:
-            if block.type == "tool_use":
-                if block.name == "get_products":
-                    result = get_products(block.input.get("per_page", 10))
-                elif block.name == "update_product":
-                    inp = block.input
-                    update_data = {}
-                    if "name" in inp: update_data["name"] = inp["name"]
-                    if "description" in inp: update_data["description"] = inp["description"]
-                    if "short_description" in inp: update_data["short_description"] = inp["short_description"]
-                    result = update_product(inp["product_id"], update_data)
-                else:
-                    result = {"error": "herramienta desconocida"}
-                
-                tool_results.append({
-                    "type": "tool_result",
-                    "tool_use_id": block.id,
-                    "content": str(result)
-                })
-        
-       assistant_content = []
-for block in response.content:
-    if block.type == "tool_use":
-        assistant_content.append({"type": "tool_use", "id": block.id, "name": block.name, "input": block.input})
-    elif hasattr(block, "text"):
-        assistant_content.append({"type": "text", "text": block.text})
 
-messages = messages + [
-    {"role": "assistant", "content": assistant_content},
-    {"role": "user", "content": tool_results}
-]
-        
+    while response.stop_reason == "tool_use":
+        tool_uses = [b for b in response.content if b.type == "tool_use"]
+        text_blocks = [b for b in response.content if hasattr(b, "text")]
+
+        assistant_content = []
+        for b in response.content:
+            if b.type == "tool_use":
+                assistant_content.append({
+                    "type": "tool_use",
+                    "id": b.id,
+                    "name": b.name,
+                    "input": b.input
+                })
+            elif hasattr(b, "text"):
+                assistant_content.append({
+                    "type": "text",
+                    "text": b.text
+                })
+
+        tool_results = []
+        for b in tool_uses:
+            result = run_tool(b.name, b.input)
+            tool_results.append({
+                "type": "tool_result",
+                "tool_use_id": b.id,
+                "content": str(result)
+            })
+
+        messages = messages + [
+            {"role": "assistant", "content": assistant_content},
+            {"role": "user", "content": tool_results}
+        ]
+
         response = client.messages.create(
             model="claude-sonnet-4-5",
-            max_tokens=5096,
+            max_tokens=4096,
             system=SYSTEM,
-            tools=tools,
+            tools=TOOLS,
             messages=messages
         )
-    
+
     reply = ""
     for block in response.content:
         if hasattr(block, "text"):
             reply += block.text
-    
+
     return jsonify({'reply': reply})
 
 if __name__ == '__main__':
