@@ -31,7 +31,7 @@ input{flex:1;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:14px
   <button id="btn-send" onclick="enviar()">Enviar</button>
 </div>
 <script>
-var history=[], busy=false;
+var chatHistory=[], busy=false;
 function q(t){if(busy)return;document.getElementById('inp').value=t;enviar();}
 function enviar(){
   if(busy)return;
@@ -40,17 +40,17 @@ function enviar(){
   busy=true;
   document.getElementById('btn-send').disabled=true;
   document.getElementById('inp').value='';
-  history.push({role:'user',content:msg});
+  chatHistory.push({role:'user',content:msg});
   var chat=document.getElementById('chat');
   var u=document.createElement('p');u.className='user';u.textContent='Tu: '+msg;chat.appendChild(u);
   var l=document.createElement('p');l.className='loading';l.id='load';l.textContent='Consultando...';chat.appendChild(l);
   chat.scrollTop=chat.scrollHeight;
-  fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history})})
+  fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:chatHistory})})
   .then(function(r){return r.json();})
   .then(function(d){
     document.getElementById('load').remove();
     var reply=d.reply||'Sin respuesta';
-    history.push({role:'assistant',content:reply});
+    chatHistory.push({role:'assistant',content:reply});
     var a=document.createElement('p');a.className='agent';a.textContent='Agente: '+reply;chat.appendChild(a);
     chat.scrollTop=chat.scrollHeight;
     busy=false;document.getElementById('btn-send').disabled=false;
