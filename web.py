@@ -1,5 +1,5 @@
 ﻿from flask import Flask, request, jsonify
-import anthropic, os, requests, re
+import anthropic, os, requests
 from requests.auth import HTTPBasicAuth
 
 app = Flask(__name__)
@@ -9,68 +9,20 @@ WC_URL = os.environ.get("WOOCOMMERCE_URL", "")
 WC_KEY = os.environ.get("WOOCOMMERCE_KEY", "")
 WC_SECRET = os.environ.get("WOOCOMMERCE_SECRET", "")
 
-def markdown_to_html(text):
-    # Limpiar caracteres especiales al inicio
-    text = text.strip().strip('"').strip("'")
-    lines = text.split("\n")
-    html_lines = []
-    in_ul = False
-    for line in lines:
-        line = line.strip()
-        if not line:
-            if in_ul:
-                html_lines.append("</ul>")
-                in_ul = False
-            continue
-        # H2
-        if line.startswith("## "):
-            if in_ul: html_lines.append("</ul>"); in_ul = False
-            line = re.sub(r'[#*🔧📝✅❌🚨💡📋🔍✏️]', '', line).strip()
-            html_lines.append(f"<h3>{line}</h3>")
-        # H3
-        elif line.startswith("### "):
-            if in_ul: html_lines.append("</ul>"); in_ul = False
-            line = re.sub(r'[#*🔧📝✅❌🚨💡📋🔍✏️]', '', line).strip()
-            html_lines.append(f"<h4>{line}</h4>")
-        # Bullets
-        elif line.startswith("- ") or line.startswith("* "):
-            if not in_ul:
-                html_lines.append("<ul>")
-                in_ul = True
-            content = line[2:].strip()
-            content = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', content)
-            html_lines.append(f"<li>{content}</li>")
-        # Linea separadora
-        elif line == "---":
-            if in_ul: html_lines.append("</ul>"); in_ul = False
-        # Parrafo normal
-        else:
-            if in_ul: html_lines.append("</ul>"); in_ul = False
-            line = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', line)
-            line = re.sub(r'[#*🔧📝✅❌🚨💡📋🔍✏️]', '', line).strip()
-            if line:
-                html_lines.append(f"<p>{line}</p>")
-    if in_ul:
-        html_lines.append("</ul>")
-    return "\n".join(html_lines)
-
-def get_products(per_page=5):
+def get_products(per_page=10):
     try:
         r = requests.get(
             f"{WC_URL}/wp-json/wc/v3/products",
             auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
-            params={"per_page": per_page, "status": "publish", "_fields": "id,name,short_description,description,slug"},
+            params={"per_page": per_page, "status": "publish", "_fields": "id,name,short_description,slug"},
             timeout=15
         )
-        products = r.json()
-        return [{"id": p.get("id"), "name": p.get("name"), "short_description": p.get("short_description","")[:100], "description": p.get("description","")[:150]} for p in products]
+        return [{"id": p.get("id"), "name": p.get("name"), "short_description": p.get("short_description","")[:150], "slug": p.get("slug")} for p in r.json()]
     except Exception as e:
         return {"error": str(e)}
 
 def update_product(product_id, data):
     try:
-        if "description" in data:
-            data["description"] = markdown_to_html(data["description"])
         r = requests.put(
             f"{WC_URL}/wp-json/wc/v3/products/{product_id}",
             auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
@@ -79,36 +31,59 @@ def update_product(product_id, data):
         )
         result = r.json()
         if "id" in result:
-            return {"success": True, "id": product_id, "name": result.get("name")}
-        else:
-            return {"error": str(result)}
+            return {"success": True, "id": product_id, "name": result.get("name"), "short_description": result.get("short_description","")}
+        return {"error": str(result)}
     except Exception as e:
         return {"error": str(e)}
 
-SYSTEM = "Eres un agente SEO para peptidosysuplementos.mx. Usa get_products para ver productos reales antes de sugerir cambios. Pide confirmacion antes de usar update_product. Titulos SEO: max 60 chars, keyword al inicio. Responde en espanol."
+SYSTEM = """Eres un agente SEO especializado para peptidosysuplementos.mx.
+
+Tu funcion es optimizar TITULOS y DESCRIPCIONES CORTAS de productos WooCommerce.
+
+REGLAS PARA TITULOS:
+- Maximo 60 caracteres
+- Palabra clave principal al inicio
+- Sin caracteres especiales innecesarios
+- Ejemplo: "Tirzepatida 60mg | Peptido GLP-1 Mexico"
+
+REGLAS PARA DESCRIPCIONES CORTAS:
+- Entre 130-160 caracteres
+- Incluir palabra clave principal
+- Mencionar beneficio principal
+- Incluir llamada a accion
+- Texto plano sin markdown ni asteriscos
+- Ejemplo: "Tirzepatida 60mg peptido analogo GLP-1 para control de peso. Alta pureza, envio express Mexico. Compra segura con factura."
+
+FLUJO DE TRABAJO:
+1. Usa get_products para obtener productos reales
+2. Analiza titulos y descripciones cortas actuales
+3. Propone mejoras concretas
+4. Pide confirmacion antes de aplicar
+5. Aplica cambios con update_product uno por uno
+
+Responde siempre en espanol. Se conciso y profesional."""
 
 TOOLS = [
     {
         "name": "get_products",
-        "description": "Obtiene productos de WooCommerce con id, nombre, descripcion corta, descripcion larga y slug",
+        "description": "Obtiene productos de WooCommerce con id, nombre, descripcion corta y slug",
         "input_schema": {
             "type": "object",
             "properties": {
-                "per_page": {"type": "integer", "default": 5}
+                "per_page": {"type": "integer", "description": "Numero de productos (max 10)", "default": 10}
             }
         }
     },
     {
         "name": "update_product",
-        "description": "Actualiza titulo, descripcion corta o descripcion larga de un producto en WooCommerce",
+        "description": "Actualiza el titulo y/o descripcion corta de un producto en WooCommerce",
         "input_schema": {
             "type": "object",
             "required": ["product_id"],
             "properties": {
                 "product_id": {"type": "integer", "description": "ID del producto"},
-                "name": {"type": "string", "description": "Nuevo titulo del producto"},
-                "short_description": {"type": "string", "description": "Nueva descripcion corta"},
-                "description": {"type": "string", "description": "Nueva descripcion larga del producto"}
+                "name": {"type": "string", "description": "Nuevo titulo optimizado para SEO (max 60 chars)"},
+                "short_description": {"type": "string", "description": "Nueva descripcion corta optimizada (130-160 chars, texto plano)"}
             }
         }
     }
@@ -116,9 +91,9 @@ TOOLS = [
 
 def run_tool(name, inputs):
     if name == "get_products":
-        return get_products(inputs.get("per_page", 5))
+        return get_products(inputs.get("per_page", 10))
     elif name == "update_product":
-        data = {k: inputs[k] for k in ["name", "short_description", "description"] if k in inputs}
+        data = {k: inputs[k] for k in ["name", "short_description"] if k in inputs}
         return update_product(inputs["product_id"], data)
     return {"error": "herramienta desconocida"}
 
