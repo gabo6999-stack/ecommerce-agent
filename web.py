@@ -158,7 +158,7 @@ def chat():
         messages = request.json.get("messages", [])
         response = client.messages.create(
             model="claude-sonnet-4-5",
-            max_tokens=2048,
+            max_tokens=4096,
             system=SYSTEM,
             tools=TOOLS,
             messages=messages
