@@ -63,9 +63,41 @@ def update_category(category_id, data):
     except Exception as e:
         return {"error": str(e)}
 
+def create_post(title, content, slug="", meta_description="", status="publish"):
+    try:
+        url = f"{WC_URL}/wp-json/wp/v2/posts"
+        auth = HTTPBasicAuth(WC_KEY, WC_SECRET)
+        data = {
+            "title": title,
+            "content": content,
+            "slug": slug,
+            "status": status,
+        }
+        if meta_description:
+            data["meta"] = {"_yoast_wpseo_metadesc": meta_description}
+        r = requests.post(url, json=data, auth=auth, timeout=30)
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": result["id"], "link": result.get("link", ""), "status": result.get("status")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+def get_posts(per_page=10):
+    try:
+        r = requests.get(
+            f"{WC_URL}/wp-json/wp/v2/posts",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params={"per_page": per_page, "_fields": "id,title,slug,status,link,date"},
+            timeout=15
+        )
+        return [{"id": p.get("id"), "title": p.get("title",{}).get("rendered",""), "slug": p.get("slug"), "status": p.get("status"), "link": p.get("link"), "date": p.get("date")} for p in r.json()]
+    except Exception as e:
+        return {"error": str(e)}
+
 SYSTEM = """Eres un agente SEO especializado para peptidosysuplementos.mx.
 
-Puedes optimizar TITULOS, DESCRIPCIONES CORTAS de productos, y CATEGORIAS.
+Puedes optimizar productos, categorias, y CREAR Y PUBLICAR ARTICULOS DE BLOG en WordPress.
 
 REGLAS PARA TITULOS DE PRODUCTOS:
 - Maximo 60 caracteres
@@ -77,10 +109,22 @@ REGLAS PARA DESCRIPCIONES CORTAS:
 - Texto plano sin markdown ni asteriscos
 - Incluir palabra clave, beneficio y llamada a accion
 
-REGLAS PARA CATEGORIAS:
-- Nombre claro con keyword principal
-- Descripcion entre 130-160 caracteres
-- Incluir palabras clave relevantes del nicho
+REGLAS PARA ARTICULOS DE BLOG SEO:
+- Minimo 1000 palabras
+- Estructura con H2 y H3
+- Incluir minimo 5 links externos a fuentes de autoridad (NEJM, FDA, PubMed, Mayo Clinic, etc.)
+- Incluir minimo 8 links internos a productos de la tienda
+- Meta descripcion entre 150-160 caracteres
+- Slug en minusculas con guiones
+- Keyword principal en titulo, primer parrafo, H2s y conclusion
+- Contenido en HTML valido para WordPress (usar <h2>, <h3>, <p>, <strong>, <a href="">, <ul>, <li>)
+
+FLUJO PARA ARTICULOS:
+1. Genera el articulo completo en HTML
+2. Muestra titulo, meta descripcion, slug y preview del contenido
+3. Pide confirmacion antes de publicar
+4. Usa create_post para publicar en WordPress
+5. Confirma con el link del articulo publicado
 
 Siempre usa las herramientas para obtener datos reales antes de proponer cambios.
 Pide confirmacion antes de aplicar cualquier cambio.
@@ -132,6 +176,31 @@ TOOLS = [
                 "description": {"type": "string", "description": "Nueva descripcion (130-160 chars, texto plano)"}
             }
         }
+    },
+    {
+        "name": "get_posts",
+        "description": "Obtiene los posts de blog existentes en WordPress",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "per_page": {"type": "integer", "default": 10}
+            }
+        }
+    },
+    {
+        "name": "create_post",
+        "description": "Crea y publica un articulo de blog en WordPress",
+        "input_schema": {
+            "type": "object",
+            "required": ["title", "content"],
+            "properties": {
+                "title": {"type": "string", "description": "Titulo SEO del articulo (max 60 chars)"},
+                "content": {"type": "string", "description": "Contenido completo en HTML valido para WordPress"},
+                "slug": {"type": "string", "description": "URL amigable en minusculas con guiones"},
+                "meta_description": {"type": "string", "description": "Meta descripcion 150-160 chars"},
+                "status": {"type": "string", "description": "publish o draft", "default": "publish"}
+            }
+        }
     }
 ]
 
@@ -146,6 +215,16 @@ def run_tool(name, inputs):
     elif name == "update_category":
         data = {k: inputs[k] for k in ["name", "description"] if k in inputs}
         return update_category(inputs["category_id"], data)
+    elif name == "get_posts":
+        return get_posts(inputs.get("per_page", 10))
+    elif name == "create_post":
+        return create_post(
+            title=inputs["title"],
+            content=inputs["content"],
+            slug=inputs.get("slug", ""),
+            meta_description=inputs.get("meta_description", ""),
+            status=inputs.get("status", "publish")
+        )
     return {"error": "herramienta desconocida"}
 
 @app.route("/")
@@ -180,7 +259,7 @@ def chat():
             ]
             response = client.messages.create(
                 model="claude-sonnet-4-5",
-                max_tokens=2048,
+                max_tokens=8192,
                 system=SYSTEM,
                 tools=TOOLS,
                 messages=messages
