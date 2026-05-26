@@ -24,6 +24,12 @@ def get_products(per_page=5):
 
 def update_product(product_id, data):
     try:
+        if "description" in data:
+            text = data["description"]
+            text = text.replace("**", "").replace("##", "").replace("#", "")
+            paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
+            data["description"] = "".join(f"<p>{p}</p>" for p in paragraphs)
+
         r = requests.put(
             f"{WC_URL}/wp-json/wc/v3/products/{product_id}",
             auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
@@ -61,7 +67,7 @@ TOOLS = [
                 "product_id": {"type": "integer", "description": "ID del producto"},
                 "name": {"type": "string", "description": "Nuevo titulo del producto"},
                 "short_description": {"type": "string", "description": "Nueva descripcion corta"},
-                "description": {"type": "string", "description": "Nueva descripcion larga"}
+                "description": {"type": "string", "description": "Nueva descripcion larga del producto"}
             }
         }
     }
