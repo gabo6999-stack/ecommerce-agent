@@ -14,35 +14,66 @@ def get_products(per_page=5):
         r = requests.get(
             f"{WC_URL}/wp-json/wc/v3/products",
             auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
-            params={"per_page": per_page, "status": "publish", "_fields": "id,name,short_description,slug"},
+            params={"per_page": per_page, "status": "publish", "_fields": "id,name,short_description,description,slug"},
             timeout=15
         )
         products = r.json()
-        return [{"id": p.get("id"), "name": p.get("name"), "short_description": p.get("short_description","")[:100]} for p in products]
+        return [{"id": p.get("id"), "name": p.get("name"), "short_description": p.get("short_description","")[:100], "description": p.get("description","")[:150]} for p in products]
     except Exception as e:
         return {"error": str(e)}
 
 def update_product(product_id, data):
     try:
-        requests.put(f"{WC_URL}/wp-json/wc/v3/products/{product_id}", auth=HTTPBasicAuth(WC_KEY, WC_SECRET), json=data, timeout=15)
-        return {"success": True, "id": product_id}
+        r = requests.put(
+            f"{WC_URL}/wp-json/wc/v3/products/{product_id}",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            json=data,
+            timeout=15
+        )
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": product_id, "name": result.get("name")}
+        else:
+            return {"error": str(result)}
     except Exception as e:
         return {"error": str(e)}
 
 SYSTEM = "Eres un agente SEO para peptidosysuplementos.mx. Usa get_products para ver productos reales antes de sugerir cambios. Pide confirmacion antes de usar update_product. Titulos SEO: max 60 chars, keyword al inicio. Responde en espanol."
 
 TOOLS = [
-    {"name": "get_products", "description": "Obtiene productos de WooCommerce", "input_schema": {"type": "object", "properties": {"per_page": {"type": "integer", "default": 5}}}},
-    {"name": "update_product", "description": "Actualiza titulo o descripcion de un producto", "input_schema": {"type": "object", "required": ["product_id"], "properties": {"product_id": {"type": "integer"}, "name": {"type": "string"}, "short_description": {"type": "string"}}}}
+    {
+        "name": "get_products",
+        "description": "Obtiene productos de WooCommerce con id, nombre, descripcion corta, descripcion larga y slug",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "per_page": {"type": "integer", "default": 5}
+            }
+        }
+    },
+    {
+        "name": "update_product",
+        "description": "Actualiza titulo, descripcion corta o descripcion larga de un producto en WooCommerce",
+        "input_schema": {
+            "type": "object",
+            "required": ["product_id"],
+            "properties": {
+                "product_id": {"type": "integer", "description": "ID del producto"},
+                "name": {"type": "string", "description": "Nuevo titulo del producto"},
+                "short_description": {"type": "string", "description": "Nueva descripcion corta"},
+                "description": {"type": "string", "description": "Nueva descripcion larga"}
+            }
+        }
+    }
 ]
 
 def run_tool(name, inputs):
     if name == "get_products":
         return get_products(inputs.get("per_page", 5))
     elif name == "update_product":
-        data = {k: inputs[k] for k in ["name","short_description"] if k in inputs}
+        data = {k: inputs[k] for k in ["name", "short_description", "description"] if k in inputs}
         return update_product(inputs["product_id"], data)
-    return {"error": "desconocida"}
+    return {"error": "herramienta desconocida"}
 
 @app.route("/")
 def index():
@@ -52,12 +83,35 @@ def index():
 def chat():
     try:
         messages = request.json.get("messages", [])
-        response = client.messages.create(model="claude-sonnet-4-5", max_tokens=2048, system=SYSTEM, tools=TOOLS, messages=messages)
+        response = client.messages.create(
+            model="claude-sonnet-4-5",
+            max_tokens=2048,
+            system=SYSTEM,
+            tools=TOOLS,
+            messages=messages
+        )
         while response.stop_reason == "tool_use":
-            ac = [{"type": "tool_use", "id": b.id, "name": b.name, "input": b.input} if b.type == "tool_use" else {"type": "text", "text": b.text} for b in response.content]
-            tr = [{"type": "tool_result", "tool_use_id": b.id, "content": str(run_tool(b.name, b.input))} for b in response.content if b.type == "tool_use"]
-            messages = messages + [{"role": "assistant", "content": ac}, {"role": "user", "content": tr}]
-            response = client.messages.create(model="claude-sonnet-4-5", max_tokens=2048, system=SYSTEM, tools=TOOLS, messages=messages)
+            ac = []
+            for b in response.content:
+                if b.type == "tool_use":
+                    ac.append({"type": "tool_use", "id": b.id, "name": b.name, "input": b.input})
+                elif hasattr(b, "text"):
+                    ac.append({"type": "text", "text": b.text})
+            tr = []
+            for b in response.content:
+                if b.type == "tool_use":
+                    tr.append({"type": "tool_result", "tool_use_id": b.id, "content": str(run_tool(b.name, b.input))})
+            messages = messages + [
+                {"role": "assistant", "content": ac},
+                {"role": "user", "content": tr}
+            ]
+            response = client.messages.create(
+                model="claude-sonnet-4-5",
+                max_tokens=2048,
+                system=SYSTEM,
+                tools=TOOLS,
+                messages=messages
+            )
         reply = "".join(b.text for b in response.content if hasattr(b, "text"))
         return jsonify({"reply": reply})
     except Exception as e:
