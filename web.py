@@ -149,12 +149,10 @@ HTML = """
     chat.scrollTop = chat.scrollHeight;
   }
 
-  function escapeHtml(text) {
-    return text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/\n/g, '<br>');
+ function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.appendChild(document.createTextNode(text));
+    return div.innerHTML.split('\n').join('<br>');
   }
 </script>
 </body>
