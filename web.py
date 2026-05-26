@@ -1,5 +1,5 @@
 ﻿from flask import Flask, request, jsonify
-import anthropic, os, requests
+import anthropic, os, requests, re
 from requests.auth import HTTPBasicAuth
 
 app = Flask(__name__)
@@ -8,6 +8,51 @@ client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 WC_URL = os.environ.get("WOOCOMMERCE_URL", "")
 WC_KEY = os.environ.get("WOOCOMMERCE_KEY", "")
 WC_SECRET = os.environ.get("WOOCOMMERCE_SECRET", "")
+
+def markdown_to_html(text):
+    # Limpiar caracteres especiales al inicio
+    text = text.strip().strip('"').strip("'")
+    lines = text.split("\n")
+    html_lines = []
+    in_ul = False
+    for line in lines:
+        line = line.strip()
+        if not line:
+            if in_ul:
+                html_lines.append("</ul>")
+                in_ul = False
+            continue
+        # H2
+        if line.startswith("## "):
+            if in_ul: html_lines.append("</ul>"); in_ul = False
+            line = re.sub(r'[#*🔧📝✅❌🚨💡📋🔍✏️]', '', line).strip()
+            html_lines.append(f"<h3>{line}</h3>")
+        # H3
+        elif line.startswith("### "):
+            if in_ul: html_lines.append("</ul>"); in_ul = False
+            line = re.sub(r'[#*🔧📝✅❌🚨💡📋🔍✏️]', '', line).strip()
+            html_lines.append(f"<h4>{line}</h4>")
+        # Bullets
+        elif line.startswith("- ") or line.startswith("* "):
+            if not in_ul:
+                html_lines.append("<ul>")
+                in_ul = True
+            content = line[2:].strip()
+            content = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', content)
+            html_lines.append(f"<li>{content}</li>")
+        # Linea separadora
+        elif line == "---":
+            if in_ul: html_lines.append("</ul>"); in_ul = False
+        # Parrafo normal
+        else:
+            if in_ul: html_lines.append("</ul>"); in_ul = False
+            line = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', line)
+            line = re.sub(r'[#*🔧📝✅❌🚨💡📋🔍✏️]', '', line).strip()
+            if line:
+                html_lines.append(f"<p>{line}</p>")
+    if in_ul:
+        html_lines.append("</ul>")
+    return "\n".join(html_lines)
 
 def get_products(per_page=5):
     try:
@@ -25,11 +70,7 @@ def get_products(per_page=5):
 def update_product(product_id, data):
     try:
         if "description" in data:
-            text = data["description"]
-            text = text.replace("**", "").replace("##", "").replace("#", "")
-            paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
-            data["description"] = "".join(f"<p>{p}</p>" for p in paragraphs)
-
+            data["description"] = markdown_to_html(data["description"])
         r = requests.put(
             f"{WC_URL}/wp-json/wc/v3/products/{product_id}",
             auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
