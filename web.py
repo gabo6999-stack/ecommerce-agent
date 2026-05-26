@@ -14,9 +14,19 @@ def get_products(per_page=10):
         r = requests.get(
             f"{WC_URL}/wp-json/wc/v3/products",
             auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
-            params={"per_page": per_page, "status": "publish"}
+            params={"per_page": per_page, "status": "publish", "_fields": "id,name,short_description,slug"}
         )
-        return r.json()
+        products = r.json()
+        # Solo retornar campos esenciales para SEO
+        slim = []
+        for p in products:
+            slim.append({
+                "id": p.get("id"),
+                "name": p.get("name"),
+                "short_description": p.get("short_description", "")[:200],
+                "slug": p.get("slug")
+            })
+        return slim
     except Exception as e:
         return []
 
