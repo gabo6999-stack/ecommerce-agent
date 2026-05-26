@@ -146,7 +146,7 @@ def chat():
     
     response = client.messages.create(
         model="claude-sonnet-4-5",
-        max_tokens=2000,
+        max_tokens=5096,
         system=SYSTEM,
         tools=tools,
         messages=messages
@@ -182,7 +182,7 @@ def chat():
         
         response = client.messages.create(
             model="claude-sonnet-4-5",
-            max_tokens=2000,
+            max_tokens=5096,
             system=SYSTEM,
             tools=tools,
             messages=messages
