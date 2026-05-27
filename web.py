@@ -1,10 +1,22 @@
-﻿from flask import Flask, request, jsonify
-import anthropic, os, requests, schedule, threading, json
+﻿from flask import Flask, request, jsonify, redirect, session
+import anthropic, os, requests, schedule, threading, json, secrets
 from requests.auth import HTTPBasicAuth
-from datetime import datetime
+from datetime import datetime, timedelta
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import Flow
+from googleapiclient.discovery import build
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+# ─── Google Search Console config ────────────────────────────────────────────
+GSC_CLIENT_ID     = os.environ.get("GOOGLE_CLIENT_ID", "")
+GSC_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", "")
+GSC_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN", "")
+GSC_SITE_URL      = os.environ.get("GSC_SITE_URL", "sc-domain:peptidosysuplementos.mx")
+GSC_REDIRECT_URI  = os.environ.get("GSC_REDIRECT_URI", "https://web-production-3743c.up.railway.app/search-console/callback")
+GSC_SCOPES        = ["https://www.googleapis.com/auth/webmasters.readonly"]
 
 WC_URL = os.environ.get("WOOCOMMERCE_URL", "")
 WC_KEY = os.environ.get("WOOCOMMERCE_KEY", "")
@@ -620,6 +632,164 @@ Devuelve solo el HTML listo para WordPress."""
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+# ─── GOOGLE SEARCH CONSOLE ───────────────────────────────────────────────────
+
+def get_gsc_service():
+    creds = Credentials(
+        token=None,
+        refresh_token=GSC_REFRESH_TOKEN,
+        client_id=GSC_CLIENT_ID,
+        client_secret=GSC_CLIENT_SECRET,
+        token_uri="https://oauth2.googleapis.com/token",
+        scopes=GSC_SCOPES
+    )
+    return build("searchconsole", "v1", credentials=creds, cache_discovery=False)
+
+
+def fetch_gsc_data(dimension, days=28):
+    service = get_gsc_service()
+    end_date = datetime.now().strftime("%Y-%m-%d")
+    start_date = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
+    result = service.searchanalytics().query(
+        siteUrl=GSC_SITE_URL,
+        body={
+            "startDate": start_date,
+            "endDate": end_date,
+            "dimensions": [dimension],
+            "rowLimit": 10,
+            "orderBy": [{"fieldName": "clicks", "sortOrder": "DESCENDING"}]
+        }
+    ).execute()
+    return result.get("rows", [])
+
+
+@app.route("/search-console/auth")
+def gsc_auth():
+    if not GSC_CLIENT_ID or not GSC_CLIENT_SECRET:
+        return "Faltan variables GOOGLE_CLIENT_ID y GOOGLE_CLIENT_SECRET en Railway.", 400
+    flow = Flow.from_client_config(
+        {"web": {"client_id": GSC_CLIENT_ID, "client_secret": GSC_CLIENT_SECRET,
+                 "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                 "token_uri": "https://oauth2.googleapis.com/token"}},
+        scopes=GSC_SCOPES,
+        redirect_uri=GSC_REDIRECT_URI
+    )
+    auth_url, state = flow.authorization_url(access_type="offline", prompt="consent")
+    session["gsc_state"] = state
+    return redirect(auth_url)
+
+
+@app.route("/search-console/callback")
+def gsc_callback():
+    flow = Flow.from_client_config(
+        {"web": {"client_id": GSC_CLIENT_ID, "client_secret": GSC_CLIENT_SECRET,
+                 "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                 "token_uri": "https://oauth2.googleapis.com/token"}},
+        scopes=GSC_SCOPES,
+        redirect_uri=GSC_REDIRECT_URI,
+        state=session.get("gsc_state")
+    )
+    flow.fetch_token(authorization_response=request.url)
+    refresh_token = flow.credentials.refresh_token
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Search Console conectado</title>
+<style>body{{font-family:Arial;max-width:600px;margin:60px auto;padding:20px;background:#0f0f0f;color:#eee}}
+.box{{background:#1a1a1a;border-radius:10px;padding:24px;border-left:4px solid #22c55e}}
+code{{background:#2a2a2a;padding:4px 10px;border-radius:6px;font-size:13px;word-break:break-all}}
+.btn{{display:inline-block;background:#7c3aed;color:white;padding:10px 20px;border-radius:8px;text-decoration:none;margin-top:16px}}</style>
+</head><body>
+<h2>✅ Google Search Console conectado</h2>
+<div class="box">
+<p>Copia este <strong>Refresh Token</strong> y agrégalo en Railway como variable de entorno:</p>
+<p><strong>Variable:</strong> <code>GOOGLE_REFRESH_TOKEN</code></p>
+<p><strong>Valor:</strong><br><code>{refresh_token}</code></p>
+</div>
+<p style="color:#aaa;font-size:13px;margin-top:16px;">Una vez que agregues la variable en Railway y el servicio se reinicie, el Search Console estará activo.</p>
+<a href="/search-console" class="btn">Ver Search Console</a>
+</body></html>"""
+
+
+@app.route("/search-console/data")
+def gsc_data():
+    if not GSC_REFRESH_TOKEN:
+        return jsonify({"error": "No autenticado. Visita /search-console/auth"}), 401
+    try:
+        queries = fetch_gsc_data("query")
+        pages   = fetch_gsc_data("page")
+        return jsonify({"queries": queries, "pages": pages})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/search-console")
+def gsc_dashboard():
+    if not GSC_CLIENT_ID:
+        return """<html><body style="font-family:Arial;max-width:600px;margin:60px auto;background:#0f0f0f;color:#eee;padding:20px">
+        <h2>⚙️ Search Console no configurado</h2>
+        <p>Agrega estas variables en Railway primero:</p>
+        <ul><li>GOOGLE_CLIENT_ID</li><li>GOOGLE_CLIENT_SECRET</li><li>GSC_SITE_URL</li></ul>
+        </body></html>"""
+
+    if not GSC_REFRESH_TOKEN:
+        return redirect("/search-console/auth")
+
+    try:
+        queries = fetch_gsc_data("query")
+        pages   = fetch_gsc_data("page")
+        error_html = ""
+    except Exception as e:
+        queries, pages = [], []
+        error_html = f'<div style="background:#1a1a1a;border-left:4px solid #ef4444;padding:16px;border-radius:8px;margin:16px 0"><p style="color:#ef4444">Error: {e}</p></div>'
+
+    def rows_html(rows, dimension):
+        if not rows:
+            return '<tr><td colspan="5" style="padding:12px;color:#666;">Sin datos</td></tr>'
+        html = ""
+        for r in rows:
+            keys = r.get("keys", [""])
+            val = keys[0]
+            if dimension == "page":
+                val = val.replace("https://peptidosysuplementos.mx", "")
+            clicks = r.get("clicks", 0)
+            impr   = r.get("impressions", 0)
+            ctr    = f"{r.get('ctr', 0)*100:.1f}%"
+            pos    = f"{r.get('position', 0):.1f}"
+            pos_color = "#22c55e" if float(r.get('position',99)) <= 10 else "#f59e0b" if float(r.get('position',99)) <= 20 else "#ef4444"
+            html += f"<tr><td style='padding:10px;border-bottom:1px solid #2a2a2a;font-size:13px'>{val}</td><td style='padding:10px;border-bottom:1px solid #2a2a2a;text-align:center'>{clicks}</td><td style='padding:10px;border-bottom:1px solid #2a2a2a;text-align:center'>{impr}</td><td style='padding:10px;border-bottom:1px solid #2a2a2a;text-align:center'>{ctr}</td><td style='padding:10px;border-bottom:1px solid #2a2a2a;text-align:center;color:{pos_color};font-weight:bold'>{pos}</td></tr>"
+        return html
+
+    table_style = "width:100%;border-collapse:collapse;background:#1a1a1a;border-radius:10px;overflow:hidden;font-size:14px"
+    th_style = "background:#2a2a2a;padding:10px;text-align:left;font-size:12px;color:#aaa"
+    th_c = "background:#2a2a2a;padding:10px;text-align:center;font-size:12px;color:#aaa"
+
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Search Console — peptidosysuplementos.mx</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{{font-family:Arial;max-width:900px;margin:40px auto;padding:20px;background:#0f0f0f;color:#eee}}
+h1{{color:#7c3aed}}h2{{color:#aaa;font-size:15px;font-weight:normal;margin:32px 0 12px}}
+.btn{{display:inline-block;background:#7c3aed;color:white;padding:10px 20px;border-radius:8px;text-decoration:none;margin-top:8px;font-size:14px}}
+.btn-sec{{background:#1a1a1a;border:1px solid #444}}</style>
+</head><body>
+<h1>🔍 Google Search Console</h1>
+<p style="color:#aaa">peptidosysuplementos.mx — Últimos 28 días</p>
+{error_html}
+<h2>🔑 Top 10 Keywords</h2>
+<table style="{table_style}">
+<thead><tr><th style="{th_style}">Keyword</th><th style="{th_c}">Clicks</th><th style="{th_c}">Impresiones</th><th style="{th_c}">CTR</th><th style="{th_c}">Posición</th></tr></thead>
+<tbody>{rows_html(queries, "query")}</tbody></table>
+
+<h2>📄 Top 10 Páginas</h2>
+<table style="{table_style}">
+<thead><tr><th style="{th_style}">URL</th><th style="{th_c}">Clicks</th><th style="{th_c}">Impresiones</th><th style="{th_c}">CTR</th><th style="{th_c}">Posición</th></tr></thead>
+<tbody>{rows_html(pages, "page")}</tbody></table>
+
+<br>
+<a href="/" class="btn btn-sec">← Volver al agente</a>
+&nbsp;
+<a href="/search-console" class="btn" style="background:#1a1a2e">🔄 Actualizar</a>
+</body></html>"""
 
 
 scheduler_thread = threading.Thread(target=run_weekly_report, daemon=True)
