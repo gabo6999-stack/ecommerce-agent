@@ -95,6 +95,22 @@ def get_posts(per_page=10):
     except Exception as e:
         return {"error": str(e)}
 
+
+def update_post(post_id, data):
+    try:
+        r = requests.post(
+            f"{WC_URL}/wp-json/wp/v2/posts/{post_id}",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            json=data,
+            timeout=30
+        )
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": post_id, "link": result.get("link", "")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
 SYSTEM = """Eres un agente SEO especializado para peptidosysuplementos.mx.
 
 Puedes optimizar productos, categorias, y CREAR Y PUBLICAR ARTICULOS DE BLOG en WordPress.
@@ -268,6 +284,62 @@ def chat():
         return jsonify({"reply": reply})
     except Exception as e:
         return jsonify({"reply": f"Error: {str(e)}"}), 500
+
+@app.route("/optimize-blog", methods=["POST"])
+def optimize_blog():
+    try:
+        data = request.json or {}
+        post_id = data.get("post_id")
+        title = data.get("title", "")
+        content = data.get("content", "")
+        url = data.get("url", "")
+
+        if not post_id or not content:
+            return jsonify({"error": "post_id y content son requeridos"}), 400
+
+        products = get_products(per_page=30)
+        products_list = "\n".join(
+            f"- {p['name']} (slug: {p['slug']})" for p in products if isinstance(p, dict) and "name" in p
+        )
+
+        prompt = f"""Eres un experto SEO. Tienes este artículo de blog recién publicado en peptidosysuplementos.mx:
+
+TÍTULO: {title}
+URL: {url}
+POST ID: {post_id}
+
+CONTENIDO ACTUAL (HTML):
+{content[:6000]}
+
+PRODUCTOS DISPONIBLES EN LA TIENDA:
+{products_list}
+
+Tu tarea:
+1. Agrega entre 4 y 8 links internos a productos relevantes de la lista. Usa el formato: <a href="{WC_URL}/producto/SLUG">Nombre del producto</a>
+2. Asegúrate de que el contenido tenga al menos un H2 y una conclusión con llamada a la acción
+3. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra
+
+Devuelve solo el HTML listo para WordPress."""
+
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=8192,
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        optimized_content = response.content[0].text.strip()
+        if optimized_content.startswith("```"):
+            optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+
+        result = update_post(post_id, {"content": optimized_content})
+
+        if result.get("success"):
+            return jsonify({"success": True, "post_id": post_id, "url": result.get("link", url)})
+        return jsonify({"error": result.get("error", "Error al actualizar post")}), 500
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
