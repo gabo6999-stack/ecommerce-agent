@@ -448,6 +448,124 @@ def run_weekly_report():
         threading.Event().wait(60)
 
 
+# ─── BATCH OPTIMIZATION ───────────────────────────────────────────────────────
+
+_batch_status = {"running": False, "total": 0, "done": 0, "errors": 0, "results": [], "started_at": None, "finished_at": None}
+
+
+def get_products_by_category(category_id=None):
+    params = {"per_page": 100, "status": "publish", "_fields": "id,name,short_description,slug,categories"}
+    if category_id and category_id != "all":
+        params["category"] = category_id
+    try:
+        r = requests.get(f"{WC_URL}/wp-json/wc/v3/products", auth=HTTPBasicAuth(WC_KEY, WC_SECRET), params=params, timeout=30)
+        return r.json() if isinstance(r.json(), list) else []
+    except Exception as e:
+        return []
+
+
+def needs_optimization(p):
+    name = p.get("name", "")
+    desc = p.get("short_description", "")
+    return len(name) > 60 or not (130 <= len(desc) <= 160)
+
+
+def claude_optimize_batch(products):
+    product_list = json.dumps(
+        [{"id": p["id"], "name": p["name"], "short_description": p.get("short_description", "")} for p in products],
+        ensure_ascii=False, indent=2
+    )
+    prompt = f"""Eres experto SEO para peptidosysuplementos.mx (tienda de péptidos y suplementos en México).
+
+Optimiza los siguientes productos según estas reglas:
+- Título (name): máximo 60 caracteres, palabra clave principal al inicio, sin caracteres especiales
+- Descripción corta (short_description): entre 130 y 160 caracteres, texto plano sin HTML ni markdown, incluir keyword + beneficio + llamada a la acción
+
+Productos a optimizar:
+{product_list}
+
+Devuelve ÚNICAMENTE un JSON válido con este formato exacto, sin explicaciones ni markdown:
+[{{"id": 123, "name": "Título optimizado", "short_description": "Descripción optimizada"}}, ...]"""
+
+    response = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=4096,
+        messages=[{"role": "user", "content": prompt}]
+    )
+    text = response.content[0].text.strip()
+    if text.startswith("```"):
+        text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+    return json.loads(text)
+
+
+def run_batch_optimize(category_id=None):
+    global _batch_status
+    _batch_status = {"running": True, "total": 0, "done": 0, "errors": 0, "results": [], "started_at": datetime.now().isoformat(), "finished_at": None}
+
+    try:
+        products = get_products_by_category(category_id)
+        pending = [p for p in products if needs_optimization(p)]
+        _batch_status["total"] = len(pending)
+
+        if not pending:
+            _batch_status["running"] = False
+            _batch_status["finished_at"] = datetime.now().isoformat()
+            print("[Batch] No hay productos pendientes de optimizar.")
+            return
+
+        print(f"[Batch] Optimizando {len(pending)} productos con Claude...")
+
+        # Procesar en grupos de 20 para no exceder el contexto
+        chunk_size = 20
+        for i in range(0, len(pending), chunk_size):
+            chunk = pending[i:i + chunk_size]
+            try:
+                optimized = claude_optimize_batch(chunk)
+                for item in optimized:
+                    pid = item.get("id")
+                    data = {k: item[k] for k in ("name", "short_description") if k in item}
+                    result = update_product(pid, data)
+                    if result.get("success"):
+                        _batch_status["done"] += 1
+                        _batch_status["results"].append({"id": pid, "name": item.get("name"), "status": "ok"})
+                        print(f"[Batch] ✅ {pid} — {item.get('name')}")
+                    else:
+                        _batch_status["errors"] += 1
+                        _batch_status["results"].append({"id": pid, "status": "error", "error": result.get("error")})
+            except Exception as e:
+                _batch_status["errors"] += len(chunk)
+                print(f"[Batch] ❌ Error en chunk: {e}")
+
+    except Exception as e:
+        print(f"[Batch] ❌ Error general: {e}")
+    finally:
+        _batch_status["running"] = False
+        _batch_status["finished_at"] = datetime.now().isoformat()
+        generate_seo_report()
+        print(f"[Batch] Finalizado — {_batch_status['done']} ok, {_batch_status['errors']} errores")
+
+
+@app.route("/batch-optimize", methods=["POST"])
+def batch_optimize():
+    if _batch_status["running"]:
+        return jsonify({"error": "Ya hay una optimización en proceso"}), 409
+    data = request.json or {}
+    category_id = data.get("category_id", "all")
+    thread = threading.Thread(target=run_batch_optimize, args=(category_id,), daemon=True)
+    thread.start()
+    return jsonify({"status": "started", "category_id": category_id})
+
+
+@app.route("/batch-status")
+def batch_status():
+    return jsonify(_batch_status)
+
+
+@app.route("/categories")
+def categories_endpoint():
+    return jsonify(get_categories(per_page=50))
+
+
 @app.route("/optimize-blog", methods=["POST"])
 def optimize_blog():
     try:
