@@ -1,6 +1,7 @@
 ﻿from flask import Flask, request, jsonify
-import anthropic, os, requests
+import anthropic, os, requests, schedule, threading, json
 from requests.auth import HTTPBasicAuth
+from datetime import datetime
 
 app = Flask(__name__)
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
@@ -285,6 +286,168 @@ def chat():
     except Exception as e:
         return jsonify({"reply": f"Error: {str(e)}"}), 500
 
+REPORT_FILE = "last_report.json"
+_last_report = {}
+
+
+def get_all_products():
+    try:
+        r = requests.get(
+            f"{WC_URL}/wp-json/wc/v3/products",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params={"per_page": 100, "status": "publish", "_fields": "id,name,short_description,slug"},
+            timeout=30
+        )
+        return r.json() if isinstance(r.json(), list) else []
+    except Exception:
+        return []
+
+
+def generate_seo_report():
+    products = get_all_products()
+    optimized, pending = [], []
+
+    for p in products:
+        name = p.get("name", "")
+        desc = p.get("short_description", "")
+        issues = []
+
+        if len(name) > 60:
+            issues.append(f"título muy largo ({len(name)} chars, máx 60)")
+        if not (130 <= len(desc) <= 160):
+            if len(desc) == 0:
+                issues.append("sin descripción corta")
+            elif len(desc) < 130:
+                issues.append(f"descripción muy corta ({len(desc)} chars, mín 130)")
+            else:
+                issues.append(f"descripción muy larga ({len(desc)} chars, máx 160)")
+
+        entry = {"id": p.get("id"), "name": name, "slug": p.get("slug", "")}
+        if issues:
+            entry["issues"] = issues
+            pending.append(entry)
+        else:
+            optimized.append(entry)
+
+    report = {
+        "generated_at": datetime.now().isoformat(),
+        "total": len(products),
+        "optimized": len(optimized),
+        "pending": len(pending),
+        "pct_optimized": round(len(optimized) / len(products) * 100) if products else 0,
+        "pending_products": pending,
+    }
+
+    with open(REPORT_FILE, "w", encoding="utf-8") as f:
+        json.dump(report, f, ensure_ascii=False, indent=2)
+
+    global _last_report
+    _last_report = report
+    print(f"[Reporte] ✅ {report['optimized']}/{report['total']} optimizados ({report['pct_optimized']}%)")
+    return report
+
+
+def load_last_report():
+    global _last_report
+    if _last_report:
+        return _last_report
+    if os.path.exists(REPORT_FILE):
+        with open(REPORT_FILE, "r", encoding="utf-8") as f:
+            _last_report = json.load(f)
+    return _last_report
+
+
+@app.route("/report")
+def report_json():
+    return jsonify(load_last_report() or {"message": "Sin reporte aún. Visita /report/generate para generar uno."})
+
+
+@app.route("/report/generate")
+def report_generate():
+    report = generate_seo_report()
+    return jsonify(report)
+
+
+@app.route("/reporte")
+def report_html():
+    report = load_last_report()
+    if not report:
+        report = generate_seo_report()
+
+    generated = report.get("generated_at", "")[:16].replace("T", " ")
+    pct = report.get("pct_optimized", 0)
+    bar_color = "#22c55e" if pct >= 80 else "#f59e0b" if pct >= 50 else "#ef4444"
+
+    pending_rows = ""
+    for p in report.get("pending_products", []):
+        issues_html = "".join(f'<li>{i}</li>' for i in p.get("issues", []))
+        pending_rows += f"""
+        <tr>
+            <td style="padding:10px;border-bottom:1px solid #2a2a2a;">
+                <strong>{p['name']}</strong><br>
+                <span style="font-size:12px;color:#888;">/producto/{p['slug']}</span>
+            </td>
+            <td style="padding:10px;border-bottom:1px solid #2a2a2a;">
+                <ul style="margin:0;padding-left:16px;color:#f59e0b;font-size:13px;">{issues_html}</ul>
+            </td>
+        </tr>"""
+
+    html = f"""<!DOCTYPE html>
+<html>
+<head>
+    <title>Reporte SEO — peptidosysuplementos.mx</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {{ font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #0f0f0f; color: #eee; }}
+        h1 {{ color: #7c3aed; }} h2 {{ color: #aaa; font-size: 16px; font-weight: normal; }}
+        .cards {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }}
+        .card {{ background: #1a1a1a; border-radius: 10px; padding: 20px; text-align: center; }}
+        .num {{ font-size: 36px; font-weight: bold; }}
+        .label {{ font-size: 12px; color: #888; margin-top: 4px; }}
+        .bar-bg {{ background: #2a2a2a; border-radius: 99px; height: 12px; margin: 24px 0; }}
+        .bar {{ background: {bar_color}; height: 12px; border-radius: 99px; width: {pct}%; }}
+        table {{ width: 100%; border-collapse: collapse; background: #1a1a1a; border-radius: 10px; overflow: hidden; }}
+        th {{ background: #2a2a2a; padding: 12px 10px; text-align: left; font-size: 13px; color: #aaa; }}
+        a {{ color: #818cf8; }} .btn {{ display:inline-block; background:#7c3aed; color:white; padding:10px 20px; border-radius:8px; text-decoration:none; margin-top:16px; }}
+    </style>
+</head>
+<body>
+    <h1>📊 Reporte SEO</h1>
+    <h2>peptidosysuplementos.mx — Generado: {generated}</h2>
+
+    <div class="cards">
+        <div class="card"><div class="num">{report.get('total', 0)}</div><div class="label">Total productos</div></div>
+        <div class="card"><div class="num" style="color:#22c55e">{report.get('optimized', 0)}</div><div class="label">Optimizados</div></div>
+        <div class="card"><div class="num" style="color:#ef4444">{report.get('pending', 0)}</div><div class="label">Pendientes</div></div>
+        <div class="card"><div class="num" style="color:{bar_color}">{pct}%</div><div class="label">% completado</div></div>
+    </div>
+
+    <div class="bar-bg"><div class="bar"></div></div>
+
+    <h2 style="margin-top:32px;">⚠️ Productos pendientes de optimizar</h2>
+    {'<p style="color:#666;">¡Todos los productos están optimizados! 🎉</p>' if not report.get('pending_products') else f'''
+    <table>
+        <thead><tr><th>Producto</th><th>Problemas</th></tr></thead>
+        <tbody>{pending_rows}</tbody>
+    </table>'''}
+
+    <br>
+    <a href="/report/generate" class="btn">🔄 Actualizar reporte</a>
+    &nbsp;
+    <a href="/" class="btn" style="background:#1a1a1a;border:1px solid #444;">← Volver al agente</a>
+</body>
+</html>"""
+    return html
+
+
+def run_weekly_report():
+    schedule.every().monday.at("09:00").do(generate_seo_report)
+    while True:
+        schedule.run_pending()
+        threading.Event().wait(60)
+
+
 @app.route("/optimize-blog", methods=["POST"])
 def optimize_blog():
     try:
@@ -340,6 +503,9 @@ Devuelve solo el HTML listo para WordPress."""
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
+scheduler_thread = threading.Thread(target=run_weekly_report, daemon=True)
+scheduler_thread.start()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
