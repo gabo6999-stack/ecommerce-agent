@@ -1,134 +1,28 @@
-﻿from flask import Flask, request, jsonify
-import anthropic, os, requests, sqlite3, json
+﻿from flask import Flask, request, jsonify, redirect, session
+import anthropic, os, requests, schedule, threading, json, secrets
 from requests.auth import HTTPBasicAuth
 from datetime import datetime, timedelta
+from google.oauth2.credentials import Credentials
 from google.oauth2 import service_account
 from google.auth.transport.requests import AuthorizedSession
+from google_auth_oauthlib.flow import Flow
 from googleapiclient.discovery import build
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+# ─── Google Search Console config ────────────────────────────────────────────
+GSC_CLIENT_ID     = os.environ.get("GOOGLE_CLIENT_ID", "")
+GSC_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", "")
+GSC_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN", "")
+GSC_SITE_URL      = os.environ.get("GSC_SITE_URL", "sc-domain:peptidosysuplementos.mx")
+GSC_REDIRECT_URI  = os.environ.get("GSC_REDIRECT_URI", "https://web-production-3743c.up.railway.app/search-console/callback")
+GSC_SCOPES        = ["https://www.googleapis.com/auth/webmasters.readonly"]
 
 WC_URL = os.environ.get("WOOCOMMERCE_URL", "")
 WC_KEY = os.environ.get("WOOCOMMERCE_KEY", "")
 WC_SECRET = os.environ.get("WOOCOMMERCE_SECRET", "")
-DB_PATH = os.environ.get("DB_PATH", "memory.db")
-GSC_SITE_URL = os.environ.get("GSC_SITE_URL", "https://peptidosysuplementos.mx/")
-
-# ─── BASE DE DATOS ────────────────────────────────────────────────────────────
-
-def init_db():
-    con = sqlite3.connect(DB_PATH)
-    cur = con.cursor()
-    cur.execute("""
-        CREATE TABLE IF NOT EXISTS conversations (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            session_id TEXT,
-            role TEXT,
-            content TEXT,
-            created_at TEXT
-        )
-    """)
-    cur.execute("""
-        CREATE TABLE IF NOT EXISTS decisions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            type TEXT,
-            key TEXT UNIQUE,
-            value TEXT,
-            created_at TEXT
-        )
-    """)
-    cur.execute("""
-        CREATE TABLE IF NOT EXISTS instructions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            key TEXT UNIQUE,
-            value TEXT,
-            created_at TEXT
-        )
-    """)
-    con.commit()
-    con.close()
-
-init_db()
-
-def save_messages(session_id, messages):
-    con = sqlite3.connect(DB_PATH)
-    cur = con.cursor()
-    cur.execute("DELETE FROM conversations WHERE session_id = ?", (session_id,))
-    for m in messages:
-        content = m["content"] if isinstance(m["content"], str) else json.dumps(m["content"])
-        cur.execute("INSERT INTO conversations (session_id, role, content, created_at) VALUES (?,?,?,?)",
-                    (session_id, m["role"], content, datetime.now().isoformat()))
-    con.commit()
-    con.close()
-
-def load_messages(session_id):
-    con = sqlite3.connect(DB_PATH)
-    cur = con.cursor()
-    cur.execute("SELECT role, content FROM conversations WHERE session_id = ? ORDER BY id", (session_id,))
-    rows = cur.fetchall()
-    con.close()
-    messages = []
-    for role, content in rows:
-        try:
-            parsed = json.loads(content)
-            messages.append({"role": role, "content": parsed})
-        except Exception:
-            messages.append({"role": role, "content": content})
-    return messages
-
-def save_decision(type_, key, value):
-    con = sqlite3.connect(DB_PATH)
-    cur = con.cursor()
-    cur.execute("""INSERT INTO decisions (type, key, value, created_at) VALUES (?,?,?,?)
-                   ON CONFLICT(key) DO UPDATE SET value=excluded.value, created_at=excluded.created_at""",
-                (type_, key, json.dumps(value), datetime.now().isoformat()))
-    con.commit()
-    con.close()
-
-def get_decisions(type_=None):
-    con = sqlite3.connect(DB_PATH)
-    cur = con.cursor()
-    if type_:
-        cur.execute("SELECT type, key, value, created_at FROM decisions WHERE type = ? ORDER BY created_at DESC", (type_,))
-    else:
-        cur.execute("SELECT type, key, value, created_at FROM decisions ORDER BY created_at DESC")
-    rows = cur.fetchall()
-    con.close()
-    return [{"type": r[0], "key": r[1], "value": json.loads(r[2]), "created_at": r[3]} for r in rows]
-
-def save_instruction(key, value):
-    con = sqlite3.connect(DB_PATH)
-    cur = con.cursor()
-    cur.execute("""INSERT INTO instructions (key, value, created_at) VALUES (?,?,?)
-                   ON CONFLICT(key) DO UPDATE SET value=excluded.value, created_at=excluded.created_at""",
-                (key, value, datetime.now().isoformat()))
-    con.commit()
-    con.close()
-
-def get_instructions():
-    con = sqlite3.connect(DB_PATH)
-    cur = con.cursor()
-    cur.execute("SELECT key, value FROM instructions ORDER BY created_at DESC")
-    rows = cur.fetchall()
-    con.close()
-    return {r[0]: r[1] for r in rows}
-
-def build_memory_context():
-    parts = []
-    instructions = get_instructions()
-    if instructions:
-        parts.append("=== INSTRUCCIONES PERMANENTES ===")
-        for k, v in instructions.items():
-            parts.append(f"- {k}: {v}")
-    decisions = get_decisions()
-    if decisions:
-        parts.append("\n=== HISTORIAL DE CAMBIOS APLICADOS ===")
-        for d in decisions[-20:]:
-            parts.append(f"- [{d['created_at'][:10]}] {d['type']} | {d['key']}: {json.dumps(d['value'])}")
-    return "\n".join(parts)
-
-# ─── WOOCOMMERCE ──────────────────────────────────────────────────────────────
 
 def get_products(per_page=10):
     try:
@@ -147,13 +41,11 @@ def update_product(product_id, data):
         r = requests.put(
             f"{WC_URL}/wp-json/wc/v3/products/{product_id}",
             auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
-            json=data, timeout=15
+            json=data,
+            timeout=15
         )
         result = r.json()
         if "id" in result:
-            save_decision("producto_optimizado", f"producto_{product_id}", {
-                "id": product_id, "name": result.get("name"), "changes": list(data.keys())
-            })
             return {"success": True, "id": product_id, "name": result.get("name")}
         return {"error": str(result)}
     except Exception as e:
@@ -176,14 +68,32 @@ def update_category(category_id, data):
         r = requests.put(
             f"{WC_URL}/wp-json/wc/v3/products/categories/{category_id}",
             auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
-            json=data, timeout=15
+            json=data,
+            timeout=15
         )
         result = r.json()
         if "id" in result:
-            save_decision("categoria_optimizada", f"categoria_{category_id}", {
-                "id": category_id, "name": result.get("name"), "changes": list(data.keys())
-            })
             return {"success": True, "id": category_id, "name": result.get("name")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+def create_post(title, content, slug="", meta_description="", status="publish"):
+    try:
+        url = f"{WC_URL}/wp-json/wp/v2/posts"
+        auth = HTTPBasicAuth(WC_KEY, WC_SECRET)
+        data = {
+            "title": title,
+            "content": content,
+            "slug": slug,
+            "status": status,
+        }
+        if meta_description:
+            data["meta"] = {"_yoast_wpseo_metadesc": meta_description}
+        r = requests.post(url, json=data, auth=auth, timeout=30)
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": result["id"], "link": result.get("link", ""), "status": result.get("status")}
         return {"error": str(result)}
     except Exception as e:
         return {"error": str(e)}
@@ -200,142 +110,25 @@ def get_posts(per_page=10):
     except Exception as e:
         return {"error": str(e)}
 
-def create_post(title, content, slug="", meta_description="", status="publish"):
+
+def update_post(post_id, data):
     try:
-        data = {"title": title, "content": content, "slug": slug, "status": status}
-        if meta_description:
-            data["meta"] = {"_yoast_wpseo_metadesc": meta_description}
         r = requests.post(
-            f"{WC_URL}/wp-json/wp/v2/posts",
-            json=data, auth=HTTPBasicAuth(WC_KEY, WC_SECRET), timeout=30
+            f"{WC_URL}/wp-json/wp/v2/posts/{post_id}",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            json=data,
+            timeout=30
         )
         result = r.json()
         if "id" in result:
-            save_decision("blog_publicado", f"post_{result['id']}", {
-                "id": result["id"], "title": title, "slug": slug,
-                "link": result.get("link",""), "status": status
-            })
-            return {"success": True, "id": result["id"], "link": result.get("link",""), "status": result.get("status")}
+            return {"success": True, "id": post_id, "link": result.get("link", "")}
         return {"error": str(result)}
     except Exception as e:
         return {"error": str(e)}
 
-# ─── GOOGLE SEARCH CONSOLE ───────────────────────────────────────────────────
+SYSTEM = """Eres un agente SEO especializado para peptidosysuplementos.mx.
 
-def _gsc_creds():
-    sa_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
-    if not sa_json:
-        raise ValueError("GOOGLE_SERVICE_ACCOUNT_JSON no configurado en Railway")
-    return service_account.Credentials.from_service_account_info(
-        json.loads(sa_json),
-        scopes=[
-            "https://www.googleapis.com/auth/webmasters",
-            "https://www.googleapis.com/auth/indexing"
-        ]
-    )
-
-def gsc_top_queries(days=28, limit=10):
-    try:
-        service = build("searchconsole", "v1", credentials=_gsc_creds())
-        end = datetime.now().strftime("%Y-%m-%d")
-        start = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
-        resp = service.searchanalytics().query(
-            siteUrl=GSC_SITE_URL,
-            body={
-                "startDate": start, "endDate": end,
-                "dimensions": ["query"], "rowLimit": limit,
-                "orderBy": [{"field": "CLICKS", "sortOrder": "DESCENDING"}]
-            }
-        ).execute()
-        return [
-            {
-                "query": r["keys"][0],
-                "clicks": r.get("clicks", 0),
-                "impressions": r.get("impressions", 0),
-                "ctr_pct": round(r.get("ctr", 0) * 100, 1),
-                "position": round(r.get("position", 0), 1)
-            }
-            for r in resp.get("rows", [])
-        ]
-    except Exception as e:
-        return {"error": str(e)}
-
-def gsc_page_performance(days=28, limit=10):
-    try:
-        service = build("searchconsole", "v1", credentials=_gsc_creds())
-        end = datetime.now().strftime("%Y-%m-%d")
-        start = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
-        resp = service.searchanalytics().query(
-            siteUrl=GSC_SITE_URL,
-            body={
-                "startDate": start, "endDate": end,
-                "dimensions": ["page"], "rowLimit": limit,
-                "orderBy": [{"field": "CLICKS", "sortOrder": "DESCENDING"}]
-            }
-        ).execute()
-        return [
-            {
-                "page": r["keys"][0],
-                "clicks": r.get("clicks", 0),
-                "impressions": r.get("impressions", 0),
-                "ctr_pct": round(r.get("ctr", 0) * 100, 1),
-                "position": round(r.get("position", 0), 1)
-            }
-            for r in resp.get("rows", [])
-        ]
-    except Exception as e:
-        return {"error": str(e)}
-
-def gsc_inspect_url(url):
-    try:
-        authed = AuthorizedSession(_gsc_creds())
-        resp = authed.post(
-            "https://searchconsole.googleapis.com/v1/urlInspectionResult:inspect",
-            json={"inspectionUrl": url, "siteUrl": GSC_SITE_URL}
-        )
-        resp.raise_for_status()
-        idx = resp.json().get("inspectionResult", {}).get("indexStatusResult", {})
-        return {
-            "url": url,
-            "verdict": idx.get("verdict", "UNKNOWN"),
-            "coverage_state": idx.get("coverageState", ""),
-            "indexing_state": idx.get("indexingState", ""),
-            "last_crawl": idx.get("lastCrawlTime", "no disponible"),
-            "google_canonical": idx.get("googleCanonical", ""),
-            "user_canonical": idx.get("userDeclaredCanonical", ""),
-        }
-    except Exception as e:
-        return {"error": str(e)}
-
-def gsc_request_indexing(url):
-    try:
-        authed = AuthorizedSession(_gsc_creds())
-        resp = authed.post(
-            "https://indexing.googleapis.com/v3/urlNotifications:publish",
-            json={"url": url, "type": "URL_UPDATED"}
-        )
-        resp.raise_for_status()
-        notify_time = resp.json().get("urlNotificationMetadata", {}).get("latestUpdate", {}).get("notifyTime", "")
-        return {"success": True, "url": url, "notify_time": notify_time}
-    except Exception as e:
-        return {"error": str(e)}
-
-
-def remember_instruction(key, value):
-    save_instruction(key, value)
-    return {"success": True, "saved": key}
-
-def recall_memory():
-    return {
-        "instructions": get_instructions(),
-        "recent_decisions": get_decisions()[-10:]
-    }
-
-# ─── SISTEMA ──────────────────────────────────────────────────────────────────
-
-BASE_SYSTEM = """Eres un agente SEO especializado para peptidosysuplementos.mx.
-
-Puedes optimizar productos, categorias, crear articulos de blog, y RECORDAR instrucciones permanentes.
+Puedes optimizar productos, categorias, y CREAR Y PUBLICAR ARTICULOS DE BLOG en WordPress.
 
 REGLAS PARA TITULOS DE PRODUCTOS:
 - Maximo 60 caracteres
@@ -349,111 +142,118 @@ REGLAS PARA DESCRIPCIONES CORTAS:
 
 REGLAS PARA ARTICULOS DE BLOG SEO:
 - Minimo 1000 palabras
-- Estructura con H2 y H3 en HTML
-- Incluir minimo 5 links externos a fuentes de autoridad
+- Estructura con H2 y H3
+- Incluir minimo 5 links externos a fuentes de autoridad (NEJM, FDA, PubMed, Mayo Clinic, etc.)
 - Incluir minimo 8 links internos a productos de la tienda
 - Meta descripcion entre 150-160 caracteres
-- Contenido en HTML valido para WordPress
+- Slug en minusculas con guiones
+- Keyword principal en titulo, primer parrafo, H2s y conclusion
+- Contenido en HTML valido para WordPress (usar <h2>, <h3>, <p>, <strong>, <a href="">, <ul>, <li>)
 
-MEMORIA:
-- Usa remember_instruction para guardar reglas permanentes que el usuario pida
-- Usa recall_memory para revisar que cambios ya se hicieron antes de repetir trabajo
-- Antes de optimizar productos/categorias, consulta recall_memory para no duplicar trabajo
+FLUJO PARA ARTICULOS:
+1. Genera el articulo completo en HTML
+2. Muestra titulo, meta descripcion, slug y preview del contenido
+3. Pide confirmacion antes de publicar
+4. Usa create_post para publicar en WordPress
+5. Confirma con el link del articulo publicado
 
 GOOGLE SEARCH CONSOLE:
-- gsc_top_queries: ver qué búsquedas traen tráfico real → optimiza títulos/meta descriptions para esas keywords exactas
-- gsc_page_performance: ver qué páginas rinden mejor → aprende qué estructura y temas funcionan
-- gsc_inspect_url: verificar si una URL está indexada antes de optimizarla o reportar problema
+- gsc_top_queries: qué búsquedas traen tráfico real → optimiza títulos/meta para esas keywords exactas
+- gsc_page_performance: qué páginas rinden mejor → aprende qué estructura y temas funcionan
+- gsc_inspect_url: verificar si una URL está indexada antes de reportar problema o después de publicar
 - gsc_request_indexing: después de publicar un blog nuevo, solicita indexación inmediata a Google
-- Cuando el usuario pida "analiza el SEO" o "qué keywords tenemos", empieza siempre con gsc_top_queries + gsc_page_performance
+- Cuando el usuario pida "analiza el SEO" o "qué keywords tenemos", empieza con gsc_top_queries + gsc_page_performance
 
-Siempre pide confirmacion antes de aplicar cualquier cambio.
+Siempre usa las herramientas para obtener datos reales antes de proponer cambios.
+Pide confirmacion antes de aplicar cualquier cambio.
 Responde siempre en espanol."""
 
 TOOLS = [
     {
         "name": "get_products",
         "description": "Obtiene productos de WooCommerce",
-        "input_schema": {"type": "object", "properties": {"per_page": {"type": "integer", "default": 10}}}
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "per_page": {"type": "integer", "default": 10}
+            }
+        }
     },
     {
         "name": "update_product",
         "description": "Actualiza titulo y/o descripcion corta de un producto",
         "input_schema": {
-            "type": "object", "required": ["product_id"],
+            "type": "object",
+            "required": ["product_id"],
             "properties": {
                 "product_id": {"type": "integer"},
-                "name": {"type": "string"},
-                "short_description": {"type": "string"}
+                "name": {"type": "string", "description": "Nuevo titulo (max 60 chars)"},
+                "short_description": {"type": "string", "description": "Nueva descripcion corta (130-160 chars, texto plano)"}
             }
         }
     },
     {
         "name": "get_categories",
-        "description": "Obtiene categorias de WooCommerce",
-        "input_schema": {"type": "object", "properties": {"per_page": {"type": "integer", "default": 20}}}
+        "description": "Obtiene categorias de productos de WooCommerce",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "per_page": {"type": "integer", "default": 20}
+            }
+        }
     },
     {
         "name": "update_category",
         "description": "Actualiza nombre y/o descripcion de una categoria",
         "input_schema": {
-            "type": "object", "required": ["category_id"],
+            "type": "object",
+            "required": ["category_id"],
             "properties": {
                 "category_id": {"type": "integer"},
-                "name": {"type": "string"},
-                "description": {"type": "string"}
+                "name": {"type": "string", "description": "Nuevo nombre de la categoria"},
+                "description": {"type": "string", "description": "Nueva descripcion (130-160 chars, texto plano)"}
             }
         }
     },
     {
         "name": "get_posts",
-        "description": "Obtiene posts de blog existentes en WordPress",
-        "input_schema": {"type": "object", "properties": {"per_page": {"type": "integer", "default": 10}}}
+        "description": "Obtiene los posts de blog existentes en WordPress",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "per_page": {"type": "integer", "default": 10}
+            }
+        }
     },
     {
         "name": "create_post",
         "description": "Crea y publica un articulo de blog en WordPress",
         "input_schema": {
-            "type": "object", "required": ["title", "content"],
+            "type": "object",
+            "required": ["title", "content"],
             "properties": {
-                "title": {"type": "string"},
-                "content": {"type": "string", "description": "HTML valido para WordPress"},
-                "slug": {"type": "string"},
-                "meta_description": {"type": "string"},
-                "status": {"type": "string", "default": "publish"}
+                "title": {"type": "string", "description": "Titulo SEO del articulo (max 60 chars)"},
+                "content": {"type": "string", "description": "Contenido completo en HTML valido para WordPress"},
+                "slug": {"type": "string", "description": "URL amigable en minusculas con guiones"},
+                "meta_description": {"type": "string", "description": "Meta descripcion 150-160 chars"},
+                "status": {"type": "string", "description": "publish o draft", "default": "publish"}
             }
         }
-    },
-    {
-        "name": "remember_instruction",
-        "description": "Guarda una instruccion permanente (tono, reglas de negocio, preferencias)",
-        "input_schema": {
-            "type": "object", "required": ["key", "value"],
-            "properties": {
-                "key": {"type": "string"},
-                "value": {"type": "string"}
-            }
-        }
-    },
-    {
-        "name": "recall_memory",
-        "description": "Consulta instrucciones permanentes e historial de cambios ya aplicados",
-        "input_schema": {"type": "object", "properties": {}}
     },
     {
         "name": "gsc_top_queries",
-        "description": "Google Search Console: top búsquedas que traen tráfico al sitio (clicks, impresiones, CTR, posición promedio)",
+        "description": "Google Search Console: top búsquedas que traen tráfico real al sitio (clicks, impresiones, CTR, posición promedio). Úsala cuando el usuario pregunte por keywords, tráfico o qué busca la gente.",
         "input_schema": {
             "type": "object",
             "properties": {
                 "days": {"type": "integer", "default": 28, "description": "Últimos N días"},
-                "limit": {"type": "integer", "default": 10, "description": "Número de queries a retornar"}
+                "limit": {"type": "integer", "default": 10}
             }
         }
     },
     {
         "name": "gsc_page_performance",
-        "description": "Google Search Console: rendimiento por página — qué URLs reciben más clicks desde Google",
+        "description": "Google Search Console: qué páginas/URLs del sitio reciben más clicks desde Google.",
         "input_schema": {
             "type": "object",
             "properties": {
@@ -464,7 +264,7 @@ TOOLS = [
     },
     {
         "name": "gsc_inspect_url",
-        "description": "Google Search Console: verifica si una URL está indexada por Google y su estado de cobertura",
+        "description": "Google Search Console: verifica si una URL está indexada por Google y su estado de cobertura. Requiere GOOGLE_SERVICE_ACCOUNT_JSON en Railway.",
         "input_schema": {
             "type": "object",
             "required": ["url"],
@@ -475,7 +275,7 @@ TOOLS = [
     },
     {
         "name": "gsc_request_indexing",
-        "description": "Solicita a Google que indexe una URL nueva o actualizada (blogs recién publicados). Requiere que la Service Account sea Owner en GSC.",
+        "description": "Solicita a Google que indexe inmediatamente una URL nueva o actualizada. Úsala después de publicar un blog nuevo. Requiere GOOGLE_SERVICE_ACCOUNT_JSON con permisos Owner en GSC.",
         "input_schema": {
             "type": "object",
             "required": ["url"],
@@ -501,14 +301,12 @@ def run_tool(name, inputs):
         return get_posts(inputs.get("per_page", 10))
     elif name == "create_post":
         return create_post(
-            title=inputs["title"], content=inputs["content"],
-            slug=inputs.get("slug",""), meta_description=inputs.get("meta_description",""),
-            status=inputs.get("status","publish")
+            title=inputs["title"],
+            content=inputs["content"],
+            slug=inputs.get("slug", ""),
+            meta_description=inputs.get("meta_description", ""),
+            status=inputs.get("status", "publish")
         )
-    elif name == "remember_instruction":
-        return remember_instruction(inputs["key"], inputs["value"])
-    elif name == "recall_memory":
-        return recall_memory()
     elif name == "gsc_top_queries":
         return gsc_top_queries(inputs.get("days", 28), inputs.get("limit", 10))
     elif name == "gsc_page_performance":
@@ -519,8 +317,6 @@ def run_tool(name, inputs):
         return gsc_request_indexing(inputs["url"])
     return {"error": "herramienta desconocida"}
 
-# ─── RUTAS ────────────────────────────────────────────────────────────────────
-
 @app.route("/")
 def index():
     return open("templates/index.html").read()
@@ -528,28 +324,14 @@ def index():
 @app.route("/chat", methods=["POST"])
 def chat():
     try:
-        session_id = request.json.get("session_id", "default")
-        new_messages = request.json.get("messages", [])
-
-        saved = load_messages(session_id)
-        if saved and new_messages:
-            messages = saved + [new_messages[-1]]
-        elif saved:
-            messages = saved
-        else:
-            messages = new_messages
-
-        memory_ctx = build_memory_context()
-        system = BASE_SYSTEM + ("\n\n" + memory_ctx if memory_ctx else "")
-
+        messages = request.json.get("messages", [])
         response = client.messages.create(
             model="claude-sonnet-4-5",
             max_tokens=8192,
-            system=system,
+            system=SYSTEM,
             tools=TOOLS,
             messages=messages
         )
-
         while response.stop_reason == "tool_use":
             ac = []
             for b in response.content:
@@ -568,35 +350,600 @@ def chat():
             response = client.messages.create(
                 model="claude-sonnet-4-5",
                 max_tokens=8192,
-                system=system,
+                system=SYSTEM,
                 tools=TOOLS,
                 messages=messages
             )
-
         reply = "".join(b.text for b in response.content if hasattr(b, "text"))
-        messages.append({"role": "assistant", "content": reply})
-        save_messages(session_id, messages)
-
         return jsonify({"reply": reply})
     except Exception as e:
         return jsonify({"reply": f"Error: {str(e)}"}), 500
 
-@app.route("/memory", methods=["GET"])
-def memory_view():
-    return jsonify({
-        "instructions": get_instructions(),
-        "decisions": get_decisions()
-    })
+REPORT_FILE = "last_report.json"
+_last_report = {}
 
-@app.route("/memory/clear", methods=["POST"])
-def memory_clear():
-    session_id = request.json.get("session_id", "default")
-    con = sqlite3.connect(DB_PATH)
-    cur = con.cursor()
-    cur.execute("DELETE FROM conversations WHERE session_id = ?", (session_id,))
-    con.commit()
-    con.close()
-    return jsonify({"success": True, "cleared": session_id})
+
+def get_all_products():
+    try:
+        r = requests.get(
+            f"{WC_URL}/wp-json/wc/v3/products",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params={"per_page": 100, "status": "publish", "_fields": "id,name,short_description,slug"},
+            timeout=30
+        )
+        return r.json() if isinstance(r.json(), list) else []
+    except Exception:
+        return []
+
+
+def generate_seo_report():
+    products = get_all_products()
+    optimized, pending = [], []
+
+    for p in products:
+        name = p.get("name", "")
+        desc = p.get("short_description", "")
+        issues = []
+
+        if len(name) > 60:
+            issues.append(f"título muy largo ({len(name)} chars, máx 60)")
+        if not (130 <= len(desc) <= 160):
+            if len(desc) == 0:
+                issues.append("sin descripción corta")
+            elif len(desc) < 130:
+                issues.append(f"descripción muy corta ({len(desc)} chars, mín 130)")
+            else:
+                issues.append(f"descripción muy larga ({len(desc)} chars, máx 160)")
+
+        entry = {"id": p.get("id"), "name": name, "slug": p.get("slug", "")}
+        if issues:
+            entry["issues"] = issues
+            pending.append(entry)
+        else:
+            optimized.append(entry)
+
+    report = {
+        "generated_at": datetime.now().isoformat(),
+        "total": len(products),
+        "optimized": len(optimized),
+        "pending": len(pending),
+        "pct_optimized": round(len(optimized) / len(products) * 100) if products else 0,
+        "pending_products": pending,
+    }
+
+    with open(REPORT_FILE, "w", encoding="utf-8") as f:
+        json.dump(report, f, ensure_ascii=False, indent=2)
+
+    global _last_report
+    _last_report = report
+    print(f"[Reporte] ✅ {report['optimized']}/{report['total']} optimizados ({report['pct_optimized']}%)")
+    return report
+
+
+def load_last_report():
+    global _last_report
+    if _last_report:
+        return _last_report
+    if os.path.exists(REPORT_FILE):
+        with open(REPORT_FILE, "r", encoding="utf-8") as f:
+            _last_report = json.load(f)
+    return _last_report
+
+
+@app.route("/report")
+def report_json():
+    return jsonify(load_last_report() or {"message": "Sin reporte aún. Visita /report/generate para generar uno."})
+
+
+@app.route("/report/generate")
+def report_generate():
+    report = generate_seo_report()
+    return jsonify(report)
+
+
+@app.route("/reporte")
+def report_html():
+    report = load_last_report()
+    if not report:
+        report = generate_seo_report()
+
+    generated = report.get("generated_at", "")[:16].replace("T", " ")
+    pct = report.get("pct_optimized", 0)
+    bar_color = "#22c55e" if pct >= 80 else "#f59e0b" if pct >= 50 else "#ef4444"
+
+    pending_rows = ""
+    for p in report.get("pending_products", []):
+        issues_html = "".join(f'<li>{i}</li>' for i in p.get("issues", []))
+        pending_rows += f"""
+        <tr>
+            <td style="padding:10px;border-bottom:1px solid #2a2a2a;">
+                <strong>{p['name']}</strong><br>
+                <span style="font-size:12px;color:#888;">/producto/{p['slug']}</span>
+            </td>
+            <td style="padding:10px;border-bottom:1px solid #2a2a2a;">
+                <ul style="margin:0;padding-left:16px;color:#f59e0b;font-size:13px;">{issues_html}</ul>
+            </td>
+        </tr>"""
+
+    html = f"""<!DOCTYPE html>
+<html>
+<head>
+    <title>Reporte SEO — peptidosysuplementos.mx</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {{ font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #0f0f0f; color: #eee; }}
+        h1 {{ color: #7c3aed; }} h2 {{ color: #aaa; font-size: 16px; font-weight: normal; }}
+        .cards {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }}
+        .card {{ background: #1a1a1a; border-radius: 10px; padding: 20px; text-align: center; }}
+        .num {{ font-size: 36px; font-weight: bold; }}
+        .label {{ font-size: 12px; color: #888; margin-top: 4px; }}
+        .bar-bg {{ background: #2a2a2a; border-radius: 99px; height: 12px; margin: 24px 0; }}
+        .bar {{ background: {bar_color}; height: 12px; border-radius: 99px; width: {pct}%; }}
+        table {{ width: 100%; border-collapse: collapse; background: #1a1a1a; border-radius: 10px; overflow: hidden; }}
+        th {{ background: #2a2a2a; padding: 12px 10px; text-align: left; font-size: 13px; color: #aaa; }}
+        a {{ color: #818cf8; }} .btn {{ display:inline-block; background:#7c3aed; color:white; padding:10px 20px; border-radius:8px; text-decoration:none; margin-top:16px; }}
+    </style>
+</head>
+<body>
+    <h1>📊 Reporte SEO</h1>
+    <h2>peptidosysuplementos.mx — Generado: {generated}</h2>
+
+    <div class="cards">
+        <div class="card"><div class="num">{report.get('total', 0)}</div><div class="label">Total productos</div></div>
+        <div class="card"><div class="num" style="color:#22c55e">{report.get('optimized', 0)}</div><div class="label">Optimizados</div></div>
+        <div class="card"><div class="num" style="color:#ef4444">{report.get('pending', 0)}</div><div class="label">Pendientes</div></div>
+        <div class="card"><div class="num" style="color:{bar_color}">{pct}%</div><div class="label">% completado</div></div>
+    </div>
+
+    <div class="bar-bg"><div class="bar"></div></div>
+
+    <h2 style="margin-top:32px;">⚠️ Productos pendientes de optimizar</h2>
+    {'<p style="color:#666;">¡Todos los productos están optimizados! 🎉</p>' if not report.get('pending_products') else f'''
+    <table>
+        <thead><tr><th>Producto</th><th>Problemas</th></tr></thead>
+        <tbody>{pending_rows}</tbody>
+    </table>'''}
+
+    <br>
+    <a href="/report/generate" class="btn">🔄 Actualizar reporte</a>
+    &nbsp;
+    <a href="/" class="btn" style="background:#1a1a1a;border:1px solid #444;">← Volver al agente</a>
+</body>
+</html>"""
+    return html
+
+
+def run_weekly_report():
+    schedule.every().monday.at("09:00").do(generate_seo_report)
+    while True:
+        schedule.run_pending()
+        threading.Event().wait(60)
+
+
+# ─── BATCH OPTIMIZATION ───────────────────────────────────────────────────────
+
+_batch_status = {"running": False, "total": 0, "done": 0, "errors": 0, "results": [], "started_at": None, "finished_at": None}
+
+
+def get_products_by_category(category_id=None):
+    params = {"per_page": 100, "status": "publish", "_fields": "id,name,short_description,slug,categories"}
+    if category_id and category_id != "all":
+        params["category"] = category_id
+    try:
+        r = requests.get(f"{WC_URL}/wp-json/wc/v3/products", auth=HTTPBasicAuth(WC_KEY, WC_SECRET), params=params, timeout=30)
+        return r.json() if isinstance(r.json(), list) else []
+    except Exception as e:
+        return []
+
+
+def needs_optimization(p):
+    name = p.get("name", "")
+    desc = p.get("short_description", "")
+    return len(name) > 60 or not (130 <= len(desc) <= 160)
+
+
+def claude_optimize_batch(products):
+    product_list = json.dumps(
+        [{"id": p["id"], "name": p["name"], "short_description": p.get("short_description", "")} for p in products],
+        ensure_ascii=False, indent=2
+    )
+    prompt = f"""Eres experto SEO para peptidosysuplementos.mx (tienda de péptidos y suplementos en México).
+
+Optimiza los siguientes productos según estas reglas:
+- Título (name): máximo 60 caracteres, palabra clave principal al inicio, sin caracteres especiales
+- Descripción corta (short_description): entre 130 y 160 caracteres, texto plano sin HTML ni markdown, incluir keyword + beneficio + llamada a la acción
+
+Productos a optimizar:
+{product_list}
+
+Devuelve ÚNICAMENTE un JSON válido con este formato exacto, sin explicaciones ni markdown:
+[{{"id": 123, "name": "Título optimizado", "short_description": "Descripción optimizada"}}, ...]"""
+
+    response = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=4096,
+        messages=[{"role": "user", "content": prompt}]
+    )
+    text = response.content[0].text.strip()
+    if text.startswith("```"):
+        text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+    return json.loads(text)
+
+
+def run_batch_optimize(category_id=None):
+    global _batch_status
+    _batch_status = {"running": True, "total": 0, "done": 0, "errors": 0, "results": [], "started_at": datetime.now().isoformat(), "finished_at": None}
+
+    try:
+        products = get_products_by_category(category_id)
+        pending = [p for p in products if needs_optimization(p)]
+        _batch_status["total"] = len(pending)
+
+        if not pending:
+            _batch_status["running"] = False
+            _batch_status["finished_at"] = datetime.now().isoformat()
+            print("[Batch] No hay productos pendientes de optimizar.")
+            return
+
+        print(f"[Batch] Optimizando {len(pending)} productos con Claude...")
+
+        # Procesar en grupos de 20 para no exceder el contexto
+        chunk_size = 20
+        for i in range(0, len(pending), chunk_size):
+            chunk = pending[i:i + chunk_size]
+            try:
+                optimized = claude_optimize_batch(chunk)
+                for item in optimized:
+                    pid = item.get("id")
+                    data = {k: item[k] for k in ("name", "short_description") if k in item}
+                    result = update_product(pid, data)
+                    if result.get("success"):
+                        _batch_status["done"] += 1
+                        _batch_status["results"].append({"id": pid, "name": item.get("name"), "status": "ok"})
+                        print(f"[Batch] ✅ {pid} — {item.get('name')}")
+                    else:
+                        _batch_status["errors"] += 1
+                        _batch_status["results"].append({"id": pid, "status": "error", "error": result.get("error")})
+            except Exception as e:
+                _batch_status["errors"] += len(chunk)
+                print(f"[Batch] ❌ Error en chunk: {e}")
+
+    except Exception as e:
+        print(f"[Batch] ❌ Error general: {e}")
+    finally:
+        _batch_status["running"] = False
+        _batch_status["finished_at"] = datetime.now().isoformat()
+        generate_seo_report()
+        print(f"[Batch] Finalizado — {_batch_status['done']} ok, {_batch_status['errors']} errores")
+
+
+@app.route("/batch-optimize", methods=["POST"])
+def batch_optimize():
+    if _batch_status["running"]:
+        return jsonify({"error": "Ya hay una optimización en proceso"}), 409
+    data = request.json or {}
+    category_id = data.get("category_id", "all")
+    thread = threading.Thread(target=run_batch_optimize, args=(category_id,), daemon=True)
+    thread.start()
+    return jsonify({"status": "started", "category_id": category_id})
+
+
+@app.route("/batch-status")
+def batch_status():
+    return jsonify(_batch_status)
+
+
+@app.route("/categories")
+def categories_endpoint():
+    return jsonify(get_categories(per_page=50))
+
+
+@app.route("/optimize-blog", methods=["POST"])
+def optimize_blog():
+    try:
+        data = request.json or {}
+        post_id = data.get("post_id")
+        title = data.get("title", "")
+        content = data.get("content", "")
+        url = data.get("url", "")
+
+        if not post_id or not content:
+            return jsonify({"error": "post_id y content son requeridos"}), 400
+
+        products = get_products(per_page=30)
+        products_list = "\n".join(
+            f"- {p['name']} (slug: {p['slug']})" for p in products if isinstance(p, dict) and "name" in p
+        )
+
+        prompt = f"""Eres un experto SEO. Tienes este artículo de blog recién publicado en peptidosysuplementos.mx:
+
+TÍTULO: {title}
+URL: {url}
+POST ID: {post_id}
+
+CONTENIDO ACTUAL (HTML):
+{content[:6000]}
+
+PRODUCTOS DISPONIBLES EN LA TIENDA:
+{products_list}
+
+Tu tarea:
+1. Agrega entre 4 y 8 links internos a productos relevantes de la lista. Usa el formato: <a href="{WC_URL}/producto/SLUG">Nombre del producto</a>
+2. Asegúrate de que el contenido tenga al menos un H2 y una conclusión con llamada a la acción
+3. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra
+
+Devuelve solo el HTML listo para WordPress."""
+
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=8192,
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        optimized_content = response.content[0].text.strip()
+        if optimized_content.startswith("```"):
+            optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+
+        result = update_post(post_id, {"content": optimized_content})
+
+        if result.get("success"):
+            return jsonify({"success": True, "post_id": post_id, "url": result.get("link", url)})
+        return jsonify({"error": result.get("error", "Error al actualizar post")}), 500
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+# ─── GSC TOOLS PARA CLAUDE ───────────────────────────────────────────────────
+
+def _gsc_sa_creds():
+    """Service account credentials para URL Inspection e Indexing API."""
+    sa_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
+    if not sa_json:
+        raise ValueError("GOOGLE_SERVICE_ACCOUNT_JSON no configurado en Railway")
+    return service_account.Credentials.from_service_account_info(
+        json.loads(sa_json),
+        scopes=[
+            "https://www.googleapis.com/auth/webmasters",
+            "https://www.googleapis.com/auth/indexing"
+        ]
+    )
+
+def gsc_top_queries(days=28, limit=10):
+    """Top búsquedas por clicks — usa OAuth existente."""
+    if not GSC_REFRESH_TOKEN:
+        return {"error": "GSC no autenticado. Visita /search-console/auth"}
+    try:
+        rows = fetch_gsc_data("query", days)
+        return [
+            {
+                "query": r["keys"][0],
+                "clicks": r.get("clicks", 0),
+                "impressions": r.get("impressions", 0),
+                "ctr_pct": round(r.get("ctr", 0) * 100, 1),
+                "position": round(r.get("position", 0), 1)
+            }
+            for r in rows[:limit]
+        ]
+    except Exception as e:
+        return {"error": str(e)}
+
+def gsc_page_performance(days=28, limit=10):
+    """Rendimiento por página — usa OAuth existente."""
+    if not GSC_REFRESH_TOKEN:
+        return {"error": "GSC no autenticado. Visita /search-console/auth"}
+    try:
+        rows = fetch_gsc_data("page", days)
+        return [
+            {
+                "page": r["keys"][0].replace("https://peptidosysuplementos.mx", ""),
+                "clicks": r.get("clicks", 0),
+                "impressions": r.get("impressions", 0),
+                "ctr_pct": round(r.get("ctr", 0) * 100, 1),
+                "position": round(r.get("position", 0), 1)
+            }
+            for r in rows[:limit]
+        ]
+    except Exception as e:
+        return {"error": str(e)}
+
+def gsc_inspect_url(url):
+    """Verifica estado de indexación de una URL — usa Service Account."""
+    try:
+        authed = AuthorizedSession(_gsc_sa_creds())
+        resp = authed.post(
+            "https://searchconsole.googleapis.com/v1/urlInspectionResult:inspect",
+            json={"inspectionUrl": url, "siteUrl": GSC_SITE_URL}
+        )
+        resp.raise_for_status()
+        idx = resp.json().get("inspectionResult", {}).get("indexStatusResult", {})
+        return {
+            "url": url,
+            "verdict": idx.get("verdict", "UNKNOWN"),
+            "coverage_state": idx.get("coverageState", ""),
+            "indexing_state": idx.get("indexingState", ""),
+            "last_crawl": idx.get("lastCrawlTime", "no disponible"),
+            "google_canonical": idx.get("googleCanonical", ""),
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+def gsc_request_indexing(url):
+    """Solicita indexación inmediata de una URL — usa Service Account (requiere Owner en GSC)."""
+    try:
+        authed = AuthorizedSession(_gsc_sa_creds())
+        resp = authed.post(
+            "https://indexing.googleapis.com/v3/urlNotifications:publish",
+            json={"url": url, "type": "URL_UPDATED"}
+        )
+        resp.raise_for_status()
+        notify_time = resp.json().get("urlNotificationMetadata", {}).get("latestUpdate", {}).get("notifyTime", "")
+        return {"success": True, "url": url, "notify_time": notify_time}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+# ─── GOOGLE SEARCH CONSOLE ───────────────────────────────────────────────────
+
+def get_gsc_service():
+    creds = Credentials(
+        token=None,
+        refresh_token=GSC_REFRESH_TOKEN,
+        client_id=GSC_CLIENT_ID,
+        client_secret=GSC_CLIENT_SECRET,
+        token_uri="https://oauth2.googleapis.com/token",
+        scopes=GSC_SCOPES
+    )
+    return build("searchconsole", "v1", credentials=creds, cache_discovery=False)
+
+
+def fetch_gsc_data(dimension, days=28):
+    service = get_gsc_service()
+    end_date = datetime.now().strftime("%Y-%m-%d")
+    start_date = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
+    result = service.searchanalytics().query(
+        siteUrl=GSC_SITE_URL,
+        body={
+            "startDate": start_date,
+            "endDate": end_date,
+            "dimensions": [dimension],
+            "rowLimit": 10,
+            "orderBy": [{"fieldName": "clicks", "sortOrder": "DESCENDING"}]
+        }
+    ).execute()
+    return result.get("rows", [])
+
+
+@app.route("/search-console/auth")
+def gsc_auth():
+    if not GSC_CLIENT_ID or not GSC_CLIENT_SECRET:
+        return "Faltan variables GOOGLE_CLIENT_ID y GOOGLE_CLIENT_SECRET en Railway.", 400
+    flow = Flow.from_client_config(
+        {"web": {"client_id": GSC_CLIENT_ID, "client_secret": GSC_CLIENT_SECRET,
+                 "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                 "token_uri": "https://oauth2.googleapis.com/token"}},
+        scopes=GSC_SCOPES,
+        redirect_uri=GSC_REDIRECT_URI
+    )
+    auth_url, state = flow.authorization_url(access_type="offline", prompt="consent")
+    session["gsc_state"] = state
+    return redirect(auth_url)
+
+
+@app.route("/search-console/callback")
+def gsc_callback():
+    flow = Flow.from_client_config(
+        {"web": {"client_id": GSC_CLIENT_ID, "client_secret": GSC_CLIENT_SECRET,
+                 "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                 "token_uri": "https://oauth2.googleapis.com/token"}},
+        scopes=GSC_SCOPES,
+        redirect_uri=GSC_REDIRECT_URI,
+        state=session.get("gsc_state")
+    )
+    flow.fetch_token(authorization_response=request.url)
+    refresh_token = flow.credentials.refresh_token
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Search Console conectado</title>
+<style>body{{font-family:Arial;max-width:600px;margin:60px auto;padding:20px;background:#0f0f0f;color:#eee}}
+.box{{background:#1a1a1a;border-radius:10px;padding:24px;border-left:4px solid #22c55e}}
+code{{background:#2a2a2a;padding:4px 10px;border-radius:6px;font-size:13px;word-break:break-all}}
+.btn{{display:inline-block;background:#7c3aed;color:white;padding:10px 20px;border-radius:8px;text-decoration:none;margin-top:16px}}</style>
+</head><body>
+<h2>✅ Google Search Console conectado</h2>
+<div class="box">
+<p>Copia este <strong>Refresh Token</strong> y agrégalo en Railway como variable de entorno:</p>
+<p><strong>Variable:</strong> <code>GOOGLE_REFRESH_TOKEN</code></p>
+<p><strong>Valor:</strong><br><code>{refresh_token}</code></p>
+</div>
+<p style="color:#aaa;font-size:13px;margin-top:16px;">Una vez que agregues la variable en Railway y el servicio se reinicie, el Search Console estará activo.</p>
+<a href="/search-console" class="btn">Ver Search Console</a>
+</body></html>"""
+
+
+@app.route("/search-console/data")
+def gsc_data():
+    if not GSC_REFRESH_TOKEN:
+        return jsonify({"error": "No autenticado. Visita /search-console/auth"}), 401
+    try:
+        queries = fetch_gsc_data("query")
+        pages   = fetch_gsc_data("page")
+        return jsonify({"queries": queries, "pages": pages})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/search-console")
+def gsc_dashboard():
+    if not GSC_CLIENT_ID:
+        return """<html><body style="font-family:Arial;max-width:600px;margin:60px auto;background:#0f0f0f;color:#eee;padding:20px">
+        <h2>⚙️ Search Console no configurado</h2>
+        <p>Agrega estas variables en Railway primero:</p>
+        <ul><li>GOOGLE_CLIENT_ID</li><li>GOOGLE_CLIENT_SECRET</li><li>GSC_SITE_URL</li></ul>
+        </body></html>"""
+
+    if not GSC_REFRESH_TOKEN:
+        return redirect("/search-console/auth")
+
+    try:
+        queries = fetch_gsc_data("query")
+        pages   = fetch_gsc_data("page")
+        error_html = ""
+    except Exception as e:
+        queries, pages = [], []
+        error_html = f'<div style="background:#1a1a1a;border-left:4px solid #ef4444;padding:16px;border-radius:8px;margin:16px 0"><p style="color:#ef4444">Error: {e}</p></div>'
+
+    def rows_html(rows, dimension):
+        if not rows:
+            return '<tr><td colspan="5" style="padding:12px;color:#666;">Sin datos</td></tr>'
+        html = ""
+        for r in rows:
+            keys = r.get("keys", [""])
+            val = keys[0]
+            if dimension == "page":
+                val = val.replace("https://peptidosysuplementos.mx", "")
+            clicks = r.get("clicks", 0)
+            impr   = r.get("impressions", 0)
+            ctr    = f"{r.get('ctr', 0)*100:.1f}%"
+            pos    = f"{r.get('position', 0):.1f}"
+            pos_color = "#22c55e" if float(r.get('position',99)) <= 10 else "#f59e0b" if float(r.get('position',99)) <= 20 else "#ef4444"
+            html += f"<tr><td style='padding:10px;border-bottom:1px solid #2a2a2a;font-size:13px'>{val}</td><td style='padding:10px;border-bottom:1px solid #2a2a2a;text-align:center'>{clicks}</td><td style='padding:10px;border-bottom:1px solid #2a2a2a;text-align:center'>{impr}</td><td style='padding:10px;border-bottom:1px solid #2a2a2a;text-align:center'>{ctr}</td><td style='padding:10px;border-bottom:1px solid #2a2a2a;text-align:center;color:{pos_color};font-weight:bold'>{pos}</td></tr>"
+        return html
+
+    table_style = "width:100%;border-collapse:collapse;background:#1a1a1a;border-radius:10px;overflow:hidden;font-size:14px"
+    th_style = "background:#2a2a2a;padding:10px;text-align:left;font-size:12px;color:#aaa"
+    th_c = "background:#2a2a2a;padding:10px;text-align:center;font-size:12px;color:#aaa"
+
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Search Console — peptidosysuplementos.mx</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{{font-family:Arial;max-width:900px;margin:40px auto;padding:20px;background:#0f0f0f;color:#eee}}
+h1{{color:#7c3aed}}h2{{color:#aaa;font-size:15px;font-weight:normal;margin:32px 0 12px}}
+.btn{{display:inline-block;background:#7c3aed;color:white;padding:10px 20px;border-radius:8px;text-decoration:none;margin-top:8px;font-size:14px}}
+.btn-sec{{background:#1a1a1a;border:1px solid #444}}</style>
+</head><body>
+<h1>🔍 Google Search Console</h1>
+<p style="color:#aaa">peptidosysuplementos.mx — Últimos 28 días</p>
+{error_html}
+<h2>🔑 Top 10 Keywords</h2>
+<table style="{table_style}">
+<thead><tr><th style="{th_style}">Keyword</th><th style="{th_c}">Clicks</th><th style="{th_c}">Impresiones</th><th style="{th_c}">CTR</th><th style="{th_c}">Posición</th></tr></thead>
+<tbody>{rows_html(queries, "query")}</tbody></table>
+
+<h2>📄 Top 10 Páginas</h2>
+<table style="{table_style}">
+<thead><tr><th style="{th_style}">URL</th><th style="{th_c}">Clicks</th><th style="{th_c}">Impresiones</th><th style="{th_c}">CTR</th><th style="{th_c}">Posición</th></tr></thead>
+<tbody>{rows_html(pages, "page")}</tbody></table>
+
+<br>
+<a href="/" class="btn btn-sec">← Volver al agente</a>
+&nbsp;
+<a href="/search-console" class="btn" style="background:#1a1a2e">🔄 Actualizar</a>
+</body></html>"""
+
+
+scheduler_thread = threading.Thread(target=run_weekly_report, daemon=True)
+scheduler_thread.start()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
