@@ -833,21 +833,24 @@ def gsc_auth():
 
 @app.route("/search-console/callback")
 def gsc_callback():
-    flow = Flow.from_client_config(
-        {"web": {"client_id": GSC_CLIENT_ID, "client_secret": GSC_CLIENT_SECRET,
-                 "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-                 "token_uri": "https://oauth2.googleapis.com/token"}},
-        scopes=GSC_SCOPES,
-        redirect_uri=GSC_REDIRECT_URI,
-        state=session.get("gsc_state")
-    )
-    # Railway está detrás de un proxy HTTPS — request.url llega como http://
-    auth_response = request.url
-    if auth_response.startswith("http://"):
-        auth_response = "https://" + auth_response[7:]
-    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
-    flow.fetch_token(authorization_response=auth_response)
-    refresh_token = flow.credentials.refresh_token
+    try:
+        os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+        state = request.args.get("state", "")
+        flow = Flow.from_client_config(
+            {"web": {"client_id": GSC_CLIENT_ID, "client_secret": GSC_CLIENT_SECRET,
+                     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                     "token_uri": "https://oauth2.googleapis.com/token"}},
+            scopes=GSC_SCOPES,
+            redirect_uri=GSC_REDIRECT_URI,
+            state=state
+        )
+        auth_response = request.url
+        if auth_response.startswith("http://"):
+            auth_response = "https://" + auth_response[7:]
+        flow.fetch_token(authorization_response=auth_response)
+        refresh_token = flow.credentials.refresh_token
+    except Exception as e:
+        return f"<pre style='color:red;padding:20px'>Error en callback: {e}</pre>", 500
     return f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>Search Console conectado</title>
 <style>body{{font-family:Arial;max-width:600px;margin:60px auto;padding:20px;background:#0f0f0f;color:#eee}}
