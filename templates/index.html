@@ -29,8 +29,32 @@ input{flex:1;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:14px
   <button class="btn" onclick="q('Muestrame mis categorias y optimiza sus nombres y descripciones para SEO')">Optimizar categorias</button>
   <button class="btn" onclick="q('Muestrame los blogs publicados')">Ver blogs</button>
   <button class="btn" onclick="q('Que cambios has hecho hasta ahora? Muestra el historial completo')">Ver historial</button>
+  <button class="btn" onclick="window.open('/reporte','_blank')" style="background:#f0fdf4;color:#15803d;border-color:#86efac;">📊 Reporte SEO</button>
+  <button class="btn" onclick="window.open('/search-console','_blank')" style="background:#eff6ff;color:#1d4ed8;border-color:#93c5fd;">🔍 Search Console</button>
+  <button class="btn" onclick="abrirBatch()" style="background:#fefce8;color:#854d0e;border-color:#fde047;">⚡ Batch optimize</button>
   <button class="btn btn-danger" onclick="clearChat()">Nueva sesion</button>
 </div>
+<!-- Modal batch optimize -->
+<div id="batch-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center;">
+  <div style="background:#1a1a1a;border-radius:12px;padding:28px;width:400px;max-width:90vw;">
+    <h3 style="margin:0 0 16px;color:#eee;">⚡ Optimización en Batch</h3>
+    <p style="color:#aaa;font-size:13px;margin:0 0 16px;">Claude optimizará títulos y descripciones de todos los productos pendientes de una categoría.</p>
+    <select id="batch-cat" style="width:100%;padding:10px;background:#2a2a2a;color:#eee;border:1px solid #444;border-radius:8px;margin-bottom:16px;">
+      <option value="all">Todos los productos</option>
+    </select>
+    <div id="batch-progress" style="display:none;margin-bottom:16px;">
+      <div style="background:#2a2a2a;border-radius:99px;height:10px;margin-bottom:8px;">
+        <div id="batch-bar" style="background:#7c3aed;height:10px;border-radius:99px;width:0%;transition:width 0.5s;"></div>
+      </div>
+      <p id="batch-msg" style="color:#aaa;font-size:13px;margin:0;"></p>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <button onclick="iniciarBatch()" id="btn-batch-start" style="flex:1;padding:10px;background:#7c3aed;color:white;border:none;border-radius:8px;cursor:pointer;font-size:14px;">Iniciar</button>
+      <button onclick="cerrarBatch()" style="padding:10px 16px;background:#2a2a2a;color:#eee;border:none;border-radius:8px;cursor:pointer;">Cerrar</button>
+    </div>
+  </div>
+</div>
+
 <div id="chat"></div>
 <div class="row">
   <input id="inp" placeholder="Escribe una instruccion SEO..." onkeydown="if(event.key==='Enter')enviar()">
@@ -125,6 +149,66 @@ function enviar() {
     document.getElementById('load').remove();
     var a = document.createElement('p'); a.className = 'agent'; a.style.color = 'red'; a.textContent = 'Error: ' + e.message; chat.appendChild(a);
     busy = false; document.getElementById('btn-send').disabled = false;
+  });
+}
+
+var batchPoller = null;
+
+function abrirBatch() {
+  fetch('/report').then(r => r.json()).then(data => {
+    // no hacemos nada con el reporte aqui
+  }).catch(() => {});
+  fetch('/categories').then(r => r.json()).then(cats => {
+    var sel = document.getElementById('batch-cat');
+    sel.innerHTML = '<option value="all">Todos los productos</option>';
+    (cats || []).forEach(function(c) {
+      var o = document.createElement('option');
+      o.value = c.id; o.textContent = c.name + ' (' + c.count + ')';
+      sel.appendChild(o);
+    });
+  }).catch(() => {});
+  document.getElementById('batch-modal').style.display = 'flex';
+  document.getElementById('batch-progress').style.display = 'none';
+}
+
+function cerrarBatch() {
+  clearInterval(batchPoller);
+  document.getElementById('batch-modal').style.display = 'none';
+}
+
+function iniciarBatch() {
+  var catId = document.getElementById('batch-cat').value;
+  document.getElementById('btn-batch-start').disabled = true;
+  document.getElementById('batch-progress').style.display = 'block';
+  document.getElementById('batch-msg').textContent = 'Iniciando...';
+  document.getElementById('batch-bar').style.width = '0%';
+
+  fetch('/batch-optimize', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({category_id: catId})
+  }).then(r => r.json()).then(data => {
+    if (data.error) {
+      document.getElementById('batch-msg').textContent = '❌ ' + data.error;
+      document.getElementById('btn-batch-start').disabled = false;
+      return;
+    }
+    batchPoller = setInterval(pollBatch, 2000);
+  });
+}
+
+function pollBatch() {
+  fetch('/batch-status').then(r => r.json()).then(s => {
+    var pct = s.total > 0 ? Math.round((s.done + s.errors) / s.total * 100) : 0;
+    document.getElementById('batch-bar').style.width = pct + '%';
+    if (s.running) {
+      document.getElementById('batch-msg').textContent = '⏳ ' + (s.done + s.errors) + ' / ' + s.total + ' productos procesados...';
+    } else {
+      clearInterval(batchPoller);
+      document.getElementById('batch-msg').textContent = '✅ Listo — ' + s.done + ' optimizados, ' + s.errors + ' errores';
+      document.getElementById('btn-batch-start').disabled = false;
+      document.getElementById('batch-bar').style.background = s.errors > 0 ? '#f59e0b' : '#22c55e';
+    }
   });
 }
 </script>
