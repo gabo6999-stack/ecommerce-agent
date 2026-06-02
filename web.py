@@ -841,7 +841,12 @@ def gsc_callback():
         redirect_uri=GSC_REDIRECT_URI,
         state=session.get("gsc_state")
     )
-    flow.fetch_token(authorization_response=request.url)
+    # Railway está detrás de un proxy HTTPS — request.url llega como http://
+    auth_response = request.url
+    if auth_response.startswith("http://"):
+        auth_response = "https://" + auth_response[7:]
+    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+    flow.fetch_token(authorization_response=auth_response)
     refresh_token = flow.credentials.refresh_token
     return f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>Search Console conectado</title>
