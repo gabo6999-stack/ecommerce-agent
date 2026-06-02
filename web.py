@@ -819,15 +819,16 @@ def fetch_gsc_data(dimension, days=28):
 def gsc_auth():
     if not GSC_CLIENT_ID or not GSC_CLIENT_SECRET:
         return "Faltan variables GOOGLE_CLIENT_ID y GOOGLE_CLIENT_SECRET en Railway.", 400
-    flow = Flow.from_client_config(
-        {"web": {"client_id": GSC_CLIENT_ID, "client_secret": GSC_CLIENT_SECRET,
-                 "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-                 "token_uri": "https://oauth2.googleapis.com/token"}},
-        scopes=GSC_SCOPES,
-        redirect_uri=GSC_REDIRECT_URI
-    )
-    auth_url, state = flow.authorization_url(access_type="offline", prompt="consent")
-    session["gsc_state"] = state
+    import urllib.parse
+    params = {
+        "client_id": GSC_CLIENT_ID,
+        "redirect_uri": GSC_REDIRECT_URI,
+        "response_type": "code",
+        "scope": " ".join(GSC_SCOPES),
+        "access_type": "offline",
+        "prompt": "consent"
+    }
+    auth_url = "https://accounts.google.com/o/oauth2/auth?" + urllib.parse.urlencode(params)
     return redirect(auth_url)
 
 
