@@ -834,21 +834,23 @@ def gsc_auth():
 @app.route("/search-console/callback")
 def gsc_callback():
     try:
-        os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
-        state = request.args.get("state", "")
-        flow = Flow.from_client_config(
-            {"web": {"client_id": GSC_CLIENT_ID, "client_secret": GSC_CLIENT_SECRET,
-                     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-                     "token_uri": "https://oauth2.googleapis.com/token"}},
-            scopes=GSC_SCOPES,
-            redirect_uri=GSC_REDIRECT_URI,
-            state=state
+        code = request.args.get("code")
+        if not code:
+            return "<pre style='color:red;padding:20px'>Error: no se recibió código de autorización</pre>", 400
+        token_resp = requests.post(
+            "https://oauth2.googleapis.com/token",
+            data={
+                "code": code,
+                "client_id": GSC_CLIENT_ID,
+                "client_secret": GSC_CLIENT_SECRET,
+                "redirect_uri": GSC_REDIRECT_URI,
+                "grant_type": "authorization_code"
+            }
         )
-        auth_response = request.url
-        if auth_response.startswith("http://"):
-            auth_response = "https://" + auth_response[7:]
-        flow.fetch_token(authorization_response=auth_response)
-        refresh_token = flow.credentials.refresh_token
+        token_data = token_resp.json()
+        refresh_token = token_data.get("refresh_token", "")
+        if not refresh_token:
+            return f"<pre style='color:red;padding:20px'>Error al obtener token: {token_data}</pre>", 400
     except Exception as e:
         return f"<pre style='color:red;padding:20px'>Error en callback: {e}</pre>", 500
     return f"""<!DOCTYPE html>
