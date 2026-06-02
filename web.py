@@ -241,6 +241,20 @@ TOOLS = [
         }
     },
     {
+        "name": "update_post",
+        "description": "Actualiza el contenido, título o meta description de un post de blog existente en WordPress",
+        "input_schema": {
+            "type": "object",
+            "required": ["post_id"],
+            "properties": {
+                "post_id": {"type": "integer", "description": "ID del post en WordPress"},
+                "title": {"type": "string", "description": "Nuevo título (opcional)"},
+                "content": {"type": "string", "description": "Nuevo contenido HTML completo (opcional)"},
+                "meta_description": {"type": "string", "description": "Nueva meta description 150-160 chars (opcional)"}
+            }
+        }
+    },
+    {
         "name": "fetch_url",
         "description": "Obtiene el contenido de una URL: título, meta description, H1, H2s, cantidad de palabras y preview del texto. Úsala para revisar artículos publicados, verificar contenido de páginas o analizar la competencia.",
         "input_schema": {
@@ -318,6 +332,11 @@ def run_tool(name, inputs):
             meta_description=inputs.get("meta_description", ""),
             status=inputs.get("status", "publish")
         )
+    elif name == "update_post":
+        data = {k: inputs[k] for k in ["title", "content"] if k in inputs}
+        if "meta_description" in inputs:
+            data["meta"] = {"_yoast_wpseo_metadesc": inputs["meta_description"]}
+        return update_post(inputs["post_id"], data)
     elif name == "fetch_url":
         return fetch_url(inputs["url"])
     elif name == "gsc_top_queries":
