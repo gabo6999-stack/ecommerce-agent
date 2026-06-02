@@ -23,6 +23,8 @@ GSC_SCOPES        = ["https://www.googleapis.com/auth/webmasters.readonly"]
 WC_URL = os.environ.get("WOOCOMMERCE_URL", "")
 WC_KEY = os.environ.get("WOOCOMMERCE_KEY", "")
 WC_SECRET = os.environ.get("WOOCOMMERCE_SECRET", "")
+WP_USER = os.environ.get("WP_USER", "")
+WP_PASSWORD = os.environ.get("WP_PASSWORD", "")
 
 def get_products(per_page=10):
     try:
@@ -113,9 +115,10 @@ def get_posts(per_page=10):
 
 def update_post(post_id, data):
     try:
+        auth = HTTPBasicAuth(WP_USER, WP_PASSWORD) if WP_USER else HTTPBasicAuth(WC_KEY, WC_SECRET)
         r = requests.post(
             f"{WC_URL}/wp-json/wp/v2/posts/{post_id}",
-            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            auth=auth,
             json=data,
             timeout=30
         )
