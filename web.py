@@ -241,6 +241,17 @@ TOOLS = [
         }
     },
     {
+        "name": "fetch_url",
+        "description": "Obtiene el contenido de una URL: título, meta description, H1, H2s, cantidad de palabras y preview del texto. Úsala para revisar artículos publicados, verificar contenido de páginas o analizar la competencia.",
+        "input_schema": {
+            "type": "object",
+            "required": ["url"],
+            "properties": {
+                "url": {"type": "string", "description": "URL completa a inspeccionar"}
+            }
+        }
+    },
+    {
         "name": "gsc_top_queries",
         "description": "Google Search Console: top búsquedas que traen tráfico real al sitio (clicks, impresiones, CTR, posición promedio). Úsala cuando el usuario pregunte por keywords, tráfico o qué busca la gente.",
         "input_schema": {
@@ -307,6 +318,8 @@ def run_tool(name, inputs):
             meta_description=inputs.get("meta_description", ""),
             status=inputs.get("status", "publish")
         )
+    elif name == "fetch_url":
+        return fetch_url(inputs["url"])
     elif name == "gsc_top_queries":
         return gsc_top_queries(inputs.get("days", 28), inputs.get("limit", 10))
     elif name == "gsc_page_performance":
@@ -693,6 +706,44 @@ Devuelve solo el HTML listo para WordPress."""
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+# ─── FETCH URL ───────────────────────────────────────────────────────────────
+
+def fetch_url(url: str) -> dict:
+    try:
+        from bs4 import BeautifulSoup
+        r = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, "html.parser")
+
+        title = soup.title.string.strip() if soup.title else ""
+        meta_desc = ""
+        meta_tag = soup.find("meta", attrs={"name": "description"}) or soup.find("meta", attrs={"property": "og:description"})
+        if meta_tag:
+            meta_desc = meta_tag.get("content", "").strip()
+
+        h1s = [h.get_text(strip=True) for h in soup.find_all("h1")]
+        h2s = [h.get_text(strip=True) for h in soup.find_all("h2")]
+
+        for tag in soup(["script", "style", "nav", "footer", "header"]):
+            tag.decompose()
+        text = soup.get_text(separator=" ", strip=True)
+        word_count = len(text.split())
+        preview = text[:500]
+
+        return {
+            "url": url,
+            "title": title,
+            "meta_description": meta_desc,
+            "h1": h1s,
+            "h2s": h2s[:8],
+            "word_count": word_count,
+            "content_preview": preview,
+            "status_code": r.status_code,
+        }
+    except Exception as e:
+        return {"error": str(e), "url": url}
 
 
 # ─── GSC TOOLS PARA CLAUDE ───────────────────────────────────────────────────
