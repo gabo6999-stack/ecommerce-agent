@@ -902,7 +902,8 @@ def gsc_dashboard():
         error_html = ""
     except Exception as e:
         queries, pages = [], []
-        error_html = f'<div style="background:#1a1a1a;border-left:4px solid #ef4444;padding:16px;border-radius:8px;margin:16px 0"><p style="color:#ef4444">Error: {e}</p></div>'
+        import html as _html
+        error_html = f'<div style="background:#1a1a1a;border-left:4px solid #ef4444;padding:16px;border-radius:8px;margin:16px 0"><p style="color:#ef4444">Error: {_html.escape(str(e))}</p></div>'
 
     def rows_html(rows, dimension):
         if not rows:
