@@ -832,6 +832,36 @@ TOOLS = [
         }
     },
     {
+        "name": "get_page_content",
+        "description": "Obtiene el contenido HTML completo de una PAGE de WordPress (no un post de blog). Usala para leer landing pages, paginas de categorias, etc. antes de editarlas.",
+        "input_schema": {
+            "type": "object",
+            "required": ["page_id"],
+            "properties": {
+                "page_id": {"type": "integer", "description": "ID de la page en WordPress"}
+            }
+        }
+    },
+    {
+        "name": "update_page",
+        "description": "Actualiza el contenido, titulo o meta description de una PAGE de WordPress (landing pages, paginas de categoria, etc.). Diferente de update_post que es para blogs.",
+        "input_schema": {
+            "type": "object",
+            "required": ["page_id"],
+            "properties": {
+                "page_id": {"type": "integer", "description": "ID de la page en WordPress"},
+                "title": {"type": "string", "description": "Nuevo titulo (opcional)"},
+                "content": {"type": "string", "description": "Nuevo contenido HTML completo (opcional)"},
+                "meta_description": {"type": "string", "description": "Nueva meta description 150-160 chars (opcional)"}
+            }
+        }
+    },
+    {
+        "name": "get_all_pages",
+        "description": "Obtiene todas las pages publicadas de WordPress (landing pages, paginas de categorias, etc.) con sus IDs y URLs.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
         "name": "convert_elementor_to_gutenberg",
         "description": "Convierte un post construido con Elementor a Gutenberg/HTML estandar de WordPress. Carga la pagina live, extrae el contenido limpio, desactiva Elementor para ese post y lo guarda via REST API. Usala cuando update_post o add-links no funcionen por ser un post Elementor. Despues de convertir, /add-links funcionara correctamente.",
         "input_schema": {
@@ -906,6 +936,15 @@ def run_tool(name, inputs):
         return get_post_content(inputs["post_id"])
     elif name == "get_all_posts_catalog":
         return get_all_posts_catalog(inputs.get("per_page", 100))
+    elif name == "get_page_content":
+        return get_page_content(inputs["page_id"])
+    elif name == "update_page":
+        data = {k: inputs[k] for k in ["title", "content"] if k in inputs}
+        if "meta_description" in inputs:
+            data["meta"] = {"_yoast_wpseo_metadesc": inputs["meta_description"]}
+        return update_page(inputs["page_id"], data)
+    elif name == "get_all_pages":
+        return get_all_pages()
     elif name == "convert_elementor_to_gutenberg":
         return convert_elementor_to_gutenberg(inputs["post_id"])
     elif name == "get_products_full":
@@ -1455,9 +1494,14 @@ def add_links():
         if not post_id:
             return jsonify({"error": "post_id es requerido"}), 400
 
+        # Intentar como post, si falla intentar como page
         post = get_post_content(post_id)
+        is_page = False
         if "error" in post:
-            return jsonify({"error": f"No se pudo obtener el post: {post['error']}"}), 500
+            post = get_page_content(post_id)
+            is_page = True
+        if "error" in post:
+            return jsonify({"error": f"No se pudo obtener el contenido: {post['error']}"}), 500
 
         title = post.get("title", "")
         content = post.get("content", "")
@@ -1531,12 +1575,13 @@ Devuelve solo el HTML listo para WordPress."""
                 "products_available": len(products),
             })
 
-        result = update_post(post_id, {"content": optimized_content})
+        result = update_page(post_id, {"content": optimized_content}) if is_page else update_post(post_id, {"content": optimized_content})
 
         if result.get("success"):
             return jsonify({
                 "success": True,
                 "post_id": post_id,
+                "post_type": "page" if is_page else "post",
                 "title": title,
                 "url": result.get("link", url),
                 "other_posts_available": len(other_posts),
