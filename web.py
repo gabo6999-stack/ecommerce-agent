@@ -264,14 +264,30 @@ def convert_elementor_to_gutenberg(post_id, post_type="post"):
     for comment in soup.find_all(string=lambda t: isinstance(t, Comment)):
         comment.extract()
 
-    # 4. Extraer contenido de Elementor: los widgets de texto y encabezados
+    # 4. Extraer contenido de Elementor (soporta text-editor clásico y contenedores modernos e-con)
     content_blocks = []
 
-    # Primero intentar extraer desde widgets de Elementor
+    # Widgets de texto clásicos
     for widget in soup.find_all("div", class_=lambda c: c and "elementor-widget-text-editor" in c):
         content_blocks.append(widget.decode_contents())
 
-    # Si no hay widgets Elementor, buscar en article o entry-content
+    # Headings de Elementor
+    for widget in soup.find_all("div", class_=lambda c: c and "elementor-widget-heading" in c):
+        h = widget.find(["h1", "h2", "h3", "h4"])
+        if h:
+            text = h.get_text(strip=True)
+            if len(text) > 3:
+                content_blocks.append(str(h))
+
+    # Contenedores modernos e-con-inner: extraer todos los tags semánticos con contenido
+    if not content_blocks:
+        for con in soup.find_all("div", class_=lambda c: c and "e-con-inner" in c):
+            for tag in con.find_all(["h1", "h2", "h3", "h4", "p", "ul", "ol", "li", "table", "blockquote"]):
+                text = tag.get_text(strip=True)
+                if len(text) > 20:
+                    content_blocks.append(str(tag))
+
+    # Fallback: article o entry-content
     if not content_blocks:
         article = soup.find("article") or soup.find("div", class_="entry-content") or soup.find("main")
         if article:
@@ -1255,7 +1271,7 @@ def convert_all_elementor():
                 continue
             try:
                 html = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"}).text
-                if "elementor-widget-text-editor" in html:
+                if any(m in html for m in ("elementor-widget-text-editor", "elementor-element", "e-con-inner")):
                     result = convert_elementor_to_gutenberg(item["id"], item_type)
                     if result.get("success"):
                         results["converted"].append({
