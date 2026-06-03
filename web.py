@@ -844,15 +844,16 @@ TOOLS = [
     },
     {
         "name": "update_page",
-        "description": "Actualiza el contenido, titulo o meta description de una PAGE de WordPress (landing pages, paginas de categoria, etc.). Diferente de update_post que es para blogs.",
+        "description": "Actualiza titulo, meta description, Yoast SEO title o contenido de una PAGE de WordPress. Usar yoast_title para el titulo que aparece en Google (puede ser diferente al titulo de la pagina).",
         "input_schema": {
             "type": "object",
             "required": ["page_id"],
             "properties": {
                 "page_id": {"type": "integer", "description": "ID de la page en WordPress"},
-                "title": {"type": "string", "description": "Nuevo titulo (opcional)"},
-                "content": {"type": "string", "description": "Nuevo contenido HTML completo (opcional)"},
-                "meta_description": {"type": "string", "description": "Nueva meta description 150-160 chars (opcional)"}
+                "title": {"type": "string", "description": "Titulo visible de la pagina (browser tab, breadcrumbs)"},
+                "yoast_title": {"type": "string", "description": "SEO title para Google (max 60 chars). Ejemplo: 'Tirzepatida en Mexico 2026 | PyS MX'"},
+                "meta_description": {"type": "string", "description": "Meta description para Google (150-160 chars)"},
+                "content": {"type": "string", "description": "Contenido HTML completo (opcional)"}
             }
         }
     },
@@ -940,8 +941,13 @@ def run_tool(name, inputs):
         return get_page_content(inputs["page_id"])
     elif name == "update_page":
         data = {k: inputs[k] for k in ["title", "content"] if k in inputs}
+        meta = {}
         if "meta_description" in inputs:
-            data["meta"] = {"_yoast_wpseo_metadesc": inputs["meta_description"]}
+            meta["_yoast_wpseo_metadesc"] = inputs["meta_description"]
+        if "yoast_title" in inputs:
+            meta["_yoast_wpseo_title"] = inputs["yoast_title"]
+        if meta:
+            data["meta"] = meta
         return update_page(inputs["page_id"], data)
     elif name == "get_all_pages":
         return get_all_pages()
