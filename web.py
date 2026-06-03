@@ -162,7 +162,7 @@ def get_all_posts_catalog(per_page=100):
 
 def update_post(post_id, data):
     try:
-        auth = HTTPBasicAuth(WC_KEY, WC_SECRET)
+        auth = HTTPBasicAuth(WP_USER, WP_PASSWORD)
         r = requests.post(
             f"{WC_URL}/wp-json/wp/v2/posts/{post_id}",
             auth=auth,
