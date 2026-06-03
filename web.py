@@ -1347,6 +1347,30 @@ def convert_all_elementor():
     return jsonify(results)
 
 
+@app.route("/save-as-gutenberg", methods=["POST"])
+def save_as_gutenberg():
+    """Guarda contenido HTML como Gutenberg y deshabilita Elementor para ese post/page.
+    Body: {post_id, content, title?, meta_description?, post_type: 'post'|'page'}"""
+    data = request.json or {}
+    post_id = data.get("post_id")
+    content = data.get("content", "")
+    post_type = data.get("post_type", "post")
+    if not post_id or not content:
+        return jsonify({"error": "post_id y content son requeridos"}), 400
+
+    payload = {"content": content, "meta": {"_elementor_edit_mode": ""}}
+    if data.get("title"):
+        payload["title"] = data["title"]
+    if data.get("meta_description"):
+        payload["meta"] = {**payload["meta"], "_yoast_wpseo_metadesc": data["meta_description"]}
+
+    result = update_page(post_id, payload) if post_type == "page" else update_post(post_id, payload)
+    if result.get("success"):
+        return jsonify({"success": True, "post_id": post_id, "post_type": post_type,
+                        "url": result.get("link", ""), "elementor": "disabled"})
+    return jsonify({"error": result.get("error", "Error al guardar")}), 500
+
+
 @app.route("/restore-elementor-pages", methods=["POST"])
 def restore_elementor_pages():
     """Restaura _elementor_edit_mode=builder en todas las pages para recuperar el diseño visual."""
