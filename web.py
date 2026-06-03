@@ -191,6 +191,99 @@ def get_all_posts_catalog(per_page=100):
         return {"error": str(e)}
 
 
+def convert_elementor_to_gutenberg(post_id):
+    from bs4 import BeautifulSoup, Comment
+
+    # 1. Obtener URL del post
+    post_meta = get_post_content(post_id)
+    if "error" in post_meta:
+        return post_meta
+    url = post_meta.get("link", "")
+    title = post_meta.get("title", "")
+    if not url:
+        return {"error": "No se pudo obtener la URL del post"}
+
+    # 2. Cargar la página live con User-Agent de browser
+    try:
+        r = requests.get(url, timeout=20, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120"
+        })
+        r.raise_for_status()
+    except Exception as e:
+        return {"error": f"No se pudo cargar la pagina: {e}"}
+
+    soup = BeautifulSoup(r.text, "html.parser")
+
+    # 3. Eliminar ruido: scripts, estilos, nav, footer, header, comentarios
+    for tag in soup(["script", "style", "nav", "footer", "header", "aside", "noscript"]):
+        tag.decompose()
+    for comment in soup.find_all(string=lambda t: isinstance(t, Comment)):
+        comment.extract()
+
+    # 4. Extraer contenido de Elementor: los widgets de texto y encabezados
+    content_blocks = []
+
+    # Primero intentar extraer desde widgets de Elementor
+    for widget in soup.find_all("div", class_=lambda c: c and "elementor-widget-text-editor" in c):
+        content_blocks.append(widget.decode_contents())
+
+    # Si no hay widgets Elementor, buscar en article o entry-content
+    if not content_blocks:
+        article = soup.find("article") or soup.find("div", class_="entry-content") or soup.find("main")
+        if article:
+            for tag in article.find_all(["h2", "h3", "h4", "p", "ul", "ol", "table", "blockquote"]):
+                text = tag.get_text(strip=True)
+                if len(text) > 20:
+                    content_blocks.append(str(tag))
+
+    if not content_blocks:
+        return {"error": "No se pudo extraer contenido del post Elementor"}
+
+    # 5. Construir HTML limpio — conservar encabezados sueltos también
+    all_headings = []
+    for widget in soup.find_all("div", class_=lambda c: c and "elementor-widget-heading" in c):
+        h = widget.find(["h1", "h2", "h3", "h4"])
+        if h:
+            all_headings.append((widget, str(h)))
+
+    raw_html = "\n".join(content_blocks)
+    clean_soup = BeautifulSoup(raw_html, "html.parser")
+
+    # Limpiar atributos Elementor (class, id, data-*) de los tags internos
+    for tag in clean_soup.find_all(True):
+        elementor_classes = [c for c in tag.get("class", []) if "elementor" in c or "e-" in c]
+        remaining = [c for c in tag.get("class", []) if c not in elementor_classes]
+        if remaining:
+            tag["class"] = remaining
+        elif "class" in tag.attrs and not remaining:
+            del tag["class"]
+        for attr in list(tag.attrs):
+            if attr.startswith("data-"):
+                del tag[attr]
+
+    clean_html = str(clean_soup)
+
+    if len(clean_html.strip()) < 200:
+        return {"error": f"Contenido extraido muy corto ({len(clean_html)} chars), posiblemente renderizado por JS"}
+
+    # 6. Guardar en WordPress con Elementor desactivado para este post
+    result = update_post(post_id, {
+        "content": clean_html,
+        "meta": {"_elementor_edit_mode": ""}
+    })
+
+    if result.get("success"):
+        return {
+            "success": True,
+            "post_id": post_id,
+            "title": title,
+            "content_chars": len(clean_html),
+            "url": result.get("link", url),
+            "message": "Post convertido de Elementor a Gutenberg. Ahora /add-links y /edit funcionaran correctamente."
+        }
+    return result
+
+
 def get_products_full(per_page=10):
     try:
         r = requests.get(
@@ -680,6 +773,17 @@ TOOLS = [
         }
     },
     {
+        "name": "convert_elementor_to_gutenberg",
+        "description": "Convierte un post construido con Elementor a Gutenberg/HTML estandar de WordPress. Carga la pagina live, extrae el contenido limpio, desactiva Elementor para ese post y lo guarda via REST API. Usala cuando update_post o add-links no funcionen por ser un post Elementor. Despues de convertir, /add-links funcionara correctamente.",
+        "input_schema": {
+            "type": "object",
+            "required": ["post_id"],
+            "properties": {
+                "post_id": {"type": "integer", "description": "ID del post Elementor a convertir"}
+            }
+        }
+    },
+    {
         "name": "remember_instruction",
         "description": "Guarda una instrucción o dato importante en la memoria persistente del agente. Úsala cuando el usuario te dé una preferencia, regla o contexto que debe recordarse entre sesiones.",
         "input_schema": {
@@ -743,6 +847,8 @@ def run_tool(name, inputs):
         return get_post_content(inputs["post_id"])
     elif name == "get_all_posts_catalog":
         return get_all_posts_catalog(inputs.get("per_page", 100))
+    elif name == "convert_elementor_to_gutenberg":
+        return convert_elementor_to_gutenberg(inputs["post_id"])
     elif name == "get_products_full":
         return get_products_full(inputs.get("per_page", 10))
     elif name == "update_product_full":
@@ -1082,6 +1188,15 @@ def memory_clear():
 @app.route("/blogs/audit")
 def blogs_audit_endpoint():
     return jsonify(blogs_audit())
+
+
+@app.route("/convert-to-gutenberg", methods=["POST"])
+def convert_to_gutenberg_endpoint():
+    data = request.json or {}
+    post_id = data.get("post_id")
+    if not post_id:
+        return jsonify({"error": "post_id es requerido"}), 400
+    return jsonify(convert_elementor_to_gutenberg(post_id))
 
 
 def run_weekly_report():
