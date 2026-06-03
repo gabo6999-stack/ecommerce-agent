@@ -113,6 +113,53 @@ def get_posts(per_page=10):
         return {"error": str(e)}
 
 
+def get_post_content(post_id):
+    try:
+        auth = HTTPBasicAuth(WP_USER, WP_PASSWORD) if WP_USER else HTTPBasicAuth(WC_KEY, WC_SECRET)
+        r = requests.get(
+            f"{WC_URL}/wp-json/wp/v2/posts/{post_id}",
+            auth=auth,
+            timeout=15
+        )
+        p = r.json()
+        if "id" not in p:
+            return {"error": str(p)}
+        return {
+            "id": p["id"],
+            "title": p.get("title", {}).get("rendered", ""),
+            "slug": p.get("slug", ""),
+            "link": p.get("link", ""),
+            "content": p.get("content", {}).get("rendered", "")
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def get_all_posts_catalog(per_page=100):
+    try:
+        auth = HTTPBasicAuth(WP_USER, WP_PASSWORD) if WP_USER else HTTPBasicAuth(WC_KEY, WC_SECRET)
+        r = requests.get(
+            f"{WC_URL}/wp-json/wp/v2/posts",
+            auth=auth,
+            params={"per_page": per_page, "_fields": "id,title,slug,link", "status": "publish"},
+            timeout=15
+        )
+        posts = r.json()
+        if not isinstance(posts, list):
+            return {"error": str(posts)}
+        return [
+            {
+                "id": p.get("id"),
+                "title": p.get("title", {}).get("rendered", ""),
+                "slug": p.get("slug", ""),
+                "link": p.get("link", ""),
+            }
+            for p in posts
+        ]
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def update_post(post_id, data):
     try:
         auth = HTTPBasicAuth(WP_USER, WP_PASSWORD) if WP_USER else HTTPBasicAuth(WC_KEY, WC_SECRET)
@@ -159,6 +206,28 @@ FLUJO PARA ARTICULOS:
 3. Pide confirmacion antes de publicar
 4. Usa create_post para publicar en WordPress
 5. Confirma con el link del articulo publicado
+
+REGLAS PARA INTERLINKS Y LINKS EXTERNOS:
+- Links inter-blog (entre artículos del blog):
+  • Usa get_all_posts_catalog() para ver todos los artículos publicados
+  • Agrega 3-6 links a otros posts del blog que sean temáticamente relevantes
+  • Formato: <a href="URL_DEL_POST">Título o texto descriptivo</a>
+- Links a productos de la tienda:
+  • Usa get_products() para obtener slugs
+  • Agrega 4-8 links a productos relevantes al tema del artículo
+  • Formato: <a href="URL_PRODUCTO">Nombre del producto</a>
+- Links externos a fuentes de autoridad:
+  • Sitios válidos: PubMed (pubmed.ncbi.nlm.nih.gov), examine.com, NIH (nih.gov), FDA (fda.gov), NEJM (nejm.org), Mayo Clinic, Healthline, WebMD
+  • Agrega 3-5 links externos relevantes al tema
+  • Formato: <a href="URL" target="_blank" rel="noopener noreferrer">Texto descriptivo</a>
+- Insertar los links de forma NATURAL dentro del texto, no todos juntos al final
+- Flujo para agregar/mejorar links en un blog existente:
+  1. get_post_content(post_id) → leer el contenido HTML actual
+  2. get_all_posts_catalog() → mapa completo de interlinks disponibles
+  3. get_products(per_page=30) → productos para linkear
+  4. Genera el HTML completo con los links integrados naturalmente
+  5. Muestra resumen de links que agregarás y pide confirmación
+  6. update_post(post_id, {content: HTML_optimizado}) → actualiza el post
 
 GOOGLE SEARCH CONSOLE:
 - gsc_top_queries: qué búsquedas traen tráfico real → optimiza títulos/meta para esas keywords exactas
@@ -311,6 +380,27 @@ TOOLS = [
                 "url": {"type": "string", "description": "URL completa a indexar"}
             }
         }
+    },
+    {
+        "name": "get_post_content",
+        "description": "Obtiene el contenido HTML completo de un post de blog específico. Úsala SIEMPRE antes de editar un post para leer su contenido actual y no perder texto existente.",
+        "input_schema": {
+            "type": "object",
+            "required": ["post_id"],
+            "properties": {
+                "post_id": {"type": "integer", "description": "ID del post en WordPress"}
+            }
+        }
+    },
+    {
+        "name": "get_all_posts_catalog",
+        "description": "Obtiene TODOS los artículos del blog publicados con sus URLs completas. Úsala para construir el mapa de interlinks: así sabes qué otros artículos existen y puedes linkear entre ellos de forma relevante.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "per_page": {"type": "integer", "default": 100, "description": "Máximo de posts a obtener (hasta 100)"}
+            }
+        }
     }
 ]
 
@@ -350,6 +440,10 @@ def run_tool(name, inputs):
         return gsc_inspect_url(inputs["url"])
     elif name == "gsc_request_indexing":
         return gsc_request_indexing(inputs["url"])
+    elif name == "get_post_content":
+        return get_post_content(inputs["post_id"])
+    elif name == "get_all_posts_catalog":
+        return get_all_posts_catalog(inputs.get("per_page", 100))
     return {"error": "herramienta desconocida"}
 
 @app.route("/")
@@ -688,25 +782,46 @@ def optimize_blog():
 
         products = get_products(per_page=30)
         products_list = "\n".join(
-            f"- {p['name']} (slug: {p['slug']})" for p in products if isinstance(p, dict) and "name" in p
+            f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
+            for p in products if isinstance(p, dict) and "name" in p
         )
 
-        prompt = f"""Eres un experto SEO. Tienes este artículo de blog recién publicado en peptidosysuplementos.mx:
+        all_posts = get_all_posts_catalog(per_page=100)
+        other_posts = [
+            p for p in all_posts
+            if isinstance(p, dict) and str(p.get("id", "")) != str(post_id)
+        ]
+        posts_list = "\n".join(
+            f"- {p['title']} ({p['link']})"
+            for p in other_posts if isinstance(p, dict) and p.get("title")
+        )
+
+        prompt = f"""Eres un experto SEO. Tienes este artículo de blog en peptidosysuplementos.mx:
 
 TÍTULO: {title}
 URL: {url}
 POST ID: {post_id}
 
 CONTENIDO ACTUAL (HTML):
-{content[:6000]}
+{content[:5000]}
 
-PRODUCTOS DISPONIBLES EN LA TIENDA:
-{products_list}
+OTROS ARTÍCULOS DEL BLOG (para interlinks):
+{posts_list[:2000] if posts_list else "No hay otros artículos disponibles aún."}
 
-Tu tarea:
-1. Agrega entre 4 y 8 links internos a productos relevantes de la lista. Usa el formato: <a href="{WC_URL}/producto/SLUG">Nombre del producto</a>
-2. Asegúrate de que el contenido tenga al menos un H2 y una conclusión con llamada a la acción
-3. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra
+PRODUCTOS DE LA TIENDA (para links internos a productos):
+{products_list[:2000]}
+
+Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto existente:
+1. INTERLINKS (3-6 links): enlaza a otros artículos del blog que sean temáticamente relevantes.
+   Formato: <a href="URL_DEL_POST">texto descriptivo</a>
+2. LINKS A PRODUCTOS (4-8 links): enlaza a productos relevantes de la tienda.
+   Formato: <a href="URL_PRODUCTO">nombre del producto</a>
+3. LINKS EXTERNOS (3-5 links): enlaza a fuentes científicas de autoridad relevantes al tema
+   (PubMed, examine.com, NIH, FDA, NEJM, Mayo Clinic). Solo URLs reales y verificables.
+   Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
+4. Asegúrate de que el contenido tenga al menos un H2 y una conclusión con llamada a la acción.
+5. NO inventes productos ni posts que no estén en las listas anteriores.
+6. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
 
 Devuelve solo el HTML listo para WordPress."""
 
@@ -723,7 +838,13 @@ Devuelve solo el HTML listo para WordPress."""
         result = update_post(post_id, {"content": optimized_content})
 
         if result.get("success"):
-            return jsonify({"success": True, "post_id": post_id, "url": result.get("link", url)})
+            return jsonify({
+                "success": True,
+                "post_id": post_id,
+                "url": result.get("link", url),
+                "interlinks_added": len(other_posts) > 0,
+                "products_linked": len(products) > 0,
+            })
         return jsonify({"error": result.get("error", "Error al actualizar post")}), 500
 
     except Exception as e:
