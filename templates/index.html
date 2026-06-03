@@ -32,6 +32,8 @@ input{flex:1;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:14px
   <button class="btn" onclick="window.open('/reporte','_blank')" style="background:#f0fdf4;color:#15803d;border-color:#86efac;">📊 Reporte SEO</button>
   <button class="btn" onclick="window.open('/search-console','_blank')" style="background:#eff6ff;color:#1d4ed8;border-color:#93c5fd;">🔍 Search Console</button>
   <button class="btn" onclick="abrirBatch()" style="background:#fefce8;color:#854d0e;border-color:#fde047;">⚡ Batch optimize</button>
+  <button class="btn" onclick="abrirBatchLinks()" style="background:#f0fdf4;color:#166534;border-color:#86efac;">🔗 Batch links</button>
+  <button class="btn" onclick="abrirAuditoria()" style="background:#fdf4ff;color:#7e22ce;border-color:#d8b4fe;">🔍 Auditoría blogs</button>
   <button class="btn btn-danger" onclick="clearChat()">Nueva sesion</button>
 </div>
 <!-- Modal batch optimize -->
@@ -51,6 +53,53 @@ input{flex:1;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:14px
     <div style="display:flex;gap:8px;">
       <button onclick="iniciarBatch()" id="btn-batch-start" style="flex:1;padding:10px;background:#7c3aed;color:white;border:none;border-radius:8px;cursor:pointer;font-size:14px;">Iniciar</button>
       <button onclick="cerrarBatch()" style="padding:10px 16px;background:#2a2a2a;color:#eee;border:none;border-radius:8px;cursor:pointer;">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal batch links -->
+<div id="batch-links-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center;">
+  <div style="background:#1a1a1a;border-radius:12px;padding:28px;width:440px;max-width:90vw;">
+    <h3 style="margin:0 0 8px;color:#eee;">🔗 Agregar Links en Batch</h3>
+    <p style="color:#aaa;font-size:13px;margin:0 0 16px;">Agrega interlinks, links a productos y links externos a todos los blogs publicados.</p>
+    <div id="links-progress" style="display:none;margin-bottom:16px;">
+      <div style="background:#2a2a2a;border-radius:99px;height:10px;margin-bottom:8px;">
+        <div id="links-bar" style="background:#22c55e;height:10px;border-radius:99px;width:0%;transition:width 0.5s;"></div>
+      </div>
+      <p id="links-msg" style="color:#aaa;font-size:13px;margin:0;"></p>
+    </div>
+    <div id="links-results" style="display:none;max-height:200px;overflow-y:auto;margin-bottom:16px;font-size:12px;"></div>
+    <div style="display:flex;gap:8px;">
+      <button onclick="iniciarBatchLinks()" id="btn-links-start" style="flex:1;padding:10px;background:#22c55e;color:white;border:none;border-radius:8px;cursor:pointer;font-size:14px;">Iniciar todos los blogs</button>
+      <button onclick="cerrarBatchLinks()" style="padding:10px 16px;background:#2a2a2a;color:#eee;border:none;border-radius:8px;cursor:pointer;">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal auditoría blogs -->
+<div id="audit-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center;">
+  <div style="background:#1a1a1a;border-radius:12px;padding:28px;width:720px;max-width:95vw;max-height:90vh;overflow-y:auto;">
+    <h3 style="margin:0 0 8px;color:#eee;">🔍 Auditoría de Blogs</h3>
+    <p style="color:#aaa;font-size:13px;margin:0 0 16px;">Estado de interlinks, links externos y schema markup por blog.</p>
+    <div id="audit-loading" style="color:#aaa;font-size:13px;">Cargando...</div>
+    <div id="audit-table" style="display:none;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead>
+          <tr style="background:#2a2a2a;">
+            <th style="padding:8px;text-align:left;color:#aaa;">Blog</th>
+            <th style="padding:8px;text-align:center;color:#aaa;">Interlinks</th>
+            <th style="padding:8px;text-align:center;color:#aaa;">Productos</th>
+            <th style="padding:8px;text-align:center;color:#aaa;">Externos</th>
+            <th style="padding:8px;text-align:center;color:#aaa;">Schema</th>
+            <th style="padding:8px;text-align:center;color:#aaa;">Estado</th>
+          </tr>
+        </thead>
+        <tbody id="audit-tbody"></tbody>
+      </table>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:8px;">
+      <button onclick="cargarAuditoria()" style="padding:10px 16px;background:#7c3aed;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px;">🔄 Actualizar</button>
+      <button onclick="cerrarAuditoria()" style="padding:10px 16px;background:#2a2a2a;color:#eee;border:none;border-radius:8px;cursor:pointer;">Cerrar</button>
     </div>
   </div>
 </div>
@@ -153,6 +202,109 @@ function enviar() {
 }
 
 var batchPoller = null;
+var linksPoller = null;
+
+function abrirBatchLinks() {
+  document.getElementById('batch-links-modal').style.display = 'flex';
+  document.getElementById('links-progress').style.display = 'none';
+  document.getElementById('links-results').style.display = 'none';
+  document.getElementById('btn-links-start').disabled = false;
+  document.getElementById('links-bar').style.width = '0%';
+}
+
+function cerrarBatchLinks() {
+  clearInterval(linksPoller);
+  document.getElementById('batch-links-modal').style.display = 'none';
+}
+
+function iniciarBatchLinks() {
+  document.getElementById('btn-links-start').disabled = true;
+  document.getElementById('links-progress').style.display = 'block';
+  document.getElementById('links-results').style.display = 'none';
+  document.getElementById('links-msg').textContent = 'Iniciando...';
+  document.getElementById('links-bar').style.width = '0%';
+  fetch('/batch-add-links', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({all: true})
+  }).then(r => r.json()).then(data => {
+    if (data.error) {
+      document.getElementById('links-msg').textContent = '❌ ' + data.error;
+      document.getElementById('btn-links-start').disabled = false;
+      return;
+    }
+    linksPoller = setInterval(pollLinks, 3000);
+  });
+}
+
+function pollLinks() {
+  fetch('/batch-links-status').then(r => r.json()).then(s => {
+    var pct = s.total > 0 ? Math.round((s.done + s.errors) / s.total * 100) : 0;
+    document.getElementById('links-bar').style.width = pct + '%';
+    if (s.running) {
+      document.getElementById('links-msg').textContent = '⏳ ' + (s.done + s.errors) + ' / ' + s.total + ' blogs procesados...';
+    } else {
+      clearInterval(linksPoller);
+      document.getElementById('links-msg').textContent = '✅ Listo — ' + s.done + ' optimizados, ' + s.errors + ' errores';
+      document.getElementById('links-bar').style.background = s.errors > 0 ? '#f59e0b' : '#22c55e';
+      document.getElementById('btn-links-start').disabled = false;
+      if (s.results && s.results.length) {
+        var html = s.results.map(function(r) {
+          var color = r.status === 'ok' ? '#22c55e' : '#ef4444';
+          return '<div style="padding:4px 0;border-bottom:1px solid #2a2a2a;color:' + color + '">' +
+            (r.status === 'ok' ? '✅' : '❌') + ' ' + (r.title || 'ID ' + r.post_id) + '</div>';
+        }).join('');
+        document.getElementById('links-results').innerHTML = html;
+        document.getElementById('links-results').style.display = 'block';
+      }
+    }
+  });
+}
+
+function abrirAuditoria() {
+  document.getElementById('audit-modal').style.display = 'flex';
+  cargarAuditoria();
+}
+
+function cerrarAuditoria() {
+  document.getElementById('audit-modal').style.display = 'none';
+}
+
+function cargarAuditoria() {
+  document.getElementById('audit-loading').style.display = 'block';
+  document.getElementById('audit-table').style.display = 'none';
+  fetch('/blogs/audit').then(r => r.json()).then(data => {
+    document.getElementById('audit-loading').style.display = 'none';
+    if (!Array.isArray(data) || data.length === 0) {
+      document.getElementById('audit-loading').textContent = 'No hay blogs publicados.';
+      document.getElementById('audit-loading').style.display = 'block';
+      return;
+    }
+    var rows = data.map(function(b) {
+      var estado = b.needs_attention
+        ? '<span style="color:#f59e0b;font-weight:bold;">⚠ Necesita</span>'
+        : '<span style="color:#22c55e;">✅ OK</span>';
+      var schema = b.has_schema
+        ? '<span style="color:#22c55e;">✅</span>'
+        : '<span style="color:#ef4444;">✗</span>';
+      var title = b.link
+        ? '<a href="' + b.link + '" target="_blank" style="color:#818cf8;text-decoration:none;">' + (b.title || 'Sin título') + '</a>'
+        : (b.title || 'Sin título');
+      return '<tr style="border-bottom:1px solid #2a2a2a;">' +
+        '<td style="padding:8px;max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + title + '</td>' +
+        '<td style="padding:8px;text-align:center;color:' + (b.interlinks >= 3 ? '#22c55e' : '#ef4444') + ';">' + (b.interlinks || 0) + '</td>' +
+        '<td style="padding:8px;text-align:center;color:' + (b.product_links >= 2 ? '#22c55e' : '#ef4444') + ';">' + (b.product_links || 0) + '</td>' +
+        '<td style="padding:8px;text-align:center;color:' + (b.external_links >= 2 ? '#22c55e' : '#ef4444') + ';">' + (b.external_links || 0) + '</td>' +
+        '<td style="padding:8px;text-align:center;">' + schema + '</td>' +
+        '<td style="padding:8px;text-align:center;">' + estado + '</td>' +
+        '</tr>';
+    }).join('');
+    document.getElementById('audit-tbody').innerHTML = rows;
+    document.getElementById('audit-table').style.display = 'block';
+  }).catch(function(e) {
+    document.getElementById('audit-loading').textContent = 'Error: ' + e.message;
+  });
+}
 
 function abrirBatch() {
   fetch('/report').then(r => r.json()).then(data => {

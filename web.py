@@ -25,6 +25,7 @@ WC_KEY = os.environ.get("WOOCOMMERCE_KEY", "")
 WC_SECRET = os.environ.get("WOOCOMMERCE_SECRET", "")
 WP_USER = os.environ.get("WP_USER", "")
 WP_PASSWORD = os.environ.get("WP_PASSWORD", "")
+WEBHOOK_URL = os.environ.get("WEBHOOK_URL", "")
 
 # ─── JWT Auth ────────────────────────────────────────────────────────────────
 
@@ -190,6 +191,71 @@ def get_all_posts_catalog(per_page=100):
         return {"error": str(e)}
 
 
+def get_products_full(per_page=10):
+    try:
+        r = requests.get(
+            f"{WC_URL}/wp-json/wc/v3/products",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params={"per_page": per_page, "status": "publish",
+                    "_fields": "id,name,short_description,description,slug,images,meta_data"},
+            timeout=15
+        )
+        result = []
+        for p in r.json():
+            meta = {m["key"]: m["value"] for m in p.get("meta_data", [])
+                    if m["key"] in ["_yoast_wpseo_title", "_yoast_wpseo_metadesc"]}
+            images = p.get("images", [])
+            result.append({
+                "id": p.get("id"),
+                "name": p.get("name"),
+                "short_description": p.get("short_description", "")[:150],
+                "description": p.get("description", "")[:300],
+                "slug": p.get("slug"),
+                "yoast_title": meta.get("_yoast_wpseo_title", ""),
+                "yoast_metadesc": meta.get("_yoast_wpseo_metadesc", ""),
+                "image_alt": images[0].get("alt", "") if images else "",
+                "image_id": images[0].get("id") if images else None,
+            })
+        return result
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def update_product_full(product_id, data):
+    try:
+        payload = {}
+        for field in ("name", "short_description", "description"):
+            if field in data:
+                payload[field] = data[field]
+        if "image_alt" in data:
+            r_get = requests.get(
+                f"{WC_URL}/wp-json/wc/v3/products/{product_id}",
+                auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+                params={"_fields": "images"}, timeout=15
+            )
+            images = r_get.json().get("images", [])
+            if images:
+                payload["images"] = [{"id": img["id"], "alt": data["image_alt"]} for img in images]
+        meta_updates = {}
+        if "yoast_title" in data:
+            meta_updates["_yoast_wpseo_title"] = data["yoast_title"]
+        if "yoast_metadesc" in data:
+            meta_updates["_yoast_wpseo_metadesc"] = data["yoast_metadesc"]
+        if meta_updates:
+            payload["meta_data"] = [{"key": k, "value": v} for k, v in meta_updates.items()]
+        r = requests.put(
+            f"{WC_URL}/wp-json/wc/v3/products/{product_id}",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            json=payload, timeout=15
+        )
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": product_id, "name": result.get("name")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def update_post(post_id, data):
     try:
         r = requests.post(
@@ -204,6 +270,84 @@ def update_post(post_id, data):
         return {"error": str(result)}
     except Exception as e:
         return {"error": str(e)}
+
+def blogs_audit():
+    from bs4 import BeautifulSoup
+    site_domain = WC_URL.replace("https://", "").replace("http://", "").split("/")[0]
+    posts = get_all_posts_catalog(per_page=100)
+    if isinstance(posts, dict) and "error" in posts:
+        return posts
+    results = []
+    for post in posts:
+        if not isinstance(post, dict):
+            continue
+        post_data = get_post_content(post["id"])
+        if "error" in post_data:
+            results.append({"id": post["id"], "title": post["title"], "link": post.get("link", ""), "error": post_data["error"]})
+            continue
+        content = post_data.get("content", "")
+        soup = BeautifulSoup(content, "html.parser")
+        links = soup.find_all("a", href=True)
+        internal = [l["href"] for l in links if site_domain in l.get("href", "")]
+        external = [l["href"] for l in links if l.get("href", "").startswith("http") and site_domain not in l.get("href", "")]
+        product_links = [l for l in internal if "/producto/" in l]
+        interlinks = [l for l in internal if "/producto/" not in l and l != post.get("link", "")]
+        has_schema = "application/ld+json" in content
+        results.append({
+            "id": post["id"],
+            "title": post["title"],
+            "link": post.get("link", ""),
+            "interlinks": len(interlinks),
+            "product_links": len(product_links),
+            "external_links": len(external),
+            "has_schema": has_schema,
+            "needs_attention": len(interlinks) < 3 or len(external) < 2 or len(product_links) < 2,
+        })
+    return results
+
+
+def check_broken_links(post_id):
+    from bs4 import BeautifulSoup
+    post = get_post_content(post_id)
+    if "error" in post:
+        return post
+    soup = BeautifulSoup(post.get("content", ""), "html.parser")
+    urls = list({a["href"] for a in soup.find_all("a", href=True) if a["href"].startswith("http")})
+    results = []
+    for url in urls:
+        try:
+            r = requests.head(url, timeout=8, allow_redirects=True, headers={"User-Agent": "Mozilla/5.0"})
+            results.append({"url": url, "status": r.status_code, "ok": r.status_code < 400})
+        except Exception as e:
+            results.append({"url": url, "status": None, "ok": False, "error": str(e)})
+    broken = [r for r in results if not r["ok"]]
+    return {"post_id": post_id, "title": post.get("title", ""), "total": len(results), "broken_count": len(broken), "broken": broken}
+
+
+def add_schema_markup(post_id, schema_type="Article"):
+    post = get_post_content(post_id)
+    if "error" in post:
+        return post
+    content = post.get("content", "")
+    if "application/ld+json" in content:
+        return {"error": "El post ya tiene schema markup. Usa update_post para modificarlo si necesitas."}
+    title = post.get("title", "")
+    url = post.get("link", "")
+    if schema_type == "Article":
+        schema = {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": title,
+            "url": url,
+            "publisher": {"@type": "Organization", "name": "Peptidos y Suplementos", "url": WC_URL}
+        }
+    elif schema_type == "FAQPage":
+        schema = {"@context": "https://schema.org", "@type": "FAQPage", "name": title, "url": url, "mainEntity": []}
+    else:
+        schema = {"@context": "https://schema.org", "@type": schema_type, "name": title, "url": url}
+    schema_tag = f'\n<script type="application/ld+json">\n{json.dumps(schema, ensure_ascii=False, indent=2)}\n</script>'
+    return update_post(post_id, {"content": content + schema_tag})
+
 
 SYSTEM = """Eres un agente SEO especializado para peptidosysuplementos.mx.
 
@@ -261,9 +405,26 @@ REGLAS PARA INTERLINKS Y LINKS EXTERNOS:
 GOOGLE SEARCH CONSOLE:
 - gsc_top_queries: qué búsquedas traen tráfico real → optimiza títulos/meta para esas keywords exactas
 - gsc_page_performance: qué páginas rinden mejor → aprende qué estructura y temas funcionan
+- gsc_ctr_opportunities: keywords con muchas impresiones pero CTR bajo — mejora títulos/meta para subir clicks
+- gsc_keyword_cannibalization: detecta si dos páginas compiten por la misma keyword → consolida o diferencia
+- gsc_position_drops: páginas que bajaron de posición en Google esta semana vs la anterior
 - gsc_inspect_url: verificar si una URL está indexada antes de reportar problema o después de publicar
 - gsc_request_indexing: después de publicar un blog nuevo, solicita indexación inmediata a Google
-- Cuando el usuario pida "analiza el SEO" o "qué keywords tenemos", empieza con gsc_top_queries + gsc_page_performance
+- Cuando el usuario pida "analiza el SEO" o "qué keywords tenemos", empieza con gsc_top_queries + gsc_ctr_opportunities
+
+AUDITORÍA DE BLOGS:
+- blogs_audit: antes de optimizar links, usa esto para ver qué blogs tienen menos interlinks/links externos — prioriza por necesidad
+- check_broken_links: verifica links rotos en un post específico antes de reportarlo como problema
+- add_schema_markup: agrega JSON-LD (Article o FAQPage) a posts que aún no tienen — mejora featured snippets
+
+SEO AVANZADO DE PRODUCTOS:
+- get_products_full: obtiene yoast_title, yoast_metadesc, descripción larga e imagen alt
+- update_product_full: actualiza meta title, meta description, descripción larga e alt text de imagen
+- Prioriza: primero short_description y title, luego yoast_title/metadesc, luego description larga y alt text
+
+MEMORIA:
+- remember_instruction: guarda reglas, preferencias o contexto que debes recordar entre sesiones
+- recall_memory: recupera lo que guardaste anteriormente antes de responder preguntas de estrategia
 
 Siempre usa las herramientas para obtener datos reales antes de proponer cambios.
 Pide confirmacion antes de aplicar cualquier cambio.
@@ -432,6 +593,93 @@ TOOLS = [
         }
     },
     {
+        "name": "get_products_full",
+        "description": "Obtiene productos con campos SEO completos: yoast_title, yoast_metadesc, description larga e image alt text. Usa esta en lugar de get_products cuando necesites optimizar SEO avanzado de productos.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "per_page": {"type": "integer", "default": 10, "description": "Cantidad de productos"}
+            }
+        }
+    },
+    {
+        "name": "update_product_full",
+        "description": "Actualiza campos SEO completos de un producto: titulo, descripcion corta, descripcion larga, yoast_title (meta title), yoast_metadesc y alt text de imagen principal.",
+        "input_schema": {
+            "type": "object",
+            "required": ["product_id"],
+            "properties": {
+                "product_id": {"type": "integer"},
+                "name": {"type": "string", "description": "Titulo (max 60 chars)"},
+                "short_description": {"type": "string", "description": "Descripcion corta (130-160 chars, texto plano)"},
+                "description": {"type": "string", "description": "Descripcion larga en HTML"},
+                "yoast_title": {"type": "string", "description": "Meta title para Google (max 60 chars)"},
+                "yoast_metadesc": {"type": "string", "description": "Meta description para Google (130-160 chars)"},
+                "image_alt": {"type": "string", "description": "Texto alternativo de la imagen principal"}
+            }
+        }
+    },
+    {
+        "name": "blogs_audit",
+        "description": "Audita TODOS los blogs publicados: cuenta interlinks, links a productos, links externos y si tienen schema markup. Devuelve cuales necesitan atencion. Usala antes de decidir que blogs optimizar primero.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "check_broken_links",
+        "description": "Verifica que los links externos e internos de un post especifico esten activos (responden HTTP 200). Devuelve lista de links rotos.",
+        "input_schema": {
+            "type": "object",
+            "required": ["post_id"],
+            "properties": {
+                "post_id": {"type": "integer", "description": "ID del post a verificar"}
+            }
+        }
+    },
+    {
+        "name": "add_schema_markup",
+        "description": "Agrega schema markup JSON-LD a un post para mejorar featured snippets en Google. Tipos: Article (default), FAQPage.",
+        "input_schema": {
+            "type": "object",
+            "required": ["post_id"],
+            "properties": {
+                "post_id": {"type": "integer"},
+                "schema_type": {"type": "string", "description": "Article o FAQPage", "default": "Article"}
+            }
+        }
+    },
+    {
+        "name": "gsc_ctr_opportunities",
+        "description": "Encuentra keywords con muchas impresiones pero CTR bajo (menor al 3%) — son las mejores oportunidades para mejorar titulos y meta descriptions y aumentar clicks sin mejorar posicion.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "days": {"type": "integer", "default": 28},
+                "min_impressions": {"type": "integer", "default": 50, "description": "Minimo de impresiones para considerar"},
+                "limit": {"type": "integer", "default": 15}
+            }
+        }
+    },
+    {
+        "name": "gsc_keyword_cannibalization",
+        "description": "Detecta canibalización de keywords: keywords para las que dos o mas paginas del sitio compiten en Google. Esto divide el link juice y reduce el ranking de ambas.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "days": {"type": "integer", "default": 28}
+            }
+        }
+    },
+    {
+        "name": "gsc_position_drops",
+        "description": "Detecta paginas que cayeron de posicion en Google comparando snapshots semanales. Requiere al menos 2 semanas de historial.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "threshold": {"type": "integer", "default": 5, "description": "Caida minima de posiciones para reportar"}
+            }
+        }
+    },
+    {
         "name": "remember_instruction",
         "description": "Guarda una instrucción o dato importante en la memoria persistente del agente. Úsala cuando el usuario te dé una preferencia, regla o contexto que debe recordarse entre sesiones.",
         "input_schema": {
@@ -495,6 +743,22 @@ def run_tool(name, inputs):
         return get_post_content(inputs["post_id"])
     elif name == "get_all_posts_catalog":
         return get_all_posts_catalog(inputs.get("per_page", 100))
+    elif name == "get_products_full":
+        return get_products_full(inputs.get("per_page", 10))
+    elif name == "update_product_full":
+        return update_product_full(inputs["product_id"], {k: inputs[k] for k in inputs if k != "product_id"})
+    elif name == "blogs_audit":
+        return blogs_audit()
+    elif name == "check_broken_links":
+        return check_broken_links(inputs["post_id"])
+    elif name == "add_schema_markup":
+        return add_schema_markup(inputs["post_id"], inputs.get("schema_type", "Article"))
+    elif name == "gsc_ctr_opportunities":
+        return gsc_ctr_opportunities(inputs.get("days", 28), inputs.get("min_impressions", 50), inputs.get("limit", 15))
+    elif name == "gsc_keyword_cannibalization":
+        return gsc_keyword_cannibalization(inputs.get("days", 28))
+    elif name == "gsc_position_drops":
+        return gsc_position_drops(inputs.get("threshold", 5))
     elif name == "remember_instruction":
         return remember_instruction(inputs["key"], inputs["value"])
     elif name == "recall_memory":
@@ -573,6 +837,76 @@ def recall_memory(key=None):
         if key:
             return {"key": key, "value": memory.get(key, {}).get("value", "No encontrado")}
         return {"memory": {k: v["value"] for k, v in memory.items()}}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+GSC_HISTORY_FILE = os.path.join(_data_dir, "gsc_history.json")
+
+
+def send_webhook_notification(payload):
+    if not WEBHOOK_URL:
+        return
+    try:
+        requests.post(WEBHOOK_URL, json=payload, timeout=10)
+        print("[Webhook] Notificacion enviada")
+    except Exception as e:
+        print(f"[Webhook] Error: {e}")
+
+
+def save_gsc_snapshot():
+    if not GSC_REFRESH_TOKEN:
+        return {}
+    try:
+        rows = fetch_gsc_data("page", 7, 50)
+        snapshot = {
+            "date": datetime.now().isoformat(),
+            "pages": {
+                r["keys"][0]: {
+                    "clicks": r.get("clicks", 0),
+                    "impressions": r.get("impressions", 0),
+                    "position": round(r.get("position", 0), 1)
+                }
+                for r in rows
+            }
+        }
+        history = []
+        if os.path.exists(GSC_HISTORY_FILE):
+            with open(GSC_HISTORY_FILE, "r", encoding="utf-8") as f:
+                history = json.load(f)
+        history.append(snapshot)
+        history = history[-12:]
+        with open(GSC_HISTORY_FILE, "w", encoding="utf-8") as f:
+            json.dump(history, f, ensure_ascii=False, indent=2)
+        return snapshot
+    except Exception as e:
+        print(f"[GSC History] Error: {e}")
+        return {}
+
+
+def gsc_position_drops(threshold=5):
+    if not os.path.exists(GSC_HISTORY_FILE):
+        return {"error": "Sin historial aun. El snapshot se genera cada lunes automaticamente."}
+    try:
+        with open(GSC_HISTORY_FILE, "r", encoding="utf-8") as f:
+            history = json.load(f)
+        if len(history) < 2:
+            return {"error": "Se necesitan al menos 2 snapshots para comparar. Vuelve la proxima semana."}
+        prev = history[-2]["pages"]
+        curr = history[-1]["pages"]
+        drops = []
+        for url, curr_data in curr.items():
+            if url in prev:
+                drop = curr_data["position"] - prev[url]["position"]
+                if drop >= threshold:
+                    drops.append({
+                        "url": url.replace("https://peptidosysuplementos.mx", ""),
+                        "prev_position": prev[url]["position"],
+                        "curr_position": curr_data["position"],
+                        "drop": round(drop, 1),
+                        "clicks": curr_data["clicks"]
+                    })
+        return sorted(drops, key=lambda x: x["drop"], reverse=True)
     except Exception as e:
         return {"error": str(e)}
 
@@ -728,8 +1062,41 @@ def report_html():
     return html
 
 
+@app.route("/memory")
+def memory_get():
+    mem = recall_memory()
+    return jsonify({"instructions": mem.get("memory", {})})
+
+
+@app.route("/memory/clear", methods=["POST"])
+def memory_clear():
+    try:
+        if os.path.exists(MEMORY_FILE):
+            with open(MEMORY_FILE, "w", encoding="utf-8") as f:
+                json.dump({}, f)
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/blogs/audit")
+def blogs_audit_endpoint():
+    return jsonify(blogs_audit())
+
+
 def run_weekly_report():
-    schedule.every().monday.at("09:00").do(generate_seo_report)
+    def weekly_job():
+        report = generate_seo_report()
+        save_gsc_snapshot()
+        send_webhook_notification({
+            "type": "weekly_report",
+            "date": datetime.now().isoformat(),
+            "total": report.get("total", 0),
+            "optimized": report.get("optimized", 0),
+            "pending": report.get("pending", 0),
+            "pct_optimized": report.get("pct_optimized", 0),
+        })
+    schedule.every().monday.at("09:00").do(weekly_job)
     while True:
         schedule.run_pending()
         threading.Event().wait(60)
@@ -1286,6 +1653,74 @@ def get_gsc_service():
         scopes=GSC_SCOPES
     )
     return build("searchconsole", "v1", credentials=creds, cache_discovery=False)
+
+
+def fetch_gsc_data_multi(dimensions, days=28, limit=100):
+    service = get_gsc_service()
+    end_date = datetime.now().strftime("%Y-%m-%d")
+    start_date = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
+    result = service.searchanalytics().query(
+        siteUrl=GSC_SITE_URL,
+        body={
+            "startDate": start_date,
+            "endDate": end_date,
+            "dimensions": dimensions,
+            "rowLimit": limit,
+            "orderBy": [{"fieldName": "clicks", "sortOrder": "DESCENDING"}]
+        }
+    ).execute()
+    return result.get("rows", [])
+
+
+def gsc_ctr_opportunities(days=28, min_impressions=50, limit=15):
+    if not GSC_REFRESH_TOKEN:
+        return {"error": "GSC no autenticado"}
+    try:
+        rows = fetch_gsc_data("query", days, 100)
+        opportunities = [
+            {
+                "query": r["keys"][0],
+                "impressions": r.get("impressions", 0),
+                "clicks": r.get("clicks", 0),
+                "ctr_pct": round(r.get("ctr", 0) * 100, 1),
+                "position": round(r.get("position", 0), 1),
+                "potential_clicks": round(r.get("impressions", 0) * 0.05) - r.get("clicks", 0),
+            }
+            for r in rows
+            if r.get("impressions", 0) >= min_impressions and r.get("ctr", 0) < 0.03
+        ]
+        return sorted(opportunities, key=lambda x: x["impressions"], reverse=True)[:limit]
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def gsc_keyword_cannibalization(days=28):
+    if not GSC_REFRESH_TOKEN:
+        return {"error": "GSC no autenticado"}
+    try:
+        rows = fetch_gsc_data_multi(["query", "page"], days, 200)
+        query_pages = {}
+        for r in rows:
+            query = r["keys"][0]
+            page = r["keys"][1].replace("https://peptidosysuplementos.mx", "")
+            impressions = r.get("impressions", 0)
+            if impressions < 10:
+                continue
+            if query not in query_pages:
+                query_pages[query] = []
+            query_pages[query].append({
+                "page": page,
+                "clicks": r.get("clicks", 0),
+                "impressions": impressions,
+                "position": round(r.get("position", 0), 1)
+            })
+        cannibalized = [
+            {"query": q, "pages": pages, "total_impressions": sum(p["impressions"] for p in pages)}
+            for q, pages in query_pages.items() if len(pages) > 1
+        ]
+        return sorted(cannibalized, key=lambda x: x["total_impressions"], reverse=True)[:20]
+    except Exception as e:
+        return {"error": str(e)}
 
 
 def fetch_gsc_data(dimension, days=28, limit=10):
