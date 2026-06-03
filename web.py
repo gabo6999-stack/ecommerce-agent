@@ -1,5 +1,5 @@
 ﻿from flask import Flask, request, jsonify, redirect, session
-import anthropic, os, requests, schedule, threading, json, secrets
+import anthropic, os, requests, schedule, threading, json, secrets, time
 from requests.auth import HTTPBasicAuth
 from datetime import datetime, timedelta
 from google.oauth2.credentials import Credentials
@@ -25,6 +25,39 @@ WC_KEY = os.environ.get("WOOCOMMERCE_KEY", "")
 WC_SECRET = os.environ.get("WOOCOMMERCE_SECRET", "")
 WP_USER = os.environ.get("WP_USER", "")
 WP_PASSWORD = os.environ.get("WP_PASSWORD", "")
+
+# ─── JWT Auth ────────────────────────────────────────────────────────────────
+
+_jwt_cache = {"token": None, "expires": 0}
+
+def get_jwt_token():
+    global _jwt_cache
+    if _jwt_cache["token"] and time.time() < _jwt_cache["expires"]:
+        return _jwt_cache["token"]
+    try:
+        r = requests.post(
+            f"{WC_URL}/wp-json/jwt-auth/v1/token",
+            json={"username": WP_USER, "password": WP_PASSWORD},
+            timeout=15
+        )
+        data = r.json()
+        token = data.get("token") or data.get("data", {}).get("token")
+        if not token:
+            print(f"[JWT] Error obteniendo token: {data}")
+            return None
+        _jwt_cache = {"token": token, "expires": time.time() + 6 * 24 * 3600}
+        print("[JWT] Token obtenido correctamente")
+        return token
+    except Exception as e:
+        print(f"[JWT] Excepción: {e}")
+        return None
+
+def jwt_headers():
+    token = get_jwt_token()
+    if token:
+        return {"Authorization": f"Bearer {token}"}
+    return {}
+
 
 def get_products(per_page=10):
     try:
@@ -115,10 +148,9 @@ def get_posts(per_page=10):
 
 def get_post_content(post_id):
     try:
-        auth = HTTPBasicAuth(WP_USER, WP_PASSWORD) if WP_USER else HTTPBasicAuth(WC_KEY, WC_SECRET)
         r = requests.get(
             f"{WC_URL}/wp-json/wp/v2/posts/{post_id}",
-            auth=auth,
+            headers=jwt_headers(),
             timeout=15
         )
         p = r.json()
@@ -137,10 +169,9 @@ def get_post_content(post_id):
 
 def get_all_posts_catalog(per_page=100):
     try:
-        auth = HTTPBasicAuth(WP_USER, WP_PASSWORD) if WP_USER else HTTPBasicAuth(WC_KEY, WC_SECRET)
         r = requests.get(
             f"{WC_URL}/wp-json/wp/v2/posts",
-            auth=auth,
+            headers=jwt_headers(),
             params={"per_page": per_page, "_fields": "id,title,slug,link", "status": "publish"},
             timeout=15
         )
@@ -162,10 +193,9 @@ def get_all_posts_catalog(per_page=100):
 
 def update_post(post_id, data):
     try:
-        auth = HTTPBasicAuth(WP_USER, WP_PASSWORD)
         r = requests.post(
             f"{WC_URL}/wp-json/wp/v2/posts/{post_id}",
-            auth=auth,
+            headers=jwt_headers(),
             json=data,
             timeout=30
         )
