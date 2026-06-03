@@ -853,6 +853,7 @@ TOOLS = [
                 "title": {"type": "string", "description": "Titulo visible de la pagina (browser tab, breadcrumbs)"},
                 "yoast_title": {"type": "string", "description": "SEO title para Google (max 60 chars). Ejemplo: 'Tirzepatida en Mexico 2026 | PyS MX'"},
                 "meta_description": {"type": "string", "description": "Meta description para Google (150-160 chars)"},
+                "slug": {"type": "string", "description": "Slug de la URL (sin slashes). Ej: 'precio-de-retatrutida-en-mexico'. ADVERTENCIA: cambia la URL publica de la pagina."},
                 "content": {"type": "string", "description": "Contenido HTML completo (opcional)"}
             }
         }
@@ -940,7 +941,7 @@ def run_tool(name, inputs):
     elif name == "get_page_content":
         return get_page_content(inputs["page_id"])
     elif name == "update_page":
-        data = {k: inputs[k] for k in ["title", "content"] if k in inputs}
+        data = {k: inputs[k] for k in ["title", "content", "slug"] if k in inputs}
         meta = {}
         if "meta_description" in inputs:
             meta["_yoast_wpseo_metadesc"] = inputs["meta_description"]
