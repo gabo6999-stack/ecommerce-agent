@@ -768,6 +768,98 @@ def categories_endpoint():
     return jsonify(get_categories(per_page=50))
 
 
+@app.route("/add-links", methods=["POST"])
+def add_links():
+    """Optimiza un post existente agregando interlinks, links a productos y links externos.
+    Solo requiere post_id — el contenido se obtiene automáticamente desde WordPress."""
+    try:
+        data = request.json or {}
+        post_id = data.get("post_id")
+        if not post_id:
+            return jsonify({"error": "post_id es requerido"}), 400
+
+        post = get_post_content(post_id)
+        if "error" in post:
+            return jsonify({"error": f"No se pudo obtener el post: {post['error']}"}), 500
+
+        title = post.get("title", "")
+        content = post.get("content", "")
+        url = post.get("link", "")
+
+        if not content:
+            return jsonify({"error": "El post no tiene contenido"}), 400
+
+        products = get_products(per_page=30)
+        products_list = "\n".join(
+            f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
+            for p in products if isinstance(p, dict) and "name" in p
+        )
+
+        all_posts = get_all_posts_catalog(per_page=100)
+        other_posts = [
+            p for p in all_posts
+            if isinstance(p, dict) and str(p.get("id", "")) != str(post_id)
+        ]
+        posts_list = "\n".join(
+            f"- {p['title']} ({p['link']})"
+            for p in other_posts if isinstance(p, dict) and p.get("title")
+        )
+
+        prompt = f"""Eres un experto SEO. Tienes este artículo de blog en peptidosysuplementos.mx:
+
+TÍTULO: {title}
+URL: {url}
+POST ID: {post_id}
+
+CONTENIDO ACTUAL (HTML):
+{content[:5000]}
+
+OTROS ARTÍCULOS DEL BLOG (para interlinks entre posts):
+{posts_list[:2000] if posts_list else "No hay otros artículos disponibles aún."}
+
+PRODUCTOS DE LA TIENDA (para links internos a productos):
+{products_list[:2000]}
+
+Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto existente:
+1. INTERLINKS (3-6 links): enlaza a otros artículos del blog que sean temáticamente relevantes.
+   Formato: <a href="URL_DEL_POST">texto descriptivo</a>
+2. LINKS A PRODUCTOS (4-8 links): enlaza a productos relevantes de la tienda.
+   Formato: <a href="URL_PRODUCTO">nombre del producto</a>
+3. LINKS EXTERNOS (3-5 links): enlaza a fuentes científicas de autoridad relevantes al tema
+   (PubMed, examine.com, NIH, FDA, NEJM, Mayo Clinic). Solo URLs reales y verificables.
+   Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
+4. NO inventes productos ni posts que no estén en las listas anteriores.
+5. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
+
+Devuelve solo el HTML listo para WordPress."""
+
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=8192,
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        optimized_content = response.content[0].text.strip()
+        if optimized_content.startswith("```"):
+            optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+
+        result = update_post(post_id, {"content": optimized_content})
+
+        if result.get("success"):
+            return jsonify({
+                "success": True,
+                "post_id": post_id,
+                "title": title,
+                "url": result.get("link", url),
+                "other_posts_available": len(other_posts),
+                "products_available": len(products),
+            })
+        return jsonify({"error": result.get("error", "Error al actualizar post")}), 500
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/optimize-blog", methods=["POST"])
 def optimize_blog():
     try:
