@@ -116,7 +116,6 @@ def update_category(category_id, data):
 def create_post(title, content, slug="", meta_description="", status="publish"):
     try:
         url = f"{WC_URL}/wp-json/wp/v2/posts"
-        auth = HTTPBasicAuth(WC_KEY, WC_SECRET)
         data = {
             "title": title,
             "content": content,
@@ -125,7 +124,7 @@ def create_post(title, content, slug="", meta_description="", status="publish"):
         }
         if meta_description:
             data["meta"] = {"_yoast_wpseo_metadesc": meta_description}
-        r = requests.post(url, json=data, auth=auth, timeout=30)
+        r = requests.post(url, json=data, headers=jwt_headers(), timeout=30)
         result = r.json()
         if "id" in result:
             return {"success": True, "id": result["id"], "link": result.get("link", ""), "status": result.get("status")}
@@ -431,6 +430,28 @@ TOOLS = [
                 "per_page": {"type": "integer", "default": 100, "description": "Máximo de posts a obtener (hasta 100)"}
             }
         }
+    },
+    {
+        "name": "remember_instruction",
+        "description": "Guarda una instrucción o dato importante en la memoria persistente del agente. Úsala cuando el usuario te dé una preferencia, regla o contexto que debe recordarse entre sesiones.",
+        "input_schema": {
+            "type": "object",
+            "required": ["key", "value"],
+            "properties": {
+                "key": {"type": "string", "description": "Identificador corto, ej: 'tono_escritura', 'keyword_principal'"},
+                "value": {"type": "string", "description": "El contenido a recordar"}
+            }
+        }
+    },
+    {
+        "name": "recall_memory",
+        "description": "Recupera instrucciones o datos guardados previamente en la memoria persistente del agente.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "key": {"type": "string", "description": "Clave específica a recuperar. Si se omite, devuelve toda la memoria."}
+            }
+        }
     }
 ]
 
@@ -474,6 +495,10 @@ def run_tool(name, inputs):
         return get_post_content(inputs["post_id"])
     elif name == "get_all_posts_catalog":
         return get_all_posts_catalog(inputs.get("per_page", 100))
+    elif name == "remember_instruction":
+        return remember_instruction(inputs["key"], inputs["value"])
+    elif name == "recall_memory":
+        return recall_memory(inputs.get("key"))
     return {"error": "herramienta desconocida"}
 
 @app.route("/")
@@ -485,7 +510,7 @@ def chat():
     try:
         messages = request.json.get("messages", [])
         response = client.messages.create(
-            model="claude-sonnet-4-5",
+            model="claude-sonnet-4-6",
             max_tokens=8192,
             system=SYSTEM,
             tools=TOOLS,
@@ -507,7 +532,7 @@ def chat():
                 {"role": "user", "content": tr}
             ]
             response = client.messages.create(
-                model="claude-sonnet-4-5",
+                model="claude-sonnet-4-6",
                 max_tokens=8192,
                 system=SYSTEM,
                 tools=TOOLS,
@@ -518,8 +543,38 @@ def chat():
     except Exception as e:
         return jsonify({"reply": f"Error: {str(e)}"}), 500
 
-REPORT_FILE = "last_report.json"
+_db_path = os.environ.get("DB_PATH", "memory.db")
+_data_dir = os.path.dirname(os.path.abspath(_db_path))
+REPORT_FILE = os.path.join(_data_dir, "last_report.json")
+MEMORY_FILE = os.path.join(_data_dir, "agent_memory.json")
 _last_report = {}
+
+
+def remember_instruction(key, value):
+    try:
+        memory = {}
+        if os.path.exists(MEMORY_FILE):
+            with open(MEMORY_FILE, "r", encoding="utf-8") as f:
+                memory = json.load(f)
+        memory[key] = {"value": value, "saved_at": datetime.now().isoformat()}
+        with open(MEMORY_FILE, "w", encoding="utf-8") as f:
+            json.dump(memory, f, ensure_ascii=False, indent=2)
+        return {"success": True, "key": key}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def recall_memory(key=None):
+    try:
+        if not os.path.exists(MEMORY_FILE):
+            return {"memory": {}}
+        with open(MEMORY_FILE, "r", encoding="utf-8") as f:
+            memory = json.load(f)
+        if key:
+            return {"key": key, "value": memory.get(key, {}).get("value", "No encontrado")}
+        return {"memory": {k: v["value"] for k, v in memory.items()}}
+    except Exception as e:
+        return {"error": str(e)}
 
 
 def get_all_products():
@@ -801,10 +856,11 @@ def categories_endpoint():
 @app.route("/add-links", methods=["POST"])
 def add_links():
     """Optimiza un post existente agregando interlinks, links a productos y links externos.
-    Solo requiere post_id — el contenido se obtiene automáticamente desde WordPress."""
+    dry_run=true devuelve preview del HTML sin publicar en WordPress."""
     try:
         data = request.json or {}
         post_id = data.get("post_id")
+        dry_run = data.get("dry_run", False)
         if not post_id:
             return jsonify({"error": "post_id es requerido"}), 400
 
@@ -842,13 +898,13 @@ URL: {url}
 POST ID: {post_id}
 
 CONTENIDO ACTUAL (HTML):
-{content[:5000]}
+{content}
 
 OTROS ARTÍCULOS DEL BLOG (para interlinks entre posts):
-{posts_list[:2000] if posts_list else "No hay otros artículos disponibles aún."}
+{posts_list if posts_list else "No hay otros artículos disponibles aún."}
 
 PRODUCTOS DE LA TIENDA (para links internos a productos):
-{products_list[:2000]}
+{products_list}
 
 Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto existente:
 1. INTERLINKS (3-6 links): enlaza a otros artículos del blog que sean temáticamente relevantes.
@@ -865,13 +921,24 @@ Devuelve solo el HTML listo para WordPress."""
 
         response = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=8192,
+            max_tokens=16384,
             messages=[{"role": "user", "content": prompt}]
         )
 
         optimized_content = response.content[0].text.strip()
         if optimized_content.startswith("```"):
             optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+
+        if dry_run:
+            return jsonify({
+                "dry_run": True,
+                "post_id": post_id,
+                "title": title,
+                "url": url,
+                "optimized_content": optimized_content,
+                "other_posts_available": len(other_posts),
+                "products_available": len(products),
+            })
 
         result = update_post(post_id, {"content": optimized_content})
 
@@ -888,6 +955,113 @@ Devuelve solo el HTML listo para WordPress."""
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+_batch_links_status = {"running": False, "total": 0, "done": 0, "errors": 0, "results": [], "started_at": None, "finished_at": None}
+
+
+def run_batch_add_links(post_ids):
+    global _batch_links_status
+    _batch_links_status = {"running": True, "total": len(post_ids), "done": 0, "errors": 0, "results": [], "started_at": datetime.now().isoformat(), "finished_at": None}
+
+    for post_id in post_ids:
+        try:
+            post = get_post_content(post_id)
+            if "error" in post:
+                _batch_links_status["errors"] += 1
+                _batch_links_status["results"].append({"post_id": post_id, "status": "error", "error": post["error"]})
+                continue
+
+            title = post.get("title", "")
+            content = post.get("content", "")
+            if not content:
+                _batch_links_status["errors"] += 1
+                _batch_links_status["results"].append({"post_id": post_id, "status": "error", "error": "sin contenido"})
+                continue
+
+            products = get_products(per_page=30)
+            products_list = "\n".join(
+                f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
+                for p in products if isinstance(p, dict) and "name" in p
+            )
+            all_posts = get_all_posts_catalog(per_page=100)
+            other_posts = [p for p in all_posts if isinstance(p, dict) and str(p.get("id", "")) != str(post_id)]
+            posts_list = "\n".join(
+                f"- {p['title']} ({p['link']})"
+                for p in other_posts if isinstance(p, dict) and p.get("title")
+            )
+
+            prompt = f"""Eres un experto SEO. Tienes este artículo de blog en peptidosysuplementos.mx:
+
+TÍTULO: {title}
+POST ID: {post_id}
+
+CONTENIDO ACTUAL (HTML):
+{content}
+
+OTROS ARTÍCULOS DEL BLOG (para interlinks entre posts):
+{posts_list if posts_list else "No hay otros artículos disponibles aún."}
+
+PRODUCTOS DE LA TIENDA (para links internos a productos):
+{products_list}
+
+Agrega links de forma NATURAL dentro del texto existente:
+1. INTERLINKS (3-6): otros artículos del blog temáticamente relevantes. <a href="URL_DEL_POST">texto</a>
+2. LINKS A PRODUCTOS (4-8): productos relevantes de la tienda. <a href="URL_PRODUCTO">nombre</a>
+3. LINKS EXTERNOS (3-5): PubMed, examine.com, NIH, FDA, NEJM, Mayo Clinic. <a href="URL" target="_blank" rel="noopener noreferrer">texto</a>
+4. NO inventes productos ni posts que no estén en las listas.
+5. Devuelve ÚNICAMENTE el HTML completo listo para WordPress, sin explicaciones."""
+
+            response = client.messages.create(
+                model="claude-sonnet-4-6",
+                max_tokens=16384,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            optimized = response.content[0].text.strip()
+            if optimized.startswith("```"):
+                optimized = optimized.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+
+            result = update_post(post_id, {"content": optimized})
+            if result.get("success"):
+                _batch_links_status["done"] += 1
+                _batch_links_status["results"].append({"post_id": post_id, "title": title, "status": "ok", "url": result.get("link", "")})
+                print(f"[BatchLinks] ✅ {post_id} — {title}")
+            else:
+                _batch_links_status["errors"] += 1
+                _batch_links_status["results"].append({"post_id": post_id, "title": title, "status": "error", "error": result.get("error", "")})
+
+        except Exception as e:
+            _batch_links_status["errors"] += 1
+            _batch_links_status["results"].append({"post_id": post_id, "status": "error", "error": str(e)})
+            print(f"[BatchLinks] ❌ {post_id}: {e}")
+
+    _batch_links_status["running"] = False
+    _batch_links_status["finished_at"] = datetime.now().isoformat()
+    print(f"[BatchLinks] Finalizado — {_batch_links_status['done']} ok, {_batch_links_status['errors']} errores")
+
+
+@app.route("/batch-add-links", methods=["POST"])
+def batch_add_links():
+    """Agrega interlinks, links a productos y links externos a múltiples blogs.
+    Body: {"post_ids": [1,2,3]} o {"all": true} para procesar todos los blogs publicados."""
+    if _batch_links_status["running"]:
+        return jsonify({"error": "Ya hay un proceso en curso"}), 409
+    data = request.json or {}
+    if data.get("all"):
+        posts = get_all_posts_catalog(per_page=100)
+        post_ids = [p["id"] for p in posts if isinstance(p, dict) and p.get("id")]
+    else:
+        post_ids = data.get("post_ids", [])
+    if not post_ids:
+        return jsonify({"error": "Envía post_ids o all:true"}), 400
+    thread = threading.Thread(target=run_batch_add_links, args=(post_ids,), daemon=True)
+    thread.start()
+    return jsonify({"status": "started", "total": len(post_ids)})
+
+
+@app.route("/batch-links-status")
+def batch_links_status():
+    return jsonify(_batch_links_status)
 
 
 @app.route("/optimize-blog", methods=["POST"])
@@ -925,13 +1099,13 @@ URL: {url}
 POST ID: {post_id}
 
 CONTENIDO ACTUAL (HTML):
-{content[:5000]}
+{content}
 
 OTROS ARTÍCULOS DEL BLOG (para interlinks):
-{posts_list[:2000] if posts_list else "No hay otros artículos disponibles aún."}
+{posts_list if posts_list else "No hay otros artículos disponibles aún."}
 
 PRODUCTOS DE LA TIENDA (para links internos a productos):
-{products_list[:2000]}
+{products_list}
 
 Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto existente:
 1. INTERLINKS (3-6 links): enlaza a otros artículos del blog que sean temáticamente relevantes.
@@ -949,7 +1123,7 @@ Devuelve solo el HTML listo para WordPress."""
 
         response = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=8192,
+            max_tokens=16384,
             messages=[{"role": "user", "content": prompt}]
         )
 
@@ -1031,7 +1205,7 @@ def gsc_top_queries(days=28, limit=10):
     if not GSC_REFRESH_TOKEN:
         return {"error": "GSC no autenticado. Visita /search-console/auth"}
     try:
-        rows = fetch_gsc_data("query", days)
+        rows = fetch_gsc_data("query", days, limit)
         return [
             {
                 "query": r["keys"][0],
@@ -1050,7 +1224,7 @@ def gsc_page_performance(days=28, limit=10):
     if not GSC_REFRESH_TOKEN:
         return {"error": "GSC no autenticado. Visita /search-console/auth"}
     try:
-        rows = fetch_gsc_data("page", days)
+        rows = fetch_gsc_data("page", days, limit)
         return [
             {
                 "page": r["keys"][0].replace("https://peptidosysuplementos.mx", ""),
@@ -1114,7 +1288,7 @@ def get_gsc_service():
     return build("searchconsole", "v1", credentials=creds, cache_discovery=False)
 
 
-def fetch_gsc_data(dimension, days=28):
+def fetch_gsc_data(dimension, days=28, limit=10):
     service = get_gsc_service()
     end_date = datetime.now().strftime("%Y-%m-%d")
     start_date = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
@@ -1124,7 +1298,7 @@ def fetch_gsc_data(dimension, days=28):
             "startDate": start_date,
             "endDate": end_date,
             "dimensions": [dimension],
-            "rowLimit": 10,
+            "rowLimit": limit,
             "orderBy": [{"fieldName": "clicks", "sortOrder": "DESCENDING"}]
         }
     ).execute()
