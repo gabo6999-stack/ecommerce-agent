@@ -1371,6 +1371,28 @@ def save_as_gutenberg():
     return jsonify({"error": result.get("error", "Error al guardar")}), 500
 
 
+@app.route("/set-elementor-mode", methods=["POST"])
+def set_elementor_mode():
+    """Habilita o deshabilita Elementor para una page sin tocar el contenido.
+    Body: {page_id, mode: 'builder' (activar) | '' (desactivar/Gutenberg)}"""
+    data = request.json or {}
+    page_id = data.get("page_id")
+    mode = data.get("mode", "")
+    if not page_id:
+        return jsonify({"error": "page_id es requerido"}), 400
+    r = requests.post(
+        f"{WC_URL}/wp-json/wp/v2/pages/{page_id}",
+        headers=jwt_headers(),
+        json={"meta": {"_elementor_edit_mode": mode}},
+        timeout=15
+    )
+    result = r.json()
+    if "id" in result:
+        return jsonify({"success": True, "page_id": page_id,
+                        "elementor": "enabled" if mode == "builder" else "disabled"})
+    return jsonify({"error": str(result)}), 500
+
+
 @app.route("/restore-elementor-pages", methods=["POST"])
 def restore_elementor_pages():
     """Restaura _elementor_edit_mode=builder en todas las pages para recuperar el diseño visual."""
