@@ -1347,6 +1347,45 @@ def convert_all_elementor():
     return jsonify(results)
 
 
+@app.route("/restore-elementor-pages", methods=["POST"])
+def restore_elementor_pages():
+    """Restaura _elementor_edit_mode=builder en todas las pages para recuperar el diseño visual."""
+    data = request.json or {}
+    page_ids = data.get("page_ids")  # opcional: lista de IDs específicos
+
+    pages = get_all_pages()
+    if not isinstance(pages, list):
+        return jsonify({"error": "No se pudieron obtener las pages"}), 500
+
+    if page_ids:
+        pages = [p for p in pages if p["id"] in page_ids]
+
+    restored, errors = [], []
+    for page in pages:
+        try:
+            r = requests.post(
+                f"{WC_URL}/wp-json/wp/v2/pages/{page['id']}",
+                headers=jwt_headers(),
+                json={"meta": {"_elementor_edit_mode": "builder"}},
+                timeout=15
+            )
+            result = r.json()
+            if "id" in result:
+                restored.append({"id": page["id"], "title": page.get("title", "")})
+                print(f"[RestoreElementor] ✅ {page['id']} — {page.get('title', '')}")
+            else:
+                errors.append({"id": page["id"], "error": str(result)})
+        except Exception as e:
+            errors.append({"id": page["id"], "error": str(e)})
+
+    return jsonify({
+        "restored": len(restored),
+        "errors": len(errors),
+        "pages": restored,
+        "failed": errors
+    })
+
+
 def run_weekly_report():
     def weekly_job():
         report = generate_seo_report()
