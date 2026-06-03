@@ -191,11 +191,55 @@ def get_all_posts_catalog(per_page=100):
         return {"error": str(e)}
 
 
-def convert_elementor_to_gutenberg(post_id):
+def get_all_pages():
+    try:
+        r = requests.get(
+            f"{WC_URL}/wp-json/wp/v2/pages",
+            headers=jwt_headers(),
+            params={"per_page": 100, "_fields": "id,title,slug,link,status", "status": "publish"},
+            timeout=15
+        )
+        pages = r.json()
+        if not isinstance(pages, list):
+            return {"error": str(pages)}
+        return [{"id": p.get("id"), "title": p.get("title", {}).get("rendered", ""),
+                 "slug": p.get("slug", ""), "link": p.get("link", ""), "type": "page"}
+                for p in pages]
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def get_page_content(page_id):
+    try:
+        r = requests.get(f"{WC_URL}/wp-json/wp/v2/pages/{page_id}",
+                         headers=jwt_headers(), timeout=15)
+        p = r.json()
+        if "id" not in p:
+            return {"error": str(p)}
+        return {"id": p["id"], "title": p.get("title", {}).get("rendered", ""),
+                "slug": p.get("slug", ""), "link": p.get("link", ""),
+                "content": p.get("content", {}).get("rendered", ""), "type": "page"}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def update_page(page_id, data):
+    try:
+        r = requests.post(f"{WC_URL}/wp-json/wp/v2/pages/{page_id}",
+                          headers=jwt_headers(), json=data, timeout=30)
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": page_id, "link": result.get("link", "")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def convert_elementor_to_gutenberg(post_id, post_type="post"):
     from bs4 import BeautifulSoup, Comment
 
-    # 1. Obtener URL del post
-    post_meta = get_post_content(post_id)
+    # 1. Obtener URL del post o page
+    post_meta = get_page_content(post_id) if post_type == "page" else get_post_content(post_id)
     if "error" in post_meta:
         return post_meta
     url = post_meta.get("link", "")
@@ -266,20 +310,19 @@ def convert_elementor_to_gutenberg(post_id):
     if len(clean_html.strip()) < 200:
         return {"error": f"Contenido extraido muy corto ({len(clean_html)} chars), posiblemente renderizado por JS"}
 
-    # 6. Guardar en WordPress con Elementor desactivado para este post
-    result = update_post(post_id, {
-        "content": clean_html,
-        "meta": {"_elementor_edit_mode": ""}
-    })
+    # 6. Guardar en WordPress con Elementor desactivado
+    payload = {"content": clean_html, "meta": {"_elementor_edit_mode": ""}}
+    result = update_page(post_id, payload) if post_type == "page" else update_post(post_id, payload)
 
     if result.get("success"):
         return {
             "success": True,
             "post_id": post_id,
+            "post_type": post_type,
             "title": title,
             "content_chars": len(clean_html),
             "url": result.get("link", url),
-            "message": "Post convertido de Elementor a Gutenberg. Ahora /add-links y /edit funcionaran correctamente."
+            "message": f"{post_type.capitalize()} convertido de Elementor a Gutenberg."
         }
     return result
 
@@ -1194,9 +1237,59 @@ def blogs_audit_endpoint():
 def convert_to_gutenberg_endpoint():
     data = request.json or {}
     post_id = data.get("post_id")
+    post_type = data.get("post_type", "post")
     if not post_id:
         return jsonify({"error": "post_id es requerido"}), 400
-    return jsonify(convert_elementor_to_gutenberg(post_id))
+    return jsonify(convert_elementor_to_gutenberg(post_id, post_type))
+
+
+@app.route("/convert-all-elementor", methods=["POST"])
+def convert_all_elementor():
+    """Detecta y convierte todos los posts Y pages Elementor a Gutenberg automaticamente."""
+    results = {"converted": [], "skipped": [], "errors": []}
+
+    def check_and_convert(items, item_type):
+        for item in items:
+            url = item.get("link", "")
+            if not url:
+                continue
+            try:
+                html = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"}).text
+                if "elementor-widget-text-editor" in html:
+                    result = convert_elementor_to_gutenberg(item["id"], item_type)
+                    if result.get("success"):
+                        results["converted"].append({
+                            "id": item["id"], "title": item.get("title", ""),
+                            "type": item_type, "url": url,
+                            "content_chars": result.get("content_chars", 0)
+                        })
+                    else:
+                        results["errors"].append({
+                            "id": item["id"], "type": item_type,
+                            "error": result.get("error", "desconocido")
+                        })
+                else:
+                    results["skipped"].append({
+                        "id": item["id"], "title": item.get("title", ""),
+                        "type": item_type, "reason": "Gutenberg"
+                    })
+            except Exception as e:
+                results["errors"].append({"id": item["id"], "type": item_type, "error": str(e)})
+
+    posts = get_all_posts_catalog(per_page=100)
+    if isinstance(posts, list):
+        check_and_convert(posts, "post")
+
+    pages = get_all_pages()
+    if isinstance(pages, list):
+        check_and_convert(pages, "page")
+
+    results["summary"] = {
+        "converted": len(results["converted"]),
+        "skipped_gutenberg": len(results["skipped"]),
+        "errors": len(results["errors"])
+    }
+    return jsonify(results)
 
 
 def run_weekly_report():
