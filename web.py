@@ -476,15 +476,42 @@ def check_broken_links(post_id):
     return {"post_id": post_id, "title": post.get("title", ""), "total": len(results), "broken_count": len(broken), "broken": broken}
 
 
+def _extract_faq_from_html(content):
+    """Parse <h3> questions + next <p> answer pairs from HTML."""
+    import re
+    faq_items = []
+    h3_pattern = re.compile(
+        r'<h3[^>]*>(.*?)</h3>([\s\S]*?)<p[^>]*>([\s\S]*?)</p>',
+        re.IGNORECASE
+    )
+    for match in h3_pattern.finditer(content):
+        question = re.sub(r'<[^>]+>', '', match.group(1)).strip()
+        answer = re.sub(r'<[^>]+>', '', match.group(3)).strip()
+        if '?' in question and len(answer) > 20:
+            faq_items.append({
+                "@type": "Question",
+                "name": question,
+                "acceptedAnswer": {"@type": "Answer", "text": answer[:600]}
+            })
+    return faq_items
+
+
 def add_schema_markup(post_id, schema_type="Article"):
+    import re
     post = get_post_content(post_id)
     if "error" in post:
         return post
     content = post.get("content", "")
-    if "application/ld+json" in content:
-        return {"error": "El post ya tiene schema markup. Usa update_post para modificarlo si necesitas."}
     title = post.get("title", "")
     url = post.get("link", "")
+
+    # Remove existing schema so it can be replaced with a correct one
+    content_clean = re.sub(
+        r'\s*<script type="application/ld\+json">[\s\S]*?</script>',
+        '',
+        content
+    ).strip()
+
     if schema_type == "Article":
         schema = {
             "@context": "https://schema.org",
@@ -494,11 +521,22 @@ def add_schema_markup(post_id, schema_type="Article"):
             "publisher": {"@type": "Organization", "name": "Peptidos y Suplementos", "url": WC_URL}
         }
     elif schema_type == "FAQPage":
-        schema = {"@context": "https://schema.org", "@type": "FAQPage", "name": title, "url": url, "mainEntity": []}
+        faq_items = _extract_faq_from_html(content_clean)
+        schema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "name": title,
+            "url": url,
+            "mainEntity": faq_items
+        }
     else:
         schema = {"@context": "https://schema.org", "@type": schema_type, "name": title, "url": url}
+
     schema_tag = f'\n<script type="application/ld+json">\n{json.dumps(schema, ensure_ascii=False, indent=2)}\n</script>'
-    return update_post(post_id, {"content": content + schema_tag})
+    result = update_post(post_id, {"content": content_clean + schema_tag})
+    if schema_type == "FAQPage":
+        result["faq_items_found"] = len(faq_items)
+    return result
 
 
 SYSTEM = """Eres un agente SEO especializado para peptidosysuplementos.mx.
