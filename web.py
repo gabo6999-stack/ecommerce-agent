@@ -389,10 +389,10 @@ def update_product_full(product_id, data):
             if images:
                 payload["images"] = [{"id": img["id"], "alt": data["image_alt"]} for img in images]
         meta_updates = {}
-        if "yoast_title" in data:
-            meta_updates["rank_math_title"] = data["yoast_title"]
-        if "yoast_metadesc" in data:
-            meta_updates["rank_math_description"] = data["yoast_metadesc"]
+        if "seo_title" in data:
+            meta_updates["rank_math_title"] = data["seo_title"]
+        if "seo_description" in data:
+            meta_updates["rank_math_description"] = data["seo_description"]
         if meta_updates:
             payload["meta_data"] = [{"key": k, "value": v} for k, v in meta_updates.items()]
         r = requests.put(
@@ -608,9 +608,9 @@ AUDITORÍA DE BLOGS:
 - add_schema_markup: agrega JSON-LD (Article o FAQPage) a posts que aún no tienen — mejora featured snippets
 
 SEO AVANZADO DE PRODUCTOS:
-- get_products_full: obtiene yoast_title, yoast_metadesc, descripción larga e imagen alt
+- get_products_full: obtiene seo_title, seo_description, descripción larga e imagen alt
 - update_product_full: actualiza meta title, meta description, descripción larga e alt text de imagen
-- Prioriza: primero short_description y title, luego yoast_title/metadesc, luego description larga y alt text
+- Prioriza: primero short_description y title, luego seo_title/metadesc, luego description larga y alt text
 
 MEMORIA:
 - remember_instruction: guarda reglas, preferencias o contexto que debes recordar entre sesiones
@@ -703,7 +703,7 @@ TOOLS = [
                 "title": {"type": "string", "description": "Nuevo título visible del post (H1, opcional)"},
                 "content": {"type": "string", "description": "Nuevo contenido HTML completo (opcional)"},
                 "meta_description": {"type": "string", "description": "Nueva meta description 150-160 chars (opcional)"},
-                "yoast_title": {"type": "string", "description": "SEO title para Google (max 60 chars), aparece en los resultados de búsqueda. Diferente al título visible del post."}
+                "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars), aparece en los resultados de búsqueda. Diferente al título visible del post."}
             }
         }
     },
@@ -785,7 +785,7 @@ TOOLS = [
     },
     {
         "name": "get_products_full",
-        "description": "Obtiene productos con campos SEO completos: yoast_title, yoast_metadesc, description larga e image alt text. Usa esta en lugar de get_products cuando necesites optimizar SEO avanzado de productos.",
+        "description": "Obtiene productos con campos SEO completos: seo_title, seo_description, description larga e image alt text. Usa esta en lugar de get_products cuando necesites optimizar SEO avanzado de productos.",
         "input_schema": {
             "type": "object",
             "properties": {
@@ -795,7 +795,7 @@ TOOLS = [
     },
     {
         "name": "update_product_full",
-        "description": "Actualiza campos SEO completos de un producto: titulo, descripcion corta, descripcion larga, yoast_title (meta title), yoast_metadesc y alt text de imagen principal.",
+        "description": "Actualiza campos SEO completos de un producto: titulo, descripcion corta, descripcion larga, seo_title (meta title), seo_description y alt text de imagen principal.",
         "input_schema": {
             "type": "object",
             "required": ["product_id"],
@@ -804,8 +804,8 @@ TOOLS = [
                 "name": {"type": "string", "description": "Titulo (max 60 chars)"},
                 "short_description": {"type": "string", "description": "Descripcion corta (130-160 chars, texto plano)"},
                 "description": {"type": "string", "description": "Descripcion larga en HTML"},
-                "yoast_title": {"type": "string", "description": "Meta title para Google (max 60 chars)"},
-                "yoast_metadesc": {"type": "string", "description": "Meta description para Google (130-160 chars)"},
+                "seo_title": {"type": "string", "description": "Meta title para Google (max 60 chars)"},
+                "seo_description": {"type": "string", "description": "Meta description para Google (130-160 chars)"},
                 "image_alt": {"type": "string", "description": "Texto alternativo de la imagen principal"}
             }
         }
@@ -883,14 +883,14 @@ TOOLS = [
     },
     {
         "name": "update_page",
-        "description": "Actualiza titulo, meta description, Yoast SEO title o contenido de una PAGE de WordPress. Usar yoast_title para el titulo que aparece en Google (puede ser diferente al titulo de la pagina).",
+        "description": "Actualiza titulo, meta description, Rank Math SEO title o contenido de una PAGE de WordPress. Usar seo_title para el titulo que aparece en Google (puede ser diferente al titulo de la pagina).",
         "input_schema": {
             "type": "object",
             "required": ["page_id"],
             "properties": {
                 "page_id": {"type": "integer", "description": "ID de la page en WordPress"},
                 "title": {"type": "string", "description": "Titulo visible de la pagina (browser tab, breadcrumbs)"},
-                "yoast_title": {"type": "string", "description": "SEO title para Google (max 60 chars). Ejemplo: 'Tirzepatida en Mexico 2026 | PyS MX'"},
+                "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars). Ejemplo: 'Tirzepatida en Mexico 2026 | PyS MX'"},
                 "meta_description": {"type": "string", "description": "Meta description para Google (150-160 chars)"},
                 "slug": {"type": "string", "description": "Slug de la URL (sin slashes). Ej: 'precio-de-retatrutida-en-mexico'. ADVERTENCIA: cambia la URL publica de la pagina."},
                 "content": {"type": "string", "description": "Contenido HTML completo (opcional)"}
@@ -963,8 +963,8 @@ def run_tool(name, inputs):
         meta = {}
         if "meta_description" in inputs:
             meta["rank_math_description"] = inputs["meta_description"]
-        if "yoast_title" in inputs:
-            meta["rank_math_title"] = inputs["yoast_title"]
+        if "seo_title" in inputs:
+            meta["rank_math_title"] = inputs["seo_title"]
         if meta:
             data["meta"] = meta
         return update_post(inputs["post_id"], data)
@@ -989,8 +989,8 @@ def run_tool(name, inputs):
         meta = {}
         if "meta_description" in inputs:
             meta["rank_math_description"] = inputs["meta_description"]
-        if "yoast_title" in inputs:
-            meta["rank_math_title"] = inputs["yoast_title"]
+        if "seo_title" in inputs:
+            meta["rank_math_title"] = inputs["seo_title"]
         if meta:
             data["meta"] = meta
         return update_page(inputs["page_id"], data)
