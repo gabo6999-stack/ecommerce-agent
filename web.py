@@ -124,7 +124,7 @@ def create_post(title, content, slug="", meta_description="", status="publish"):
             "status": status,
         }
         if meta_description:
-            data["meta"] = {"_yoast_wpseo_metadesc": meta_description}
+            data["meta"] = {"rank_math_description": meta_description}
         r = requests.post(url, json=data, headers=jwt_headers(), timeout=30)
         result = r.json()
         if "id" in result:
@@ -355,7 +355,7 @@ def get_products_full(per_page=10):
         result = []
         for p in r.json():
             meta = {m["key"]: m["value"] for m in p.get("meta_data", [])
-                    if m["key"] in ["_yoast_wpseo_title", "_yoast_wpseo_metadesc"]}
+                    if m["key"] in ["rank_math_title", "rank_math_description"]}
             images = p.get("images", [])
             result.append({
                 "id": p.get("id"),
@@ -363,8 +363,8 @@ def get_products_full(per_page=10):
                 "short_description": p.get("short_description", "")[:150],
                 "description": p.get("description", "")[:300],
                 "slug": p.get("slug"),
-                "yoast_title": meta.get("_yoast_wpseo_title", ""),
-                "yoast_metadesc": meta.get("_yoast_wpseo_metadesc", ""),
+                "rank_math_title": meta.get("rank_math_title", ""),
+                "rank_math_description": meta.get("rank_math_description", ""),
                 "image_alt": images[0].get("alt", "") if images else "",
                 "image_id": images[0].get("id") if images else None,
             })
@@ -390,9 +390,9 @@ def update_product_full(product_id, data):
                 payload["images"] = [{"id": img["id"], "alt": data["image_alt"]} for img in images]
         meta_updates = {}
         if "yoast_title" in data:
-            meta_updates["_yoast_wpseo_title"] = data["yoast_title"]
+            meta_updates["rank_math_title"] = data["yoast_title"]
         if "yoast_metadesc" in data:
-            meta_updates["_yoast_wpseo_metadesc"] = data["yoast_metadesc"]
+            meta_updates["rank_math_description"] = data["yoast_metadesc"]
         if meta_updates:
             payload["meta_data"] = [{"key": k, "value": v} for k, v in meta_updates.items()]
         r = requests.put(
@@ -960,7 +960,7 @@ def run_tool(name, inputs):
     elif name == "update_post":
         data = {k: inputs[k] for k in ["title", "content"] if k in inputs}
         if "meta_description" in inputs:
-            data["meta"] = {"_yoast_wpseo_metadesc": inputs["meta_description"]}
+            data["meta"] = {"rank_math_description": inputs["meta_description"]}
         return update_post(inputs["post_id"], data)
     elif name == "fetch_url":
         return fetch_url(inputs["url"])
@@ -982,9 +982,9 @@ def run_tool(name, inputs):
         data = {k: inputs[k] for k in ["title", "content", "slug"] if k in inputs}
         meta = {}
         if "meta_description" in inputs:
-            meta["_yoast_wpseo_metadesc"] = inputs["meta_description"]
+            meta["rank_math_description"] = inputs["meta_description"]
         if "yoast_title" in inputs:
-            meta["_yoast_wpseo_title"] = inputs["yoast_title"]
+            meta["rank_math_title"] = inputs["yoast_title"]
         if meta:
             data["meta"] = meta
         return update_page(inputs["page_id"], data)
@@ -1407,7 +1407,7 @@ def save_as_gutenberg():
     if data.get("title"):
         payload["title"] = data["title"]
     if data.get("meta_description"):
-        payload["meta"] = {**payload["meta"], "_yoast_wpseo_metadesc": data["meta_description"]}
+        payload["meta"] = {**payload["meta"], "rank_math_description": data["meta_description"]}
 
     result = update_page(post_id, payload) if post_type == "page" else update_post(post_id, payload)
     if result.get("success"):
