@@ -694,15 +694,16 @@ TOOLS = [
     },
     {
         "name": "update_post",
-        "description": "Actualiza el contenido, título o meta description de un post de blog existente en WordPress",
+        "description": "Actualiza el contenido, título, SEO title o meta description de un post de blog existente en WordPress",
         "input_schema": {
             "type": "object",
             "required": ["post_id"],
             "properties": {
                 "post_id": {"type": "integer", "description": "ID del post en WordPress"},
-                "title": {"type": "string", "description": "Nuevo título (opcional)"},
+                "title": {"type": "string", "description": "Nuevo título visible del post (H1, opcional)"},
                 "content": {"type": "string", "description": "Nuevo contenido HTML completo (opcional)"},
-                "meta_description": {"type": "string", "description": "Nueva meta description 150-160 chars (opcional)"}
+                "meta_description": {"type": "string", "description": "Nueva meta description 150-160 chars (opcional)"},
+                "yoast_title": {"type": "string", "description": "SEO title para Google (max 60 chars), aparece en los resultados de búsqueda. Diferente al título visible del post."}
             }
         }
     },
@@ -959,8 +960,13 @@ def run_tool(name, inputs):
         )
     elif name == "update_post":
         data = {k: inputs[k] for k in ["title", "content"] if k in inputs}
+        meta = {}
         if "meta_description" in inputs:
-            data["meta"] = {"rank_math_description": inputs["meta_description"]}
+            meta["rank_math_description"] = inputs["meta_description"]
+        if "yoast_title" in inputs:
+            meta["rank_math_title"] = inputs["yoast_title"]
+        if meta:
+            data["meta"] = meta
         return update_post(inputs["post_id"], data)
     elif name == "fetch_url":
         return fetch_url(inputs["url"])
