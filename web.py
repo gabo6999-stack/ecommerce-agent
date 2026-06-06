@@ -1,5 +1,7 @@
 ﻿from flask import Flask, request, jsonify, redirect, session
 import anthropic, os, requests, schedule, threading, json, secrets, time
+from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
+from anthropic.types.messages.batch_create_params import Request as BatchRequest
 from requests.auth import HTTPBasicAuth
 from datetime import datetime, timedelta
 from google.oauth2.credentials import Credentials
@@ -1501,9 +1503,13 @@ def run_weekly_report():
         threading.Event().wait(60)
 
 
-# ─── BATCH OPTIMIZATION ───────────────────────────────────────────────────────
+# ─── BATCH OPTIMIZATION (Anthropic Batch API — 50% descuento) ─────────────────
 
-_batch_status = {"running": False, "total": 0, "done": 0, "errors": 0, "results": [], "started_at": None, "finished_at": None}
+_batch_status = {
+    "running": False, "phase": None, "batch_id": None,
+    "total": 0, "done": 0, "errors": 0,
+    "results": [], "started_at": None, "finished_at": None
+}
 
 
 def get_products_by_category(category_id=None):
@@ -1513,7 +1519,7 @@ def get_products_by_category(category_id=None):
     try:
         r = requests.get(f"{WC_URL}/wp-json/wc/v3/products", auth=HTTPBasicAuth(WC_KEY, WC_SECRET), params=params, timeout=30)
         return r.json() if isinstance(r.json(), list) else []
-    except Exception as e:
+    except Exception:
         return []
 
 
@@ -1523,37 +1529,28 @@ def needs_optimization(p):
     return len(name) > 60 or not (130 <= len(desc) <= 160)
 
 
-def claude_optimize_batch(products):
-    product_list = json.dumps(
-        [{"id": p["id"], "name": p["name"], "short_description": p.get("short_description", "")} for p in products],
-        ensure_ascii=False, indent=2
-    )
-    prompt = f"""Eres experto SEO para peptidosysuplementos.mx (tienda de péptidos y suplementos en México).
+def make_product_prompt(p):
+    return f"""Eres experto SEO para peptidosysuplementos.mx (tienda de péptidos y suplementos en México).
 
-Optimiza los siguientes productos según estas reglas:
-- Título (name): máximo 60 caracteres, palabra clave principal al inicio, sin caracteres especiales
-- Descripción corta (short_description): entre 130 y 160 caracteres, texto plano sin HTML ni markdown, incluir keyword + beneficio + llamada a la acción
+Optimiza este producto:
+- Título (name): máximo 60 caracteres, keyword principal al inicio, sin caracteres especiales
+- Descripción corta (short_description): 130-160 caracteres, texto plano sin HTML, keyword + beneficio + CTA
 
-Productos a optimizar:
-{product_list}
+ID: {p['id']}
+Nombre actual: {p['name']}
+Descripción actual: {p.get('short_description', '')}
 
-Devuelve ÚNICAMENTE un JSON válido con este formato exacto, sin explicaciones ni markdown:
-[{{"id": 123, "name": "Título optimizado", "short_description": "Descripción optimizada"}}, ...]"""
-
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=4096,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    text = response.content[0].text.strip()
-    if text.startswith("```"):
-        text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
-    return json.loads(text)
+Devuelve ÚNICAMENTE JSON válido sin markdown:
+{{"id": {p['id']}, "name": "Título optimizado", "short_description": "Descripción optimizada"}}"""
 
 
 def run_batch_optimize(category_id=None):
     global _batch_status
-    _batch_status = {"running": True, "total": 0, "done": 0, "errors": 0, "results": [], "started_at": datetime.now().isoformat(), "finished_at": None}
+    _batch_status = {
+        "running": True, "phase": "fetching", "batch_id": None,
+        "total": 0, "done": 0, "errors": 0,
+        "results": [], "started_at": datetime.now().isoformat(), "finished_at": None
+    }
 
     try:
         products = get_products_by_category(category_id)
@@ -1561,38 +1558,71 @@ def run_batch_optimize(category_id=None):
         _batch_status["total"] = len(pending)
 
         if not pending:
-            _batch_status["running"] = False
-            _batch_status["finished_at"] = datetime.now().isoformat()
             print("[Batch] No hay productos pendientes de optimizar.")
             return
 
-        print(f"[Batch] Optimizando {len(pending)} productos con Claude...")
+        print(f"[Batch] Enviando {len(pending)} requests al Anthropic Batch API...")
+        _batch_status["phase"] = "submitting"
 
-        # Procesar en grupos de 20 para no exceder el contexto
-        chunk_size = 20
-        for i in range(0, len(pending), chunk_size):
-            chunk = pending[i:i + chunk_size]
-            try:
-                optimized = claude_optimize_batch(chunk)
-                for item in optimized:
-                    pid = item.get("id")
+        batch_requests = [
+            BatchRequest(
+                custom_id=str(p["id"]),
+                params=MessageCreateParamsNonStreaming(
+                    model="claude-sonnet-4-6",
+                    max_tokens=512,
+                    messages=[{"role": "user", "content": make_product_prompt(p)}]
+                )
+            )
+            for p in pending
+        ]
+
+        batch = client.messages.batches.create(requests=batch_requests)
+        _batch_status["batch_id"] = batch.id
+        _batch_status["phase"] = "processing"
+        print(f"[Batch] Batch enviado: {batch.id} — esperando resultados...")
+
+        # Poll cada 30s hasta que termine
+        while True:
+            time.sleep(30)
+            batch = client.messages.batches.retrieve(batch.id)
+            print(f"[Batch] {batch.processing_status} — procesando: {batch.request_counts.processing}/{_batch_status['total']}")
+            if batch.processing_status == "ended":
+                break
+
+        # Aplicar resultados a WooCommerce
+        _batch_status["phase"] = "applying"
+        print("[Batch] Aplicando resultados a WooCommerce...")
+
+        for result in client.messages.batches.results(batch.id):
+            pid = int(result.custom_id)
+            if result.result.type == "succeeded":
+                try:
+                    text = result.result.message.content[0].text.strip()
+                    if text.startswith("```"):
+                        text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+                    item = json.loads(text)
                     data = {k: item[k] for k in ("name", "short_description") if k in item}
-                    result = update_product(pid, data)
-                    if result.get("success"):
+                    r = update_product(pid, data)
+                    if r.get("success"):
                         _batch_status["done"] += 1
                         _batch_status["results"].append({"id": pid, "name": item.get("name"), "status": "ok"})
                         print(f"[Batch] ✅ {pid} — {item.get('name')}")
                     else:
                         _batch_status["errors"] += 1
-                        _batch_status["results"].append({"id": pid, "status": "error", "error": result.get("error")})
-            except Exception as e:
-                _batch_status["errors"] += len(chunk)
-                print(f"[Batch] ❌ Error en chunk: {e}")
+                        _batch_status["results"].append({"id": pid, "status": "error", "error": r.get("error")})
+                except Exception as e:
+                    _batch_status["errors"] += 1
+                    _batch_status["results"].append({"id": pid, "status": "error", "error": str(e)})
+            else:
+                _batch_status["errors"] += 1
+                error_type = result.result.type if hasattr(result.result, "type") else "unknown"
+                _batch_status["results"].append({"id": pid, "status": "error", "error": error_type})
 
     except Exception as e:
-        print(f"[Batch] ❌ Error general: {e}")
+        print(f"[Batch] ❌ Error: {e}")
     finally:
         _batch_status["running"] = False
+        _batch_status["phase"] = "done"
         _batch_status["finished_at"] = datetime.now().isoformat()
         generate_seo_report()
         print(f"[Batch] Finalizado — {_batch_status['done']} ok, {_batch_status['errors']} errores")
@@ -1601,12 +1631,12 @@ def run_batch_optimize(category_id=None):
 @app.route("/batch-optimize", methods=["POST"])
 def batch_optimize():
     if _batch_status["running"]:
-        return jsonify({"error": "Ya hay una optimización en proceso"}), 409
+        return jsonify({"error": "Ya hay una optimización en proceso", "batch_id": _batch_status.get("batch_id")}), 409
     data = request.json or {}
     category_id = data.get("category_id", "all")
     thread = threading.Thread(target=run_batch_optimize, args=(category_id,), daemon=True)
     thread.start()
-    return jsonify({"status": "started", "category_id": category_id})
+    return jsonify({"status": "started", "category_id": category_id, "info": "Usando Anthropic Batch API (50% descuento). Consulta /batch-status para el progreso."})
 
 
 @app.route("/batch-status")
@@ -1729,40 +1759,61 @@ Devuelve solo el HTML listo para WordPress."""
         return jsonify({"error": str(e)}), 500
 
 
-_batch_links_status = {"running": False, "total": 0, "done": 0, "errors": 0, "results": [], "started_at": None, "finished_at": None}
+_batch_links_status = {
+    "running": False, "phase": None, "batch_id": None,
+    "total": 0, "done": 0, "errors": 0,
+    "results": [], "started_at": None, "finished_at": None
+}
 
 
 def run_batch_add_links(post_ids):
     global _batch_links_status
-    _batch_links_status = {"running": True, "total": len(post_ids), "done": 0, "errors": 0, "results": [], "started_at": datetime.now().isoformat(), "finished_at": None}
+    _batch_links_status = {
+        "running": True, "phase": "fetching", "batch_id": None,
+        "total": len(post_ids), "done": 0, "errors": 0,
+        "results": [], "started_at": datetime.now().isoformat(), "finished_at": None
+    }
+    try:
+        # Pre-fetch shared data once
+        products = get_products(per_page=30)
+        products_list = "\n".join(
+            f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
+            for p in products if isinstance(p, dict) and "name" in p
+        )
+        all_posts = get_all_posts_catalog(per_page=100)
 
-    for post_id in post_ids:
-        try:
+        # Pre-fetch each post's content
+        posts_data = {}
+        for post_id in post_ids:
             post = get_post_content(post_id)
             if "error" in post:
                 _batch_links_status["errors"] += 1
                 _batch_links_status["results"].append({"post_id": post_id, "status": "error", "error": post["error"]})
                 continue
-
-            title = post.get("title", "")
-            content = post.get("content", "")
-            if not content:
+            if not post.get("content"):
                 _batch_links_status["errors"] += 1
                 _batch_links_status["results"].append({"post_id": post_id, "status": "error", "error": "sin contenido"})
                 continue
+            posts_data[post_id] = post
 
-            products = get_products(per_page=30)
-            products_list = "\n".join(
-                f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
-                for p in products if isinstance(p, dict) and "name" in p
-            )
-            all_posts = get_all_posts_catalog(per_page=100)
+        pending = list(posts_data.keys())
+        if not pending:
+            print("[BatchLinks] No hay posts válidos para procesar.")
+            return
+
+        print(f"[BatchLinks] Enviando {len(pending)} requests al Anthropic Batch API...")
+        _batch_links_status["phase"] = "submitting"
+
+        batch_requests = []
+        for post_id in pending:
+            post = posts_data[post_id]
+            title = post.get("title", "")
+            content = post.get("content", "")
             other_posts = [p for p in all_posts if isinstance(p, dict) and str(p.get("id", "")) != str(post_id)]
             posts_list = "\n".join(
                 f"- {p['title']} ({p['link']})"
                 for p in other_posts if isinstance(p, dict) and p.get("title")
             )
-
             prompt = f"""Eres un experto SEO. Tienes este artículo de blog en peptidosysuplementos.mx:
 
 TÍTULO: {title}
@@ -1783,33 +1834,65 @@ Agrega links de forma NATURAL dentro del texto existente:
 3. LINKS EXTERNOS (3-5): PubMed, examine.com, NIH, FDA, NEJM, Mayo Clinic. <a href="URL" target="_blank" rel="noopener noreferrer">texto</a>
 4. NO inventes productos ni posts que no estén en las listas.
 5. Devuelve ÚNICAMENTE el HTML completo listo para WordPress, sin explicaciones."""
-
-            response = client.messages.create(
-                model="claude-sonnet-4-6",
-                max_tokens=16384,
-                messages=[{"role": "user", "content": prompt}]
+            batch_requests.append(
+                BatchRequest(
+                    custom_id=str(post_id),
+                    params=MessageCreateParamsNonStreaming(
+                        model="claude-sonnet-4-6",
+                        max_tokens=16384,
+                        messages=[{"role": "user", "content": prompt}]
+                    )
+                )
             )
-            optimized = response.content[0].text.strip()
-            if optimized.startswith("```"):
-                optimized = optimized.split("\n", 1)[1].rsplit("```", 1)[0].strip()
 
-            result = update_post(post_id, {"content": optimized})
-            if result.get("success"):
-                _batch_links_status["done"] += 1
-                _batch_links_status["results"].append({"post_id": post_id, "title": title, "status": "ok", "url": result.get("link", "")})
-                print(f"[BatchLinks] ✅ {post_id} — {title}")
+        batch = client.messages.batches.create(requests=batch_requests)
+        _batch_links_status["batch_id"] = batch.id
+        _batch_links_status["phase"] = "processing"
+        print(f"[BatchLinks] Batch enviado: {batch.id} — esperando resultados...")
+
+        while True:
+            time.sleep(30)
+            batch = client.messages.batches.retrieve(batch.id)
+            print(f"[BatchLinks] {batch.processing_status} — procesando: {batch.request_counts.processing}/{len(pending)}")
+            if batch.processing_status == "ended":
+                break
+
+        _batch_links_status["phase"] = "applying"
+        print("[BatchLinks] Aplicando resultados a WordPress...")
+
+        for result in client.messages.batches.results(batch.id):
+            post_id = int(result.custom_id)
+            post = posts_data.get(post_id, {})
+            title = post.get("title", "")
+            if result.result.type == "succeeded":
+                try:
+                    optimized = result.result.message.content[0].text.strip()
+                    if optimized.startswith("```"):
+                        optimized = optimized.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+                    r = update_post(post_id, {"content": optimized})
+                    if r.get("success"):
+                        _batch_links_status["done"] += 1
+                        _batch_links_status["results"].append({"post_id": post_id, "title": title, "status": "ok", "url": r.get("link", "")})
+                        print(f"[BatchLinks] ✅ {post_id} — {title}")
+                    else:
+                        _batch_links_status["errors"] += 1
+                        _batch_links_status["results"].append({"post_id": post_id, "title": title, "status": "error", "error": r.get("error", "")})
+                except Exception as e:
+                    _batch_links_status["errors"] += 1
+                    _batch_links_status["results"].append({"post_id": post_id, "title": title, "status": "error", "error": str(e)})
             else:
                 _batch_links_status["errors"] += 1
-                _batch_links_status["results"].append({"post_id": post_id, "title": title, "status": "error", "error": result.get("error", "")})
+                error_type = result.result.type if hasattr(result.result, "type") else "unknown"
+                _batch_links_status["results"].append({"post_id": post_id, "title": title, "status": "error", "error": error_type})
+                print(f"[BatchLinks] ❌ {post_id}: {error_type}")
 
-        except Exception as e:
-            _batch_links_status["errors"] += 1
-            _batch_links_status["results"].append({"post_id": post_id, "status": "error", "error": str(e)})
-            print(f"[BatchLinks] ❌ {post_id}: {e}")
-
-    _batch_links_status["running"] = False
-    _batch_links_status["finished_at"] = datetime.now().isoformat()
-    print(f"[BatchLinks] Finalizado — {_batch_links_status['done']} ok, {_batch_links_status['errors']} errores")
+    except Exception as e:
+        print(f"[BatchLinks] ❌ Error global: {e}")
+    finally:
+        _batch_links_status["running"] = False
+        _batch_links_status["phase"] = "done"
+        _batch_links_status["finished_at"] = datetime.now().isoformat()
+        print(f"[BatchLinks] Finalizado — {_batch_links_status['done']} ok, {_batch_links_status['errors']} errores")
 
 
 @app.route("/batch-add-links", methods=["POST"])
