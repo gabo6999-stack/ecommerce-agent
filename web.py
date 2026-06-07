@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
-# ─── Configuración de Google Search Console ──────────────────────────────────
+# ─── Google Search Console config ────────────────────────────────────────────
 GSC_CLIENT_ID     = os.environ.get("GOOGLE_CLIENT_ID", "")
 GSC_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", "")
 GSC_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN", "")
@@ -29,7 +29,7 @@ WP_USER = os.environ.get("WP_USER", "")
 WP_PASSWORD = os.environ.get("WP_PASSWORD", "")
 WEBHOOK_URL = os.environ.get("WEBHOOK_URL", "")
 
-# ─── Autenticación JWT ───────────────────────────────────────────────────────
+# ─── JWT Auth ────────────────────────────────────────────────────────────────
 
 _jwt_cache = {"token": None, "expires": 0}
 
@@ -479,7 +479,7 @@ def check_broken_links(post_id):
 
 
 def _extract_faq_from_html(content):
-    """Extrae pares pregunta/respuesta (<h3> + <p>) del HTML."""
+    """Parse <h3> questions + next <p> answer pairs from HTML."""
     import re
     faq_items = []
     h3_pattern = re.compile(
@@ -507,7 +507,7 @@ def add_schema_markup(post_id, schema_type="Article"):
     title = post.get("title", "")
     url = post.get("link", "")
 
-    # Eliminar schema existente para reemplazarlo con uno correcto
+    # Remove existing schema so it can be replaced with a correct one
     content_clean = re.sub(
         r'\s*<script type="application/ld\+json">[\s\S]*?</script>',
         '',
@@ -1774,7 +1774,7 @@ def run_batch_add_links(post_ids):
         "results": [], "started_at": datetime.now().isoformat(), "finished_at": None
     }
     try:
-        # Pre-cargar datos compartidos una sola vez
+        # Pre-fetch shared data once
         products = get_products(per_page=30)
         products_list = "\n".join(
             f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
@@ -1782,7 +1782,7 @@ def run_batch_add_links(post_ids):
         )
         all_posts = get_all_posts_catalog(per_page=100)
 
-        # Pre-cargar el contenido de cada post
+        # Pre-fetch each post's content
         posts_data = {}
         for post_id in post_ids:
             post = get_post_content(post_id)
@@ -2002,7 +2002,7 @@ Devuelve solo el HTML listo para WordPress."""
         return jsonify({"error": str(e)}), 500
 
 
-# ─── OBTENER URL ─────────────────────────────────────────────────────────────
+# ─── FETCH URL ───────────────────────────────────────────────────────────────
 
 def fetch_url(url: str) -> dict:
     try:

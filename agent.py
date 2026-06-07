@@ -26,7 +26,7 @@ def wc_get(endpoint, params=None):
     except requests.RequestException as e:
         return {"error": str(e)}
 
-# ── Implementaciones de herramientas ─────────────────────────────────────────
+# ── Tool implementations ─────────────────────────────────────────────────────
 
 def get_products(search=None, category=None, status="publish", limit=20,
                  orderby="popularity", order="desc"):
@@ -161,7 +161,7 @@ def compare_mexico_prices(query, limit=5):
         return {"error": str(e)}
 
 
-# ── Despachador de herramientas ──────────────────────────────────────────────
+# ── Tool dispatcher ──────────────────────────────────────────────────────────
 TOOL_FNS = {
     "get_products":          get_products,
     "get_product_details":   get_product_details,
@@ -175,14 +175,14 @@ TOOL_FNS = {
 def execute_tool(name, inputs):
     fn = TOOL_FNS.get(name)
     if not fn:
-        return {"error": f"Herramienta desconocida: {name}"}
+        return {"error": f"Unknown tool: {name}"}
     try:
         return fn(**inputs)
     except Exception as e:
         return {"error": str(e)}
 
 
-# ── Configuración de Claude ──────────────────────────────────────────────────
+# ── Claude setup ─────────────────────────────────────────────────────────────
 client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 MODEL  = "claude-opus-4-7"
 
@@ -190,29 +190,29 @@ SYSTEM = [
     {
         "type": "text",
         "text": (
-            "Eres un asistente experto en e-commerce para Péptidos y Suplementos "
-            "(peptidosysuplementos.mx), una tienda en línea mexicana especializada en péptidos, "
-            "suplementos y productos de salud.\n\n"
-            "Tus capacidades:\n"
-            "- **Recomendaciones de productos**: Sugiere productos según los objetivos del cliente "
-            "(ganancia muscular, pérdida de peso, recuperación, anti-envejecimiento, rendimiento cognitivo, etc.)\n"
-            "- **Soporte al cliente**: Consulta pedidos por correo, responde preguntas sobre "
-            "productos, envíos y devoluciones\n"
-            "- **Marketing y campañas**: Genera copys publicitarios y contenido para redes sociales; "
-            "asesora sobre los mejores horarios de publicación para audiencias mexicanas en Instagram, "
-            "Facebook y TikTok\n"
-            "- **Análisis e insights**: Analiza tendencias de ventas, identifica productos con mejor/peor "
-            "rendimiento, detecta patrones accionables\n"
-            "- **Comparación de precios en México**: Compara precios de la tienda contra "
-            "MercadoLibre México para evaluar competitividad\n\n"
-            "Directrices:\n"
-            "- Responde siempre en el mismo idioma en que escribe el usuario (español o inglés)\n"
-            "- Sé específico y basado en datos — obtén datos reales de la tienda antes de hacer recomendaciones\n"
-            "- Al recomendar productos, explica POR QUÉ se ajustan a las necesidades del cliente\n"
-            "- Para consejos de marketing, considera el contexto del mercado mexicano: los días de pago son el "
-            "1 y 15 de cada mes, y la motivación fitness es mayor en ene–mar y ago–sep\n"
-            "- Todos los precios están en MXN a menos que se indique lo contrario\n"
-            "- La fecha de hoy es 2026-05-23"
+            "You are an expert e-commerce assistant for Péptidos y Suplementos "
+            "(peptidosysuplementos.mx), a Mexican online store specializing in peptides, "
+            "supplements, and health products.\n\n"
+            "Your capabilities:\n"
+            "- **Product Recommendations**: Suggest products based on customer goals "
+            "(muscle gain, weight loss, recovery, anti-aging, cognitive performance, etc.)\n"
+            "- **Customer Support**: Look up orders by email, answer questions about "
+            "products, shipping, and returns\n"
+            "- **Marketing & Campaigns**: Generate compelling ad copy and social media "
+            "content; advise on the best posting times for Mexican audiences on Instagram, "
+            "Facebook, and TikTok\n"
+            "- **Analytics & Insights**: Analyze sales trends, identify top/bottom "
+            "performing products, surface actionable patterns\n"
+            "- **Mexico Market Price Comparison**: Compare store prices against "
+            "MercadoLibre Mexico to assess competitiveness\n\n"
+            "Guidelines:\n"
+            "- Always respond in the same language the user writes in (Spanish or English)\n"
+            "- Be specific and data-driven — pull real store data before making recommendations\n"
+            "- When recommending products, explain WHY they match the customer's needs\n"
+            "- For marketing advice, consider Mexican market context: pay days fall on the "
+            "1st and 15th of each month, peak fitness motivation is Jan–Mar and Aug–Sep\n"
+            "- All prices are in MXN unless noted otherwise\n"
+            "- Today's date is 2026-05-23"
         ),
         "cache_control": {"type": "ephemeral"},
     }
@@ -222,35 +222,35 @@ TOOLS = [
     {
         "name": "get_products",
         "description": (
-            "Obtiene productos de la tienda WooCommerce. "
-            "Filtra por keyword, ID de categoría u ordena por popularidad/precio/valoración."
+            "Fetch products from the WooCommerce store. "
+            "Filter by keyword, category ID, or sort by popularity/price/rating."
         ),
         "input_schema": {
             "type": "object",
             "properties": {
-                "search":   {"type": "string",  "description": "Keyword para buscar productos"},
-                "category": {"type": "string",  "description": "ID de categoría (usa get_categories para obtener los IDs)"},
-                "status":   {"type": "string",  "description": "publish o draft", "default": "publish"},
-                "limit":    {"type": "integer", "description": "Máx. resultados (hasta 100)", "default": 20},
+                "search":   {"type": "string",  "description": "Keyword to search products"},
+                "category": {"type": "string",  "description": "Category ID (use get_categories to get IDs)"},
+                "status":   {"type": "string",  "description": "publish or draft", "default": "publish"},
+                "limit":    {"type": "integer", "description": "Max results (up to 100)", "default": 20},
                 "orderby":  {"type": "string",  "description": "date | popularity | rating | price", "default": "popularity"},
-                "order":    {"type": "string",  "description": "asc o desc", "default": "desc"},
+                "order":    {"type": "string",  "description": "asc or desc", "default": "desc"},
             },
         },
     },
     {
         "name": "get_product_details",
-        "description": "Obtiene detalles completos de un producto específico: descripción, atributos, valoraciones, stock.",
+        "description": "Get full details for a specific product: description, attributes, ratings, stock.",
         "input_schema": {
             "type": "object",
             "properties": {
-                "product_id": {"type": "integer", "description": "ID del producto en WooCommerce"},
+                "product_id": {"type": "integer", "description": "WooCommerce product ID"},
             },
             "required": ["product_id"],
         },
     },
     {
         "name": "get_categories",
-        "description": "Lista todas las categorías de productos con su conteo de productos.",
+        "description": "List all product categories with product counts.",
         "input_schema": {
             "type": "object",
             "properties": {
@@ -260,33 +260,33 @@ TOOLS = [
     },
     {
         "name": "get_orders",
-        "description": "Obtiene pedidos de la tienda. Filtra por estado, correo del cliente o rango de fechas.",
+        "description": "Fetch store orders. Filter by status, customer email, or date range.",
         "input_schema": {
             "type": "object",
             "properties": {
                 "status":           {"type": "string", "description": "pending | processing | on-hold | completed | cancelled | refunded | failed"},
-                "customer_email":   {"type": "string", "description": "Consulta pedidos de un cliente específico"},
+                "customer_email":   {"type": "string", "description": "Look up orders for a specific customer"},
                 "limit":            {"type": "integer", "default": 20},
-                "after":            {"type": "string", "description": "Fecha de inicio ISO 8601, ej. 2026-01-01T00:00:00"},
-                "before":           {"type": "string", "description": "Fecha de fin ISO 8601"},
+                "after":            {"type": "string", "description": "ISO 8601 start date, e.g. 2026-01-01T00:00:00"},
+                "before":           {"type": "string", "description": "ISO 8601 end date"},
             },
         },
     },
     {
         "name": "get_sales_report",
-        "description": "Reporte de ventas agrupado: ingresos totales, cantidad de pedidos, valor promedio de pedido.",
+        "description": "Aggregated sales report: total revenue, order count, average order value.",
         "input_schema": {
             "type": "object",
             "properties": {
                 "period":   {"type": "string", "description": "week | month | last_month | year", "default": "month"},
-                "date_min": {"type": "string", "description": "Fecha de inicio YYYY-MM-DD"},
-                "date_max": {"type": "string", "description": "Fecha de fin YYYY-MM-DD"},
+                "date_min": {"type": "string", "description": "Start date YYYY-MM-DD"},
+                "date_max": {"type": "string", "description": "End date YYYY-MM-DD"},
             },
         },
     },
     {
         "name": "get_top_sellers",
-        "description": "Productos más vendidos por unidades vendidas en un período determinado.",
+        "description": "Best-selling products by units sold for a given period.",
         "input_schema": {
             "type": "object",
             "properties": {
@@ -298,14 +298,14 @@ TOOLS = [
     {
         "name": "compare_mexico_prices",
         "description": (
-            "Busca un producto en MercadoLibre México y devuelve los precios actuales del mercado "
-            "para evaluar si el precio de la tienda es competitivo."
+            "Search MercadoLibre Mexico for a product and return current market prices "
+            "so you can assess whether the store's pricing is competitive."
         ),
         "input_schema": {
             "type": "object",
             "properties": {
-                "query": {"type": "string",  "description": "Nombre del producto o keywords a buscar"},
-                "limit": {"type": "integer", "description": "Número de listados a comparar", "default": 5},
+                "query": {"type": "string",  "description": "Product name or keywords to search"},
+                "limit": {"type": "integer", "description": "Number of listings to compare", "default": 5},
             },
             "required": ["query"],
         },
@@ -313,7 +313,7 @@ TOOLS = [
 ]
 
 
-# ── Persistencia de historial ────────────────────────────────────────────────
+# ── History persistence ───────────────────────────────────────────────────────
 HISTORY_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sessions")
 
 
@@ -350,7 +350,7 @@ def save_session(messages):
     if FPDF_AVAILABLE:
         pdf_path = path.replace(".json", ".pdf")
         _export_pdf(payload, pdf_path, timestamp)
-        print(f"  [PDF guardado  → {pdf_path}]")
+        print(f"  [PDF saved  → {pdf_path}]")
     else:
         print("  [fpdf2 no instalado — ejecuta: pip install fpdf2]")
 
@@ -430,31 +430,31 @@ def load_last_session():
         return json.load(f)
 
 
-# ── Bucle principal ──────────────────────────────────────────────────────────
+# ── Main loop ────────────────────────────────────────────────────────────────
 def run():
     messages = []
     print("\n" + "=" * 60)
-    print("  Péptidos y Suplementos — Agente E-commerce")
-    print("  Con Claude  |  'exit' / 'salir' para salir")
+    print("  Péptidos y Suplementos — E-commerce Agent")
+    print("  Powered by Claude  |  'exit' / 'salir' to quit")
     print("=" * 60 + "\n")
 
     prior = load_last_session()
     if prior:
-        print(f"  [Sesión anterior encontrada — {len(prior)} mensajes.]")
+        print(f"  [Found previous session — {len(prior)} messages.]")
         try:
-            resume = input("  ¿Continuar desde la última sesión? (s/n): ").strip().lower()
+            resume = input("  Continue from last session? (y/n): ").strip().lower()
         except (EOFError, KeyboardInterrupt):
             resume = "n"
-        if resume in ("s", "y"):
+        if resume == "y":
             messages = prior
-            print(f"  [Cargados {len(messages)} mensajes.]\n")
+            print(f"  [Loaded {len(messages)} messages.]\n")
         else:
-            print("  [Iniciando sesión nueva.]\n")
+            print("  [Starting fresh session.]\n")
 
     try:
         while True:
             try:
-                user_input = input("Tú: ").strip()
+                user_input = input("You: ").strip()
             except (EOFError, KeyboardInterrupt):
                 print("\nAgent: ¡Hasta luego!")
                 break
@@ -467,11 +467,11 @@ def run():
 
             messages.append({"role": "user", "content": user_input})
 
-            # bucle agéntico — continúa solo mientras el modelo solicite ejecutar herramientas.
-            # Cualquier otro stop_reason (end_turn, max_tokens, stop_sequence, refusal,
-            # pause_turn, …) termina el turno; de lo contrario volveríamos a la API con
-            # una lista de mensajes que termina en assistant y dispararía
-            # "la conversación debe terminar con un mensaje de usuario".
+            # agentic loop — only continue while the model is asking us to run tools.
+            # Any other stop_reason (end_turn, max_tokens, stop_sequence, refusal,
+            # pause_turn, …) ends the turn; otherwise we'd loop back to the API with
+            # an assistant-final messages list and trigger
+            # "conversation must end with a user message".
             while True:
                 response = client.messages.create(
                     model=MODEL,
@@ -498,8 +498,8 @@ def run():
                     if tool_results:
                         messages.append({"role": "user", "content": tool_results})
                         continue
-                    # stop_reason indicó tool_use pero no se emitieron bloques tool_use —
-                    # salimos del bucle y terminamos el turno en lugar de enviar un mensaje vacío.
+                    # stop_reason said tool_use but no tool_use blocks were emitted —
+                    # fall through and end the turn rather than send an empty user msg.
 
                 for block in response.content:
                     if hasattr(block, "text") and block.text:
@@ -510,7 +510,7 @@ def run():
     finally:
         if messages:
             path = save_session(messages)
-            print(f"  [Sesión guardada → {path}]")
+            print(f"  [Session saved → {path}]")
 
 
 if __name__ == "__main__":
