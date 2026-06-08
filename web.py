@@ -620,7 +620,34 @@ MEMORIA:
 
 Siempre usa las herramientas para obtener datos reales antes de proponer cambios.
 Pide confirmacion antes de aplicar cualquier cambio.
-Responde siempre en espanol."""
+Responde siempre en espanol.
+
+CROSS-LINKING CON GRUPO PTM (grupoptm.com):
+peptidosysuplementos.mx y grupoptm.com son sitios hermanos del mismo negocio.
+grupoptm.com es la plataforma de telemedicina: consultas médicas especializadas en péptidos.
+
+Mapa de URLs de PTM por tema:
+- Pérdida de peso / GLP-1 / semaglutida / tirzepatida / Ozempic
+  → https://grupoptm.com/perdida-de-peso
+- Longevidad / anti-aging / Epithalon / GHK-Cu / MOTS-c
+  → https://grupoptm.com/longevidad-antiaging
+- Rendimiento / recuperación deportiva / BPC-157 / TB-500 / IGF-1
+  → https://grupoptm.com/rendimiento-recuperacion
+- Salud hormonal / TRT / testosterona / péptidos hormonales
+  → https://grupoptm.com/salud-hormonal
+- Blog médico de péptidos
+  → https://grupoptm.com/blog
+
+REGLAS DE CROSS-LINKING:
+- En TODO artículo nuevo de blog que toque alguno de estos temas, agrega al final un bloque CTA hacia PTM.
+- Al optimizar blogs existentes con add-links o batch-links, incluye el CTA de PTM si el tema es relevante.
+- Formato del CTA (úsalo siempre igual):
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;padding:16px;margin:24px 0;border-radius:8px;">
+<p style="margin:0;"><strong>¿Buscas orientación médica personalizada?</strong><br>
+En <a href="URL_PTM" target="_blank" rel="noopener noreferrer">Grupo PTM</a> contamos con médicos especializados en péptidos que pueden guiarte en tu tratamiento.</p>
+</div>
+- El anchor text del link siempre debe ser "Grupo PTM" o el nombre del tratamiento específico, nunca "click aquí" ni "más información".
+- No insertes más de 1 CTA de PTM por artículo."""
 
 TOOLS = [
     {
