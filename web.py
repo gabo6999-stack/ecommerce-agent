@@ -29,6 +29,11 @@ WP_USER = os.environ.get("WP_USER", "")
 WP_PASSWORD = os.environ.get("WP_PASSWORD", "")
 WEBHOOK_URL = os.environ.get("WEBHOOK_URL", "")
 
+# ─── Configuración PTM ───────────────────────────────────────────────────────
+PTM_URL      = os.environ.get("PTM_URL", "https://grupoptm.com")
+PTM_WP_USER  = os.environ.get("PTM_WP_USER", "")
+PTM_WP_PASSWORD = os.environ.get("PTM_WP_PASSWORD", "")
+
 # ─── JWT Auth ────────────────────────────────────────────────────────────────
 
 _jwt_cache = {"token": None, "expires": 0}
@@ -60,6 +65,162 @@ def jwt_headers():
     if token:
         return {"Authorization": f"Bearer {token}"}
     return {}
+
+
+# ─── Autenticación JWT para PTM ──────────────────────────────────────────────
+
+_ptm_jwt_cache = {"token": None, "expires": 0}
+
+def get_ptm_jwt_token():
+    global _ptm_jwt_cache
+    if _ptm_jwt_cache["token"] and time.time() < _ptm_jwt_cache["expires"]:
+        return _ptm_jwt_cache["token"]
+    if not PTM_WP_USER or not PTM_WP_PASSWORD:
+        print("[PTM-JWT] PTM_WP_USER o PTM_WP_PASSWORD no configurados")
+        return None
+    try:
+        r = requests.post(
+            f"{PTM_URL}/wp-json/jwt-auth/v1/token",
+            json={"username": PTM_WP_USER, "password": PTM_WP_PASSWORD},
+            timeout=15
+        )
+        data = r.json()
+        token = data.get("token") or data.get("data", {}).get("token")
+        if not token:
+            print(f"[PTM-JWT] Error obteniendo token: {data}")
+            return None
+        _ptm_jwt_cache = {"token": token, "expires": time.time() + 6 * 24 * 3600}
+        print("[PTM-JWT] Token obtenido correctamente")
+        return token
+    except Exception as e:
+        print(f"[PTM-JWT] Excepción: {e}")
+        return None
+
+def ptm_jwt_headers():
+    token = get_ptm_jwt_token()
+    if token:
+        return {"Authorization": f"Bearer {token}"}
+    return {}
+
+
+# ─── Funciones WordPress de PTM ──────────────────────────────────────────────
+
+def get_ptm_posts(per_page=10):
+    try:
+        r = requests.get(
+            f"{PTM_URL}/wp-json/wp/v2/posts",
+            headers=ptm_jwt_headers(),
+            params={"per_page": per_page, "_fields": "id,title,slug,status,link,date", "status": "publish"},
+            timeout=15
+        )
+        return [{"id": p.get("id"), "title": p.get("title", {}).get("rendered", ""),
+                 "slug": p.get("slug"), "status": p.get("status"),
+                 "link": p.get("link"), "date": p.get("date")} for p in r.json()]
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def get_ptm_post_content(post_id):
+    try:
+        r = requests.get(f"{PTM_URL}/wp-json/wp/v2/posts/{post_id}",
+                         headers=ptm_jwt_headers(), timeout=15)
+        p = r.json()
+        if "id" not in p:
+            return {"error": str(p)}
+        return {"id": p["id"], "title": p.get("title", {}).get("rendered", ""),
+                "slug": p.get("slug", ""), "link": p.get("link", ""),
+                "content": p.get("content", {}).get("rendered", "")}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def get_ptm_all_posts_catalog(per_page=100):
+    try:
+        r = requests.get(
+            f"{PTM_URL}/wp-json/wp/v2/posts",
+            headers=ptm_jwt_headers(),
+            params={"per_page": per_page, "_fields": "id,title,slug,link", "status": "publish"},
+            timeout=15
+        )
+        posts = r.json()
+        if not isinstance(posts, list):
+            return {"error": str(posts)}
+        return [{"id": p.get("id"), "title": p.get("title", {}).get("rendered", ""),
+                 "slug": p.get("slug", ""), "link": p.get("link", "")} for p in posts]
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def create_ptm_post(title, content, slug="", meta_description="", status="publish"):
+    try:
+        data = {"title": title, "content": content, "slug": slug, "status": status}
+        if meta_description:
+            data["meta"] = {"rank_math_description": meta_description}
+        r = requests.post(f"{PTM_URL}/wp-json/wp/v2/posts",
+                          json=data, headers=ptm_jwt_headers(), timeout=30)
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": result["id"],
+                    "link": result.get("link", ""), "status": result.get("status")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def update_ptm_post(post_id, data):
+    try:
+        r = requests.post(f"{PTM_URL}/wp-json/wp/v2/posts/{post_id}",
+                          headers=ptm_jwt_headers(), json=data, timeout=30)
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": post_id, "link": result.get("link", "")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def get_ptm_pages():
+    try:
+        r = requests.get(
+            f"{PTM_URL}/wp-json/wp/v2/pages",
+            headers=ptm_jwt_headers(),
+            params={"per_page": 100, "_fields": "id,title,slug,link,status", "status": "publish"},
+            timeout=15
+        )
+        pages = r.json()
+        if not isinstance(pages, list):
+            return {"error": str(pages)}
+        return [{"id": p.get("id"), "title": p.get("title", {}).get("rendered", ""),
+                 "slug": p.get("slug", ""), "link": p.get("link", ""), "type": "page"}
+                for p in pages]
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def get_ptm_page_content(page_id):
+    try:
+        r = requests.get(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
+                         headers=ptm_jwt_headers(), timeout=15)
+        p = r.json()
+        if "id" not in p:
+            return {"error": str(p)}
+        return {"id": p["id"], "title": p.get("title", {}).get("rendered", ""),
+                "slug": p.get("slug", ""), "link": p.get("link", ""),
+                "content": p.get("content", {}).get("rendered", ""), "type": "page"}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def update_ptm_page(page_id, data):
+    try:
+        r = requests.post(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
+                          headers=ptm_jwt_headers(), json=data, timeout=30)
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": page_id, "link": result.get("link", "")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
 
 
 def get_products(per_page=10):
@@ -622,11 +783,22 @@ Siempre usa las herramientas para obtener datos reales antes de proponer cambios
 Pide confirmacion antes de aplicar cualquier cambio.
 Responde siempre en espanol.
 
-CROSS-LINKING CON GRUPO PTM (grupoptm.com):
-peptidosysuplementos.mx y grupoptm.com son sitios hermanos del mismo negocio.
-grupoptm.com es la plataforma de telemedicina: consultas médicas especializadas en péptidos.
+GRUPO PTM — SEGUNDO SITIO (grupoptm.com):
+peptidosysuplementos.mx (PYS) y grupoptm.com (PTM) son sitios hermanos del mismo negocio.
+PTM es la plataforma de telemedicina: consultas médicas especializadas en péptidos.
+Tienes acceso completo a ambos sitios para leer y escribir contenido.
 
-Mapa de URLs de PTM por tema:
+HERRAMIENTAS DE PTM:
+- get_ptm_pages: obtiene todas las páginas de PTM (landing pages de tratamientos)
+- get_ptm_page_content: lee el HTML de una página de PTM antes de editarla
+- update_ptm_page: actualiza contenido, SEO title o meta description de una página de PTM
+- get_ptm_posts: lista los blogs de PTM
+- get_ptm_post_content: lee el HTML de un blog de PTM
+- get_ptm_all_posts_catalog: mapa completo de blogs de PTM para interlinks
+- create_ptm_post: crea y publica un artículo en el blog de PTM
+- update_ptm_post: actualiza un blog existente de PTM
+
+MAPA DE PÁGINAS DE PTM (landing pages SEO):
 - Pérdida de peso / GLP-1 / semaglutida / tirzepatida / Ozempic
   → https://grupoptm.com/perdida-de-peso
 - Longevidad / anti-aging / Epithalon / GHK-Cu / MOTS-c
@@ -635,19 +807,18 @@ Mapa de URLs de PTM por tema:
   → https://grupoptm.com/rendimiento-recuperacion
 - Salud hormonal / TRT / testosterona / péptidos hormonales
   → https://grupoptm.com/salud-hormonal
-- Blog médico de péptidos
-  → https://grupoptm.com/blog
 
-REGLAS DE CROSS-LINKING:
-- En TODO artículo nuevo de blog que toque alguno de estos temas, agrega al final un bloque CTA hacia PTM.
-- Al optimizar blogs existentes con add-links o batch-links, incluye el CTA de PTM si el tema es relevante.
-- Formato del CTA (úsalo siempre igual):
+REGLAS DE CROSS-LINKING BIDIRECCIONAL:
+- En blogs de PYS que traten estos temas, agrega al final un CTA hacia la página PTM correspondiente.
+- En páginas y blogs de PTM, agrega links a los productos relevantes de PYS (usa get_products para obtener slugs).
+- Formato del CTA de PYS → PTM:
 <div style="background:#f0fdf4;border-left:4px solid #22c55e;padding:16px;margin:24px 0;border-radius:8px;">
 <p style="margin:0;"><strong>¿Buscas orientación médica personalizada?</strong><br>
 En <a href="URL_PTM" target="_blank" rel="noopener noreferrer">Grupo PTM</a> contamos con médicos especializados en péptidos que pueden guiarte en tu tratamiento.</p>
 </div>
-- El anchor text del link siempre debe ser "Grupo PTM" o el nombre del tratamiento específico, nunca "click aquí" ni "más información".
-- No insertes más de 1 CTA de PTM por artículo."""
+- Formato del CTA de PTM → PYS:
+<p>Puedes adquirir <a href="URL_PRODUCTO_PYS">nombre del producto</a> directamente en nuestra tienda.</p>
+- Máximo 1 CTA de cross-linking por artículo. Anchor text siempre descriptivo, nunca "click aquí"."""
 
 TOOLS = [
     {
@@ -963,6 +1134,98 @@ TOOLS = [
                 "key": {"type": "string", "description": "Clave específica a recuperar. Si se omite, devuelve toda la memoria."}
             }
         }
+    },
+    {
+        "name": "get_ptm_posts",
+        "description": "Obtiene los posts de blog publicados en grupoptm.com (WordPress de PTM).",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "per_page": {"type": "integer", "default": 10}
+            }
+        }
+    },
+    {
+        "name": "get_ptm_post_content",
+        "description": "Obtiene el contenido HTML completo de un post de blog de grupoptm.com. Úsala siempre antes de editar.",
+        "input_schema": {
+            "type": "object",
+            "required": ["post_id"],
+            "properties": {
+                "post_id": {"type": "integer", "description": "ID del post en WordPress de PTM"}
+            }
+        }
+    },
+    {
+        "name": "get_ptm_all_posts_catalog",
+        "description": "Obtiene TODOS los artículos publicados de grupoptm.com con sus URLs. Úsala para construir el mapa de interlinks de PTM.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "per_page": {"type": "integer", "default": 100}
+            }
+        }
+    },
+    {
+        "name": "create_ptm_post",
+        "description": "Crea y publica un artículo de blog en grupoptm.com.",
+        "input_schema": {
+            "type": "object",
+            "required": ["title", "content"],
+            "properties": {
+                "title": {"type": "string", "description": "Título SEO (max 60 chars)"},
+                "content": {"type": "string", "description": "Contenido HTML para WordPress"},
+                "slug": {"type": "string", "description": "URL amigable en minúsculas con guiones"},
+                "meta_description": {"type": "string", "description": "Meta descripción 150-160 chars"},
+                "status": {"type": "string", "default": "publish", "description": "publish o draft"}
+            }
+        }
+    },
+    {
+        "name": "update_ptm_post",
+        "description": "Actualiza el contenido, título o meta description de un post de blog en grupoptm.com.",
+        "input_schema": {
+            "type": "object",
+            "required": ["post_id"],
+            "properties": {
+                "post_id": {"type": "integer", "description": "ID del post en WordPress de PTM"},
+                "title": {"type": "string", "description": "Nuevo título (opcional)"},
+                "content": {"type": "string", "description": "Nuevo contenido HTML completo (opcional)"},
+                "meta_description": {"type": "string", "description": "Nueva meta description 150-160 chars (opcional)"},
+                "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars, opcional)"}
+            }
+        }
+    },
+    {
+        "name": "get_ptm_pages",
+        "description": "Obtiene todas las páginas publicadas de grupoptm.com (landing pages de tratamientos, etc.).",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "get_ptm_page_content",
+        "description": "Obtiene el contenido HTML completo de una página de grupoptm.com. Úsala siempre antes de editar una landing page.",
+        "input_schema": {
+            "type": "object",
+            "required": ["page_id"],
+            "properties": {
+                "page_id": {"type": "integer", "description": "ID de la página en WordPress de PTM"}
+            }
+        }
+    },
+    {
+        "name": "update_ptm_page",
+        "description": "Actualiza título, contenido, SEO title o meta description de una página de grupoptm.com. Ideal para optimizar las landing pages de tratamientos.",
+        "input_schema": {
+            "type": "object",
+            "required": ["page_id"],
+            "properties": {
+                "page_id": {"type": "integer", "description": "ID de la página en WordPress de PTM"},
+                "title": {"type": "string", "description": "Título visible de la página (opcional)"},
+                "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars, opcional)"},
+                "meta_description": {"type": "string", "description": "Meta description para Google 150-160 chars (opcional)"},
+                "content": {"type": "string", "description": "Contenido HTML completo (opcional)"}
+            }
+        }
     }
 ]
 
@@ -1047,6 +1310,44 @@ def run_tool(name, inputs):
         return remember_instruction(inputs["key"], inputs["value"])
     elif name == "recall_memory":
         return recall_memory(inputs.get("key"))
+    elif name == "get_ptm_posts":
+        return get_ptm_posts(inputs.get("per_page", 10))
+    elif name == "get_ptm_post_content":
+        return get_ptm_post_content(inputs["post_id"])
+    elif name == "get_ptm_all_posts_catalog":
+        return get_ptm_all_posts_catalog(inputs.get("per_page", 100))
+    elif name == "create_ptm_post":
+        return create_ptm_post(
+            title=inputs["title"],
+            content=inputs["content"],
+            slug=inputs.get("slug", ""),
+            meta_description=inputs.get("meta_description", ""),
+            status=inputs.get("status", "publish")
+        )
+    elif name == "update_ptm_post":
+        data = {k: inputs[k] for k in ["title", "content"] if k in inputs}
+        meta = {}
+        if "meta_description" in inputs:
+            meta["rank_math_description"] = inputs["meta_description"]
+        if "seo_title" in inputs:
+            meta["rank_math_title"] = inputs["seo_title"]
+        if meta:
+            data["meta"] = meta
+        return update_ptm_post(inputs["post_id"], data)
+    elif name == "get_ptm_pages":
+        return get_ptm_pages()
+    elif name == "get_ptm_page_content":
+        return get_ptm_page_content(inputs["page_id"])
+    elif name == "update_ptm_page":
+        data = {k: inputs[k] for k in ["title", "content", "slug"] if k in inputs}
+        meta = {}
+        if "meta_description" in inputs:
+            meta["rank_math_description"] = inputs["meta_description"]
+        if "seo_title" in inputs:
+            meta["rank_math_title"] = inputs["seo_title"]
+        if meta:
+            data["meta"] = meta
+        return update_ptm_page(inputs["page_id"], data)
     return {"error": "herramienta desconocida"}
 
 @app.route("/")
