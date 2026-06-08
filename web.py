@@ -227,7 +227,7 @@ def append_to_ptm_page(page_id, html_to_append):
     """Appends HTML to an existing PTM page without regenerating the full content."""
     try:
         r = requests.get(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
-                         headers=ptm_jwt_headers(), timeout=15)
+                         headers=ptm_jwt_headers(), params={"context": "edit"}, timeout=15)
         p = r.json()
         if "id" not in p:
             return {"error": str(p)}
