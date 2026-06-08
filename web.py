@@ -223,6 +223,28 @@ def update_ptm_page(page_id, data):
         return {"error": str(e)}
 
 
+def replace_in_ptm_page(page_id, find_html, replace_html):
+    """Finds and replaces a specific HTML fragment in a PTM page (raw content)."""
+    try:
+        r = requests.get(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
+                         headers=ptm_jwt_headers(), params={"context": "edit"}, timeout=15)
+        p = r.json()
+        if "id" not in p:
+            return {"error": str(p)}
+        raw = p.get("content", {}).get("raw", "")
+        if find_html not in raw:
+            return {"error": "find_html not found in page content", "hint": "El fragmento no existe exactamente en el contenido"}
+        updated = raw.replace(find_html, replace_html, 1)
+        r2 = requests.post(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
+                           headers=ptm_jwt_headers(), json={"content": updated}, timeout=30)
+        result = r2.json()
+        if "id" in result:
+            return {"success": True, "id": page_id, "link": result.get("link", "")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def append_to_ptm_page(page_id, html_to_append):
     """Appends HTML to an existing PTM page without regenerating the full content."""
     try:
@@ -833,6 +855,7 @@ Tienes acceso completo a ambos sitios para leer y escribir contenido.
 HERRAMIENTAS DE PTM:
 - create_ptm_page: crea una nueva landing page en grupoptm.com con título, slug y SEO inicial
 - append_to_ptm_page: agrega HTML al final de una página PTM existente sin reescribir todo el contenido (usa para schema, interlinks, notas)
+- replace_in_ptm_page: reemplaza un fragmento HTML específico en el contenido raw de una página PTM (find & replace quirúrgico, sin tocar el resto)
 - get_ptm_pages: obtiene todas las páginas de PTM (landing pages de tratamientos)
 - get_ptm_page_content: lee el HTML de una página de PTM antes de editarla
 - update_ptm_page: actualiza contenido, SEO title o meta description de una página de PTM
@@ -1272,6 +1295,19 @@ TOOLS = [
         }
     },
     {
+        "name": "replace_in_ptm_page",
+        "description": "Reemplaza un fragmento HTML específico dentro del contenido raw de una página PTM. Úsala para corregir o actualizar partes específicas del HTML sin reescribir toda la página. Retorna error si el fragmento no se encuentra exactamente.",
+        "input_schema": {
+            "type": "object",
+            "required": ["page_id", "find_html", "replace_html"],
+            "properties": {
+                "page_id": {"type": "integer", "description": "ID de la página en WordPress de PTM"},
+                "find_html": {"type": "string", "description": "Fragmento HTML exacto a buscar en el contenido (debe ser exacto, incluyendo espacios y saltos de línea)"},
+                "replace_html": {"type": "string", "description": "HTML que reemplazará al fragmento encontrado"}
+            }
+        }
+    },
+    {
         "name": "append_to_ptm_page",
         "description": "Agrega HTML al final de una página existente de grupoptm.com SIN reescribir el contenido completo. Ideal para añadir secciones (interlinks, schema JSON-LD, notas SEO) a páginas grandes.",
         "input_schema": {
@@ -1419,6 +1455,8 @@ def run_tool(name, inputs):
         if meta:
             data["meta"] = meta
         return update_ptm_page(inputs["page_id"], data)
+    elif name == "replace_in_ptm_page":
+        return replace_in_ptm_page(inputs["page_id"], inputs["find_html"], inputs["replace_html"])
     elif name == "append_to_ptm_page":
         return append_to_ptm_page(inputs["page_id"], inputs["html_to_append"])
     elif name == "create_ptm_page":
