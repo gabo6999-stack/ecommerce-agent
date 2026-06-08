@@ -223,6 +223,28 @@ def update_ptm_page(page_id, data):
         return {"error": str(e)}
 
 
+def create_ptm_page(title, slug="", seo_title="", meta_description="", status="publish"):
+    try:
+        data = {"title": title, "status": status}
+        if slug:
+            data["slug"] = slug
+        meta = {}
+        if seo_title:
+            meta["rank_math_title"] = seo_title
+        if meta_description:
+            meta["rank_math_description"] = meta_description
+        if meta:
+            data["meta"] = meta
+        r = requests.post(f"{PTM_URL}/wp-json/wp/v2/pages",
+                          json=data, headers=ptm_jwt_headers(), timeout=30)
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": result["id"], "link": result.get("link", ""), "slug": result.get("slug", "")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def get_products(per_page=10):
     try:
         r = requests.get(
@@ -789,6 +811,7 @@ PTM es la plataforma de telemedicina: consultas médicas especializadas en pépt
 Tienes acceso completo a ambos sitios para leer y escribir contenido.
 
 HERRAMIENTAS DE PTM:
+- create_ptm_page: crea una nueva landing page en grupoptm.com con título, slug y SEO inicial
 - get_ptm_pages: obtiene todas las páginas de PTM (landing pages de tratamientos)
 - get_ptm_page_content: lee el HTML de una página de PTM antes de editarla
 - update_ptm_page: actualiza contenido, SEO title o meta description de una página de PTM
@@ -1226,6 +1249,21 @@ TOOLS = [
                 "content": {"type": "string", "description": "Contenido HTML completo (opcional)"}
             }
         }
+    },
+    {
+        "name": "create_ptm_page",
+        "description": "Crea una nueva página en grupoptm.com. Úsala para crear las landing pages de tratamientos (pérdida de peso, longevidad, etc.) con su slug y SEO inicial.",
+        "input_schema": {
+            "type": "object",
+            "required": ["title"],
+            "properties": {
+                "title": {"type": "string", "description": "Título visible de la página"},
+                "slug": {"type": "string", "description": "Slug URL (ej: perdida-de-peso). Vacío = raíz del sitio."},
+                "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars)"},
+                "meta_description": {"type": "string", "description": "Meta description para Google 150-160 chars"},
+                "status": {"type": "string", "description": "publish o draft (default: publish)"}
+            }
+        }
     }
 ]
 
@@ -1348,6 +1386,14 @@ def run_tool(name, inputs):
         if meta:
             data["meta"] = meta
         return update_ptm_page(inputs["page_id"], data)
+    elif name == "create_ptm_page":
+        return create_ptm_page(
+            title=inputs["title"],
+            slug=inputs.get("slug", ""),
+            seo_title=inputs.get("seo_title", ""),
+            meta_description=inputs.get("meta_description", ""),
+            status=inputs.get("status", "publish")
+        )
     return {"error": "herramienta desconocida"}
 
 @app.route("/")
