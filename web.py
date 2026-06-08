@@ -223,6 +223,26 @@ def update_ptm_page(page_id, data):
         return {"error": str(e)}
 
 
+def append_to_ptm_page(page_id, html_to_append):
+    """Appends HTML to an existing PTM page without regenerating the full content."""
+    try:
+        r = requests.get(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
+                         headers=ptm_jwt_headers(), timeout=15)
+        p = r.json()
+        if "id" not in p:
+            return {"error": str(p)}
+        current_content = p.get("content", {}).get("raw", "") or p.get("content", {}).get("rendered", "")
+        updated_content = current_content + "\n" + html_to_append
+        r2 = requests.post(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
+                           headers=ptm_jwt_headers(), json={"content": updated_content}, timeout=30)
+        result = r2.json()
+        if "id" in result:
+            return {"success": True, "id": page_id, "link": result.get("link", ""), "appended_chars": len(html_to_append)}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def create_ptm_page(title, slug="", seo_title="", meta_description="", status="publish"):
     try:
         data = {"title": title, "status": status}
@@ -812,6 +832,7 @@ Tienes acceso completo a ambos sitios para leer y escribir contenido.
 
 HERRAMIENTAS DE PTM:
 - create_ptm_page: crea una nueva landing page en grupoptm.com con título, slug y SEO inicial
+- append_to_ptm_page: agrega HTML al final de una página PTM existente sin reescribir todo el contenido (usa para schema, interlinks, notas)
 - get_ptm_pages: obtiene todas las páginas de PTM (landing pages de tratamientos)
 - get_ptm_page_content: lee el HTML de una página de PTM antes de editarla
 - update_ptm_page: actualiza contenido, SEO title o meta description de una página de PTM
@@ -1251,6 +1272,18 @@ TOOLS = [
         }
     },
     {
+        "name": "append_to_ptm_page",
+        "description": "Agrega HTML al final de una página existente de grupoptm.com SIN reescribir el contenido completo. Ideal para añadir secciones (interlinks, schema JSON-LD, notas SEO) a páginas grandes.",
+        "input_schema": {
+            "type": "object",
+            "required": ["page_id", "html_to_append"],
+            "properties": {
+                "page_id": {"type": "integer", "description": "ID de la página en WordPress de PTM"},
+                "html_to_append": {"type": "string", "description": "HTML a agregar al final del contenido existente"}
+            }
+        }
+    },
+    {
         "name": "create_ptm_page",
         "description": "Crea una nueva página en grupoptm.com. Úsala para crear las landing pages de tratamientos (pérdida de peso, longevidad, etc.) con su slug y SEO inicial.",
         "input_schema": {
@@ -1386,6 +1419,8 @@ def run_tool(name, inputs):
         if meta:
             data["meta"] = meta
         return update_ptm_page(inputs["page_id"], data)
+    elif name == "append_to_ptm_page":
+        return append_to_ptm_page(inputs["page_id"], inputs["html_to_append"])
     elif name == "create_ptm_page":
         return create_ptm_page(
             title=inputs["title"],
