@@ -2449,6 +2449,92 @@ Devuelve solo el HTML listo para WordPress."""
         return jsonify({"error": str(e)}), 500
 
 
+@app.route("/optimize-ptm-blog", methods=["POST"])
+def optimize_ptm_blog():
+    try:
+        data = request.json or {}
+        post_id = data.get("post_id")
+        title = data.get("title", "")
+        content = data.get("content", "")
+        url = data.get("url", "")
+
+        if not post_id or not content:
+            return jsonify({"error": "post_id y content son requeridos"}), 400
+
+        # Interlinks: otros posts publicados en grupoptm.com
+        all_ptm_posts = get_ptm_all_posts_catalog(per_page=100)
+        other_ptm_posts = [
+            p for p in all_ptm_posts
+            if isinstance(p, dict) and str(p.get("id", "")) != str(post_id)
+        ]
+        ptm_posts_list = "\n".join(
+            f"- {p['title']} ({p['link']})"
+            for p in other_ptm_posts if isinstance(p, dict) and p.get("title")
+        )
+
+        # Cross-links: productos de peptidosysuplementos.mx (tienda hermana PTM→PYS)
+        products = get_products(per_page=30)
+        products_list = "\n".join(
+            f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
+            for p in products if isinstance(p, dict) and "name" in p
+        )
+
+        prompt = f"""Eres un experto SEO. Tienes este artículo de blog en grupoptm.com (plataforma de telemedicina especializada en péptidos y salud hormonal):
+
+TÍTULO: {title}
+URL: {url}
+POST ID: {post_id}
+
+CONTENIDO ACTUAL (HTML):
+{content}
+
+OTROS ARTÍCULOS DEL BLOG DE GRUPOPTM.COM (para interlinks):
+{ptm_posts_list if ptm_posts_list else "No hay otros artículos disponibles aún."}
+
+PRODUCTOS DE PEPTIDOSYSUPLEMENTOS.MX (farmacia hermana — para cross-links):
+{products_list}
+
+Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto existente:
+1. INTERLINKS (2-4 links): enlaza a otros artículos del blog de grupoptm.com que sean temáticamente relevantes.
+   Formato: <a href="URL_DEL_POST">texto descriptivo</a>
+2. CROSS-LINKS A PEPTIDOSYSUPLEMENTOS.MX (2-3 links): enlaza a productos relevantes de la farmacia con contexto clínico natural.
+   Usa textos como "disponible en nuestra farmacia", "péptidos certificados", "puedes adquirirlo en peptidosysuplementos.mx".
+   Formato: <a href="URL_PRODUCTO" target="_blank">texto descriptivo</a>
+3. LINKS EXTERNOS CIENTÍFICOS (3-5 links): enlaza a fuentes de autoridad científica relevantes al tema del artículo
+   (PubMed, NIH, Mayo Clinic, NEJM, Examine.com). Solo URLs reales y verificables.
+   Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
+4. Asegúrate de que el contenido tenga al menos un H2 y que la conclusión incluya un CTA hacia agendar una consulta médica en grupoptm.com.
+5. NO inventes productos ni posts que no estén en las listas anteriores.
+6. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
+
+Devuelve solo el HTML listo para WordPress."""
+
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=16384,
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        optimized_content = response.content[0].text.strip()
+        if optimized_content.startswith("```"):
+            optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+
+        result = update_ptm_post(post_id, {"content": optimized_content})
+
+        if result.get("success"):
+            return jsonify({
+                "success": True,
+                "post_id": post_id,
+                "url": result.get("link", url),
+                "interlinks_added": len(other_ptm_posts) > 0,
+                "cross_links_added": len(products) > 0,
+            })
+        return jsonify({"error": result.get("error", "Error al actualizar post PTM")}), 500
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 # ─── FETCH URL ───────────────────────────────────────────────────────────────
 
 def fetch_url(url: str) -> dict:
