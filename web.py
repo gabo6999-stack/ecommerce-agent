@@ -198,7 +198,7 @@ def get_ptm_pages():
 
 
 def strip_wpautop_artifacts(html):
-    """Remove wpautop-injected <br> tags from inside <script>/<style> and fix wrapped structure."""
+    """Remove wpautop-injected tags from script/style/anchor card structures."""
     import re as _re
 
     def clean_tag(m):
@@ -206,14 +206,25 @@ def strip_wpautop_artifacts(html):
         inner = inner.replace('<br />', '\n').replace('<br/>', '\n').replace('<br>', '\n')
         return f'<{tag}{attrs}>{inner}</{tag}>'
 
+    # Clean <br /> from inside <script> and <style>
     html = _re.sub(r'<(script|style)([^>]*)>(.*?)</\1>',
                    clean_tag, html, flags=_re.DOTALL | _re.IGNORECASE)
     # Remove <p> wrappers around <script> tags
     html = _re.sub(r'<p>\s*(<script[^>]*>.*?</script>)\s*</p>',
                    r'\1', html, flags=_re.DOTALL | _re.IGNORECASE)
+    # Fix stray </p> right after any opening tag close:  href="..."></p>  →  href="...">
+    html = _re.sub(r'((?:href|src|style|class)="[^"]*">)\s*</p>', r'\1', html)
+    # Fix <p> with only whitespace immediately before </a>  →  </a>
+    html = _re.sub(r'<p>\s*</a>', r'</a>', html)
+    # Fix </a><br /> separating adjacent anchor tags  →  </a>\n
+    html = _re.sub(r'(</a>)\s*<br />\s*(<a\b)', r'\1\n\2', html)
     # Fix stray </p> between .ptm-faq-q button and .ptm-faq-a div
     html = _re.sub(r'(</button>)\s*</p>(\s*\n?\s*<div[^>]+ptm-faq-a)',
                    r'\1\2', html, flags=_re.IGNORECASE)
+    # Fix general stray </p> after any block-opening tag where it causes nesting issues:
+    # <div/section/span ...></p>  →  <div/section/span ...>
+    html = _re.sub(r'(<(?:div|section|span|header|footer|nav|article|aside|main)[^>]*>)\s*</p>',
+                   r'\1', html, flags=_re.IGNORECASE)
     return html
 
 
