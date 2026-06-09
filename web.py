@@ -1666,7 +1666,7 @@ TOOLS = [
     },
     {
         "name": "update_raditech_post",
-        "description": "Actualiza contenido, título, SEO title o meta description de un blog de raditech.mx.",
+        "description": "Actualiza contenido, título, SEO title, meta description o categorías (categories) de un blog de raditech.mx.",
         "input_schema": {
             "type": "object", "required": ["post_id"],
             "properties": {
