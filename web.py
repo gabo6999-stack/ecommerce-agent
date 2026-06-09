@@ -204,6 +204,9 @@ def strip_wpautop_artifacts(html):
     def clean_tag(m):
         tag, attrs, inner = m.group(1), m.group(2), m.group(3)
         inner = inner.replace('<br />', '\n').replace('<br/>', '\n').replace('<br>', '\n')
+        # Also remove <p> and </p> tags wpautop injects inside script/style blocks
+        inner = _re.sub(r'</p>', '', inner)
+        inner = _re.sub(r'<p[^>]*>', '', inner)
         return f'<{tag}{attrs}>{inner}</{tag}>'
 
     # Clean <br /> from inside <script> and <style>
