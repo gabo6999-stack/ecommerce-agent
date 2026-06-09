@@ -2700,6 +2700,22 @@ def repair_ptm_page(page_id):
         return jsonify({"error": str(e)}), 500
 
 
+@app.route("/delete-ptm-post/<int:post_id>", methods=["DELETE", "POST"])
+def delete_ptm_post(post_id):
+    try:
+        r = requests.delete(
+            f"{PTM_URL}/wp-json/wp/v2/posts/{post_id}",
+            headers=ptm_jwt_headers(),
+            params={"force": True},
+            timeout=15
+        )
+        if r.status_code in (200, 201):
+            return jsonify({"ok": True, "deleted": post_id, "result": r.json()})
+        return jsonify({"ok": False, "status": r.status_code, "response": r.text[:500]}), r.status_code
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/optimize-ptm-page", methods=["POST"])
 def optimize_ptm_page():
     """
