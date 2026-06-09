@@ -2589,7 +2589,12 @@ Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto exist
    (PubMed, examine.com, NIH, FDA, NEJM, Mayo Clinic). Solo URLs reales y verificables.
    Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
 4. NO inventes productos ni posts que no estén en las listas anteriores.
-5. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
+5. FAQ SCHEMA JSON-LD: si el artículo tiene sección FAQ, añade al final del HTML:
+   <script type="application/ld+json">
+   {{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"Pregunta","acceptedAnswer":{{"@type":"Answer","text":"Respuesta"}}}}]}}
+   </script>
+   Usa las preguntas y respuestas reales del artículo. Respuestas en texto plano sin HTML.
+6. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
 
 Devuelve solo el HTML listo para WordPress."""
 
@@ -2845,7 +2850,12 @@ Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto exist
    Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
 4. Asegúrate de que el contenido tenga al menos un H2 y una conclusión con llamada a la acción.
 5. NO inventes productos ni posts que no estén en las listas anteriores.
-6. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
+6. FAQ SCHEMA JSON-LD: si el artículo tiene sección FAQ, añade al final del HTML:
+   <script type="application/ld+json">
+   {{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"Pregunta","acceptedAnswer":{{"@type":"Answer","text":"Respuesta"}}}}]}}
+   </script>
+   Usa las preguntas y respuestas reales del artículo. Respuestas en texto plano sin HTML.
+7. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
 
 Devuelve solo el HTML listo para WordPress."""
 
@@ -2948,6 +2958,24 @@ Tu tarea — enriquece el contenido añadiendo de forma NATURAL:
 5. CTA final (si no existe): termina con un párrafo de cierre con llamada a la acción institucional
    como "Solicita una demostración de VIRA PACS" o "Conoce nuestras soluciones de teleradiología".
 
+6. FAQ SCHEMA JSON-LD: siempre que el artículo tenga (o tú agregues) una sección FAQ,
+   añade al final del HTML el siguiente bloque con las preguntas y respuestas reales del artículo:
+   <script type="application/ld+json">
+   {{
+     "@context": "https://schema.org",
+     "@type": "FAQPage",
+     "mainEntity": [
+       {{
+         "@type": "Question",
+         "name": "Pregunta 1",
+         "acceptedAnswer": {{"@type": "Answer", "text": "Respuesta 1"}}
+       }}
+     ]
+   }}
+   </script>
+   Incluye todas las preguntas de la sección FAQ. Las respuestas deben ser texto plano (sin HTML).
+   Este bloque permite que Google muestre rich snippets en los resultados de búsqueda.
+
 REGLAS:
 - No inventes posts ni páginas que no estén en las listas anteriores.
 - Mantén el tono técnico-institucional B2B, sin lenguaje de ventas agresivo.
@@ -3045,7 +3073,12 @@ Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto exist
    Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
 4. Asegúrate de que el contenido tenga al menos un H2 y que la conclusión incluya un CTA hacia agendar una consulta médica en grupoptm.com.
 5. NO inventes productos ni posts que no estén en las listas anteriores.
-6. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
+6. FAQ SCHEMA JSON-LD: si el artículo tiene sección FAQ, añade al final del HTML:
+   <script type="application/ld+json">
+   {{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"Pregunta","acceptedAnswer":{{"@type":"Answer","text":"Respuesta"}}}}]}}
+   </script>
+   Usa las preguntas y respuestas reales del artículo. Respuestas en texto plano sin HTML.
+7. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
 
 Devuelve solo el HTML listo para WordPress."""
 
