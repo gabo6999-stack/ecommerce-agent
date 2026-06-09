@@ -167,6 +167,27 @@ def create_ptm_post(title, content, slug="", meta_description="", status="publis
         return {"error": str(e)}
 
 
+def create_ptm_page(title, content, slug="", seo_title="", meta_description="", status="publish"):
+    try:
+        data = {"title": title, "content": content, "slug": slug, "status": status}
+        meta = {}
+        if seo_title:
+            meta["rank_math_title"] = seo_title
+        if meta_description:
+            meta["rank_math_description"] = meta_description
+        if meta:
+            data["meta"] = meta
+        r = requests.post(f"{PTM_URL}/wp-json/wp/v2/pages",
+                          json=data, headers=ptm_jwt_headers(), timeout=30)
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": result["id"],
+                    "link": result.get("link", ""), "status": result.get("status")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def update_ptm_post(post_id, data):
     try:
         r = requests.post(f"{PTM_URL}/wp-json/wp/v2/posts/{post_id}",
@@ -919,6 +940,7 @@ HERRAMIENTAS DE PTM:
 - get_ptm_all_posts_catalog: mapa completo de blogs de PTM para interlinks
 - create_ptm_post: crea y publica un artículo en el blog de PTM
 - update_ptm_post: actualiza un blog existente de PTM
+- create_ptm_page: crea y publica una nueva landing page en grupoptm.com
 
 MAPA DE PÁGINAS DE PTM (landing pages SEO):
 - Pérdida de peso / GLP-1 / semaglutida / tirzepatida / Ozempic
@@ -1319,6 +1341,22 @@ TOOLS = [
         }
     },
     {
+        "name": "create_ptm_page",
+        "description": "Crea y publica una nueva página (landing page) en grupoptm.com.",
+        "input_schema": {
+            "type": "object",
+            "required": ["title", "content"],
+            "properties": {
+                "title": {"type": "string", "description": "Título de la página"},
+                "content": {"type": "string", "description": "Contenido HTML de la página"},
+                "slug": {"type": "string", "description": "Slug URL de la página (opcional)"},
+                "seo_title": {"type": "string", "description": "SEO title para Rank Math (max 60 chars, opcional)"},
+                "meta_description": {"type": "string", "description": "Meta description 150-160 chars (opcional)"},
+                "status": {"type": "string", "description": "Estado: publish o draft (default: publish)"}
+            }
+        }
+    },
+    {
         "name": "get_ptm_pages",
         "description": "Obtiene todas las páginas publicadas de grupoptm.com (landing pages de tratamientos, etc.).",
         "input_schema": {"type": "object", "properties": {}}
@@ -1483,6 +1521,15 @@ def run_tool(name, inputs):
             title=inputs["title"],
             content=inputs["content"],
             slug=inputs.get("slug", ""),
+            meta_description=inputs.get("meta_description", ""),
+            status=inputs.get("status", "publish")
+        )
+    elif name == "create_ptm_page":
+        return create_ptm_page(
+            title=inputs["title"],
+            content=inputs["content"],
+            slug=inputs.get("slug", ""),
+            seo_title=inputs.get("seo_title", ""),
             meta_description=inputs.get("meta_description", ""),
             status=inputs.get("status", "publish")
         )
