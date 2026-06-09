@@ -34,6 +34,11 @@ PTM_URL      = os.environ.get("PTM_URL", "https://grupoptm.com")
 PTM_WP_USER  = os.environ.get("PTM_WP_USER", "")
 PTM_WP_PASSWORD = os.environ.get("PTM_WP_PASSWORD", "")
 
+# ─── Configuración Raditech ──────────────────────────────────────────────────
+RADITECH_URL         = os.environ.get("RADITECH_URL", "https://raditech.mx")
+RADITECH_WP_USER     = os.environ.get("RADITECH_WP_USER", "")
+RADITECH_WP_PASSWORD = os.environ.get("RADITECH_WP_PASSWORD", "")
+
 # ─── JWT Auth ────────────────────────────────────────────────────────────────
 
 _jwt_cache = {"token": None, "expires": 0}
@@ -101,6 +106,12 @@ def ptm_jwt_headers():
     if token:
         return {"Authorization": f"Bearer {token}"}
     return {}
+
+
+# ─── Auth Raditech (Application Password — HTTP Basic) ───────────────────────
+
+def raditech_auth():
+    return HTTPBasicAuth(RADITECH_WP_USER, RADITECH_WP_PASSWORD)
 
 
 # ─── Funciones WordPress de PTM ──────────────────────────────────────────────
@@ -338,6 +349,92 @@ def create_ptm_page(title, slug="", seo_title="", meta_description="", status="p
         if "id" in result:
             return {"success": True, "id": result["id"], "link": result.get("link", ""), "slug": result.get("slug", "")}
         return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+# ─── Funciones WordPress de Raditech ─────────────────────────────────────────
+
+def get_raditech_pages():
+    try:
+        r = requests.get(
+            f"{RADITECH_URL}/wp-json/wp/v2/pages",
+            auth=raditech_auth(),
+            params={"per_page": 100, "_fields": "id,title,slug,link,status", "status": "any"},
+            timeout=15
+        )
+        pages = r.json()
+        if not isinstance(pages, list):
+            return {"error": str(pages)}
+        return [{"id": p.get("id"), "title": p.get("title", {}).get("rendered", ""),
+                 "slug": p.get("slug", ""), "link": p.get("link", ""),
+                 "status": p.get("status", "")}
+                for p in pages]
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def get_raditech_page_content(page_id):
+    try:
+        r = requests.get(f"{RADITECH_URL}/wp-json/wp/v2/pages/{page_id}",
+                         auth=raditech_auth(), timeout=15)
+        p = r.json()
+        if "id" not in p:
+            return {"error": str(p)}
+        return {"id": p["id"], "title": p.get("title", {}).get("rendered", ""),
+                "slug": p.get("slug", ""), "link": p.get("link", ""),
+                "status": p.get("status", ""),
+                "content": p.get("content", {}).get("rendered", ""),
+                "meta": p.get("meta", {})}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def create_raditech_page(title, slug="", content="", seo_title="", meta_description="", status="publish"):
+    try:
+        data = {"title": title, "content": content, "status": status}
+        if slug:
+            data["slug"] = slug
+        meta = {}
+        if seo_title:
+            meta["rank_math_title"] = seo_title
+        if meta_description:
+            meta["rank_math_description"] = meta_description
+        if meta:
+            data["meta"] = meta
+        r = requests.post(f"{RADITECH_URL}/wp-json/wp/v2/pages",
+                          json=data, auth=raditech_auth(), timeout=30)
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": result["id"], "link": result.get("link", ""), "slug": result.get("slug", "")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def update_raditech_page(page_id, data):
+    try:
+        r = requests.post(f"{RADITECH_URL}/wp-json/wp/v2/pages/{page_id}",
+                          json=data, auth=raditech_auth(), timeout=30)
+        result = r.json()
+        if "id" in result:
+            return {"success": True, "id": page_id, "link": result.get("link", "")}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def delete_raditech_page(page_id, force=True):
+    try:
+        r = requests.delete(
+            f"{RADITECH_URL}/wp-json/wp/v2/pages/{page_id}",
+            auth=raditech_auth(),
+            params={"force": force},
+            timeout=15
+        )
+        if r.status_code in (200, 201):
+            return {"success": True, "deleted": page_id}
+        return {"error": r.text[:300], "status": r.status_code}
     except Exception as e:
         return {"error": str(e)}
 
@@ -940,7 +1037,44 @@ En <a href="URL_PTM" target="_blank" rel="noopener noreferrer">Grupo PTM</a> con
 </div>
 - Formato del CTA de PTM → PYS:
 <p>Puedes adquirir <a href="URL_PRODUCTO_PYS">nombre del producto</a> directamente en nuestra tienda.</p>
-- Máximo 1 CTA de cross-linking por artículo. Anchor text siempre descriptivo, nunca "click aquí"."""
+- Máximo 1 CTA de cross-linking por artículo. Anchor text siempre descriptivo, nunca "click aquí".
+
+RADITECH — TERCER SITIO (raditech.mx):
+Raditech es la empresa de teleradiología y PACS con mayor trayectoria en México (Teleradiologos de México S.A. de C.V.).
+Productos: VIRA PACS (sistema PACS-RIS), teleradiología, X-Card (portal de paciente), Medsi (HIS), monitores grado médico.
+Mercado objetivo: hospitales, clínicas e instituciones médicas en México y Latinoamérica (B2B).
+
+HERRAMIENTAS DE RADITECH:
+- get_raditech_pages: lista todas las páginas de raditech.mx con id, slug, título y URL
+- get_raditech_page_content: lee el HTML completo de una página antes de editarla
+- create_raditech_page: crea nueva página con título, slug SEO, contenido HTML, seo_title y meta_description
+- update_raditech_page: actualiza contenido, slug, SEO title o meta description de una página
+- delete_raditech_page: ELIMINA permanentemente una página de raditech.mx (irreversible — pedir confirmación)
+
+PLAN DE MIGRACIÓN DE PÁGINAS (páginas Elementor → páginas Gutenberg con mejores URLs):
+Antes de crear/borrar, siempre usa get_raditech_pages() para obtener los IDs actuales.
+
+| Página vieja (Elementor) | Página nueva (Gutenberg) | Razón |
+|---|---|---|
+| /pacs-ris/ | /pacs-vira-ris/ | URL más descriptiva, incluye marca VIRA |
+| /pacs-teleradiologia/ | fusionar en /pacs-vira-ris/ | Duplicado, consolida en una sola landing |
+| /teleradiologia/ | /servicio-teleradiologia/ | Slug más específico |
+| /teleradiologia-de-alta-especialidad/ | /teleradiologia-alta-especialidad/ | Elimina "de" innecesario |
+| /monitores-grado-medico/ | /monitores-medicos-radiologia/ | Keyword "radiología" agrega contexto |
+| /x-card/ y /xcard/ | /portal-x-card/ | Unifica ambas URLs duplicadas |
+| /sistema-de-informacion-hospitalaria-his/ (404) | /sistema-his-medsi/ | Nueva página — era 404 en Google |
+| /resonancia-magnetica-cardiovascular/ (404) | /teleradiologia-resonancia-cardiovascular/ | Nueva página — era 404 en Google |
+| /tomografia-cardiaca-y-angiotomografia-coronaria/ (404) | /teleradiologia-tomografia-cardiaca/ | Nueva página — era 404 en Google |
+
+REGLAS PARA PÁGINAS DE RADITECH:
+- Siempre crear en status="draft" primero, mostrar preview y pedir confirmación antes de publicar
+- Cada página debe tener: 1 solo H1 con keyword principal, H2s de secciones, meta_description 150-160 chars, seo_title max 60 chars
+- Al crear, usar create_raditech_page con content en HTML válido (h1, h2, p, ul, li, strong)
+- Al borrar páginas viejas: primero confirmar que la nueva ya está publicada, luego delete_raditech_page
+- El H1 debe ser diferente al seo_title (H1 = visible en página, seo_title = aparece en Google)
+- Incluir keywords geolocalizadas cuando aplique: "México", "CDMX", "hospitales México"
+- No mencionar "Grupo PTM" — el rebranding es "Raditech"
+- Contenido B2B: dirigido a directores de hospital, jefes de radiología, administradores de clínicas"""
 
 TOOLS = [
     {
@@ -1388,6 +1522,66 @@ TOOLS = [
                 "status": {"type": "string", "description": "publish o draft (default: publish)"}
             }
         }
+    },
+    {
+        "name": "get_raditech_pages",
+        "description": "Lista todas las páginas de raditech.mx con id, slug, título, URL y estado. Úsala siempre antes de crear o borrar páginas.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "get_raditech_page_content",
+        "description": "Obtiene el contenido HTML completo de una página de raditech.mx. Úsala antes de editar o referenciar el contenido.",
+        "input_schema": {
+            "type": "object",
+            "required": ["page_id"],
+            "properties": {
+                "page_id": {"type": "integer", "description": "ID de la página en WordPress de Raditech"}
+            }
+        }
+    },
+    {
+        "name": "create_raditech_page",
+        "description": "Crea una nueva página en raditech.mx con contenido HTML SEO-optimizado. Siempre crear en draft primero y mostrar preview antes de publicar.",
+        "input_schema": {
+            "type": "object",
+            "required": ["title"],
+            "properties": {
+                "title": {"type": "string", "description": "Título visible H1 de la página"},
+                "slug": {"type": "string", "description": "Slug URL SEO (ej: pacs-vira-ris). Minúsculas con guiones."},
+                "content": {"type": "string", "description": "Contenido HTML completo (h1, h2, p, ul, li, strong). Mínimo 600 palabras."},
+                "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars). Diferente al H1."},
+                "meta_description": {"type": "string", "description": "Meta description para Google 150-160 chars con keyword principal y CTA."},
+                "status": {"type": "string", "description": "draft o publish (default: draft)"}
+            }
+        }
+    },
+    {
+        "name": "update_raditech_page",
+        "description": "Actualiza título, contenido, slug, SEO title o meta description de una página de raditech.mx.",
+        "input_schema": {
+            "type": "object",
+            "required": ["page_id"],
+            "properties": {
+                "page_id": {"type": "integer", "description": "ID de la página en WordPress de Raditech"},
+                "title": {"type": "string", "description": "Nuevo título visible (opcional)"},
+                "slug": {"type": "string", "description": "Nuevo slug URL (opcional)"},
+                "seo_title": {"type": "string", "description": "SEO title para Google max 60 chars (opcional)"},
+                "meta_description": {"type": "string", "description": "Meta description 150-160 chars (opcional)"},
+                "content": {"type": "string", "description": "Contenido HTML completo (opcional)"},
+                "status": {"type": "string", "description": "publish o draft (opcional)"}
+            }
+        }
+    },
+    {
+        "name": "delete_raditech_page",
+        "description": "ELIMINA permanentemente una página de raditech.mx. Irreversible. Solo usar después de confirmar que la página nueva ya está publicada.",
+        "input_schema": {
+            "type": "object",
+            "required": ["page_id"],
+            "properties": {
+                "page_id": {"type": "integer", "description": "ID de la página a eliminar permanentemente"}
+            }
+        }
     }
 ]
 
@@ -1522,6 +1716,31 @@ def run_tool(name, inputs):
             meta_description=inputs.get("meta_description", ""),
             status=inputs.get("status", "publish")
         )
+    elif name == "get_raditech_pages":
+        return get_raditech_pages()
+    elif name == "get_raditech_page_content":
+        return get_raditech_page_content(inputs["page_id"])
+    elif name == "create_raditech_page":
+        return create_raditech_page(
+            title=inputs["title"],
+            slug=inputs.get("slug", ""),
+            content=inputs.get("content", ""),
+            seo_title=inputs.get("seo_title", ""),
+            meta_description=inputs.get("meta_description", ""),
+            status=inputs.get("status", "draft")
+        )
+    elif name == "update_raditech_page":
+        data = {k: inputs[k] for k in ["title", "content", "slug", "status"] if k in inputs}
+        meta = {}
+        if "meta_description" in inputs:
+            meta["rank_math_description"] = inputs["meta_description"]
+        if "seo_title" in inputs:
+            meta["rank_math_title"] = inputs["seo_title"]
+        if meta:
+            data["meta"] = meta
+        return update_raditech_page(inputs["page_id"], data)
+    elif name == "delete_raditech_page":
+        return delete_raditech_page(inputs["page_id"])
     return {"error": "herramienta desconocida"}
 
 @app.route("/")
@@ -2752,6 +2971,17 @@ def fix_blog_thumbnails():
         if upd.status_code in (200, 201):
             return jsonify({"ok": True, "message": "Thumbnails habilitados en bloque latest-posts", "page_id": BLOG_PAGE_ID})
         return jsonify({"ok": False, "status": upd.status_code, "response": upd.text[:300]}), 500
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/delete-raditech-page/<int:page_id>", methods=["DELETE", "POST"])
+def delete_raditech_page_route(page_id):
+    try:
+        result = delete_raditech_page(page_id)
+        if result.get("success"):
+            return jsonify({"ok": True, "deleted": page_id})
+        return jsonify({"ok": False, **result}), 400
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
