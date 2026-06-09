@@ -197,24 +197,58 @@ def get_ptm_pages():
         return {"error": str(e)}
 
 
+def strip_wpautop_artifacts(html):
+    """Remove wpautop-injected <br> tags from inside <script>/<style> and fix wrapped structure."""
+    import re as _re
+
+    def clean_tag(m):
+        tag, attrs, inner = m.group(1), m.group(2), m.group(3)
+        inner = inner.replace('<br />', '\n').replace('<br/>', '\n').replace('<br>', '\n')
+        return f'<{tag}{attrs}>{inner}</{tag}>'
+
+    html = _re.sub(r'<(script|style)([^>]*)>(.*?)</\1>',
+                   clean_tag, html, flags=_re.DOTALL | _re.IGNORECASE)
+    # Remove <p> wrappers around <script> tags
+    html = _re.sub(r'<p>\s*(<script[^>]*>.*?</script>)\s*</p>',
+                   r'\1', html, flags=_re.DOTALL | _re.IGNORECASE)
+    # Fix stray </p> between .ptm-faq-q button and .ptm-faq-a div
+    html = _re.sub(r'(</button>)\s*</p>(\s*\n?\s*<div[^>]+ptm-faq-a)',
+                   r'\1\2', html, flags=_re.IGNORECASE)
+    return html
+
+
 def get_ptm_page_content(page_id):
     try:
         r = requests.get(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
-                         headers=ptm_jwt_headers(), timeout=15)
+                         headers=ptm_jwt_headers(),
+                         params={"context": "edit"},
+                         timeout=15)
         p = r.json()
         if "id" not in p:
             return {"error": str(p)}
+        raw = p.get("content", {}).get("raw", "") or p.get("content", {}).get("rendered", "")
+        # Strip wp:html block wrapper if present so callers get clean HTML
+        raw = raw.strip()
+        if raw.startswith("<!-- wp:html -->"):
+            raw = raw[len("<!-- wp:html -->"):].strip()
+        if raw.endswith("<!-- /wp:html -->"):
+            raw = raw[:-len("<!-- /wp:html -->")].strip()
         return {"id": p["id"], "title": p.get("title", {}).get("rendered", ""),
                 "slug": p.get("slug", ""), "link": p.get("link", ""),
-                "content": p.get("content", {}).get("rendered", ""), "type": "page"}
+                "content": raw, "type": "page"}
     except Exception as e:
         return {"error": str(e)}
 
 
 def update_ptm_page(page_id, data):
     try:
+        payload = dict(data)
+        if "content" in payload:
+            content = payload["content"]
+            if content and "<!-- wp:html -->" not in content:
+                payload["content"] = f"<!-- wp:html -->\n{content}\n<!-- /wp:html -->"
         r = requests.post(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
-                          headers=ptm_jwt_headers(), json=data, timeout=30)
+                          headers=ptm_jwt_headers(), json=payload, timeout=30)
         result = r.json()
         if "id" in result:
             return {"success": True, "id": page_id, "link": result.get("link", "")}
@@ -2540,6 +2574,53 @@ Devuelve solo el HTML listo para WordPress."""
             })
         return jsonify({"error": result.get("error", "Error al actualizar post PTM")}), 500
 
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/repair-ptm-page/<int:page_id>", methods=["POST"])
+def repair_ptm_page(page_id):
+    """
+    Repara una landing page de grupoptm.com dañada por wpautop:
+    - Elimina <br /> dentro de <script> y <style>
+    - Elimina <p> wrappers alrededor de <script>
+    - Corrige </p> sueltos en estructura FAQ
+    - Agrega <span class="pm"> a botones FAQ si falta
+    - Guarda con <!-- wp:html --> para prevenir daño futuro
+    """
+    try:
+        import re as _re
+        r = requests.get(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
+                         headers=ptm_jwt_headers(),
+                         params={"context": "edit"}, timeout=15)
+        p = r.json()
+        if "id" not in p:
+            return jsonify({"error": str(p)}), 404
+
+        raw = p.get("content", {}).get("raw", "")
+        raw = raw.strip()
+        if raw.startswith("<!-- wp:html -->"):
+            raw = raw[len("<!-- wp:html -->"):].strip()
+        if raw.endswith("<!-- /wp:html -->"):
+            raw = raw[:-len("<!-- /wp:html -->")].strip()
+
+        cleaned = strip_wpautop_artifacts(raw)
+
+        # Add <span class="pm"></span> to FAQ buttons if missing
+        def add_pm_span(m):
+            btn_text = m.group(1)
+            if '<span class="pm">' in btn_text:
+                return m.group(0)
+            return f'<button class="ptm-faq-q">{btn_text} <span class="pm"></span></button>'
+        cleaned = _re.sub(r'<button class="ptm-faq-q">(.*?)</button>',
+                          add_pm_span, cleaned, flags=_re.DOTALL)
+
+        result = update_ptm_page(page_id, {"content": cleaned})
+        if result.get("success"):
+            return jsonify({"success": True, "page_id": page_id,
+                            "url": result.get("link", ""),
+                            "message": "Página reparada: wpautop artifacts eliminados, guardada con wp:html wrapper"})
+        return jsonify({"error": result.get("error", "Error desconocido")}), 500
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
