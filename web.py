@@ -416,13 +416,24 @@ def get_raditech_posts(per_page=10):
 def get_raditech_post_content(post_id):
     try:
         r = requests.get(f"{RADITECH_URL}/wp-json/wp/v2/posts/{post_id}",
-                         headers=raditech_jwt_headers(), timeout=15)
+                         headers=raditech_jwt_headers(),
+                         params={"context": "edit"}, timeout=15)
         p = r.json()
         if "id" not in p:
             return {"error": str(p)}
-        return {"id": p["id"], "title": p.get("title", {}).get("rendered", ""),
-                "slug": p.get("slug", ""), "link": p.get("link", ""),
-                "content": p.get("content", {}).get("rendered", "")}
+        meta = p.get("meta", {})
+        return {
+            "id": p["id"],
+            "title": p.get("title", {}).get("rendered", ""),
+            "slug": p.get("slug", ""),
+            "link": p.get("link", ""),
+            "content": p.get("content", {}).get("rendered", ""),
+            "categories": p.get("categories", []),
+            "featured_media": p.get("featured_media", 0),
+            "rank_math_title": meta.get("rank_math_title", ""),
+            "rank_math_description": meta.get("rank_math_description", ""),
+            "rank_math_focus_keyword": meta.get("rank_math_focus_keyword", ""),
+        }
     except Exception as e:
         return {"error": str(e)}
 
