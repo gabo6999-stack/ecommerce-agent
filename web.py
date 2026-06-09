@@ -1686,7 +1686,8 @@ TOOLS = [
                 "content": {"type": "string"},
                 "meta_description": {"type": "string"},
                 "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars)"},
-                "categories": {"type": "array", "items": {"type": "integer"}, "description": "Lista de IDs de categorías a asignar"}
+                "categories": {"type": "array", "items": {"type": "integer"}, "description": "Lista de IDs de categorías a asignar"},
+                "focus_keyword": {"type": "string", "description": "Keyword principal para Rank Math"}
             }
         }
     },
@@ -1725,7 +1726,8 @@ TOOLS = [
                 "title": {"type": "string"},
                 "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars)"},
                 "meta_description": {"type": "string", "description": "Meta description 150-160 chars"},
-                "content": {"type": "string", "description": "HTML completo (opcional)"}
+                "content": {"type": "string", "description": "HTML completo (opcional)"},
+                "focus_keyword": {"type": "string", "description": "Keyword principal para Rank Math"}
             }
         }
     },
@@ -1921,6 +1923,8 @@ def run_tool(name, inputs):
             meta["rank_math_description"] = inputs["meta_description"]
         if "seo_title" in inputs:
             meta["rank_math_title"] = inputs["seo_title"]
+        if "focus_keyword" in inputs:
+            meta["rank_math_focus_keyword"] = inputs["focus_keyword"]
         if meta:
             data["meta"] = meta
         return update_raditech_post(inputs["post_id"], data)
@@ -1937,6 +1941,8 @@ def run_tool(name, inputs):
             meta["rank_math_description"] = inputs["meta_description"]
         if "seo_title" in inputs:
             meta["rank_math_title"] = inputs["seo_title"]
+        if "focus_keyword" in inputs:
+            meta["rank_math_focus_keyword"] = inputs["focus_keyword"]
         if meta:
             data["meta"] = meta
         return update_raditech_page(inputs["page_id"], data)
