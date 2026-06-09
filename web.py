@@ -2544,6 +2544,134 @@ Devuelve solo el HTML listo para WordPress."""
         return jsonify({"error": str(e)}), 500
 
 
+@app.route("/optimize-ptm-page", methods=["POST"])
+def optimize_ptm_page():
+    """
+    Optimiza una landing page de grupoptm.com:
+    - NO reescribe la estructura (respeta JS, acordeones, schema JSON-LD)
+    - Inserta 3-5 links científicos externos naturalmente en párrafos existentes
+    - Agrega interlinks a blogs de grupoptm.com donde sea relevante
+    - Actualiza rank_math_title, rank_math_description, rank_math_focus_keyword
+    """
+    try:
+        data = request.json or {}
+        page_id = data.get("page_id")
+        if not page_id:
+            return jsonify({"error": "page_id es requerido"}), 400
+
+        # Obtener contenido actual de la página
+        fetched = get_ptm_page_content(page_id)
+        if "error" in fetched:
+            return jsonify({"error": f"No se pudo obtener la página {page_id}: {fetched['error']}"}), 404
+
+        title = fetched.get("title", "")
+        content = fetched.get("content", "")
+        url = fetched.get("link", "")
+
+        # Blogs de grupoptm.com para interlinks
+        ptm_blogs = get_ptm_all_posts_catalog(per_page=100)
+        blogs_list = "\n".join(
+            f"- {p['title']} ({p['link']})"
+            for p in ptm_blogs if isinstance(p, dict) and p.get("title")
+        )
+
+        # Páginas PTM para interlinks entre landings
+        ptm_pages = get_ptm_pages()
+        other_pages = [
+            p for p in ptm_pages
+            if isinstance(p, dict) and str(p.get("id", "")) != str(page_id)
+        ]
+        pages_list = "\n".join(
+            f"- {p['title']} ({p['link']})"
+            for p in other_pages if isinstance(p, dict) and p.get("title")
+        )
+
+        prompt = f"""Eres un experto SEO. Tienes esta landing page de grupoptm.com (plataforma de telemedicina de péptidos):
+
+TÍTULO: {title}
+URL: {url}
+PAGE ID: {page_id}
+
+CONTENIDO ACTUAL (HTML):
+{content}
+
+BLOGS DE GRUPOPTM.COM (para interlinks):
+{blogs_list if blogs_list else "No hay blogs aún."}
+
+OTRAS LANDINGS DE GRUPOPTM.COM (para interlinks entre páginas):
+{pages_list if pages_list else "No hay otras páginas."}
+
+Tu tarea es MEJORAR el contenido SIN romper la estructura existente:
+
+REGLAS CRÍTICAS — OBLIGATORIAS:
+1. NO modifiques ni elimines ningún script JavaScript, acordeón, schema JSON-LD ni estructura de grid/card
+2. NO reescribas párrafos completos — solo inserta links dentro del texto existente
+3. CONSERVA todos los botones CTA, badges y estilos inline existentes
+4. NO toques los links a productos PYS que ya existen
+
+ACCIONES PERMITIDAS:
+1. LINKS CIENTÍFICOS EXTERNOS (3-5): Inserta anchors a PubMed, NIH, Mayo Clinic, NEJM, FDA dentro
+   de palabras o frases relevantes ya existentes en los párrafos de texto.
+   Formato: <a href="URL_REAL" target="_blank" rel="noopener noreferrer">texto existente</a>
+   Solo URLs reales y verificables.
+
+2. INTERLINKS A BLOGS PTM (2-3): Inserta links a artículos del blog de grupoptm.com donde el tema
+   sea relevante al texto existente.
+   Formato: <a href="URL_BLOG">texto existente o frase natural</a>
+
+3. INTERLINKS A OTRAS LANDINGS (1-2): Si hay una landing de grupoptm.com temáticamente relacionada,
+   agrega un link natural al final de alguna sección.
+
+4. SEO METADATA: Proporciona los valores optimizados para:
+   - rank_math_title (60 chars máx, incluir keyword + "México")
+   - rank_math_description (155 chars máx, atractivo y con keyword)
+   - rank_math_focus_keyword (keyword principal)
+
+Responde ÚNICAMENTE con JSON válido:
+{{
+  "content": "HTML completo con los links insertados (misma estructura, solo links añadidos)",
+  "rank_math_title": "...",
+  "rank_math_description": "...",
+  "rank_math_focus_keyword": "..."
+}}"""
+
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=16384,
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        raw = response.content[0].text.strip()
+        if raw.startswith("```"):
+            raw = raw.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+
+        import json as _json
+        result_data = _json.loads(raw)
+
+        update_payload = {"content": result_data["content"]}
+        if result_data.get("rank_math_title") or result_data.get("rank_math_description"):
+            update_payload["meta"] = {
+                "rank_math_title": result_data.get("rank_math_title", ""),
+                "rank_math_description": result_data.get("rank_math_description", ""),
+                "rank_math_focus_keyword": result_data.get("rank_math_focus_keyword", ""),
+            }
+
+        result = update_ptm_page(page_id, update_payload)
+
+        if result.get("success"):
+            return jsonify({
+                "success": True,
+                "page_id": page_id,
+                "url": result.get("link", url),
+                "rank_math_title": result_data.get("rank_math_title", ""),
+                "rank_math_focus_keyword": result_data.get("rank_math_focus_keyword", ""),
+            })
+        return jsonify({"error": result.get("error", "Error al actualizar página PTM")}), 500
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 # ─── FETCH URL ───────────────────────────────────────────────────────────────
 
 def fetch_url(url: str) -> dict:
