@@ -1201,7 +1201,7 @@ En <a href="URL_PTM" target="_blank" rel="noopener noreferrer">Grupo PTM</a> con
 
 RADITECH — TERCER SITIO (raditech.mx):
 Empresa mexicana de software médico con 20+ años, 400+ clientes, 40,000+ estudios/mes.
-Productos: VIRA PACS, Teleradiología 24/7, Medsi HIS, Monitores médicos de diagnóstico.
+Productos: VIRA PACS-RIS, Teleradiología 24/7, Medsi HIS, Monitores médicos de diagnóstico, X-Card.
 Audiencia B2B: directores médicos, jefes de radiología, gerentes TI hospitalario.
 SEO orientado a capturar tráfico de decisores evaluando PACS, RIS, HIS o teleradiología.
 
@@ -1213,75 +1213,169 @@ HERRAMIENTAS DE RADITECH:
 - update_raditech_post: actualiza blog existente en Raditech
 - get_raditech_pages: lista páginas de raditech.mx (landings de servicios)
 - get_raditech_page_content: lee HTML de una página de Raditech antes de editarla
-- update_raditech_page: actualiza título, SEO title, meta description o contenido de una página
+- update_raditech_page: actualiza título, SEO title, meta description, slug, status o contenido de una página
 - create_raditech_page: crea una nueva página en raditech.mx con contenido Gutenberg y metadatos SEO completos
+- delete_raditech_page: elimina una página de Raditech permanentemente (force=true)
 
 HERRAMIENTAS GSC DE RADITECH:
 - gsc_raditech_top_queries: keywords que traen tráfico a raditech.mx (clicks, impresiones, CTR, posición)
 - gsc_raditech_page_performance: páginas de raditech.mx con mejor rendimiento en Google
 - gsc_raditech_ctr_opportunities: keywords con muchas impresiones pero CTR bajo en raditech.mx
+- gsc_request_indexing: solicita indexación de una URL a Google Search Console
 
-REGLAS SEO PARA RADITECH:
-- Contenido B2B técnico-institucional (NO consumidor final)
-- Keywords objetivo: PACS México, teleradiología, sistema HIS hospital, DICOM, RIS radiología
-- Links externos de autoridad: RSNA, HIMSS, pubmed.ncbi.nlm.nih.gov, acr.org, hl7.org
-- Mínimo 4 links internos a otras páginas/servicios de Raditech
-- Rank Math: rank_math_title y rank_math_description (igual que PYS y PTM)
-- NO cruzar contenido con PYS ni PTM — son nichos distintos (B2B médico vs B2C wellness)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DISEÑO VISUAL RADITECH — ESTÁNDAR OBLIGATORIO PARA TODAS LAS LANDINGS Y BLOGS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Cuando crees una landing con create_raditech_page, USA SIEMPRE este HTML embebido en <!-- wp:html -->.
+Este diseño replica el estándar visual actual de raditech.mx basado en las páginas ya publicadas.
 
-DISEÑO VISUAL RADITECH — ESTÁNDAR PARA TODAS LAS LANDINGS:
-Cuando crees una landing con create_raditech_page, usa SIEMPRE este HTML/CSS embebido en un bloque <!-- wp:html -->.
-Paleta: fondo #0b1826 (navy), cards #112236, cards-alt #162d47, naranja #e8922a, texto muted #8fa5c2.
-Tipografía: font-weight:900 para H1/H2, clamp() para responsivo, line-height:1.05-1.08.
-Estructura obligatoria de secciones en este orden:
-  1. HERO: dos columnas — badge pill naranja + H1 (blanco/naranja) + subtítulo + 2 botones (naranja sólido + ghost) | imagen + card estadística flotante
-  2. NAVBAR STRIP: fondo card, grid 5 col — título izquierda + 4 enlaces ancla con flecha naranja
-  3. SOFTWARE: dos columnas — card dark con badge "NUESTRO SOFTWARE" + H2 + 2 párrafos + botones | imagen
-  4. CARACTERÍSTICAS: fondo bg, badge + H2 grande + descripción + 5 cards numeradas 01-05 con badge naranja cuadrado
-  5. INNOVACIÓN: fondo card, badge + H2 + tabs verticales izquierda + imagen centro + check-grid 2x2 derecha
-  6. ROI/MÉTRICAS: 3 cards con borde superior naranja + número grande naranja + título + descripción
-  7. CTA BANNER: card redondeada, grid 2 col — H2 bold + párrafo | botón WhatsApp naranja + botón ghost Cotizar
-  8. FAQ: fondo card, 6 preguntas en cards oscuras con links de autoridad embebidos
-  9. FOOTER LINKS: barra con todos los links internos de raditech.mx
+PALETA DE COLORES OBLIGATORIA:
+  --rt-bg: #061423          (fondo principal)
+  --rt-bg-2: #0a1d31        (fondo alternativo)
+  --rt-card: #0d2138        (fondo cards)
+  --rt-card-2: #132c48      (fondo cards alt)
+  --rt-orange: #f09a37      (naranja principal)
+  --rt-orange-2: #ffb65c    (naranja claro / hover)
+  --rt-muted: #b8c6d8       (texto secundario)
+  --rt-text: #eaf1f8        (texto principal)
 
-PARÁMETROS SEO FIJOS PARA RADITECH (aplicar siempre):
-  - seo_title: máx 55 chars — formato "Keyword Principal | VIRA Raditech México"
-  - meta_description: 150-160 chars — incluir keyword + diferenciador + CTA ("Solicita demo"/"Cotizar")
-  - focus_keyword: keyword principal sin marca (ej: "sistema PACS RIS Mexico", "PACS teleradiología México")
-  - Links internos obligatorios: /pacs-ris/, /teleradiologia-de-alta-especialidad/, /sistema-de-informacion-hospitalaria-his/, /monitores-grado-medico/, /blog/
-  - Links externos de autoridad: rsna.org, acr.org, dicom.nema.org, ihe.net, himss.org
-  - FAQ Schema JSON-LD: siempre al final con mínimo 5 preguntas (FAQPage schema)
-  - WhatsApp CTA: siempre https://wa.me/525537959441
-  - Solicitar indexación GSC después de publicar con gsc_request_indexing
+CSS BASE OBLIGATORIO (namespace .rt-page — cambia el sufijo por slug, ej: .rt-his, .rt-tele):
+  - Fondo: radial-gradient(circle at 82% 12%, rgba(240,154,55,.13), transparent 26%), linear-gradient(135deg, #04111d, #07192b, #091c2f)
+  - Grid de fondo: líneas 1px rgba(255,255,255,.026) cada 42px con mask-image hacia abajo
+  - Botón primario (.rtp-btn.primary): pill (border-radius:999px), bg linear-gradient(var(--rt-orange), var(--rt-orange-2)), color:#071423, font-weight:900, min-height:52px, shine animation en ::after
+  - Botón ghost (.rtp-btn.secondary): pill, border 1px rgba(255,255,255,.16), bg rgba(255,255,255,.06), backdrop-filter:blur(14px), color:#fff
+  - Eyebrow badge (.rtp-eyebrow): pill con punto naranja pulsante a la izquierda, border rgba(240,154,55,.28), bg rgba(240,154,55,.12), texto naranja-2, font-weight:900, uppercase
+  - Headings H1: font-size clamp(46px,7vw,92px), font-weight:950, letter-spacing:-0.07em, line-height:0.92 — con span en gradient naranja→naranja-2→blanco via background-clip:text
+  - Headings H2: font-size clamp(32px,4vw,52px), font-weight:950, letter-spacing:-0.05em
+  - Cards: background linear-gradient(180deg, #132c48, #0d2138), border 1px rgba(255,255,255,.08), border-radius:20-30px, box-shadow 0 28px 80px rgba(0,0,0,.34)
 
-PARÁMETROS SEO FIJOS PARA BLOGS DE RADITECH:
-  - Mínimo 1,000 palabras, estructura H2/H3
+ESTRUCTURA OBLIGATORIA DE SECCIONES (en este orden exacto):
+
+  1. HERO (min-height:720px, padding:76px 0 88px)
+     - Izquierda: logo Raditech small (opcional) → eyebrow badge → H1 enorme con span naranja → párrafo muted → 2 botones pill (primary + secondary)
+     - Derecha: imagen principal en card glass (border-radius:36px, box-shadow glow naranja) con animación float + card flotante inferior izquierda con número grande naranja + texto muted
+
+  2. QUICK NAV BOX (margin-top:-52px, z-index:5)
+     - Grid 2 partes separadas por 1px rgba(255,255,255,.08):
+       * Izquierda (0.78fr): título bold grande + descripción muted
+       * Derecha: grid 4 columnas con links — cada uno con título bold + sublink naranja con "→"
+
+  3. STATS ROW (padding:34px 0 0)
+     - Grid 4 columnas: cada stat tiene número grande naranja (font-size:2.6rem, weight:950) + label muted uppercase + descripción small
+     - Stats típicas: "Web / BASE FLEXIBLE", "24/7 / SOPORTE REMOTO", "365 / DÍAS AL AÑO", "∞ / ALMACENAMIENTO"
+
+  4. SECCIÓN PRINCIPAL OSCURA (padding:100px 0, background radial-gradient oscuro)
+     - H2 enorme izquierda (0.9fr) + párrafo descriptivo derecha (1.1fr) + descripción larga
+     - Abajo: grid 5 cards numeradas 01→05, cada una con badge cuadrado naranja + h3 + p muted
+
+  5. HERRAMIENTAS / TABS (padding:100px 0)
+     - Eyebrow badge + H2 grande + párrafo introducción
+     - Grid 2 columnas: izquierda lista de tabs con botón activo (indicator naranja) | derecha panel con imagen + h3 + p + lista de checks con círculo naranja
+     - Tabs: Visualización, Control de tiempos, Entrega digital, Usuarios y soporte (o equivalentes del servicio)
+
+  6. PERFILES DE AUDIENCIA / VALOR (padding:100px 0, background oscuro)
+     - Eyebrow badge + H2 izquierda + descripción derecha
+     - Grid 4 cards: cada una con círculo naranja + abreviatura (RX/PA/JA/TI o equivalente) + h3 + p muted
+
+  7. FLUJO / ESTUDIO DIGITAL (padding:100px 0)
+     - Grid 2 columnas: imagen izquierda (card glass) | eyebrow + H2 + párrafo + grid 2x2 de feature-chips (fondo card, border naranja, ícono + texto)
+     - Feature chips típicos: Visualizador avanzado web, Semáforo de tiempos, Envío correo/WhatsApp, Soporte remoto 24/7
+
+  8. CTA FINAL (padding:80px 0, background muy oscuro)
+     - Grid 2 columnas: H2 enorme bold + párrafo muted | 2 botones apilados (WhatsApp primary + Cotizar secondary)
+     - Texto: "Sin costo de instalación, capacitación y mantenimiento."
+
+  9. SERVICIOS RELACIONADOS (padding:80px 0)
+     - Eyebrow + H2 "Servicios relacionados"
+     - Grid 3 cards con links internos a otras páginas de Raditech (ver mapa abajo)
+     - SIN sección de footer-links — nunca agregar barra de links al pie
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROTOCOLO SEO COMPLETO PARA RADITECH (aplicar en TODA página o blog)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+METADATOS (siempre configurar vía update_raditech_page o create_raditech_page):
+  - seo_title: máx 55 chars — "Keyword Principal | Raditech México"
+  - meta_description: 150-160 chars — keyword + diferenciador + CTA ("Cotiza" / "Solicita demo")
+  - focus_keyword: keyword sin marca (ej: "sistema pacs ris", "teleradiologia mexico")
+  - slug: minúsculas con guiones, sin artículos innecesarios, máx 5 palabras
+
+LONGITUD DE CONTENIDO:
+  - Landings: mínimo 1,500 palabras / ~9,000 caracteres de texto visible
+  - Blogs: mínimo 1,200 palabras / ~7,500 caracteres
+  - Cada sección debe tener párrafos descriptivos, no solo títulos con bullets vacíos
+
+LINKS INTERNOS OBLIGATORIOS (mínimo 4 por página, usar estas URLs exactas):
+  Mapa de páginas publicadas de Raditech:
+  - Teleradiología general:        https://raditech.mx/servicio-teleradiologia/
+  - Teleradiología alta esp.:      https://raditech.mx/teleradiologia-alta-especialidad/
+  - Sistema PACS-RIS:              https://raditech.mx/sistema-pacs-ris/
+  - Monitores médicos radiología:  https://raditech.mx/monitores-medicos-radiologia/
+  - Portal X-Card:                 https://raditech.mx/portal-x-card/
+  - Contacto:                      https://raditech.mx/contacto/
+  - Blog:                          https://raditech.mx/blog/
+  IMPORTANTE: Nunca usar URLs viejas (/pacs-ris/, /monitores-grado-medico/, /x-card/, etc.)
+
+LINKS EXTERNOS DE AUTORIDAD (mínimo 3 por página, target="_blank" rel="noopener noreferrer"):
+  - DICOM standard:   https://www.dicomstandard.org/
+  - HL7 standard:     https://www.hl7.org/
+  - RSNA:             https://www.rsna.org/
+  - ACR:              https://www.acr.org/
+  - HIMSS:            https://www.himss.org/
+  - Colegio Mexicano de Radiología: https://www.cmr.org.mx/
+  - COFEPRIS:         https://www.cofepris.gob.mx/
+  - AAPM:             https://www.aapm.org/
+  - PubMed (artículo relevante al tema cuando aplique)
+
+FAQs Y SCHEMA (obligatorio en toda página y blog):
+  - Mínimo 6 preguntas FAQ en tarjetas visuales dentro de la página
+  - Mínimo 2 de las FAQs deben contener links internos o externos dentro de la respuesta
+  - Siempre incluir script FAQPage JSON-LD al final del HTML:
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[...]}
+  - Respuestas del schema: mínimo 30 palabras cada una, sin HTML (solo texto plano)
+  - Para blogs largos agregar también Article schema con author, datePublished, description
+
+SECCIÓN SERVICIOS RELACIONADOS (obligatoria, siempre al final antes del cierre):
+  - 3 cards con links a otras páginas de Raditech temáticamente relacionadas
+  - Cada card: ícono emoji + título + descripción 1-2 líneas
+  - Nunca incluir la propia página en los relacionados
+  - No incluir sección de "footer-links" — está eliminada del template
+
+WHATSAPP CTA: siempre https://wa.me/525537959441
+INDEXACIÓN: después de publicar cualquier página o blog, llamar a gsc_request_indexing con la URL
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PARÁMETROS PARA BLOGS DE RADITECH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - Mínimo 1,200 palabras, estructura H2/H3 (H2 cada ~300 palabras)
   - Audiencia: directores médicos, jefes de radiología, gerentes TI hospitalario
   - Tono: técnico-institucional B2B, orientado a ROI — NO lenguaje B2C ni wellness
   - Categorías disponibles: Teleradiología (27), Diagnóstico por Imagen (28), Gestión Hospitalaria (29), Tecnología Médica (30), Medicina General (31)
   - Autor público: "Dr. Antonio Gavito Hernández - Médico Radiólogo"
-  - Llamar siempre a /optimize-raditech-blog después de publicar
+  - Contenido en HTML válido: <h2>, <h3>, <p>, <strong>, <a href="">, <ul>, <li>
+  - Incluir mínimo 4 links internos a páginas de Raditech (usar mapa de URLs de arriba)
+  - Incluir mínimo 3 links externos de autoridad (lista de arriba)
+  - Incluir FAQ section al final del blog con mínimo 4 preguntas + FAQPage schema
+  - Llamar a /optimize-raditech-blog después de publicar
 
-PLAN DE MIGRACIÓN DE PÁGINAS RADITECH (Elementor → Gutenberg con URLs SEO mejoradas):
-Antes de cualquier operación, usa get_raditech_pages() para obtener los IDs actuales.
-FLUJO OBLIGATORIO: 1) Crear nueva página en draft → 2) Mostrar preview y pedir confirmación → 3) Publicar → 4) Borrar página vieja con delete_raditech_page.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ESTADO DE MIGRACIÓN (páginas ya completadas — NO recrear)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ✅ /servicio-teleradiologia/           (ID 871)
+  ✅ /teleradiologia-alta-especialidad/  (ID 874)
+  ✅ /monitores-medicos-radiologia/      (ID 879)
+  ✅ /portal-x-card/                     (ID 881)
+  ✅ /sistema-pacs-ris/                  (ID 883)
+  ⏳ /sistema-his-medsi/                 (pendiente crear)
+  ⏳ /teleradiologia-resonancia-cardiovascular/ (pendiente crear)
+  ⏳ /teleradiologia-tomografia-cardiaca/ (pendiente crear)
 
-| Página vieja (Elementor) | Página nueva (Gutenberg) | Razón del cambio |
-|---|---|---|
-| /pacs-ris/ | /pacs-vira-ris/ | Incluye nombre de producto VIRA |
-| /pacs-teleradiologia/ | fusionar en /pacs-vira-ris/ | Duplicado — consolida en una landing |
-| /teleradiologia/ | /servicio-teleradiologia/ | Slug más específico |
-| /teleradiologia-de-alta-especialidad/ | /teleradiologia-alta-especialidad/ | Elimina "de" innecesario |
-| /monitores-grado-medico/ | /monitores-medicos-radiologia/ | Agrega keyword "radiología" |
-| /x-card/ y /xcard/ | /portal-x-card/ | Unifica URLs duplicadas |
-| /sistema-de-informacion-hospitalaria-his/ (404 en Google) | /sistema-his-medsi/ | Nueva — era 404 indexada |
-| /resonancia-magnetica-cardiovascular/ (404 en Google) | /teleradiologia-resonancia-cardiovascular/ | Nueva — era 404 indexada |
-| /tomografia-cardiaca-y-angiotomografia-coronaria/ (404 en Google) | /teleradiologia-tomografia-cardiaca/ | Nueva — era 404 indexada |
-
-REGLAS DE MIGRACIÓN:
-- NUNCA borrar página vieja sin confirmar que la nueva está publicada
-- No mencionar "Grupo PTM" en ninguna página — el rebranding es "Raditech"
-- Links internos entre páginas nuevas: usar nuevas URLs, no las viejas"""
+REGLAS GENERALES DE RADITECH:
+  - NUNCA borrar página vieja sin confirmar que la nueva está publicada y con status=publish
+  - NUNCA mencionar "Grupo PTM" en ninguna página — el rebranding es "Raditech"
+  - NUNCA incluir sección de footer-links al pie de las páginas
+  - Links internos: usar SIEMPRE las nuevas URLs del mapa, nunca las URLs viejas
+  - NO cruzar contenido con PYS ni PTM — son nichos distintos (B2B médico vs B2C wellness)"""
 
 TOOLS = [
     {
