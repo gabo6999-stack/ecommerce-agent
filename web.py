@@ -341,28 +341,6 @@ def append_to_ptm_page(page_id, html_to_append):
         return {"error": str(e)}
 
 
-def create_ptm_page(title, slug="", seo_title="", meta_description="", status="publish"):
-    try:
-        data = {"title": title, "status": status}
-        if slug:
-            data["slug"] = slug
-        meta = {}
-        if seo_title:
-            meta["rank_math_title"] = seo_title
-        if meta_description:
-            meta["rank_math_description"] = meta_description
-        if meta:
-            data["meta"] = meta
-        r = requests.post(f"{PTM_URL}/wp-json/wp/v2/pages",
-                          json=data, headers=ptm_jwt_headers(), timeout=30)
-        result = r.json()
-        if "id" in result:
-            return {"success": True, "id": result["id"], "link": result.get("link", ""), "slug": result.get("slug", "")}
-        return {"error": str(result)}
-    except Exception as e:
-        return {"error": str(e)}
-
-
 def get_products(per_page=10):
     try:
         r = requests.get(
@@ -940,7 +918,6 @@ HERRAMIENTAS DE PTM:
 - get_ptm_all_posts_catalog: mapa completo de blogs de PTM para interlinks
 - create_ptm_post: crea y publica un artículo en el blog de PTM
 - update_ptm_post: actualiza un blog existente de PTM
-- create_ptm_page: crea y publica una nueva landing page en grupoptm.com
 
 MAPA DE PÁGINAS DE PTM (landing pages SEO):
 - Pérdida de peso / GLP-1 / semaglutida / tirzepatida / Ozempic
@@ -1412,21 +1389,6 @@ TOOLS = [
             }
         }
     },
-    {
-        "name": "create_ptm_page",
-        "description": "Crea una nueva página en grupoptm.com. Úsala para crear las landing pages de tratamientos (pérdida de peso, longevidad, etc.) con su slug y SEO inicial.",
-        "input_schema": {
-            "type": "object",
-            "required": ["title"],
-            "properties": {
-                "title": {"type": "string", "description": "Título visible de la página"},
-                "slug": {"type": "string", "description": "Slug URL (ej: perdida-de-peso). Vacío = raíz del sitio."},
-                "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars)"},
-                "meta_description": {"type": "string", "description": "Meta description para Google 150-160 chars"},
-                "status": {"type": "string", "description": "publish o draft (default: publish)"}
-            }
-        }
-    }
 ]
 
 def run_tool(name, inputs):
@@ -1561,14 +1523,6 @@ def run_tool(name, inputs):
         return replace_in_ptm_page(inputs["page_id"], inputs["find_html"], inputs["replace_html"])
     elif name == "append_to_ptm_page":
         return append_to_ptm_page(inputs["page_id"], inputs["html_to_append"])
-    elif name == "create_ptm_page":
-        return create_ptm_page(
-            title=inputs["title"],
-            slug=inputs.get("slug", ""),
-            seo_title=inputs.get("seo_title", ""),
-            meta_description=inputs.get("meta_description", ""),
-            status=inputs.get("status", "publish")
-        )
     return {"error": "herramienta desconocida"}
 
 @app.route("/")
