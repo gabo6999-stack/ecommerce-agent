@@ -2599,6 +2599,60 @@ Devuelve solo el HTML listo para WordPress."""
         return jsonify({"error": str(e)}), 500
 
 
+@app.route("/fix-ptm-related-cards/<int:page_id>", methods=["POST"])
+def fix_ptm_related_cards(page_id):
+    """
+    Wraps naked ptm-card-ico / h3 / p elements in ptm-grid3 with proper <a class="ptm-card"> containers.
+    Receives JSON body: {"cards": [{"href": "...", "svg": "...", "title": "...", "desc": "..."}]}
+    Finds the existing broken grid and replaces with properly wrapped cards.
+    """
+    try:
+        import re as _re
+        data = request.json or {}
+        cards = data.get("cards", [])
+        if not cards:
+            return jsonify({"error": "cards array required"}), 400
+
+        # Get raw content
+        r = requests.get(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
+                         headers=ptm_jwt_headers(), params={"context": "edit"}, timeout=15)
+        p = r.json()
+        if "id" not in p:
+            return jsonify({"error": str(p)}), 404
+
+        raw = p.get("content", {}).get("raw", "")
+
+        # Build the correct replacement grid
+        card_html = ""
+        for card in cards:
+            svg = card.get("svg", "")
+            card_html += (
+                f'\n<a class="ptm-card" style="text-decoration:none;display:block;" href="{card["href"]}">'
+                f'\n<div class="ptm-card-ico">{svg}</div>'
+                f'\n<h3>{card["title"]}</h3>'
+                f'\n<p>{card["desc"]}</p>'
+                f'\n</a>'
+            )
+
+        new_grid = f'<div class="ptm-grid3">{card_html}\n</div>'
+
+        # Find and replace any ptm-grid3 in the related section that has naked card-ico elements
+        # Match pattern: ptm-grid3 block where cards have no wrapper (ptm-card-ico directly inside grid)
+        pattern = r'<div class="ptm-grid3">\s*(?:<div class="ptm-card-ico">.*?</div>\s*<h3>.*?</h3>\s*<p>.*?</p>\s*)+</div>'
+        if not _re.search(pattern, raw, flags=_re.DOTALL):
+            return jsonify({"error": "Pattern not found in raw content"}), 404
+
+        updated = _re.sub(pattern, new_grid, raw, count=1, flags=_re.DOTALL)
+
+        # Save (update_ptm_page adds wp:html wrapper)
+        result = update_ptm_page(page_id, {"content": updated})
+        if result.get("success"):
+            return jsonify({"success": True, "page_id": page_id, "url": result.get("link", "")})
+        return jsonify({"error": result.get("error")}), 500
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/repair-ptm-page/<int:page_id>", methods=["POST"])
 def repair_ptm_page(page_id):
     """
