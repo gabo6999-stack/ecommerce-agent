@@ -2700,6 +2700,62 @@ def repair_ptm_page(page_id):
         return jsonify({"error": str(e)}), 500
 
 
+@app.route("/fix-blog-thumbnails", methods=["POST"])
+def fix_blog_thumbnails():
+    """
+    Habilita la imagen destacada en el bloque wp:latest-posts de la página Blog (ID 22007).
+    Agrega displayFeaturedImage:true, featuredImageSizeSlug:medium al bloque.
+    """
+    import re as _re
+    BLOG_PAGE_ID = 22007
+    try:
+        r = requests.get(
+            f"{PTM_URL}/wp-json/wp/v2/pages/{BLOG_PAGE_ID}",
+            headers=ptm_jwt_headers(),
+            params={"context": "edit"},
+            timeout=15
+        )
+        p = r.json()
+        if "id" not in p:
+            return jsonify({"error": str(p)}), 404
+
+        raw = p.get("content", {}).get("raw", "")
+
+        def upgrade_latest_posts_block(m):
+            attrs_str = m.group(1).strip() if m.group(1) else ""
+            try:
+                attrs = json.loads(attrs_str) if attrs_str else {}
+            except Exception:
+                attrs = {}
+            attrs["displayFeaturedImage"] = True
+            attrs["featuredImageSizeSlug"] = "medium"
+            attrs.setdefault("displayPostDate", True)
+            attrs.setdefault("displayAuthor", False)
+            attrs.setdefault("excerptLength", 20)
+            return f"<!-- wp:latest-posts {json.dumps(attrs)} /-->"
+
+        new_raw = _re.sub(
+            r'<!-- wp:latest-posts\s*(\{[^}]*\})?\s*/-->',
+            upgrade_latest_posts_block,
+            raw
+        )
+
+        if new_raw == raw:
+            return jsonify({"ok": False, "message": "No se encontró bloque wp:latest-posts en la página"}), 404
+
+        upd = requests.post(
+            f"{PTM_URL}/wp-json/wp/v2/pages/{BLOG_PAGE_ID}",
+            headers={**ptm_jwt_headers(), "Content-Type": "application/json"},
+            json={"content": new_raw},
+            timeout=20
+        )
+        if upd.status_code in (200, 201):
+            return jsonify({"ok": True, "message": "Thumbnails habilitados en bloque latest-posts", "page_id": BLOG_PAGE_ID})
+        return jsonify({"ok": False, "status": upd.status_code, "response": upd.text[:300]}), 500
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/delete-ptm-post/<int:post_id>", methods=["DELETE", "POST"])
 def delete_ptm_post(post_id):
     try:
