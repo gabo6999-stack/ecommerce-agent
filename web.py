@@ -1674,7 +1674,8 @@ TOOLS = [
                 "title": {"type": "string"},
                 "content": {"type": "string"},
                 "meta_description": {"type": "string"},
-                "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars)"}
+                "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars)"},
+                "categories": {"type": "array", "items": {"type": "integer"}, "description": "Lista de IDs de categorías a asignar"}
             }
         }
     },
@@ -1902,6 +1903,8 @@ def run_tool(name, inputs):
         )
     elif name == "update_raditech_post":
         data = {k: inputs[k] for k in ["title", "content"] if k in inputs}
+        if "categories" in inputs:
+            data["categories"] = inputs["categories"]
         meta = {}
         if "meta_description" in inputs:
             meta["rank_math_description"] = inputs["meta_description"]
