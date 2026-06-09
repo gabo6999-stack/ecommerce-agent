@@ -472,6 +472,31 @@ def update_raditech_post(post_id, data):
         return {"error": str(e)}
 
 
+def get_or_create_raditech_category(name: str, slug: str = None):
+    try:
+        slug = slug or name.lower().replace(" ", "-")
+        search = requests.get(
+            f"{RADITECH_URL}/wp-json/wp/v2/categories",
+            headers=raditech_jwt_headers(),
+            params={"search": name},
+            timeout=10
+        )
+        results = search.json()
+        if results:
+            return {"id": results[0]["id"], "name": results[0]["name"], "created": False}
+        create = requests.post(
+            f"{RADITECH_URL}/wp-json/wp/v2/categories",
+            headers=raditech_jwt_headers(),
+            json={"name": name, "slug": slug},
+            timeout=10
+        )
+        create.raise_for_status()
+        cat = create.json()
+        return {"id": cat["id"], "name": cat["name"], "created": True}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def get_raditech_pages():
     try:
         r = requests.get(
@@ -1654,6 +1679,18 @@ TOOLS = [
         }
     },
     {
+        "name": "get_or_create_raditech_category",
+        "description": "Crea una categoría en raditech.mx si no existe, o devuelve la existente. Úsala para asignar categorías a posts.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string", "description": "Nombre de la categoría, ej: 'Tecnología Médica'"},
+                "slug": {"type": "string", "description": "Slug opcional, ej: 'tecnologia-medica'"}
+            },
+            "required": ["name"]
+        }
+    },
+    {
         "name": "get_raditech_pages",
         "description": "Lista páginas publicadas en raditech.mx (landings de servicios: PACS, teleradiología, HIS, monitores).",
         "input_schema": {"type": "object", "properties": {}}
@@ -1873,6 +1910,8 @@ def run_tool(name, inputs):
         if meta:
             data["meta"] = meta
         return update_raditech_post(inputs["post_id"], data)
+    elif name == "get_or_create_raditech_category":
+        return get_or_create_raditech_category(inputs["name"], inputs.get("slug"))
     elif name == "get_raditech_pages":
         return get_raditech_pages()
     elif name == "get_raditech_page_content":
