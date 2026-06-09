@@ -188,6 +188,19 @@ def create_ptm_page(title, content, slug="", seo_title="", meta_description="", 
         return {"error": str(e)}
 
 
+def delete_ptm_page(page_id, force=True):
+    try:
+        params = {"force": "true"} if force else {}
+        r = requests.delete(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
+                            headers=ptm_jwt_headers(), params=params, timeout=30)
+        result = r.json()
+        if "deleted" in result or "id" in result:
+            return {"success": True, "deleted": True, "id": page_id}
+        return {"error": str(result)}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def update_ptm_post(post_id, data):
     try:
         r = requests.post(f"{PTM_URL}/wp-json/wp/v2/posts/{post_id}",
@@ -1318,6 +1331,17 @@ TOOLS = [
         }
     },
     {
+        "name": "delete_ptm_page",
+        "description": "Elimina permanentemente una página de grupoptm.com. Úsala para borrar páginas duplicadas o de prueba.",
+        "input_schema": {
+            "type": "object",
+            "required": ["page_id"],
+            "properties": {
+                "page_id": {"type": "integer", "description": "ID de la página a eliminar"}
+            }
+        }
+    },
+    {
         "name": "create_ptm_page",
         "description": "Crea y publica una nueva página (landing page) en grupoptm.com.",
         "input_schema": {
@@ -1486,6 +1510,8 @@ def run_tool(name, inputs):
             meta_description=inputs.get("meta_description", ""),
             status=inputs.get("status", "publish")
         )
+    elif name == "delete_ptm_page":
+        return delete_ptm_page(inputs["page_id"])
     elif name == "create_ptm_page":
         return create_ptm_page(
             title=inputs["title"],
