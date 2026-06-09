@@ -225,6 +225,13 @@ def strip_wpautop_artifacts(html):
     # <div/section/span ...></p>  →  <div/section/span ...>
     html = _re.sub(r'(<(?:div|section|span|header|footer|nav|article|aside|main)[^>]*>)\s*</p>',
                    r'\1', html, flags=_re.IGNORECASE)
+    # Fix </a></p>\n<p><a → </a>\n<a  (</p><p> injected between adjacent anchor elements)
+    html = _re.sub(r'(</a>)\s*</p>\s*\n?\s*<p>\s*(<a\b)',
+                   r'\1\n\2', html, flags=_re.IGNORECASE)
+    # Remove <br /> right after opening <a> tag (wpautop adds it after href attributes)
+    html = _re.sub(r'(<a\b[^>]*>)\s*<br\s*/?>\s*', r'\1', html, flags=_re.IGNORECASE)
+    # Remove <br /> right before closing </a> tag
+    html = _re.sub(r'\s*<br\s*/?>\s*(</a>)', r'\1', html, flags=_re.IGNORECASE)
     return html
 
 
