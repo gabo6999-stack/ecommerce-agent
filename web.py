@@ -3001,6 +3001,35 @@ Devuelve solo el HTML listo para WordPress."""
         return jsonify({"error": str(e)}), 500
 
 
+@app.route("/raditech-page-update", methods=["POST"])
+def raditech_page_update_direct():
+    """Direct endpoint to update a raditech page without going through the AI agent."""
+    try:
+        data = request.json or {}
+        page_id = data.get("page_id")
+        if not page_id:
+            return jsonify({"error": "page_id required"}), 400
+        payload = {}
+        if "content" in data:
+            payload["content"] = data["content"]
+        if "title" in data:
+            payload["title"] = data["title"]
+        result = update_raditech_page(page_id, payload)
+        meta = {}
+        if "seo_title" in data:
+            meta["rank_math_title"] = data["seo_title"]
+        if "meta_description" in data:
+            meta["rank_math_description"] = data["meta_description"]
+        if "focus_keyword" in data:
+            meta["rank_math_focus_keyword"] = data["focus_keyword"]
+        if meta:
+            requests.post(f"{RADITECH_URL}/wp-json/wp/v2/pages/{page_id}",
+                          headers=raditech_jwt_headers(), json={"meta": meta}, timeout=15)
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/optimize-raditech-blog", methods=["POST"])
 def optimize_raditech_blog():
     try:
