@@ -2875,6 +2875,111 @@ Devuelve solo el HTML listo para WordPress."""
         return jsonify({"error": str(e)}), 500
 
 
+@app.route("/optimize-raditech-blog", methods=["POST"])
+def optimize_raditech_blog():
+    try:
+        data = request.json or {}
+        post_id = data.get("post_id")
+        title = data.get("title", "")
+        content = data.get("content", "")
+        url = data.get("url", "")
+
+        if not post_id:
+            return jsonify({"error": "post_id es requerido"}), 400
+
+        if not content:
+            fetched = get_raditech_post_content(post_id)
+            if "error" in fetched:
+                return jsonify({"error": f"No se pudo obtener el post {post_id}: {fetched['error']}"}), 404
+            title = title or fetched.get("title", "")
+            content = fetched.get("content", "")
+            url = url or fetched.get("link", "")
+
+        all_posts = get_raditech_all_posts_catalog(per_page=100)
+        other_posts = [
+            p for p in all_posts
+            if isinstance(p, dict) and str(p.get("id", "")) != str(post_id)
+        ]
+        posts_list = "\n".join(
+            f"- {p['title']} ({p['link']})"
+            for p in other_posts if isinstance(p, dict) and p.get("title")
+        )
+
+        pages = get_raditech_pages()
+        service_pages = [p for p in pages if isinstance(p, dict) and p.get("title") and p.get("link")]
+        pages_list = "\n".join(
+            f"- {p['title']} ({p['link']})"
+            for p in service_pages
+        )
+
+        prompt = f"""Eres un experto en SEO B2B para el sector de tecnología médica en México.
+Tienes este artículo de blog en raditech.mx:
+
+TÍTULO: {title}
+URL: {url}
+POST ID: {post_id}
+
+CONTENIDO ACTUAL (HTML):
+{content}
+
+OTROS ARTÍCULOS DEL BLOG (para interlinks):
+{posts_list if posts_list else "No hay otros artículos disponibles aún."}
+
+PÁGINAS DE SERVICIOS DE RADITECH (para links internos a servicios):
+{pages_list if pages_list else "No hay páginas de servicios disponibles."}
+
+Tu tarea — enriquece el contenido añadiendo de forma NATURAL:
+
+1. INTERLINKS A OTROS BLOGS (2-4 links): enlaza a artículos del blog temáticamente relacionados.
+   Formato: <a href="URL_DEL_POST">texto descriptivo</a>
+
+2. LINKS A PÁGINAS DE SERVICIOS (2-3 links): enlaza a páginas de servicios relevantes de raditech.mx.
+   Formato: <a href="URL_SERVICIO">nombre del servicio</a>
+
+3. LINKS EXTERNOS DE AUTORIDAD (3-5 links): enlaza a fuentes técnicas reconocidas del sector salud/radiología:
+   RSNA (rsna.org), ACR (acr.org), HIMSS (himss.org), PubMed (pubmed.ncbi.nlm.nih.gov),
+   HL7 (hl7.org), IHE (ihe.net), SIIM (siim.org). Solo URLs reales y verificables.
+   Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
+
+4. SECCIÓN FAQ al final del artículo (si no existe ya): agrega 3 preguntas frecuentes que haría
+   un director médico, jefe de radiología o gerente de TI hospitalario sobre el tema del artículo.
+   Formato HTML: <h2>Preguntas frecuentes</h2> seguido de <h3> por pregunta y <p> por respuesta.
+
+5. CTA final (si no existe): termina con un párrafo de cierre con llamada a la acción institucional
+   como "Solicita una demostración de VIRA PACS" o "Conoce nuestras soluciones de teleradiología".
+
+REGLAS:
+- No inventes posts ni páginas que no estén en las listas anteriores.
+- Mantén el tono técnico-institucional B2B, sin lenguaje de ventas agresivo.
+- No modifiques el contenido existente, solo agrega los elementos solicitados de forma natural.
+- Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra."""
+
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=16384,
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        optimized_content = response.content[0].text.strip()
+        if optimized_content.startswith("```"):
+            optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+
+        result = update_raditech_post(post_id, {"content": optimized_content})
+
+        if result.get("success"):
+            return jsonify({
+                "success": True,
+                "post_id": post_id,
+                "url": result.get("link", url),
+                "interlinks_added": len(other_posts) > 0,
+                "service_pages_linked": len(service_pages) > 0,
+            })
+        return jsonify({"error": result.get("error", "Error al actualizar post")}), 500
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/optimize-ptm-blog", methods=["POST"])
 def optimize_ptm_blog():
     try:
