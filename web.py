@@ -2458,8 +2458,17 @@ def optimize_ptm_blog():
         content = data.get("content", "")
         url = data.get("url", "")
 
-        if not post_id or not content:
-            return jsonify({"error": "post_id y content son requeridos"}), 400
+        if not post_id:
+            return jsonify({"error": "post_id es requerido"}), 400
+
+        # Si no se pasó content, lo buscamos directamente de WordPress PTM
+        if not content:
+            fetched = get_ptm_post_content(post_id)
+            if "error" in fetched:
+                return jsonify({"error": f"No se pudo obtener el post {post_id}: {fetched['error']}"}), 404
+            title = title or fetched.get("title", "")
+            content = fetched.get("content", "")
+            url = url or fetched.get("link", "")
 
         # Interlinks: otros posts publicados en grupoptm.com
         all_ptm_posts = get_ptm_all_posts_catalog(per_page=100)
