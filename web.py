@@ -1818,16 +1818,18 @@ TOOLS = [
     },
     {
         "name": "update_raditech_page",
-        "description": "Actualiza título, SEO title, meta description o contenido de una página de raditech.mx.",
+        "description": "Actualiza título, slug, SEO title, meta description, focus_keyword o contenido de una página de raditech.mx.",
         "input_schema": {
             "type": "object", "required": ["page_id"],
             "properties": {
                 "page_id": {"type": "integer"},
                 "title": {"type": "string"},
+                "slug": {"type": "string", "description": "Nuevo slug URL (ej: pacs-vira-ris). Minúsculas con guiones, sin slashes."},
                 "seo_title": {"type": "string", "description": "SEO title para Google (max 60 chars)"},
                 "meta_description": {"type": "string", "description": "Meta description 150-160 chars"},
                 "content": {"type": "string", "description": "HTML completo (opcional)"},
-                "focus_keyword": {"type": "string", "description": "Keyword principal para Rank Math"}
+                "focus_keyword": {"type": "string", "description": "Keyword principal para Rank Math"},
+                "status": {"type": "string", "description": "publish o draft (opcional)"}
             }
         }
     },
