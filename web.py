@@ -554,6 +554,36 @@ def update_raditech_page(page_id, data):
         return {"error": str(e)}
 
 
+def create_raditech_page(title, content, slug="", seo_title="", meta_description="", focus_keyword="", status="publish"):
+    try:
+        data = {
+            "title": title,
+            "content": content,
+            "slug": slug,
+            "status": status,
+        }
+        r = requests.post(f"{RADITECH_URL}/wp-json/wp/v2/pages",
+                          headers=raditech_jwt_headers(), json=data, timeout=30)
+        result = r.json()
+        if "id" not in result:
+            return {"error": str(result)}
+        page_id = result["id"]
+        # PATCH separado para rank_math (no acepta meta en POST inicial)
+        meta = {}
+        if seo_title:
+            meta["rank_math_title"] = seo_title
+        if meta_description:
+            meta["rank_math_description"] = meta_description
+        if focus_keyword:
+            meta["rank_math_focus_keyword"] = focus_keyword
+        if meta:
+            requests.post(f"{RADITECH_URL}/wp-json/wp/v2/pages/{page_id}",
+                          headers=raditech_jwt_headers(), json={"meta": meta}, timeout=15)
+        return {"success": True, "id": page_id, "link": result.get("link", ""), "status": result.get("status")}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def get_products(per_page=10):
     try:
         r = requests.get(
@@ -1169,6 +1199,7 @@ HERRAMIENTAS DE RADITECH:
 - get_raditech_pages: lista páginas de raditech.mx (landings de servicios)
 - get_raditech_page_content: lee HTML de una página de Raditech antes de editarla
 - update_raditech_page: actualiza título, SEO title, meta description o contenido de una página
+- create_raditech_page: crea una nueva página en raditech.mx con contenido Gutenberg y metadatos SEO completos
 
 HERRAMIENTAS GSC DE RADITECH:
 - gsc_raditech_top_queries: keywords que traen tráfico a raditech.mx (clicks, impresiones, CTR, posición)
@@ -1732,6 +1763,22 @@ TOOLS = [
         }
     },
     {
+        "name": "create_raditech_page",
+        "description": "Crea una nueva página en raditech.mx con contenido Gutenberg, título, slug y metadatos SEO (seo_title, meta_description, focus_keyword). Usa PATCH automático para guardar rank_math después de crear.",
+        "input_schema": {
+            "type": "object", "required": ["title", "content"],
+            "properties": {
+                "title": {"type": "string"},
+                "content": {"type": "string", "description": "HTML/Gutenberg blocks para el cuerpo de la página"},
+                "slug": {"type": "string", "description": "URL slug (sin slashes)"},
+                "seo_title": {"type": "string", "description": "SEO title Rank Math (max 60 chars)"},
+                "meta_description": {"type": "string", "description": "Meta description 150-160 chars"},
+                "focus_keyword": {"type": "string", "description": "Keyword principal para Rank Math"},
+                "status": {"type": "string", "enum": ["publish", "draft"], "default": "publish"}
+            }
+        }
+    },
+    {
         "name": "gsc_raditech_top_queries",
         "description": "Google Search Console: top keywords que traen tráfico a raditech.mx (clicks, impresiones, CTR, posición).",
         "input_schema": {
@@ -1946,6 +1993,16 @@ def run_tool(name, inputs):
         if meta:
             data["meta"] = meta
         return update_raditech_page(inputs["page_id"], data)
+    elif name == "create_raditech_page":
+        return create_raditech_page(
+            title=inputs["title"],
+            content=inputs["content"],
+            slug=inputs.get("slug", ""),
+            seo_title=inputs.get("seo_title", ""),
+            meta_description=inputs.get("meta_description", ""),
+            focus_keyword=inputs.get("focus_keyword", ""),
+            status=inputs.get("status", "publish"),
+        )
     elif name == "gsc_raditech_top_queries":
         return gsc_raditech_top_queries(inputs.get("days", 28), inputs.get("limit", 10))
     elif name == "gsc_raditech_page_performance":
