@@ -1212,7 +1212,40 @@ REGLAS SEO PARA RADITECH:
 - Links externos de autoridad: RSNA, HIMSS, pubmed.ncbi.nlm.nih.gov, acr.org, hl7.org
 - Mínimo 4 links internos a otras páginas/servicios de Raditech
 - Rank Math: rank_math_title y rank_math_description (igual que PYS y PTM)
-- NO cruzar contenido con PYS ni PTM — son nichos distintos (B2B médico vs B2C wellness)"""
+- NO cruzar contenido con PYS ni PTM — son nichos distintos (B2B médico vs B2C wellness)
+
+DISEÑO VISUAL RADITECH — ESTÁNDAR PARA TODAS LAS LANDINGS:
+Cuando crees una landing con create_raditech_page, usa SIEMPRE este HTML/CSS embebido en un bloque <!-- wp:html -->.
+Paleta: fondo #0b1826 (navy), cards #112236, cards-alt #162d47, naranja #e8922a, texto muted #8fa5c2.
+Tipografía: font-weight:900 para H1/H2, clamp() para responsivo, line-height:1.05-1.08.
+Estructura obligatoria de secciones en este orden:
+  1. HERO: dos columnas — badge pill naranja + H1 (blanco/naranja) + subtítulo + 2 botones (naranja sólido + ghost) | imagen + card estadística flotante
+  2. NAVBAR STRIP: fondo card, grid 5 col — título izquierda + 4 enlaces ancla con flecha naranja
+  3. SOFTWARE: dos columnas — card dark con badge "NUESTRO SOFTWARE" + H2 + 2 párrafos + botones | imagen
+  4. CARACTERÍSTICAS: fondo bg, badge + H2 grande + descripción + 5 cards numeradas 01-05 con badge naranja cuadrado
+  5. INNOVACIÓN: fondo card, badge + H2 + tabs verticales izquierda + imagen centro + check-grid 2x2 derecha
+  6. ROI/MÉTRICAS: 3 cards con borde superior naranja + número grande naranja + título + descripción
+  7. CTA BANNER: card redondeada, grid 2 col — H2 bold + párrafo | botón WhatsApp naranja + botón ghost Cotizar
+  8. FAQ: fondo card, 6 preguntas en cards oscuras con links de autoridad embebidos
+  9. FOOTER LINKS: barra con todos los links internos de raditech.mx
+
+PARÁMETROS SEO FIJOS PARA RADITECH (aplicar siempre):
+  - seo_title: máx 55 chars — formato "Keyword Principal | VIRA Raditech México"
+  - meta_description: 150-160 chars — incluir keyword + diferenciador + CTA ("Solicita demo"/"Cotizar")
+  - focus_keyword: keyword principal sin marca (ej: "sistema PACS RIS Mexico", "PACS teleradiología México")
+  - Links internos obligatorios: /pacs-ris/, /teleradiologia-de-alta-especialidad/, /sistema-de-informacion-hospitalaria-his/, /monitores-grado-medico/, /blog/
+  - Links externos de autoridad: rsna.org, acr.org, dicom.nema.org, ihe.net, himss.org
+  - FAQ Schema JSON-LD: siempre al final con mínimo 5 preguntas (FAQPage schema)
+  - WhatsApp CTA: siempre https://wa.me/525537959441
+  - Solicitar indexación GSC después de publicar con gsc_request_indexing
+
+PARÁMETROS SEO FIJOS PARA BLOGS DE RADITECH:
+  - Mínimo 1,000 palabras, estructura H2/H3
+  - Audiencia: directores médicos, jefes de radiología, gerentes TI hospitalario
+  - Tono: técnico-institucional B2B, orientado a ROI — NO lenguaje B2C ni wellness
+  - Categorías disponibles: Teleradiología (27), Diagnóstico por Imagen (28), Gestión Hospitalaria (29), Tecnología Médica (30), Medicina General (31)
+  - Autor público: "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+  - Llamar siempre a /optimize-raditech-blog después de publicar"""
 
 TOOLS = [
     {
