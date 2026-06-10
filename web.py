@@ -3192,6 +3192,10 @@ def raditech_page_update_direct():
             payload["content"] = data["content"]
         if "title" in data:
             payload["title"] = data["title"]
+        if "status" in data:
+            payload["status"] = data["status"]
+        if "slug" in data:
+            payload["slug"] = data["slug"]
         result = update_raditech_page(page_id, payload)
         meta = {}
         if "seo_title" in data:
