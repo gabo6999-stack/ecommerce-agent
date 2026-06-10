@@ -15,12 +15,14 @@ app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
 # ─── Google Search Console config ────────────────────────────────────────────
-GSC_CLIENT_ID     = os.environ.get("GOOGLE_CLIENT_ID", "")
-GSC_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", "")
-GSC_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN", "")
-GSC_SITE_URL      = os.environ.get("GSC_SITE_URL", "sc-domain:peptidosysuplementos.mx")
-GSC_REDIRECT_URI  = os.environ.get("GSC_REDIRECT_URI", "https://web-production-3743c.up.railway.app/search-console/callback")
-GSC_SCOPES        = ["https://www.googleapis.com/auth/webmasters.readonly"]
+GSC_CLIENT_ID          = os.environ.get("GOOGLE_CLIENT_ID", "")
+GSC_CLIENT_SECRET      = os.environ.get("GOOGLE_CLIENT_SECRET", "")
+GSC_REFRESH_TOKEN      = os.environ.get("GOOGLE_REFRESH_TOKEN", "")
+GSC_SITE_URL           = os.environ.get("GSC_SITE_URL", "sc-domain:peptidosysuplementos.mx")
+GSC_REDIRECT_URI       = os.environ.get("GSC_REDIRECT_URI", "https://web-production-3743c.up.railway.app/search-console/callback")
+RADITECH_GSC_REFRESH_TOKEN  = os.environ.get("RADITECH_GSC_REFRESH_TOKEN", "")
+RADITECH_GSC_REDIRECT_URI   = os.environ.get("RADITECH_GSC_REDIRECT_URI", "https://web-production-3743c.up.railway.app/search-console/raditech/callback")
+GSC_SCOPES             = ["https://www.googleapis.com/auth/webmasters.readonly"]
 
 WC_URL = os.environ.get("WOOCOMMERCE_URL", "")
 WC_KEY = os.environ.get("WOOCOMMERCE_KEY", "")
@@ -3876,10 +3878,10 @@ def gsc_request_indexing(url):
 
 # ─── GOOGLE SEARCH CONSOLE ───────────────────────────────────────────────────
 
-def get_gsc_service():
+def get_gsc_service(refresh_token=None):
     creds = Credentials(
         token=None,
-        refresh_token=GSC_REFRESH_TOKEN,
+        refresh_token=refresh_token or GSC_REFRESH_TOKEN,
         client_id=GSC_CLIENT_ID,
         client_secret=GSC_CLIENT_SECRET,
         token_uri="https://oauth2.googleapis.com/token",
@@ -3956,8 +3958,8 @@ def gsc_keyword_cannibalization(days=28):
         return {"error": str(e)}
 
 
-def fetch_gsc_data(dimension, days=28, limit=10, site_url=None):
-    service = get_gsc_service()
+def fetch_gsc_data(dimension, days=28, limit=10, site_url=None, refresh_token=None):
+    service = get_gsc_service(refresh_token=refresh_token)
     end_date = datetime.now().strftime("%Y-%m-%d")
     start_date = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
     result = service.searchanalytics().query(
@@ -3975,10 +3977,10 @@ def fetch_gsc_data(dimension, days=28, limit=10, site_url=None):
 
 def gsc_raditech_top_queries(days=28, limit=10):
     """Top búsquedas de raditech.mx por clicks en GSC."""
-    if not GSC_REFRESH_TOKEN:
-        return {"error": "GSC no autenticado. Visita /search-console/auth"}
+    if not RADITECH_GSC_REFRESH_TOKEN:
+        return {"error": "GSC Raditech no autenticado. Visita /search-console/raditech/auth"}
     try:
-        rows = fetch_gsc_data("query", days, limit, site_url=RADITECH_GSC_SITE_URL)
+        rows = fetch_gsc_data("query", days, limit, site_url=RADITECH_GSC_SITE_URL, refresh_token=RADITECH_GSC_REFRESH_TOKEN)
         return [
             {
                 "query": r["keys"][0],
@@ -3995,10 +3997,10 @@ def gsc_raditech_top_queries(days=28, limit=10):
 
 def gsc_raditech_page_performance(days=28, limit=10):
     """Páginas de raditech.mx con más clicks en GSC."""
-    if not GSC_REFRESH_TOKEN:
-        return {"error": "GSC no autenticado. Visita /search-console/auth"}
+    if not RADITECH_GSC_REFRESH_TOKEN:
+        return {"error": "GSC Raditech no autenticado. Visita /search-console/raditech/auth"}
     try:
-        rows = fetch_gsc_data("page", days, limit, site_url=RADITECH_GSC_SITE_URL)
+        rows = fetch_gsc_data("page", days, limit, site_url=RADITECH_GSC_SITE_URL, refresh_token=RADITECH_GSC_REFRESH_TOKEN)
         return [
             {
                 "page": r["keys"][0].replace("https://raditech.mx", ""),
@@ -4015,10 +4017,10 @@ def gsc_raditech_page_performance(days=28, limit=10):
 
 def gsc_raditech_ctr_opportunities(days=28, min_impressions=50, limit=15):
     """Keywords de raditech.mx con CTR bajo — oportunidades de mejora de títulos."""
-    if not GSC_REFRESH_TOKEN:
-        return {"error": "GSC no autenticado. Visita /search-console/auth"}
+    if not RADITECH_GSC_REFRESH_TOKEN:
+        return {"error": "GSC Raditech no autenticado. Visita /search-console/raditech/auth"}
     try:
-        rows = fetch_gsc_data("query", days, 500, site_url=RADITECH_GSC_SITE_URL)
+        rows = fetch_gsc_data("query", days, 500, site_url=RADITECH_GSC_SITE_URL, refresh_token=RADITECH_GSC_REFRESH_TOKEN)
         opportunities = [
             {
                 "query": r["keys"][0],
@@ -4089,6 +4091,62 @@ code{{background:#2a2a2a;padding:4px 10px;border-radius:6px;font-size:13px;word-
 </div>
 <p style="color:#aaa;font-size:13px;margin-top:16px;">Una vez que agregues la variable en Railway y el servicio se reinicie, el Search Console estará activo.</p>
 <a href="/search-console" class="btn">Ver Search Console</a>
+</body></html>"""
+
+
+@app.route("/search-console/raditech/auth")
+def gsc_raditech_auth():
+    if not GSC_CLIENT_ID or not GSC_CLIENT_SECRET:
+        return "Faltan variables GOOGLE_CLIENT_ID y GOOGLE_CLIENT_SECRET en Railway.", 400
+    import urllib.parse
+    params = {
+        "client_id": GSC_CLIENT_ID,
+        "redirect_uri": RADITECH_GSC_REDIRECT_URI,
+        "response_type": "code",
+        "scope": " ".join(GSC_SCOPES),
+        "access_type": "offline",
+        "prompt": "consent"
+    }
+    auth_url = "https://accounts.google.com/o/oauth2/auth?" + urllib.parse.urlencode(params)
+    return redirect(auth_url)
+
+
+@app.route("/search-console/raditech/callback")
+def gsc_raditech_callback():
+    try:
+        code = request.args.get("code")
+        if not code:
+            return "<pre style='color:red;padding:20px'>Error: no se recibió código de autorización</pre>", 400
+        token_resp = requests.post(
+            "https://oauth2.googleapis.com/token",
+            data={
+                "code": code,
+                "client_id": GSC_CLIENT_ID,
+                "client_secret": GSC_CLIENT_SECRET,
+                "redirect_uri": RADITECH_GSC_REDIRECT_URI,
+                "grant_type": "authorization_code"
+            }
+        )
+        token_data = token_resp.json()
+        refresh_token = token_data.get("refresh_token", "")
+        if not refresh_token:
+            return f"<pre style='color:red;padding:20px'>Error al obtener token: {token_data}</pre>", 400
+    except Exception as e:
+        return f"<pre style='color:red;padding:20px'>Error en callback: {e}</pre>", 500
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Search Console Raditech conectado</title>
+<style>body{{font-family:Arial;max-width:600px;margin:60px auto;padding:20px;background:#0f0f0f;color:#eee}}
+.box{{background:#1a1a1a;border-radius:10px;padding:24px;border-left:4px solid #f97316}}
+code{{background:#2a2a2a;padding:4px 10px;border-radius:6px;font-size:13px;word-break:break-all}}
+.btn{{display:inline-block;background:#f97316;color:white;padding:10px 20px;border-radius:8px;text-decoration:none;margin-top:16px}}</style>
+</head><body>
+<h2>✅ Google Search Console Raditech conectado</h2>
+<div class="box">
+<p>Copia este <strong>Refresh Token</strong> y agrégalo en Railway como variable de entorno:</p>
+<p><strong>Variable:</strong> <code>RADITECH_GSC_REFRESH_TOKEN</code></p>
+<p><strong>Valor:</strong><br><code>{refresh_token}</code></p>
+</div>
+<p style="color:#aaa;font-size:13px;margin-top:16px;">Una vez que agregues la variable en Railway y el servicio se reinicie, el Search Console de Raditech estará activo.</p>
 </body></html>"""
 
 
