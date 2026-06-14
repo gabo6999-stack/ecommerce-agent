@@ -14,6 +14,16 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
+# ─── Agente de Backlinks (módulo independiente, integración aditiva) ──────────
+# Se importa de forma defensiva: si falla, el resto de la app sigue funcionando.
+try:
+    import backlinks_agent
+    BACKLINKS_AVAILABLE = True
+except Exception as _bl_err:
+    backlinks_agent = None
+    BACKLINKS_AVAILABLE = False
+    print(f"[Backlinks] módulo no disponible: {_bl_err}")
+
 # ─── Google Search Console config ────────────────────────────────────────────
 GSC_CLIENT_ID          = os.environ.get("GOOGLE_CLIENT_ID", "")
 GSC_CLIENT_SECRET      = os.environ.get("GOOGLE_CLIENT_SECRET", "")
@@ -884,6 +894,102 @@ def convert_elementor_to_gutenberg(post_id, post_type="post"):
     return result
 
 
+def get_orders(status=None, customer_email=None, limit=20, after=None, before=None):
+    try:
+        params = {"per_page": min(int(limit), 100)}
+        if status:
+            params["status"] = status
+        if customer_email:
+            params["search"] = customer_email
+        if after:
+            params["after"] = after
+        if before:
+            params["before"] = before
+        r = requests.get(
+            f"{WC_URL}/wp-json/wc/v3/orders",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params=params,
+            timeout=30
+        )
+        r.raise_for_status()
+        orders = r.json()
+        if not isinstance(orders, list):
+            return {"error": str(orders)}
+        return [
+            {
+                "id": o["id"],
+                "status": o["status"],
+                "date_created": o["date_created"],
+                "total": o["total"],
+                "currency": o["currency"],
+                "customer_email": o["billing"].get("email"),
+                "customer_name": f"{o['billing'].get('first_name','')} {o['billing'].get('last_name','')}".strip(),
+                "items": [{"name": i["name"], "quantity": i["quantity"], "total": i["total"]} for i in o["line_items"]],
+            }
+            for o in orders
+        ]
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def get_sales_report(period="month", date_min=None, date_max=None):
+    try:
+        params = {"period": period}
+        if date_min:
+            params["date_min"] = date_min
+        if date_max:
+            params["date_max"] = date_max
+        r = requests.get(
+            f"{WC_URL}/wp-json/wc/v3/reports/sales",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params=params,
+            timeout=30
+        )
+        r.raise_for_status()
+        return r.json()
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def get_top_sellers(period="month", limit=10):
+    try:
+        params = {"period": period, "per_page": min(int(limit), 100)}
+        r = requests.get(
+            f"{WC_URL}/wp-json/wc/v3/reports/top_sellers",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params=params,
+            timeout=30
+        )
+        r.raise_for_status()
+        return r.json()
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def compare_mexico_prices(query, limit=5):
+    try:
+        r = requests.get(
+            "https://api.mercadolibre.com/sites/MLM/search",
+            params={"q": query, "limit": limit, "condition": "new"},
+            timeout=15,
+        )
+        r.raise_for_status()
+        data = r.json()
+        results = [
+            {
+                "title": item["title"],
+                "price_mxn": item["price"],
+                "seller": item.get("seller", {}).get("nickname", ""),
+                "sold_quantity": item.get("sold_quantity", 0),
+                "url": item["permalink"],
+            }
+            for item in data.get("results", [])[:int(limit)]
+        ]
+        return {"query": query, "market": "MercadoLibre Mexico", "listings": results}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def get_products_full(per_page=10):
     try:
         r = requests.get(
@@ -934,6 +1040,8 @@ def update_product_full(product_id, data):
             meta_updates["rank_math_title"] = data["seo_title"]
         if "seo_description" in data:
             meta_updates["rank_math_description"] = data["seo_description"]
+        if "focus_keyword" in data:
+            meta_updates["rank_math_focus_keyword"] = data["focus_keyword"]
         if meta_updates:
             payload["meta_data"] = [{"key": k, "value": v} for k, v in meta_updates.items()]
         r = requests.put(
@@ -1045,8 +1153,8 @@ def add_schema_markup(post_id, schema_type="Article"):
     content = post.get("content", "")
     title = post.get("title", "")
     url = post.get("link", "")
+    date_published = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S+00:00")
 
-    # Remove existing schema so it can be replaced with a correct one
     content_clean = re.sub(
         r'\s*<script type="application/ld\+json">[\s\S]*?</script>',
         '',
@@ -1059,7 +1167,21 @@ def add_schema_markup(post_id, schema_type="Article"):
             "@type": "Article",
             "headline": title,
             "url": url,
-            "publisher": {"@type": "Organization", "name": "Peptidos y Suplementos", "url": WC_URL}
+            "datePublished": date_published,
+            "dateModified": date_published,
+            "author": {
+                "@type": "Person",
+                "name": "Equipo Péptidos y Suplementos",
+                "url": WC_URL
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Péptidos y Suplementos MX",
+                "url": WC_URL,
+                "logo": {"@type": "ImageObject", "url": f"{WC_URL}/wp-content/uploads/logo.png"}
+            },
+            "description": "",
+            "mainEntityOfPage": {"@type": "WebPage", "@id": url}
         }
     elif schema_type == "FAQPage":
         faq_items = _extract_faq_from_html(content_clean)
@@ -1082,6 +1204,10 @@ def add_schema_markup(post_id, schema_type="Article"):
 
 SYSTEM = """Eres un agente SEO especializado para peptidosysuplementos.mx.
 
+PALABRA PROHIBIDA — NUNCA usar en ningún contenido, título, descripción, blog, página, meta tag ni en ninguna comunicación:
+- "farmacia" (ni en singular, ni plural, ni con mayúscula, ni como parte de otra palabra)
+Sustituto obligatorio: "Tienda en línea"
+
 Puedes optimizar productos, categorias, y CREAR Y PUBLICAR ARTICULOS DE BLOG en WordPress.
 
 REGLAS PARA TITULOS DE PRODUCTOS:
@@ -1096,20 +1222,25 @@ REGLAS PARA DESCRIPCIONES CORTAS:
 
 REGLAS PARA ARTICULOS DE BLOG SEO:
 - Minimo 1000 palabras
-- Estructura con H2 y H3
+- Titulo del blog: maximo 60 caracteres (igual que productos)
+- Estructura con H2 y H3 (un H2 cada ~300 palabras aprox.)
 - Incluir minimo 5 links externos a fuentes de autoridad (NEJM, FDA, PubMed, Mayo Clinic, etc.)
 - Incluir minimo 8 links internos a productos de la tienda
 - Meta descripcion entre 150-160 caracteres
-- Slug en minusculas con guiones
-- Keyword principal en titulo, primer parrafo, H2s y conclusion
+- Slug en minusculas con guiones, maximo 5 palabras
+- Keyword principal en titulo, primer parrafo, al menos un H2 y en la conclusion
 - Contenido en HTML valido para WordPress (usar <h2>, <h3>, <p>, <strong>, <a href="">, <ul>, <li>)
+- Incluir seccion de FAQ al final con minimo 4 preguntas en formato <h3>¿Pregunta?</h3><p>Respuesta</p>
 
 FLUJO PARA ARTICULOS:
-1. Genera el articulo completo en HTML
-2. Muestra titulo, meta descripcion, slug y preview del contenido
-3. Pide confirmacion antes de publicar
-4. Usa create_post para publicar en WordPress
-5. Confirma con el link del articulo publicado
+1. Antes de escribir: usa gsc_keyword_cannibalization para verificar que no existe ya una pagina rankeando por la misma keyword
+2. Genera el articulo completo en HTML (con seccion FAQ al final)
+3. Muestra titulo, meta descripcion, slug y preview del contenido
+4. Pide confirmacion antes de publicar
+5. Usa create_post para publicar en WordPress
+6. Aplica add_schema_markup(post_id, "Article") — y si el articulo tiene FAQs, aplica tambien add_schema_markup(post_id, "FAQPage")
+7. Llama a gsc_request_indexing con la URL del articulo publicado
+8. Confirma con el link del articulo publicado
 
 REGLAS PARA INTERLINKS Y LINKS EXTERNOS:
 - Links inter-blog (entre artículos del blog):
@@ -1157,6 +1288,12 @@ MEMORIA:
 - remember_instruction: guarda reglas, preferencias o contexto que debes recordar entre sesiones
 - recall_memory: recupera lo que guardaste anteriormente antes de responder preguntas de estrategia
 
+ANÁLISIS DE VENTAS Y SOPORTE (PYS):
+- get_orders: busca órdenes por estado, email del cliente o rango de fechas — úsala para soporte al cliente o análisis de ventas
+- get_sales_report: ingresos totales, número de órdenes y ticket promedio por período (week/month/last_month/year)
+- get_top_sellers: productos más vendidos por unidades — úsala para priorizar stock, campañas o interlinks
+- compare_mexico_prices: compara precios de PYS vs MercadoLibre México — úsala cuando el usuario pregunte si los precios son competitivos
+
 Siempre usa las herramientas para obtener datos reales antes de proponer cambios.
 Pide confirmacion antes de aplicar cualquier cambio.
 Responde siempre en espanol.
@@ -1164,7 +1301,37 @@ Responde siempre en espanol.
 GRUPO PTM — SEGUNDO SITIO (grupoptm.com):
 peptidosysuplementos.mx (PYS) y grupoptm.com (PTM) son sitios hermanos del mismo negocio.
 PTM es la plataforma de telemedicina: consultas médicas especializadas en péptidos.
+Audiencia: pacientes mexicanos buscando orientación médica sobre péptidos, GLP-1, hormonas y longevidad.
+Tono: médico-confiable, empático, orientado al paciente — NO lenguaje técnico de laboratorio.
 Tienes acceso completo a ambos sitios para leer y escribir contenido.
+
+REGLAS SEO PARA BLOGS DE PTM:
+- Titulo: maximo 60 caracteres, keyword al inicio
+- Minimo 800 palabras, estructura H2/H3
+- Meta description: 150-160 caracteres con keyword + beneficio + CTA ("Agenda tu consulta")
+- Slug en minusculas con guiones, maximo 5 palabras
+- Keyword principal en titulo, primer parrafo, al menos un H2 y en conclusion
+- Minimo 3 links internos a otras paginas/blogs de PTM (usar get_ptm_all_posts_catalog)
+- Minimo 3 links a productos relevantes de PYS (usar get_products)
+- Minimo 2 links externos a fuentes medicas de autoridad (PubMed, NIH, Mayo Clinic)
+- Incluir seccion FAQ al final con minimo 3 preguntas <h3>/<p>
+- Incluir CTA de cross-linking hacia PYS al final (formato definido en REGLAS DE CROSS-LINKING)
+
+REGLAS SEO PARA LANDING PAGES DE PTM:
+- Minimo 600 palabras de texto visible
+- seo_title: maximo 60 chars — "Tratamiento con [Peptido] en Mexico | PTM"
+- meta_description: 150-160 chars — condicion + diferenciador + CTA
+- Minimo 4 links internos a otras paginas de PTM
+- Minimo 2 links a productos de PYS relevantes
+- Seccion FAQ con minimo 4 preguntas
+
+FLUJO PARA BLOGS DE PTM:
+1. Genera el articulo completo en HTML con seccion FAQ al final
+2. Muestra titulo, meta descripcion, slug y preview
+3. Pide confirmacion antes de publicar
+4. Usa create_ptm_post para publicar
+5. Usa update_ptm_post para agregar seo_title y meta_description via Rank Math
+6. Confirma con el link publicado
 
 HERRAMIENTAS DE PTM:
 - create_ptm_page: crea una nueva landing page en grupoptm.com con título, slug y SEO inicial
@@ -1989,6 +2156,56 @@ TOOLS = [
                 "page_id": {"type": "integer", "description": "ID de la página a eliminar permanentemente"}
             }
         }
+    },
+    # ── Herramientas analíticas WooCommerce ───────────────────────────────────
+    {
+        "name": "get_orders",
+        "description": "Obtiene órdenes de la tienda PYS. Filtra por estado (pending, processing, completed, cancelled, refunded), email del cliente o rango de fechas. Úsala para soporte al cliente o análisis de ventas.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "status": {"type": "string", "description": "pending | processing | on-hold | completed | cancelled | refunded | failed"},
+                "customer_email": {"type": "string", "description": "Email del cliente para buscar sus órdenes"},
+                "limit": {"type": "integer", "default": 20, "description": "Número de órdenes (máx 100)"},
+                "after": {"type": "string", "description": "Fecha inicio ISO 8601, ej: 2026-01-01T00:00:00"},
+                "before": {"type": "string", "description": "Fecha fin ISO 8601"}
+            }
+        }
+    },
+    {
+        "name": "get_sales_report",
+        "description": "Reporte agregado de ventas PYS: ingresos totales, número de órdenes y valor promedio de orden por período.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "period": {"type": "string", "description": "week | month | last_month | year", "default": "month"},
+                "date_min": {"type": "string", "description": "Fecha inicio YYYY-MM-DD"},
+                "date_max": {"type": "string", "description": "Fecha fin YYYY-MM-DD"}
+            }
+        }
+    },
+    {
+        "name": "get_top_sellers",
+        "description": "Productos más vendidos de PYS por unidades en un período. Úsala para identificar bestsellers y priorizar stock o campañas.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "period": {"type": "string", "description": "week | month | last_month | year", "default": "month"},
+                "limit": {"type": "integer", "default": 10}
+            }
+        }
+    },
+    {
+        "name": "compare_mexico_prices",
+        "description": "Busca un producto en MercadoLibre México y devuelve precios actuales de mercado para comparar competitividad de precios de PYS.",
+        "input_schema": {
+            "type": "object",
+            "required": ["query"],
+            "properties": {
+                "query": {"type": "string", "description": "Nombre o keywords del producto a buscar"},
+                "limit": {"type": "integer", "description": "Número de listados a comparar", "default": 5}
+            }
+        }
     }
 ]
 
@@ -2189,6 +2406,20 @@ def run_tool(name, inputs):
         return gsc_raditech_ctr_opportunities(inputs.get("days", 28), inputs.get("min_impressions", 50), inputs.get("limit", 15))
     elif name == "delete_raditech_page":
         return delete_raditech_page(inputs["page_id"])
+    elif name == "get_orders":
+        return get_orders(
+            status=inputs.get("status"),
+            customer_email=inputs.get("customer_email"),
+            limit=inputs.get("limit", 20),
+            after=inputs.get("after"),
+            before=inputs.get("before"),
+        )
+    elif name == "get_sales_report":
+        return get_sales_report(inputs.get("period", "month"), inputs.get("date_min"), inputs.get("date_max"))
+    elif name == "get_top_sellers":
+        return get_top_sellers(inputs.get("period", "month"), inputs.get("limit", 10))
+    elif name == "compare_mexico_prices":
+        return compare_mexico_prices(inputs["query"], inputs.get("limit", 5))
     return {"error": "herramienta desconocida"}
 
 @app.route("/")
@@ -2230,6 +2461,27 @@ def chat():
             )
         reply = "".join(b.text for b in response.content if hasattr(b, "text"))
         return jsonify({"reply": reply})
+    except Exception as e:
+        return jsonify({"reply": f"Error: {str(e)}"}), 500
+
+
+# ─── Modo Backlinks (prospector + auditoría, seguro por diseño) ───────────────
+@app.route("/backlinks")
+def backlinks_page():
+    if not BACKLINKS_AVAILABLE:
+        return ("<h2>Agente de Backlinks no disponible</h2>"
+                "<p>El módulo backlinks_agent no se pudo cargar. Revisa los logs del servidor.</p>"), 503
+    return open("templates/backlinks.html", encoding="utf-8").read()
+
+
+@app.route("/backlinks/chat", methods=["POST"])
+def backlinks_chat():
+    if not BACKLINKS_AVAILABLE:
+        return jsonify({"reply": "El agente de backlinks no está disponible en el servidor."}), 503
+    try:
+        messages = request.json.get("messages", [])
+        result = backlinks_agent.web_respond(messages)
+        return jsonify(result)
     except Exception as e:
         return jsonify({"reply": f"Error: {str(e)}"}), 500
 
