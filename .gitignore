@@ -3,4 +3,5 @@
 __pycache__/
 sessions/
 chats_exportados/
+backlinks_data/
 *.pyc
