@@ -410,6 +410,35 @@ def append_to_ptm_page(page_id, html_to_append):
 
 # ─── Funciones WordPress de Raditech ─────────────────────────────────────────
 
+def set_raditech_rank_math_meta(object_id, meta):
+    """Persiste campos rank_math_* en raditech vía el endpoint propio de Rank Math.
+
+    IMPORTANTE: el campo `meta` del REST core (/wp/v2/posts|pages) NO persiste
+    rank_math_* en raditech. El POST devuelve 200 con el objeto, pero Rank Math
+    1.0.271.1 no registra esos meta para REST y los ignora silenciosamente. El
+    único método que persiste de inmediato es rankmath/v1/updateMeta.
+    Verificado el 2026-06-14 contra el HTML renderizado anónimo. objectType es
+    siempre "post" (las páginas también son posts en WP). Ref: raditech_seo_fix5.py.
+    """
+    rank_math_meta = {k: v for k, v in (meta or {}).items() if k.startswith("rank_math")}
+    if not rank_math_meta:
+        return {"skipped": True}
+    try:
+        oid = int(object_id)
+    except (TypeError, ValueError):
+        oid = object_id
+    try:
+        r = requests.post(
+            f"{RADITECH_URL}/wp-json/rankmath/v1/updateMeta",
+            headers=raditech_jwt_headers(),
+            json={"objectID": oid, "objectType": "post", "meta": rank_math_meta},
+            timeout=20,
+        )
+        return {"status": r.status_code, "body": r.text[:200]}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def get_raditech_posts(per_page=10):
     try:
         r = requests.get(
@@ -470,27 +499,45 @@ def get_raditech_all_posts_catalog(per_page=100):
 def create_raditech_post(title, content, slug="", meta_description="", status="publish"):
     try:
         data = {"title": title, "content": content, "slug": slug, "status": status}
-        if meta_description:
-            data["meta"] = {"rank_math_description": meta_description}
         r = requests.post(f"{RADITECH_URL}/wp-json/wp/v2/posts",
                           json=data, headers=raditech_jwt_headers(), timeout=30)
         result = r.json()
-        if "id" in result:
-            return {"success": True, "id": result["id"],
-                    "link": result.get("link", ""), "status": result.get("status")}
-        return {"error": str(result)}
+        if "id" not in result:
+            return {"error": str(result)}
+        # rank_math_* no persiste vía el campo `meta` del REST core en raditech;
+        # se escribe con el endpoint propio de Rank Math.
+        if meta_description:
+            set_raditech_rank_math_meta(result["id"], {"rank_math_description": meta_description})
+        return {"success": True, "id": result["id"],
+                "link": result.get("link", ""), "status": result.get("status")}
     except Exception as e:
         return {"error": str(e)}
 
 
 def update_raditech_post(post_id, data):
     try:
-        r = requests.post(f"{RADITECH_URL}/wp-json/wp/v2/posts/{post_id}",
-                          headers=raditech_jwt_headers(), json=data, timeout=30)
-        result = r.json()
-        if "id" in result:
-            return {"success": True, "id": post_id, "link": result.get("link", "")}
-        return {"error": str(result)}
+        # Los rank_math_* no persisten vía el campo `meta` del REST core en
+        # raditech: se separan y se escriben con el endpoint propio de Rank Math.
+        data = dict(data)
+        rank_math_meta = {}
+        meta = data.get("meta")
+        if isinstance(meta, dict):
+            rank_math_meta = {k: v for k, v in meta.items() if k.startswith("rank_math")}
+            remaining = {k: v for k, v in meta.items() if not k.startswith("rank_math")}
+            if remaining:
+                data["meta"] = remaining
+            else:
+                data.pop("meta", None)
+        result = {}
+        if data:
+            r = requests.post(f"{RADITECH_URL}/wp-json/wp/v2/posts/{post_id}",
+                              headers=raditech_jwt_headers(), json=data, timeout=30)
+            result = r.json()
+            if "id" not in result:
+                return {"error": str(result)}
+        if rank_math_meta:
+            set_raditech_rank_math_meta(post_id, rank_math_meta)
+        return {"success": True, "id": post_id, "link": result.get("link", "")}
     except Exception as e:
         return {"error": str(e)}
 
@@ -556,12 +603,28 @@ def get_raditech_page_content(page_id):
 
 def update_raditech_page(page_id, data):
     try:
-        r = requests.post(f"{RADITECH_URL}/wp-json/wp/v2/pages/{page_id}",
-                          headers=raditech_jwt_headers(), json=data, timeout=30)
-        result = r.json()
-        if "id" in result:
-            return {"success": True, "id": page_id, "link": result.get("link", "")}
-        return {"error": str(result)}
+        # Los rank_math_* no persisten vía el campo `meta` del REST core en
+        # raditech: se separan y se escriben con el endpoint propio de Rank Math.
+        data = dict(data)
+        rank_math_meta = {}
+        meta = data.get("meta")
+        if isinstance(meta, dict):
+            rank_math_meta = {k: v for k, v in meta.items() if k.startswith("rank_math")}
+            remaining = {k: v for k, v in meta.items() if not k.startswith("rank_math")}
+            if remaining:
+                data["meta"] = remaining
+            else:
+                data.pop("meta", None)
+        result = {}
+        if data:
+            r = requests.post(f"{RADITECH_URL}/wp-json/wp/v2/pages/{page_id}",
+                              headers=raditech_jwt_headers(), json=data, timeout=30)
+            result = r.json()
+            if "id" not in result:
+                return {"error": str(result)}
+        if rank_math_meta:
+            set_raditech_rank_math_meta(page_id, rank_math_meta)
+        return {"success": True, "id": page_id, "link": result.get("link", "")}
     except Exception as e:
         return {"error": str(e)}
 
@@ -580,7 +643,8 @@ def create_raditech_page(title, content, slug="", seo_title="", meta_description
         if "id" not in result:
             return {"error": str(result)}
         page_id = result["id"]
-        # PATCH separado para rank_math (no acepta meta en POST inicial)
+        # rank_math_* se persiste vía el endpoint propio de Rank Math; el campo
+        # `meta` del REST core no lo registra en raditech (se ignora en silencio).
         meta = {}
         if seo_title:
             meta["rank_math_title"] = seo_title
@@ -589,8 +653,7 @@ def create_raditech_page(title, content, slug="", seo_title="", meta_description
         if focus_keyword:
             meta["rank_math_focus_keyword"] = focus_keyword
         if meta:
-            requests.post(f"{RADITECH_URL}/wp-json/wp/v2/pages/{page_id}",
-                          headers=raditech_jwt_headers(), json={"meta": meta}, timeout=15)
+            set_raditech_rank_math_meta(page_id, meta)
         return {"success": True, "id": page_id, "link": result.get("link", ""), "status": result.get("status")}
     except Exception as e:
         return {"error": str(e)}
@@ -665,6 +728,36 @@ def update_category(category_id, data):
     except Exception as e:
         return {"error": str(e)}
 
+def set_pys_rank_math_meta(object_id, meta):
+    """Persiste campos rank_math_* en PYS (peptidosysuplementos.mx) vía el endpoint
+    propio de Rank Math.
+
+    Mismo bug que raditech: el campo `meta` del REST core (/wp/v2/posts|pages) NO
+    persiste rank_math_* (Rank Math no los registra para REST; el POST devuelve 200
+    pero los ignora en silencio). Verificado el 2026-06-14 contra el HTML renderizado
+    anónimo. objectType siempre "post" (las páginas también son posts en WP).
+    NOTA: esto aplica a posts/pages vía wp/v2. Los PRODUCTOS vía wc/v3 usan
+    `meta_data` (HTTPBasicAuth), que SÍ persiste y NO se toca.
+    """
+    rank_math_meta = {k: v for k, v in (meta or {}).items() if k.startswith("rank_math")}
+    if not rank_math_meta:
+        return {"skipped": True}
+    try:
+        oid = int(object_id)
+    except (TypeError, ValueError):
+        oid = object_id
+    try:
+        r = requests.post(
+            f"{WC_URL}/wp-json/rankmath/v1/updateMeta",
+            headers=jwt_headers(),
+            json={"objectID": oid, "objectType": "post", "meta": rank_math_meta},
+            timeout=20,
+        )
+        return {"status": r.status_code, "body": r.text[:200]}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def create_post(title, content, slug="", meta_description="", status="publish"):
     try:
         url = f"{WC_URL}/wp-json/wp/v2/posts"
@@ -674,13 +767,15 @@ def create_post(title, content, slug="", meta_description="", status="publish"):
             "slug": slug,
             "status": status,
         }
-        if meta_description:
-            data["meta"] = {"rank_math_description": meta_description}
         r = requests.post(url, json=data, headers=jwt_headers(), timeout=30)
         result = r.json()
-        if "id" in result:
-            return {"success": True, "id": result["id"], "link": result.get("link", ""), "status": result.get("status")}
-        return {"error": str(result)}
+        if "id" not in result:
+            return {"error": str(result)}
+        # rank_math_* no persiste vía el campo `meta` del REST core; se escribe
+        # con el endpoint propio de Rank Math.
+        if meta_description:
+            set_pys_rank_math_meta(result["id"], {"rank_math_description": meta_description})
+        return {"success": True, "id": result["id"], "link": result.get("link", ""), "status": result.get("status")}
     except Exception as e:
         return {"error": str(e)}
 
@@ -776,12 +871,29 @@ def get_page_content(page_id):
 
 def update_page(page_id, data):
     try:
-        r = requests.post(f"{WC_URL}/wp-json/wp/v2/pages/{page_id}",
-                          headers=jwt_headers(), json=data, timeout=30)
-        result = r.json()
-        if "id" in result:
-            return {"success": True, "id": page_id, "link": result.get("link", "")}
-        return {"error": str(result)}
+        # Los rank_math_* no persisten vía el campo `meta` del REST core en PYS:
+        # se separan y se escriben con el endpoint propio de Rank Math. Otros meta
+        # (p. ej. _elementor_edit_mode) sí persisten por REST y se conservan.
+        data = dict(data)
+        rank_math_meta = {}
+        meta = data.get("meta")
+        if isinstance(meta, dict):
+            rank_math_meta = {k: v for k, v in meta.items() if k.startswith("rank_math")}
+            remaining = {k: v for k, v in meta.items() if not k.startswith("rank_math")}
+            if remaining:
+                data["meta"] = remaining
+            else:
+                data.pop("meta", None)
+        result = {}
+        if data:
+            r = requests.post(f"{WC_URL}/wp-json/wp/v2/pages/{page_id}",
+                              headers=jwt_headers(), json=data, timeout=30)
+            result = r.json()
+            if "id" not in result:
+                return {"error": str(result)}
+        if rank_math_meta:
+            set_pys_rank_math_meta(page_id, rank_math_meta)
+        return {"success": True, "id": page_id, "link": result.get("link", "")}
     except Exception as e:
         return {"error": str(e)}
 
@@ -1059,16 +1171,32 @@ def update_product_full(product_id, data):
 
 def update_post(post_id, data):
     try:
-        r = requests.post(
-            f"{WC_URL}/wp-json/wp/v2/posts/{post_id}",
-            headers=jwt_headers(),
-            json=data,
-            timeout=30
-        )
-        result = r.json()
-        if "id" in result:
-            return {"success": True, "id": post_id, "link": result.get("link", "")}
-        return {"error": str(result)}
+        # Los rank_math_* no persisten vía el campo `meta` del REST core en PYS:
+        # se separan y se escriben con el endpoint propio de Rank Math.
+        data = dict(data)
+        rank_math_meta = {}
+        meta = data.get("meta")
+        if isinstance(meta, dict):
+            rank_math_meta = {k: v for k, v in meta.items() if k.startswith("rank_math")}
+            remaining = {k: v for k, v in meta.items() if not k.startswith("rank_math")}
+            if remaining:
+                data["meta"] = remaining
+            else:
+                data.pop("meta", None)
+        result = {}
+        if data:
+            r = requests.post(
+                f"{WC_URL}/wp-json/wp/v2/posts/{post_id}",
+                headers=jwt_headers(),
+                json=data,
+                timeout=30
+            )
+            result = r.json()
+            if "id" not in result:
+                return {"error": str(result)}
+        if rank_math_meta:
+            set_pys_rank_math_meta(post_id, rank_math_meta)
+        return {"success": True, "id": post_id, "link": result.get("link", "")}
     except Exception as e:
         return {"error": str(e)}
 
@@ -3450,7 +3578,8 @@ def raditech_page_update_direct():
             payload["status"] = data["status"]
         if "slug" in data:
             payload["slug"] = data["slug"]
-        result = update_raditech_page(page_id, payload)
+        # rank_math_* viaja en payload["meta"]; update_raditech_page lo desvía
+        # al endpoint propio de Rank Math (el campo `meta` del REST core no persiste).
         meta = {}
         if "seo_title" in data:
             meta["rank_math_title"] = data["seo_title"]
@@ -3459,8 +3588,8 @@ def raditech_page_update_direct():
         if "focus_keyword" in data:
             meta["rank_math_focus_keyword"] = data["focus_keyword"]
         if meta:
-            requests.post(f"{RADITECH_URL}/wp-json/wp/v2/pages/{page_id}",
-                          headers=raditech_jwt_headers(), json={"meta": meta}, timeout=15)
+            payload["meta"] = meta
+        result = update_raditech_page(page_id, payload)
         return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
