@@ -1,0 +1,208 @@
+<!--
+  Calculadora de Dosis de Péptidos — Peptidos y Suplementos (PYS)
+  peptidosysuplementos.mx
+
+  USO: pegar TODO este bloque dentro de un widget "HTML" de Elementor
+  (o un bloque "HTML personalizado" de Gutenberg). Es autocontenido:
+  no requiere CSS/JS externos ni librerías. No usa IDs globales que
+  choquen con el tema (todo está namespaced bajo .pys-calc).
+
+  REGLA DE TU STACK: el diseño va SOLO en Elementor (este widget). Por
+  API solo se tocan title/meta/slug/rank_math.
+-->
+<div class="pys-calc" data-version="1.0">
+  <style>
+    .pys-calc *{box-sizing:border-box}
+    .pys-calc{
+      --pys-azul:#0a6e8a; --pys-azul-osc:#074f63; --pys-verde:#1fa67a;
+      --pys-bg:#f5f9fb; --pys-card:#ffffff; --pys-borde:#dbe7ec;
+      --pys-texto:#1d2b32; --pys-suave:#6a7c85; --pys-aviso:#fff7e6;
+      --pys-aviso-borde:#f0c25a;
+      max-width:760px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--pys-texto);background:var(--pys-bg);border:1px solid var(--pys-borde);
+      border-radius:16px;padding:24px;line-height:1.5;
+    }
+    .pys-calc h2{margin:0 0 4px;font-size:1.5rem;color:var(--pys-azul-osc)}
+    .pys-calc .pys-sub{margin:0 0 20px;color:var(--pys-suave);font-size:.95rem}
+    .pys-calc .pys-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:560px){.pys-calc .pys-grid{grid-template-columns:1fr}}
+    .pys-calc label{display:block;font-weight:600;font-size:.85rem;margin-bottom:6px}
+    .pys-calc input,.pys-calc select{
+      width:100%;padding:11px 12px;border:1px solid var(--pys-borde);border-radius:10px;
+      font-size:1rem;background:var(--pys-card);color:var(--pys-texto);
+    }
+    .pys-calc input:focus,.pys-calc select:focus{outline:2px solid var(--pys-azul);border-color:var(--pys-azul)}
+    .pys-calc .pys-row{display:flex;gap:8px}
+    .pys-calc .pys-row select{flex:0 0 96px}
+    .pys-calc .pys-field{margin-bottom:14px}
+    .pys-calc .pys-card{background:var(--pys-card);border:1px solid var(--pys-borde);border-radius:14px;padding:18px;margin-top:18px}
+    .pys-calc .pys-res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+    @media(max-width:560px){.pys-calc .pys-res-grid{grid-template-columns:1fr}}
+    .pys-calc .pys-res{background:var(--pys-bg);border:1px solid var(--pys-borde);border-radius:12px;padding:14px;text-align:center}
+    .pys-calc .pys-res .v{font-size:1.6rem;font-weight:700;color:var(--pys-azul-osc);line-height:1.1}
+    .pys-calc .pys-res .u{font-size:.78rem;color:var(--pys-suave);margin-top:4px}
+    .pys-calc .pys-res.destacado{background:var(--pys-verde);border-color:var(--pys-verde)}
+    .pys-calc .pys-res.destacado .v,.pys-calc .pys-res.destacado .u{color:#fff}
+    .pys-calc .pys-syringe{margin-top:16px}
+    .pys-calc .pys-syringe .barra{position:relative;height:26px;background:var(--pys-bg);border:1px solid var(--pys-borde);border-radius:13px;overflow:hidden}
+    .pys-calc .pys-syringe .fill{position:absolute;top:0;left:0;height:100%;background:linear-gradient(90deg,var(--pys-azul),var(--pys-verde));transition:width .25s ease}
+    .pys-calc .pys-syringe .etq{display:flex;justify-content:space-between;font-size:.75rem;color:var(--pys-suave);margin-top:4px}
+    .pys-calc .pys-aviso{margin-top:18px;background:var(--pys-aviso);border:1px solid var(--pys-aviso-borde);border-radius:12px;padding:14px;font-size:.82rem;color:#6b4e0e}
+    .pys-calc .pys-aviso strong{color:#5a3f08}
+    .pys-calc .pys-cta{display:inline-block;margin-top:16px;background:var(--pys-azul);color:#fff;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:10px;font-size:.95rem}
+    .pys-calc .pys-cta:hover{background:var(--pys-azul-osc)}
+    .pys-calc .pys-err{color:#b00020;font-size:.82rem;margin-top:6px;min-height:1em}
+  </style>
+
+  <h2>Calculadora de Dosis de Péptidos</h2>
+  <p class="pys-sub">Calcula la reconstitución y cuántas <strong>unidades</strong> cargar en tu jeringa de insulina (U-100).</p>
+
+  <div class="pys-grid">
+    <div class="pys-field">
+      <label for="pys-preset">Péptido (opcional · precarga valores típicos)</label>
+      <select id="pys-preset">
+        <option value="">— Personalizado —</option>
+      </select>
+    </div>
+    <div class="pys-field">
+      <label for="pys-vial">Contenido del vial</label>
+      <div class="pys-row">
+        <input id="pys-vial" type="number" min="0" step="any" inputmode="decimal" placeholder="Ej. 5" value="5">
+        <select id="pys-vial-u">
+          <option value="1">mg</option>
+          <option value="0.001">mcg</option>
+        </select>
+      </div>
+    </div>
+    <div class="pys-field">
+      <label for="pys-agua">Agua bacteriostática a añadir (ml)</label>
+      <input id="pys-agua" type="number" min="0" step="any" inputmode="decimal" placeholder="Ej. 2" value="2">
+    </div>
+    <div class="pys-field">
+      <label for="pys-dosis">Dosis deseada por aplicación</label>
+      <div class="pys-row">
+        <input id="pys-dosis" type="number" min="0" step="any" inputmode="decimal" placeholder="Ej. 250" value="250">
+        <select id="pys-dosis-u">
+          <option value="0.001">mcg</option>
+          <option value="1">mg</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="pys-err" id="pys-err"></div>
+
+  <div class="pys-card">
+    <div class="pys-res-grid">
+      <div class="pys-res">
+        <div class="v" id="pys-conc">—</div>
+        <div class="u">Concentración (mg/ml)</div>
+      </div>
+      <div class="pys-res destacado">
+        <div class="v" id="pys-unidades">—</div>
+        <div class="u">Unidades en jeringa U-100</div>
+      </div>
+      <div class="pys-res">
+        <div class="v" id="pys-dosisvial">—</div>
+        <div class="u">Dosis por vial</div>
+      </div>
+    </div>
+
+    <div class="pys-syringe">
+      <div class="barra"><div class="fill" id="pys-fill" style="width:0%"></div></div>
+      <div class="etq"><span>0</span><span>jeringa de 100 UI (1 ml)</span><span>100</span></div>
+    </div>
+    <p class="pys-sub" style="margin:12px 0 0">
+      Volumen a extraer: <strong id="pys-volumen">—</strong> ml
+    </p>
+  </div>
+
+  <div class="pys-aviso">
+    <strong>Aviso importante:</strong> esta calculadora es una herramienta informativa de apoyo aritmético.
+    Las dosis precargadas son rangos de referencia generales y <strong>no constituyen una indicación médica</strong>.
+    El uso de péptidos debe realizarse siempre bajo evaluación y supervisión de un profesional de la salud.
+    Verifica el contenido real de tu vial en la etiqueta del producto.
+  </div>
+
+  <a class="pys-cta" href="/contacto/">¿Dudas? Agenda tu consulta</a>
+
+  <script>
+  (function(){
+    var root = document.currentScript ? document.currentScript.closest('.pys-calc')
+                : document.querySelectorAll('.pys-calc')[document.querySelectorAll('.pys-calc').length-1];
+    if(!root) return;
+    var $ = function(id){ return root.querySelector('#'+id); };
+
+    // Presets: [nombre, vial_mg, agua_ml, dosis_valor, dosis_unidad('mcg'|'mg')]
+    var PRESETS = [
+      ["BPC-157",            5,  2, 250, "mcg"],
+      ["TB-500 (TB4)",       5,  2, 2.5, "mg"],
+      ["Ipamorelin",         5,  2, 300, "mcg"],
+      ["CJC-1295 sin DAC",   5,  2, 100, "mcg"],
+      ["CJC-1295 con DAC",   2,  2, 1,   "mg"],
+      ["GHK-Cu",            50, 5, 2,   "mg"],
+      ["Semaglutida",        5,  2, 250, "mcg"],
+      ["Tirzepatida",       10, 2, 2.5, "mg"],
+      ["Tesamorelina",       5,  2, 1,   "mg"],
+      ["AOD-9604",           5,  2, 300, "mcg"],
+      ["Melanotan II",      10, 2, 250, "mcg"],
+      ["PT-141 (Bremelanotida)",10,2,1, "mg"]
+    ];
+
+    var sel = $('pys-preset');
+    PRESETS.forEach(function(p,i){
+      var o=document.createElement('option'); o.value=i; o.textContent=p[0]; sel.appendChild(o);
+    });
+
+    function fmt(n,dec){
+      if(!isFinite(n)) return "—";
+      var d = dec==null?2:dec;
+      return Number(n.toFixed(d)).toLocaleString('es-MX');
+    }
+
+    function calc(){
+      var err = $('pys-err'); err.textContent="";
+      var vial = parseFloat($('pys-vial').value) * parseFloat($('pys-vial-u').value); // -> mg
+      var agua = parseFloat($('pys-agua').value);                                     // ml
+      var dosis = parseFloat($('pys-dosis').value) * parseFloat($('pys-dosis-u').value); // -> mg
+
+      var conc=$('pys-conc'), uni=$('pys-unidades'), dv=$('pys-dosisvial'),
+          vol=$('pys-volumen'), fill=$('pys-fill');
+
+      if(!(vial>0) || !(agua>0) || !(dosis>0)){
+        conc.textContent=uni.textContent=dv.textContent="—"; vol.textContent="—"; fill.style.width="0%";
+        return;
+      }
+      var concentracion = vial/agua;          // mg/ml
+      var volumen = dosis/concentracion;       // ml a extraer
+      var unidades = volumen*100;              // 1 ml = 100 UI en jeringa U-100
+      var dosisPorVial = vial/dosis;
+
+      if(volumen>1){
+        err.textContent="⚠ La dosis supera 1 ml (100 UI): no cabe en una sola jeringa de insulina estándar. Revisa el agua o la dosis.";
+      }
+
+      conc.textContent = fmt(concentracion,2);
+      uni.textContent  = fmt(unidades,1);
+      dv.textContent   = fmt(dosisPorVial,1);
+      vol.textContent  = fmt(volumen,3);
+      fill.style.width = Math.max(0,Math.min(100,unidades))+"%";
+    }
+
+    sel.addEventListener('change',function(){
+      var v=sel.value; if(v===""){return;}
+      var p=PRESETS[+v];
+      $('pys-vial').value=p[1]; $('pys-vial-u').value="1";
+      $('pys-agua').value=p[2];
+      $('pys-dosis').value=p[3]; $('pys-dosis-u').value=(p[4]==="mg"?"1":"0.001");
+      calc();
+    });
+
+    ['pys-vial','pys-vial-u','pys-agua','pys-dosis','pys-dosis-u'].forEach(function(id){
+      $(id).addEventListener('input',calc);
+      $(id).addEventListener('change',calc);
+    });
+
+    calc();
+  })();
+  </script>
+</div>
