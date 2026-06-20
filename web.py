@@ -14,6 +14,24 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
+
+def notify_nexus(action, detail=None, url=None):
+    """Reporta una actividad a NEXUS (Centro de Comando). Solo corre si hay NEXUS_URL y NEXUS_KEY."""
+    nexus_url = os.environ.get("NEXUS_URL")
+    nexus_key = os.environ.get("NEXUS_KEY")
+    if not nexus_url or not nexus_key:
+        return
+    try:
+        requests.post(
+            f"{nexus_url}/api/ingest",
+            json={"agent": "Agente-SEO", "action": action, "detail": detail, "url": url},
+            headers={"x-nexus-key": nexus_key},
+            timeout=15,
+        )
+        print(f"[NEXUS] OK actividad reportada: {action}")
+    except Exception as e:
+        print(f"[NEXUS] No se pudo reportar a NEXUS: {e}")
+
 # ─── Agente de Backlinks (módulo independiente, integración aditiva) ──────────
 # Se importa de forma defensiva: si falla, el resto de la app sigue funcionando.
 try:
@@ -2764,6 +2782,10 @@ def generate_seo_report():
     global _last_report
     _last_report = report
     print(f"[Reporte] ✅ {report['optimized']}/{report['total']} optimizados ({report['pct_optimized']}%)")
+    notify_nexus(
+        action="Generó el reporte SEO",
+        detail=f"{report['optimized']}/{report['total']} productos optimizados ({report['pct_optimized']}%)",
+    )
     return report
 
 
@@ -3541,6 +3563,11 @@ Devuelve solo el HTML listo para WordPress."""
         result = update_post(post_id, {"content": optimized_content})
 
         if result.get("success"):
+            notify_nexus(
+                action="Optimizó un blog (SEO)",
+                detail=title or f"post {post_id}",
+                url=result.get("link", url),
+            )
             return jsonify({
                 "success": True,
                 "post_id": post_id,
