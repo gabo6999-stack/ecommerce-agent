@@ -172,9 +172,10 @@ Al COMPLETARSE → libera split: $1,000 al médico que atendió + $500 a PTM
 - **Opción 2:** reasignación automática a otro médico disponible del staff.
 - En ambos casos el pago sigue **retenido** y se libera solo cuando un médico completa la consulta.
 
-### Stack de pago sugerido
+### Stack de pago
 - **Stripe Connect (Express accounts)** — cada médico = cuenta conectada con su propio KYC; `application_fee_amount = $500`; soporta retención + transferencia diferida nativamente. Disponible en México.
-- Alternativas: Mercado Pago Marketplace, Conekta.
+- **Estado:** split $1,000/$500 vía `application_fee` **ya configurado** ✅ — **pruebas pendientes** ⏳ (validar: retención, liberación al completar consulta, no-show paciente sin reembolso, no-show médico con reagendado).
+- Alternativas evaluadas: Mercado Pago Marketplace, Conekta.
 
 ---
 
