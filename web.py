@@ -1427,11 +1427,13 @@ Pide confirmacion antes de aplicar cualquier cambio.
 Responde siempre en espanol.
 
 GRUPO PTM — SEGUNDO SITIO (grupoptm.com):
-peptidosysuplementos.mx (PYS) y grupoptm.com (PTM) son sitios hermanos del mismo negocio.
-PTM es la plataforma de telemedicina: consultas médicas especializadas en péptidos.
+PTM (grupoptm.com) y PYS (peptidosysuplementos.mx) son EMPRESAS INDEPENDIENTES — NO sitios hermanos.
+PTM es la plataforma de telemedicina: consultas médicas especializadas en péptidos. PTM cobra la consulta;
+NO vende ni surte productos. NUNCA enlaces ni dirijas tráfico de PTM hacia PYS (ni de PYS hacia PTM):
+no debe haber cross-linking ni embudo entre ambos sitios.
 Audiencia: pacientes mexicanos buscando orientación médica sobre péptidos, GLP-1, hormonas y longevidad.
 Tono: médico-confiable, empático, orientado al paciente — NO lenguaje técnico de laboratorio.
-Tienes acceso completo a ambos sitios para leer y escribir contenido.
+Tienes acceso a ambos sitios para leer y escribir contenido, pero gestiónalos como negocios separados.
 
 REGLAS SEO PARA BLOGS DE PTM:
 - Titulo: maximo 60 caracteres, keyword al inicio
@@ -1440,17 +1442,15 @@ REGLAS SEO PARA BLOGS DE PTM:
 - Slug en minusculas con guiones, maximo 5 palabras
 - Keyword principal en titulo, primer parrafo, al menos un H2 y en conclusion
 - Minimo 3 links internos a otras paginas/blogs de PTM (usar get_ptm_all_posts_catalog)
-- Minimo 3 links a productos relevantes de PYS (usar get_products)
 - Minimo 2 links externos a fuentes medicas de autoridad (PubMed, NIH, Mayo Clinic)
 - Incluir seccion FAQ al final con minimo 3 preguntas <h3>/<p>
-- Incluir CTA de cross-linking hacia PYS al final (formato definido en REGLAS DE CROSS-LINKING)
+- CTA final hacia agendar una consulta médica en PTM (CTA interno de PTM; NUNCA hacia PYS)
 
 REGLAS SEO PARA LANDING PAGES DE PTM:
 - Minimo 600 palabras de texto visible
 - seo_title: maximo 60 chars — "Tratamiento con [Peptido] en Mexico | PTM"
 - meta_description: 150-160 chars — condicion + diferenciador + CTA
 - Minimo 4 links internos a otras paginas de PTM
-- Minimo 2 links a productos de PYS relevantes
 - Seccion FAQ con minimo 4 preguntas
 
 FLUJO PARA BLOGS DE PTM:
@@ -1484,17 +1484,10 @@ MAPA DE PÁGINAS DE PTM (landing pages SEO):
 - Salud hormonal / TRT / testosterona / péptidos hormonales
   → https://grupoptm.com/salud-hormonal
 
-REGLAS DE CROSS-LINKING BIDIRECCIONAL:
-- En blogs de PYS que traten estos temas, agrega al final un CTA hacia la página PTM correspondiente.
-- En páginas y blogs de PTM, agrega links a los productos relevantes de PYS (usa get_products para obtener slugs).
-- Formato del CTA de PYS → PTM:
-<div style="background:#f0fdf4;border-left:4px solid #22c55e;padding:16px;margin:24px 0;border-radius:8px;">
-<p style="margin:0;"><strong>¿Buscas orientación médica personalizada?</strong><br>
-En <a href="URL_PTM" target="_blank" rel="noopener noreferrer">Grupo PTM</a> contamos con médicos especializados en péptidos que pueden guiarte en tu tratamiento.</p>
-</div>
-- Formato del CTA de PTM → PYS:
-<p>Puedes adquirir <a href="URL_PRODUCTO_PYS">nombre del producto</a> directamente en nuestra tienda.</p>
-- Máximo 1 CTA de cross-linking por artículo. Anchor text siempre descriptivo, nunca "click aquí".
+CROSS-LINKING PTM ↔ PYS: PROHIBIDO.
+PTM y PYS son empresas independientes. NO agregues CTAs ni links de PYS hacia PTM ni de PTM hacia PYS.
+Los blogs/landings de PTM enlazan solo a contenido interno de PTM y a su propia consulta médica.
+Los blogs/landings de PYS enlazan solo a contenido y productos internos de PYS.
 
 RADITECH — TERCER SITIO (raditech.mx):
 Empresa mexicana de software médico con 20+ años, 400+ clientes, 40,000+ estudios/mes.
@@ -3750,12 +3743,7 @@ def optimize_ptm_blog():
             for p in other_ptm_posts if isinstance(p, dict) and p.get("title")
         )
 
-        # Cross-links: productos de peptidosysuplementos.mx (tienda hermana PTM→PYS)
-        products = get_products(per_page=30)
-        products_list = "\n".join(
-            f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
-            for p in products if isinstance(p, dict) and "name" in p
-        )
+        # PTM y PYS son empresas independientes: NO se agregan cross-links a productos de PYS.
 
         prompt = f"""Eres un experto SEO. Tienes este artículo de blog en grupoptm.com (plataforma de telemedicina especializada en péptidos y salud hormonal):
 
@@ -3769,15 +3757,11 @@ CONTENIDO ACTUAL (HTML):
 OTROS ARTÍCULOS DEL BLOG DE GRUPOPTM.COM (para interlinks):
 {ptm_posts_list if ptm_posts_list else "No hay otros artículos disponibles aún."}
 
-PRODUCTOS DE PEPTIDOSYSUPLEMENTOS.MX (farmacia hermana — para cross-links):
-{products_list}
-
 Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto existente:
 1. INTERLINKS (2-4 links): enlaza a otros artículos del blog de grupoptm.com que sean temáticamente relevantes.
    Formato: <a href="URL_DEL_POST">texto descriptivo</a>
-2. CROSS-LINKS A PEPTIDOSYSUPLEMENTOS.MX (2-3 links): enlaza a productos relevantes de la farmacia con contexto clínico natural.
-   Usa textos como "disponible en nuestra farmacia", "péptidos certificados", "puedes adquirirlo en peptidosysuplementos.mx".
-   Formato: <a href="URL_PRODUCTO" target="_blank">texto descriptivo</a>
+2. NO enlaces a peptidosysuplementos.mx (PYS) ni a ninguna tienda de productos: PTM es una empresa
+   independiente y no debe dirigir tráfico a farmacias. Cero cross-links a productos.
 3. LINKS EXTERNOS CIENTÍFICOS (3-5 links): enlaza a fuentes de autoridad científica relevantes al tema del artículo
    (PubMed, NIH, Mayo Clinic, NEJM, Examine.com). Solo URLs reales y verificables.
    Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
@@ -3810,7 +3794,7 @@ Devuelve solo el HTML listo para WordPress."""
                 "post_id": post_id,
                 "url": result.get("link", url),
                 "interlinks_added": len(other_ptm_posts) > 0,
-                "cross_links_added": len(products) > 0,
+                "cross_links_added": False,
             })
         return jsonify({"error": result.get("error", "Error al actualizar post PTM")}), 500
 
