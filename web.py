@@ -429,12 +429,14 @@ def append_to_ptm_page(page_id, html_to_append):
         return {"error": str(e)}
 
 
-def create_ptm_redirect(source, target="", code=301):
+def create_ptm_redirect(source, target="", code=301, object_id=0):
     """Crea una redirección 301/302/410 en grupoptm.com vía el módulo Redirections
     de Rank Math (endpoint propio rankmath/v1/updateRedirection). El REST core no
     gestiona redirecciones; este endpoint es el que las persiste.
     `source` acepta ruta o URL completa (se normaliza a ruta relativa para el
-    patrón 'exact'). Para 410 (Gone), `target` puede ir vacío.
+    patrón 'exact'). `object_id` ata el redirect a un post/página existente cuyo
+    permalink es el origen (recomendado para consolidar duplicados). Para 410
+    (Gone), `target` puede ir vacío.
     """
     import urllib.parse as _up
     src = (source or "").strip()
@@ -447,8 +449,14 @@ def create_ptm_redirect(source, target="", code=301):
         code = int(code)
     except (TypeError, ValueError):
         code = 301
+    try:
+        object_id = int(object_id)
+    except (TypeError, ValueError):
+        object_id = 0
     payload = {
         "id": 0,
+        "objectID": object_id,
+        "hasRedirect": True,
         "url_to": target or "",
         "sources": [{"pattern": src, "comparison": "exact", "ignore": ""}],
         "header_code": str(code),
@@ -2236,7 +2244,8 @@ TOOLS = [
             "properties": {
                 "source": {"type": "string", "description": "Ruta o URL de origen, ej: /semaglutide-mexico/"},
                 "target": {"type": "string", "description": "URL completa de destino, ej: https://grupoptm.com/semaglutida-guia-completa-peptido-perdida-peso-diabetes/. Déjalo vacío si code=410."},
-                "code": {"type": "integer", "default": 301, "description": "301 permanente, 302 temporal o 410 Gone"}
+                "code": {"type": "integer", "default": 301, "description": "301 permanente, 302 temporal o 410 Gone"},
+                "object_id": {"type": "integer", "default": 0, "description": "ID del post/página de origen (su permalink es la URL que se redirige). Recomendado al consolidar un duplicado existente."}
             }
         }
     },
@@ -2585,7 +2594,7 @@ def run_tool(name, inputs):
     elif name == "gsc_ptm_ctr_opportunities":
         return gsc_ptm_ctr_opportunities(inputs.get("days", 28), inputs.get("min_impressions", 50), inputs.get("limit", 15))
     elif name == "create_ptm_redirect":
-        return create_ptm_redirect(inputs["source"], inputs.get("target", ""), inputs.get("code", 301))
+        return create_ptm_redirect(inputs["source"], inputs.get("target", ""), inputs.get("code", 301), inputs.get("object_id", 0))
     # ── Raditech dispatchers ──────────────────────────────────────────────────
     elif name == "get_raditech_posts":
         return get_raditech_posts(inputs.get("per_page", 10))
@@ -4120,7 +4129,7 @@ def ptm_redirect_route():
         source = data.get("source")
         if not source:
             return jsonify({"error": "Falta 'source'"}), 400
-        result = create_ptm_redirect(source, data.get("target", ""), data.get("code", 301))
+        result = create_ptm_redirect(source, data.get("target", ""), data.get("code", 301), data.get("object_id", 0))
         return jsonify(result), (200 if result.get("success") else 502)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
