@@ -429,6 +429,49 @@ def append_to_ptm_page(page_id, html_to_append):
         return {"error": str(e)}
 
 
+def create_ptm_redirect(source, target="", code=301):
+    """Crea una redirección 301/302/410 en grupoptm.com vía el módulo Redirections
+    de Rank Math (endpoint propio rankmath/v1/updateRedirection). El REST core no
+    gestiona redirecciones; este endpoint es el que las persiste.
+    `source` acepta ruta o URL completa (se normaliza a ruta relativa para el
+    patrón 'exact'). Para 410 (Gone), `target` puede ir vacío.
+    """
+    import urllib.parse as _up
+    src = (source or "").strip()
+    if src.startswith("http"):
+        src = _up.urlparse(src).path
+    src = src.strip("/")
+    if not src:
+        return {"error": "source vacío"}
+    try:
+        code = int(code)
+    except (TypeError, ValueError):
+        code = 301
+    payload = {
+        "id": 0,
+        "url_to": target or "",
+        "sources": [{"pattern": src, "comparison": "exact", "ignore": ""}],
+        "header_code": str(code),
+        "status": "active",
+    }
+    try:
+        r = requests.post(
+            f"{PTM_URL}/wp-json/rankmath/v1/updateRedirection",
+            headers=ptm_jwt_headers(),
+            json=payload,
+            timeout=20,
+        )
+        try:
+            data = r.json()
+        except Exception:
+            data = {"raw": r.text[:300]}
+        if r.status_code == 200 and isinstance(data, dict) and not data.get("error"):
+            return {"success": True, "source": src, "target": target, "code": code, "response": data}
+        return {"error": f"HTTP {r.status_code}", "response": data}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 # ─── Funciones WordPress de Raditech ─────────────────────────────────────────
 
 def set_raditech_rank_math_meta(object_id, meta):
@@ -1491,6 +1534,7 @@ HERRAMIENTAS DE PTM:
 - get_ptm_all_posts_catalog: mapa completo de blogs de PTM para interlinks
 - create_ptm_post: crea y publica un artículo en el blog de PTM
 - update_ptm_post: actualiza un blog existente de PTM
+- create_ptm_redirect: crea una redirección 301/302/410 en grupoptm.com (vía Rank Math) — úsala para consolidar duplicados/canibalización o arreglar URLs viejas en 404
 
 HERRAMIENTAS GSC DE PTM (grupoptm.com):
 - gsc_ptm_top_queries: keywords que traen tráfico a grupoptm.com (clicks, impresiones, CTR, posición)
@@ -2183,6 +2227,19 @@ TOOLS = [
             }
         }
     },
+    {
+        "name": "create_ptm_redirect",
+        "description": "Crea una redirección 301 (o 302/410) en grupoptm.com vía el módulo Redirections de Rank Math. Úsala para consolidar contenido duplicado o canibalizado (apunta la URL vieja a la canónica) o para corregir URLs viejas que quedaron en 404.",
+        "input_schema": {
+            "type": "object",
+            "required": ["source"],
+            "properties": {
+                "source": {"type": "string", "description": "Ruta o URL de origen, ej: /semaglutide-mexico/"},
+                "target": {"type": "string", "description": "URL completa de destino, ej: https://grupoptm.com/semaglutida-guia-completa-peptido-perdida-peso-diabetes/. Déjalo vacío si code=410."},
+                "code": {"type": "integer", "default": 301, "description": "301 permanente, 302 temporal o 410 Gone"}
+            }
+        }
+    },
     # ── Raditech tools ────────────────────────────────────────────────────────
     {
         "name": "get_raditech_posts",
@@ -2527,6 +2584,8 @@ def run_tool(name, inputs):
         return gsc_ptm_page_performance(inputs.get("days", 28), inputs.get("limit", 10))
     elif name == "gsc_ptm_ctr_opportunities":
         return gsc_ptm_ctr_opportunities(inputs.get("days", 28), inputs.get("min_impressions", 50), inputs.get("limit", 15))
+    elif name == "create_ptm_redirect":
+        return create_ptm_redirect(inputs["source"], inputs.get("target", ""), inputs.get("code", 301))
     # ── Raditech dispatchers ──────────────────────────────────────────────────
     elif name == "get_raditech_posts":
         return get_raditech_posts(inputs.get("per_page", 10))
@@ -4049,6 +4108,20 @@ def delete_ptm_post(post_id):
         if r.status_code in (200, 201):
             return jsonify({"ok": True, "deleted": post_id, "result": r.json()})
         return jsonify({"ok": False, "status": r.status_code, "response": r.text[:500]}), r.status_code
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/ptm-redirect", methods=["POST"])
+def ptm_redirect_route():
+    """Crea una redirección en grupoptm.com vía Rank Math. JSON: {source, target, code?}."""
+    try:
+        data = request.json or {}
+        source = data.get("source")
+        if not source:
+            return jsonify({"error": "Falta 'source'"}), 400
+        result = create_ptm_redirect(source, data.get("target", ""), data.get("code", 301))
+        return jsonify(result), (200 if result.get("success") else 502)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
