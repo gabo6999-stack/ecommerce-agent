@@ -1448,11 +1448,11 @@ Pide confirmacion antes de aplicar cualquier cambio.
 Responde siempre en espanol.
 
 GRUPO PTM — SEGUNDO SITIO (grupoptm.com):
-peptidosysuplementos.mx (PYS) y grupoptm.com (PTM) son sitios hermanos del mismo negocio.
+grupoptm.com (PTM Novo) es una empresa INDEPENDIENTE de PYS, NO un sitio hermano ni parte del mismo negocio. Es plataforma de telemedicina que cobra únicamente la consulta médica; queda fuera de la venta de producto. NO existe embudo entre PTM y PYS.
 PTM es la plataforma de telemedicina: consultas médicas especializadas en péptidos.
 Audiencia: pacientes mexicanos buscando orientación médica sobre péptidos, GLP-1, hormonas y longevidad.
 Tono: médico-confiable, empático, orientado al paciente — NO lenguaje técnico de laboratorio.
-Tienes acceso completo a ambos sitios para leer y escribir contenido.
+Tienes acceso completo al sitio para gestionar y publicar contenido (gestión SEO). PROHIBIDO crear CTAs, banners o links que crucen pacientes entre PTM y PYS en cualquier dirección — eso rompe la defensa legal de PTM como "solo plataforma".
 
 REGLAS SEO PARA BLOGS DE PTM:
 - Titulo: maximo 60 caracteres, keyword al inicio
@@ -1461,17 +1461,14 @@ REGLAS SEO PARA BLOGS DE PTM:
 - Slug en minusculas con guiones, maximo 5 palabras
 - Keyword principal en titulo, primer parrafo, al menos un H2 y en conclusion
 - Minimo 3 links internos a otras paginas/blogs de PTM (usar get_ptm_all_posts_catalog)
-- Minimo 3 links a productos relevantes de PYS (usar get_products)
 - Minimo 2 links externos a fuentes medicas de autoridad (PubMed, NIH, Mayo Clinic)
 - Incluir seccion FAQ al final con minimo 3 preguntas <h3>/<p>
-- Incluir CTA de cross-linking hacia PYS al final (formato definido en REGLAS DE CROSS-LINKING)
 
 REGLAS SEO PARA LANDING PAGES DE PTM:
 - Minimo 600 palabras de texto visible
 - seo_title: maximo 60 chars — "Tratamiento con [Peptido] en Mexico | PTM"
 - meta_description: 150-160 chars — condicion + diferenciador + CTA
 - Minimo 4 links internos a otras paginas de PTM
-- Minimo 2 links a productos de PYS relevantes
 - Seccion FAQ con minimo 4 preguntas
 
 FLUJO PARA BLOGS DE PTM:
@@ -1510,17 +1507,10 @@ MAPA DE PÁGINAS DE PTM (landing pages SEO):
 - Salud hormonal / TRT / testosterona / péptidos hormonales
   → https://grupoptm.com/salud-hormonal
 
-REGLAS DE CROSS-LINKING BIDIRECCIONAL:
-- En blogs de PYS que traten estos temas, agrega al final un CTA hacia la página PTM correspondiente.
-- En páginas y blogs de PTM, agrega links a los productos relevantes de PYS (usa get_products para obtener slugs).
-- Formato del CTA de PYS → PTM:
-<div style="background:#f0fdf4;border-left:4px solid #22c55e;padding:16px;margin:24px 0;border-radius:8px;">
-<p style="margin:0;"><strong>¿Buscas orientación médica personalizada?</strong><br>
-En <a href="URL_PTM" target="_blank" rel="noopener noreferrer">Grupo PTM</a> contamos con médicos especializados en péptidos que pueden guiarte en tu tratamiento.</p>
-</div>
-- Formato del CTA de PTM → PYS:
-<p>Puedes adquirir <a href="URL_PRODUCTO_PYS">nombre del producto</a> directamente en nuestra tienda.</p>
-- Máximo 1 CTA de cross-linking por artículo. Anchor text siempre descriptivo, nunca "click aquí".
+SEPARACIÓN PTM / PYS (regla absoluta):
+- NUNCA agregues CTAs, banners ni links que manden pacientes de PTM hacia productos de PYS, ni de PYS hacia consultas de PTM. Son empresas independientes.
+- El cross-linking entre PTM y PYS está PROHIBIDO: embudar paciente PTM → producto PYS rompe la defensa legal de PTM como "solo plataforma".
+- El interlinking interno (PTM→PTM y PYS→PYS) sí es bienvenido; el cruce entre los dos sitios no.
 
 RADITECH — TERCER SITIO (raditech.mx):
 Empresa mexicana de software médico con 20+ años, 400+ clientes, 40,000+ estudios/mes.
@@ -3825,13 +3815,6 @@ def optimize_ptm_blog():
             for p in other_ptm_posts if isinstance(p, dict) and p.get("title")
         )
 
-        # Cross-links: productos de peptidosysuplementos.mx (tienda hermana PTM→PYS)
-        products = get_products(per_page=30)
-        products_list = "\n".join(
-            f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
-            for p in products if isinstance(p, dict) and "name" in p
-        )
-
         prompt = f"""Eres un experto SEO. Tienes este artículo de blog en grupoptm.com (plataforma de telemedicina especializada en péptidos y salud hormonal):
 
 TÍTULO: {title}
@@ -3844,20 +3827,14 @@ CONTENIDO ACTUAL (HTML):
 OTROS ARTÍCULOS DEL BLOG DE GRUPOPTM.COM (para interlinks):
 {ptm_posts_list if ptm_posts_list else "No hay otros artículos disponibles aún."}
 
-PRODUCTOS DE PEPTIDOSYSUPLEMENTOS.MX (farmacia hermana — para cross-links):
-{products_list}
-
 Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto existente:
 1. INTERLINKS (2-4 links): enlaza a otros artículos del blog de grupoptm.com que sean temáticamente relevantes.
    Formato: <a href="URL_DEL_POST">texto descriptivo</a>
-2. CROSS-LINKS A PEPTIDOSYSUPLEMENTOS.MX (2-3 links): enlaza a productos relevantes de la farmacia con contexto clínico natural.
-   Usa textos como "disponible en nuestra farmacia", "péptidos certificados", "puedes adquirirlo en peptidosysuplementos.mx".
-   Formato: <a href="URL_PRODUCTO" target="_blank">texto descriptivo</a>
-3. LINKS EXTERNOS CIENTÍFICOS (3-5 links): enlaza a fuentes de autoridad científica relevantes al tema del artículo
+2. LINKS EXTERNOS CIENTÍFICOS (3-5 links): enlaza a fuentes de autoridad científica relevantes al tema del artículo
    (PubMed, NIH, Mayo Clinic, NEJM, Examine.com). Solo URLs reales y verificables.
    Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
-4. Asegúrate de que el contenido tenga al menos un H2 y que la conclusión incluya un CTA hacia agendar una consulta médica en grupoptm.com.
-5. NO inventes productos ni posts que no estén en las listas anteriores.
+3. Asegúrate de que el contenido tenga al menos un H2 y que la conclusión incluya un CTA hacia agendar una consulta médica en grupoptm.com.
+4. NO inventes posts que no estén en la lista anterior. NO enlaces a peptidosysuplementos.mx ni a ningún producto de PYS — PTM y PYS son independientes.
 6. FAQ SCHEMA JSON-LD: si el artículo tiene sección FAQ, añade al final del HTML:
    <script type="application/ld+json">
    {{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"Pregunta","acceptedAnswer":{{"@type":"Answer","text":"Respuesta"}}}}]}}
@@ -3885,7 +3862,6 @@ Devuelve solo el HTML listo para WordPress."""
                 "post_id": post_id,
                 "url": result.get("link", url),
                 "interlinks_added": len(other_ptm_posts) > 0,
-                "cross_links_added": len(products) > 0,
             })
         return jsonify({"error": result.get("error", "Error al actualizar post PTM")}), 500
 
@@ -4140,7 +4116,7 @@ REGLAS CRÍTICAS — OBLIGATORIAS:
 1. NO modifiques ni elimines ningún script JavaScript, acordeón, schema JSON-LD ni estructura de grid/card
 2. NO reescribas párrafos completos — solo inserta links dentro del texto existente
 3. CONSERVA todos los botones CTA, badges y estilos inline existentes
-4. NO toques los links a productos PYS que ya existen
+4. NO agregues links a peptidosysuplementos.mx ni a productos de PYS — PTM y PYS son empresas independientes, sin embudo entre ambos
 
 ACCIONES PERMITIDAS:
 1. LINKS CIENTÍFICOS EXTERNOS (3-5): Inserta anchors a PubMed, NIH, Mayo Clinic, NEJM, FDA dentro
