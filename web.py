@@ -453,13 +453,17 @@ def create_ptm_redirect(source, target="", code=301, object_id=0):
         object_id = int(object_id)
     except (TypeError, ValueError):
         object_id = 0
+    # El endpoint del metabox usa redirectionUrl/redirectionType; el standalone
+    # usa url_to/header_code. Enviamos ambos para cubrir las dos variantes.
     payload = {
         "id": 0,
         "objectID": object_id,
         "hasRedirect": True,
+        "redirectionType": str(code),
+        "redirectionUrl": target or "",
         "url_to": target or "",
-        "sources": [{"pattern": src, "comparison": "exact", "ignore": ""}],
         "header_code": str(code),
+        "sources": [{"pattern": src, "comparison": "exact", "ignore": ""}],
         "status": "active",
     }
     try:
@@ -473,9 +477,10 @@ def create_ptm_redirect(source, target="", code=301, object_id=0):
             data = r.json()
         except Exception:
             data = {"raw": r.text[:300]}
-        if r.status_code == 200 and isinstance(data, dict) and not data.get("error"):
-            return {"success": True, "source": src, "target": target, "code": code, "response": data}
-        return {"error": f"HTTP {r.status_code}", "response": data}
+        action = data.get("action") if isinstance(data, dict) else None
+        if r.status_code == 200 and action != "delete" and not (isinstance(data, dict) and data.get("error")):
+            return {"success": True, "source": src, "target": target, "code": code, "object_id": object_id, "response": data}
+        return {"error": f"HTTP {r.status_code} action={action}", "response": data}
     except Exception as e:
         return {"error": str(e)}
 
