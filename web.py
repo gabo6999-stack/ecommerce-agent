@@ -50,6 +50,8 @@ GSC_SITE_URL           = os.environ.get("GSC_SITE_URL", "sc-domain:peptidosysupl
 GSC_REDIRECT_URI       = os.environ.get("GSC_REDIRECT_URI", "https://web-production-3743c.up.railway.app/search-console/callback")
 RADITECH_GSC_REFRESH_TOKEN  = os.environ.get("RADITECH_GSC_REFRESH_TOKEN", "")
 RADITECH_GSC_REDIRECT_URI   = os.environ.get("RADITECH_GSC_REDIRECT_URI", "https://web-production-3743c.up.railway.app/search-console/raditech/callback")
+PTM_GSC_REFRESH_TOKEN       = os.environ.get("PTM_GSC_REFRESH_TOKEN", "")
+PTM_GSC_REDIRECT_URI        = os.environ.get("PTM_GSC_REDIRECT_URI", "https://web-production-3743c.up.railway.app/search-console/ptm/callback")
 GSC_SCOPES             = ["https://www.googleapis.com/auth/webmasters.readonly"]
 
 WC_URL = os.environ.get("WOOCOMMERCE_URL", "")
@@ -63,6 +65,7 @@ WEBHOOK_URL = os.environ.get("WEBHOOK_URL", "")
 PTM_URL      = os.environ.get("PTM_URL", "https://grupoptm.com")
 PTM_WP_USER  = os.environ.get("PTM_WP_USER", "")
 PTM_WP_PASSWORD = os.environ.get("PTM_WP_PASSWORD", "")
+PTM_GSC_SITE_URL = os.environ.get("PTM_GSC_SITE_URL", "sc-domain:grupoptm.com")
 
 # ─── Configuración Raditech ──────────────────────────────────────────────────
 RADITECH_URL          = os.environ.get("RADITECH_URL", "https://raditech.mx")
@@ -1492,6 +1495,11 @@ HERRAMIENTAS DE PTM:
 - create_ptm_post: crea y publica un artículo en el blog de PTM
 - update_ptm_post: actualiza un blog existente de PTM
 
+HERRAMIENTAS GSC DE PTM (grupoptm.com):
+- gsc_ptm_top_queries: keywords que traen tráfico a grupoptm.com (clicks, impresiones, CTR, posición)
+- gsc_ptm_page_performance: páginas de grupoptm.com con mejor rendimiento en Google
+- gsc_ptm_ctr_opportunities: keywords con muchas impresiones pero CTR bajo en grupoptm.com
+
 MAPA DE PÁGINAS DE PTM (landing pages SEO):
 - Pérdida de peso / GLP-1 / semaglutida / tirzepatida / Ozempic
   → https://grupoptm.com/perdida-de-peso
@@ -2151,6 +2159,40 @@ TOOLS = [
             }
         }
     },
+    {
+        "name": "gsc_ptm_top_queries",
+        "description": "Google Search Console: top keywords que traen tráfico a grupoptm.com (clicks, impresiones, CTR, posición).",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "days": {"type": "integer", "default": 28},
+                "limit": {"type": "integer", "default": 10}
+            }
+        }
+    },
+    {
+        "name": "gsc_ptm_page_performance",
+        "description": "Google Search Console: páginas de grupoptm.com con mejor rendimiento orgánico.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "days": {"type": "integer", "default": 28},
+                "limit": {"type": "integer", "default": 10}
+            }
+        }
+    },
+    {
+        "name": "gsc_ptm_ctr_opportunities",
+        "description": "Google Search Console: keywords de grupoptm.com con muchas impresiones pero CTR bajo — oportunidades para mejorar títulos y meta descriptions.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "days": {"type": "integer", "default": 28},
+                "min_impressions": {"type": "integer", "default": 50},
+                "limit": {"type": "integer", "default": 15}
+            }
+        }
+    },
     # ── Raditech tools ────────────────────────────────────────────────────────
     {
         "name": "get_raditech_posts",
@@ -2489,6 +2531,12 @@ def run_tool(name, inputs):
         return replace_in_ptm_page(inputs["page_id"], inputs["find_html"], inputs["replace_html"])
     elif name == "append_to_ptm_page":
         return append_to_ptm_page(inputs["page_id"], inputs["html_to_append"])
+    elif name == "gsc_ptm_top_queries":
+        return gsc_ptm_top_queries(inputs.get("days", 28), inputs.get("limit", 10))
+    elif name == "gsc_ptm_page_performance":
+        return gsc_ptm_page_performance(inputs.get("days", 28), inputs.get("limit", 10))
+    elif name == "gsc_ptm_ctr_opportunities":
+        return gsc_ptm_ctr_opportunities(inputs.get("days", 28), inputs.get("min_impressions", 50), inputs.get("limit", 15))
     # ── Raditech dispatchers ──────────────────────────────────────────────────
     elif name == "get_raditech_posts":
         return get_raditech_posts(inputs.get("per_page", 10))
@@ -4445,6 +4493,68 @@ def gsc_raditech_ctr_opportunities(days=28, min_impressions=50, limit=15):
         return {"error": str(e)}
 
 
+def gsc_ptm_top_queries(days=28, limit=10):
+    """Top búsquedas de grupoptm.com por clicks en GSC."""
+    if not PTM_GSC_REFRESH_TOKEN:
+        return {"error": "GSC PTM no autenticado. Visita /search-console/ptm/auth"}
+    try:
+        rows = fetch_gsc_data("query", days, limit, site_url=PTM_GSC_SITE_URL, refresh_token=PTM_GSC_REFRESH_TOKEN)
+        return [
+            {
+                "query": r["keys"][0],
+                "clicks": r.get("clicks", 0),
+                "impressions": r.get("impressions", 0),
+                "ctr_pct": round(r.get("ctr", 0) * 100, 1),
+                "position": round(r.get("position", 0), 1)
+            }
+            for r in rows[:limit]
+        ]
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def gsc_ptm_page_performance(days=28, limit=10):
+    """Páginas de grupoptm.com con más clicks en GSC."""
+    if not PTM_GSC_REFRESH_TOKEN:
+        return {"error": "GSC PTM no autenticado. Visita /search-console/ptm/auth"}
+    try:
+        rows = fetch_gsc_data("page", days, limit, site_url=PTM_GSC_SITE_URL, refresh_token=PTM_GSC_REFRESH_TOKEN)
+        return [
+            {
+                "page": r["keys"][0].replace("https://grupoptm.com", ""),
+                "clicks": r.get("clicks", 0),
+                "impressions": r.get("impressions", 0),
+                "ctr_pct": round(r.get("ctr", 0) * 100, 1),
+                "position": round(r.get("position", 0), 1)
+            }
+            for r in rows[:limit]
+        ]
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def gsc_ptm_ctr_opportunities(days=28, min_impressions=50, limit=15):
+    """Keywords de grupoptm.com con CTR bajo — oportunidades de mejora de títulos."""
+    if not PTM_GSC_REFRESH_TOKEN:
+        return {"error": "GSC PTM no autenticado. Visita /search-console/ptm/auth"}
+    try:
+        rows = fetch_gsc_data("query", days, 500, site_url=PTM_GSC_SITE_URL, refresh_token=PTM_GSC_REFRESH_TOKEN)
+        opportunities = [
+            {
+                "query": r["keys"][0],
+                "impressions": r.get("impressions", 0),
+                "clicks": r.get("clicks", 0),
+                "ctr_pct": round(r.get("ctr", 0) * 100, 1),
+                "position": round(r.get("position", 0), 1)
+            }
+            for r in rows
+            if r.get("impressions", 0) >= min_impressions and r.get("ctr", 0) < 0.03
+        ]
+        return sorted(opportunities, key=lambda x: x["impressions"], reverse=True)[:limit]
+    except Exception as e:
+        return {"error": str(e)}
+
+
 @app.route("/search-console/auth")
 def gsc_auth():
     if not GSC_CLIENT_ID or not GSC_CLIENT_SECRET:
@@ -4555,6 +4665,62 @@ code{{background:#2a2a2a;padding:4px 10px;border-radius:6px;font-size:13px;word-
 <p><strong>Valor:</strong><br><code>{refresh_token}</code></p>
 </div>
 <p style="color:#aaa;font-size:13px;margin-top:16px;">Una vez que agregues la variable en Railway y el servicio se reinicie, el Search Console de Raditech estará activo.</p>
+</body></html>"""
+
+
+@app.route("/search-console/ptm/auth")
+def gsc_ptm_auth():
+    if not GSC_CLIENT_ID or not GSC_CLIENT_SECRET:
+        return "Faltan variables GOOGLE_CLIENT_ID y GOOGLE_CLIENT_SECRET en Railway.", 400
+    import urllib.parse
+    params = {
+        "client_id": GSC_CLIENT_ID,
+        "redirect_uri": PTM_GSC_REDIRECT_URI,
+        "response_type": "code",
+        "scope": " ".join(GSC_SCOPES),
+        "access_type": "offline",
+        "prompt": "consent"
+    }
+    auth_url = "https://accounts.google.com/o/oauth2/auth?" + urllib.parse.urlencode(params)
+    return redirect(auth_url)
+
+
+@app.route("/search-console/ptm/callback")
+def gsc_ptm_callback():
+    try:
+        code = request.args.get("code")
+        if not code:
+            return "<pre style='color:red;padding:20px'>Error: no se recibió código de autorización</pre>", 400
+        token_resp = requests.post(
+            "https://oauth2.googleapis.com/token",
+            data={
+                "code": code,
+                "client_id": GSC_CLIENT_ID,
+                "client_secret": GSC_CLIENT_SECRET,
+                "redirect_uri": PTM_GSC_REDIRECT_URI,
+                "grant_type": "authorization_code"
+            }
+        )
+        token_data = token_resp.json()
+        refresh_token = token_data.get("refresh_token", "")
+        if not refresh_token:
+            return f"<pre style='color:red;padding:20px'>Error al obtener token: {token_data}</pre>", 400
+    except Exception as e:
+        return f"<pre style='color:red;padding:20px'>Error en callback: {e}</pre>", 500
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Search Console PTM conectado</title>
+<style>body{{font-family:Arial;max-width:600px;margin:60px auto;padding:20px;background:#0f0f0f;color:#eee}}
+.box{{background:#1a1a1a;border-radius:10px;padding:24px;border-left:4px solid #7c3aed}}
+code{{background:#2a2a2a;padding:4px 10px;border-radius:6px;font-size:13px;word-break:break-all}}
+.btn{{display:inline-block;background:#7c3aed;color:white;padding:10px 20px;border-radius:8px;text-decoration:none;margin-top:16px}}</style>
+</head><body>
+<h2>✅ Google Search Console PTM conectado</h2>
+<div class="box">
+<p>Copia este <strong>Refresh Token</strong> y agrégalo en Railway como variable de entorno:</p>
+<p><strong>Variable:</strong> <code>PTM_GSC_REFRESH_TOKEN</code></p>
+<p><strong>Valor:</strong><br><code>{refresh_token}</code></p>
+</div>
+<p style="color:#aaa;font-size:13px;margin-top:16px;">Una vez que agregues la variable en Railway y el servicio se reinicie, el Search Console de grupoptm.com estará activo.</p>
 </body></html>"""
 
 
