@@ -3662,6 +3662,80 @@ Devuelve solo el HTML listo para WordPress."""
         return jsonify({"error": str(e)}), 500
 
 
+def _pys_get_or_create_brand(name="PyS"):
+    """Devuelve el ID del término product_brand `name`, creándolo si no existe.
+    Usa el endpoint nativo de WooCommerce Brands (wc/v3/products/brands)."""
+    try:
+        r = requests.get(
+            f"{WC_URL}/wp-json/wc/v3/products/brands",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params={"per_page": 100, "search": name},
+            timeout=20,
+        )
+        for t in (r.json() if isinstance(r.json(), list) else []):
+            if t.get("name", "").strip().lower() == name.strip().lower():
+                return t["id"], False
+        # No existe → crear
+        c = requests.post(
+            f"{WC_URL}/wp-json/wc/v3/products/brands",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            json={"name": name},
+            timeout=20,
+        )
+        cj = c.json()
+        if "id" in cj:
+            return cj["id"], True
+        return None, False
+    except Exception as e:
+        return None, False
+
+
+@app.route("/pys-assign-house-brand", methods=["POST"])
+def pys_assign_house_brand():
+    """Asigna la marca propia (default 'PyS') a todo producto publicado que hoy
+    no tenga ninguna brand asignada. Idempotente: no toca los que ya tienen brand."""
+    try:
+        data = request.json or {}
+        brand_name = data.get("brand_name", "PyS")
+        dry_run = bool(data.get("dry_run", False))
+
+        brand_id, created = _pys_get_or_create_brand(brand_name)
+        if not brand_id:
+            return jsonify({"error": f"no se pudo obtener/crear la marca '{brand_name}'"}), 500
+
+        # Listar productos con su campo brands
+        r = requests.get(
+            f"{WC_URL}/wp-json/wc/v3/products",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params={"per_page": 100, "status": "publish", "_fields": "id,name,brands"},
+            timeout=30,
+        )
+        products = r.json() if isinstance(r.json(), list) else []
+
+        to_assign = [p for p in products if not p.get("brands")]
+        assigned, errors = [], []
+
+        if not dry_run:
+            for p in to_assign:
+                res = update_product(p["id"], {"brands": [{"id": brand_id}]})
+                if res.get("success"):
+                    assigned.append({"id": p["id"], "name": p.get("name")})
+                else:
+                    errors.append({"id": p["id"], "error": res.get("error")})
+
+        return jsonify({
+            "brand": brand_name, "brand_id": brand_id, "brand_created": created,
+            "total_products": len(products),
+            "already_branded": len(products) - len(to_assign),
+            "needed_brand": len(to_assign),
+            "assigned": assigned, "errors": errors,
+            "dry_run": dry_run,
+            "candidates": [{"id": p["id"], "name": p.get("name")} for p in to_assign] if dry_run else None,
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/pys-product-update", methods=["POST"])
 def pys_product_update():
     """Actualiza SEO meta y/o schema de un producto/página de PYS sin pasar por el agente IA."""
