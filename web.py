@@ -3690,6 +3690,30 @@ def _pys_get_or_create_brand(name="PyS"):
         return None, False
 
 
+@app.route("/pys-debug-brands", methods=["GET"])
+def pys_debug_brands():
+    """Diagnóstico: lista de brands wc/v3 + estructura `brands` de un producto
+    ya marcado (Omega-3 1151) y uno sin marcar (NAD+ 1131)."""
+    try:
+        out = {}
+        b = requests.get(
+            f"{WC_URL}/wp-json/wc/v3/products/brands",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params={"per_page": 100}, timeout=20,
+        )
+        out["wc_v3_brands"] = b.json() if b.status_code == 200 else {"status": b.status_code, "body": b.text[:300]}
+        for pid in (1151, 1131, 790):
+            r = requests.get(
+                f"{WC_URL}/wp-json/wc/v3/products/{pid}",
+                auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+                params={"_fields": "id,name,brands"}, timeout=20,
+            )
+            out[f"product_{pid}"] = r.json()
+        return jsonify(out)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/pys-assign-house-brand", methods=["POST"])
 def pys_assign_house_brand():
     """Asigna la marca propia (default 'PyS') a todo producto publicado que hoy
