@@ -1,5 +1,5 @@
 ﻿from flask import Flask, request, jsonify, redirect, session
-import anthropic, os, requests, schedule, threading, json, secrets, time
+import anthropic, os, requests, schedule, threading, json, secrets, time, uuid
 from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
 from anthropic.types.messages.batch_create_params import Request as BatchRequest
 from requests.auth import HTTPBasicAuth
@@ -3684,9 +3684,35 @@ def pys_product_update():
         if meta:
             results["meta"] = set_pys_rank_math_meta(post_id, meta)
 
-        # Schema (FAQPage u otro tipo vía updateSchemas)
+        # Schema (FAQPage u otro tipo vía updateSchemas — solo posts/pages con JWT)
         if "schemas" in data:
             results["schema"] = set_pys_rank_math_schema(post_id, data["schemas"])
+
+        # Para PRODUCTOS WooCommerce el schema de Rank Math se persiste como
+        # post meta (rank_math_schema_*) vía wc/v3 meta_data + HTTPBasicAuth
+        # (el JWT no tiene permiso de edición sobre productos → 401).
+        if "faq_main_entity" in data:
+            faq_value = {
+                "@type": "FAQPage",
+                "metadata": {
+                    "title": "FAQ",
+                    "type": "template",
+                    "shortcode": f"s-{uuid.uuid4().hex[:13]}",
+                    "isPrimary": 0,
+                    "reviewLocation": "custom",
+                },
+                "mainEntity": data["faq_main_entity"],
+            }
+            results["faq_schema"] = update_product(
+                post_id,
+                {"meta_data": [{"key": "rank_math_schema_FAQPage", "value": faq_value}]},
+            )
+
+        # Passthrough genérico de meta_data para productos.
+        if "product_meta_data" in data:
+            results["product_meta"] = update_product(
+                post_id, {"meta_data": data["product_meta_data"]}
+            )
 
         results["post_id"] = post_id
         return jsonify(results)
