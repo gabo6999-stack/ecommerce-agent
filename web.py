@@ -3643,6 +3643,8 @@ def raditech_page_update_direct():
             payload["status"] = data["status"]
         if "slug" in data:
             payload["slug"] = data["slug"]
+        if "author" in data:
+            payload["author"] = data["author"]
         # rank_math_* viaja en payload["meta"]; update_raditech_page lo desvía
         # al endpoint propio de Rank Math (el campo `meta` del REST core no persiste).
         meta = {}
