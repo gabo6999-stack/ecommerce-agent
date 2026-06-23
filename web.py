@@ -429,6 +429,42 @@ def append_to_ptm_page(page_id, html_to_append):
         return {"error": str(e)}
 
 
+# ─── Funciones Rank Math / Schema para PYS ───────────────────────────────────
+
+def set_pys_rank_math_schema(object_id, schemas: dict):
+    """Persiste schemas en PYS vía rankmath/v1/updateSchemas (Rank Math Pro).
+
+    schemas = {"schema-XXXXX": {"@type": "FAQPage", "metadata": {...}, "mainEntity": [...]}}
+    """
+    try:
+        r = requests.post(
+            f"{WC_URL}/wp-json/rankmath/v1/updateSchemas",
+            headers=jwt_headers(),
+            json={"objectID": object_id, "objectType": "post", "schemas": schemas},
+            timeout=20,
+        )
+        return r.json()
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def set_pys_rank_math_meta(object_id, meta: dict):
+    """Persiste campos rank_math_* en PYS vía rankmath/v1/updateMeta."""
+    rank_math_meta = {k: v for k, v in (meta or {}).items() if k.startswith("rank_math")}
+    if not rank_math_meta:
+        return {"error": "no rank_math fields"}
+    try:
+        r = requests.post(
+            f"{WC_URL}/wp-json/rankmath/v1/updateMeta",
+            headers=jwt_headers(),
+            json={"objectID": object_id, "objectType": "post", "meta": rank_math_meta},
+            timeout=20,
+        )
+        return r.json()
+    except Exception as e:
+        return {"error": str(e)}
+
+
 # ─── Funciones WordPress de Raditech ─────────────────────────────────────────
 
 def set_raditech_rank_math_meta(object_id, meta):
@@ -3622,6 +3658,38 @@ Devuelve solo el HTML listo para WordPress."""
             })
         return jsonify({"error": result.get("error", "Error al actualizar post")}), 500
 
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/pys-product-update", methods=["POST"])
+def pys_product_update():
+    """Actualiza SEO meta y/o schema de un producto/página de PYS sin pasar por el agente IA."""
+    try:
+        data = request.json or {}
+        post_id = data.get("post_id")
+        if not post_id:
+            return jsonify({"error": "post_id required"}), 400
+
+        results = {}
+
+        # SEO meta (title, description, focus keyword)
+        meta = {}
+        if "seo_title" in data:
+            meta["rank_math_title"] = data["seo_title"]
+        if "meta_description" in data:
+            meta["rank_math_description"] = data["meta_description"]
+        if "focus_keyword" in data:
+            meta["rank_math_focus_keyword"] = data["focus_keyword"]
+        if meta:
+            results["meta"] = set_pys_rank_math_meta(post_id, meta)
+
+        # Schema (FAQPage u otro tipo vía updateSchemas)
+        if "schemas" in data:
+            results["schema"] = set_pys_rank_math_schema(post_id, data["schemas"])
+
+        results["post_id"] = post_id
+        return jsonify(results)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
