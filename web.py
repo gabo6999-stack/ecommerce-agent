@@ -3788,6 +3788,12 @@ def pys_product_update():
                 post_id, {"meta_data": data["product_meta_data"]}
             )
 
+        # Asignación de brand a un producto concreto (WooCommerce native Brands).
+        if "brand_id" in data:
+            results["brands"] = update_product(
+                post_id, {"brands": [{"id": data["brand_id"]}]}
+            )
+
         results["post_id"] = post_id
         return jsonify(results)
     except Exception as e:
