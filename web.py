@@ -1175,6 +1175,142 @@ def check_core_web_vitals(url, strategy="mobile"):
         return {"error": str(e)}
 
 
+
+
+def audit_product_schema(per_page=100):
+    """Audita todos los productos y reporta cuáles tienen Product schema y qué versión."""
+    try:
+        r = requests.get(
+            f"{WC_URL}/wp-json/wc/v3/products",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params={"per_page": per_page, "status": "publish",
+                    "_fields": "id,name,slug,description,price,images"},
+            timeout=30
+        )
+        products = r.json()
+        if not isinstance(products, list):
+            return {"error": str(products)}
+
+        has_schema = []
+        missing_schema = []
+        has_old_schema = []
+
+        for p in products:
+            desc = p.get("description", "") or ""
+            pid = p.get("id")
+            name = p.get("name", "")
+            slug = p.get("slug", "")
+            price = p.get("price", "")
+            image_url = ""
+            images = p.get("images", [])
+            if images:
+                image_url = images[0].get("src", "")
+
+            has_product_type = '"@type": "Product"' in desc or '"@type":"Product"' in desc
+            has_shipping = "shippingDetails" in desc
+            has_return = "hasMerchantReturnPolicy" in desc
+
+            entry = {
+                "id": pid,
+                "name": name,
+                "slug": slug,
+                "price": price,
+                "image_url": image_url
+            }
+
+            if not has_product_type:
+                missing_schema.append(entry)
+            elif not has_shipping or not has_return:
+                entry["missing_fields"] = []
+                if not has_shipping:
+                    entry["missing_fields"].append("shippingDetails")
+                if not has_return:
+                    entry["missing_fields"].append("hasMerchantReturnPolicy")
+                has_old_schema.append(entry)
+            else:
+                has_schema.append({"id": pid, "name": name})
+
+        return {
+            "total": len(products),
+            "schema_completo": len(has_schema),
+            "schema_desactualizado": len(has_old_schema),
+            "sin_schema": len(missing_schema),
+            "detalle_desactualizado": has_old_schema,
+            "detalle_sin_schema": missing_schema,
+            "resumen": f"✅ {len(has_schema)} completos | ⚠️ {len(has_old_schema)} desactualizados | ❌ {len(missing_schema)} sin schema"
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def apply_product_schema(product_id, name, description_seo, image_url, price):
+    """Genera e inyecta el Product schema JSON-LD completo en la description larga del producto."""
+    import json as _json
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": name,
+        "description": description_seo,
+        "image": image_url,
+        "brand": {"@type": "Brand", "name": "Péptidos y Suplementos"},
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "MXN",
+            "price": str(price),
+            "availability": "https://schema.org/InStock",
+            "seller": {"@type": "Organization", "name": "Péptidos y Suplementos"},
+            "shippingDetails": [
+                {
+                    "@type": "OfferShippingDetails",
+                    "shippingRate": {"@type": "MonetaryAmount", "value": "250", "currency": "MXN"},
+                    "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "MX"},
+                    "deliveryTime": {
+                        "@type": "ShippingDeliveryTime",
+                        "handlingTime": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY"},
+                        "transitTime": {"@type": "QuantitativeValue", "minValue": 2, "maxValue": 5, "unitCode": "DAY"}
+                    }
+                },
+                {
+                    "@type": "OfferShippingDetails",
+                    "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "MXN"},
+                    "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "MX"},
+                    "eligibleTransactionVolume": {"@type": "PriceSpecification", "minPrice": 7000, "priceCurrency": "MXN"},
+                    "deliveryTime": {
+                        "@type": "ShippingDeliveryTime",
+                        "handlingTime": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY"},
+                        "transitTime": {"@type": "QuantitativeValue", "minValue": 2, "maxValue": 5, "unitCode": "DAY"}
+                    }
+                }
+            ],
+            "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "MX",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+            }
+        }
+    }
+    schema_block = f'<!-- wp:html -->\n<script type="application/ld+json">\n{_json.dumps(schema, ensure_ascii=False, indent=2)}\n</script>\n<!-- /wp:html -->'
+
+    # Leer description actual y remover schema viejo si existe
+    r_get = requests.get(
+        f"{WC_URL}/wp-json/wc/v3/products/{product_id}",
+        auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+        params={"_fields": "description"}, timeout=15
+    )
+    current_desc = r_get.json().get("description", "") or ""
+
+    # Quitar bloque de schema anterior si existe
+    import re as _re
+    clean_desc = _re.sub(
+        r'<!-- wp:html -->\s*<script type="application/ld\+json">.*?</script>\s*<!-- /wp:html -->',
+        "", current_desc, flags=_re.DOTALL
+    ).strip()
+
+    new_desc = schema_block + "\n\n" + clean_desc if clean_desc else schema_block
+
+    return update_product_full(product_id, {"description": new_desc})
+
+
 def check_sitemap(site_url):
     try:
         results = {"site": site_url, "sitemaps_found": [], "issues": []}
@@ -1658,8 +1794,21 @@ REGLAS PARA DESCRIPCIONES CORTAS:
 
 SEO AVANZADO DE PRODUCTOS:
   - get_products_full: obtiene seo_title, seo_description, descripción larga e imagen alt
-  - update_product_full: actualiza meta title, meta description, descripción larga, alt text e inyecta Product schema
-  - Prioridad: primero title + short_description → luego seo_title/metadesc → luego description larga + alt text + schema
+  - update_product_full: actualiza meta title, meta description, descripción larga, alt text
+  - audit_product_schema: audita TODOS los productos y los clasifica en ✅ completo / ⚠️ desactualizado / ❌ sin schema
+    → Úsala SIEMPRE antes de cualquier actualización masiva de schema
+  - apply_product_schema(product_id, name, description_seo, image_url, price): inyecta Product schema
+    completo y correcto (con shippingDetails y hasMerchantReturnPolicy reales de PYS)
+    → Reemplaza automáticamente schema viejo si ya existe
+    → Úsala producto por producto tras audit_product_schema para los que estén ❌ o ⚠️
+  - Prioridad: primero title + short_description → luego seo_title/metadesc → luego apply_product_schema
+
+  FLUJO DE ACTUALIZACIÓN MASIVA DE SCHEMA (cuando el usuario pida "actualiza el schema de todos los productos"):
+    1. audit_product_schema() → obtener lista de productos sin schema o desactualizados
+    2. Para cada producto ❌ o ⚠️:
+       a. get_products_full(per_page=1) o datos del audit → obtener image_url y price
+       b. apply_product_schema(product_id, name, description_seo, image_url, price)
+    3. Reportar cuántos se actualizaron correctamente
 
 SCHEMA BreadcrumbList EN PRODUCTOS (agregar al final de la description larga):
   ```json
@@ -2791,6 +2940,31 @@ TOOLS = [
         }
     },
     {
+        "name": "audit_product_schema",
+        "description": "Audita TODOS los productos publicados de PYS y clasifica cuáles tienen Product schema JSON-LD completo, cuáles tienen schema desactualizado (sin shippingDetails o hasMerchantReturnPolicy) y cuáles no tienen schema. Úsala antes de hacer actualizaciones masivas para saber el estado real.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "per_page": {"type": "integer", "default": 100, "description": "Número de productos a auditar (máx 100 por llamada)"}
+            }
+        }
+    },
+    {
+        "name": "apply_product_schema",
+        "description": "Genera e inyecta el Product schema JSON-LD completo y correcto en la description larga de un producto de PYS. Incluye shippingDetails (envío $250 o gratis >$7,000 MXN) y hasMerchantReturnPolicy (sin devoluciones). Reemplaza schema viejo si ya existe. Úsala producto por producto después de audit_product_schema.",
+        "input_schema": {
+            "type": "object",
+            "required": ["product_id", "name", "description_seo", "image_url", "price"],
+            "properties": {
+                "product_id": {"type": "integer", "description": "ID del producto en WooCommerce"},
+                "name": {"type": "string", "description": "Nombre del producto (igual al título)"},
+                "description_seo": {"type": "string", "description": "Descripción SEO del producto (1-2 oraciones descriptivas)"},
+                "image_url": {"type": "string", "description": "URL de la imagen principal del producto"},
+                "price": {"type": "string", "description": "Precio actual del producto en MXN (solo número, sin símbolo)"}
+            }
+        }
+    },
+    {
         "name": "check_core_web_vitals",
         "description": "Analiza los Core Web Vitals de una URL usando la API de PageSpeed Insights (Google). Devuelve LCP, INP, CLS, FCP y puntuación de rendimiento tanto de datos de campo reales (CrUX) como de simulación Lighthouse. Úsala para auditar velocidad y rendimiento de cualquier página de PYS, PTM o Raditech. LCP objetivo <2.0s, INP <200ms, CLS <0.1 (umbrales Google 2026).",
         "input_schema": {
@@ -3043,6 +3217,13 @@ def run_tool(name, inputs):
         return get_top_sellers(inputs.get("period", "month"), inputs.get("limit", 10))
     elif name == "compare_mexico_prices":
         return compare_mexico_prices(inputs["query"], inputs.get("limit", 5))
+    elif name == "audit_product_schema":
+        return audit_product_schema(inputs.get("per_page", 100))
+    elif name == "apply_product_schema":
+        return apply_product_schema(
+            inputs["product_id"], inputs["name"], inputs["description_seo"],
+            inputs["image_url"], inputs["price"]
+        )
     elif name == "check_core_web_vitals":
         return check_core_web_vitals(inputs["url"], inputs.get("strategy", "mobile"))
     elif name == "check_sitemap":
