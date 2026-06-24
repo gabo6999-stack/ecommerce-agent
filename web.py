@@ -1099,6 +1099,136 @@ def get_top_sellers(period="month", limit=10):
         return {"error": str(e)}
 
 
+def check_core_web_vitals(url, strategy="mobile"):
+    try:
+        params = {"url": url, "strategy": strategy, "locale": "es"}
+        api_key = os.environ.get("PAGESPEED_API_KEY")
+        if api_key:
+            params["key"] = api_key
+        r = requests.get(
+            "https://www.googleapis.com/pagespeedonline/v5/runPagespeed",
+            params=params, timeout=30
+        )
+        data = r.json()
+        if "error" in data:
+            return {"error": data["error"].get("message", "PageSpeed API error")}
+
+        cats = data.get("lighthouseResult", {}).get("categories", {})
+        audits = data.get("lighthouseResult", {}).get("audits", {})
+        field = data.get("loadingExperience", {}).get("metrics", {})
+
+        def field_metric(key):
+            m = field.get(key, {})
+            return {"value": m.get("percentile"), "category": m.get("category")}
+
+        def lab_metric(key):
+            a = audits.get(key, {})
+            return {"value": a.get("displayValue"), "score": a.get("score")}
+
+        thresholds = {
+            "LCP": {"good": 2000, "poor": 4000, "unit": "ms"},
+            "INP": {"good": 200, "poor": 500, "unit": "ms"},
+            "CLS": {"good": 0.1, "poor": 0.25, "unit": ""},
+            "FCP": {"good": 1800, "poor": 3000, "unit": "ms"},
+            "TTFB": {"good": 800, "poor": 1800, "unit": "ms"},
+        }
+
+        cwv_keys = {
+            "LCP": "LARGEST_CONTENTFUL_PAINT_MS",
+            "INP": "INTERACTION_TO_NEXT_PAINT",
+            "CLS": "CUMULATIVE_LAYOUT_SHIFT_SCORE",
+            "FCP": "FIRST_CONTENTFUL_PAINT_MS",
+            "EXPERIMENTAL_TIME_TO_FIRST_BYTE": "EXPERIMENTAL_TIME_TO_FIRST_BYTE",
+        }
+
+        field_data = {}
+        for metric, key in cwv_keys.items():
+            m = field.get(key, {})
+            if m:
+                field_data[metric] = {
+                    "value": m.get("percentile"),
+                    "category": m.get("category")
+                }
+
+        lab_keys = {
+            "LCP": "largest-contentful-paint",
+            "TBT": "total-blocking-time",
+            "CLS": "cumulative-layout-shift",
+            "FCP": "first-contentful-paint",
+            "Speed Index": "speed-index",
+        }
+        lab_data = {k: lab_metric(v) for k, v in lab_keys.items()}
+
+        performance_score = int((cats.get("performance", {}).get("score") or 0) * 100)
+
+        return {
+            "url": url,
+            "strategy": strategy,
+            "performance_score": performance_score,
+            "field_data_crux": field_data,
+            "lab_data": lab_data,
+            "thresholds_2026": thresholds,
+            "overall_category": data.get("loadingExperience", {}).get("overall_category"),
+            "note": "field_data proviene de CrUX (usuarios reales). lab_data = simulación Lighthouse."
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def check_sitemap(site_url):
+    try:
+        results = {"site": site_url, "sitemaps_found": [], "issues": []}
+        for path in ["/sitemap_index.xml", "/sitemap.xml", "/wp-sitemap.xml"]:
+            try:
+                r = requests.get(site_url.rstrip("/") + path, timeout=10,
+                                 headers={"User-Agent": "Mozilla/5.0 (compatible; SEOBot/1.0)"})
+                if r.status_code == 200:
+                    content = r.text[:3000]
+                    urls_count = content.count("<loc>")
+                    results["sitemaps_found"].append({
+                        "path": path,
+                        "status": 200,
+                        "loc_entries": urls_count,
+                        "preview": content[:500]
+                    })
+            except Exception:
+                pass
+        if not results["sitemaps_found"]:
+            results["issues"].append("No se encontró ningún sitemap accesible — verificar que Rank Math o Yoast genera el sitemap y está publicado")
+        return results
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def check_robots_txt(site_url):
+    try:
+        r = requests.get(site_url.rstrip("/") + "/robots.txt", timeout=10,
+                         headers={"User-Agent": "Mozilla/5.0 (compatible; SEOBot/1.0)"})
+        if r.status_code != 200:
+            return {"error": f"robots.txt retornó {r.status_code}", "site": site_url}
+        content = r.text
+        lines = [l.strip() for l in content.splitlines() if l.strip()]
+        disallowed = [l for l in lines if l.lower().startswith("disallow:")]
+        sitemaps = [l for l in lines if l.lower().startswith("sitemap:")]
+        critical_blocks = [d for d in disallowed if d.split(":", 1)[-1].strip() in ("/", "/*")]
+        warnings = []
+        if critical_blocks:
+            warnings.append(f"ALERTA: Se está bloqueando todo el sitio con: {critical_blocks}")
+        wp_admin_blocked = any("/wp-admin" in d for d in disallowed)
+        if not wp_admin_blocked:
+            warnings.append("Recomendado: agregar 'Disallow: /wp-admin/' para evitar rastreo innecesario")
+        return {
+            "site": site_url,
+            "status": r.status_code,
+            "disallow_rules": disallowed,
+            "sitemap_declarations": sitemaps,
+            "critical_warnings": warnings,
+            "raw": content[:1500]
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def compare_mexico_prices(query, limit=5):
     try:
         r = requests.get(
@@ -1600,6 +1730,28 @@ AUDITORÍA DE BLOGS (PYS):
   - blogs_audit: ver qué blogs tienen menos interlinks/links externos → priorizar por necesidad
   - check_broken_links: verificar links rotos en un post antes de reportarlo como problema
   - add_schema_markup: agregar JSON-LD (Article o FAQPage) a posts que no tienen — objetivo: AEO/citabilidad IA
+
+CORE WEB VITALS Y SALUD TÉCNICA (aplica a los 3 sitios):
+  - check_core_web_vitals(url, strategy): analiza LCP, INP, CLS, FCP via PageSpeed Insights API
+    • strategy="mobile" por defecto (Google usa mobile-first indexing)
+    • Umbrales 2026: LCP <2.0s ✅ | INP <200ms ✅ | CLS <0.1 ✅
+    • Devuelve datos de campo reales (CrUX) + simulación Lighthouse
+    • Úsala ANTES de reportar un sitio como "SEO completo" — performance es factor de ranking #1
+    • Cuando el usuario pida "¿cómo va el rendimiento?" o "analiza la velocidad" → usar esta tool
+  - check_sitemap(site_url): verifica que el sitemap XML existe y es accesible a Googlebot
+    • Busca: /sitemap_index.xml, /sitemap.xml, /wp-sitemap.xml
+    • Si no existe o retorna 404 → es problema crítico de crawlability
+  - check_robots_txt(site_url): lee robots.txt y detecta reglas que bloqueen páginas importantes
+    • Alerta si hay Disallow: / (bloqueo total del sitio — error grave)
+    • Confirma que el sitemap está declarado en robots.txt
+
+  FLUJO DE AUDITORÍA TÉCNICA COMPLETA (cuando el usuario pida "auditoría técnica" o "salud SEO"):
+    1. check_robots_txt(site_url) → verificar que Googlebot no está bloqueado
+    2. check_sitemap(site_url) → verificar que el sitemap existe
+    3. check_core_web_vitals(home_url) → rendimiento de la homepage
+    4. check_core_web_vitals(url_pagina_clave) → rendimiento de la página más importante
+    5. gsc_position_drops() → detectar caídas recientes de posición
+    6. Reportar resultados con semáforo: ✅ bien / ⚠️ mejorable / 🔴 crítico
 
 ANÁLISIS DE VENTAS Y SOPORTE (PYS):
   - get_orders: busca órdenes por estado, email o rango de fechas
@@ -2637,6 +2789,40 @@ TOOLS = [
                 "limit": {"type": "integer", "description": "Número de listados a comparar", "default": 5}
             }
         }
+    },
+    {
+        "name": "check_core_web_vitals",
+        "description": "Analiza los Core Web Vitals de una URL usando la API de PageSpeed Insights (Google). Devuelve LCP, INP, CLS, FCP y puntuación de rendimiento tanto de datos de campo reales (CrUX) como de simulación Lighthouse. Úsala para auditar velocidad y rendimiento de cualquier página de PYS, PTM o Raditech. LCP objetivo <2.0s, INP <200ms, CLS <0.1 (umbrales Google 2026).",
+        "input_schema": {
+            "type": "object",
+            "required": ["url"],
+            "properties": {
+                "url": {"type": "string", "description": "URL completa de la página a analizar (ej: https://peptidosysuplementos.mx/producto/bpc-157/)"},
+                "strategy": {"type": "string", "enum": ["mobile", "desktop"], "default": "mobile", "description": "mobile (prioritario — Google usa mobile-first indexing) o desktop"}
+            }
+        }
+    },
+    {
+        "name": "check_sitemap",
+        "description": "Verifica si el sitemap XML de un sitio existe y es accesible. Busca sitemap_index.xml, sitemap.xml y wp-sitemap.xml. Úsala para confirmar que Google puede descubrir todas las páginas.",
+        "input_schema": {
+            "type": "object",
+            "required": ["site_url"],
+            "properties": {
+                "site_url": {"type": "string", "description": "URL base del sitio (ej: https://peptidosysuplementos.mx)"}
+            }
+        }
+    },
+    {
+        "name": "check_robots_txt",
+        "description": "Lee y analiza el archivo robots.txt de un sitio. Detecta reglas Disallow que puedan estar bloqueando páginas importantes a Googlebot, y confirma que el sitemap está declarado.",
+        "input_schema": {
+            "type": "object",
+            "required": ["site_url"],
+            "properties": {
+                "site_url": {"type": "string", "description": "URL base del sitio (ej: https://raditech.mx)"}
+            }
+        }
     }
 ]
 
@@ -2857,6 +3043,12 @@ def run_tool(name, inputs):
         return get_top_sellers(inputs.get("period", "month"), inputs.get("limit", 10))
     elif name == "compare_mexico_prices":
         return compare_mexico_prices(inputs["query"], inputs.get("limit", 5))
+    elif name == "check_core_web_vitals":
+        return check_core_web_vitals(inputs["url"], inputs.get("strategy", "mobile"))
+    elif name == "check_sitemap":
+        return check_sitemap(inputs["site_url"])
+    elif name == "check_robots_txt":
+        return check_robots_txt(inputs["site_url"])
     return {"error": "herramienta desconocida"}
 
 @app.route("/")
