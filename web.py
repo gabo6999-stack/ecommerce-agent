@@ -1438,11 +1438,48 @@ SCHEMA JSON-LD PARA PRODUCTOS PYS (OBLIGATORIO al crear/actualizar productos):
       "seller": {
         "@type": "Organization",
         "name": "Péptidos y Suplementos"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "0",
+          "currency": "MXN"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "MX"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 2,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 2,
+            "maxValue": 5,
+            "unitCode": "DAY"
+          }
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "MX",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 30,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
       }
     }
   }
   ```
   Si el producto tiene reviews, agregar aggregateRating. Si tiene GTIN/código de barras, agregar gtin13.
+  NOTA: Los valores de shippingDetails y hasMerchantReturnPolicy son los estándar de PYS.
+  Si el usuario indica condiciones distintas (ej: envío con costo, devoluciones en 15 días), ajustar.
   Insertar como bloque <!-- wp:html --> al inicio de la description larga.
 
 REGLAS PARA TÍTULOS DE PRODUCTOS:
