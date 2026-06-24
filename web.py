@@ -226,18 +226,45 @@ def get_ptm_all_posts_catalog(per_page=100):
         return {"error": str(e)}
 
 
+def set_ptm_rank_math_meta(object_id, meta):
+    """Persiste campos rank_math_* en PTM (grupoptm.com) vía el endpoint propio de
+    Rank Math. El campo `meta` del REST core (/wp/v2/posts|pages) NO persiste
+    rank_math_* (Rank Math no los registra para REST; el POST devuelve 200 y los
+    ignora en silencio). El método que persiste es rankmath/v1/updateMeta.
+    objectType es siempre "post" (las páginas también son posts en WP)."""
+    rank_math_meta = {k: v for k, v in (meta or {}).items() if k.startswith("rank_math")}
+    if not rank_math_meta:
+        return {"skipped": True}
+    try:
+        oid = int(object_id)
+    except (TypeError, ValueError):
+        oid = object_id
+    try:
+        r = requests.post(
+            f"{PTM_URL}/wp-json/rankmath/v1/updateMeta",
+            headers=ptm_jwt_headers(),
+            json={"objectID": oid, "objectType": "post", "meta": rank_math_meta},
+            timeout=20,
+        )
+        return {"status": r.status_code, "body": r.text[:200]}
+    except Exception as e:
+        return {"error": str(e)}
+
+
 def create_ptm_post(title, content, slug="", meta_description="", status="publish"):
     try:
         data = {"title": title, "content": content, "slug": slug, "status": status}
-        if meta_description:
-            data["meta"] = {"rank_math_description": meta_description}
         r = requests.post(f"{PTM_URL}/wp-json/wp/v2/posts",
                           json=data, headers=ptm_jwt_headers(), timeout=30)
         result = r.json()
-        if "id" in result:
-            return {"success": True, "id": result["id"],
-                    "link": result.get("link", ""), "status": result.get("status")}
-        return {"error": str(result)}
+        if "id" not in result:
+            return {"error": str(result)}
+        # rank_math_* no persiste vía el campo `meta` del REST core; se escribe
+        # con el endpoint propio de Rank Math.
+        if meta_description:
+            set_ptm_rank_math_meta(result["id"], {"rank_math_description": meta_description})
+        return {"success": True, "id": result["id"],
+                "link": result.get("link", ""), "status": result.get("status")}
     except Exception as e:
         return {"error": str(e)}
 
@@ -245,20 +272,22 @@ def create_ptm_post(title, content, slug="", meta_description="", status="publis
 def create_ptm_page(title, content, slug="", seo_title="", meta_description="", status="publish"):
     try:
         data = {"title": title, "content": content, "slug": slug, "status": status}
+        r = requests.post(f"{PTM_URL}/wp-json/wp/v2/pages",
+                          json=data, headers=ptm_jwt_headers(), timeout=30)
+        result = r.json()
+        if "id" not in result:
+            return {"error": str(result)}
+        # rank_math_* se persiste vía el endpoint propio de Rank Math; el campo
+        # `meta` del REST core no lo guarda.
         meta = {}
         if seo_title:
             meta["rank_math_title"] = seo_title
         if meta_description:
             meta["rank_math_description"] = meta_description
         if meta:
-            data["meta"] = meta
-        r = requests.post(f"{PTM_URL}/wp-json/wp/v2/pages",
-                          json=data, headers=ptm_jwt_headers(), timeout=30)
-        result = r.json()
-        if "id" in result:
-            return {"success": True, "id": result["id"],
-                    "link": result.get("link", ""), "status": result.get("status")}
-        return {"error": str(result)}
+            set_ptm_rank_math_meta(result["id"], meta)
+        return {"success": True, "id": result["id"],
+                "link": result.get("link", ""), "status": result.get("status")}
     except Exception as e:
         return {"error": str(e)}
 
@@ -278,12 +307,28 @@ def delete_ptm_page(page_id, force=True):
 
 def update_ptm_post(post_id, data):
     try:
-        r = requests.post(f"{PTM_URL}/wp-json/wp/v2/posts/{post_id}",
-                          headers=ptm_jwt_headers(), json=data, timeout=30)
-        result = r.json()
-        if "id" in result:
-            return {"success": True, "id": post_id, "link": result.get("link", "")}
-        return {"error": str(result)}
+        # Los rank_math_* no persisten vía el campo `meta` del REST core: se
+        # separan y se escriben con el endpoint propio de Rank Math.
+        data = dict(data)
+        rank_math_meta = {}
+        meta = data.get("meta")
+        if isinstance(meta, dict):
+            rank_math_meta = {k: v for k, v in meta.items() if k.startswith("rank_math")}
+            remaining = {k: v for k, v in meta.items() if not k.startswith("rank_math")}
+            if remaining:
+                data["meta"] = remaining
+            else:
+                data.pop("meta", None)
+        result = {}
+        if data:
+            r = requests.post(f"{PTM_URL}/wp-json/wp/v2/posts/{post_id}",
+                              headers=ptm_jwt_headers(), json=data, timeout=30)
+            result = r.json()
+            if "id" not in result:
+                return {"error": str(result)}
+        if rank_math_meta:
+            set_ptm_rank_math_meta(post_id, rank_math_meta)
+        return {"success": True, "id": post_id, "link": result.get("link", "")}
     except Exception as e:
         return {"error": str(e)}
 
@@ -373,16 +418,31 @@ def get_ptm_page_content(page_id):
 def update_ptm_page(page_id, data):
     try:
         payload = dict(data)
+        # Los rank_math_* no persisten vía el campo `meta` del REST core: se
+        # separan y se escriben con el endpoint propio de Rank Math.
+        rank_math_meta = {}
+        meta = payload.get("meta")
+        if isinstance(meta, dict):
+            rank_math_meta = {k: v for k, v in meta.items() if k.startswith("rank_math")}
+            remaining = {k: v for k, v in meta.items() if not k.startswith("rank_math")}
+            if remaining:
+                payload["meta"] = remaining
+            else:
+                payload.pop("meta", None)
         if "content" in payload:
             content = payload["content"]
             if content and "<!-- wp:html -->" not in content:
                 payload["content"] = f"<!-- wp:html -->\n{content}\n<!-- /wp:html -->"
-        r = requests.post(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
-                          headers=ptm_jwt_headers(), json=payload, timeout=30)
-        result = r.json()
-        if "id" in result:
-            return {"success": True, "id": page_id, "link": result.get("link", "")}
-        return {"error": str(result)}
+        result = {}
+        if payload:
+            r = requests.post(f"{PTM_URL}/wp-json/wp/v2/pages/{page_id}",
+                              headers=ptm_jwt_headers(), json=payload, timeout=30)
+            result = r.json()
+            if "id" not in result:
+                return {"error": str(result)}
+        if rank_math_meta:
+            set_ptm_rank_math_meta(page_id, rank_math_meta)
+        return {"success": True, "id": page_id, "link": result.get("link", "")}
     except Exception as e:
         return {"error": str(e)}
 
