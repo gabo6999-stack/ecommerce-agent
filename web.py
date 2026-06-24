@@ -1439,47 +1439,81 @@ SCHEMA JSON-LD PARA PRODUCTOS PYS (OBLIGATORIO al crear/actualizar productos):
         "@type": "Organization",
         "name": "Péptidos y Suplementos"
       },
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": {
-          "@type": "MonetaryAmount",
-          "value": "0",
-          "currency": "MXN"
-        },
-        "shippingDestination": {
-          "@type": "DefinedRegion",
-          "addressCountry": "MX"
-        },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": {
-            "@type": "QuantitativeValue",
-            "minValue": 1,
-            "maxValue": 2,
-            "unitCode": "DAY"
+      "shippingDetails": [
+        {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "250",
+            "currency": "MXN"
           },
-          "transitTime": {
-            "@type": "QuantitativeValue",
-            "minValue": 2,
-            "maxValue": 5,
-            "unitCode": "DAY"
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "MX"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 2,
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 2,
+              "maxValue": 5,
+              "unitCode": "DAY"
+            }
+          }
+        },
+        {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "MXN"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "MX"
+          },
+          "eligibleTransactionVolume": {
+            "@type": "PriceSpecification",
+            "minPrice": 7000,
+            "priceCurrency": "MXN"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 2,
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 2,
+              "maxValue": 5,
+              "unitCode": "DAY"
+            }
           }
         }
-      },
+      ],
       "hasMerchantReturnPolicy": {
         "@type": "MerchantReturnPolicy",
         "applicableCountry": "MX",
-        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "merchantReturnDays": 30,
-        "returnMethod": "https://schema.org/ReturnByMail",
-        "returnFees": "https://schema.org/FreeReturn"
+        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
       }
     }
   }
   ```
   Si el producto tiene reviews, agregar aggregateRating. Si tiene GTIN/código de barras, agregar gtin13.
-  NOTA: Los valores de shippingDetails y hasMerchantReturnPolicy son los estándar de PYS.
-  Si el usuario indica condiciones distintas (ej: envío con costo, devoluciones en 15 días), ajustar.
+  POLÍTICA DE ENVÍOS PYS (no modificar sin instrucción explícita del usuario):
+  - Envío estándar: $250 MXN a todo México, 2-5 días hábiles
+  - Envío gratis en compras mayores a $7,000 MXN
+  POLÍTICA DE DEVOLUCIONES PYS: NO se aceptan devoluciones.
+  Los productos una vez abiertos quedan contaminados e inutilizables — returnPolicyCategory: MerchantReturnNotPermitted.
   Insertar como bloque <!-- wp:html --> al inicio de la description larga.
 
 REGLAS PARA TÍTULOS DE PRODUCTOS:
