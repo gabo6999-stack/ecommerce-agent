@@ -5,3 +5,27 @@ sessions/
 chats_exportados/
 backlinks_data/
 *.pyc
+
+# Config local de Claude Code (no compartir)
+.claude/
+
+# Scripts de un solo uso con CREDENCIALES HARDCODEADAS — NO subir (filtrarían secretos).
+# Si alguno se quiere en el repo, primero migrar sus secretos a variables de entorno.
+raditech_seo_fix.py
+raditech_seo_fix2.py
+raditech_seo_fix3.py
+raditech_seo_fix4.py
+raditech_seo_fix5.py
+raditech_seo_fix6.py
+seo_audit_raditech2.py
+seo_bulk_update.py
+seo_fixed_links.py
+fix_ptm_firma.py
+fix_blog_page.py
+fix_blog_wrapper.py
+ptm_replace_farmacia.py
+pys_replace_firma.py
+vivexa_seo_surface.py
+vivexa_check_standalone.py
+vivexa_rebrand_audit.py
+vivexa_audit.json

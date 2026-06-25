@@ -212,7 +212,7 @@ SYSTEM = [
             "- For marketing advice, consider Mexican market context: pay days fall on the "
             "1st and 15th of each month, peak fitness motivation is Jan–Mar and Aug–Sep\n"
             "- All prices are in MXN unless noted otherwise\n"
-            "- Today's date is 2026-05-23"
+            f"- Today's date is {datetime.now().strftime('%Y-%m-%d')}"
         ),
         "cache_control": {"type": "ephemeral"},
     }
