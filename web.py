@@ -42,6 +42,74 @@ except Exception as _bl_err:
     BACKLINKS_AVAILABLE = False
     print(f"[Backlinks] módulo no disponible: {_bl_err}")
 
+# ─── Salud SEO (escáner multi-sitio → dashboard NEXUS, integración aditiva) ────
+try:
+    import seo_health
+    SEO_HEALTH_AVAILABLE = True
+except Exception as _sh_err:
+    seo_health = None
+    SEO_HEALTH_AVAILABLE = False
+    print(f"[SEO-Health] módulo no disponible: {_sh_err}")
+
+# Sitios que entran al dashboard de salud SEO de NEXUS. Rúbrica idéntica para
+# todos (score comparable). Se puede sobreescribir con la env var SEO_HEALTH_SITES
+# ("Nombre|https://url, Nombre2|https://url2").
+SEO_HEALTH_SITES = [
+    {"name": "PYS", "url": "https://peptidosysuplementos.mx"},
+    {"name": "nodarishub", "url": "https://nodarishub.com"},
+    {"name": "raditech", "url": "https://raditech.mx"},
+    {"name": "arcademotors", "url": "https://arcademotorsmx.com"},
+]
+_sites_env = os.environ.get("SEO_HEALTH_SITES", "").strip()
+if _sites_env:
+    try:
+        SEO_HEALTH_SITES = [
+            {"name": p.split("|")[0].strip(), "url": p.split("|")[1].strip()}
+            for p in _sites_env.split(",") if "|" in p
+        ]
+    except Exception as _se:
+        print(f"[SEO-Health] SEO_HEALTH_SITES malformada, uso default: {_se}")
+
+
+def run_seo_health_scan():
+    """Escanea todos los sitios y empuja cada resultado a NEXUS (/api/seo-ingest).
+
+    Una sola vía hacia NEXUS: NEXUS solo guarda y muestra. Devuelve un resumen
+    para respuestas manuales del endpoint. Nunca lanza (aísla errores por sitio).
+    """
+    if not SEO_HEALTH_AVAILABLE:
+        return {"error": "módulo seo_health no disponible", "results": []}
+    nexus_url = os.environ.get("NEXUS_URL")
+    nexus_key = os.environ.get("NEXUS_KEY")
+    results = []
+    for site in SEO_HEALTH_SITES:
+        try:
+            r = seo_health.audit_site(site["name"], site["url"])
+        except Exception as e:
+            r = {"name": site["name"], "url": site["url"], "score": 0,
+                 "categories": {}, "failures": [], "error": f"excepción: {e}"}
+        results.append({"name": r["name"], "url": r["url"], "score": r["score"],
+                        "error": r.get("error")})
+        # Push a NEXUS (si está configurado)
+        if nexus_url and nexus_key:
+            try:
+                requests.post(
+                    f"{nexus_url}/api/seo-ingest",
+                    json={
+                        "site": r["name"], "url": r["url"], "score": r["score"],
+                        "categories": r["categories"], "findings": r["failures"],
+                        "scanned_at": r.get("scanned_at"),
+                    },
+                    headers={"x-nexus-key": nexus_key},
+                    timeout=15,
+                )
+                print(f"[SEO-Health] {r['name']}: {r['score']}/100 → NEXUS OK")
+            except Exception as e:
+                print(f"[SEO-Health] {r['name']}: no se pudo reportar a NEXUS: {e}")
+        else:
+            print(f"[SEO-Health] {r['name']}: {r['score']}/100 (NEXUS no configurado)")
+    return {"scanned": len(results), "results": results}
+
 # ─── Google Search Console config ────────────────────────────────────────────
 GSC_CLIENT_ID          = os.environ.get("GOOGLE_CLIENT_ID", "")
 GSC_CLIENT_SECRET      = os.environ.get("GOOGLE_CLIENT_SECRET", "")
@@ -3816,6 +3884,12 @@ def restore_elementor_pages():
     })
 
 
+@app.route("/seo-health/run", methods=["GET", "POST"])
+def seo_health_run():
+    """Dispara el escaneo de salud SEO a mano y empuja los scores a NEXUS."""
+    return jsonify(run_seo_health_scan())
+
+
 def run_weekly_report():
     def weekly_job():
         report = generate_seo_report()
@@ -3828,7 +3902,15 @@ def run_weekly_report():
             "pending": report.get("pending", 0),
             "pct_optimized": report.get("pct_optimized", 0),
         })
+
+    def seo_health_job():
+        try:
+            run_seo_health_scan()
+        except Exception as e:
+            print(f"[SEO-Health] job semanal falló: {e}")
+
     schedule.every().monday.at("09:00").do(weekly_job)
+    schedule.every().monday.at("08:00").do(seo_health_job)
     while True:
         schedule.run_pending()
         threading.Event().wait(60)
