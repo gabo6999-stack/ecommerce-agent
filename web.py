@@ -4784,6 +4784,72 @@ def update_nodaris_post(post_id, data):
         return {"error": str(e)}
 
 
+def set_nodaris_rank_math_meta(object_id, meta):
+    """Persiste campos rank_math_* en nodarishub vía rankmath/v1/updateMeta.
+
+    Gotcha Rank Math: el campo `meta` de /wp/v2/posts devuelve 200 pero NO
+    persiste rank_math_* (los ignora en silencio para REST). El único método que
+    persiste es el endpoint propio rankmath/v1/updateMeta. objectType siempre
+    "post" (verificado en nodarishub 2026-07-05)."""
+    rank_math_meta = {k: v for k, v in (meta or {}).items() if k.startswith("rank_math")}
+    if not rank_math_meta:
+        return {"skipped": True}
+    try:
+        oid = int(object_id)
+    except (TypeError, ValueError):
+        oid = object_id
+    try:
+        r = requests.post(
+            f"{NODARIS_URL}/wp-json/rankmath/v1/updateMeta",
+            headers=nodaris_auth_headers(),
+            json={"objectID": oid, "objectType": "post", "meta": rank_math_meta},
+            timeout=20,
+        )
+        return {"status": r.status_code, "body": r.text[:200]}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def build_nodaris_seo_title(title, provided=""):
+    """Devuelve un meta title SEO de nodarishub garantizado ≤60 caracteres.
+
+    Prioriza el `provided` (rank_math_title del writer) si ya viene ≤60. Si no,
+    pide a Claude Haiku un título corto con keyword + marca. Fallback: recorte por
+    palabra. Se persiste con set_nodaris_rank_math_meta para evitar que Rank Math
+    caiga a la plantilla '%title% %sep% %sitename%' (que alarga el título con el
+    sufijo del dominio y lo trunca en la SERP)."""
+    provided = (provided or "").strip().strip('"')
+    if provided and len(provided) <= 60:
+        return provided
+    title = (title or "").strip()
+    brand = " | Nodarishub"
+    base = ""
+    try:
+        resp = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=60,
+            messages=[{"role": "user", "content":
+                "Genera un meta title SEO en español para este artículo de una agencia digital. "
+                "Devuelve SOLO el título base (SIN el sufijo de marca), en una sola línea, sin comillas "
+                "ni punto final, con la keyword principal, y de máximo 46 caracteres.\n\n"
+                f"Título del artículo: {title}"}],
+        )
+        base = resp.content[0].text.strip().strip('"').splitlines()[0].strip()
+    except Exception:
+        base = ""
+    if not base:
+        base = title
+    max_base = 60 - len(brand)
+    if len(base) > max_base:
+        out = ""
+        for w in base.split():
+            if len(out) + len(w) + 1 > max_base:
+                break
+            out = (out + " " + w).strip()
+        base = (out or base[:max_base]).rstrip(" :,-–—")
+    return (base + brand)[:60]
+
+
 @app.route("/optimize-nodarishub-blog", methods=["POST"])
 def optimize_nodarishub_blog():
     try:
@@ -4859,12 +4925,20 @@ Devuelve solo el HTML listo para WordPress."""
 
         result = update_nodaris_post(post_id, {"content": optimized_content})
 
+        # Rank Math title ≤60: el writer lo genera pero se pierde al escribirlo vía
+        # el campo meta de wp/v2 (Rank Math lo ignora). Lo persistimos aquí con el
+        # endpoint propio para que la SERP no muestre el título largo con sufijo de dominio.
+        seo_title = build_nodaris_seo_title(title, provided=data.get("rank_math_title", ""))
+        title_res = set_nodaris_rank_math_meta(post_id, {"rank_math_title": seo_title})
+
         if result.get("success"):
             return jsonify({
                 "success": True,
                 "post_id": post_id,
                 "url": result.get("link", url),
                 "interlinks_added": len(others) > 0,
+                "seo_title": seo_title,
+                "seo_title_persisted": str(title_res.get("status", title_res)),
             })
         return jsonify({"error": result.get("error", "Error al actualizar post nodarishub")}), 500
 
