@@ -4731,6 +4731,147 @@ Devuelve solo el HTML listo para WordPress."""
         return jsonify({"error": str(e)}), 500
 
 
+# ============ nodarishub (agencia digital) — SEO blog optimizer ============
+NODARIS_URL = os.environ.get("NODARIS_WP_URL", "https://nodarishub.com").rstrip("/")
+NODARIS_WP_USER = os.environ.get("NODARIS_WP_USER", "")
+NODARIS_WP_PASSWORD = os.environ.get("NODARIS_WP_PASSWORD", "")
+
+
+def nodaris_auth_headers():
+    import base64
+    token = base64.b64encode(f"{NODARIS_WP_USER}:{NODARIS_WP_PASSWORD}".encode()).decode()
+    return {"Authorization": f"Basic {token}", "Content-Type": "application/json"}
+
+
+def get_nodaris_post_content(post_id):
+    try:
+        r = requests.get(f"{NODARIS_URL}/wp-json/wp/v2/posts/{post_id}",
+                         headers=nodaris_auth_headers(), timeout=15)
+        p = r.json()
+        if "id" not in p:
+            return {"error": str(p)}
+        return {"id": p["id"], "title": p.get("title", {}).get("rendered", ""),
+                "slug": p.get("slug", ""), "link": p.get("link", ""),
+                "content": p.get("content", {}).get("rendered", "")}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def get_nodaris_all_posts_catalog(per_page=100):
+    try:
+        r = requests.get(f"{NODARIS_URL}/wp-json/wp/v2/posts",
+                         headers=nodaris_auth_headers(),
+                         params={"per_page": per_page, "_fields": "id,title,slug,link", "status": "publish"},
+                         timeout=15)
+        posts = r.json()
+        if not isinstance(posts, list):
+            return {"error": str(posts)}
+        return [{"id": p.get("id"), "title": p.get("title", {}).get("rendered", ""),
+                 "slug": p.get("slug", ""), "link": p.get("link", "")} for p in posts]
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def update_nodaris_post(post_id, data):
+    try:
+        r = requests.post(f"{NODARIS_URL}/wp-json/wp/v2/posts/{post_id}",
+                          headers=nodaris_auth_headers(), json=dict(data), timeout=30)
+        result = r.json()
+        if "id" not in result:
+            return {"error": str(result)}
+        return {"success": True, "id": post_id, "link": result.get("link", "")}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+@app.route("/optimize-nodarishub-blog", methods=["POST"])
+def optimize_nodarishub_blog():
+    try:
+        data = request.json or {}
+        post_id = data.get("post_id")
+        title = data.get("title", "")
+        content = data.get("content", "")
+        url = data.get("url", "")
+        if not post_id:
+            return jsonify({"error": "post_id es requerido"}), 400
+
+        if not content:
+            fetched = get_nodaris_post_content(post_id)
+            if "error" in fetched:
+                return jsonify({"error": f"No se pudo obtener el post {post_id}: {fetched['error']}"}), 404
+            title = title or fetched.get("title", "")
+            content = fetched.get("content", "")
+            url = url or fetched.get("link", "")
+
+        all_posts = get_nodaris_all_posts_catalog(per_page=100)
+        others = [p for p in all_posts if isinstance(p, dict) and str(p.get("id", "")) != str(post_id)]
+        posts_list = "\n".join(
+            f"- {p['title']} ({p['link']})" for p in others if isinstance(p, dict) and p.get("title")
+        )
+
+        prompt = f"""Eres un experto SEO para nodarishub.com, una AGENCIA DIGITAL (diseño web a código, SEO y software a la medida para PyMEs en México y Ecuador). Tienes este artículo de blog:
+
+TÍTULO: {title}
+URL: {url}
+POST ID: {post_id}
+
+CONTENIDO ACTUAL (HTML):
+{content}
+
+OTROS ARTÍCULOS DEL BLOG DE NODARISHUB (para interlinks):
+{posts_list if posts_list else "No hay otros artículos disponibles aún."}
+
+PÁGINAS DE SERVICIO DE NODARISHUB (enlaza cuando sean relevantes al tema):
+- Diseño web: https://nodarishub.com/diseno-web/
+- SEO / posicionamiento: https://nodarishub.com/seo/
+- Software a la medida: https://nodarishub.com/software/
+- Marketing: https://nodarishub.com/marketing/
+- Crear página web: https://nodarishub.com/crear-pagina-web/
+
+Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto existente (NO reescribas el artículo):
+1. INTERLINKS (2-4 links): enlaza a otros artículos del blog y a las páginas de servicio relevantes.
+   Formato: <a href="URL">texto descriptivo</a>
+2. LINKS EXTERNOS DE AUTORIDAD (3-5 links): fuentes reales de web/marketing/negocio (Google Search Central
+   developers.google.com/search, web.dev, MDN developer.mozilla.org, support.google.com, thinkwithgoogle.com,
+   o documentación oficial de la tecnología). Solo URLs reales. NUNCA fuentes médicas/científicas (PubMed, NIH, etc.).
+   Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
+3. Asegúrate de que haya al menos un H2 y que la conclusión incluya un CTA claro a cotizar con Nodaris Hub:
+   <a href="https://nodarishub.com/">cotiza tu proyecto</a>.
+4. NO inventes posts que no estén en la lista. NADA de lenguaje médico ni científico.
+5. FAQ SCHEMA JSON-LD: si el artículo tiene sección FAQ, añade al final del HTML:
+   <script type="application/ld+json">
+   {{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"Pregunta","acceptedAnswer":{{"@type":"Answer","text":"Respuesta"}}}}]}}
+   </script>
+   Usa las preguntas y respuestas reales del artículo. Respuestas en texto plano sin HTML.
+6. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
+
+Devuelve solo el HTML listo para WordPress."""
+
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=16384,
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        optimized_content = response.content[0].text.strip()
+        if optimized_content.startswith("```"):
+            optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+
+        result = update_nodaris_post(post_id, {"content": optimized_content})
+
+        if result.get("success"):
+            return jsonify({
+                "success": True,
+                "post_id": post_id,
+                "url": result.get("link", url),
+                "interlinks_added": len(others) > 0,
+            })
+        return jsonify({"error": result.get("error", "Error al actualizar post nodarishub")}), 500
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/fix-ptm-related-cards/<int:page_id>", methods=["POST"])
 def fix_ptm_related_cards(page_id):
     """
