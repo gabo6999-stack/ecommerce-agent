@@ -1670,8 +1670,8 @@ def blogs_audit():
         links = soup.find_all("a", href=True)
         internal = [l["href"] for l in links if site_domain in l.get("href", "")]
         external = [l["href"] for l in links if l.get("href", "").startswith("http") and site_domain not in l.get("href", "")]
-        product_links = [l for l in internal if "/producto/" in l]
-        interlinks = [l for l in internal if "/producto/" not in l and l != post.get("link", "")]
+        product_links = [l for l in internal if "/product/" in l or "/producto/" in l]
+        interlinks = [l for l in internal if "/product/" not in l and "/producto/" not in l and l != post.get("link", "")]
         has_schema = "application/ld+json" in content
         results.append({
             "id": post["id"],
@@ -1982,7 +1982,7 @@ SCHEMA BreadcrumbList EN PRODUCTOS (agregar al final de la description larga):
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://peptidosysuplementos.mx/"},
       {"@type": "ListItem", "position": 2, "name": "[CATEGORÍA]", "item": "https://peptidosysuplementos.mx/categoria/[SLUG-CATEGORIA]/"},
-      {"@type": "ListItem", "position": 3, "name": "[NOMBRE PRODUCTO]", "item": "https://peptidosysuplementos.mx/producto/[SLUG]/"}
+      {"@type": "ListItem", "position": 3, "name": "[NOMBRE PRODUCTO]", "item": "https://peptidosysuplementos.mx/product/[SLUG]/"}
     ]
   }
   ```
@@ -3135,7 +3135,7 @@ TOOLS = [
             "type": "object",
             "required": ["url"],
             "properties": {
-                "url": {"type": "string", "description": "URL completa de la página a analizar (ej: https://peptidosysuplementos.mx/producto/bpc-157/)"},
+                "url": {"type": "string", "description": "URL completa de la página a analizar (ej: https://peptidosysuplementos.mx/product/bpc-157/)"},
                 "strategy": {"type": "string", "enum": ["mobile", "desktop"], "default": "mobile", "description": "mobile (prioritario — Google usa mobile-first indexing) o desktop"}
             }
         }
@@ -3662,7 +3662,7 @@ def report_html():
         <tr>
             <td style="padding:10px;border-bottom:1px solid #2a2a2a;">
                 <strong>{p['name']}</strong><br>
-                <span style="font-size:12px;color:#888;">/producto/{p['slug']}</span>
+                <span style="font-size:12px;color:#888;">/product/{p['slug']}/</span>
             </td>
             <td style="padding:10px;border-bottom:1px solid #2a2a2a;">
                 <ul style="margin:0;padding-left:16px;color:#f59e0b;font-size:13px;">{issues_html}</ul>
@@ -4091,7 +4091,7 @@ def add_links():
 
         products = get_products(per_page=30)
         products_list = "\n".join(
-            f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
+            f"- {p['name']} ({WC_URL}/product/{p['slug']}/)"
             for p in products if isinstance(p, dict) and "name" in p
         )
 
@@ -4195,7 +4195,7 @@ def run_batch_add_links(post_ids):
         # Pre-fetch shared data once
         products = get_products(per_page=30)
         products_list = "\n".join(
-            f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
+            f"- {p['name']} ({WC_URL}/product/{p['slug']}/)"
             for p in products if isinstance(p, dict) and "name" in p
         )
         all_posts = get_all_posts_catalog(per_page=100)
@@ -4351,7 +4351,7 @@ def optimize_blog():
 
         products = get_products(per_page=30)
         products_list = "\n".join(
-            f"- {p['name']} ({WC_URL}/producto/{p['slug']})"
+            f"- {p['name']} ({WC_URL}/product/{p['slug']}/)"
             for p in products if isinstance(p, dict) and "name" in p
         )
 
