@@ -5028,6 +5028,215 @@ Devuelve solo el HTML listo para WordPress."""
         return jsonify({"error": str(e)}), 500
 
 
+CMLC_URL = os.environ.get("CMLC_WP_URL", "https://centromedicolasconchas.com").rstrip("/")
+CMLC_WP_USER = os.environ.get("CMLC_WP_USER", "")
+CMLC_WP_PASSWORD = os.environ.get("CMLC_WP_PASSWORD", "")
+
+
+def cmlc_auth_headers():
+    import base64
+    token = base64.b64encode(f"{CMLC_WP_USER}:{CMLC_WP_PASSWORD}".encode()).decode()
+    return {"Authorization": f"Basic {token}", "Content-Type": "application/json"}
+
+
+def get_cmlc_post_content(post_id):
+    try:
+        r = requests.get(f"{CMLC_URL}/wp-json/wp/v2/posts/{post_id}",
+                         headers=cmlc_auth_headers(), timeout=15)
+        p = r.json()
+        if "id" not in p:
+            return {"error": str(p)}
+        return {"id": p["id"], "title": p.get("title", {}).get("rendered", ""),
+                "slug": p.get("slug", ""), "link": p.get("link", ""),
+                "content": p.get("content", {}).get("rendered", "")}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def get_cmlc_all_posts_catalog(per_page=100):
+    try:
+        r = requests.get(f"{CMLC_URL}/wp-json/wp/v2/posts",
+                         headers=cmlc_auth_headers(),
+                         params={"per_page": per_page, "_fields": "id,title,slug,link", "status": "publish"},
+                         timeout=15)
+        posts = r.json()
+        if not isinstance(posts, list):
+            return {"error": str(posts)}
+        return [{"id": p.get("id"), "title": p.get("title", {}).get("rendered", ""),
+                 "slug": p.get("slug", ""), "link": p.get("link", "")} for p in posts]
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def update_cmlc_post(post_id, data):
+    try:
+        r = requests.post(f"{CMLC_URL}/wp-json/wp/v2/posts/{post_id}",
+                          headers=cmlc_auth_headers(), json=dict(data), timeout=30)
+        result = r.json()
+        if "id" not in result:
+            return {"error": str(result)}
+        return {"success": True, "id": post_id, "link": result.get("link", "")}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def set_cmlc_rank_math_meta(object_id, meta):
+    """Persiste campos rank_math_* en centromedicolasconchas.com vía rankmath/v1/updateMeta.
+
+    Mismo gotcha de Rank Math que en los demás sitios: el campo `meta` de
+    /wp/v2/posts devuelve 200 pero NO persiste rank_math_* (los ignora en
+    silencio para REST). El único método que persiste es el endpoint propio
+    rankmath/v1/updateMeta. objectType siempre "post". Autenticado como admin
+    (no como el autor pedrogavito) para que además, si el content incluye un
+    <script> de FAQ schema, no lo elimine wp_kses_post (solo Administrator
+    tiene unfiltered_html; pedrogavito es author y perdería el <script>)."""
+    rank_math_meta = {k: v for k, v in (meta or {}).items() if k.startswith("rank_math")}
+    if not rank_math_meta:
+        return {"skipped": True}
+    try:
+        oid = int(object_id)
+    except (TypeError, ValueError):
+        oid = object_id
+    try:
+        r = requests.post(
+            f"{CMLC_URL}/wp-json/rankmath/v1/updateMeta",
+            headers=cmlc_auth_headers(),
+            json={"objectID": oid, "objectType": "post", "meta": rank_math_meta},
+            timeout=20,
+        )
+        return {"status": r.status_code, "body": r.text[:200]}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def build_cmlc_seo_title(title, provided=""):
+    """Devuelve un meta title SEO de centromedicolasconchas.com garantizado ≤60 caracteres.
+
+    Prioriza el `provided` (rank_math_title del writer) si ya viene ≤60. Si no,
+    pide a Claude Haiku un título corto con keyword + marca. Fallback: recorte
+    por palabra. Se persiste con set_cmlc_rank_math_meta para evitar que Rank
+    Math caiga a la plantilla '%title% %sep% %sitename%' (que alarga el
+    título con el sufijo del dominio y lo trunca en la SERP)."""
+    provided = (provided or "").strip().strip('"')
+    if provided and len(provided) <= 60:
+        return provided
+    title = (title or "").strip()
+    brand = " | CMLC"
+    base = ""
+    try:
+        resp = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=60,
+            messages=[{"role": "user", "content":
+                "Genera un meta title SEO en español para este artículo de divulgación médica de un "
+                "gabinete de radiología. Devuelve SOLO el título base (SIN el sufijo de marca), en una "
+                "sola línea, sin comillas ni punto final, con la keyword principal, y de máximo 52 "
+                "caracteres.\n\n"
+                f"Título del artículo: {title}"}],
+        )
+        base = resp.content[0].text.strip().strip('"').splitlines()[0].strip()
+    except Exception:
+        base = ""
+    if not base:
+        base = title
+    max_base = 60 - len(brand)
+    if len(base) > max_base:
+        out = ""
+        for w in base.split():
+            if len(out) + len(w) + 1 > max_base:
+                break
+            out = (out + " " + w).strip()
+        base = (out or base[:max_base]).rstrip(" :,-–—")
+    return (base + brand)[:60]
+
+
+@app.route("/optimize-cmlc-blog", methods=["POST"])
+def optimize_cmlc_blog():
+    try:
+        data = request.json or {}
+        post_id = data.get("post_id")
+        title = data.get("title", "")
+        content = data.get("content", "")
+        url = data.get("url", "")
+        if not post_id:
+            return jsonify({"error": "post_id es requerido"}), 400
+
+        if not content:
+            fetched = get_cmlc_post_content(post_id)
+            if "error" in fetched:
+                return jsonify({"error": f"No se pudo obtener el post {post_id}: {fetched['error']}"}), 404
+            title = title or fetched.get("title", "")
+            content = fetched.get("content", "")
+            url = url or fetched.get("link", "")
+
+        all_posts = get_cmlc_all_posts_catalog(per_page=100)
+        others = [p for p in all_posts if isinstance(p, dict) and str(p.get("id", "")) != str(post_id)]
+        posts_list = "\n".join(
+            f"- {p['title']} ({p['link']})" for p in others if isinstance(p, dict) and p.get("title")
+        )
+
+        prompt = f"""Eres un experto SEO para centromedicolasconchas.com, un GABINETE DE RADIOLOGÍA E IMAGEN (B2C, atiende pacientes directamente) del Dr. Pedro Gavito en Mazatlán, Sinaloa. Tienes este artículo de blog ya publicado:
+
+TÍTULO: {title}
+URL: {url}
+POST ID: {post_id}
+
+CONTENIDO ACTUAL (HTML):
+{content}
+
+OTROS ARTÍCULOS DEL BLOG DE CENTRO MÉDICO LAS CONCHAS (para interlinks):
+{posts_list if posts_list else "No hay otros artículos disponibles aún."}
+
+PÁGINAS DEL SITIO (enlaza cuando sean relevantes al tema, usa solo estas URLs):
+- Servicios de radiología e imagen: https://centromedicolasconchas.com/#servicios
+- Tomografía multicorte y reconstrucción 3D: https://centromedicolasconchas.com/#tomografia
+- Conoce al Dr. Pedro Gavito: https://centromedicolasconchas.com/#nosotros
+- Ubicación (Plaza Las Conchas, Mazatlán): https://centromedicolasconchas.com/#ubicacion
+- Inicio / agendar estudio: https://centromedicolasconchas.com/
+
+Tu tarea — mejora el SEO agregando lo siguiente de forma NATURAL dentro del texto existente (NO reescribas el artículo, NO cambies el tono ni el contenido médico ya correcto):
+1. INTERLINKS: si faltan, enlaza a otros artículos del blog y a las páginas del sitio de arriba que sean relevantes al tema (evita duplicar enlaces que ya existan en el texto).
+2. LINKS EXTERNOS DE AUTORIDAD (agrega 1-3 más si hace falta, hasta tener al menos 2-3 en total): fuentes médicas/científicas REALES y reconocidas (RadiologyInfo.org, MedlinePlus, Mayo Clinic, OMS/WHO, PubMed/NCBI, sociedades de radiología como RSNA o SERAM, o estudios citables). Aquí SÍ son bienvenidas las fuentes médicas/científicas (a diferencia de un sitio no médico). Solo URLs reales, nunca inventadas. Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>.
+3. Asegúrate de que haya un CTA claro cerca de la conclusión invitando a agendar su estudio (teléfono 669 990 2288 / 669 269 6255, o el link a https://centromedicolasconchas.com/).
+4. NO inventes artículos que no estén en la lista de "otros artículos". NO inventes URLs.
+5. NO agregues ningún tag <script> ni bloque JSON-LD: este post se guarda con una cuenta de autor (no administrador) y WordPress elimina los <script> del contenido al guardarlo, dejando el JSON suelto como texto visible roto en la página — evita ese bug por completo, ni lo intentes.
+6. Devuelve ÚNICAMENTE el HTML optimizado completo del content, sin explicaciones ni markdown extra.
+
+Devuelve solo el HTML listo para WordPress."""
+
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=16384,
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        optimized_content = response.content[0].text.strip()
+        if optimized_content.startswith("```"):
+            optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+
+        result = update_cmlc_post(post_id, {"content": optimized_content})
+
+        # Rank Math title ≤60: el writer lo genera pero se pierde al escribirlo vía
+        # el campo meta de wp/v2 (Rank Math lo ignora). Lo persistimos aquí con el
+        # endpoint propio para que la SERP no muestre el título largo con sufijo de dominio.
+        seo_title = build_cmlc_seo_title(title, provided=data.get("rank_math_title", ""))
+        title_res = set_cmlc_rank_math_meta(post_id, {"rank_math_title": seo_title})
+
+        if result.get("success"):
+            return jsonify({
+                "success": True,
+                "post_id": post_id,
+                "url": result.get("link", url),
+                "interlinks_added": len(others) > 0,
+                "seo_title": seo_title,
+                "seo_title_persisted": str(title_res.get("status", title_res)),
+            })
+        return jsonify({"error": result.get("error", "Error al actualizar post cmlc")}), 500
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/fix-ptm-related-cards/<int:page_id>", methods=["POST"])
 def fix_ptm_related_cards(page_id):
     """
