@@ -78,7 +78,13 @@ MARKETS: dict[str, Market] = {
         target="arcademotorsmx.com",
         location_code=2484,  # México
         language_code="es",
-        competitors=(),  # TODO: agrega los portales de autos con los que compites
+        # vehiculos.mercadolibre.com.mx: subdominio dedicado a autos de ML,
+        # comparable en modelo de negocio (marketplace comprador-vendedor).
+        # Kavak descartado -- compra/vende inventario propio, no es marketplace.
+        # segundamano.mx descartado -- dado de baja 2023, redirige a Inmuebles24.
+        # Facebook Marketplace descartado -- sin huella SEO indexable (app/login).
+        # Verificado 2026-07-15.
+        competitors=("vehiculos.mercadolibre.com.mx",),
     ),
     "nodaris_ec": Market(
         slug="nodaris_ec",
@@ -363,11 +369,17 @@ class DataForSEOClient:
         market: str | Market,
         competitor: str | None = None,
         limit: int = 500,
+        max_difficulty: int = 35,
     ) -> list[dict[str, Any]]:
         """
         Keywords donde el competidor rankea top-20 y nosotros no aparecemos.
         Dos llamadas + resta en Python (más predecible que confiar en un solo
         endpoint de intersección).
+
+        Filtra por max_difficulty: sin esto, el gap contra un competidor mucho
+        más grande sale dominado por nombres de marca con dificultad
+        inalcanzable (ej. Arcade vs Kavak: "toyota" KD 89, "honda" KD 42) --
+        verificado con datos reales 2026-07-15.
         """
         m = get_market(market)
         rival = competitor or (m.competitors[0] if m.competitors else None)
@@ -376,7 +388,11 @@ class DataForSEOClient:
 
         mine = {r["keyword"] for r in self.ranked_keywords(m, limit=limit)}
         theirs = self.ranked_keywords(m, target=rival, limit=limit)
-        gap = [r for r in theirs if r["keyword"] not in mine]
+        gap = [
+            r for r in theirs
+            if r["keyword"] not in mine
+            and (r["difficulty"] is None or r["difficulty"] <= max_difficulty)
+        ]
         gap.sort(key=lambda r: r["volume"] or 0, reverse=True)
         log.info("content_gap %s vs %s -> %d oportunidades", m.target, rival, len(gap))
         return gap
@@ -425,10 +441,15 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
     slug = sys.argv[1] if len(sys.argv) > 1 else "pys"
+    # Semillas verificadas contra el contenido real de cada sitio (2026-07-15).
     seeds_por_mercado = {
         "pys": ["péptidos", "bpc 157", "suplementos deportivos"],
-        "arcade": ["autos seminuevos", "vender mi auto", "camionetas usadas"],
-        "nodaris_ec": ["diseño web", "agencia marketing digital", "página web empresa"],
+        # Arcade es marketplace de compra/venta gratis sin comisiones, no agencia
+        # de autos -- semillas reflejan ese ángulo, no "camionetas usadas" genérico.
+        "arcade": ["vender mi auto", "comprar auto usado", "verificación vehicular"],
+        # Nodarishub: mismo dominio para MX y EC, servicios reales del sitio
+        # (diseño web a código, SEO, tiendas en línea), no "agencia marketing digital".
+        "nodaris_ec": ["diseño de páginas web", "posicionamiento web", "tienda en línea"],
     }
 
     cli = DataForSEOClient()
