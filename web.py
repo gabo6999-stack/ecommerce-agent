@@ -51,6 +51,26 @@ except Exception as _sh_err:
     SEO_HEALTH_AVAILABLE = False
     print(f"[SEO-Health] módulo no disponible: {_sh_err}")
 
+# ─── DataForSEO: capa de datos de keywords (integración aditiva) ───────────────
+# Importar NO construye el cliente ni requiere credenciales; el cliente se crea
+# dentro de cada endpoint. Requiere DATAFORSEO_USERNAME/PASSWORD en el entorno.
+try:
+    from dataforseo_client import DataForSEOClient, MARKETS
+    DATAFORSEO_AVAILABLE = True
+except Exception as _df_err:
+    DataForSEOClient = None
+    MARKETS = {}
+    DATAFORSEO_AVAILABLE = False
+    print(f"[DataForSEO] módulo no disponible: {_df_err}")
+
+# Mapa site_key del Blog Agent -> market slug de DataForSEO. grupoptm/PTM NO
+# tiene market (telemedicina, fuera del alcance de DataForSEO por decisión).
+BLOG_SITE_TO_MARKET = {
+    "peptidosysuplementos": "pys", "pys": "pys",
+    "arcademotors": "arcade", "arcade": "arcade",
+    "nodarishub": "nodaris_ec", "nodaris_ec": "nodaris_ec",
+}
+
 # Sitios que entran al dashboard de salud SEO de NEXUS. Rúbrica idéntica para
 # todos (score comparable). Se puede sobreescribir con la env var SEO_HEALTH_SITES
 # ("Nombre|https://url, Nombre2|https://url2").
@@ -4060,6 +4080,104 @@ def batch_status():
 @app.route("/categories")
 def categories_endpoint():
     return jsonify(get_categories(per_page=50))
+
+
+def _resolve_market(data):
+    """Extrae y valida el market de un body JSON. Devuelve (market, error_response)."""
+    raw = (data.get("market") or data.get("site_key") or "").strip()
+    market = BLOG_SITE_TO_MARKET.get(raw, raw)
+    if market not in MARKETS:
+        return None, (jsonify({
+            "error": f"market desconocido: {raw!r}",
+            "opciones": list(MARKETS),
+        }), 400)
+    return market, None
+
+
+@app.route("/blog-topics", methods=["POST"])
+def blog_topics_endpoint():
+    """Temas de blog data-driven (volumen real + KD alcanzable + intención
+    informacional) para un mercado, vía DataForSEO Labs. Lo consume el Blog
+    Agent para elegir tema en vez de pytrends.
+
+    Body JSON:
+      market | site_key : "pys" | "arcade" | "nodaris_ec" (o site_key del Blog Agent)
+      seeds             : lista de semillas (requerido)
+      limit, min_volume, max_difficulty : filtros opcionales
+    """
+    if not DATAFORSEO_AVAILABLE:
+        return jsonify({"error": "DataForSEO no disponible"}), 503
+    data = request.get_json(force=True, silent=True) or {}
+    market, err = _resolve_market(data)
+    if err:
+        return err
+
+    seeds = data.get("seeds") or []
+    if not isinstance(seeds, list) or not seeds:
+        return jsonify({"error": "faltan 'seeds' (lista no vacía de semillas)"}), 400
+    seeds = [str(s) for s in seeds][:10]  # tope duro: acota costo/llamadas a la API
+
+    try:
+        cli = DataForSEOClient()
+    except Exception as e:
+        return jsonify({"error": f"credenciales DataForSEO: {e}"}), 503
+
+    kwargs = {}
+    for k in ("limit", "min_volume", "max_difficulty", "location_code"):
+        if data.get(k) is not None:
+            kwargs[k] = int(data[k])
+
+    try:
+        topics = cli.blog_topics(market, seeds, **kwargs)
+    except Exception as e:
+        return jsonify({"error": f"blog_topics falló: {e}"}), 502
+
+    return jsonify({
+        "market": market,
+        "seeds_used": seeds,
+        "count": len(topics),
+        "cost_usd": round(cli.total_cost, 5),
+        "topics": topics,
+    })
+
+
+@app.route("/content-gap", methods=["POST"])
+def content_gap_endpoint():
+    """Keywords donde un competidor rankea top-20 y el sitio no, con KD
+    alcanzable. Body JSON: market|site_key, competitor (opcional), limit,
+    max_difficulty (opcionales)."""
+    if not DATAFORSEO_AVAILABLE:
+        return jsonify({"error": "DataForSEO no disponible"}), 503
+    data = request.get_json(force=True, silent=True) or {}
+    market, err = _resolve_market(data)
+    if err:
+        return err
+
+    try:
+        cli = DataForSEOClient()
+    except Exception as e:
+        return jsonify({"error": f"credenciales DataForSEO: {e}"}), 503
+
+    kwargs = {}
+    if data.get("competitor"):
+        kwargs["competitor"] = str(data["competitor"])
+    for k in ("limit", "max_difficulty"):
+        if data.get(k) is not None:
+            kwargs[k] = int(data[k])
+
+    try:
+        gap = cli.content_gap(market, **kwargs)
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 400
+    except Exception as e:
+        return jsonify({"error": f"content_gap falló: {e}"}), 502
+
+    return jsonify({
+        "market": market,
+        "count": len(gap),
+        "cost_usd": round(cli.total_cost, 5),
+        "opportunities": gap,
+    })
 
 
 @app.route("/add-links", methods=["POST"])

@@ -259,8 +259,10 @@ class DataForSEOClient:
         seed: str,
         limit: int = 100,
         only_questions: bool = False,
+        location_code: int | None = None,
     ) -> list[dict[str, Any]]:
-        """Long-tail que CONTIENE la semilla. only_questions -> filtra 'cómo/qué/por qué'."""
+        """Long-tail que CONTIENE la semilla. only_questions -> filtra 'cómo/qué/por qué'.
+        location_code sobrescribe la ubicación del market (ej. blog binacional)."""
         m = get_market(market)
         filters: list[Any] = [["keyword_info.search_volume", ">", 0]]
         if only_questions:
@@ -275,7 +277,7 @@ class DataForSEOClient:
             "/v3/dataforseo_labs/google/keyword_suggestions/live",
             {
                 "keyword": seed,
-                "location_code": m.location_code,
+                "location_code": location_code or m.location_code,
                 "language_code": m.language_code,
                 "include_serp_info": True,
                 "filters": filters,
@@ -429,6 +431,7 @@ class DataForSEOClient:
         limit: int = 200,
         min_volume: int = 20,
         max_difficulty: int = 35,
+        location_code: int | None = None,
     ) -> list[dict[str, Any]]:
         """
         Lo que consume el Blog Agent: keywords informacionales, con volumen real
@@ -439,10 +442,17 @@ class DataForSEOClient:
         nicho (ej. "bpc 157") keyword_ideas cae a una categoría genérica y
         devuelve resultados sin relación -- verificado con datos reales de PYS
         el 2026-07-15.
+
+        location_code sobrescribe la ubicación del market. Se usa para el blog
+        binacional de nodarishub (sirve MX+EC): los temas se sacan del volumen
+        de México (5-6x el de Ecuador para las mismas keywords), aunque el
+        content_gap del mismo sitio siga midiéndose contra competidores de EC.
         """
         seen: dict[str, dict[str, Any]] = {}
         for seed in seeds:
-            for k in self.keyword_suggestions(market, seed, limit=limit):
+            for k in self.keyword_suggestions(
+                market, seed, limit=limit, location_code=location_code
+            ):
                 if k["keyword"] not in seen:
                     seen[k["keyword"]] = k
 
