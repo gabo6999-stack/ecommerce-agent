@@ -102,7 +102,22 @@ MARKETS: dict[str, Market] = {
         target=os.getenv("NODARIS_EC_DOMAIN", "nodarishub.com"),
         location_code=2218,  # Ecuador
         language_code="es",
-        competitors=(),
+        # Agencias de diseño web/SEO en Ecuador, ordenadas por tráfico orgánico
+        # real medido con ranked_keywords (location EC 2218) el 2026-07-15:
+        #   narviz.com          116 kw / 652 etv  (agencia SEO más fuerte)
+        #   bimsoluciones.com    74 kw / 352 etv  (Google Partner, Quito)
+        #   monkeyplusbc.com     22 kw / 155 etv  (posicionamiento "código, no
+        #                                          plantillas" casi idéntico a Nodaris)
+        # HALLAZGO: el mercado de agencias EC es SEO-débil (la más fuerte tiene
+        # ~116 kw vs 30-60K de los competidores mexicanos) -> Nodaris puede
+        # dominar con contenido consistente. Descartados: linkatomic.com (es
+        # directorio/listicle, no agencia); togrow/nativosdigitales/adweb (sin
+        # footprint SEO medible en EC en ningún TLD probado).
+        competitors=(
+            "narviz.com",
+            "bimsoluciones.com",
+            "monkeyplusbc.com",
+        ),
     ),
 }
 
