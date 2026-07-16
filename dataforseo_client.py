@@ -78,13 +78,23 @@ MARKETS: dict[str, Market] = {
         target="arcademotorsmx.com",
         location_code=2484,  # México
         language_code="es",
-        # vehiculos.mercadolibre.com.mx: subdominio dedicado a autos de ML,
-        # comparable en modelo de negocio (marketplace comprador-vendedor).
-        # Kavak descartado -- compra/vende inventario propio, no es marketplace.
-        # segundamano.mx descartado -- dado de baja 2023, redirige a Inmuebles24.
-        # Facebook Marketplace descartado -- sin huella SEO indexable (app/login).
-        # Verificado 2026-07-15.
-        competitors=("vehiculos.mercadolibre.com.mx",),
+        # Marketplaces comprador-vendedor (mismo modelo que Arcade), ordenados
+        # por tráfico orgánico real medido con ranked_keywords el 2026-07-15:
+        #   autocosmos.com.mx              60.1K kw / 1.10M etv
+        #   seminuevos.com                52.2K kw / 0.74M etv
+        #   vivanuncios.com.mx            31.6K kw / 0.68M etv
+        #   vehiculos.mercadolibre.com.mx  3.7K kw / 0.40M etv
+        # content_gap() usa competitors[0] por default; pásale competitor="..."
+        # para apuntar a cualquier otro de la lista.
+        # DESCARTADOS: kavak.com (inventario propio, no marketplace);
+        # segundamano.mx (dado de baja 2023); Facebook Marketplace (sin huella
+        # SEO indexable); soloautos.mx y cambiauto.mx (débiles, <1.1K kw).
+        competitors=(
+            "autocosmos.com.mx",
+            "seminuevos.com",
+            "vivanuncios.com.mx",
+            "vehiculos.mercadolibre.com.mx",
+        ),
     ),
     "nodaris_ec": Market(
         slug="nodaris_ec",
