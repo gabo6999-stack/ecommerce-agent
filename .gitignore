@@ -1,5 +1,6 @@
 .env
 .env.txt
+ecommerce-agent__.env*
 __pycache__/
 sessions/
 chats_exportados/
