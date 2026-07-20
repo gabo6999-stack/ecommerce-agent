@@ -96,6 +96,26 @@ MARKETS: dict[str, Market] = {
             "vehiculos.mercadolibre.com.mx",
         ),
     ),
+    "propertyledger": Market(
+        slug="propertyledger",
+        name="Property Ledger Solutions",
+        target="propertyledger.us",
+        location_code=2840,  # Estados Unidos
+        language_code="en",
+        # Contabilidad tercerizada para property managers / HOA / condos.
+        # Competidores REALES medidos con ranked_keywords (location US 2840) el
+        # 2026-07-20; ver research_propertyledger.py. Orden = footprint orgánico.
+        # Mezcla de servicios de bookkeeping PM (apmhelp) + blogs de software PM
+        # que dominan las SERPs informacionales del nicho (doorloop, buildium,
+        # appfolio). content_gap() usa competitors[0]; pásale competitor="..."
+        # para cualquier otro.
+        competitors=(
+            "doorloop.com",
+            "buildium.com",
+            "apmhelp.com",
+            "appfolio.com",
+        ),
+    ),
     "nodaris_ec": Market(
         slug="nodaris_ec",
         name="Nodarishub Ecuador",

@@ -7,6 +7,9 @@ chats_exportados/
 backlinks_data/
 *.pyc
 
+# Volcados crudos de DataForSEO (regenerables con los scripts research_*.py)
+propertyledger_keyword_cache.json
+
 # Config local de Claude Code (no compartir)
 .claude/
 
