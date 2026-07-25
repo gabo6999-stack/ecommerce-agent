@@ -116,6 +116,16 @@ MARKETS: dict[str, Market] = {
             "appfolio.com",
         ),
     ),
+    "raditech": Market(
+        slug="raditech",
+        name="Raditech (teleradiología B2B)",
+        target="raditech.mx",
+        location_code=2484,  # México
+        language_code="es",
+        # Competidor real medido con ranked_keywords (2026-07-17): edenmed.com
+        # (Eva rebrandeó a Eden, 239kw/255K etv). telerob/terx sin footprint SEO.
+        competitors=("edenmed.com",),
+    ),
     "nodaris_ec": Market(
         slug="nodaris_ec",
         name="Nodarishub Ecuador",

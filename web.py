@@ -69,6 +69,7 @@ BLOG_SITE_TO_MARKET = {
     "peptidosysuplementos": "pys", "pys": "pys",
     "arcademotors": "arcade", "arcade": "arcade",
     "nodarishub": "nodaris_ec", "nodaris_ec": "nodaris_ec",
+    "raditech": "raditech",
 }
 
 # Sitios que entran al dashboard de salud SEO de NEXUS. Rúbrica idéntica para
@@ -3961,6 +3962,101 @@ def seo_health_run():
     return jsonify(run_seo_health_scan())
 
 
+# ─── Reporte de CRECIMIENTO SEO (GSC + DataForSEO → dashboard NEXUS) ───────────
+# A diferencia del audit técnico (home, semanal), esto mide TODO el sitio y refleja
+# el trabajo de contenido: clics/impresiones/posición (GSC) + visibilidad orgánica
+# real (DataForSEO ranked_keywords). Cadencia mensual (los rankings se mueven lento).
+
+def gsc_site_totals(site_url, refresh_token, days=28):
+    """Totales agregados de GSC (sin dimensión): clics, impresiones, CTR, posición media."""
+    service = get_gsc_service(refresh_token=refresh_token)
+    end = datetime.now().strftime("%Y-%m-%d")
+    start = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
+    res = service.searchanalytics().query(
+        siteUrl=site_url,
+        body={"startDate": start, "endDate": end, "dimensions": []},
+    ).execute()
+    rows = res.get("rows", [])
+    if not rows:
+        return {"clicks": 0, "impressions": 0, "ctr_pct": 0.0, "position": 0.0, "days": days}
+    r = rows[0]
+    return {
+        "clicks": int(r.get("clicks", 0)),
+        "impressions": int(r.get("impressions", 0)),
+        "ctr_pct": round(r.get("ctr", 0) * 100, 2),
+        "position": round(r.get("position", 0), 1),
+        "days": days,
+    }
+
+
+def dfs_visibility(market, limit=700):
+    """Visibilidad orgánica en DataForSEO: keywords por banda de posición + posición media."""
+    cli = DataForSEOClient()
+    rk = cli.ranked_keywords(market, limit=limit, max_position=100)
+    def band(lo, hi):
+        return sum(1 for x in rk if x["position"] and lo <= x["position"] <= hi)
+    pos = [x["position"] for x in rk if x["position"]]
+    return {
+        "kw_top3": band(1, 3),
+        "kw_top10": band(1, 10),
+        "kw_top20": band(1, 20),
+        "kw_top100": len(rk),
+        "avg_position": round(sum(pos) / len(pos), 1) if pos else None,
+        "cost_usd": round(cli.total_cost, 4),
+    }
+
+
+def run_seo_growth_scan():
+    """Reúne GSC + DataForSEO por sitio y empuja a NEXUS (/api/seo-growth-ingest). Nunca lanza."""
+    sites = [
+        {"name": "PYS",          "gsc_site": GSC_SITE_URL,          "gsc_token": GSC_REFRESH_TOKEN,          "market": "pys"},
+        {"name": "raditech",     "gsc_site": RADITECH_GSC_SITE_URL, "gsc_token": RADITECH_GSC_REFRESH_TOKEN, "market": "raditech"},
+        {"name": "nodarishub",   "gsc_site": None,                  "gsc_token": None,                       "market": "nodaris_ec"},
+        {"name": "arcademotors", "gsc_site": None,                  "gsc_token": None,                       "market": "arcade"},
+    ]
+    nexus_url = os.environ.get("NEXUS_URL")
+    nexus_key = os.environ.get("NEXUS_KEY")
+    results = []
+    for s in sites:
+        gsc = None
+        if s["gsc_site"] and s["gsc_token"]:
+            try:
+                gsc = gsc_site_totals(s["gsc_site"], s["gsc_token"])
+            except Exception as e:
+                gsc = {"error": str(e)[:200]}
+        dfs = None
+        if s["market"] and DATAFORSEO_AVAILABLE:
+            try:
+                dfs = dfs_visibility(s["market"])
+            except Exception as e:
+                dfs = {"error": str(e)[:200]}
+        payload = {
+            "site": s["name"], "gsc": gsc, "dfs": dfs,
+            "captured_at": datetime.utcnow().isoformat() + "Z",
+        }
+        results.append({"site": s["name"],
+                        "gsc_clicks": (gsc or {}).get("clicks"),
+                        "kw_top20": (dfs or {}).get("kw_top20"),
+                        "gsc_error": (gsc or {}).get("error"),
+                        "dfs_error": (dfs or {}).get("error")})
+        if nexus_url and nexus_key:
+            try:
+                requests.post(f"{nexus_url}/api/seo-growth-ingest", json=payload,
+                              headers={"x-nexus-key": nexus_key}, timeout=25)
+                print(f"[SEO-Growth] {s['name']} → NEXUS OK")
+            except Exception as e:
+                print(f"[SEO-Growth] {s['name']}: no se pudo reportar a NEXUS: {e}")
+        else:
+            print(f"[SEO-Growth] {s['name']}: NEXUS no configurado")
+    return {"scanned": len(results), "results": results}
+
+
+@app.route("/seo-growth/run", methods=["GET", "POST"])
+def seo_growth_run():
+    """Dispara el reporte de crecimiento (GSC + DataForSEO) a mano y lo empuja a NEXUS."""
+    return jsonify(run_seo_growth_scan())
+
+
 def run_weekly_report():
     def weekly_job():
         report = generate_seo_report()
@@ -3980,8 +4076,18 @@ def run_weekly_report():
         except Exception as e:
             print(f"[SEO-Health] job semanal falló: {e}")
 
+    def seo_growth_job():
+        # Mensual: corre el día 1 de cada mes (chequeo diario). El proceso se
+        # mantiene vivo (el job semanal ya lo confirma), así que el día 1 dispara.
+        if datetime.now().day == 1:
+            try:
+                run_seo_growth_scan()
+            except Exception as e:
+                print(f"[SEO-Growth] job mensual falló: {e}")
+
     schedule.every().monday.at("09:00").do(weekly_job)
     schedule.every().monday.at("08:00").do(seo_health_job)
+    schedule.every().day.at("08:30").do(seo_growth_job)
     while True:
         schedule.run_pending()
         threading.Event().wait(60)
