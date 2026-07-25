@@ -1744,6 +1744,57 @@ def _extract_faq_from_html(content):
     return faq_items
 
 
+def sanitize_faq_jsonld(content):
+    """Regenera de forma DETERMINISTA el JSON-LD FAQPage al final del contenido.
+
+    Corrige el bug reportado por Rafa: cuando el LLM redacta a mano el JSON-LD
+    dentro del HTML (JSON anidado en un string dentro de otro JSON), se rompe el
+    escapado — faltan comillas de cierre desde la 2a pregunta en adelante —, a
+    veces queda metadata de generación pegada tras </script>, y el schema no
+    coincide con la FAQ visible → Google Search Console no lo puede parsear.
+
+    Estrategia: leer las preguntas/respuestas VISIBLES (<h3>¿...?</h3> + <p>),
+    eliminar cualquier <script ld+json> previo Y todo lo que le siga hasta EOF
+    (quita el script roto + la metadata pegada), y reconstruir el schema con
+    json.dumps, que escapa correctamente TODAS las comillas de TODAS las
+    entradas. Si no hay FAQ visible se devuelve el contenido SIN schema (mejor
+    sin FAQ schema que con uno corrupto). El texto del JSON-LD coincide
+    exactamente con la FAQ visible por construcción. Cubre las 4 reglas de Rafa.
+    """
+    import re as _re, html as _html
+    if not content:
+        return content
+    tail_re = _re.compile(r'<script[^>]*application/ld\+json[\s\S]*$', _re.IGNORECASE)
+    has_ld = 'application/ld+json' in content.lower()
+
+    def _txt(frag):
+        return _html.unescape(_re.sub(r'<[^>]+>', '', frag or '')).strip()
+
+    # 1) parte visible = todo lo anterior al primer <script ld+json>
+    visible = tail_re.split(content, 1)[0] if has_ld else content
+    # 2) extraer pares pregunta (<h3>) + primera respuesta (<p>) de la FAQ visible
+    faq_items = []
+    for m in _re.finditer(r'<h3[^>]*>([\s\S]*?)</h3>([\s\S]*?)(?=<h[23]\b|<script\b|$)', visible, _re.IGNORECASE):
+        question = _re.sub(r'\s+', ' ', _txt(m.group(1)))
+        pm = _re.search(r'<p[^>]*>([\s\S]*?)</p>', m.group(2), _re.IGNORECASE)
+        if not pm:
+            continue
+        answer = _re.sub(r'\s+', ' ', _txt(pm.group(1)))
+        if '?' in question and len(answer) > 20:
+            faq_items.append({
+                "@type": "Question",
+                "name": question,
+                "acceptedAnswer": {"@type": "Answer", "text": answer},
+            })
+    # 3) quitar cualquier ld+json previo + TODO lo que le siga (script roto + metadata)
+    cleaned = tail_re.sub('', content).rstrip() if has_ld else content.rstrip()
+    # 4) reconstruir el schema válido SOLO si hay FAQ visible
+    if faq_items:
+        schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faq_items}
+        cleaned += '\n<script type="application/ld+json">\n' + json.dumps(schema, ensure_ascii=False, indent=2) + '\n</script>'
+    return cleaned
+
+
 def add_schema_markup(post_id, schema_type="Article"):
     import re
     post = get_post_content(post_id)
@@ -4247,10 +4298,7 @@ Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto exist
    (PubMed, examine.com, NIH, FDA, NEJM, Mayo Clinic). Solo URLs reales y verificables.
    Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
 4. NO inventes productos ni posts que no estén en las listas anteriores.
-5. FAQ SCHEMA JSON-LD: si el artículo tiene sección FAQ, añade al final del HTML:
-   <script type="application/ld+json">
-   {{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"Pregunta","acceptedAnswer":{{"@type":"Answer","text":"Respuesta"}}}}]}}
-   </script>
+5. NO escribas ningún <script type="application/ld+json"> ni schema JSON-LD: el sistema genera el schema FAQPage automáticamente a partir de la FAQ visible (<h3>/<p>) tras tu respuesta. Solo asegúrate de redactar bien la sección FAQ visible.
    Usa las preguntas y respuestas reales del artículo. Respuestas en texto plano sin HTML.
 6. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
 
@@ -4265,6 +4313,7 @@ Devuelve solo el HTML listo para WordPress."""
         optimized_content = response.content[0].text.strip()
         if optimized_content.startswith("```"):
             optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+        optimized_content = sanitize_faq_jsonld(optimized_content)
 
         if dry_run:
             return jsonify({
@@ -4405,6 +4454,7 @@ Agrega links de forma NATURAL dentro del texto existente:
                     optimized = result.result.message.content[0].text.strip()
                     if optimized.startswith("```"):
                         optimized = optimized.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+                    optimized = sanitize_faq_jsonld(optimized)
                     r = update_post(post_id, {"content": optimized})
                     if r.get("success"):
                         _batch_links_status["done"] += 1
@@ -4508,10 +4558,7 @@ Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto exist
    Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
 4. Asegúrate de que el contenido tenga al menos un H2 y una conclusión con llamada a la acción.
 5. NO inventes productos ni posts que no estén en las listas anteriores.
-6. FAQ SCHEMA JSON-LD: si el artículo tiene sección FAQ, añade al final del HTML:
-   <script type="application/ld+json">
-   {{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"Pregunta","acceptedAnswer":{{"@type":"Answer","text":"Respuesta"}}}}]}}
-   </script>
+6. NO escribas ningún <script type="application/ld+json"> ni schema JSON-LD: el sistema genera el schema FAQPage automáticamente a partir de la FAQ visible (<h3>/<p>) tras tu respuesta. Solo asegúrate de redactar bien la sección FAQ visible.
    Usa las preguntas y respuestas reales del artículo. Respuestas en texto plano sin HTML.
 7. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
 
@@ -4526,6 +4573,7 @@ Devuelve solo el HTML listo para WordPress."""
         optimized_content = response.content[0].text.strip()
         if optimized_content.startswith("```"):
             optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+        optimized_content = sanitize_faq_jsonld(optimized_content)
 
         result = update_post(post_id, {"content": optimized_content})
 
@@ -4795,23 +4843,10 @@ Tu tarea — enriquece el contenido añadiendo de forma NATURAL:
 5. CTA final (si no existe): termina con un párrafo de cierre con llamada a la acción institucional
    como "Solicita una demostración de VIRA PACS" o "Conoce nuestras soluciones de teleradiología".
 
-6. FAQ SCHEMA JSON-LD: siempre que el artículo tenga (o tú agregues) una sección FAQ,
-   añade al final del HTML el siguiente bloque con las preguntas y respuestas reales del artículo:
-   <script type="application/ld+json">
-   {{
-     "@context": "https://schema.org",
-     "@type": "FAQPage",
-     "mainEntity": [
-       {{
-         "@type": "Question",
-         "name": "Pregunta 1",
-         "acceptedAnswer": {{"@type": "Answer", "text": "Respuesta 1"}}
-       }}
-     ]
-   }}
-   </script>
-   Incluye todas las preguntas de la sección FAQ. Las respuestas deben ser texto plano (sin HTML).
-   Este bloque permite que Google muestre rich snippets en los resultados de búsqueda.
+6. NO escribas ningún bloque <script type="application/ld+json"> ni schema JSON-LD.
+   El sistema genera el schema FAQPage automáticamente a partir de la FAQ visible (<h3>/<p>)
+   después de tu respuesta. Tú solo asegúrate de que la sección FAQ visible quede bien redactada,
+   con cada pregunta en <h3> y su respuesta en <p>.
 
 REGLAS:
 - No inventes posts ni páginas que no estén en las listas anteriores.
@@ -4828,6 +4863,7 @@ REGLAS:
         optimized_content = response.content[0].text.strip()
         if optimized_content.startswith("```"):
             optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+        optimized_content = sanitize_faq_jsonld(optimized_content)
 
         result = update_raditech_post(post_id, {"content": optimized_content})
 
@@ -4897,10 +4933,7 @@ Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto exist
    Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
 3. Asegúrate de que el contenido tenga al menos un H2 y que la conclusión incluya un CTA hacia agendar una consulta médica en grupoptm.com.
 4. NO inventes posts que no estén en la lista anterior. NO enlaces a peptidosysuplementos.mx ni a ningún producto de PYS — PTM y PYS son independientes.
-6. FAQ SCHEMA JSON-LD: si el artículo tiene sección FAQ, añade al final del HTML:
-   <script type="application/ld+json">
-   {{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"Pregunta","acceptedAnswer":{{"@type":"Answer","text":"Respuesta"}}}}]}}
-   </script>
+6. NO escribas ningún <script type="application/ld+json"> ni schema JSON-LD: el sistema genera el schema FAQPage automáticamente a partir de la FAQ visible (<h3>/<p>) tras tu respuesta. Solo asegúrate de redactar bien la sección FAQ visible.
    Usa las preguntas y respuestas reales del artículo. Respuestas en texto plano sin HTML.
 7. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
 
@@ -4915,6 +4948,7 @@ Devuelve solo el HTML listo para WordPress."""
         optimized_content = response.content[0].text.strip()
         if optimized_content.startswith("```"):
             optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+        optimized_content = sanitize_faq_jsonld(optimized_content)
 
         result = update_ptm_post(post_id, {"content": optimized_content})
 
@@ -5104,10 +5138,7 @@ Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto exist
 3. Asegúrate de que haya al menos un H2 y que la conclusión incluya un CTA claro a cotizar con Nodaris Hub:
    <a href="https://nodarishub.com/">cotiza tu proyecto</a>.
 4. NO inventes posts que no estén en la lista. NADA de lenguaje médico ni científico.
-5. FAQ SCHEMA JSON-LD: si el artículo tiene sección FAQ, añade al final del HTML:
-   <script type="application/ld+json">
-   {{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"Pregunta","acceptedAnswer":{{"@type":"Answer","text":"Respuesta"}}}}]}}
-   </script>
+5. NO escribas ningún <script type="application/ld+json"> ni schema JSON-LD: el sistema genera el schema FAQPage automáticamente a partir de la FAQ visible (<h3>/<p>) tras tu respuesta. Solo asegúrate de redactar bien la sección FAQ visible.
    Usa las preguntas y respuestas reales del artículo. Respuestas en texto plano sin HTML.
 6. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
 
@@ -5122,6 +5153,7 @@ Devuelve solo el HTML listo para WordPress."""
         optimized_content = response.content[0].text.strip()
         if optimized_content.startswith("```"):
             optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+        optimized_content = sanitize_faq_jsonld(optimized_content)
 
         result = update_nodaris_post(post_id, {"content": optimized_content})
 
@@ -5331,6 +5363,7 @@ Devuelve solo el HTML listo para WordPress."""
         optimized_content = response.content[0].text.strip()
         if optimized_content.startswith("```"):
             optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+        optimized_content = sanitize_faq_jsonld(optimized_content)
 
         result = update_cmlc_post(post_id, {"content": optimized_content})
 
