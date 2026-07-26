@@ -4015,8 +4015,10 @@ def run_seo_growth_scan():
     sites = [
         {"name": "PYS",          "gsc_site": GSC_SITE_URL,          "gsc_token": GSC_REFRESH_TOKEN,          "market": "pys"},
         {"name": "raditech",     "gsc_site": RADITECH_GSC_SITE_URL, "gsc_token": RADITECH_GSC_REFRESH_TOKEN, "market": "raditech"},
-        {"name": "nodarishub",   "gsc_site": os.environ.get("NODARIS_GSC_SITE_URL", "sc-domain:nodarishub.com"),      "gsc_token": GSC_REFRESH_TOKEN, "market": "nodaris_ec"},
-        {"name": "arcademotors", "gsc_site": os.environ.get("ARCADE_GSC_SITE_URL", "sc-domain:arcademotorsmx.com"),   "gsc_token": GSC_REFRESH_TOKEN, "market": "arcade"},
+        # Verificados como propiedad "prefijo de URL" (https://…), no "dominio"
+        # (sc-domain:…) — confirmado con /search-console/sites el 2026-07-25.
+        {"name": "nodarishub",   "gsc_site": os.environ.get("NODARIS_GSC_SITE_URL", "https://nodarishub.com/"),      "gsc_token": GSC_REFRESH_TOKEN, "market": "nodaris_ec"},
+        {"name": "arcademotors", "gsc_site": os.environ.get("ARCADE_GSC_SITE_URL", "https://arcademotorsmx.com/"),   "gsc_token": GSC_REFRESH_TOKEN, "market": "arcade"},
     ]
     nexus_url = os.environ.get("NEXUS_URL")
     nexus_key = os.environ.get("NEXUS_KEY")
@@ -4061,23 +4063,6 @@ def seo_growth_run():
     return jsonify(run_seo_growth_scan())
 
 
-@app.route("/search-console/sites")
-def gsc_list_sites():
-    """Diagnóstico: qué propiedades (y formato/permiso) ve cada token de GSC."""
-    out = {}
-    for label, token in [("cuenta_PYS", GSC_REFRESH_TOKEN),
-                         ("cuenta_raditech", RADITECH_GSC_REFRESH_TOKEN),
-                         ("cuenta_PTM", PTM_GSC_REFRESH_TOKEN)]:
-        if not token:
-            out[label] = "sin token"
-            continue
-        try:
-            svc = get_gsc_service(refresh_token=token)
-            sites = svc.sites().list().execute().get("siteEntry", [])
-            out[label] = [{"url": s.get("siteUrl"), "permiso": s.get("permissionLevel")} for s in sites]
-        except Exception as e:
-            out[label] = {"error": str(e)[:200]}
-    return jsonify(out)
 
 
 def run_weekly_report():
