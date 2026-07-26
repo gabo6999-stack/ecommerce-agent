@@ -4008,28 +4008,33 @@ def dfs_visibility(market, limit=700):
 
 def run_seo_growth_scan():
     """Reúne GSC + DataForSEO por sitio y empuja a NEXUS (/api/seo-growth-ingest). Nunca lanza."""
-    # nodarishub y arcademotors se leen con el MISMO token de PYS: un token OAuth
-    # de GSC cubre todas las propiedades de la cuenta (confirmado 2026-07-25 que
-    # están verificados en la misma cuenta de Google). Sobreescribible por env var
-    # por si la propiedad es "prefijo de URL" en vez de "dominio".
+    # Todas las propiedades se leen con el token de la cuenta (un token OAuth de
+    # GSC cubre toda la cuenta). Se prueban candidatos en orden: PRIMERO la
+    # propiedad "dominio" (sc-domain: — captura http/https/www/subdominios, no
+    # pierde tráfico) y si aún no está verificada, cae a "prefijo de URL"
+    # (https://…). Así, en cuanto verifiques el dominio, se usa solo.
     sites = [
-        {"name": "PYS",          "gsc_site": GSC_SITE_URL,          "gsc_token": GSC_REFRESH_TOKEN,          "market": "pys"},
-        {"name": "raditech",     "gsc_site": RADITECH_GSC_SITE_URL, "gsc_token": RADITECH_GSC_REFRESH_TOKEN, "market": "raditech"},
-        # Verificados como propiedad "prefijo de URL" (https://…), no "dominio"
-        # (sc-domain:…) — confirmado con /search-console/sites el 2026-07-25.
-        {"name": "nodarishub",   "gsc_site": os.environ.get("NODARIS_GSC_SITE_URL", "https://nodarishub.com/"),      "gsc_token": GSC_REFRESH_TOKEN, "market": "nodaris_ec"},
-        {"name": "arcademotors", "gsc_site": os.environ.get("ARCADE_GSC_SITE_URL", "https://arcademotorsmx.com/"),   "gsc_token": GSC_REFRESH_TOKEN, "market": "arcade"},
+        {"name": "PYS",          "gsc_candidates": ["sc-domain:peptidosysuplementos.mx", "https://peptidosysuplementos.mx/"], "gsc_token": GSC_REFRESH_TOKEN,          "market": "pys"},
+        {"name": "raditech",     "gsc_candidates": ["sc-domain:raditech.mx", "https://raditech.mx/"],                          "gsc_token": RADITECH_GSC_REFRESH_TOKEN, "market": "raditech"},
+        {"name": "nodarishub",   "gsc_candidates": ["sc-domain:nodarishub.com", "https://nodarishub.com/"],                    "gsc_token": GSC_REFRESH_TOKEN,          "market": "nodaris_ec"},
+        {"name": "arcademotors", "gsc_candidates": ["sc-domain:arcademotorsmx.com", "https://arcademotorsmx.com/"],            "gsc_token": GSC_REFRESH_TOKEN,          "market": "arcade"},
     ]
     nexus_url = os.environ.get("NEXUS_URL")
     nexus_key = os.environ.get("NEXUS_KEY")
     results = []
     for s in sites:
         gsc = None
-        if s["gsc_site"] and s["gsc_token"]:
-            try:
-                gsc = gsc_site_totals(s["gsc_site"], s["gsc_token"])
-            except Exception as e:
-                gsc = {"error": str(e)[:200]}
+        if s.get("gsc_candidates") and s["gsc_token"]:
+            last_err = None
+            for cand in s["gsc_candidates"]:
+                try:
+                    gsc = gsc_site_totals(cand, s["gsc_token"])
+                    gsc["property"] = cand  # qué propiedad se usó (dominio vs prefijo)
+                    break
+                except Exception as e:
+                    last_err = e  # típicamente 403 si esa propiedad no existe/sin permiso
+            if gsc is None:
+                gsc = {"error": str(last_err)[:200]}
         dfs = None
         if s["market"] and DATAFORSEO_AVAILABLE:
             try:
