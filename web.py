@@ -4008,11 +4008,15 @@ def dfs_visibility(market, limit=700):
 
 def run_seo_growth_scan():
     """Reúne GSC + DataForSEO por sitio y empuja a NEXUS (/api/seo-growth-ingest). Nunca lanza."""
+    # nodarishub y arcademotors se leen con el MISMO token de PYS: un token OAuth
+    # de GSC cubre todas las propiedades de la cuenta (confirmado 2026-07-25 que
+    # están verificados en la misma cuenta de Google). Sobreescribible por env var
+    # por si la propiedad es "prefijo de URL" en vez de "dominio".
     sites = [
         {"name": "PYS",          "gsc_site": GSC_SITE_URL,          "gsc_token": GSC_REFRESH_TOKEN,          "market": "pys"},
         {"name": "raditech",     "gsc_site": RADITECH_GSC_SITE_URL, "gsc_token": RADITECH_GSC_REFRESH_TOKEN, "market": "raditech"},
-        {"name": "nodarishub",   "gsc_site": None,                  "gsc_token": None,                       "market": "nodaris_ec"},
-        {"name": "arcademotors", "gsc_site": None,                  "gsc_token": None,                       "market": "arcade"},
+        {"name": "nodarishub",   "gsc_site": os.environ.get("NODARIS_GSC_SITE_URL", "sc-domain:nodarishub.com"),      "gsc_token": GSC_REFRESH_TOKEN, "market": "nodaris_ec"},
+        {"name": "arcademotors", "gsc_site": os.environ.get("ARCADE_GSC_SITE_URL", "sc-domain:arcademotorsmx.com"),   "gsc_token": GSC_REFRESH_TOKEN, "market": "arcade"},
     ]
     nexus_url = os.environ.get("NEXUS_URL")
     nexus_key = os.environ.get("NEXUS_KEY")
