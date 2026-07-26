@@ -4061,6 +4061,25 @@ def seo_growth_run():
     return jsonify(run_seo_growth_scan())
 
 
+@app.route("/search-console/sites")
+def gsc_list_sites():
+    """Diagnóstico: qué propiedades (y formato/permiso) ve cada token de GSC."""
+    out = {}
+    for label, token in [("cuenta_PYS", GSC_REFRESH_TOKEN),
+                         ("cuenta_raditech", RADITECH_GSC_REFRESH_TOKEN),
+                         ("cuenta_PTM", PTM_GSC_REFRESH_TOKEN)]:
+        if not token:
+            out[label] = "sin token"
+            continue
+        try:
+            svc = get_gsc_service(refresh_token=token)
+            sites = svc.sites().list().execute().get("siteEntry", [])
+            out[label] = [{"url": s.get("siteUrl"), "permiso": s.get("permissionLevel")} for s in sites]
+        except Exception as e:
+            out[label] = {"error": str(e)[:200]}
+    return jsonify(out)
+
+
 def run_weekly_report():
     def weekly_job():
         report = generate_seo_report()
