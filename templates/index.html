@@ -37,6 +37,7 @@ input::placeholder{color:#555}
   <button class="btn" onclick="abrirBatch()" style="background:#fefce8;color:#854d0e;border-color:#fde047;">⚡ Batch optimize</button>
   <button class="btn" onclick="abrirBatchLinks()" style="background:#f0fdf4;color:#166534;border-color:#86efac;">🔗 Batch links</button>
   <button class="btn" onclick="abrirAuditoria()" style="background:#fdf4ff;color:#7e22ce;border-color:#d8b4fe;">🔍 Auditoría blogs</button>
+  <button class="btn" onclick="abrirLinkMap()" style="background:#ecfeff;color:#0e7490;border-color:#67e8f9;">🕸️ Mapa de enlaces</button>
   <button class="btn btn-danger" onclick="clearChat()">Nueva sesion</button>
 </div>
 <!-- Modal batch optimize -->
@@ -75,6 +76,33 @@ input::placeholder{color:#555}
     <div style="display:flex;gap:8px;">
       <button onclick="iniciarBatchLinks()" id="btn-links-start" style="flex:1;padding:10px;background:#22c55e;color:white;border:none;border-radius:8px;cursor:pointer;font-size:14px;">Iniciar todos los blogs</button>
       <button onclick="cerrarBatchLinks()" style="padding:10px 16px;background:#2a2a2a;color:#eee;border:none;border-radius:8px;cursor:pointer;">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal mapa de enlaces blog → ficha -->
+<div id="linkmap-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center;">
+  <div style="background:#1a1a1a;border-radius:12px;padding:28px;width:760px;max-width:95vw;max-height:90vh;overflow-y:auto;">
+    <h3 style="margin:0 0 8px;color:#eee;">🕸️ Mapa de enlaces blog → ficha</h3>
+    <p style="color:#aaa;font-size:13px;margin:0 0 16px;">Enlaces entrantes por ficha. Las huérfanas van en rojo: son las que el blog no alimenta.</p>
+    <div id="linkmap-loading" style="color:#aaa;font-size:13px;">Midiendo (revisa cada URL, tarda ~1 min)...</div>
+    <div id="linkmap-body" style="display:none;">
+      <div id="linkmap-resumen" style="color:#eee;font-size:13px;margin-bottom:12px;"></div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead>
+          <tr style="background:#2a2a2a;">
+            <th style="padding:8px;text-align:left;color:#aaa;">Ficha</th>
+            <th style="padding:8px;text-align:center;color:#aaa;">Entrantes</th>
+            <th style="padding:8px;text-align:left;color:#aaa;">Posts que la enlazan</th>
+          </tr>
+        </thead>
+        <tbody id="linkmap-tbody"></tbody>
+      </table>
+      <div id="linkmap-rotos" style="margin-top:14px;font-size:12px;color:#f87171;"></div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:8px;">
+      <button onclick="cargarLinkMap()" style="padding:10px 16px;background:#7c3aed;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px;">🔄 Actualizar</button>
+      <button onclick="cerrarLinkMap()" style="padding:10px 16px;background:#2a2a2a;color:#eee;border:none;border-radius:8px;cursor:pointer;">Cerrar</button>
     </div>
   </div>
 </div>
@@ -261,6 +289,45 @@ function pollLinks() {
         document.getElementById('links-results').style.display = 'block';
       }
     }
+  });
+}
+
+function abrirLinkMap() {
+  document.getElementById('linkmap-modal').style.display = 'flex';
+  cargarLinkMap();
+}
+
+function cerrarLinkMap() {
+  document.getElementById('linkmap-modal').style.display = 'none';
+}
+
+function cargarLinkMap() {
+  document.getElementById('linkmap-loading').style.display = 'block';
+  document.getElementById('linkmap-body').style.display = 'none';
+  fetch('/blog-link-map').then(r => r.json()).then(d => {
+    document.getElementById('linkmap-loading').style.display = 'none';
+    if (d.error) {
+      document.getElementById('linkmap-loading').textContent = 'Error: ' + d.error;
+      document.getElementById('linkmap-loading').style.display = 'block';
+      return;
+    }
+    document.getElementById('linkmap-body').style.display = 'block';
+    document.getElementById('linkmap-resumen').innerHTML =
+      `<strong>${d.fichas.length}</strong> fichas enlazables · ` +
+      `<strong style="color:${d.huerfanas.length ? '#f87171' : '#4ade80'}">${d.huerfanas.length}</strong> huérfanas · ` +
+      `<strong style="color:${d.rotos.length ? '#f87171' : '#4ade80'}">${d.rotos.length}</strong> enlaces rotos · ` +
+      `${d.posts_revisados} posts revisados · ${d.agotadas.length} fichas agotadas excluidas del mapa`;
+    document.getElementById('linkmap-tbody').innerHTML = d.fichas.map(f => `
+      <tr style="border-bottom:1px solid #2a2a2a;">
+        <td style="padding:8px;color:#eee;"><a href="${f.url}" target="_blank" style="color:#67e8f9;text-decoration:none;">${f.nombre}</a></td>
+        <td style="padding:8px;text-align:center;color:${f.entrantes === 0 ? '#f87171' : f.entrantes < 3 ? '#fbbf24' : '#4ade80'};font-weight:600;">${f.entrantes}</td>
+        <td style="padding:8px;color:#888;">${f.posts.join(', ') || '—'}</td>
+      </tr>`).join('');
+    document.getElementById('linkmap-rotos').innerHTML = d.rotos.length
+      ? '<strong>Enlaces rotos:</strong><br>' + d.rotos.map(r => `· post ${r.post} → ${r.url} (${r.detalle})`).join('<br>')
+      : '';
+  }).catch(e => {
+    document.getElementById('linkmap-loading').textContent = 'Error: ' + e;
   });
 }
 

@@ -4350,6 +4350,683 @@ def content_gap_endpoint():
     })
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# Guardarraíles del blog de PYS
+#
+# El blog es la capa informativa que alimenta a las fichas. Para que eso sea
+# cierto y no una intención, todo artículo pasa por: mapa de fichas al contexto
+# ANTES de escribir, ruteo por intención (lo transaccional es de la ficha, no
+# del blog), validación de enlaces y las compuertas del retrofeed
+# (docs/playbook-fichas-pys.md, fase 4). Medición que originó esto:
+# docs/plan-blog-interlinks-pys.md
+# ═══════════════════════════════════════════════════════════════════════════
+import re as _re
+import html as _html_mod
+
+# Alias que el nombre del producto no da por sí solo. Son alias del PRODUCTO,
+# nunca del compuesto genérico: `IGF-1 LR3` sí, `IGF-1` no — en el texto de un
+# blog `IGF-1` casi siempre es la hormona endógena, y enlazarla a una ficha es
+# engañoso (verificado el 2026-07-31: 6 menciones, 0 enlazables).
+PYS_ALIASES = {
+    19:   ["retatrutide"],
+    790:  ["mots c", "motsc"],
+    795:  ["bpc157", "tb-500", "tb500", "timosina beta-4"],
+    1128: ["igf-1 lr3"],
+    1131: ["nad+", "nad plus"],
+    1525: ["tirzepatide", "mounjaro", "zepbound"],
+    1689: ["semaglutide", "ozempic", "wegovy"],
+    2230: ["thymosin alpha-1", "timosina alfa-1", "ta-1"],
+    2231: ["sermorelin"],
+    2232: ["cjc-1295", "ipamorelin", "ipamorelina", "cjc 1295"],
+    2234: ["glutathione", "gsh"],
+    2240: ["cagrilintide", "cagrisema"],
+}
+
+_product_map_cache = {"at": 0, "data": None}
+
+
+def _alias_de_nombre(nombre):
+    """Alias legibles a partir del nombre comercial de la ficha."""
+    base = nombre.split("|")[0].strip()
+    base = _re.sub(r"\s*\([^)]*\)", " ", base)                       # (no-DAC)
+    base = _re.sub(r"\b\d+\s*(mg|ml|mcg|g|caps|c[áa]psulas)\b", "", base, flags=_re.I)
+    base = _re.sub(r"\s{2,}", " ", base).strip(" -+/")
+    alias = [base] if len(base) > 2 else []
+    for parte in _re.split(r"\s*\+\s*", base):                       # combos
+        parte = parte.strip()
+        if len(parte) > 2 and parte.lower() != base.lower():
+            alias.append(parte)
+    return alias
+
+
+def build_product_map(force=False, ttl=1800):
+    """Mapa {compuesto → ficha} que consume el Blog Agent antes de escribir.
+
+    Tres reglas que no se negocian:
+      · solo `publish` + `instock` — no se enlaza lo que no se puede comprar
+      · si la ficha tiene `rank_math_canonical_url` a otra, el enlace va a la
+        principal (793→790, 1531→1525): consolidar la señal, no partirla
+      · NUNCA devuelve URLs de categoría — no porque estén rotas (responden
+        200), sino porque son archivos de categoría del blog, finos y
+        redundantes entre sí: mal destino de enlace, no destino caído
+    """
+    ahora = time.time()
+    if not force and _product_map_cache["data"] and ahora - _product_map_cache["at"] < ttl:
+        return _product_map_cache["data"]
+
+    productos, page = [], 1
+    while page <= 10:
+        r = requests.get(
+            f"{WC_URL}/wp-json/wc/v3/products",
+            auth=HTTPBasicAuth(WC_KEY, WC_SECRET),
+            params={"per_page": 100, "page": page, "status": "publish"},
+            timeout=40,
+        )
+        if r.status_code != 200:
+            break
+        lote = r.json()
+        if not isinstance(lote, list) or not lote:
+            break
+        productos.extend(lote)
+        if len(lote) < 100:
+            break
+        page += 1
+
+    por_url = {p.get("permalink"): p for p in productos if isinstance(p, dict)}
+    fichas, agotadas = {}, []
+    for p in productos:
+        if not isinstance(p, dict):
+            continue
+        if p.get("stock_status") != "instock":
+            agotadas.append({"id": p.get("id"), "nombre": p.get("name"),
+                             "url": p.get("permalink")})
+            continue
+        meta = {m.get("key"): m.get("value") for m in (p.get("meta_data") or [])}
+        canon = (meta.get("rank_math_canonical_url") or "").strip()
+        destino = por_url.get(canon, p) if canon and canon != p.get("permalink") else p
+        url = destino.get("permalink")
+        if not url:
+            continue
+        e = fichas.setdefault(url, {"id": destino.get("id"),
+                                    "nombre": destino.get("name"), "url": url,
+                                    "alias": []})
+        for a in _alias_de_nombre(p.get("name", "")) + PYS_ALIASES.get(p.get("id"), []):
+            a = a.strip()
+            if a and a.lower() not in [x.lower() for x in e["alias"]]:
+                e["alias"].append(a)
+
+    data = {"fichas": sorted(fichas.values(), key=lambda f: f["nombre"]),
+            "agotadas": agotadas, "generado": datetime.now().isoformat()}
+    _product_map_cache.update({"at": ahora, "data": data})
+    return data
+
+
+def mapa_para_prompt(mapa):
+    """El mapa como bloque de texto para inyectar en el prompt de generación."""
+    return "\n".join(
+        f"- {f['nombre']} → {f['url']}   (alias: {', '.join(f['alias'][:6])})"
+        for f in mapa["fichas"]
+    )
+
+
+# ─── Ruteo por intención ─────────────────────────────────────────────────────
+# `méxico` y `mg` NO bastan por sí solos: "Tirzepatida: guía completa méxico
+# 2026" es informacional y es uno de los posts que mejor funcionan. Un
+# modificador solo manda a ficha si además nombra un compuesto del catálogo.
+_KW_COMPRA = _re.compile(
+    r"\b(precio|precios|comprar|compra|costo|costos|cu[aá]nto cuesta|venta|"
+    r"vender|barat[oa]|oferta|descuento|tienda|d[oó]nde comprar)\b", _re.I)
+_KW_MODIF = _re.compile(
+    r"(\b\d+\s?(mg|ml|mcg)\b|\bm[eé]xico\b|\bcdmx\b|\benv[ií]o\b)", _re.I)
+# Marcadores informacionales que VETAN la regla del modificador. Sin esto,
+# "Tirzepatida: qué es, para qué sirve, guía completa méxico 2026" —uno de los
+# posts que mejor funcionan— se clasificaba como ficha por el "méxico".
+_KW_INFO = _re.compile(
+    r"\b(qu[eé] es|para qu[eé] sirve|c[oó]mo|gu[ií]a|beneficios|efectos|"
+    r"funciona|evidencia|estudios?|comparativa|vs\.?|diferencias?|riesgos|"
+    r"seguridad|protocolo|resultados)\b", _re.I)
+
+
+def _norm_kw(s):
+    """Normaliza para comparar alias: 'BPC-157' y 'bpc 157' son lo mismo."""
+    return _re.sub(r"[-\s]+", " ", (s or "").lower()).strip()
+
+
+def route_keyword(keyword, mapa=None):
+    """'ficha' | 'blog' para una keyword objetivo. Nunca escribe nada."""
+    mapa = mapa or build_product_map()
+    kw = (keyword or "").strip()
+    bajo = _norm_kw(kw)
+    ficha = None
+    for f in mapa["fichas"]:
+        for a in f["alias"]:
+            na = _norm_kw(a)
+            if na and _re.search(r"(?<!\w)" + _re.escape(na) + r"(?!\w)", bajo):
+                ficha = f
+                break
+        if ficha:
+            break
+
+    if _KW_COMPRA.search(bajo):
+        return {"decision": "ficha", "keyword": kw, "ficha": ficha,
+                "razon": "señal de compra explícita: la keyword transaccional le "
+                         "corresponde a la ficha de producto, no a un post"}
+    if _KW_INFO.search(bajo):
+        return {"decision": "blog", "keyword": kw, "ficha": ficha,
+                "razon": "marcador informacional explícito: gana sobre el "
+                         "modificador de dosis o geografía"}
+    if _KW_MODIF.search(bajo) and ficha:
+        return {"decision": "ficha", "keyword": kw, "ficha": ficha,
+                "razon": "modificador transaccional (dosis/geo) sobre un compuesto "
+                         "del catálogo: la ficha ya cubre esa consulta"}
+    return {"decision": "blog", "keyword": kw, "ficha": ficha,
+            "razon": "intención informacional"}
+
+
+# ─── Validación de enlaces ───────────────────────────────────────────────────
+_RE_A = _re.compile(r'<a\b[^>]*?href="([^"]+)"[^>]*>(.*?)</a>', _re.I | _re.S)
+_RE_CAT = _re.compile(r"/(product-category|categoria|category|product-tag)/", _re.I)
+_UA_VAL = {"User-Agent": "Mozilla/5.0 (compatible; PYS-SEO-Agent/1.0)"}
+
+
+def check_url(u):
+    """(ok, detalle). PubMed devuelve 403 a un user-agent de script: es bloqueo
+    de bots, no un enlace muerto. Para esas URLs la comprobación correcta —y la
+    misma que pide la compuerta 1 del retrofeed— es preguntarle a eutils si el
+    PMID existe."""
+    pm = _re.search(r"pubmed\.ncbi\.nlm\.nih\.gov/(\d+)", u)
+    if pm:
+        try:
+            r = requests.get(
+                "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi",
+                params={"db": "pubmed", "id": pm.group(1), "retmode": "json"},
+                timeout=25)
+            rec = (r.json().get("result") or {}).get(pm.group(1), {})
+            if rec.get("title"):
+                au = (rec.get("authors") or [{}])[0].get("name", "?")
+                return True, f"PMID {pm.group(1)} · {au} et al. · {rec.get('source','')} {rec.get('pubdate','')[:4]}"
+            return False, f"PMID {pm.group(1)} no existe en PubMed"
+        except Exception as e:
+            return False, f"eutils falló: {e}"
+    try:
+        r = requests.get(u, headers=_UA_VAL, timeout=20, allow_redirects=True)
+        c = r.status_code
+        if c < 400:
+            return True, f"HTTP {c}"
+        # NEJM, Lancet, ScienceDirect y casi toda revista seria bloquean bots con
+        # 403. Tratar eso como "enlace roto" rechazaría justo los artículos MEJOR
+        # citados (verificado: 2 URLs legítimas de nejm.org daban 403). Solo el
+        # 404/410 —y el fallo de red, que es el caso de la URL alucinada— cuentan
+        # como roto de verdad.
+        if c in (404, 410):
+            return False, f"HTTP {c}"
+        return True, f"HTTP {c} (no comprobable: bloqueo de bots o error transitorio)"
+    except Exception as e:
+        return False, f"error de red: {e.__class__.__name__}"
+
+
+def validate_blog_html(html, title="", mapa=None, check_http=True):
+    """Compuertas de enlaces. {'ok', 'fallos', 'avisos', 'fichas_enlazadas'}"""
+    mapa = mapa or build_product_map()
+    urls_ok = {f["url"].rstrip("/") for f in mapa["fichas"]}
+    urls_ago = {a["url"].rstrip("/") for a in mapa["agotadas"] if a.get("url")}
+    fallos, avisos = [], []
+
+    enlaces = _RE_A.findall(html or "")
+    a_ficha, anclas = [], {}
+    for href, txt in enlaces:
+        limpio = href.split("?")[0].rstrip("/")
+        ancla = _re.sub(r"\s+", " ", _re.sub("<[^>]+>", "", txt)).strip()
+        anclas.setdefault(limpio, []).append(ancla)
+        if limpio in urls_ok:
+            a_ficha.append(limpio)
+
+    # V1 — mínimo 2 enlaces a fichas reales del mapa
+    if len(set(a_ficha)) < 2:
+        fallos.append(f"solo {len(set(a_ficha))} enlace(s) interno(s) a ficha; "
+                      f"el mínimo es 2")
+    # V3 — nada de categorías. NO están rotas (responden 200): son archivos de
+    # categoría del BLOG en PYS — 5 páginas, todas con el mismo H1 ("Blog de
+    # Péptidos y Biohacking"), 187-630 palabras, un solo enlace a producto, una
+    # ya en noindex, y con solape entre sí (metabolismo vs salud-metabolica).
+    # Son mal destino por ser finas y redundantes, no por estar caídas — no
+    # confundir con las 6 landings por objetivo (/glp-1/, /longevidad/, etc.),
+    # que SÍ son destino válido: ver docs/superficie-pys-vs-exoma.md.
+    cats = [h for h, _ in enlaces if _RE_CAT.search(h)]
+    if cats:
+        fallos.append(f"enlaces a archivo de categoría del blog (fino y "
+                      f"redundante, no es destino válido): {cats[:4]}")
+    # V4 — no canibalizar una ficha existente
+    ruta = route_keyword(title, mapa)
+    if ruta["decision"] == "ficha":
+        duena = (ruta.get("ficha") or {}).get("nombre", "?")
+        fallos.append(f"el tema canibaliza una ficha ({duena}): {ruta['razon']}")
+    # V5 — no enlazar agotados
+    ago = [h for h, _ in enlaces if h.split("?")[0].rstrip("/") in urls_ago]
+    if ago:
+        avisos.append(f"enlaces a ficha agotada: {ago[:4]}")
+    # V6 — ancla repetida para la misma URL
+    for u, lista in anclas.items():
+        if len(lista) > 1 and len(set(lista)) == 1:
+            avisos.append(f"ancla repetida {lista[0]!r} en {len(lista)} enlaces a {u}")
+    # V2 — ningún enlace roto
+    if check_http:
+        for u in sorted({h.split("?")[0] for h, _ in enlaces if h.startswith("http")}):
+            ok, det = check_url(u)
+            if not ok:
+                fallos.append(f"enlace roto: {u} ({det})")
+
+    return {"ok": not fallos, "fallos": fallos, "avisos": avisos,
+            "fichas_enlazadas": sorted(set(a_ficha))}
+
+
+# ─── Compuertas del retrofeed (docs/playbook-fichas-pys.md, fase 4) ──────────
+PROHIBIDAS = _re.compile(r"farmacia|refrigeraci[oó]n.{0,40}transporte", _re.I)
+MIN_PALABRAS_BLOG = 1200
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Compuerta 1 (referencias) — subida de nivel 2026-08-01
+#
+# La versión anterior solo comprobaba que el PMID existiera. Eso NO detecta
+# una cita mal atribuida: los 10 casos del blog y los 39 años mal citados en
+# fichas tenían PMIDs que existían de verdad. Ahora la compuerta trae título +
+# abstract y contrasta contra la afirmación que cita el PMID (tema), y el año
+# declarado contra pubdate/epubdate — NUNCA contra la fecha de indexación
+# MEDLINE (ver docs/fase1-veracidad-pys.md: 33 de 39 años mal citados
+# coincidían exactamente con esa fecha de indexación, no con la de
+# publicación).
+#
+# CONTROL NEGATIVO OBLIGATORIO: cada sub-compuerta tiene un caso de prueba que
+# DEBE fallar. Si una compuerta aprueba su propio caso malo, se marca ROTA y
+# el pipeline se detiene — así es exactamente como "0 discrepancias" pasó
+# desapercibido la primera vez (el regex nunca comparó nada y lo reportó como
+# éxito). Ver `ejecuta_controles_negativos()`.
+# ═══════════════════════════════════════════════════════════════════════════
+_pubmed_cache = {}
+
+
+def _pubmed_record(pmid):
+    """Título, abstract y fechas (pubdate/epubdate) de un PMID. Cachea en
+    memoria del proceso. Nunca falla en silencio: si eutils no devuelve nada,
+    el registro vuelve con title="" y eso se trata como error, no como OK."""
+    if pmid in _pubmed_cache:
+        return _pubmed_cache[pmid]
+    rec = {"pmid": pmid, "titulo": "", "abstract": "", "pubdate": "", "epubdate": ""}
+    try:
+        r = requests.get(f"{EUTILS_BASE}/esummary.fcgi",
+                         params={"db": "pubmed", "id": pmid, "retmode": "json"}, timeout=25)
+        s = ((r.json() or {}).get("result") or {}).get(pmid) or {}
+        rec["titulo"] = s.get("title", "")
+        rec["pubdate"] = (s.get("pubdate") or "")[:4]
+        rec["epubdate"] = (s.get("epubdate") or "")[:4]
+        r2 = requests.get(f"{EUTILS_BASE}/efetch.fcgi",
+                          params={"db": "pubmed", "id": pmid, "retmode": "xml",
+                                  "rettype": "abstract"}, timeout=25)
+        m = _re.search(r"<AbstractText[^>]*>([\s\S]*?)</AbstractText>", r2.text)
+        rec["abstract"] = _re.sub(r"<[^>]+>", "", m.group(1)) if m else ""
+    except Exception as e:
+        rec["error"] = str(e)
+    _pubmed_cache[pmid] = rec
+    return rec
+
+
+EUTILS_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+
+# Ambos estilos de cita que usa el sitio: hipervínculo inline (blog) y
+# referencia en lista de texto plano (fichas, ver playbook).
+_RE_CITA_BLOG = _re.compile(
+    r'<a\b[^>]*?href="https?://pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/?"[^>]*>([^<]*)</a>', _re.I)
+_RE_CITA_FICHA = _re.compile(
+    r"<li[^>]*>\s*(?P<autor>[^<]{2,90}?)\s*<em>(?P<titulo>[\s\S]*?)</em>\s*"
+    r"(?P<revista>[^,<]{2,60}),\s*(?P<anio>\d{4})\.\s*PMID[:\s]*(?P<pmid>\d+)\.?\s*</li>", _re.I)
+# Cualquier "PMID NNNN" que no cayó en ninguno de los dos patrones de arriba:
+# no se descarta en silencio, se reporta como cita sin metadata parseable.
+_RE_PMID_SUELTO = _re.compile(r"PMID[:\s]*(\d+)", _re.I)
+
+
+def _contexto_de(html, pos, ancho=280):
+    ini = max(html.rfind("<p", 0, pos), html.rfind("<li", 0, pos), 0)
+    fin = min([x for x in (html.find("</p>", pos), html.find("</li>", pos)) if x > 0]
+              or [pos + ancho])
+    return _re.sub(r"\s+", " ", _html_mod.unescape(_re.sub("<[^>]+>", " ", html[ini:fin]))).strip()
+
+
+def extrae_citas(html):
+    """Todas las citas del documento, de los dos estilos. Cada una trae su
+    PMID, el año que declara (si el estilo lo declara) y el contexto citante.
+    Ninguna cita sin metadata completa se descarta: se marca `parse_error`."""
+    html = html or ""
+    vistos, citas = set(), []
+    for m in _RE_CITA_FICHA.finditer(html):
+        pmid = m.group("pmid")
+        vistos.add(pmid)
+        citas.append({"pmid": pmid, "anio_declarado": m.group("anio"),
+                      "contexto": _re.sub(r"\s+", " ", m.group(0))[:280],
+                      "estilo": "ficha", "parse_error": False})
+    for m in _RE_CITA_BLOG.finditer(html):
+        pmid = m.group(1)
+        if pmid in vistos:
+            continue
+        vistos.add(pmid)
+        ctx = _contexto_de(html, m.start())
+        anio_m = _re.search(r"\b(19|20)\d{2}\b", ctx)
+        citas.append({"pmid": pmid, "anio_declarado": anio_m.group(0) if anio_m else None,
+                      "contexto": ctx, "estilo": "blog", "parse_error": False})
+    for m in _RE_PMID_SUELTO.finditer(html):
+        pmid = m.group(1)
+        if pmid in vistos:
+            continue
+        vistos.add(pmid)
+        citas.append({"pmid": pmid, "anio_declarado": None,
+                      "contexto": _contexto_de(html, m.start()),
+                      "estilo": "sin_reconocer", "parse_error": True})
+    return citas
+
+
+def verifica_pmid_existe(pmid):
+    """(ok, detalle). Ok=False si eutils no devuelve título — nunca en silencio."""
+    rec = _pubmed_record(pmid)
+    if rec.get("error"):
+        return False, f"eutils falló: {rec['error']}"
+    if not rec["titulo"]:
+        return False, "PMID sin registro en PubMed"
+    return True, f"{rec['titulo'][:90]}"
+
+
+def verifica_anio_cita(pmid, anio_declarado):
+    """(ok, detalle). Compara SOLO contra pubdate/epubdate. NUNCA contra la
+    fecha de indexación MEDLINE — ese es justo el bug que originó esta
+    compuerta (docs/fase1-veracidad-pys.md, 33/39 casos)."""
+    if not anio_declarado:
+        return True, "sin año declarado en el texto (nada que comparar)"
+    rec = _pubmed_record(pmid)
+    validos = {y for y in (rec["pubdate"], rec["epubdate"]) if y}
+    if not validos:
+        return False, "no se pudo obtener pubdate/epubdate para verificar el año"
+    if anio_declarado not in validos:
+        return False, f"declara {anio_declarado}; PubMed (pubdate/epubdate): {'/'.join(sorted(validos))}"
+    return True, f"coincide con {anio_declarado}"
+
+
+def contrasta_tema(contexto, pmid):
+    """(veredicto, razon). RELACIONADO / DUDOSO / NO_RELACIONADO / ERROR.
+    Llama al modelo con el título+abstract real y la frase que cita el PMID."""
+    rec = _pubmed_record(pmid)
+    if not rec["titulo"]:
+        return "ERROR", "no se pudo obtener título/abstract del PMID"
+    prompt = f"""Contrasta si esta afirmación de un artículo de salud se sostiene con el paper citado.
+
+AFIRMACIÓN (texto que cita el PMID):
+{contexto}
+
+PAPER CITADO (PMID {pmid}):
+Título: {rec['titulo']}
+Abstract: {rec['abstract'][:1200] or '(sin abstract disponible)'}
+
+Responde SOLO con un JSON: {{"veredicto": "RELACIONADO"|"DUDOSO"|"NO_RELACIONADO", "razon": "una frase"}}
+NO_RELACIONADO = el paper no tiene relación temática alguna con la afirmación (el caso extremo: cita un
+paper de otro campo por completo, como citar un artículo sobre sinagogas para una afirmación sobre un péptido).
+DUDOSO = hay relación temática pero la cifra, el sujeto exacto o el alcance de la afirmación no calzan
+del todo con lo que el abstract sostiene.
+RELACIONADO = el paper sostiene razonablemente la afirmación."""
+    try:
+        resp = client.messages.create(model="claude-sonnet-4-6", max_tokens=200,
+                                      messages=[{"role": "user", "content": prompt}])
+        txt = resp.content[0].text.strip()
+        m = _re.search(r'"veredicto"\s*:\s*"(\w+)"[\s\S]*?"razon"\s*:\s*"([^"]*)"', txt)
+        if not m:
+            return "ERROR", f"respuesta no parseable: {txt[:120]}"
+        return m.group(1), m.group(2)
+    except Exception as e:
+        return "ERROR", f"llamada al modelo falló: {e}"
+
+
+def verifica_referencias(html):
+    """Compuerta 1 completa: existencia + año + tema, para cada cita del
+    documento. Devuelve (duros, blandos, detalle_por_cita)."""
+    duros, blandos, detalle = [], [], []
+    for c in extrae_citas(html):
+        pmid = c["pmid"]
+        if c["parse_error"]:
+            duros.append(f"PMID {pmid}: cita con formato no reconocido, sin "
+                         f"metadata parseada — revisar a mano, NO se trata "
+                         f"como 'sin discrepancia'")
+            detalle.append({**c, "existe": None, "anio_ok": None, "tema": None})
+            continue
+        ok_existe, det_existe = verifica_pmid_existe(pmid)
+        if not ok_existe:
+            duros.append(f"PMID {pmid}: {det_existe}")
+            detalle.append({**c, "existe": False, "detalle_existe": det_existe})
+            continue
+        ok_anio, det_anio = verifica_anio_cita(pmid, c["anio_declarado"])
+        if not ok_anio:
+            duros.append(f"PMID {pmid}: año — {det_anio}")
+        veredicto, razon = contrasta_tema(c["contexto"], pmid)
+        if veredicto == "NO_RELACIONADO":
+            duros.append(f"PMID {pmid}: sin relación temática con la afirmación — {razon}")
+        elif veredicto == "DUDOSO":
+            blandos.append(f"PMID {pmid}: relación temática dudosa — {razon}")
+        elif veredicto == "ERROR":
+            blandos.append(f"PMID {pmid}: no se pudo evaluar el tema — {razon}")
+        detalle.append({**c, "existe": True, "anio_ok": ok_anio, "detalle_anio": det_anio,
+                        "tema": veredicto, "razon_tema": razon})
+    return duros, blandos, detalle
+
+
+# ── Controles negativos obligatorios ─────────────────────────────────────────
+# Casos reales de esta sesión, documentados en docs/fase1-veracidad-pys.md.
+# Si alguno de estos NO falla, la compuerta correspondiente está rota.
+_CASO_NEG_EXISTENCIA = "999999999"                        # PMID que no existe
+_CASO_NEG_ANIO = ("27847966", "2018")                     # pubdate=2017 epub=2016 medline=2018
+_CASO_NEG_TEMA = ("El Epitalon actúa sobre los telómeros y activa la telomerasa, "
+                  "extendiendo la vida media en roedores.", "12374163")  # es de sinagogas
+_CASO_NEG_PROHIBIDA = "<p>Disponible en nuestra farmacia de confianza.</p>"
+_CASO_NEG_SIN_FUENTE = "<p>Los pacientes mejoraron un 84% en el ensayo clínico.</p>"
+
+_controles_estado = {"verificado": False, "rotas": []}
+
+
+def ejecuta_controles_negativos(force=False):
+    """Corre los 5 casos malos y exige que CADA UNO falle. Cachea el resultado
+    del proceso; --force lo reevalúa. Si alguno pasa cuando debía fallar, esa
+    compuerta se marca ROTA y `_controles_estado['rotas']` queda no vacío."""
+    if _controles_estado["verificado"] and not force:
+        return _controles_estado
+    rotas = []
+
+    ok, det = verifica_pmid_existe(_CASO_NEG_EXISTENCIA)
+    if ok:
+        rotas.append({"compuerta": "existencia_pmid",
+                      "motivo": f"aprobó un PMID inexistente ({_CASO_NEG_EXISTENCIA}): {det}"})
+
+    pmid, anio = _CASO_NEG_ANIO
+    ok, det = verifica_anio_cita(pmid, anio)
+    if ok:
+        rotas.append({"compuerta": "anio_vs_medline",
+                      "motivo": f"aceptó {anio} para PMID {pmid}, que solo coincide con la "
+                               f"fecha de indexación MEDLINE, no con pubdate/epubdate: {det}"})
+
+    ctx, pmid = _CASO_NEG_TEMA
+    veredicto, razon = contrasta_tema(ctx, pmid)
+    if veredicto != "NO_RELACIONADO":
+        rotas.append({"compuerta": "tema",
+                      "motivo": f"no marcó NO_RELACIONADO el caso de las sinagogas "
+                               f"(PMID {pmid}): dio {veredicto!r} — {razon}"})
+
+    g = retrofeed_gates(_CASO_NEG_PROHIBIDA, title="control negativo", keyword=None,
+                        _es_control_negativo=True)
+    if g["ok"] or not any("prohibid" in d.lower() for d in g["duros"]):
+        rotas.append({"compuerta": "palabra_prohibida",
+                      "motivo": "no detectó 'farmacia' como palabra prohibida"})
+
+    g2 = retrofeed_gates(_CASO_NEG_SIN_FUENTE, title="control negativo", keyword=None,
+                         _es_control_negativo=True)
+    if g2["ok"] or not any("fuente" in d.lower() for d in g2["duros"]):
+        rotas.append({"compuerta": "cifra_sin_fuente",
+                      "motivo": "no detectó la cifra clínica sin ninguna fuente en el documento"})
+
+    _controles_estado.update({"verificado": True, "rotas": rotas,
+                              "fecha": time.strftime("%Y-%m-%d %H:%M")})
+    return _controles_estado
+
+
+def retrofeed_gates(html, title="", keyword=None, market="pys", _es_control_negativo=False):
+    """Las compuertas automatizables. Cada una previene un error real cometido.
+
+    Duras (paran la publicación): 1 referencias (existencia+año+tema),
+    2 volumen medido, 6 palabra prohibida, 7 afirmación clínica sin fuente,
+    8 longitud. Blandas (informan): 3 mercado del SERP, 4 ausencia del
+    competidor, 5 molécula exacta — la 5 es aviso SIEMPRE, nunca bloqueo: el
+    caso Tβ4/TB-500 de la ficha 795 fue falso positivo porque el propio texto
+    explicita la distinción, y solo la lectura humana puede juzgar eso.
+
+    Antes de evaluar contenido real, exige que los controles negativos hayan
+    pasado en este proceso. Si alguna compuerta está rota, se niega a evaluar
+    y lo dice explícitamente — no hay "0 discrepancias" silencioso posible.
+    """
+    if not _es_control_negativo:
+        estado = ejecuta_controles_negativos()
+        if estado["rotas"]:
+            return {"ok": False, "compuertas_rotas": estado["rotas"],
+                    "duros": [f"COMPUERTA ROTA ({r['compuerta']}): {r['motivo']}"
+                             for r in estado["rotas"]],
+                    "blandos": [], "referencias": [], "palabras": 0}
+
+    texto = _re.sub(r"\s+", " ", _re.sub("<[^>]+>", " ", html or ""))
+    duros, blandos = [], []
+
+    # 6 — palabra prohibida (regla absoluta del CLAUDE.md)
+    mal = PROHIBIDAS.findall(texto)
+    if mal:
+        duros.append(f"palabra/frase prohibida: {sorted(set(m if isinstance(m, str) else m[0] for m in mal))}")
+
+    # 8 — longitud
+    n = len(texto.split())
+    if n < MIN_PALABRAS_BLOG:
+        duros.append(f"{n} palabras; el mínimo es {MIN_PALABRAS_BLOG}")
+
+    # 1 — referencias: existencia + año (nunca contra MEDLINE) + tema (LLM
+    # contra título+abstract real). Sube lo que antes solo comprobaba existencia.
+    refs = []
+    if not _es_control_negativo:
+        d1, b1, refs = verifica_referencias(html)
+        duros += d1
+        blandos += b1
+
+    # 7 — afirmación clínica sin fuente.
+    # DURO solo el caso indefendible: el artículo da cifras clínicas y no cita
+    # NI UNA fuente de autoridad en todo el documento. Exigir una fuente en el
+    # mismo párrafo era inaplicable — marcaba 4 párrafos de un artículo real y
+    # bien citado, y habría bloqueado casi todo lo que se publica.
+    parrafos_cifra = []
+    for m in _re.finditer(r"<p[^>]*>([\s\S]*?)</p>", html or "", _re.I):
+        frag = m.group(1)
+        if _re.search(r"\d+([.,]\d+)?\s?%", frag) and "<a " not in frag.lower():
+            parrafos_cifra.append(_re.sub("<[^>]+>", "", frag)[:110])
+    autoridad = _re.findall(
+        r'href="https?://[^"]*(pubmed|ncbi\.nlm\.nih|nih\.gov|nejm|thelancet|'
+        r'jamanetwork|mayoclinic|fda\.gov|who\.int|cochrane|examine\.com)',
+        html or "", _re.I)
+    if parrafos_cifra and not autoridad:
+        duros.append(f"{len(parrafos_cifra)} párrafo(s) con cifra clínica y CERO "
+                     f"fuentes de autoridad en todo el artículo: {parrafos_cifra[:2]}")
+    elif parrafos_cifra:
+        blandos.append(f"{len(parrafos_cifra)} párrafo(s) con cifra sin fuente en el "
+                       f"propio párrafo (hay {len(set(autoridad))} fuentes en el "
+                       f"artículo): {parrafos_cifra[:2]}")
+
+    # 2 — la keyword tiene el volumen que creemos, medido
+    if keyword and DATAFORSEO_AVAILABLE:
+        try:
+            cli = DataForSEOClient()
+            ideas = cli.keyword_ideas(market, [keyword], limit=200, min_volume=0)
+            exacta = next((i for i in ideas
+                           if (i.get("keyword") or "").lower() == keyword.lower()), None)
+            if exacta is None:
+                blandos.append(f"volumen de {keyword!r} no medido (no apareció en keyword_ideas)")
+            elif not (exacta.get("volume") or 0):
+                duros.append(f"la keyword {keyword!r} tiene volumen medido 0")
+            else:
+                blandos.append(f"volumen medido de {keyword!r}: {exacta.get('volume')}")
+        except Exception as e:
+            blandos.append(f"no se pudo medir el volumen: {e}")
+    elif keyword:
+        blandos.append("DataForSEO no disponible: volumen sin medir (compuerta 2 en blando)")
+
+    # 3, 4, 5 — no se automatizan de verdad; quedan como recordatorio explícito
+    blandos.append("revisar a mano: 3) el SERP es del mercado correcto, "
+                   "4) la ausencia del competidor es oportunidad o descarte, "
+                   "5) los estudios son de la molécula exacta (TB-500 ≠ Tβ4)")
+
+    return {"ok": not duros, "duros": duros, "blandos": blandos,
+            "referencias": refs, "palabras": n}
+
+
+@app.route("/product-map")
+def product_map_endpoint():
+    """Mapa {compuesto → ficha} para cargar al contexto ANTES de generar."""
+    mapa = build_product_map(force=request.args.get("force") == "1")
+    return jsonify({**mapa, "total": len(mapa["fichas"])})
+
+
+@app.route("/keyword-route", methods=["POST"])
+def keyword_route_endpoint():
+    """¿Esta keyword le toca al blog o a la ficha? Body: {"keyword": "..."}"""
+    data = request.get_json(force=True, silent=True) or {}
+    kw = (data.get("keyword") or data.get("topic") or "").strip()
+    if not kw:
+        return jsonify({"error": "falta 'keyword'"}), 400
+    return jsonify(route_keyword(kw))
+
+
+@app.route("/validate-post", methods=["POST"])
+def validate_post_endpoint():
+    """Valida un artículo SIN escribir nada. Body: {title, content, keyword}"""
+    data = request.get_json(force=True, silent=True) or {}
+    html = data.get("content") or ""
+    if not html:
+        return jsonify({"error": "falta 'content'"}), 400
+    title = data.get("title", "")
+    mapa = build_product_map()
+    enlaces = validate_blog_html(html, title, mapa,
+                                 check_http=data.get("check_http", True))
+    gates = retrofeed_gates(html, title, data.get("keyword"))
+    return jsonify({"ok": enlaces["ok"] and gates["ok"],
+                    "enlaces": enlaces, "retrofeed": gates})
+
+
+@app.route("/blog-link-map")
+def blog_link_map_endpoint():
+    """Estado de enlaces internos: entrantes por ficha, huérfanas y rotos."""
+    mapa = build_product_map()
+    posts = get_all_posts_catalog(per_page=100)
+    if isinstance(posts, dict) and "error" in posts:
+        return jsonify(posts), 500
+    entrantes = {f["url"]: [] for f in mapa["fichas"]}
+    rotos, revisados = [], set()
+    for p in posts:
+        if not isinstance(p, dict) or not p.get("id"):
+            continue
+        cont = get_post_content(p["id"]).get("content", "")
+        for f in mapa["fichas"]:
+            if f["url"].rstrip("/") + "/" in cont:
+                entrantes[f["url"]].append(p["id"])
+        for href, _ in _RE_A.findall(cont):
+            u = href.split("?")[0]
+            if u.startswith("http") and u not in revisados:
+                revisados.add(u)
+                ok, det = check_url(u)
+                if not ok:
+                    rotos.append({"url": u, "detalle": det, "post": p["id"]})
+    fichas = [{**f, "entrantes": len(entrantes[f["url"]]),
+               "posts": entrantes[f["url"]]} for f in mapa["fichas"]]
+    fichas.sort(key=lambda f: f["entrantes"])
+    return jsonify({"fichas": fichas,
+                    "huerfanas": [f["nombre"] for f in fichas if not f["entrantes"]],
+                    "rotos": rotos, "posts_revisados": len(posts),
+                    "agotadas": mapa["agotadas"]})
+
+
 @app.route("/add-links", methods=["POST"])
 def add_links():
     """Optimiza un post existente agregando interlinks, links a productos y links externos.
@@ -4626,21 +5303,36 @@ def batch_links_status():
 
 @app.route("/optimize-blog", methods=["POST"])
 def optimize_blog():
+    """Optimiza y PROMUEVE un borrador a publicado, solo si pasa las compuertas.
+
+    El Blog Agent publica en `draft` y llama aquí. Si la validación falla dos
+    veces, el post se queda en borrador y se devuelve 422: es la única forma de
+    que "rechazar el artículo" signifique algo. Si la keyword le corresponde a
+    una ficha, ni siquiera se optimiza — se devuelve 409 nombrando la dueña.
+    """
     try:
         data = request.json or {}
         post_id = data.get("post_id")
         title = data.get("title", "")
         content = data.get("content", "")
         url = data.get("url", "")
+        keyword = data.get("keyword") or data.get("focus_keyword")
+        promover = data.get("promote", True)
 
         if not post_id or not content:
             return jsonify({"error": "post_id y content son requeridos"}), 400
 
-        products = get_products(per_page=30)
-        products_list = "\n".join(
-            f"- {p['name']} ({WC_URL}/product/{p['slug']}/)"
-            for p in products if isinstance(p, dict) and "name" in p
-        )
+        mapa = build_product_map()
+
+        # ── ruteo por intención: lo transaccional es de la ficha
+        ruta = route_keyword(keyword or title, mapa)
+        if ruta["decision"] == "ficha":
+            return jsonify({
+                "rechazado": True, "motivo": "keyword de ficha, no de blog",
+                "post_id": post_id, "ruta": ruta,
+                "accion": "el post se queda en borrador; esa consulta la debe "
+                          "atender la ficha de producto",
+            }), 409
 
         all_posts = get_all_posts_catalog(per_page=100)
         other_posts = [
@@ -4652,7 +5344,12 @@ def optimize_blog():
             for p in other_posts if isinstance(p, dict) and p.get("title")
         )
 
-        prompt = f"""Eres un experto SEO. Tienes este artículo de blog en peptidosysuplementos.mx:
+        def construye_prompt(errores=None):
+            correccion = ""
+            if errores:
+                correccion = ("\nLA VERSIÓN ANTERIOR FUE RECHAZADA POR ESTOS MOTIVOS. "
+                              "Corrígelos TODOS:\n- " + "\n- ".join(errores) + "\n")
+            return f"""Eres un experto SEO. Tienes este artículo de blog en peptidosysuplementos.mx:
 
 TÍTULO: {title}
 URL: {url}
@@ -4664,41 +5361,69 @@ CONTENIDO ACTUAL (HTML):
 OTROS ARTÍCULOS DEL BLOG (para interlinks):
 {posts_list if posts_list else "No hay otros artículos disponibles aún."}
 
-PRODUCTOS DE LA TIENDA (para links internos a productos):
-{products_list}
-
+FICHAS DE PRODUCTO (mapa compuesto → URL; son las ÚNICAS URLs de producto válidas):
+{mapa_para_prompt(mapa)}
+{correccion}
 Tu tarea — agrega los siguientes links de forma NATURAL dentro del texto existente:
-1. INTERLINKS (3-6 links): enlaza a otros artículos del blog que sean temáticamente relevantes.
-   Formato: <a href="URL_DEL_POST">texto descriptivo</a>
-2. LINKS A PRODUCTOS (4-8 links): enlaza a productos relevantes de la tienda.
-   Formato: <a href="URL_PRODUCTO">nombre del producto</a>
-3. LINKS EXTERNOS (3-5 links): enlaza a fuentes científicas de autoridad relevantes al tema
-   (PubMed, examine.com, NIH, FDA, NEJM, Mayo Clinic). Solo URLs reales y verificables.
-   Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto descriptivo</a>
-4. Asegúrate de que el contenido tenga al menos un H2 y una conclusión con llamada a la acción.
-5. NO inventes productos ni posts que no estén en las listas anteriores.
-6. NO escribas ningún <script type="application/ld+json"> ni schema JSON-LD: el sistema genera el schema FAQPage automáticamente a partir de la FAQ visible (<h3>/<p>) tras tu respuesta. Solo asegúrate de redactar bien la sección FAQ visible.
-   Usa las preguntas y respuestas reales del artículo. Respuestas en texto plano sin HTML.
-7. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones ni markdown extra.
+1. ENLACES A FICHA (2-3, OBLIGATORIO): enlaza a las fichas del mapa cuyo compuesto
+   se trate de verdad en el artículo. El ancla debe ser texto que YA tenga sentido
+   en la frase; nada de "clic aquí" ni "ver producto". Usa un ancla DISTINTA en
+   cada enlace: varía entre el nombre del compuesto, el nombre con presentación y
+   una descripción corta. Nunca enlaces un compuesto que el texto solo menciona
+   de pasada, y nunca enlaces la molécula endógena cuando hables de fisiología
+   (ej. "los receptores IGF-1" NO es la ficha de IGF-1 LR3).
+2. INTERLINKS (3-6): otros artículos del blog temáticamente relevantes.
+3. LINKS EXTERNOS (3-5): PubMed, NIH, FDA, NEJM, Mayo Clinic, examine.com.
+   Formato: <a href="URL" target="_blank" rel="noopener noreferrer">texto</a>
+   Solo URLs reales: cada una se comprueba por HTTP y los PMID contra PubMed.
+4. PROHIBIDO enlazar páginas de categoría (/product-category/, /categoria/, /category/):
+   son archivos finos y redundantes del blog, mal destino de enlace aunque respondan 200.
+   PROHIBIDO inventar URLs de producto que no estén en el mapa.
+5. Toda cifra clínica (porcentajes, resultados de ensayos) debe ir en un párrafo
+   que contenga su fuente enlazada. Si no tienes fuente, quita la cifra.
+6. NUNCA uses la palabra "farmacia" (usa "tienda en línea") ni menciones
+   refrigeración durante el transporte.
+7. NO escribas ningún <script type="application/ld+json">: el sistema regenera el
+   schema FAQPage a partir de la FAQ visible (<h3>/<p>). Redacta bien esa FAQ.
+8. Devuelve ÚNICAMENTE el HTML optimizado completo, sin explicaciones."""
 
-Devuelve solo el HTML listo para WordPress."""
+        errores, optimized_content, enlaces, gates = None, None, None, None
+        for intento in (1, 2):
+            response = client.messages.create(
+                model="claude-sonnet-4-6",
+                max_tokens=16384,
+                messages=[{"role": "user", "content": construye_prompt(errores)}],
+            )
+            optimized_content = response.content[0].text.strip()
+            if optimized_content.startswith("```"):
+                optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+            optimized_content = sanitize_faq_jsonld(optimized_content)
 
-        response = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=16384,
-            messages=[{"role": "user", "content": prompt}]
-        )
+            enlaces = validate_blog_html(optimized_content, title, mapa)
+            gates = retrofeed_gates(optimized_content, title, keyword)
+            errores = enlaces["fallos"] + gates["duros"]
+            if not errores:
+                break
+            print(f"[optimize-blog] intento {intento} rechazado: {errores}")
 
-        optimized_content = response.content[0].text.strip()
-        if optimized_content.startswith("```"):
-            optimized_content = optimized_content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
-        optimized_content = sanitize_faq_jsonld(optimized_content)
+        if errores:
+            notify_nexus(action="Rechazó un blog (compuertas SEO)",
+                         detail=f"{title or post_id}: {'; '.join(errores)[:160]}",
+                         url=url)
+            return jsonify({
+                "rechazado": True, "post_id": post_id, "intentos": 2,
+                "fallos": errores, "enlaces": enlaces, "retrofeed": gates,
+                "accion": "el post se queda en borrador, sin publicar",
+            }), 422
 
-        result = update_post(post_id, {"content": optimized_content})
+        payload = {"content": optimized_content}
+        if promover:
+            payload["status"] = "publish"
+        result = update_post(post_id, payload)
 
         if result.get("success"):
             notify_nexus(
-                action="Optimizó un blog (SEO)",
+                action="Optimizó y publicó un blog (SEO)",
                 detail=title or f"post {post_id}",
                 url=result.get("link", url),
             )
@@ -4706,8 +5431,12 @@ Devuelve solo el HTML listo para WordPress."""
                 "success": True,
                 "post_id": post_id,
                 "url": result.get("link", url),
+                "publicado": bool(promover),
+                "fichas_enlazadas": enlaces["fichas_enlazadas"],
+                "avisos": enlaces["avisos"] + gates["blandos"],
+                "palabras": gates["palabras"],
+                "referencias": gates["referencias"],
                 "interlinks_added": len(other_posts) > 0,
-                "products_linked": len(products) > 0,
             })
         return jsonify({"error": result.get("error", "Error al actualizar post")}), 500
 
