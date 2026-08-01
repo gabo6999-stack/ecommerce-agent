@@ -7142,6 +7142,15 @@ def debug_pubmed(pmid):
     return jsonify(out)
 
 
+@app.route("/debug/pubmed2/<pmid>")
+def debug_pubmed2(pmid):
+    """Igual que /debug/pubmed pero llama a la función real _pubmed_record,
+    con el caché limpiado antes, para ver exactamente qué devuelve."""
+    _pubmed_cache.pop(pmid, None)
+    rec = _pubmed_record(pmid)
+    return jsonify(rec)
+
+
 @app.route("/analytics/auth")
 def ga4_auth():
     if not GA4_CLIENT_ID or not GA4_CLIENT_SECRET:
