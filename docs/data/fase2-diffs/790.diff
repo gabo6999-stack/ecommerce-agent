@@ -1,0 +1,18 @@
+--- 790-antes
++++ 790-despues
+@@ -221,6 +221,6 @@
+ <li>Lee C et al. <em>The mitochondrial-derived peptide MOTS-c promotes metabolic homeostasis and reduces obesity and insulin resistance.</em> Cell Metab, 2015. PMID 25738459.</li>
+-<li>Kim KH et al. <em>The Mitochondrial-Encoded Peptide MOTS-c Translocates to the Nucleus to Regulate Nuclear Gene Expression in Response to Metabolic Stress.</em> Cell Metab, 2019. PMID 29983246.</li>
++<li>Kim KH et al. <em>The Mitochondrial-Encoded Peptide MOTS-c Translocates to the Nucleus to Regulate Nuclear Gene Expression in Response to Metabolic Stress.</em> Cell Metab, 2018. PMID 29983246.</li>
+ <li>Yang B et al. <em>MOTS-c interacts synergistically with exercise intervention to regulate PGC-1α expression, attenuate insulin resistance and enhance glucose metabolism.</em> Biochim Biophys Acta Mol Basis Dis, 2021. PMID 33722744.</li>
+ <li>Gudiksen A et al. <em>MOTS-c improves intrinsic muscle mitochondrial bioenergetic health and efficiency in a PGC-1α/AMPK-dependent manner.</em> Free Radic Biol Med, 2026. PMID 41520850.</li>
+-<li>Ramanjaneya M et al. <em>Lipids and insulin regulate mitochondrial-derived peptide (MOTS-c) in PCOS and healthy subjects.</em> Clin Endocrinol, 2020. PMID 31066084.</li>
++<li>Ramanjaneya M et al. <em>Lipids and insulin regulate mitochondrial-derived peptide (MOTS-c) in PCOS and healthy subjects.</em> Clin Endocrinol, 2019. PMID 31066084.</li>
+ <li>Yin Y et al. <em>The mitochondrial-derived peptide MOTS-c relieves hyperglycemia and insulin resistance in gestational diabetes mellitus.</em> Pharmacol Res, 2022. PMID 34798268.</li>
+@@ -231,4 +231,4 @@
+ <li>Mohtashami Z et al. <em>MOTS-c, the Most Recent Mitochondrial Derived Peptide in Human Aging and Age-Related Diseases.</em> Int J Mol Sci, 2022. PMID 36233287.</li>
+-<li>Benayoun BA et al. <em>MOTS-c: A Mitochondrial-Encoded Regulator of the Nucleus.</em> BioEssays, 2020. PMID 31378979.</li>
+-<li>Fuku N et al. <em>The mitochondrial-derived peptide MOTS-c: a player in exceptional longevity?</em> Aging Cell, 2016. PMID 26289118.</li>
++<li>Benayoun BA et al. <em>MOTS-c: A Mitochondrial-Encoded Regulator of the Nucleus.</em> BioEssays, 2019. PMID 31378979.</li>
++<li>Fuku N et al. <em>The mitochondrial-derived peptide MOTS-c: a player in exceptional longevity?</em> Aging Cell, 2015. PMID 26289118.</li>
+ <li>Kong BS et al. <em>Mitochondrial-Encoded Peptide MOTS-c, Diabetes, and Aging-Related Diseases.</em> Diabetes Metab J, 2023. PMID 36824008.</li>

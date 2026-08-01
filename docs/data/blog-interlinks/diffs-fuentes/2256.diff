@@ -1,0 +1,12 @@
+--- 2256-antes
++++ 2256-despues
+@@ -64,3 +64,3 @@
+ <h3>Mantenimiento de la Integridad Molecular</h3>
+-<p>El pH del agua bacteriostática es ligeramente ácido (entre 4.5 y 7.0), lo que es compatible con la mayoría de los péptidos. Algunos péptidos sensibles al pH, como el <strong>IGF-1 LR3</strong>, se estabilizan mejor en un ambiente ligeramente ácido, que es precisamente el que ofrece el agua bacteriostática. Usar un diluyente con pH incorrecto puede causar agregación molecular, degradación acelerada o precipitación del péptido, haciéndolo inefectivo para los fines de investigación. <a href="https://www.fda.gov/media/71098/download" target="_blank" rel="noopener noreferrer">La FDA establece directrices sobre la compatibilidad de diluyentes con formulaciones inyectables</a> que respaldan el uso del agua bacteriostática como estándar para preparaciones multidosis.</p>
++<p>El pH del agua bacteriostática es ligeramente ácido (entre 4.5 y 7.0), lo que es compatible con la mayoría de los péptidos. Algunos péptidos sensibles al pH, como el <strong>IGF-1 LR3</strong>, se estabilizan mejor en un ambiente ligeramente ácido, que es precisamente el que ofrece el agua bacteriostática. Usar un diluyente con pH incorrecto puede causar agregación molecular, degradación acelerada o precipitación del péptido, haciéndolo inefectivo para los fines de investigación.</p>
+ <h2>Equipo Necesario para Reconstituir Péptidos de Forma Segura</h2>
+@@ -182,3 +182,3 @@
+ <li><strong>Ignorar la temperatura de almacenamiento:</strong> Dejar el vial reconstituido a temperatura ambiente acelera la degradación del péptido y favorece el crecimiento bacteriano, incluso con agua bacteriostática.</li>
+-<li><strong>Reutilizar agujas y jeringas:</strong> Cada extracción debe realizarse con aguja nueva o al menos una aguja que no haya tocado superficies no estériles. <a href="https://www.fda.gov/consumers/consumer-updates/dont-reuse-needles-syringes-or-other-devices" target="_blank" rel="noopener noreferrer">La FDA advierte explícitamente sobre los riesgos de reutilizar agujas y jeringas</a>.</li>
++<li><strong>Reutilizar agujas y jeringas:</strong> Cada extracción debe realizarse con aguja nueva o al menos una aguja que no haya tocado superficies no estériles. <a href="https://www.cdc.gov/injection-safety/about/index.html" target="_blank" rel="noopener noreferrer">Los CDC advierten explícitamente sobre los riesgos de reutilizar agujas y jeringas</a>.</li>
+ </ol>

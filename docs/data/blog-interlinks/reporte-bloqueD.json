@@ -1,0 +1,129 @@
+{
+ "fecha": "2026-08-01",
+ "aplicado": true,
+ "posts": [
+  {
+   "id": 1647,
+   "title": "Retatrutida: qué es, cómo funciona y beneficios",
+   "link": "https://peptidosysuplementos.mx/retatrutide-precio-guia-completa-costos-beneficios/",
+   "acciones": [
+    {
+     "grupo": "a",
+     "nota": "recita el ensayo de fase 2 real",
+     "quita": "PubMed – Efectos metabólicos del retatrutide en ensayo de fase 2",
+     "deja": "el ensayo de fase 2 publicado en el New England Journal of Medicine (Jastreboff et al., 2023)"
+    }
+   ],
+   "diff": "diffs-bloqueD/1647.diff",
+   "http": 200
+  },
+  {
+   "id": 1675,
+   "title": "Peptidos para Longevidad: Ciencia del Antienvejecimiento",
+   "link": "https://peptidosysuplementos.mx/peptidos-para-longevidad-ciencia-antienvejecimiento/",
+   "acciones": [
+    {
+     "grupo": "b",
+     "nota": "añade la distinción Tβ4 ≠ TB-500 con la misma redacción que la ficha 795",
+     "quita": "De acuerdo con una revisión publicada en PubMed sobre Thymosin Beta-4 y regeneración tisular, el mecanismo de acción del TB-500 involucra la regulación positiva de la actina, lo que facilita la migración y proliferación celular.",
+     "deja": "Conviene precisar una distinción que se pasa por alto a menudo: TB-500 no es timosina beta-4 completa. La timosina beta-4 (Tβ4) es una proteína de 43 aminoácidos; TB-500 corresponde únicamente al motivo de unión a actina de 7 aminoácidos derivado de ella. Casi toda la literatura disponible —incluida la revisión de estudios en animales de Philp y Kleinman (Ann N Y Acad Sci, 2010)— es sobre la proteína completa, y describe un mecanismo de regulación de la actina que facilita la migración y proliferación celular. Los resultados de Tβ4 no son directamente extrapolables al fragmento."
+    },
+    {
+     "grupo": "b",
+     "nota": "corrige el dato (la fuente dice que NO influyó en la vida media) y añade Epitalon ≠ epitalamina",
+     "quita": "El Epitalon representa uno de los casos más intrigantes: estudios en roedores han demostrado que puede extender la vida media y máxima entre un 12% y 24%. Este péptido actúa sobre los telómeros, las estructuras protectoras en los extremos de nuestros cromosomas que se acortan con cada división celular y que están directamente relacionadas con el envejecimiento celular. Una investigación publicada en PubMed sobre Epitalon y la activación de la telomerasa sugiere que este tetrapéptido podría inducir la actividad de la telomerasa en células somáticas humanas, abriendo una línea de investigación muy relevante.",
+     "deja": "El Epitalon representa uno de los casos más intrigantes, y también uno donde conviene leer la evidencia con cuidado. En el estudio de referencia en ratones (Anisimov et al., Biogerontology, 2003), el Epitalon no modificó la vida media; lo que sí aumentó fue la vida del último 10% de supervivientes (+13.3%) y la vida máxima (+12.3%). Una distinción importante: buena parte de la literatura de longevidad que se le atribuye es en realidad sobre la epitalamina, un extracto pineal, y no sobre el Epitalon tetrapéptido (Ala-Glu-Asp-Gly); son cosas distintas y sus resultados no son intercambiables. Sobre el mecanismo, se ha descrito que este tetrapéptido induce actividad de la telomerasa en células somáticas humanas, una línea de investigación relevante pero todavía inicial."
+    }
+   ],
+   "diff": "diffs-bloqueD/1675.diff",
+   "http": 200
+  },
+  {
+   "id": 1727,
+   "title": "Semaglutida 2026: Guia Completa de Perdida de Peso",
+   "link": "https://peptidosysuplementos.mx/semaglutida-2026-guia-completa-perdida-peso/",
+   "acciones": [
+    {
+     "grupo": "c",
+     "nota": "REESCRITURA por resolución médica: 4 puntos exigidos, cada cifra verificada contra el abstract (ver FUENTES_SECCION_6)",
+     "quita": "Composición Corporal: Preservando la Masa Muscular Un aspecto crucial para deportistas y entusiastas del fitness es el impacto de la semaglutida en la masa muscular. La composición corporal mejoró, con la mayoría (84%) de la pérdida de peso con semaglutida 7.2 mg proveniente de masa grasa, con pruebas que mostraron preservación de la función muscular. Para profundizar en este tema, nuestra Guía Completa de Composición Corporal ofrece estrategias basadas en evidencia para optimizar tu físico. En el grupo tratado con la nueva dosis, el 84% de la reducción de peso se debió a la pérdida de masa grasa, preservando la masa muscular. Estos datos son especialmente relevantes para atletas que buscan optimizar su composición corporal sin comprometer su rendimiento. La evidencia científica disponible en PubMed sobre semaglutida y composición corporal respalda estos hallazgos con datos de múltiples ensayos clínicos.",
+     "deja": "Composición Corporal: qué pasa realmente con la masa muscular Un aspecto crucial para deportistas y entusiastas del fitness es el impacto de la semaglutida en la masa muscular, y conviene ser directo con lo que dice la evidencia. La masa magra sí disminuye de forma significativa. El metaanálisis más amplio disponible —Eisa y Barood, Diabetes &amp; Obesity Metabolism, 2026, 20 ensayos clínicos aleatorizados y 15,782 participantes— encontró que con semaglutida el 35.2% del peso perdido (IC95% 31.5–38.9) correspondió a masa magra; con tirzepatida fue 25.4% y con liraglutide 26.8%. Pero no toda esa caída es músculo contráctil. La masa magra que mide un DXA incluye agua, glucógeno y también la grasa intermuscular e intergrasa que rodea al músculo — y esa parte, al perderse, es una mejora, no una pérdida. Un ensayo aleatorizado con resonancia magnética (Zemski Berry et al., Journal of Clinical Endocrinology &amp; Metabolism, 2026) encontró que, con la pérdida de peso, el tejido adiposo intermuscular bajó 12.7% mientras que la masa muscular esquelética real apenas cambió (-4.2%, sin significancia estadística) — y advierte textualmente que el DXA sobrestima la pérdida muscular frente a la resonancia. Aun así, la pérdida de tejido muscular real también ocurre, y es clínicamente relevante — sobre todo en personas mayores o con sarcopenia. Una revisión reciente (Prokopidis, British Journal of Pharmacology, 2026) reporta que a corto y mediano plazo la fuerza de prensión suele preservarse pese a la caída de masa magra, pero que en adultos mayores con diabetes tipo 2 los estudios longitudinales sí documentan pérdida de fuerza y sarcopenia acelerada con el uso prolongado de semaglutida. La mitigación que sí cambia el resultado: entrenamiento de resistencia y aporte proteico adecuado. En el mismo metaanálisis de Eisa y Barood, combinar estilo de vida con entrenamiento de resistencia bajó la proporción de masa magra perdida a 17.5% (IC95% 14.2–20.8) — la mitad, aproximadamente, que con semaglutida sola. No es un extra opcional: es la parte del protocolo que decide si lo que se pierde es grasa o es función."
+    },
+    {
+     "grupo": "c",
+     "nota": "la cifra 15.9%→52.2% no tiene fuente localizable; se borra junto con la cita falsa de NAD+",
+     "quita": "La proporción de personas con obesidad que realiza ejercicio físico de forma regular incrementó de 15.9% a 52.2%, siendo el incremento en la realización de ejercicio físico el mejor predictor de la pérdida de peso. Esto sugiere que la semaglutida puede promover adherencia a hábitos saludables más allá de su efecto farmacológico directo. Para apoyar los niveles de energía durante este proceso, el NAD+ 500mg es un suplemento que favorece el metabolismo energético celular, con respaldo en investigaciones publicadas en PubMed sobre NAD+ y metabolismo.",
+     "deja": "Para apoyar los niveles de energía durante el proceso, el NAD+ 500mg es un suplemento que favorece el metabolismo energético celular."
+    }
+   ],
+   "diff": "diffs-bloqueD/1727.diff",
+   "http": 200
+  },
+  {
+   "id": 1913,
+   "title": "GHK-Cu: El Péptido de Cobre que Revoluciona la Regeneración y el Antienvejecimiento",
+   "link": "https://peptidosysuplementos.mx/ghk-cu-peptido-cobre-regeneracion-antienvejecimiento/",
+   "acciones": [
+    {
+     "grupo": "a",
+     "nota": "cifra corregida contra el TEXTO COMPLETO: el paper no enuncia '4,000 genes'",
+     "quita": "estudios genómicos publicados en PubMed demuestran que el GHK-Cu modula la expresión de más de 4,000 genes implicados en la reparación tisular y la inflamación",
+     "deja": "el análisis genómico de Pickart y Margolina (Int J Mol Sci, 2018) reporta que el GHK modifica en un 50% o más la expresión del 31.2% de los genes humanos analizados —aumentándola en el 59% de los casos y suprimiéndola en el 41%—, con efectos sobre vías de reparación tisular e inflamación"
+    },
+    {
+     "grupo": "c",
+     "nota": "no hay fuente revisada por pares para la afirmación cognitiva en ratones; el preprint no cuenta",
+     "quita": "Observaciones preliminares sugieren que GHK puede revertir parcialmente el deterioro cognitivo en ratones ancianos al dirigirse a vías antiinflamatorias y epigenéticas, abriendo posibilidades fascinantes para futuras aplicaciones terapéuticas. Estos hallazgos están respaldados por investigaciones publicadas en PubMed que evalúan el impacto del GHK en la expresión génica relacionada con el envejecimiento.",
+     "deja": "(nada)"
+    }
+   ],
+   "diff": "diffs-bloqueD/1913.diff",
+   "http": 200
+  },
+  {
+   "id": 2070,
+   "title": "TB-500: El Péptido de Recuperación que Todo Atleta Debe Conocer",
+   "link": "https://peptidosysuplementos.mx/tb-500-peptido-recuperacion-atletas/",
+   "acciones": [
+    {
+     "grupo": "b",
+     "nota": "se elimina la revista falsa (Journal of Cell Science) y se cita la real",
+     "quita": "Investigaciones publicadas en el Journal of Cell Science han documentado este mecanismo de acción con detalle",
+     "deja": "La literatura sobre las β-timosinas (Huff et al., Int J Biochem Cell Biol, 2001) documenta este mecanismo de acción con detalle"
+    }
+   ],
+   "diff": "diffs-bloqueD/2070.diff",
+   "http": 200
+  },
+  {
+   "id": 2096,
+   "title": "Biohacking: La Guía Definitiva para Optimizar tu Cuerpo con Péptidos y Suplementos en 2025",
+   "link": "https://peptidosysuplementos.mx/biohacking-guia-definitiva-peptidos-suplementos-2025/",
+   "acciones": [
+    {
+     "grupo": "a",
+     "nota": "el paper real está justo en la revista que el texto citaba; solo estaba mal el PMID",
+     "quita": "Un estudio clínico publicado en el Journal of Clinical Endocrinology",
+     "deja": "Un estudio clínico publicado en el Journal of Clinical Endocrinology and Metabolism (Teichman et al., 2006)"
+    }
+   ],
+   "diff": "diffs-bloqueD/2096.diff",
+   "http": 200
+  },
+  {
+   "id": 2256,
+   "title": "Agua Bacteriostática: Qué Es, Para Qué Sirve y Cómo Reconstituir Péptidos Paso a Paso (Guía 2026)",
+   "link": "https://peptidosysuplementos.mx/agua-bacteriostatica-que-es-para-que-sirve-como-reconstituir-peptidos/",
+   "acciones": [
+    {
+     "grupo": "a",
+     "nota": "recita el paper correcto y nombra fuente, revista y año",
+     "quita": "Investigaciones preclínicas publicadas en PubMed han documentado su potencial en la reparación de tejidos y procesos antiinflamatorios",
+     "deja": "Una revisión en Frontiers in Pharmacology (Seiwerth et al., 2021) documenta su potencial en la reparación de tejidos y procesos antiinflamatorios"
+    }
+   ],
+   "diff": "diffs-bloqueD/2256.diff",
+   "http": 200
+  }
+ ]
+}

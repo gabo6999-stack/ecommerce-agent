@@ -1,0 +1,12 @@
+--- 795-antes
++++ 795-despues
+@@ -172,6 +172,6 @@
+ <ol>
+-<li>Hsieh MJ et al. <em>Therapeutic potential of pro-angiogenic BPC157 is associated with VEGFR2 activation and up-regulation.</em> J Mol Med (Berl), 2018. PMID 27847966.</li>
+-<li>Hsieh MJ et al. <em>Modulatory effects of BPC 157 on vasomotor tone and the activation of Src-Caveolin-1-endothelial nitric oxide synthase pathway.</em> Sci Rep, 2021. PMID 33051481.</li>
++<li>Hsieh MJ et al. <em>Therapeutic potential of pro-angiogenic BPC157 is associated with VEGFR2 activation and up-regulation.</em> J Mol Med (Berl), 2017. PMID 27847966.</li>
++<li>Hsieh MJ et al. <em>Modulatory effects of BPC 157 on vasomotor tone and the activation of Src-Caveolin-1-endothelial nitric oxide synthase pathway.</em> Sci Rep, 2020. PMID 33051481.</li>
+ <li>Philp D et al. <em>The actin binding site on thymosin beta4 promotes angiogenesis.</em> FASEB J, 2003. PMID 14500546.</li>
+-<li>He L et al. <em>Pharmacokinetics, distribution, metabolism, and excretion of body-protective compound 157, a potential drug for treating various wounds, in rats and dogs.</em> Front Pharmacol, 2023. PMID 36588717.</li>
++<li>He L et al. <em>Pharmacokinetics, distribution, metabolism, and excretion of body-protective compound 157, a potential drug for treating various wounds, in rats and dogs.</em> Front Pharmacol, 2022. PMID 36588717.</li>
+ <li>Ruff D et al. <em>A randomized, placebo-controlled, single and multiple dose study of intravenous thymosin beta4 in healthy volunteers.</em> Ann N Y Acad Sci, 2010. PMID 20536472.</li>

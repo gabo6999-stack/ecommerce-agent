@@ -1,0 +1,12 @@
+--- 1525-antes
++++ 1525-despues
+@@ -248,3 +248,3 @@
+ <ol>
+-<li>Coskun T et al. <em>LY3298176, a novel dual GIP and GLP-1 receptor agonist for the treatment of type 2 diabetes mellitus: From discovery to clinical proof of concept.</em> Mol Metab, 2019. PMID 30473097.</li>
++<li>Coskun T et al. <em>LY3298176, a novel dual GIP and GLP-1 receptor agonist for the treatment of type 2 diabetes mellitus: From discovery to clinical proof of concept.</em> Mol Metab, 2018. PMID 30473097.</li>
+ <li>Sun B et al. <em>Structural determinants of dual incretin receptor agonism by tirzepatide.</em> Proc Natl Acad Sci U S A, 2022. PMID 35333651.</li>
+@@ -258,3 +258,3 @@
+ <li>Rosenstock J et al. <em>Efficacy and safety of a novel dual GIP and GLP-1 receptor agonist tirzepatide in patients with type 2 diabetes (SURPASS-1).</em> Lancet, 2021. PMID 34186022.</li>
+-<li>Del Prato S et al. <em>Tirzepatide versus insulin glargine in type 2 diabetes and increased cardiovascular risk (SURPASS-4).</em> Lancet, 2022. PMID 34672967.</li>
++<li>Del Prato S et al. <em>Tirzepatide versus insulin glargine in type 2 diabetes and increased cardiovascular risk (SURPASS-4).</em> Lancet, 2021. PMID 34672967.</li>
+ <li>Nicholls SJ et al. <em>Cardiovascular Outcomes with Tirzepatide versus Dulaglutide in Type 2 Diabetes.</em> N Engl J Med, 2025. PMID 41406444.</li>

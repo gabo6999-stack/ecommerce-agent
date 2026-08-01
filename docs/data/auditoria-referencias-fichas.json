@@ -1,0 +1,424 @@
+{
+ "fecha": "2026-07-31",
+ "resumen": {
+  "ANIO_DISCREPA": 39,
+  "MOLECULA_REVISAR": 4,
+  "MOLECULA_EQUIVOCADA": 3
+ },
+ "fichas": [
+  {
+   "id": 795,
+   "nombre": "BPC-157 + TB-500",
+   "url": "https://peptidosysuplementos.mx/product/bpc-157-tb-500-10-10mg/",
+   "palabras": 2346,
+   "n_refs": 7,
+   "hallazgos": [
+    {
+     "pmid": "27847966",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2018; PubMed: 2016/2017",
+     "ctx": "Hsieh MJ et al. Therapeutic potential of pro-angiogenic BPC157 is associated with VEGFR2 activation and up-regulation. J Mol Med (Berl), 2018. PMID 27847966"
+    },
+    {
+     "pmid": "33051481",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2021; PubMed: 2020",
+     "ctx": "Hsieh MJ et al. Modulatory effects of BPC 157 on vasomotor tone and the activation of Src-Caveolin-1-endothelial nitric oxide synthase pathway. Sci Rep, 2021. PMID 33051481"
+    },
+    {
+     "pmid": "14500546",
+     "tipo": "MOLECULA_REVISAR",
+     "detalle": "el título no nombra la molécula: 'The actin binding site on thymosin beta4 promotes angiogenesis.'",
+     "ctx": ""
+    },
+    {
+     "pmid": "14500546",
+     "tipo": "MOLECULA_EQUIVOCADA",
+     "detalle": "el título nombra 'thymosin beta4': 'The actin binding site on thymosin beta4 promotes angiogenesis.'",
+     "ctx": ""
+    },
+    {
+     "pmid": "36588717",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2023; PubMed: 2022",
+     "ctx": "He L et al. Pharmacokinetics, distribution, metabolism, and excretion of body-protective compound 157, a potential drug for treating various wounds, in rats and dogs. Front Pharmacol, 2023. PMID 36588"
+    },
+    {
+     "pmid": "20536472",
+     "tipo": "MOLECULA_REVISAR",
+     "detalle": "el título no nombra la molécula: 'A randomized, placebo-controlled, single and multiple dose study of intravenous thymosin beta4 in healthy volu'",
+     "ctx": ""
+    },
+    {
+     "pmid": "20536472",
+     "tipo": "MOLECULA_EQUIVOCADA",
+     "detalle": "el título nombra 'thymosin beta4': 'A randomized, placebo-controlled, single and multiple dose study of intravenous thymosin beta4 in healthy volu'",
+     "ctx": ""
+    },
+    {
+     "pmid": "41235866",
+     "tipo": "MOLECULA_REVISAR",
+     "detalle": "el título no nombra la molécula: 'Engineered Tandem Thymosin Peptide Promotes Corneal Wound Healing.'",
+     "ctx": ""
+    },
+    {
+     "pmid": "41235866",
+     "tipo": "MOLECULA_EQUIVOCADA",
+     "detalle": "el título nombra 'thymosin peptide': 'Engineered Tandem Thymosin Peptide Promotes Corneal Wound Healing.'",
+     "ctx": ""
+    }
+   ],
+   "enlaces": []
+  },
+  {
+   "id": 1699,
+   "nombre": "Selank",
+   "url": "https://peptidosysuplementos.mx/product/selank-10-mg/",
+   "palabras": 2980,
+   "n_refs": 11,
+   "hallazgos": [
+    {
+     "pmid": "30255741",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2019; PubMed: 2018",
+     "ctx": "Vyunova TV et al. Peptide-based Anxiolytics: The Molecular Aspects of Heptapeptide Selank Biological Activity. Protein Pept Lett, 2019. PMID 30255741"
+    },
+    {
+     "pmid": "32342318",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2021; PubMed: 2020",
+     "ctx": "Panikratova YR et al. Functional Connectomic Approach to Studying Selank and Semax Effects. Dokl Biol Sci, 2021. PMID 32342318"
+    },
+    {
+     "pmid": "31625062",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2020; PubMed: 2019",
+     "ctx": "Kolik LG et al. Selank, Peptide Analogue of Tuftsin, Protects Against Ethanol-Induced Memory Impairment by Regulating of BDNF Content in the Hippocampus and Frontal Cortex. Bull Exp Biol Med, 2020. PM"
+    },
+    {
+     "pmid": "24913576",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2015; PubMed: 2014",
+     "ctx": "Kolik LG et al. Efficacy of peptide anxiolytic selank during modeling of withdrawal syndrome in rats with stable alcoholic motivation. Bull Exp Biol Med, 2015. PMID 24913576"
+    }
+   ],
+   "enlaces": []
+  },
+  {
+   "id": 2240,
+   "nombre": "Cagrilintida",
+   "url": "https://peptidosysuplementos.mx/product/cagrilintida-10mg/",
+   "palabras": 2856,
+   "n_refs": 11,
+   "hallazgos": [
+    {
+     "pmid": "34798060",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2022; PubMed: 2021",
+     "ctx": "Lau DCW et al. Once-weekly cagrilintide for weight management in people with overweight and obesity: a multicentre, randomised, double-blind, placebo-controlled and active-controlled, dose-finding pha"
+    },
+    {
+     "pmid": "39676787",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2025; PubMed: 2024",
+     "ctx": "Dutta D et al. Efficacy and Safety of Cagrilintide Alone and in Combination with Semaglutide (Cagrisema) as Anti-Obesity Medications: A Systematic Review and Meta-analysis. Indian J Endocrinol Metab, "
+    }
+   ],
+   "enlaces": []
+  },
+  {
+   "id": 19,
+   "nombre": "Retatrutida",
+   "url": "https://peptidosysuplementos.mx/product/retatrutida-30mg/",
+   "palabras": 3060,
+   "n_refs": 11,
+   "hallazgos": [
+    {
+     "pmid": "40094000",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2026; PubMed: 2025",
+     "ctx": "Marathe SJ et al. Incretin triple agonist retatrutide (LY3437943) alleviates obesity-associated cancer progression. npj Metab Health Dis, 2026. PMID 40094000"
+    }
+   ],
+   "enlaces": []
+  },
+  {
+   "id": 799,
+   "nombre": "Agua Bacteriostática",
+   "url": "https://peptidosysuplementos.mx/product/agua-bacteriostatica-3ml/",
+   "palabras": 2189,
+   "n_refs": 10,
+   "hallazgos": [
+    {
+     "pmid": "27264293",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2017; PubMed: 2016",
+     "ctx": "Kubin ME et al. Benzyl alcohol allergy mimicking corticosteroid allergy. Contact Dermatitis, 2017. PMID 27264293"
+    },
+    {
+     "pmid": "29243541",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2018; PubMed: 2017",
+     "ctx": "Johnson W et al. Safety Assessment of Benzyl Alcohol, Benzoic Acid and its Salts, and Benzyl Benzoate. Int J Toxicol, 2018. PMID 29243541"
+    },
+    {
+     "pmid": "1481803",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 1993; PubMed: 1992",
+     "ctx": "Nahata MC et al. Stability of aminophylline in bacteriostatic water for injection stored in plastic syringes at two temperatures. Am J Hosp Pharm, 1993. PMID 1481803"
+    },
+    {
+     "pmid": "29505449",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2020; PubMed: 2019",
+     "ctx": "Burbridge MA et al. Excipients in Anesthesia Medications. Anesth Analg, 2020. PMID 29505449"
+    }
+   ],
+   "enlaces": []
+  },
+  {
+   "id": 790,
+   "nombre": "MOTS-c",
+   "url": "https://peptidosysuplementos.mx/product/mots-c-10mg/",
+   "palabras": 2901,
+   "n_refs": 14,
+   "hallazgos": [
+    {
+     "pmid": "29983246",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2019; PubMed: 2018",
+     "ctx": "Kim KH et al. The Mitochondrial-Encoded Peptide MOTS-c Translocates to the Nucleus to Regulate Nuclear Gene Expression in Response to Metabolic Stress. Cell Metab, 2019. PMID 29983246"
+    },
+    {
+     "pmid": "31066084",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2020; PubMed: 2019",
+     "ctx": "Ramanjaneya M et al. Lipids and insulin regulate mitochondrial-derived peptide (MOTS-c) in PCOS and healthy subjects. Clin Endocrinol, 2020. PMID 31066084"
+    },
+    {
+     "pmid": "31378979",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2020; PubMed: 2019",
+     "ctx": "Benayoun BA et al. MOTS-c: A Mitochondrial-Encoded Regulator of the Nucleus. BioEssays, 2020. PMID 31378979"
+    },
+    {
+     "pmid": "26289118",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2016; PubMed: 2015",
+     "ctx": "Fuku N et al. The mitochondrial-derived peptide MOTS-c: a player in exceptional longevity? Aging Cell, 2016. PMID 26289118"
+    }
+   ],
+   "enlaces": []
+  },
+  {
+   "id": 793,
+   "nombre": "MOTS-c 40 mg",
+   "url": "https://peptidosysuplementos.mx/product/mots-c-40mg/",
+   "palabras": 688,
+   "n_refs": 0,
+   "hallazgos": [],
+   "enlaces": []
+  },
+  {
+   "id": 2232,
+   "nombre": "CJC-1295 (no-DAC) + Ipamorelina",
+   "url": "https://peptidosysuplementos.mx/product/cjc-1295-ipamorelina-5mg/",
+   "palabras": 2863,
+   "n_refs": 11,
+   "hallazgos": [
+    {
+     "pmid": "17018654",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2007; PubMed: 2006",
+     "ctx": "Ionescu M et al. Pulsatile secretion of growth hormone (GH) persists during continuous stimulation by CJC-1295, a long-acting GH-releasing hormone analog. J Clin Endocrinol Metab, 2007. PMID 17018654"
+    },
+    {
+     "pmid": "11735244",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2002; PubMed: 2001",
+     "ctx": "Andersen NB et al. The growth hormone secretagogue ipamorelin counteracts glucocorticoid-induced decrease in bone formation of adult rats. Growth Horm IGF Res, 2002. PMID 11735244"
+    },
+    {
+     "pmid": "12168778",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2003; PubMed: 2002",
+     "ctx": "Jiménez-Reina L et al. Influence of chronic treatment with the growth hormone secretagogue Ipamorelin, in young female rats: somatotroph response in vitro. Histol Histopathol, 2003. PMID 12168778"
+    },
+    {
+     "pmid": "19231263",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2010; PubMed: 2009",
+     "ctx": "Aagaard NK et al. Growth hormone and growth hormone secretagogue effects on nitrogen balance and urea synthesis in steroid treated rats. Growth Horm IGF Res, 2010. PMID 19231263"
+    },
+    {
+     "pmid": "34665524",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2022; PubMed: 2021",
+     "ctx": "Memdouh S et al. Advances in the detection of growth hormone releasing hormone synthetic analogs. Drug Test Anal, 2022. PMID 34665524"
+    },
+    {
+     "pmid": "21204297",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2011; PubMed: 2010",
+     "ctx": "Henninge J et al. Identification of CJC-1295, a growth-hormone-releasing peptide, in an unknown pharmaceutical preparation. Drug Test Anal, 2011. PMID 21204297"
+    }
+   ],
+   "enlaces": []
+  },
+  {
+   "id": 1128,
+   "nombre": "IGF-1 LR3",
+   "url": "https://peptidosysuplementos.mx/product/igf-1-lr3-1mg/",
+   "palabras": 2477,
+   "n_refs": 8,
+   "hallazgos": [
+    {
+     "pmid": "9488001",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 1998; PubMed: 1997",
+     "ctx": "Dunaiski V et al. Long [R3] insulin-like growth factor-I reduces growth, plasma growth hormone, IGF binding protein-3 and endogenous IGF-I concentrations in finisher pigs. J Endocrinol, 1998. PMID 948"
+    },
+    {
+     "pmid": "36091374",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2026; PubMed: 2022",
+     "ctx": "Stremming J et al. Sheep recombinant IGF-1 promotes organ-specific growth in fetal sheep. Front Physiol, 2026. PMID 36091374"
+    }
+   ],
+   "enlaces": []
+  },
+  {
+   "id": 2231,
+   "nombre": "Sermorelina",
+   "url": "https://peptidosysuplementos.mx/product/sermorelina-10mg/",
+   "palabras": 1954,
+   "n_refs": 10,
+   "hallazgos": [
+    {
+     "pmid": "18031173",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2009; PubMed: 1999",
+     "ctx": "Prakash A et al. Sermorelin: a review of its use in the diagnosis and treatment of children with idiopathic growth hormone deficiency. BioDrugs, 2009. PMID 18031173"
+    },
+    {
+     "pmid": "2879138",
+     "tipo": "MOLECULA_REVISAR",
+     "detalle": "el título no nombra la molécula: 'Treatment of growth-hormone deficiency with growth-hormone-releasing hormone.'",
+     "ctx": ""
+    },
+    {
+     "pmid": "34665524",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2022; PubMed: 2021",
+     "ctx": "Memdouh S et al. Advances in the detection of growth hormone releasing hormone synthetic analogs. Drug Test Anal, 2022. PMID 34665524"
+    }
+   ],
+   "enlaces": []
+  },
+  {
+   "id": 2230,
+   "nombre": "Timosina Alfa-1",
+   "url": "https://peptidosysuplementos.mx/product/thymosin-alpha-1-10mg/",
+   "palabras": 2054,
+   "n_refs": 10,
+   "hallazgos": [
+    {
+     "pmid": "23327199",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2015; PubMed: 2013",
+     "ctx": "Wu J et al. The efficacy of thymosin alpha 1 for severe sepsis (ETASS): a multicenter, single-blind, randomized and controlled trial. Crit Care, 2015. PMID 23327199"
+    },
+    {
+     "pmid": "32994239",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2021; PubMed: 2020",
+     "ctx": "Zhou J et al. Thymosin alpha 1 in the prevention of infected pancreatic necrosis following acute necrotising pancreatitis (TRACE trial). BMJ Open, 2021. PMID 32994239"
+    },
+    {
+     "pmid": "25640173",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2016; PubMed: 2015",
+     "ctx": "Wu X et al. Thymosin alpha-1 treatment in chronic hepatitis B. Expert Opin Biol Ther, 2016. PMID 25640173"
+    },
+    {
+     "pmid": "30063866",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2019; PubMed: 2018",
+     "ctx": "Pei F et al. Thymosin alpha 1 treatment for patients with sepsis. Expert Opin Biol Ther, 2019. PMID 30063866"
+    }
+   ],
+   "enlaces": []
+  },
+  {
+   "id": 1525,
+   "nombre": "Tirzepatida",
+   "url": "https://peptidosysuplementos.mx/product/tirzepatida-30-mg/",
+   "palabras": 2221,
+   "n_refs": 13,
+   "hallazgos": [
+    {
+     "pmid": "30473097",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2019; PubMed: 2018",
+     "ctx": "Coskun T et al. LY3298176, a novel dual GIP and GLP-1 receptor agonist for the treatment of type 2 diabetes mellitus: From discovery to clinical proof of concept. Mol Metab, 2019. PMID 30473097"
+    },
+    {
+     "pmid": "34672967",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2022; PubMed: 2021",
+     "ctx": "Del Prato S et al. Tirzepatide versus insulin glargine in type 2 diabetes and increased cardiovascular risk (SURPASS-4). Lancet, 2022. PMID 34672967"
+    }
+   ],
+   "enlaces": []
+  },
+  {
+   "id": 1531,
+   "nombre": "Tirzepatida 60 mg",
+   "url": "https://peptidosysuplementos.mx/product/tirzepatida-60-mg/",
+   "palabras": 713,
+   "n_refs": 0,
+   "hallazgos": [],
+   "enlaces": []
+  },
+  {
+   "id": 1131,
+   "nombre": "NAD+",
+   "url": "https://peptidosysuplementos.mx/product/nad-plus-500mg/",
+   "palabras": 2506,
+   "n_refs": 13,
+   "hallazgos": [
+    {
+     "pmid": "31278280",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2020; PubMed: 2019",
+     "ctx": "Conze D et al. Safety and Metabolism of Long-term Administration of NIAGEN (Nicotinamide Riboside Chloride) in a Randomized, Double-Blind, Placebo-controlled Clinical Trial. Sci Rep, 2020. PMID 312782"
+    },
+    {
+     "pmid": "29249689",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2019; PubMed: 2017/2018",
+     "ctx": "Yoshino J et al. NAD+ Intermediates: The Biology and Therapeutic Potential of NMN and NR. Cell Metab, 2019. PMID 29249689"
+    },
+    {
+     "pmid": "24786309",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2015; PubMed: 2014",
+     "ctx": "Imai S et al. NAD+ and sirtuins in aging and disease. Trends Cell Biol, 2015. PMID 24786309"
+    },
+    {
+     "pmid": "26785480",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2016; PubMed: 2015",
+     "ctx": "Verdin E et al. NAD⁺ in aging, metabolism, and neurodegeneration. Science, 2016. PMID 26785480"
+    },
+    {
+     "pmid": "32694684",
+     "tipo": "ANIO_DISCREPA",
+     "detalle": "ficha dice 2021; PubMed: 2020",
+     "ctx": "Katsyuba E et al. NAD+ homeostasis in health and disease. Nat Metab, 2021. PMID 32694684"
+    }
+   ],
+   "enlaces": []
+  }
+ ]
+}

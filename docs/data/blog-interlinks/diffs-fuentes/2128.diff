@@ -1,0 +1,7 @@
+--- 2128-antes
++++ 2128-despues
+@@ -159,3 +159,3 @@
+ <h2>Estatus Regulatorio y Legal: Prohibiciones Importantes</h2>
+-<p>El BPC-157 <a href="https://www.fda.gov/drugs/human-drug-compounding/fda-updates-bpc-157" rel="noopener noreferrer" target="_blank">no está aprobado por la FDA</a> (Administración de Alimentos y Medicamentos de Estados Unidos) para ningún uso clínico. Esto significa que no ha pasado por los rigurosos procesos de evaluación de seguridad y eficacia requeridos para medicamentos de uso humano.</p>
++<p>El BPC-157 <a href="https://www.fda.gov/drugs/human-drug-compounding/certain-bulk-drug-substances-use-compounding-may-present-significant-safety-risks" rel="noopener noreferrer" target="_blank">no está aprobado por la FDA</a> (Administración de Alimentos y Medicamentos de Estados Unidos) para ningún uso clínico. Esto significa que no ha pasado por los rigurosos procesos de evaluación de seguridad y eficacia requeridos para medicamentos de uso humano.</p>
+ <p>Además, el péptido está clasificado como sustancia prohibida por:</p>

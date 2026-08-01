@@ -1,0 +1,7 @@
+--- 2070-antes
++++ 2070-despues
+@@ -24,3 +24,3 @@
+ <h2>Protocolos de uso: Dosis y administración</h2>
+-<p>Es importante aclarar que el TB-500 <strong>no está aprobado por la FDA para uso humano</strong> y se clasifica como un péptido de investigación. <a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-alerts-healthcare-professionals-about-safety-issues-compounded-drugs" target="_blank" rel="noopener noreferrer">La FDA ha emitido advertencias sobre el uso no supervisado de péptidos compuestos</a>, por lo que cualquier información sobre dosificación se presenta con fines puramente informativos y no como recomendación médica.</p>
++<p>Es importante aclarar que el TB-500 <strong>no está aprobado por la FDA para uso humano</strong> y se clasifica como un péptido de investigación. <a href="https://www.fda.gov/drugs/human-drug-compounding/certain-bulk-drug-substances-use-compounding-may-present-significant-safety-risks" target="_blank" rel="noopener noreferrer">La FDA ha emitido advertencias sobre el uso no supervisado de péptidos compuestos</a>, por lo que cualquier información sobre dosificación se presenta con fines puramente informativos y no como recomendación médica.</p>
+ <h3>Dosis reportadas en la literatura y comunidad de investigación</h3>

@@ -1,0 +1,14 @@
+--- 2240-antes
++++ 2240-despues
+@@ -252,3 +252,3 @@
+ <li>Enebo LB et al. <em>Safety, tolerability, pharmacokinetics, and pharmacodynamics of concomitant administration of multiple doses of cagrilintide with semaglutide 2·4 mg for weight management.</em> Lancet, 2021. PMID 33894838.</li>
+-<li>Lau DCW et al. <em>Once-weekly cagrilintide for weight management in people with overweight and obesity: a multicentre, randomised, double-blind, placebo-controlled and active-controlled, dose-finding phase 2 trial.</em> Lancet, 2022. PMID 34798060.</li>
++<li>Lau DCW et al. <em>Once-weekly cagrilintide for weight management in people with overweight and obesity: a multicentre, randomised, double-blind, placebo-controlled and active-controlled, dose-finding phase 2 trial.</em> Lancet, 2021. PMID 34798060.</li>
+ <li>Frias JP et al. <em>Efficacy and safety of co-administered once-weekly cagrilintide 2·4 mg with once-weekly semaglutide 2·4 mg in type 2 diabetes.</em> Lancet, 2023. PMID 37364590.</li>
+@@ -258,4 +258,4 @@
+ <li>Buse JB et al. <em>Cagrilintide-semaglutide (CagriSema) versus semaglutide or cagrilintide in people with type 2 diabetes (REIMAGINE 2).</em> Lancet Diabetes Endocrinol, 2026. PMID 42251859.</li>
+-<li>Dutta D et al. <em>Efficacy and Safety of Cagrilintide Alone and in Combination with Semaglutide (Cagrisema) as Anti-Obesity Medications: A Systematic Review and Meta-analysis.</em> Indian J Endocrinol Metab, 2025. PMID 39676787.</li>
+-<li>D'Ascanio AM et al. <em>Cagrilintide: A Long-Acting Amylin Analog for the Treatment of Obesity.</em> Cardiol Rev, 2023. PMID 36883831.</li>
++<li>Dutta D et al. <em>Efficacy and Safety of Cagrilintide Alone and in Combination with Semaglutide (Cagrisema) as Anti-Obesity Medications: A Systematic Review and Meta-analysis.</em> Indian J Endocrinol Metab, 2024. PMID 39676787.</li>
++<li>D'Ascanio AM et al. <em>Cagrilintide: A Long-Acting Amylin Analog for the Treatment of Obesity.</em> Cardiol Rev, 2024. PMID 36883831.</li>
+ <li>Panou T et al. <em>Amylin analogs for the treatment of obesity without diabetes: present and future.</em> Expert Rev Clin Pharmacol, 2024. PMID 39317404.</li>

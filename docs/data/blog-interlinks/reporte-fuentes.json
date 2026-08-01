@@ -1,0 +1,196 @@
+{
+ "fecha": "2026-07-31",
+ "aplicado": true,
+ "posts": [
+  {
+   "id": 1647,
+   "title": "Retatrutida: qué es, cómo funciona y beneficios",
+   "link": "https://peptidosysuplementos.mx/retatrutide-precio-guia-completa-costos-beneficios/",
+   "acciones": [
+    {
+     "op": "href",
+     "veredicto": "a",
+     "de": "https://www.fda.gov/drugs/drug-safety-and-availability/fda-alerts-consumers-not-use-compounded-semaglutide-tirzepatide-or-other-glp-1-related-drugs",
+     "a": "https://www.fda.gov/drugs/drug-alerts-and-statements/fdas-concerns-unapproved-glp-1-drugs-used-weight-loss",
+     "documento": "FDA's Concerns with Unapproved GLP-1 Drugs Used for Weight Loss"
+    }
+   ],
+   "diff": "diffs-fuentes/1647.diff",
+   "http": 200
+  },
+  {
+   "id": 1675,
+   "title": "Peptidos para Longevidad: Ciencia del Antienvejecimiento",
+   "link": "https://peptidosysuplementos.mx/peptidos-para-longevidad-ciencia-antienvejecimiento/",
+   "acciones": [
+    {
+     "op": "href",
+     "veredicto": "a",
+     "de": "https://www.nia.nih.gov/health/aging-well/biology-aging",
+     "a": "https://www.nia.nih.gov/news/topics/aging-biology",
+     "documento": "Aging Biology | National Institute on Aging"
+    }
+   ],
+   "diff": "diffs-fuentes/1675.diff",
+   "http": 200
+  },
+  {
+   "id": 1913,
+   "title": "GHK-Cu: El Péptido de Cobre que Revoluciona la Regeneración y el Antienvejecimiento",
+   "link": "https://peptidosysuplementos.mx/ghk-cu-peptido-cobre-regeneracion-antienvejecimiento/",
+   "acciones": [
+    {
+     "op": "bloque",
+     "veredicto": "c",
+     "motivo": "examine.com/supplements/ghk-cu/ devuelve 404. El consejo se conserva sin atribuir, porque atribuirlo a un análisis inexistente es lo falso",
+     "quita": "Según el análisis de Examine.com sobre GHK-Cu, las dosis terapéuticas deben ajustarse siempre bajo supervisión de un profesional de la salud.",
+     "deja": "Las dosis terapéuticas deben ajustarse siempre bajo supervisión de un profesional de la salud."
+    }
+   ],
+   "diff": "diffs-fuentes/1913.diff",
+   "http": 200
+  },
+  {
+   "id": 2070,
+   "title": "TB-500: El Péptido de Recuperación que Todo Atleta Debe Conocer",
+   "link": "https://peptidosysuplementos.mx/tb-500-peptido-recuperacion-atletas/",
+   "acciones": [
+    {
+     "op": "href",
+     "veredicto": "a",
+     "de": "https://www.fda.gov/drugs/drug-safety-and-availability/fda-alerts-healthcare-professionals-about-safety-issues-compounded-drugs",
+     "a": "https://www.fda.gov/drugs/human-drug-compounding/certain-bulk-drug-substances-use-compounding-may-present-significant-safety-risks",
+     "documento": "Certain Bulk Drug Substances for Use in Compounding that May Present Significant Safety Risks"
+    }
+   ],
+   "diff": "diffs-fuentes/2070.diff",
+   "http": 200
+  },
+  {
+   "id": 2075,
+   "title": "Pérdida de Grasa con Péptidos y Suplementos: Guía Científica Completa 2026",
+   "link": "https://peptidosysuplementos.mx/perdida-de-grasa-peptidos-suplementos-guia-cientifica/",
+   "acciones": [
+    {
+     "op": "href",
+     "veredicto": "a",
+     "de": "https://www.fda.gov/drugs/drug-safety-and-availability/fda-warns-against-using-semaglutide-other-compounded-drugs-weight-loss",
+     "a": "https://www.fda.gov/drugs/drug-alerts-and-statements/fdas-concerns-unapproved-glp-1-drugs-used-weight-loss",
+     "documento": "FDA's Concerns with Unapproved GLP-1 Drugs Used for Weight Loss"
+    }
+   ],
+   "diff": "diffs-fuentes/2075.diff",
+   "http": 200
+  },
+  {
+   "id": 2092,
+   "title": "Retatrutide: El Péptido Triple Agonista que Está Revolucionando la Pérdida de Peso en 2026",
+   "link": "https://peptidosysuplementos.mx/retatrutide-peptido-triple-agonista-perdida-de-peso/",
+   "acciones": [
+    {
+     "op": "bloque",
+     "veredicto": "c",
+     "motivo": "examine.com/supplements/semaglutide/ devuelve 404: el análisis no existe. Se borra la afirmación y el párrafo arranca en la frase siguiente",
+     "quita": "Examine.com ofrece análisis detallados de los agonistas GLP-1 aprobados, lo que permite contextualizar mejor la magnitud del avance que representa el ",
+     "deja": "Quienes"
+    }
+   ],
+   "diff": "diffs-fuentes/2092.diff",
+   "http": 200
+  },
+  {
+   "id": 2094,
+   "title": "Testosterona: Qué es, funciones, niveles óptimos y cómo optimizarla naturalmente en 2026",
+   "link": "https://peptidosysuplementos.mx/testosterona-que-es-funciones-niveles-optimos-como-optimizarla/",
+   "acciones": [
+    {
+     "op": "href",
+     "veredicto": "a",
+     "de": "https://www.fda.gov/drugs/postmarket-drug-safety-information-patients-and-providers/fda-drug-safety-communication-fda-cautions-about-using-testosterone-products-low-testosterone-due-aging",
+     "a": "https://www.fda.gov/drugs/postmarket-drug-safety-information-patients-and-providers/testosterone-information",
+     "documento": "Testosterone Information | FDA"
+    }
+   ],
+   "diff": "diffs-fuentes/2094.diff",
+   "http": 200
+  },
+  {
+   "id": 2128,
+   "title": "BPC-157: El Péptido de Recuperación que Está Revolucionando el Mundo Deportivo",
+   "link": "https://peptidosysuplementos.mx/bpc-157-peptido-recuperacion-deportiva/",
+   "acciones": [
+    {
+     "op": "href",
+     "veredicto": "b",
+     "de": "https://www.fda.gov/drugs/human-drug-compounding/fda-updates-bpc-157",
+     "a": "https://www.fda.gov/drugs/human-drug-compounding/certain-bulk-drug-substances-use-compounding-may-present-significant-safety-risks",
+     "documento": "no existe ninguna página 'FDA updates BPC-157'; el hecho SÍ se sostiene con la lista de sustancias a granel con riesgos de seguridad, donde BPC-157 figura"
+    }
+   ],
+   "diff": "diffs-fuentes/2128.diff",
+   "http": 200
+  },
+  {
+   "id": 2201,
+   "title": "Péptidos: Qué son, para qué sirven y cómo usarlos de forma segura en 2026",
+   "link": "https://peptidosysuplementos.mx/peptidos-que-son-para-que-sirven-como-usarlos/",
+   "acciones": [
+    {
+     "op": "href",
+     "veredicto": "a",
+     "de": "https://www.fda.gov/drugs/human-drug-compounding/compounded-drugs-are-not-fda-approved",
+     "a": "https://www.fda.gov/drugs/human-drug-compounding/bulk-drug-substances-used-compounding-under-section-503a-fdc-act",
+     "documento": "Bulk Drug Substances Used in Compounding Under Section 503A of the FD&C Act"
+    }
+   ],
+   "diff": "diffs-fuentes/2201.diff",
+   "http": 200
+  },
+  {
+   "id": 2207,
+   "title": "Tirzepatida: qué es, para qué sirve, cómo funciona, dosis y resultados — Guía Completa 2026",
+   "link": "https://peptidosysuplementos.mx/tirzepatida-para-que-sirve-guia-completa-mexico-2026/",
+   "acciones": [
+    {
+     "op": "href",
+     "veredicto": "a",
+     "de": "https://www.fda.gov/news-events/press-announcements/fda-approves-novel-dual-targeted-treatment-type-2-diabetes",
+     "a": "https://www.fda.gov/drugs/drug-trials-snapshots/drug-trials-snapshots-mounjaro",
+     "documento": "Drug Trials Snapshots: MOUNJARO (la aprobación del 13-may-2022 es real; el comunicado ya no vive en esa URL)"
+    },
+    {
+     "op": "bloque",
+     "veredicto": "c",
+     "motivo": "examine.com/supplements/tirzepatide/ devuelve 404: Examine cubre suplementos, no fármacos GLP-1. El análisis no existe",
+     "quita": "Examine.com mantiene un análisis actualizado de la evidencia sobre tirzepatida que puede ser útil como referencia complementaria.",
+     "deja": "(nada)"
+    }
+   ],
+   "diff": "diffs-fuentes/2207.diff",
+   "http": 200
+  },
+  {
+   "id": 2256,
+   "title": "Agua Bacteriostática: Qué Es, Para Qué Sirve y Cómo Reconstituir Péptidos Paso a Paso (Guía 2026)",
+   "link": "https://peptidosysuplementos.mx/agua-bacteriostatica-que-es-para-que-sirve-como-reconstituir-peptidos/",
+   "acciones": [
+    {
+     "op": "bloque",
+     "veredicto": "b",
+     "motivo": "la advertencia existe, pero es de los CDC (campaña One & Only / Injection Safety), no de la FDA",
+     "quita": "La FDA advierte explícitamente sobre los riesgos de reutilizar agujas y jeringas",
+     "deja": "Los CDC advierten explícitamente sobre los riesgos de reutilizar agujas y jeringas"
+    },
+    {
+     "op": "bloque",
+     "veredicto": "c",
+     "motivo": "no existe tal guía de la FDA; la compatibilidad de diluyentes se especifica en la etiqueta de cada producto aprobado, no en un documento general",
+     "quita": "La FDA establece directrices sobre la compatibilidad de diluyentes con formulaciones inyectables que respaldan el uso del agua bacteriostática como es",
+     "deja": "(nada)"
+    }
+   ],
+   "diff": "diffs-fuentes/2256.diff",
+   "http": 200
+  }
+ ]
+}

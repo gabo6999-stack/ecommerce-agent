@@ -1,0 +1,490 @@
+{
+ "fecha": "2026-07-31",
+ "fichas": [
+  {
+   "id": 795,
+   "nombre": "BPC-157 + TB-500",
+   "n_refs": 7,
+   "flags": [
+    {
+     "pmid": "14500546",
+     "tipo": "VARIANTE",
+     "variante_detectada": [
+      "thymosin beta4"
+     ],
+     "titulo": "The actin binding site on thymosin beta4 promotes angiogenesis.",
+     "revista": "FASEB J",
+     "anio": "2003",
+     "usos": [
+      "TB-500 no es timosina beta-4 completa, y esa distinción importa. La timosina beta-4 (Tβ4) es una proteína de 43 aminoácidos ; TB-500 corresponde únicamente al motivo de unión a actina de 7 aminoácidos derivado de ella. Ese fragmento se identificó como el segmento esencial para la actividad angiogénica de la proteína completa (FASEB J, 2003 · PMID 14500546). Cuando una fuente atribuye a TB-500 resultados obtenidos con Tβ4 completa, está mezclando dos moléculas diferentes.",
+      "La timosina beta-4 es una proteína secuestradora de G-actina . Su motivo de unión a actina —que es lo que TB-500 reproduce— promueve la migración de células endoteliales y el brote vascular (FASEB J, 2003 · PMID 14500546). Es decir: mientras BPC-157 opera sobre señalización vascular, TB-500 opera sobre el citoesqueleto y el movimiento celular.",
+      "TB-500 tiene un origen distinto. La timosina beta-4 se caracterizó como proteína secuestradora de G-actina con actividad en cicatrización, angiogénesis y migración celular; en 2003 se identificó que su motivo de siete aminoácidos de unión a actina era el segmento responsable de la actividad angiogénica (PMID 14500546). TB-500 reproduce específicamente ese motivo."
+     ]
+    },
+    {
+     "pmid": "20536472",
+     "tipo": "VARIANTE",
+     "variante_detectada": [
+      "thymosin beta4"
+     ],
+     "titulo": "A randomized, placebo-controlled, single and multiple dose study of intravenous thymosin beta4 in healthy volunteers.",
+     "revista": "Ann N Y Acad Sci",
+     "anio": "2010",
+     "usos": [
+      "A diferencia de BPC-157, la proteína Tβ4 completa sí cuenta con un ensayo clínico de Fase I publicado : un estudio aleatorizado y controlado con placebo en voluntarios sanos, con cuatro cohortes de 10 sujetos que recibieron dosis intravenosas ascendentes de 42, 140, 420 y 1260 mg, primero en dosis única y después diariamente durante 14 días, con evaluación de seguridad, eventos adversos y parámetros farmacocinéticos (Ann N Y Acad Sci, 2010 · PMID 20536472). Un derivado oftálmico de Tβ4 (RGN-259) alcanzó ensayo clínico para cicatrización corneal, con aprobación regulatoria aún pendiente (PMID 41235866).",
+      "No. No se han publicado ensayos clínicos que evalúen BPC-157 y TB-500 juntos. Existe un ensayo de Fase I de timosina beta-4 completa en voluntarios sanos (PMID 20536472), que no es extrapolable ni a TB-500 ni a la combinación."
+     ]
+    },
+    {
+     "pmid": "41235866",
+     "tipo": "VARIANTE",
+     "variante_detectada": [
+      "thymosin peptide"
+     ],
+     "titulo": "Engineered Tandem Thymosin Peptide Promotes Corneal Wound Healing.",
+     "revista": "Invest Ophthalmol Vis Sci",
+     "anio": "2025",
+     "usos": [
+      "Para la timosina beta-4, la literatura reciente describe una vida media corta como una de las limitaciones de las terapias basadas en ella (IOVS, 2025 · PMID 41235866). No existen datos farmacocinéticos publicados específicos del fragmento TB-500 aislado, ni de la combinación de ambos péptidos.",
+      "A diferencia de BPC-157, la proteína Tβ4 completa sí cuenta con un ensayo clínico de Fase I publicado : un estudio aleatorizado y controlado con placebo en voluntarios sanos, con cuatro cohortes de 10 sujetos que recibieron dosis intravenosas ascendentes de 42, 140, 420 y 1260 mg, primero en dosis única y después diariamente durante 14 días, con evaluación de seguridad, eventos adversos y parámetros farmacocinéticos (Ann N Y Acad Sci, 2010 · PMID 20536472). Un derivado oftálmico de Tβ4 (RGN-259) alcanzó ensayo clínico para cicatrización corneal, con aprobación regulatoria aún pendiente (PMID 41235866)."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1699,
+   "nombre": "Selank",
+   "n_refs": 11,
+   "flags": [
+    {
+     "pmid": "28745220",
+     "tipo": "VARIANTE",
+     "variante_detectada": [
+      "tuftsin"
+     ],
+     "titulo": "Tuftsin - Properties and Analogs.",
+     "revista": "Curr Med Chem",
+     "anio": "2017",
+     "usos": [
+      "Inmunomodulador y neurotrópico (PMID 28745220)",
+      "Selank surge de la línea de investigación rusa sobre péptidos reguladores derivados de la tuftsina. La tuftsina se caracterizó como tetrapéptido endógeno procedente de la inmunoglobulina G, con actividad inmunomoduladora y neurotrópica; la revisión sobre sus propiedades y análogos sintéticos recoge esa familia completa (Curr Med Chem, 2017 · PMID 28745220).",
+      "Selank contiene la secuencia de la tuftsina (Thr-Lys-Pro-Arg) más una cola Pro-Gly-Pro. La tuftsina es un tetrapéptido endógeno derivado de la inmunoglobulina G con actividad inmunomoduladora y neurotrópica descrita (PMID 28745220).",
+      "Siebert A et al. Tuftsin — Properties and Analogs. Curr Med Chem, 2017. PMID 28745220."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 2240,
+   "nombre": "Cagrilintida",
+   "n_refs": 11,
+   "flags": [
+    {
+     "pmid": "39317404",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Amylin analogs for the treatment of obesity without diabetes: present and future.",
+     "revista": "Expert Rev Clin Pharmacol",
+     "anio": "2024",
+     "usos": [
+      "Panou T et al. Amylin analogs for the treatment of obesity without diabetes: present and future. Expert Rev Clin Pharmacol, 2024. PMID 39317404."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "nombre": "Retatrutida",
+   "n_refs": 11,
+   "flags": []
+  },
+  {
+   "id": 799,
+   "nombre": "Agua Bacteriostática",
+   "n_refs": 10,
+   "flags": [
+    {
+     "pmid": "29505449",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Excipients in Anesthesia Medications.",
+     "revista": "Anesth Analg",
+     "anio": "2019",
+     "usos": [
+      "Referencia en trabajos sobre excipientes. El alcohol bencílico figura entre los excipientes revisados en la literatura de medicación anestésica (PMID 29505449).",
+      "Burbridge MA et al. Excipients in Anesthesia Medications. Anesth Analg, 2020. PMID 29505449."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 790,
+   "nombre": "MOTS-c 10mg",
+   "n_refs": 14,
+   "flags": []
+  },
+  {
+   "id": 793,
+   "nombre": "MOTS-c 40mg",
+   "n_refs": 0,
+   "flags": []
+  },
+  {
+   "id": 2232,
+   "nombre": "CJC-1295 (no-DAC) + Ipamorelina",
+   "n_refs": 11,
+   "flags": [
+    {
+     "pmid": "19231263",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Growth hormone and growth hormone secretagogue effects on nitrogen balance and urea synthesis in steroid treated rats.",
+     "revista": "Growth Horm IGF Res",
+     "anio": "2009",
+     "usos": [
+      "Balance nitrogenado. Efectos de GH y secretagogos sobre balance de nitrógeno y síntesis de urea en ratas tratadas con esteroides (Growth Horm IGF Res, 2010 · PMID 19231263).",
+      "Aagaard NK et al. Growth hormone and growth hormone secretagogue effects on nitrogen balance and urea synthesis in steroid treated rats. Growth Horm IGF Res, 2010. PMID 19231263."
+     ]
+    },
+    {
+     "pmid": "34665524",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Advances in the detection of growth hormone releasing hormone synthetic analogs.",
+     "revista": "Drug Test Anal",
+     "anio": "2021",
+     "usos": [
+      "Métodos analíticos. Desarrollo de técnicas de detección de análogos sintéticos de GHRH (Drug Test Anal, 2019 · PMID 30489688; Drug Test Anal, 2022 · PMID 34665524).",
+      "Punto específico de esta clase: los análogos sintéticos de GHRH son objeto activo de desarrollo de métodos de detección antidopaje . Existe literatura dedicada a ello —un cribado por reacción en cadena de la polimerasa inmuno para detectar CJC-1295 y otros análogos de GHRH (Drug Test Anal, 2019 · PMID 30489688) y una revisión de avances en su detección (Drug Test Anal, 2022 · PMID 34665524)—, además del caso documentado de identificación de CJC-1295 en una preparación farmacéutica desconocida (Drug Test Anal, 2011 · PMID 21204297). Quien participe en deporte sujeto a control debe consultar la lista vigente de la agencia correspondiente.",
+      "Existe literatura dedicada al desarrollo de métodos de detección de CJC-1295 y otros análogos sintéticos de GHRH (PMID 30489688; PMID 34665524). Quien compita bajo control antidopaje debe consultar la lista vigente de su agencia.",
+      "Memdouh S et al. Advances in the detection of growth hormone releasing hormone synthetic analogs. Drug Test Anal, 2022. PMID 34665524."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1128,
+   "nombre": "IGF-1 LR3",
+   "n_refs": 8,
+   "flags": [
+    {
+     "pmid": "9488001",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Long [R3] insulin-like growth factor-I reduces growth, plasma growth hormone, IGF binding protein-3 and endogenous IGF-I concentrations in pigs.",
+     "revista": "J Endocrinol",
+     "anio": "1997",
+     "usos": [
+      "El hallazgo más contundente es de un trabajo en cerdos de engorde. Su planteamiento lo dice sin rodeos: los análogos de IGF-I que se unen pobremente a las IGFBP estimulan el crecimiento en la rata pero, por el contrario, lo inhiben en el cerdo (J Endocrinol, 1998 · PMID 9488001).",
+      "Ese patrón de supresión se repite en el cerdo, donde además descendieron IGFBP-3, insulina y hormona de crecimiento (PMID 9488001). Escapar de un mecanismo regulador no equivale a obtener más efecto neto: el organismo responde ajustando la producción propia.",
+      "Los resultados fueron desiguales y en buena medida decepcionantes para ese objetivo: crecimiento en la rata, inhibición en el cerdo (PMID 9488001), crecimiento de órganos sin crecimiento corporal en la cobaya (PMID 7561636), y efectos sobre el metabolismo proteico en vaquillas de carne (PMID 10370861). Ninguna de esas líneas derivó en un producto veterinario ni humano establecido.",
+      "Eje somatotropo. Retroalimentación sobre GH endógena e IGFBP-3 (PMID 9488001).",
+      "PMID 9488001",
+      "La literatura preclínica documenta efectos metabólicos que conviene conocer: descenso de insulina plasmática y de la secreción de insulina estimulada por glucosa (PMID 39679943; PMID 33938236), y supresión de IGF-1 endógeno, IGFBP-3 y GH (PMID 9488001). Es decir, el análogo interfiere con la regulación del propio eje somatotropo.",
+      "La literatura revisada no sostiene esa conclusión de forma simple. Los resultados varían según la especie: estimula el crecimiento en la rata pero lo inhibe en el cerdo , donde redujo la ganancia diaria y la ingesta (PMID 9488001). En cobayas aumentó el peso de algunos órganos sin cambiar el crecimiento global (PMID 7561636), y en fetos ovinos con restricción de crecimiento no produjo diferencias (PMID 39679943).",
+      "En los modelos estudiados sí: se documentó descenso de insulina plasmática y de la secreción de insulina estimulada por glucosa (PMID 33938236; PMID 39679943), además de reducción de IGFBP-3, IGF-1 endógeno y GH (PMID 9488001).",
+      "Dunaiski V et al. Long [R3] insulin-like growth factor-I reduces growth, plasma growth hormone, IGF binding protein-3 and endogenous IGF-I concentrations in finisher pigs. J Endocrinol, 1998. PMID 9488001."
+     ]
+    },
+    {
+     "pmid": "33938236",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Reduced glucose-stimulated insulin secretion following a 1-wk IGF-1 infusion in late gestation fetal sheep is due to an intrinsic islet defect.",
+     "revista": "Am J Physiol Endocrinol Metab",
+     "anio": "2021",
+     "usos": [
+      "Secreción de insulina fetal. Reducción de la secreción de insulina estimulada por glucosa tras infusión de IGF-1 en ovejas fetales de gestación tardía (Am J Physiol Endocrinol Metab, 2021 · PMID 33938236).",
+      "Metabolismo de la glucosa y secreción de insulina. Efectos sobre la secreción de insulina estimulada por glucosa (PMID 33938236; PMID 39679943).",
+      "La literatura preclínica documenta efectos metabólicos que conviene conocer: descenso de insulina plasmática y de la secreción de insulina estimulada por glucosa (PMID 39679943; PMID 33938236), y supresión de IGF-1 endógeno, IGFBP-3 y GH (PMID 9488001). Es decir, el análogo interfiere con la regulación del propio eje somatotropo.",
+      "En los modelos estudiados sí: se documentó descenso de insulina plasmática y de la secreción de insulina estimulada por glucosa (PMID 33938236; PMID 39679943), además de reducción de IGFBP-3, IGF-1 endógeno y GH (PMID 9488001).",
+      "White A et al. Reduced glucose-stimulated insulin secretion following a 1-wk IGF-1 infusion in late gestation fetal sheep. Am J Physiol Endocrinol Metab, 2021. PMID 33938236."
+     ]
+    },
+    {
+     "pmid": "10370861",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Action of long(R3)-insulin-like growth factor-1 on protein metabolism in beef heifers.",
+     "revista": "Domest Anim Endocrinol",
+     "anio": "1999",
+     "usos": [
+      "Metabolismo proteico en bovinos. Acción de long(R3)-IGF-1 en vaquillas de carne (Domest Anim Endocrinol, 1999 · PMID 10370861).",
+      "Los resultados fueron desiguales y en buena medida decepcionantes para ese objetivo: crecimiento en la rata, inhibición en el cerdo (PMID 9488001), crecimiento de órganos sin crecimiento corporal en la cobaya (PMID 7561636), y efectos sobre el metabolismo proteico en vaquillas de carne (PMID 10370861). Ninguna de esas líneas derivó en un producto veterinario ni humano establecido.",
+      "Hill RA et al. Action of long(R3)-insulin-like growth factor-1 on protein metabolism in beef heifers. Domest Anim Endocrinol, 1999. PMID 10370861."
+     ]
+    },
+    {
+     "pmid": "36499281",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "N-Linked Glycosylation in Chinese Hamster Ovary Cells Is Critical for Insulin-like Growth Factor 1 Signaling.",
+     "revista": "Int J Mol Sci",
+     "anio": "2022",
+     "usos": [
+      "Señalización. Papel de la glicosilación N-ligada en células CHO para la señalización de IGF-1 (Int J Mol Sci, 2022 · PMID 36499281).",
+      "La aplicación que sí se consolidó fue otra, y es la que conserva sentido hoy: su uso como reactivo en cultivo celular , precisamente porque su baja afinidad por las IGFBP presentes en el suero lo mantiene disponible para el receptor. En esa dirección apuntan los trabajos recientes sobre su producción recombinante (PMID 37261455) y sobre los requisitos de glicosilación para la señalización de IGF-1 en células CHO (PMID 36499281).",
+      "Salvi R et al. N-Linked Glycosylation in Chinese Hamster Ovary Cells Is Critical for Insulin-like Growth Factor 1 Signaling. Int J Mol Sci, 2022. PMID 36499281."
+     ]
+    },
+    {
+     "pmid": "36091374",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Sheep recombinant IGF-1 promotes organ-specific growth in fetal sheep.",
+     "revista": "Front Physiol",
+     "anio": "2022",
+     "usos": [
+      "Stremming J et al. Sheep recombinant IGF-1 promotes organ-specific growth in fetal sheep. Front Physiol, 2026. PMID 36091374."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 2231,
+   "nombre": "Sermorelina",
+   "n_refs": 10,
+   "flags": [
+    {
+     "pmid": "2879138",
+     "tipo": "SIN_MOLECULA",
+     "variante_detectada": [],
+     "titulo": "Treatment of growth-hormone deficiency with growth-hormone-releasing hormone.",
+     "revista": "Lancet",
+     "anio": "1987",
+     "usos": [
+      "La GHRH y sus análogos se investigaron para el diagnóstico y tratamiento de la talla baja (Horm Res, 1985 · PMID 2863206) y para el tratamiento de la deficiencia de hormona de crecimiento (Lancet, 1987 · PMID 2879138), con estudios comparativos frente a la GH misma (Eur J Pediatr, 1989 · PMID 2537727; Acta Paediatr, 1993 · PMID 8329830).",
+      "Ross RJ et al. Treatment of growth-hormone deficiency with growth-hormone-releasing hormone. Lancet, 1987. PMID 2879138."
+     ]
+    },
+    {
+     "pmid": "2537727",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Comparison of growth hormone releasing hormone therapy and growth hormone therapy in growth hormone deficiency.",
+     "revista": "Eur J Pediatr",
+     "anio": "1989",
+     "usos": [
+      "La GHRH y sus análogos se investigaron para el diagnóstico y tratamiento de la talla baja (Horm Res, 1985 · PMID 2863206) y para el tratamiento de la deficiencia de hormona de crecimiento (Lancet, 1987 · PMID 2879138), con estudios comparativos frente a la GH misma (Eur J Pediatr, 1989 · PMID 2537727; Acta Paediatr, 1993 · PMID 8329830).",
+      "La diferencia conceptual entre ambas estrategias explica el interés que despertó la sermorelina, y hay estudios comparativos directos (PMID 2537727; PMID 8329830):",
+      "Butenandt O et al. Comparison of growth hormone releasing hormone therapy and growth hormone therapy in growth hormone deficiency. Eur J Pediatr, 1989. PMID 2537727."
+     ]
+    },
+    {
+     "pmid": "8329830",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "A comparative study of growth hormone (GH) and GH-releasing hormone(1-29)-NH2 for stimulation of growth in children with GH deficiency.",
+     "revista": "Acta Paediatr Suppl",
+     "anio": "1993",
+     "usos": [
+      "La GHRH y sus análogos se investigaron para el diagnóstico y tratamiento de la talla baja (Horm Res, 1985 · PMID 2863206) y para el tratamiento de la deficiencia de hormona de crecimiento (Lancet, 1987 · PMID 2879138), con estudios comparativos frente a la GH misma (Eur J Pediatr, 1989 · PMID 2537727; Acta Paediatr, 1993 · PMID 8329830).",
+      "La diferencia conceptual entre ambas estrategias explica el interés que despertó la sermorelina, y hay estudios comparativos directos (PMID 2537727; PMID 8329830):",
+      "Chen RG et al. A comparative study of growth hormone (GH) and GH-releasing hormone(1-29)-NH2 for stimulation of growth in children with GH deficiency. Acta Paediatr, 1993. PMID 8329830."
+     ]
+    },
+    {
+     "pmid": "9231053",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Treatment of radiation-induced growth hormone deficiency with growth hormone-releasing hormone.",
+     "revista": "Clin Endocrinol (Oxf)",
+     "anio": "1997",
+     "usos": [
+      "Se estudió también en deficiencia de GH inducida por radiación (Clin Endocrinol, 1997 · PMID 9231053), un contexto donde el daño suele ser hipotalámico y la pituitaria conserva capacidad de respuesta.",
+      "Ogilvy-Stuart AL et al. Treatment of radiation-induced growth hormone deficiency with growth hormone-releasing hormone. Clin Endocrinol, 1997. PMID 9231053."
+     ]
+    },
+    {
+     "pmid": "2863206",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "The use of growth hormone-releasing hormone in the diagnosis and treatment of short stature.",
+     "revista": "Horm Res",
+     "anio": "1985",
+     "usos": [
+      "La GHRH y sus análogos se investigaron para el diagnóstico y tratamiento de la talla baja (Horm Res, 1985 · PMID 2863206) y para el tratamiento de la deficiencia de hormona de crecimiento (Lancet, 1987 · PMID 2879138), con estudios comparativos frente a la GH misma (Eur J Pediatr, 1989 · PMID 2537727; Acta Paediatr, 1993 · PMID 8329830).",
+      "Grossman A et al. The use of growth hormone-releasing hormone in the diagnosis and treatment of short stature. Horm Res, 1985. PMID 2863206."
+     ]
+    },
+    {
+     "pmid": "2429796",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Growth hormone releasing hormone.",
+     "revista": "Clin Endocrinol Metab",
+     "anio": "1986",
+     "usos": [
+      "Grossman A et al. Growth hormone releasing hormone. Clin Endocrinol Metab, 1986. PMID 2429796."
+     ]
+    },
+    {
+     "pmid": "34665524",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Advances in the detection of growth hormone releasing hormone synthetic analogs.",
+     "revista": "Drug Test Anal",
+     "anio": "2021",
+     "usos": [
+      "Métodos analíticos. Desarrollo de técnicas de detección de análogos sintéticos de GHRH (Drug Test Anal, 2022 · PMID 34665524), ensayos en orina sin anticuerpos (J Pharm Biomed Anal, 2022 · PMID 35298973) y separación de enantiómeros por electroforesis capilar (Electrophoresis, 2023 · PMID 36787346).",
+      "El producto de esta página se comercializa en México exclusivamente como material de referencia para investigación , no como medicamento. Los análogos sintéticos de GHRH son objeto activo de desarrollo de métodos de detección antidopaje (PMID 34665524; PMID 35298973); quien participe en deporte sujeto a control debe consultar la lista vigente de su agencia.",
+      "Memdouh S et al. Advances in the detection of growth hormone releasing hormone synthetic analogs. Drug Test Anal, 2022. PMID 34665524."
+     ]
+    },
+    {
+     "pmid": "35298973",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "An antibody-free, ultrafiltration-based assay for the detection of growth hormone-releasing hormones in urine at low pg/mL concentrations using nanoLC-HRMS/MS.",
+     "revista": "J Pharm Biomed Anal",
+     "anio": "2022",
+     "usos": [
+      "Métodos analíticos. Desarrollo de técnicas de detección de análogos sintéticos de GHRH (Drug Test Anal, 2022 · PMID 34665524), ensayos en orina sin anticuerpos (J Pharm Biomed Anal, 2022 · PMID 35298973) y separación de enantiómeros por electroforesis capilar (Electrophoresis, 2023 · PMID 36787346).",
+      "El producto de esta página se comercializa en México exclusivamente como material de referencia para investigación , no como medicamento. Los análogos sintéticos de GHRH son objeto activo de desarrollo de métodos de detección antidopaje (PMID 34665524; PMID 35298973); quien participe en deporte sujeto a control debe consultar la lista vigente de su agencia.",
+      "Coppieters G et al. An antibody-free, ultrafiltration-based assay for the detection of growth hormone-releasing hormones in urine at low picogram per millilitre concentrations. J Pharm Biomed Anal, 2022. PMID 35298973."
+     ]
+    },
+    {
+     "pmid": "36787346",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "Online large volume sample staking preconcentration and separation of enantiomeric GHRH analogs by capillary electrophoresis.",
+     "revista": "Electrophoresis",
+     "anio": "2023",
+     "usos": [
+      "Métodos analíticos. Desarrollo de técnicas de detección de análogos sintéticos de GHRH (Drug Test Anal, 2022 · PMID 34665524), ensayos en orina sin anticuerpos (J Pharm Biomed Anal, 2022 · PMID 35298973) y separación de enantiómeros por electroforesis capilar (Electrophoresis, 2023 · PMID 36787346).",
+      "Otin J et al. Online large volume sample stacking preconcentration and separation of enantiomeric GHRH analogs by capillary electrophoresis. Electrophoresis, 2023. PMID 36787346."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 2230,
+   "nombre": "Timosina Alfa-1",
+   "n_refs": 10,
+   "flags": []
+  },
+  {
+   "id": 1525,
+   "nombre": "Tirzepatida 30mg",
+   "n_refs": 13,
+   "flags": [
+    {
+     "pmid": "40330819",
+     "tipo": "GENERICO",
+     "variante_detectada": [],
+     "titulo": "A Comprehensive Review on the Pharmacokinetics and Drug-Drug Interactions of Approved GLP-1 Receptor Agonists and a Dual GLP-1/GIP Receptor Agonist.",
+     "revista": "Drug Des Devel Ther",
+     "anio": "2025",
+     "usos": [
+      "Farmacocinética e interacciones. Revisión de agonistas del receptor GLP-1 aprobados y de un agonista dual (Drug Des Devel Ther, 2025 · PMID 40330819).",
+      "Min JS et al. A Comprehensive Review on the Pharmacokinetics and Drug-Drug Interactions of Approved GLP-1 Receptor Agonists and a Dual Agonist. Drug Des Devel Ther, 2025. PMID 40330819."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1531,
+   "nombre": "Tirzepatida 60mg",
+   "n_refs": 0,
+   "flags": []
+  },
+  {
+   "id": 1131,
+   "nombre": "NAD+",
+   "n_refs": 13,
+   "flags": [
+    {
+     "pmid": "31278280",
+     "tipo": "VARIANTE",
+     "variante_detectada": [
+      "nicotinamide riboside",
+      "niagen"
+     ],
+     "titulo": "Safety and Metabolism of Long-term Administration of NIAGEN (Nicotinamide Riboside Chloride) in a Randomized, Double-Blind, Placebo-controlled Clinical Trial of Healthy Overweight Adults.",
+     "revista": "Sci Rep",
+     "anio": "2019",
+     "usos": [
+      "Cinética y seguridad de NR. Ensayo aleatorizado, doble ciego y controlado con placebo de 8 semanas en adultos con sobrepeso pero por lo demás sanos. El consumo de 100, 300 y 1000 mg de nicotinamida ribósido elevó el NAD+ en sangre completa de forma dosis-dependiente en un 22%, 51% y 142% respectivamente en dos semanas, manteniéndose el resto del estudio. Sin reportes de rubor ni diferencias significativas en eventos adversos frente a placebo; no elevó el colesterol LDL ni desreguló el metabolismo de un carbono (Sci Rep, 2020 · PMID 31278280).",
+      "PMID 31278280",
+      "Los datos de tolerabilidad disponibles corresponden a precursores orales : en el ensayo de 8 semanas con NR no hubo reportes de rubor, ni diferencias significativas en eventos adversos frente a placebo, ni elevación de LDL, ni desregulación del metabolismo de un carbono (PMID 31278280). El estudio NADPARK también describió buena tolerancia con 1,000 mg diarios durante 30 días (PMID 35235774).",
+      "En el ensayo de referencia, 100, 300 y 1000 mg diarios de NR elevaron el NAD+ en sangre completa un 22%, 51% y 142% respectivamente en dos semanas, manteniéndose después (PMID 31278280).",
+      "Conze D et al. Safety and Metabolism of Long-term Administration of NIAGEN (Nicotinamide Riboside Chloride) in a Randomized, Double-Blind, Placebo-controlled Clinical Trial. Sci Rep, 2020. PMID 31278280."
+     ]
+    },
+    {
+     "pmid": "35235774",
+     "tipo": "VARIANTE",
+     "variante_detectada": [
+      "nicotinamide riboside"
+     ],
+     "titulo": "The NADPARK study: A randomized phase I trial of nicotinamide riboside supplementation in Parkinson's disease.",
+     "revista": "Cell Metab",
+     "anio": "2022",
+     "usos": [
+      "NADPARK — enfermedad de Parkinson. Ensayo de fase I doble ciego en 30 pacientes recién diagnosticados y sin tratamiento previo, con 1,000 mg de NR o placebo durante 30 días. Bien tolerado; produjo un aumento significativo pero variable del NAD cerebral medido por espectroscopía de resonancia magnética de fósforo-31. Quienes sí elevaron el NAD cerebral mostraron metabolismo cerebral alterado por PET, asociado a mejoría clínica leve (Cell Metab, 2022 · PMID 35235774).",
+      "PMID 35235774",
+      "Los datos de tolerabilidad disponibles corresponden a precursores orales : en el ensayo de 8 semanas con NR no hubo reportes de rubor, ni diferencias significativas en eventos adversos frente a placebo, ni elevación de LDL, ni desregulación del metabolismo de un carbono (PMID 31278280). El estudio NADPARK también describió buena tolerancia con 1,000 mg diarios durante 30 días (PMID 35235774).",
+      "Brakedal B et al. The NADPARK study: A randomized phase I trial of nicotinamide riboside supplementation in Parkinson's disease. Cell Metab, 2022. PMID 35235774."
+     ]
+    },
+    {
+     "pmid": "38871717",
+     "tipo": "VARIANTE",
+     "variante_detectada": [
+      "nicotinamide riboside"
+     ],
+     "titulo": "Nicotinamide riboside for peripheral artery disease: the NICE randomized clinical trial.",
+     "revista": "Nat Commun",
+     "anio": "2024",
+     "usos": [
+      "NICE — enfermedad arterial periférica. Ensayo clínico aleatorizado de nicotinamida ribósido (Nat Commun, 2024 · PMID 38871717).",
+      "McDermott MM et al. Nicotinamide riboside for peripheral artery disease: the NICE randomized clinical trial. Nat Commun, 2024. PMID 38871717."
+     ]
+    },
+    {
+     "pmid": "37994989",
+     "tipo": "VARIANTE",
+     "variante_detectada": [
+      "nicotinamide riboside"
+     ],
+     "titulo": "A randomized placebo-controlled trial of nicotinamide riboside in older adults with mild cognitive impairment.",
+     "revista": "Geroscience",
+     "anio": "2024",
+     "usos": [
+      "Deterioro cognitivo leve. Ensayo aleatorizado controlado con placebo en adultos mayores (GeroScience, 2024 · PMID 37994989).",
+      "Orr ME et al. A randomized placebo-controlled trial of nicotinamide riboside in older adults with mild cognitive impairment. GeroScience, 2024. PMID 37994989."
+     ]
+    },
+    {
+     "pmid": "39548320",
+     "tipo": "VARIANTE",
+     "variante_detectada": [
+      "nicotinamide riboside"
+     ],
+     "titulo": "Effect of nicotinamide riboside on airway inflammation in COPD: a randomized, placebo-controlled trial.",
+     "revista": "Nat Aging",
+     "anio": "2024",
+     "usos": [
+      "EPOC. Efecto sobre inflamación de la vía aérea, aleatorizado y controlado con placebo (Nat Aging, 2024 · PMID 39548320).",
+      "Norheim KL et al. Effect of nicotinamide riboside on airway inflammation in COPD: a randomized, placebo-controlled trial. Nat Aging, 2024. PMID 39548320."
+     ]
+    },
+    {
+     "pmid": "37159264",
+     "tipo": "VARIANTE",
+     "variante_detectada": [
+      "nicotinamide riboside"
+     ],
+     "titulo": "Randomized crossover clinical trial of coenzyme Q10 and nicotinamide riboside in chronic kidney disease.",
+     "revista": "JCI Insight",
+     "anio": "2023",
+     "usos": [
+      "Enfermedad renal crónica. Ensayo cruzado aleatorizado de coenzima Q10 y nicotinamida ribósido (JCI Insight, 2023 · PMID 37159264).",
+      "Ahmadi A et al. Randomized crossover clinical trial of coenzyme Q10 and nicotinamide riboside in chronic kidney disease. JCI Insight, 2023. PMID 37159264."
+     ]
+    }
+   ]
+  }
+ ]
+}

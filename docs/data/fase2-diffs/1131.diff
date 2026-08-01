@@ -1,0 +1,19 @@
+--- 1131-antes
++++ 1131-despues
+@@ -221,3 +221,3 @@
+ <li>Gallagher C et al. <em>NAD⁺ supplementation for anti-aging and wellness: A PRISMA-guided systematic review of preclinical and clinical evidence.</em> Ageing Res Rev, 2026. PMID 41655607.</li>
+-<li>Conze D et al. <em>Safety and Metabolism of Long-term Administration of NIAGEN (Nicotinamide Riboside Chloride) in a Randomized, Double-Blind, Placebo-controlled Clinical Trial.</em> Sci Rep, 2020. PMID 31278280.</li>
++<li>Conze D et al. <em>Safety and Metabolism of Long-term Administration of NIAGEN (Nicotinamide Riboside Chloride) in a Randomized, Double-Blind, Placebo-controlled Clinical Trial.</em> Sci Rep, 2019. PMID 31278280.</li>
+ <li>Brakedal B et al. <em>The NADPARK study: A randomized phase I trial of nicotinamide riboside supplementation in Parkinson's disease.</em> Cell Metab, 2022. PMID 35235774.</li>
+@@ -227,7 +227,7 @@
+ <li>Ahmadi A et al. <em>Randomized crossover clinical trial of coenzyme Q10 and nicotinamide riboside in chronic kidney disease.</em> JCI Insight, 2023. PMID 37159264.</li>
+-<li>Yoshino J et al. <em>NAD+ Intermediates: The Biology and Therapeutic Potential of NMN and NR.</em> Cell Metab, 2019. PMID 29249689.</li>
+-<li>Imai S et al. <em>NAD+ and sirtuins in aging and disease.</em> Trends Cell Biol, 2015. PMID 24786309.</li>
+-<li>Verdin E et al. <em>NAD⁺ in aging, metabolism, and neurodegeneration.</em> Science, 2016. PMID 26785480.</li>
++<li>Yoshino J et al. <em>NAD+ Intermediates: The Biology and Therapeutic Potential of NMN and NR.</em> Cell Metab, 2018. PMID 29249689.</li>
++<li>Imai S et al. <em>NAD+ and sirtuins in aging and disease.</em> Trends Cell Biol, 2014. PMID 24786309.</li>
++<li>Verdin E et al. <em>NAD⁺ in aging, metabolism, and neurodegeneration.</em> Science, 2015. PMID 26785480.</li>
+ <li>Covarrubias AJ et al. <em>NAD+ metabolism and its roles in cellular processes during ageing.</em> Nat Rev Mol Cell Biol, 2021. PMID 33353981.</li>
+-<li>Katsyuba E et al. <em>NAD+ homeostasis in health and disease.</em> Nat Metab, 2021. PMID 32694684.</li>
++<li>Katsyuba E et al. <em>NAD+ homeostasis in health and disease.</em> Nat Metab, 2020. PMID 32694684.</li>
+ <li>Pandolfi S et al. <em>NAD⁺ biology and supplementation: From mechanisms to clinical perspectives.</em> Mol Biol Rep, 2026. PMID 42489969.</li>

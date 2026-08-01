@@ -1,0 +1,12 @@
+--- 2231-antes
++++ 2231-despues
+@@ -214,3 +214,3 @@
+ <ol>
+-<li>Prakash A et al. <em>Sermorelin: a review of its use in the diagnosis and treatment of children with idiopathic growth hormone deficiency.</em> BioDrugs, 2009. PMID 18031173.</li>
++<li>Prakash A et al. <em>Sermorelin: a review of its use in the diagnosis and treatment of children with idiopathic growth hormone deficiency.</em> BioDrugs, 1999. PMID 18031173.</li>
+ <li>Ross RJ et al. <em>Treatment of growth-hormone deficiency with growth-hormone-releasing hormone.</em> Lancet, 1987. PMID 2879138.</li>
+@@ -221,3 +221,3 @@
+ <li>Grossman A et al. <em>Growth hormone releasing hormone.</em> Clin Endocrinol Metab, 1986. PMID 2429796.</li>
+-<li>Memdouh S et al. <em>Advances in the detection of growth hormone releasing hormone synthetic analogs.</em> Drug Test Anal, 2022. PMID 34665524.</li>
++<li>Memdouh S et al. <em>Advances in the detection of growth hormone releasing hormone synthetic analogs.</em> Drug Test Anal, 2021. PMID 34665524.</li>
+ <li>Coppieters G et al. <em>An antibody-free, ultrafiltration-based assay for the detection of growth hormone-releasing hormones in urine at low picogram per millilitre concentrations.</em> J Pharm Biomed Anal, 2022. PMID 35298973.</li>

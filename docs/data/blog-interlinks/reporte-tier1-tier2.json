@@ -1,0 +1,318 @@
+{
+ "fecha": "2026-07-31",
+ "aplicado": true,
+ "posts": [
+  {
+   "id": 1476,
+   "title": "Retatrutida TRIUMPH-1: Resultados Clinicos Reales 2026",
+   "link": "https://peptidosysuplementos.mx/retatrutide-triumph-1/",
+   "acciones": [
+    {
+     "tier": 1,
+     "op": "remapea",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/composicion-corporal-guia-completa-transformacion/",
+     "a": "https://peptidosysuplementos.mx/perdida-de-grasa-peptidos-suplementos-guia-cientifica/"
+    },
+    {
+     "tier": 1,
+     "op": "remapea",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/masa-muscular-guia-completa-peptidos-suplementos/",
+     "a": "https://peptidosysuplementos.mx/optimizar-rendimiento-deportivo-suplementos-peptidos/"
+    },
+    {
+     "tier": 1,
+     "op": "desenlaza",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/mots-c-peptido-mitocondrial-rendimiento-deportivo/",
+     "motivo": "duplicaría un enlace existente"
+    }
+   ],
+   "diff": "diffs/1476.diff",
+   "http": 200
+  },
+  {
+   "id": 1647,
+   "title": "Retatrutida: qué es, cómo funciona y beneficios",
+   "link": "https://peptidosysuplementos.mx/retatrutide-precio-guia-completa-costos-beneficios/",
+   "acciones": [
+    {
+     "tier": 1,
+     "op": "remapea",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/composicion-corporal-guia-completa-transformacion/",
+     "a": "https://peptidosysuplementos.mx/perdida-de-grasa-peptidos-suplementos-guia-cientifica/"
+    },
+    {
+     "tier": 2,
+     "op": "envuelve",
+     "ficha": 799,
+     "ancla": "agua bacteriostática",
+     "a": "https://peptidosysuplementos.mx/product/agua-bacteriostatica-3ml/"
+    }
+   ],
+   "diff": "diffs/1647.diff",
+   "http": 200
+  },
+  {
+   "id": 1675,
+   "title": "Peptidos para Longevidad: Ciencia del Antienvejecimiento",
+   "link": "https://peptidosysuplementos.mx/peptidos-para-longevidad-ciencia-antienvejecimiento/",
+   "acciones": [
+    {
+     "tier": 1,
+     "op": "remapea",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/composicion-corporal-guia-completa-transformacion/",
+     "a": "https://peptidosysuplementos.mx/perdida-de-grasa-peptidos-suplementos-guia-cientifica/"
+    },
+    {
+     "tier": 1,
+     "op": "remapea",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/masa-muscular-guia-completa-peptidos-suplementos/",
+     "a": "https://peptidosysuplementos.mx/optimizar-rendimiento-deportivo-suplementos-peptidos/"
+    },
+    {
+     "tier": 1,
+     "op": "remapea",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/ghk-cu-peptido-de-cobre-beneficios/",
+     "a": "https://peptidosysuplementos.mx/ghk-cu-peptido-cobre-regeneracion-antienvejecimiento/"
+    },
+    {
+     "tier": 1,
+     "op": "desenlaza",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/mots-c-peptido-mitocondrial-rendimiento-deportivo/",
+     "motivo": "duplicaría un enlace existente"
+    },
+    {
+     "tier": 2,
+     "op": "envuelve",
+     "ficha": 2232,
+     "ancla": "CJC-1295",
+     "a": "https://peptidosysuplementos.mx/product/cjc-1295-ipamorelina-5mg/"
+    }
+   ],
+   "diff": "diffs/1675.diff",
+   "http": 200
+  },
+  {
+   "id": 1727,
+   "title": "Semaglutida 2026: Guia Completa de Perdida de Peso",
+   "link": "https://peptidosysuplementos.mx/semaglutida-2026-guia-completa-perdida-peso/",
+   "acciones": [
+    {
+     "tier": 1,
+     "op": "remapea",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/composicion-corporal-guia-completa-transformacion/",
+     "a": "https://peptidosysuplementos.mx/perdida-de-grasa-peptidos-suplementos-guia-cientifica/"
+    },
+    {
+     "tier": 1,
+     "op": "desenlaza",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/composicion-corporal-guia-completa-transformacion/",
+     "motivo": "repetición del mismo enlace en el post"
+    },
+    {
+     "tier": 1,
+     "op": "remapea",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/masa-muscular-guia-completa-peptidos-suplementos/",
+     "a": "https://peptidosysuplementos.mx/optimizar-rendimiento-deportivo-suplementos-peptidos/"
+    },
+    {
+     "tier": 1,
+     "op": "desenlaza",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/mots-c-peptido-mitocondrial-rendimiento-deportivo/",
+     "motivo": "duplicaría un enlace existente"
+    }
+   ],
+   "diff": "diffs/1727.diff",
+   "http": 200
+  },
+  {
+   "id": 1913,
+   "title": "GHK-Cu: El Péptido de Cobre que Revoluciona la Regeneración y el Antienvejecimiento",
+   "link": "https://peptidosysuplementos.mx/ghk-cu-peptido-cobre-regeneracion-antienvejecimiento/",
+   "acciones": [
+    {
+     "tier": 1,
+     "op": "remapea",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/masa-muscular-guia-completa-peptidos-suplementos/",
+     "a": "https://peptidosysuplementos.mx/optimizar-rendimiento-deportivo-suplementos-peptidos/"
+    },
+    {
+     "tier": 1,
+     "op": "desenlaza",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/guia-completa-suplementos-deportivos-evidencia-cientifica/",
+     "motivo": "duplicaría un enlace existente"
+    },
+    {
+     "tier": 1,
+     "op": "desenlaza",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/mots-c-peptido-mitocondrial-rendimiento-deportivo/",
+     "motivo": "duplicaría un enlace existente"
+    }
+   ],
+   "diff": "diffs/1913.diff",
+   "http": 200
+  },
+  {
+   "id": 1926,
+   "title": "Cómo Optimizar el Rendimiento Deportivo con Suplementos y Péptidos: Guía Completa 2026",
+   "link": "https://peptidosysuplementos.mx/optimizar-rendimiento-deportivo-suplementos-peptidos/",
+   "acciones": [
+    {
+     "tier": 1,
+     "op": "remapea",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/composicion-corporal-guia-completa-transformacion/",
+     "a": "https://peptidosysuplementos.mx/perdida-de-grasa-peptidos-suplementos-guia-cientifica/"
+    },
+    {
+     "tier": 1,
+     "op": "desenlaza",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/masa-muscular-guia-completa-peptidos-suplementos/",
+     "motivo": "autoenlace"
+    },
+    {
+     "tier": 1,
+     "op": "desenlaza",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/guia-completa-suplementos-deportivos-evidencia-cientifica/",
+     "motivo": "autoenlace"
+    },
+    {
+     "tier": 1,
+     "op": "desenlaza",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/mots-c-peptido-mitocondrial-rendimiento-deportivo/",
+     "motivo": "duplicaría un enlace existente"
+    }
+   ],
+   "diff": "diffs/1926.diff",
+   "http": 200
+  },
+  {
+   "id": 2075,
+   "title": "Pérdida de Grasa con Péptidos y Suplementos: Guía Científica Completa 2026",
+   "link": "https://peptidosysuplementos.mx/perdida-de-grasa-peptidos-suplementos-guia-cientifica/",
+   "acciones": [
+    {
+     "tier": 2,
+     "op": "envuelve",
+     "ficha": 2232,
+     "ancla": "CJC-1295 + Ipamorelin",
+     "a": "https://peptidosysuplementos.mx/product/cjc-1295-ipamorelina-5mg/"
+    }
+   ],
+   "diff": "diffs/2075.diff",
+   "http": 200
+  },
+  {
+   "id": 2092,
+   "title": "Retatrutide: El Péptido Triple Agonista que Está Revolucionando la Pérdida de Peso en 2026",
+   "link": "https://peptidosysuplementos.mx/retatrutide-peptido-triple-agonista-perdida-de-peso/",
+   "acciones": [
+    {
+     "tier": 2,
+     "op": "envuelve",
+     "ficha": 2240,
+     "ancla": "Cagrilintide",
+     "a": "https://peptidosysuplementos.mx/product/cagrilintida-10mg/"
+    }
+   ],
+   "diff": "diffs/2092.diff",
+   "http": 200
+  },
+  {
+   "id": 2094,
+   "title": "Testosterona: Qué es, funciones, niveles óptimos y cómo optimizarla naturalmente en 2026",
+   "link": "https://peptidosysuplementos.mx/testosterona-que-es-funciones-niveles-optimos-como-optimizarla/",
+   "acciones": [
+    {
+     "tier": 2,
+     "op": "envuelve",
+     "ficha": 2232,
+     "ancla": "CJC-1295 / Ipamorelin",
+     "a": "https://peptidosysuplementos.mx/product/cjc-1295-ipamorelina-5mg/"
+    }
+   ],
+   "diff": "diffs/2094.diff",
+   "http": 200
+  },
+  {
+   "id": 2096,
+   "title": "Biohacking: La Guía Definitiva para Optimizar tu Cuerpo con Péptidos y Suplementos en 2025",
+   "link": "https://peptidosysuplementos.mx/biohacking-guia-definitiva-peptidos-suplementos-2025/",
+   "acciones": [
+    {
+     "tier": 2,
+     "op": "envuelve",
+     "ficha": 2232,
+     "ancla": "Ipamorelin + CJC-1295",
+     "a": "https://peptidosysuplementos.mx/product/cjc-1295-ipamorelina-5mg/"
+    }
+   ],
+   "diff": "diffs/2096.diff",
+   "http": 200
+  },
+  {
+   "id": 2128,
+   "title": "BPC-157: El Péptido de Recuperación que Está Revolucionando el Mundo Deportivo",
+   "link": "https://peptidosysuplementos.mx/bpc-157-peptido-recuperacion-deportiva/",
+   "acciones": [
+    {
+     "tier": 1,
+     "op": "remapea",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/composicion-corporal-guia-completa-transformacion/",
+     "a": "https://peptidosysuplementos.mx/perdida-de-grasa-peptidos-suplementos-guia-cientifica/"
+    },
+    {
+     "tier": 1,
+     "op": "desenlaza",
+     "n": 1,
+     "de": "https://peptidosysuplementos.mx/masa-muscular-guia-completa-peptidos-suplementos/",
+     "motivo": "duplicaría un enlace existente"
+    }
+   ],
+   "diff": "diffs/2128.diff",
+   "http": 200
+  },
+  {
+   "id": 2201,
+   "title": "Péptidos: Qué son, para qué sirven y cómo usarlos de forma segura en 2026",
+   "link": "https://peptidosysuplementos.mx/peptidos-que-son-para-que-sirven-como-usarlos/",
+   "acciones": [
+    {
+     "tier": 2,
+     "op": "envuelve",
+     "ficha": 2232,
+     "ancla": "Ipamorelin/CJC-1295",
+     "a": "https://peptidosysuplementos.mx/product/cjc-1295-ipamorelina-5mg/"
+    },
+    {
+     "tier": 2,
+     "op": "envuelve",
+     "ficha": 2231,
+     "ancla": "Sermorelin",
+     "a": "https://peptidosysuplementos.mx/product/sermorelina-10mg/"
+    }
+   ],
+   "diff": "diffs/2201.diff",
+   "http": 200
+  }
+ ],
+ "abortados": []
+}
