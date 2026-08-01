@@ -4655,28 +4655,38 @@ MIN_PALABRAS_BLOG = 1200
 _pubmed_cache = {}
 
 
-def _pubmed_record(pmid):
+def _pubmed_record(pmid, intentos=3):
     """Título, abstract y fechas (pubdate/epubdate) de un PMID. Cachea en
-    memoria del proceso. Nunca falla en silencio: si eutils no devuelve nada,
-    el registro vuelve con title="" y eso se trata como error, no como OK."""
+    memoria del proceso — pero SOLO el resultado de una consulta que sí trajo
+    título; un hiccup transitorio de red NUNCA se cachea, porque envenenaría
+    esa cita para el resto de la vida del proceso (bug real encontrado el
+    2026-08-01: un timeout aislado dejó `ejecuta_controles_negativos` en
+    ROTO permanente hasta reiniciar Railway). Reintenta antes de rendirse."""
     if pmid in _pubmed_cache:
         return _pubmed_cache[pmid]
     rec = {"pmid": pmid, "titulo": "", "abstract": "", "pubdate": "", "epubdate": ""}
-    try:
-        r = requests.get(f"{EUTILS_BASE}/esummary.fcgi",
-                         params={"db": "pubmed", "id": pmid, "retmode": "json"}, timeout=25)
-        s = ((r.json() or {}).get("result") or {}).get(pmid) or {}
-        rec["titulo"] = s.get("title", "")
-        rec["pubdate"] = (s.get("pubdate") or "")[:4]
-        rec["epubdate"] = (s.get("epubdate") or "")[:4]
-        r2 = requests.get(f"{EUTILS_BASE}/efetch.fcgi",
-                          params={"db": "pubmed", "id": pmid, "retmode": "xml",
-                                  "rettype": "abstract"}, timeout=25)
-        m = _re.search(r"<AbstractText[^>]*>([\s\S]*?)</AbstractText>", r2.text)
-        rec["abstract"] = _re.sub(r"<[^>]+>", "", m.group(1)) if m else ""
-    except Exception as e:
-        rec["error"] = str(e)
-    _pubmed_cache[pmid] = rec
+    for intento in range(intentos):
+        rec = {"pmid": pmid, "titulo": "", "abstract": "", "pubdate": "", "epubdate": ""}
+        try:
+            r = requests.get(f"{EUTILS_BASE}/esummary.fcgi",
+                             params={"db": "pubmed", "id": pmid, "retmode": "json"}, timeout=25)
+            s = ((r.json() or {}).get("result") or {}).get(pmid) or {}
+            rec["titulo"] = s.get("title", "")
+            rec["pubdate"] = (s.get("pubdate") or "")[:4]
+            rec["epubdate"] = (s.get("epubdate") or "")[:4]
+            r2 = requests.get(f"{EUTILS_BASE}/efetch.fcgi",
+                              params={"db": "pubmed", "id": pmid, "retmode": "xml",
+                                      "rettype": "abstract"}, timeout=25)
+            m = _re.search(r"<AbstractText[^>]*>([\s\S]*?)</AbstractText>", r2.text)
+            rec["abstract"] = _re.sub(r"<[^>]+>", "", m.group(1)) if m else ""
+            if rec["titulo"]:
+                break                              # éxito: sal del retry
+        except Exception as e:
+            rec["error"] = str(e)
+        if intento < intentos - 1:
+            time.sleep(0.8 * (intento + 1))
+    if rec["titulo"]:
+        _pubmed_cache[pmid] = rec                 # solo se cachea el éxito
     return rec
 
 
@@ -4875,7 +4885,13 @@ def ejecuta_controles_negativos(force=False):
         rotas.append({"compuerta": "cifra_sin_fuente",
                       "motivo": "no detectó la cifra clínica sin ninguna fuente en el documento"})
 
-    _controles_estado.update({"verificado": True, "rotas": rotas,
+    # Solo se cachea un resultado LIMPIO (verificado=True cuando rotas está
+    # vacío). Si algo salió roto, NO se cachea como definitivo: el siguiente
+    # intento vuelve a correr la batería completa. Antes esto se cacheaba
+    # siempre, así que un solo timeout transitorio de eutils dejaba el
+    # proceso entero en "COMPUERTA ROTA" hasta reiniciar Railway — un fallo
+    # de red se volvía indistinguible de una compuerta genuinamente rota.
+    _controles_estado.update({"verificado": not rotas, "rotas": rotas,
                               "fecha": time.strftime("%Y-%m-%d %H:%M")})
     return _controles_estado
 
