@@ -7120,37 +7120,6 @@ def ga4_duplicate_check(minutes=30):
     return _ga4_run_report(body, realtime=True)
 
 
-@app.route("/debug/pubmed/<pmid>")
-def debug_pubmed(pmid):
-    """Diagnóstico temporal: por qué falla _pubmed_record en Railway pero no
-    en local. Quitar una vez resuelto el bug del control negativo de tema."""
-    import traceback
-    out = {"pmid": pmid, "esummary": None, "efetch": None}
-    try:
-        r = requests.get(f"{EUTILS_BASE}/esummary.fcgi",
-                         params={"db": "pubmed", "id": pmid, "retmode": "json"}, timeout=25)
-        out["esummary"] = {"status": r.status_code, "body": r.text[:500]}
-    except Exception as e:
-        out["esummary"] = {"exception": f"{type(e).__name__}: {e}", "trace": traceback.format_exc()[-800:]}
-    try:
-        r2 = requests.get(f"{EUTILS_BASE}/efetch.fcgi",
-                          params={"db": "pubmed", "id": pmid, "retmode": "xml",
-                                  "rettype": "abstract"}, timeout=25)
-        out["efetch"] = {"status": r2.status_code, "body": r2.text[:500]}
-    except Exception as e:
-        out["efetch"] = {"exception": f"{type(e).__name__}: {e}", "trace": traceback.format_exc()[-800:]}
-    return jsonify(out)
-
-
-@app.route("/debug/pubmed2/<pmid>")
-def debug_pubmed2(pmid):
-    """Igual que /debug/pubmed pero llama a la función real _pubmed_record,
-    con el caché limpiado antes, para ver exactamente qué devuelve."""
-    _pubmed_cache.pop(pmid, None)
-    rec = _pubmed_record(pmid)
-    return jsonify(rec)
-
-
 @app.route("/analytics/auth")
 def ga4_auth():
     if not GA4_CLIENT_ID or not GA4_CLIENT_SECRET:
