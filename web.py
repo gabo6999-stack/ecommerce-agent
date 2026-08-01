@@ -143,6 +143,16 @@ PTM_GSC_REFRESH_TOKEN       = os.environ.get("PTM_GSC_REFRESH_TOKEN", "")
 PTM_GSC_REDIRECT_URI        = os.environ.get("PTM_GSC_REDIRECT_URI", "https://web-production-3743c.up.railway.app/search-console/ptm/callback")
 GSC_SCOPES             = ["https://www.googleapis.com/auth/webmasters.readonly"]
 
+# ─── Google Analytics 4 (Data API + Admin API) — mismo cliente OAuth que GSC,
+# scope adicional de solo lectura. Ver /analytics/auth. ───────────────────────
+GA4_CLIENT_ID      = GSC_CLIENT_ID
+GA4_CLIENT_SECRET  = GSC_CLIENT_SECRET
+GA4_REFRESH_TOKEN  = os.environ.get("GA4_REFRESH_TOKEN", "")
+GA4_PROPERTY_ID    = os.environ.get("GA4_PROPERTY_ID", "")   # numérico, NO el "G-xxxx"
+GA4_REDIRECT_URI   = os.environ.get("GA4_REDIRECT_URI",
+                                    "https://web-production-3743c.up.railway.app/analytics/callback")
+GA4_SCOPES         = ["https://www.googleapis.com/auth/analytics.readonly"]
+
 WC_URL = os.environ.get("WOOCOMMERCE_URL", "")
 WC_KEY = os.environ.get("WOOCOMMERCE_KEY", "")
 WC_SECRET = os.environ.get("WOOCOMMERCE_SECRET", "")
@@ -6953,6 +6963,237 @@ code{{background:#2a2a2a;padding:4px 10px;border-radius:6px;font-size:13px;word-
 <p style="color:#aaa;font-size:13px;margin-top:16px;">Una vez que agregues la variable en Railway y el servicio se reinicie, el Search Console estará activo.</p>
 <a href="/search-console" class="btn">Ver Search Console</a>
 </body></html>"""
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# GA4 — Data API (runReport/runRealtimeReport/runFunnelReport) + Admin API
+# (accountSummaries, para listar propiedades tras el OAuth). Autorizado
+# 2026-08-01: línea base de PYS antes de rediseñar las fichas (Fase 5).
+# ═══════════════════════════════════════════════════════════════════════════
+GA4_DATA_API = "https://analyticsdata.googleapis.com/v1beta"
+GA4_ADMIN_API = "https://analyticsadmin.googleapis.com/v1beta"
+
+
+def ga4_credentials(refresh_token=None):
+    return Credentials(
+        token=None,
+        refresh_token=refresh_token or GA4_REFRESH_TOKEN,
+        client_id=GA4_CLIENT_ID,
+        client_secret=GA4_CLIENT_SECRET,
+        token_uri="https://oauth2.googleapis.com/token",
+        scopes=GA4_SCOPES,
+    )
+
+
+def ga4_session():
+    if not GA4_REFRESH_TOKEN:
+        raise ValueError("GA4 no autenticado. Visita /analytics/auth")
+    return AuthorizedSession(ga4_credentials())
+
+
+def ga4_list_properties(refresh_token=None):
+    """Cuentas y propiedades GA4 visibles para la cuenta autenticada — para
+    encontrar el GA4_PROPERTY_ID numérico sin tener que buscarlo a mano."""
+    authed = AuthorizedSession(ga4_credentials(refresh_token))
+    r = authed.get(f"{GA4_ADMIN_API}/accountSummaries", params={"pageSize": 200}, timeout=30)
+    if r.status_code != 200:
+        return {"error": f"HTTP {r.status_code}: {r.text[:300]}"}
+    out = []
+    for acc in r.json().get("accountSummaries", []):
+        for p in acc.get("propertySummaries", []):
+            out.append({"account": acc.get("displayName"),
+                       "property_id": p.get("property", "").split("/")[-1],
+                       "display_name": p.get("displayName")})
+    return out
+
+
+def _ga4_run_report(body, realtime=False):
+    if not GA4_PROPERTY_ID:
+        return {"error": "GA4_PROPERTY_ID no configurado. Usa /analytics/properties para verlo"}
+    authed = ga4_session()
+    metodo = "runRealtimeReport" if realtime else "runReport"
+    r = authed.post(f"{GA4_DATA_API}/properties/{GA4_PROPERTY_ID}:{metodo}",
+                    json=body, timeout=45)
+    if r.status_code != 200:
+        return {"error": f"HTTP {r.status_code}: {r.text[:500]}"}
+    return r.json()
+
+
+def ga4_ficha_baseline(days=28, path_prefix="/product/"):
+    """Línea base por ficha: sesiones, engagement, % que llega a scroll 90%,
+    y las salidas (última pageview de la sesión) — todo lo que GA4 mide de
+    forma nativa por página. NO existe un 'exit rate' nativo en GA4 Data API
+    (a diferencia de Universal Analytics): se aproxima con `sessions` menos
+    `screenPageViewsPerSession`>1 no es exacto, así que se reporta lo que SÍ
+    es una métrica real de GA4 y se marca lo que es aproximación."""
+    body = {
+        "dateRanges": [{"startDate": f"{days}daysAgo", "endDate": "today"}],
+        "dimensions": [{"name": "pagePath"}, {"name": "pageTitle"}],
+        "metrics": [
+            {"name": "sessions"}, {"name": "screenPageViews"},
+            {"name": "engagementRate"}, {"name": "averageSessionDuration"},
+            {"name": "eventCount"},
+        ],
+        "dimensionFilter": {"filter": {"fieldName": "pagePath",
+                                       "stringFilter": {"matchType": "BEGINS_WITH", "value": path_prefix}}},
+        "orderBys": [{"metric": {"metricName": "sessions"}, "desc": True}],
+        "limit": 50,
+    }
+    datos = _ga4_run_report(body)
+    if "error" in datos:
+        return datos
+    scroll_body = dict(body)
+    scroll_body["metrics"] = [{"name": "eventCount"}]
+    scroll_body["dimensionFilter"] = {"andGroup": {"expressions": [
+        body["dimensionFilter"],
+        {"filter": {"fieldName": "eventName", "stringFilter": {"matchType": "EXACT", "value": "scroll"}}},
+    ]}}
+    scroll = _ga4_run_report(scroll_body)
+    return {"sesiones_y_engagement": datos, "eventos_scroll_90pct": scroll,
+           "nota": "GA4 no tiene 'exit rate' nativo por página (a diferencia de "
+                   "Universal Analytics); no se aproxima con un cálculo inventado"}
+
+
+def ga4_purchase_check(days=90):
+    """Confirma el evento purchase contra datos REALES de GA4 — no una orden
+    de prueba. Trae conteo, ingreso total y, si existen, las páginas de
+    origen de esas sesiones."""
+    body = {
+        "dateRanges": [{"startDate": f"{days}daysAgo", "endDate": "today"}],
+        "dimensions": [{"name": "eventName"}],
+        "metrics": [{"name": "eventCount"}, {"name": "eventValue"}],
+        "dimensionFilter": {"filter": {"fieldName": "eventName",
+                                       "stringFilter": {"matchType": "EXACT", "value": "purchase"}}},
+    }
+    return _ga4_run_report(body)
+
+
+def ga4_funnel_report(days=28):
+    """view_item -> add_to_cart -> begin_checkout -> purchase, con la página
+    de aterrizaje de la sesión como paso 0 (atribución de origen)."""
+    if not GA4_PROPERTY_ID:
+        return {"error": "GA4_PROPERTY_ID no configurado"}
+    body = {
+        "dateRange": {"startDate": f"{days}daysAgo", "endDate": "today"},
+        "funnel": {"steps": [
+            {"name": "view_item", "filterExpression": {"funnelEventFilter": {"eventName": "view_item"}}},
+            {"name": "add_to_cart", "filterExpression": {"funnelEventFilter": {"eventName": "add_to_cart"}}},
+            {"name": "begin_checkout", "filterExpression": {"funnelEventFilter": {"eventName": "begin_checkout"}}},
+            {"name": "purchase", "filterExpression": {"funnelEventFilter": {"eventName": "purchase"}}},
+        ]},
+    }
+    authed = ga4_session()
+    r = authed.post(f"{GA4_DATA_API}/properties/{GA4_PROPERTY_ID}:runFunnelReport",
+                    json=body, timeout=45)
+    if r.status_code != 200:
+        return {"error": f"HTTP {r.status_code}: {r.text[:500]}"}
+    return r.json()
+
+
+def ga4_duplicate_check(minutes=30):
+    """Compuerta de triple-tagging: cuenta hits REALES por evento en la
+    ventana en tiempo real. Si un evento real (disparado 1 vez por un
+    usuario) aparece con eventCount > 1 de forma sistemática, hay
+    duplicación de verdad — a diferencia de lo observado en el navegador
+    sandboxeado de esta sesión, esto refleja lo que Google realmente recibió."""
+    body = {
+        "dimensions": [{"name": "eventName"}, {"name": "unifiedScreenName"}],
+        "metrics": [{"name": "eventCount"}],
+        "minuteRanges": [{"startMinutesAgo": minutes, "endMinutesAgo": 0}],
+    }
+    return _ga4_run_report(body, realtime=True)
+
+
+@app.route("/analytics/auth")
+def ga4_auth():
+    if not GA4_CLIENT_ID or not GA4_CLIENT_SECRET:
+        return "Faltan variables GOOGLE_CLIENT_ID y GOOGLE_CLIENT_SECRET en Railway.", 400
+    import urllib.parse
+    params = {
+        "client_id": GA4_CLIENT_ID,
+        "redirect_uri": GA4_REDIRECT_URI,
+        "response_type": "code",
+        "scope": " ".join(GA4_SCOPES),
+        "access_type": "offline",
+        "prompt": "consent",
+    }
+    return redirect("https://accounts.google.com/o/oauth2/auth?" + urllib.parse.urlencode(params))
+
+
+@app.route("/analytics/callback")
+def ga4_callback():
+    try:
+        code = request.args.get("code")
+        if not code:
+            return "<pre style='color:red;padding:20px'>Error: no se recibió código de autorización</pre>", 400
+        token_resp = requests.post(
+            "https://oauth2.googleapis.com/token",
+            data={"code": code, "client_id": GA4_CLIENT_ID, "client_secret": GA4_CLIENT_SECRET,
+                 "redirect_uri": GA4_REDIRECT_URI, "grant_type": "authorization_code"},
+        )
+        token_data = token_resp.json()
+        refresh_token = token_data.get("refresh_token", "")
+        if not refresh_token:
+            return f"<pre style='color:red;padding:20px'>Error al obtener token: {token_data}</pre>", 400
+    except Exception as e:
+        return f"<pre style='color:red;padding:20px'>Error en callback: {e}</pre>", 500
+
+    props = ga4_list_properties(refresh_token)
+    filas = "".join(
+        f"<tr><td><code>{p['property_id']}</code></td><td>{p['display_name']}</td>"
+        f"<td>{p['account']}</td></tr>" for p in props
+    ) if isinstance(props, list) else f"<tr><td colspan=3>{props.get('error')}</td></tr>"
+
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>GA4 conectado</title>
+<style>body{{font-family:Arial;max-width:700px;margin:60px auto;padding:20px;background:#0f0f0f;color:#eee}}
+.box{{background:#1a1a1a;border-radius:10px;padding:24px;border-left:4px solid #22c55e;margin-bottom:16px}}
+code{{background:#2a2a2a;padding:4px 10px;border-radius:6px;font-size:13px;word-break:break-all}}
+table{{width:100%;border-collapse:collapse;font-size:13px}}
+td{{padding:8px;border-bottom:1px solid #2a2a2a}}</style>
+</head><body>
+<h2>✅ GA4 conectado (solo lectura)</h2>
+<div class="box">
+<p>Copia este <strong>Refresh Token</strong> y agrégalo en Railway como variable de entorno:</p>
+<p><strong>Variable:</strong> <code>GA4_REFRESH_TOKEN</code></p>
+<p><strong>Valor:</strong><br><code>{refresh_token}</code></p>
+</div>
+<div class="box">
+<p>Propiedades GA4 visibles con esta cuenta — copia el <code>property_id</code> correcto
+(peptidosysuplementos.mx) como variable <code>GA4_PROPERTY_ID</code>:</p>
+<table><tr><td><b>ID</b></td><td><b>Nombre</b></td><td><b>Cuenta</b></td></tr>{filas}</table>
+</div>
+<p style="color:#aaa;font-size:13px;">Agrega ambas variables en Railway y reinicia el servicio.</p>
+</body></html>"""
+
+
+@app.route("/analytics/properties")
+def ga4_properties_endpoint():
+    return jsonify(ga4_list_properties())
+
+
+@app.route("/analytics/baseline")
+def ga4_baseline_endpoint():
+    days = int(request.args.get("days", 28))
+    return jsonify(ga4_ficha_baseline(days))
+
+
+@app.route("/analytics/purchase-check")
+def ga4_purchase_check_endpoint():
+    days = int(request.args.get("days", 90))
+    return jsonify(ga4_purchase_check(days))
+
+
+@app.route("/analytics/funnel")
+def ga4_funnel_endpoint():
+    days = int(request.args.get("days", 28))
+    return jsonify(ga4_funnel_report(days))
+
+
+@app.route("/analytics/duplicate-check")
+def ga4_duplicate_check_endpoint():
+    minutes = int(request.args.get("minutes", 30))
+    return jsonify(ga4_duplicate_check(minutes))
 
 
 @app.route("/search-console/raditech/auth")
