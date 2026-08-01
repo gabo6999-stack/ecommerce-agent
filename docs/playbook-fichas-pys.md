@@ -141,6 +141,31 @@ problema real es que son finas y redundantes entre sí, no que estén caídas �
 ver `docs/superficie-pys-vs-exoma.md`). Ninguna de las tres se ejecuta sin
 medición propia primero.
 
+**5. Cachear un fallo transitorio convierte un hipo de red en un bloqueo
+permanente — el veredicto de una compuerta NUNCA debe cachearse en estado
+ROTO.** Al desplegar la compuerta de tema con la clave real (2026-08-01), el
+control negativo seguía marcando la compuerta ROTA incluso después de
+corregirse el placeholder. Causa: `_pubmed_record()` cacheaba en memoria
+*cualquier* resultado, incluido un fallo transitorio (una excepción de red
+puntual dejaba el registro con título vacío), y `ejecuta_controles_negativos()`
+cacheaba ese veredicto ROTO como definitivo. Una única llamada fallida —de la
+propia primera prueba del control, antes del fix— envenenó esa entrada para el
+resto de la vida del proceso: el sitio se negó a validar cualquier contenido
+real hasta que se corrigió el código y se redesplegó. Verificado con
+`esummary`/`efetch` en aislamiento: no era un problema de red ni de
+rate-limit, era la caché. Fix: solo se cachea un resultado que sí trajo datos;
+si algo falla, el siguiente intento reintenta desde cero en vez de repetir el
+veredicto viejo.
+
+**Corolario: los controles negativos hay que correrlos contra producción, no
+solo en local.** Este bug específico no se manifestaba en local — ahí la clave
+de Anthropic era un placeholder y el control fallaba por esa razón,
+enmascarando el bug de caché de abajo. Solo apareció al correr el control con
+credenciales reales, en el proceso real de Railway, con su propio ciclo de
+vida en memoria. Un control negativo que solo se ha visto pasar en local no
+está verificado — el proceso de producción tiene caches, procesos concurrentes
+y variables de entorno que el entorno local no reproduce.
+
 ```bash
 # comprobación automática de las reglas 6 y del tamaño
 py -3 -c "import re,html,pathlib;t=pathlib.Path('docs/contenido/<archivo>.html').read_text(encoding='utf-8');p=re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>',' ',t)));print('palabras',len(p.split()));print('prohibidas',re.findall(r'farmacia|refrigeraci[oó]n.{0,40}transporte',p,re.I))"

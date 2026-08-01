@@ -7010,8 +7010,14 @@ def ga4_session():
 def ga4_list_properties(refresh_token=None):
     """Cuentas y propiedades GA4 visibles para la cuenta autenticada — para
     encontrar el GA4_PROPERTY_ID numérico sin tener que buscarlo a mano."""
-    authed = AuthorizedSession(ga4_credentials(refresh_token))
-    r = authed.get(f"{GA4_ADMIN_API}/accountSummaries", params={"pageSize": 200}, timeout=30)
+    tok = refresh_token or GA4_REFRESH_TOKEN
+    if not tok:
+        return {"error": "GA4_REFRESH_TOKEN no configurado. Visita /analytics/auth"}
+    try:
+        authed = AuthorizedSession(ga4_credentials(refresh_token))
+        r = authed.get(f"{GA4_ADMIN_API}/accountSummaries", params={"pageSize": 200}, timeout=30)
+    except Exception as e:
+        return {"error": f"{type(e).__name__}: {e}"}
     if r.status_code != 200:
         return {"error": f"HTTP {r.status_code}: {r.text[:300]}"}
     out = []
@@ -7026,10 +7032,13 @@ def ga4_list_properties(refresh_token=None):
 def _ga4_run_report(body, realtime=False):
     if not GA4_PROPERTY_ID:
         return {"error": "GA4_PROPERTY_ID no configurado. Usa /analytics/properties para verlo"}
-    authed = ga4_session()
-    metodo = "runRealtimeReport" if realtime else "runReport"
-    r = authed.post(f"{GA4_DATA_API}/properties/{GA4_PROPERTY_ID}:{metodo}",
-                    json=body, timeout=45)
+    try:
+        authed = ga4_session()
+        metodo = "runRealtimeReport" if realtime else "runReport"
+        r = authed.post(f"{GA4_DATA_API}/properties/{GA4_PROPERTY_ID}:{metodo}",
+                        json=body, timeout=45)
+    except Exception as e:
+        return {"error": f"{type(e).__name__}: {e}"}
     if r.status_code != 200:
         return {"error": f"HTTP {r.status_code}: {r.text[:500]}"}
     return r.json()
@@ -7098,9 +7107,12 @@ def ga4_funnel_report(days=28):
             {"name": "purchase", "filterExpression": {"funnelEventFilter": {"eventName": "purchase"}}},
         ]},
     }
-    authed = ga4_session()
-    r = authed.post(f"{GA4_DATA_API}/properties/{GA4_PROPERTY_ID}:runFunnelReport",
-                    json=body, timeout=45)
+    try:
+        authed = ga4_session()
+        r = authed.post(f"{GA4_DATA_API}/properties/{GA4_PROPERTY_ID}:runFunnelReport",
+                        json=body, timeout=45)
+    except Exception as e:
+        return {"error": f"{type(e).__name__}: {e}"}
     if r.status_code != 200:
         return {"error": f"HTTP {r.status_code}: {r.text[:500]}"}
     return r.json()
