@@ -7118,14 +7118,22 @@ def ga4_funnel_report(days=28):
     return r.json()
 
 
-def ga4_duplicate_check(minutes=30):
+def ga4_duplicate_check(minutes=29):
     """Compuerta de triple-tagging: cuenta hits REALES por evento en la
     ventana en tiempo real. Si un evento real (disparado 1 vez por un
     usuario) aparece con eventCount > 1 de forma sistemática, hay
     duplicación de verdad — a diferencia de lo observado en el navegador
-    sandboxeado de esta sesión, esto refleja lo que Google realmente recibió."""
+    sandboxeado de esta sesión, esto refleja lo que Google realmente recibió.
+
+    Las propiedades GA4 estándar solo permiten runRealtimeReport hasta 29
+    minutos atrás — se topa silenciosamente en vez de tirar el error de la
+    API si alguien pide más."""
+    minutes = min(minutes, 29)
     body = {
-        "dimensions": [{"name": "eventName"}, {"name": "unifiedScreenName"}],
+        # unifiedScreenName no es combinable con eventCount en runRealtimeReport
+        # (probado en vivo: "Selected dimensions and metrics cannot be queried
+        # together"). eventName solo es la combinación segura para este check.
+        "dimensions": [{"name": "eventName"}],
         "metrics": [{"name": "eventCount"}],
         "minuteRanges": [{"startMinutesAgo": minutes, "endMinutesAgo": 0}],
     }
