@@ -7069,6 +7069,9 @@ def ga4_ficha_baseline(days=28, path_prefix="/product/"):
         return datos
     scroll_body = dict(body)
     scroll_body["metrics"] = [{"name": "eventCount"}]
+    # el orderBy heredado de `body` apunta a "sessions", que ya no está en
+    # esta lista de métricas -- GA4 lo rechaza. Reordenar por eventCount.
+    scroll_body["orderBys"] = [{"metric": {"metricName": "eventCount"}, "desc": True}]
     scroll_body["dimensionFilter"] = {"andGroup": {"expressions": [
         body["dimensionFilter"],
         {"filter": {"fieldName": "eventName", "stringFilter": {"matchType": "EXACT", "value": "scroll"}}},
@@ -7109,8 +7112,13 @@ def ga4_funnel_report(days=28):
     }
     try:
         authed = ga4_session()
-        r = authed.post(f"{GA4_DATA_API}/properties/{GA4_PROPERTY_ID}:runFunnelReport",
-                        json=body, timeout=45)
+        # runFunnelReport solo existe en v1alpha (sigue en preview en la Data
+        # API) -- probado en vivo: v1beta responde 404 de Google, no de esta
+        # app. El resto de los reportes (runReport/runRealtimeReport) sí son
+        # v1beta estable.
+        r = authed.post(
+            f"https://analyticsdata.googleapis.com/v1alpha/properties/{GA4_PROPERTY_ID}:runFunnelReport",
+            json=body, timeout=45)
     except Exception as e:
         return {"error": f"{type(e).__name__}: {e}"}
     if r.status_code != 200:
