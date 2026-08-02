@@ -7102,7 +7102,7 @@ def ga4_funnel_report(days=28):
     if not GA4_PROPERTY_ID:
         return {"error": "GA4_PROPERTY_ID no configurado"}
     body = {
-        "dateRange": {"startDate": f"{days}daysAgo", "endDate": "today"},
+        "dateRanges": [{"startDate": f"{days}daysAgo", "endDate": "today"}],
         "funnel": {"steps": [
             {"name": "view_item", "filterExpression": {"funnelEventFilter": {"eventName": "view_item"}}},
             {"name": "add_to_cart", "filterExpression": {"funnelEventFilter": {"eventName": "add_to_cart"}}},
