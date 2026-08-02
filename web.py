@@ -4546,18 +4546,17 @@ def check_url(u):
     PMID existe."""
     pm = _re.search(r"pubmed\.ncbi\.nlm\.nih\.gov/(\d+)", u)
     if pm:
-        try:
-            r = requests.get(
-                "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi",
-                params={"db": "pubmed", "id": pm.group(1), "retmode": "json"},
-                timeout=25)
-            rec = (r.json().get("result") or {}).get(pm.group(1), {})
-            if rec.get("title"):
-                au = (rec.get("authors") or [{}])[0].get("name", "?")
-                return True, f"PMID {pm.group(1)} · {au} et al. · {rec.get('source','')} {rec.get('pubdate','')[:4]}"
-            return False, f"PMID {pm.group(1)} no existe en PubMed"
-        except Exception as e:
-            return False, f"eutils falló: {e}"
+        # Usa _pubmed_record: reintenta con backoff y NUNCA cachea un fallo
+        # transitorio como si el PMID no existiera (el mismo bug de caché
+        # envenenado que ya se corrigió para retrofeed_gates — check_url()
+        # hacía una sola llamada sin reintento y podía marcar como "roto"
+        # un PMID real ante un simple timeout/rate-limit de eutils).
+        rec = _pubmed_record(pm.group(1))
+        if rec.get("titulo"):
+            return True, f"PMID {pm.group(1)} · {rec.get('titulo','')[:70]} · {rec.get('pubdate','')[:4]}"
+        if rec.get("error"):
+            return False, f"eutils falló tras reintentos: {rec['error']}"
+        return False, f"PMID {pm.group(1)} no existe en PubMed"
     try:
         r = requests.get(u, headers=_UA_VAL, timeout=20, allow_redirects=True)
         c = r.status_code
