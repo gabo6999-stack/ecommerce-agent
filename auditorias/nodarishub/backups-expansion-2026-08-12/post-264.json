@@ -1,0 +1,177 @@
+{
+  "id": 264,
+  "date": "2026-08-11T10:00:00",
+  "date_gmt": "2026-08-11T10:00:00",
+  "guid": {
+    "rendered": "https://nodarishub.com/?p=264",
+    "raw": "https://nodarishub.com/?p=264"
+  },
+  "modified": "2026-08-12T15:18:30",
+  "modified_gmt": "2026-08-12T15:18:30",
+  "password": "",
+  "slug": "desarrollo-web-full-stack",
+  "status": "publish",
+  "type": "post",
+  "link": "https://nodarishub.com/desarrollo-web-full-stack/",
+  "title": {
+    "raw": "Desarrollo Web Full Stack: Qué Significa para tu Negocio",
+    "rendered": "Desarrollo Web Full Stack: Qué Significa para tu Negocio"
+  },
+  "content": {
+    "raw": "<!-- wp:html -->\n<div class=\"nh-article\">\n<style>\n.nh-article .nh-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.8rem 0;border:1px solid #e6ebf2;border-radius:14px;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article table.nh-compare{width:100%;border-collapse:collapse;min-width:620px;font-size:.96rem;line-height:1.5}\n.nh-article table.nh-compare caption{caption-side:bottom;padding:.9rem 1rem;font-size:.82rem;color:#5B6B82;text-align:left}\n.nh-article table.nh-compare thead th{background:#0E1726;color:#fff;text-align:left;font-weight:600;padding:.95rem 1rem;border-bottom:3px solid #00E0A4;letter-spacing:.01em}\n.nh-article table.nh-compare tbody th{background:#F5F8FC;color:#0E1726;text-align:left;font-weight:600;padding:.85rem 1rem;vertical-align:top;white-space:nowrap}\n.nh-article table.nh-compare tbody td{padding:.85rem 1rem;vertical-align:top;border-bottom:1px solid #eef2f7;color:#2a3342}\n.nh-article table.nh-compare tbody tr:nth-child(even) th,.nh-article table.nh-compare tbody tr:nth-child(even) td{background:#fafcfe}\n.nh-article table.nh-compare tbody tr:last-child td,.nh-article table.nh-compare tbody tr:last-child th{border-bottom:0}\n.nh-article blockquote.nh-regla{margin:2rem 0;padding:1.4rem 1.6rem;background:linear-gradient(180deg,#F5F8FC,#fff);border-left:4px solid #2F6BFF;border-radius:0 14px 14px 0;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article blockquote.nh-regla p{margin:0;font-size:1.08rem;line-height:1.6}\n.nh-article blockquote.nh-regla strong{color:#2F6BFF}\n.nh-article .nh-cta-box{margin:2.4rem 0;padding:1.8rem;background:linear-gradient(135deg,#0E1726,#16213a);border-radius:20px;text-align:center}\n.nh-article .nh-cta-box p{color:#fff;margin:0 0 1.1rem;font-size:1.05rem}\n.nh-article .nh-cta-box a{display:inline-block;background:#2F6BFF;color:#fff;font-weight:600;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;transition:background .2s}\n.nh-article .nh-cta-box a:hover{background:#00E0A4;color:#0E1726}\n@media(max-width:600px){.nh-article table.nh-compare{font-size:.9rem}.nh-article .nh-cta-box{padding:1.3rem}}\n</style>\n\n<p>Si estás evaluando proveedores para un proyecto digital, es muy probable que te hayas topado con el término <strong>desarrollo web full stack</strong> y te preguntes qué significa exactamente para tu negocio, más allá de la jerga técnica. No necesitas entender de programación para tomar una buena decisión, pero sí conviene saber qué implica contratar este enfoque frente a otras alternativas.</p>\n\n<p>\"Full stack\" describe a un desarrollo que cubre tanto lo que el usuario ve y toca (el front-end: diseño, botones, formularios) como lo que ocurre detrás de cámaras (el back-end: bases de datos, lógica de negocio, integraciones). Para tu empresa, esto se traduce en un proyecto donde una sola visión técnica controla toda la experiencia, de principio a fin.</p>\n\n<h2>Qué significa full stack para un proyecto de negocio</h2>\n\n<p>Cuando un sitio o sistema se construye con enfoque full stack, significa que el mismo equipo entiende y controla toda la cadena: cómo se ve el sitio, cómo se comporta al interactuar, y cómo se procesan y almacenan los datos del negocio detrás de escena.</p>\n\n<div class=\"nh-tablewrap\">\n<table class=\"nh-compare\">\n<caption>Qué cubre un desarrollo full stack frente a un desarrollo parcial.</caption>\n<thead>\n<tr>\n<th scope=\"col\">Capa del proyecto</th>\n<th scope=\"col\">Qué resuelve para tu negocio</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<th scope=\"row\">Front-end</th>\n<td>Diseño, experiencia de usuario, formularios, velocidad percibida.</td>\n</tr>\n<tr>\n<th scope=\"row\">Back-end</th>\n<td>Lógica del negocio, base de datos, seguridad, procesos internos.</td>\n</tr>\n<tr>\n<th scope=\"row\">Integraciones</th>\n<td>Conexión con pagos, CRM, WhatsApp, sistemas propios o de terceros.</td>\n</tr>\n<tr>\n<th scope=\"row\">Mantenimiento</th>\n<td>Un solo equipo responsable de todo el sistema, sin fricciones entre proveedores.</td>\n</tr>\n</tbody>\n</table>\n</div>\n\n<h2>Por qué le conviene a tu negocio un enfoque full stack</h2>\n\n<h3>Menos fricción entre proveedores</h3>\n<p>Cuando el diseño lo hace una persona, la programación otra y la base de datos un tercero, cada cambio implica coordinar a varios equipos que no siempre se comunican bien entre sí. Un enfoque full stack elimina esa fricción: una sola visión técnica decide cómo encaja cada pieza.</p>\n\n<h3>Proyectos que crecen sin reconstruirse desde cero</h3>\n<p>Muchos negocios empiezan con una página simple y, con el tiempo, necesitan agregar un sistema de reservas, un catálogo con inventario o un panel interno. Un desarrollo full stack está pensado para escalar: agregar funciones nuevas no obliga a rehacer lo que ya funciona.</p>\n\n<h3>Decisiones técnicas alineadas con el negocio, no solo con el código</h3>\n<p>Un equipo full stack entiende cómo se conecta cada decisión técnica con el resultado de negocio: qué tan rápido carga una página, cómo se guarda la información de un cliente, cómo se automatiza una tarea repetitiva. Eso da como resultado un sistema pensado para operar, no solo para verse bien.</p>\n\n<blockquote class=\"nh-regla\">\n<p><strong>Lo que importa para tu negocio</strong> no es si un proyecto \"es full stack\" por definición técnica, sino si el equipo detrás puede resolver tanto el diseño como la lógica y los datos sin depender de terceros para cada ajuste.</p>\n</blockquote>\n\n<h2>Cuándo tu negocio necesita más que una página web simple</h2>\n\n<p>Si tu proyecto se limita a mostrar información de contacto y servicios, probablemente no necesitas un desarrollo full stack complejo, sino un buen <a href=\"https://nodarishub.com/diseno-web/\">sitio web profesional</a>. Pero si tu negocio requiere formularios inteligentes, paneles de administración, cálculos automáticos, reservas, inventarios o cualquier proceso que involucre guardar y procesar información, ahí es donde el desarrollo full stack se vuelve necesario, no opcional.</p>\n\n<p>En Nodarishub trabajamos proyectos de <a href=\"https://nodarishub.com/software/\">software a la medida</a> con exactamente ese enfoque: una sola visión técnica que cubre desde el diseño de la interfaz hasta la arquitectura de datos que sostiene tu operación.</p>\n\n<h2>Cómo lo trabajamos en Nodarishub</h2>\n\n<p>Evaluamos tu negocio y tus procesos antes de escribir una sola línea de código, definimos qué tan complejo necesita ser realmente el sistema, y construimos con un enfoque full stack donde el mismo equipo responde por el diseño, la lógica del negocio y la seguridad de tus datos, sin dejarte a la mitad del camino con proveedores desconectados entre sí.</p>\n\n<h2>Preguntas frecuentes</h2>\n\n<h3>¿Mi negocio necesita desarrollo full stack o basta con una página web normal?</h3>\n<p>Depende de qué tan complejo sea lo que necesitas automatizar o procesar. Si solo necesitas mostrar información y captar contactos, una página web bien construida es suficiente. Si necesitas guardar datos, procesar pagos o gestionar procesos internos, ahí entra el desarrollo full stack.</p>\n\n<h3>¿Es más caro contratar desarrollo full stack que una página web simple?</h3>\n<p>Suele requerir más inversión porque involucra más trabajo técnico (interfaz, lógica y base de datos), pero también resuelve necesidades que una página simple no puede cubrir. Cada proyecto se cotiza según su alcance real.</p>\n\n<h3>¿Qué tipo de negocios se benefician más de un desarrollo full stack?</h3>\n<p>Negocios con procesos internos que hoy se manejan en hojas de cálculo o de forma manual: reservas, inventarios, cotizaciones, seguimiento de clientes. Digitalizar esos procesos suele ahorrar horas de trabajo cada semana.</p>\n\n<div class=\"nh-cta-box\">\n<p>Cuéntanos qué proceso de tu negocio quieres digitalizar y evaluamos la mejor solución.</p>\n<a href=\"https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20mi%20proyecto%20digital\" target=\"_blank\" rel=\"noopener\">Cotiza tu proyecto</a>\n</div>\n\n<script type=\"application/ld+json\">\n{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"¿Mi negocio necesita desarrollo full stack o basta con una página web normal?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Depende de qué tan complejo sea lo que necesitas automatizar o procesar. Si solo necesitas mostrar información y captar contactos, una página web bien construida es suficiente. Si necesitas guardar datos, procesar pagos o gestionar procesos internos, ahí entra el desarrollo full stack.\"}},{\"@type\":\"Question\",\"name\":\"¿Es más caro contratar desarrollo full stack que una página web simple?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Suele requerir más inversión porque involucra más trabajo técnico (interfaz, lógica y base de datos), pero también resuelve necesidades que una página simple no puede cubrir. Cada proyecto se cotiza según su alcance real.\"}},{\"@type\":\"Question\",\"name\":\"¿Qué tipo de negocios se benefician más de un desarrollo full stack?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Negocios con procesos internos que hoy se manejan en hojas de cálculo o de forma manual: reservas, inventarios, cotizaciones, seguimiento de clientes. Digitalizar esos procesos suele ahorrar horas de trabajo cada semana.\"}}]}\n</script>\n</div>\n\n<!-- /wp:html -->",
+    "rendered": "\n<div class=\"nh-article\">\n<style>\n.nh-article .nh-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.8rem 0;border:1px solid #e6ebf2;border-radius:14px;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article table.nh-compare{width:100%;border-collapse:collapse;min-width:620px;font-size:.96rem;line-height:1.5}\n.nh-article table.nh-compare caption{caption-side:bottom;padding:.9rem 1rem;font-size:.82rem;color:#5B6B82;text-align:left}\n.nh-article table.nh-compare thead th{background:#0E1726;color:#fff;text-align:left;font-weight:600;padding:.95rem 1rem;border-bottom:3px solid #00E0A4;letter-spacing:.01em}\n.nh-article table.nh-compare tbody th{background:#F5F8FC;color:#0E1726;text-align:left;font-weight:600;padding:.85rem 1rem;vertical-align:top;white-space:nowrap}\n.nh-article table.nh-compare tbody td{padding:.85rem 1rem;vertical-align:top;border-bottom:1px solid #eef2f7;color:#2a3342}\n.nh-article table.nh-compare tbody tr:nth-child(even) th,.nh-article table.nh-compare tbody tr:nth-child(even) td{background:#fafcfe}\n.nh-article table.nh-compare tbody tr:last-child td,.nh-article table.nh-compare tbody tr:last-child th{border-bottom:0}\n.nh-article blockquote.nh-regla{margin:2rem 0;padding:1.4rem 1.6rem;background:linear-gradient(180deg,#F5F8FC,#fff);border-left:4px solid #2F6BFF;border-radius:0 14px 14px 0;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article blockquote.nh-regla p{margin:0;font-size:1.08rem;line-height:1.6}\n.nh-article blockquote.nh-regla strong{color:#2F6BFF}\n.nh-article .nh-cta-box{margin:2.4rem 0;padding:1.8rem;background:linear-gradient(135deg,#0E1726,#16213a);border-radius:20px;text-align:center}\n.nh-article .nh-cta-box p{color:#fff;margin:0 0 1.1rem;font-size:1.05rem}\n.nh-article .nh-cta-box a{display:inline-block;background:#2F6BFF;color:#fff;font-weight:600;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;transition:background .2s}\n.nh-article .nh-cta-box a:hover{background:#00E0A4;color:#0E1726}\n@media(max-width:600px){.nh-article table.nh-compare{font-size:.9rem}.nh-article .nh-cta-box{padding:1.3rem}}\n</style>\n\n<p>Si estás evaluando proveedores para un proyecto digital, es muy probable que te hayas topado con el término <strong>desarrollo web full stack</strong> y te preguntes qué significa exactamente para tu negocio, más allá de la jerga técnica. No necesitas entender de programación para tomar una buena decisión, pero sí conviene saber qué implica contratar este enfoque frente a otras alternativas.</p>\n\n<p>&#8220;Full stack&#8221; describe a un desarrollo que cubre tanto lo que el usuario ve y toca (el front-end: diseño, botones, formularios) como lo que ocurre detrás de cámaras (el back-end: bases de datos, lógica de negocio, integraciones). Para tu empresa, esto se traduce en un proyecto donde una sola visión técnica controla toda la experiencia, de principio a fin.</p>\n\n<h2>Qué significa full stack para un proyecto de negocio</h2>\n\n<p>Cuando un sitio o sistema se construye con enfoque full stack, significa que el mismo equipo entiende y controla toda la cadena: cómo se ve el sitio, cómo se comporta al interactuar, y cómo se procesan y almacenan los datos del negocio detrás de escena.</p>\n\n<div class=\"nh-tablewrap\">\n<table class=\"nh-compare\">\n<caption>Qué cubre un desarrollo full stack frente a un desarrollo parcial.</caption>\n<thead>\n<tr>\n<th scope=\"col\">Capa del proyecto</th>\n<th scope=\"col\">Qué resuelve para tu negocio</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<th scope=\"row\">Front-end</th>\n<td>Diseño, experiencia de usuario, formularios, velocidad percibida.</td>\n</tr>\n<tr>\n<th scope=\"row\">Back-end</th>\n<td>Lógica del negocio, base de datos, seguridad, procesos internos.</td>\n</tr>\n<tr>\n<th scope=\"row\">Integraciones</th>\n<td>Conexión con pagos, CRM, WhatsApp, sistemas propios o de terceros.</td>\n</tr>\n<tr>\n<th scope=\"row\">Mantenimiento</th>\n<td>Un solo equipo responsable de todo el sistema, sin fricciones entre proveedores.</td>\n</tr>\n</tbody>\n</table>\n</div>\n\n<h2>Por qué le conviene a tu negocio un enfoque full stack</h2>\n\n<h3>Menos fricción entre proveedores</h3>\n<p>Cuando el diseño lo hace una persona, la programación otra y la base de datos un tercero, cada cambio implica coordinar a varios equipos que no siempre se comunican bien entre sí. Un enfoque full stack elimina esa fricción: una sola visión técnica decide cómo encaja cada pieza.</p>\n\n<h3>Proyectos que crecen sin reconstruirse desde cero</h3>\n<p>Muchos negocios empiezan con una página simple y, con el tiempo, necesitan agregar un sistema de reservas, un catálogo con inventario o un panel interno. Un desarrollo full stack está pensado para escalar: agregar funciones nuevas no obliga a rehacer lo que ya funciona.</p>\n\n<h3>Decisiones técnicas alineadas con el negocio, no solo con el código</h3>\n<p>Un equipo full stack entiende cómo se conecta cada decisión técnica con el resultado de negocio: qué tan rápido carga una página, cómo se guarda la información de un cliente, cómo se automatiza una tarea repetitiva. Eso da como resultado un sistema pensado para operar, no solo para verse bien.</p>\n\n<blockquote class=\"nh-regla\">\n<p><strong>Lo que importa para tu negocio</strong> no es si un proyecto &#8220;es full stack&#8221; por definición técnica, sino si el equipo detrás puede resolver tanto el diseño como la lógica y los datos sin depender de terceros para cada ajuste.</p>\n</blockquote>\n\n<h2>Cuándo tu negocio necesita más que una página web simple</h2>\n\n<p>Si tu proyecto se limita a mostrar información de contacto y servicios, probablemente no necesitas un desarrollo full stack complejo, sino un buen <a href=\"https://nodarishub.com/diseno-web/\">sitio web profesional</a>. Pero si tu negocio requiere formularios inteligentes, paneles de administración, cálculos automáticos, reservas, inventarios o cualquier proceso que involucre guardar y procesar información, ahí es donde el desarrollo full stack se vuelve necesario, no opcional.</p>\n\n<p>En Nodarishub trabajamos proyectos de <a href=\"https://nodarishub.com/software/\">software a la medida</a> con exactamente ese enfoque: una sola visión técnica que cubre desde el diseño de la interfaz hasta la arquitectura de datos que sostiene tu operación.</p>\n\n<h2>Cómo lo trabajamos en Nodarishub</h2>\n\n<p>Evaluamos tu negocio y tus procesos antes de escribir una sola línea de código, definimos qué tan complejo necesita ser realmente el sistema, y construimos con un enfoque full stack donde el mismo equipo responde por el diseño, la lógica del negocio y la seguridad de tus datos, sin dejarte a la mitad del camino con proveedores desconectados entre sí.</p>\n\n<h2>Preguntas frecuentes</h2>\n\n<h3>¿Mi negocio necesita desarrollo full stack o basta con una página web normal?</h3>\n<p>Depende de qué tan complejo sea lo que necesitas automatizar o procesar. Si solo necesitas mostrar información y captar contactos, una página web bien construida es suficiente. Si necesitas guardar datos, procesar pagos o gestionar procesos internos, ahí entra el desarrollo full stack.</p>\n\n<h3>¿Es más caro contratar desarrollo full stack que una página web simple?</h3>\n<p>Suele requerir más inversión porque involucra más trabajo técnico (interfaz, lógica y base de datos), pero también resuelve necesidades que una página simple no puede cubrir. Cada proyecto se cotiza según su alcance real.</p>\n\n<h3>¿Qué tipo de negocios se benefician más de un desarrollo full stack?</h3>\n<p>Negocios con procesos internos que hoy se manejan en hojas de cálculo o de forma manual: reservas, inventarios, cotizaciones, seguimiento de clientes. Digitalizar esos procesos suele ahorrar horas de trabajo cada semana.</p>\n\n<div class=\"nh-cta-box\">\n<p>Cuéntanos qué proceso de tu negocio quieres digitalizar y evaluamos la mejor solución.</p>\n<a href=\"https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20mi%20proyecto%20digital\" target=\"_blank\" rel=\"noopener\">Cotiza tu proyecto</a>\n</div>\n\n<script type=\"application/ld+json\">\n{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"¿Mi negocio necesita desarrollo full stack o basta con una página web normal?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Depende de qué tan complejo sea lo que necesitas automatizar o procesar. Si solo necesitas mostrar información y captar contactos, una página web bien construida es suficiente. Si necesitas guardar datos, procesar pagos o gestionar procesos internos, ahí entra el desarrollo full stack.\"}},{\"@type\":\"Question\",\"name\":\"¿Es más caro contratar desarrollo full stack que una página web simple?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Suele requerir más inversión porque involucra más trabajo técnico (interfaz, lógica y base de datos), pero también resuelve necesidades que una página simple no puede cubrir. Cada proyecto se cotiza según su alcance real.\"}},{\"@type\":\"Question\",\"name\":\"¿Qué tipo de negocios se benefician más de un desarrollo full stack?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Negocios con procesos internos que hoy se manejan en hojas de cálculo o de forma manual: reservas, inventarios, cotizaciones, seguimiento de clientes. Digitalizar esos procesos suele ahorrar horas de trabajo cada semana.\"}}]}\n</script>\n</div>\n\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>Si estás evaluando proveedores para un proyecto digital, es muy probable que te hayas topado con el término desarrollo web full stack y te preguntes qué significa exactamente para tu negocio, más allá de la jerga técnica. No necesitas entender de programación para tomar una buena decisión, pero sí conviene saber qué implica contratar este [&hellip;]</p>\n",
+    "protected": false
+  },
+  "author": 2,
+  "featured_media": 309,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "footnotes": ""
+  },
+  "categories": [
+    17
+  ],
+  "tags": [],
+  "permalink_template": "https://nodarishub.com/%postname%/",
+  "generated_slug": "desarrollo-web-full-stack-que-significa-para-tu-negocio",
+  "class_list": [
+    "post-264",
+    "post",
+    "type-post",
+    "status-publish",
+    "format-standard",
+    "has-post-thumbnail",
+    "hentry",
+    "category-blog"
+  ],
+  "_links": {
+    "self": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/264",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/users/2"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/comments?post=264"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 2,
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/264/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 300,
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/264/revisions/300"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/media/309"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/media?parent=264"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/categories?post=264"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/tags?post=264"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/264"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/264"
+      }
+    ],
+    "wp:action-sticky": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/264"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/264"
+      }
+    ],
+    "wp:action-create-categories": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/264"
+      }
+    ],
+    "wp:action-assign-categories": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/264"
+      }
+    ],
+    "wp:action-create-tags": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/264"
+      }
+    ],
+    "wp:action-assign-tags": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/264"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

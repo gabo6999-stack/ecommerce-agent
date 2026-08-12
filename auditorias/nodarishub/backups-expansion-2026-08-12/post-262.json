@@ -1,0 +1,177 @@
+{
+  "id": 262,
+  "date": "2026-08-09T10:00:00",
+  "date_gmt": "2026-08-09T10:00:00",
+  "guid": {
+    "rendered": "https://nodarishub.com/?p=262",
+    "raw": "https://nodarishub.com/?p=262"
+  },
+  "modified": "2026-08-12T15:18:23",
+  "modified_gmt": "2026-08-12T15:18:23",
+  "password": "",
+  "slug": "diseno-de-paginas-web-html",
+  "status": "publish",
+  "type": "post",
+  "link": "https://nodarishub.com/diseno-de-paginas-web-html/",
+  "title": {
+    "raw": "Diseño de Páginas Web en HTML: Guía para tu Negocio",
+    "rendered": "Diseño de Páginas Web en HTML: Guía para tu Negocio"
+  },
+  "content": {
+    "raw": "<!-- wp:html -->\n<div class=\"nh-article\">\n<style>\n.nh-article .nh-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.8rem 0;border:1px solid #e6ebf2;border-radius:14px;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article table.nh-compare{width:100%;border-collapse:collapse;min-width:620px;font-size:.96rem;line-height:1.5}\n.nh-article table.nh-compare caption{caption-side:bottom;padding:.9rem 1rem;font-size:.82rem;color:#5B6B82;text-align:left}\n.nh-article table.nh-compare thead th{background:#0E1726;color:#fff;text-align:left;font-weight:600;padding:.95rem 1rem;border-bottom:3px solid #00E0A4;letter-spacing:.01em}\n.nh-article table.nh-compare tbody th{background:#F5F8FC;color:#0E1726;text-align:left;font-weight:600;padding:.85rem 1rem;vertical-align:top;white-space:nowrap}\n.nh-article table.nh-compare tbody td{padding:.85rem 1rem;vertical-align:top;border-bottom:1px solid #eef2f7;color:#2a3342}\n.nh-article table.nh-compare tbody tr:nth-child(even) th,.nh-article table.nh-compare tbody tr:nth-child(even) td{background:#fafcfe}\n.nh-article table.nh-compare tbody tr:last-child td,.nh-article table.nh-compare tbody tr:last-child th{border-bottom:0}\n.nh-article blockquote.nh-regla{margin:2rem 0;padding:1.4rem 1.6rem;background:linear-gradient(180deg,#F5F8FC,#fff);border-left:4px solid #2F6BFF;border-radius:0 14px 14px 0;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article blockquote.nh-regla p{margin:0;font-size:1.08rem;line-height:1.6}\n.nh-article blockquote.nh-regla strong{color:#2F6BFF}\n.nh-article .nh-cta-box{margin:2.4rem 0;padding:1.8rem;background:linear-gradient(135deg,#0E1726,#16213a);border-radius:20px;text-align:center}\n.nh-article .nh-cta-box p{color:#fff;margin:0 0 1.1rem;font-size:1.05rem}\n.nh-article .nh-cta-box a{display:inline-block;background:#2F6BFF;color:#fff;font-weight:600;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;transition:background .2s}\n.nh-article .nh-cta-box a:hover{background:#00E0A4;color:#0E1726}\n@media(max-width:600px){.nh-article table.nh-compare{font-size:.9rem}.nh-article .nh-cta-box{padding:1.3rem}}\n</style>\n\n<p>Cuando una empresa investiga <strong>diseño de páginas web HTML</strong>, casi siempre está buscando lo mismo sin saber el nombre exacto: un sitio construido con código real, no ensamblado sobre una plantilla de arrastrar y soltar. Y esa diferencia, aunque suene técnica, tiene un impacto directo en cómo se ve, qué tan rápido carga y qué tan bien se posiciona tu sitio en buscadores.</p>\n\n<p>HTML es el lenguaje base con el que se construye cualquier página web: define su estructura, el texto, las imágenes y cómo se organiza el contenido. Cuando se combina con CSS (el diseño visual) y con buenas prácticas de desarrollo, el resultado es un sitio ligero, rápido y sin el peso innecesario que arrastran muchos constructores automáticos.</p>\n\n<h2>Qué gana tu negocio con un diseño en HTML propio</h2>\n\n<p>La mayoría de los constructores de páginas web (los de \"arrastra y suelta\") en realidad generan HTML por debajo, pero lo hacen de forma automática y genérica: código repetido, funciones que no usas cargando en segundo plano, y una estructura pensada para ser universal, no para tu negocio en particular.</p>\n\n<div class=\"nh-tablewrap\">\n<table class=\"nh-compare\">\n<caption>Diseño con código HTML propio frente a un constructor automático.</caption>\n<thead>\n<tr>\n<th scope=\"col\">Aspecto</th>\n<th scope=\"col\">Constructor automático</th>\n<th scope=\"col\">HTML / código a la medida</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<th scope=\"row\">Velocidad de carga</th>\n<td>Más lenta, código genérico de fondo.</td>\n<td>Optimizada, solo lo que el sitio necesita.</td>\n</tr>\n<tr>\n<th scope=\"row\">Personalización</th>\n<td>Limitada a las opciones de la plantilla.</td>\n<td>Total: cada sección se diseña para tu marca.</td>\n</tr>\n<tr>\n<th scope=\"row\">SEO técnico</th>\n<td>Restringido por la estructura de la plataforma.</td>\n<td>Se controla desde la base del código.</td>\n</tr>\n<tr>\n<th scope=\"row\">Escalabilidad</th>\n<td>Depende de lo que el constructor permita.</td>\n<td>Crece según las necesidades del negocio.</td>\n</tr>\n</tbody>\n</table>\n</div>\n\n<p>Ese control técnico se traduce en resultados de negocio: un sitio más rápido retiene mejor a los visitantes, y una estructura de código limpia facilita que Google entienda e indexe correctamente cada página.</p>\n\n<h2>Elementos clave de un buen diseño de páginas web en HTML</h2>\n\n<h3>Estructura semántica</h3>\n<p>Usar las etiquetas correctas (encabezados, secciones, listas) no es un detalle estético: le indica a los buscadores qué es importante en la página y mejora la accesibilidad para todos los usuarios.</p>\n\n<h3>CSS optimizado, sin librerías innecesarias</h3>\n<p>Muchos sitios cargan hojas de estilo completas de frameworks pesados para usar apenas un puñado de sus funciones. Un diseño hecho a la medida solo incluye lo necesario, lo que se traduce directamente en velocidad.</p>\n\n<h3>Diseño responsive desde el código</h3>\n<p>Un sitio bien construido en HTML/CSS se adapta de forma fluida a cualquier tamaño de pantalla porque así fue pensado desde el inicio, no porque una plantilla lo \"encoja\" automáticamente.</p>\n\n<h3>Compatibilidad con WordPress y otros gestores de contenido</h3>\n<p>El código HTML propio no está peleado con un gestor de contenido: puede integrarse dentro de WordPress para que tú mantengas el control de textos e imágenes, sin perder la calidad del diseño a la medida.</p>\n\n<blockquote class=\"nh-regla\">\n<p><strong>Un buen indicador:</strong> si tu página web tarda más de tres segundos en cargar en el celular, probablemente está arrastrando código innecesario. Eso no se corrige con más diseño, se corrige revisando la base técnica.</p>\n</blockquote>\n\n<h2>Por qué conviene que el diseño en HTML lo haga un equipo especializado</h2>\n\n<p>Escribir HTML \"que funcione\" es relativamente sencillo. Escribir HTML que cargue rápido, se vea profesional en cualquier dispositivo y esté preparado para posicionarse en buscadores requiere experiencia acumulada en decisiones que no se ven a simple vista: cómo se organiza el código, qué imágenes se optimizan y cómo se estructuran los encabezados.</p>\n\n<p>En Nodarishub construimos cada sitio con <a href=\"https://nodarishub.com/diseno-web/\">diseño y desarrollo web a la medida</a>, combinando HTML y CSS propios con la base de <a href=\"https://nodarishub.com/seo/\">SEO técnico</a> necesaria para que el sitio no solo se vea bien, sino que también funcione como herramienta de captación de clientes.</p>\n\n<h2>Preguntas frecuentes</h2>\n\n<h3>¿El diseño en HTML significa que no puedo editar el contenido yo mismo?</h3>\n<p>No. El código HTML se integra en un gestor de contenido como WordPress, así que puedes editar textos e imágenes sin tocar el código, mientras la estructura técnica se mantiene intacta.</p>\n\n<h3>¿Un sitio en HTML es más caro que uno hecho en un constructor?</h3>\n<p>La inversión inicial suele ser mayor porque hay trabajo de código real detrás, pero se traduce en mejor rendimiento, mejor SEO y menos limitaciones a futuro. Cada proyecto se cotiza según su alcance real.</p>\n\n<h3>¿Qué tan importante es esto si mi negocio es pequeño?</h3>\n<p>Igual de importante, si no más: un negocio pequeño no puede darse el lujo de perder visitantes por lentitud o de no aparecer en Google frente a competidores con mejor base técnica.</p>\n\n<div class=\"nh-cta-box\">\n<p>Lleva tu sitio de plantilla genérica a código diseñado para tu negocio.</p>\n<a href=\"https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20mi%20proyecto%20digital\" target=\"_blank\" rel=\"noopener\">Cotiza tu proyecto</a>\n</div>\n\n<script type=\"application/ld+json\">\n{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"¿El diseño en HTML significa que no puedo editar el contenido yo mismo?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. El código HTML se integra en un gestor de contenido como WordPress, así que puedes editar textos e imágenes sin tocar el código, mientras la estructura técnica se mantiene intacta.\"}},{\"@type\":\"Question\",\"name\":\"¿Un sitio en HTML es más caro que uno hecho en un constructor?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"La inversión inicial suele ser mayor porque hay trabajo de código real detrás, pero se traduce en mejor rendimiento, mejor SEO y menos limitaciones a futuro. Cada proyecto se cotiza según su alcance real.\"}},{\"@type\":\"Question\",\"name\":\"¿Qué tan importante es esto si mi negocio es pequeño?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Igual de importante, si no más: un negocio pequeño no puede darse el lujo de perder visitantes por lentitud o de no aparecer en Google frente a competidores con mejor base técnica.\"}}]}\n</script>\n</div>\n\n<!-- /wp:html -->",
+    "rendered": "\n<div class=\"nh-article\">\n<style>\n.nh-article .nh-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.8rem 0;border:1px solid #e6ebf2;border-radius:14px;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article table.nh-compare{width:100%;border-collapse:collapse;min-width:620px;font-size:.96rem;line-height:1.5}\n.nh-article table.nh-compare caption{caption-side:bottom;padding:.9rem 1rem;font-size:.82rem;color:#5B6B82;text-align:left}\n.nh-article table.nh-compare thead th{background:#0E1726;color:#fff;text-align:left;font-weight:600;padding:.95rem 1rem;border-bottom:3px solid #00E0A4;letter-spacing:.01em}\n.nh-article table.nh-compare tbody th{background:#F5F8FC;color:#0E1726;text-align:left;font-weight:600;padding:.85rem 1rem;vertical-align:top;white-space:nowrap}\n.nh-article table.nh-compare tbody td{padding:.85rem 1rem;vertical-align:top;border-bottom:1px solid #eef2f7;color:#2a3342}\n.nh-article table.nh-compare tbody tr:nth-child(even) th,.nh-article table.nh-compare tbody tr:nth-child(even) td{background:#fafcfe}\n.nh-article table.nh-compare tbody tr:last-child td,.nh-article table.nh-compare tbody tr:last-child th{border-bottom:0}\n.nh-article blockquote.nh-regla{margin:2rem 0;padding:1.4rem 1.6rem;background:linear-gradient(180deg,#F5F8FC,#fff);border-left:4px solid #2F6BFF;border-radius:0 14px 14px 0;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article blockquote.nh-regla p{margin:0;font-size:1.08rem;line-height:1.6}\n.nh-article blockquote.nh-regla strong{color:#2F6BFF}\n.nh-article .nh-cta-box{margin:2.4rem 0;padding:1.8rem;background:linear-gradient(135deg,#0E1726,#16213a);border-radius:20px;text-align:center}\n.nh-article .nh-cta-box p{color:#fff;margin:0 0 1.1rem;font-size:1.05rem}\n.nh-article .nh-cta-box a{display:inline-block;background:#2F6BFF;color:#fff;font-weight:600;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;transition:background .2s}\n.nh-article .nh-cta-box a:hover{background:#00E0A4;color:#0E1726}\n@media(max-width:600px){.nh-article table.nh-compare{font-size:.9rem}.nh-article .nh-cta-box{padding:1.3rem}}\n</style>\n\n<p>Cuando una empresa investiga <strong>diseño de páginas web HTML</strong>, casi siempre está buscando lo mismo sin saber el nombre exacto: un sitio construido con código real, no ensamblado sobre una plantilla de arrastrar y soltar. Y esa diferencia, aunque suene técnica, tiene un impacto directo en cómo se ve, qué tan rápido carga y qué tan bien se posiciona tu sitio en buscadores.</p>\n\n<p>HTML es el lenguaje base con el que se construye cualquier página web: define su estructura, el texto, las imágenes y cómo se organiza el contenido. Cuando se combina con CSS (el diseño visual) y con buenas prácticas de desarrollo, el resultado es un sitio ligero, rápido y sin el peso innecesario que arrastran muchos constructores automáticos.</p>\n\n<h2>Qué gana tu negocio con un diseño en HTML propio</h2>\n\n<p>La mayoría de los constructores de páginas web (los de &#8220;arrastra y suelta&#8221;) en realidad generan HTML por debajo, pero lo hacen de forma automática y genérica: código repetido, funciones que no usas cargando en segundo plano, y una estructura pensada para ser universal, no para tu negocio en particular.</p>\n\n<div class=\"nh-tablewrap\">\n<table class=\"nh-compare\">\n<caption>Diseño con código HTML propio frente a un constructor automático.</caption>\n<thead>\n<tr>\n<th scope=\"col\">Aspecto</th>\n<th scope=\"col\">Constructor automático</th>\n<th scope=\"col\">HTML / código a la medida</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<th scope=\"row\">Velocidad de carga</th>\n<td>Más lenta, código genérico de fondo.</td>\n<td>Optimizada, solo lo que el sitio necesita.</td>\n</tr>\n<tr>\n<th scope=\"row\">Personalización</th>\n<td>Limitada a las opciones de la plantilla.</td>\n<td>Total: cada sección se diseña para tu marca.</td>\n</tr>\n<tr>\n<th scope=\"row\">SEO técnico</th>\n<td>Restringido por la estructura de la plataforma.</td>\n<td>Se controla desde la base del código.</td>\n</tr>\n<tr>\n<th scope=\"row\">Escalabilidad</th>\n<td>Depende de lo que el constructor permita.</td>\n<td>Crece según las necesidades del negocio.</td>\n</tr>\n</tbody>\n</table>\n</div>\n\n<p>Ese control técnico se traduce en resultados de negocio: un sitio más rápido retiene mejor a los visitantes, y una estructura de código limpia facilita que Google entienda e indexe correctamente cada página.</p>\n\n<h2>Elementos clave de un buen diseño de páginas web en HTML</h2>\n\n<h3>Estructura semántica</h3>\n<p>Usar las etiquetas correctas (encabezados, secciones, listas) no es un detalle estético: le indica a los buscadores qué es importante en la página y mejora la accesibilidad para todos los usuarios.</p>\n\n<h3>CSS optimizado, sin librerías innecesarias</h3>\n<p>Muchos sitios cargan hojas de estilo completas de frameworks pesados para usar apenas un puñado de sus funciones. Un diseño hecho a la medida solo incluye lo necesario, lo que se traduce directamente en velocidad.</p>\n\n<h3>Diseño responsive desde el código</h3>\n<p>Un sitio bien construido en HTML/CSS se adapta de forma fluida a cualquier tamaño de pantalla porque así fue pensado desde el inicio, no porque una plantilla lo &#8220;encoja&#8221; automáticamente.</p>\n\n<h3>Compatibilidad con WordPress y otros gestores de contenido</h3>\n<p>El código HTML propio no está peleado con un gestor de contenido: puede integrarse dentro de WordPress para que tú mantengas el control de textos e imágenes, sin perder la calidad del diseño a la medida.</p>\n\n<blockquote class=\"nh-regla\">\n<p><strong>Un buen indicador:</strong> si tu página web tarda más de tres segundos en cargar en el celular, probablemente está arrastrando código innecesario. Eso no se corrige con más diseño, se corrige revisando la base técnica.</p>\n</blockquote>\n\n<h2>Por qué conviene que el diseño en HTML lo haga un equipo especializado</h2>\n\n<p>Escribir HTML &#8220;que funcione&#8221; es relativamente sencillo. Escribir HTML que cargue rápido, se vea profesional en cualquier dispositivo y esté preparado para posicionarse en buscadores requiere experiencia acumulada en decisiones que no se ven a simple vista: cómo se organiza el código, qué imágenes se optimizan y cómo se estructuran los encabezados.</p>\n\n<p>En Nodarishub construimos cada sitio con <a href=\"https://nodarishub.com/diseno-web/\">diseño y desarrollo web a la medida</a>, combinando HTML y CSS propios con la base de <a href=\"https://nodarishub.com/seo/\">SEO técnico</a> necesaria para que el sitio no solo se vea bien, sino que también funcione como herramienta de captación de clientes.</p>\n\n<h2>Preguntas frecuentes</h2>\n\n<h3>¿El diseño en HTML significa que no puedo editar el contenido yo mismo?</h3>\n<p>No. El código HTML se integra en un gestor de contenido como WordPress, así que puedes editar textos e imágenes sin tocar el código, mientras la estructura técnica se mantiene intacta.</p>\n\n<h3>¿Un sitio en HTML es más caro que uno hecho en un constructor?</h3>\n<p>La inversión inicial suele ser mayor porque hay trabajo de código real detrás, pero se traduce en mejor rendimiento, mejor SEO y menos limitaciones a futuro. Cada proyecto se cotiza según su alcance real.</p>\n\n<h3>¿Qué tan importante es esto si mi negocio es pequeño?</h3>\n<p>Igual de importante, si no más: un negocio pequeño no puede darse el lujo de perder visitantes por lentitud o de no aparecer en Google frente a competidores con mejor base técnica.</p>\n\n<div class=\"nh-cta-box\">\n<p>Lleva tu sitio de plantilla genérica a código diseñado para tu negocio.</p>\n<a href=\"https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20mi%20proyecto%20digital\" target=\"_blank\" rel=\"noopener\">Cotiza tu proyecto</a>\n</div>\n\n<script type=\"application/ld+json\">\n{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"¿El diseño en HTML significa que no puedo editar el contenido yo mismo?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. El código HTML se integra en un gestor de contenido como WordPress, así que puedes editar textos e imágenes sin tocar el código, mientras la estructura técnica se mantiene intacta.\"}},{\"@type\":\"Question\",\"name\":\"¿Un sitio en HTML es más caro que uno hecho en un constructor?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"La inversión inicial suele ser mayor porque hay trabajo de código real detrás, pero se traduce en mejor rendimiento, mejor SEO y menos limitaciones a futuro. Cada proyecto se cotiza según su alcance real.\"}},{\"@type\":\"Question\",\"name\":\"¿Qué tan importante es esto si mi negocio es pequeño?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Igual de importante, si no más: un negocio pequeño no puede darse el lujo de perder visitantes por lentitud o de no aparecer en Google frente a competidores con mejor base técnica.\"}}]}\n</script>\n</div>\n\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>Cuando una empresa investiga diseño de páginas web HTML, casi siempre está buscando lo mismo sin saber el nombre exacto: un sitio construido con código real, no ensamblado sobre una plantilla de arrastrar y soltar. Y esa diferencia, aunque suene técnica, tiene un impacto directo en cómo se ve, qué tan rápido carga y qué [&hellip;]</p>\n",
+    "protected": false
+  },
+  "author": 2,
+  "featured_media": 307,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "footnotes": ""
+  },
+  "categories": [
+    17
+  ],
+  "tags": [],
+  "permalink_template": "https://nodarishub.com/%postname%/",
+  "generated_slug": "diseno-de-paginas-web-en-html-guia-para-tu-negocio",
+  "class_list": [
+    "post-262",
+    "post",
+    "type-post",
+    "status-publish",
+    "format-standard",
+    "has-post-thumbnail",
+    "hentry",
+    "category-blog"
+  ],
+  "_links": {
+    "self": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/262",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/users/2"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/comments?post=262"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 2,
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/262/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 298,
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/262/revisions/298"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/media/307"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/media?parent=262"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/categories?post=262"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/tags?post=262"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/262"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/262"
+      }
+    ],
+    "wp:action-sticky": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/262"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/262"
+      }
+    ],
+    "wp:action-create-categories": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/262"
+      }
+    ],
+    "wp:action-assign-categories": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/262"
+      }
+    ],
+    "wp:action-create-tags": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/262"
+      }
+    ],
+    "wp:action-assign-tags": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/262"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "id": 259,
+  "date": "2026-08-06T12:17:59",
+  "date_gmt": "2026-08-06T12:17:59",
+  "guid": {
+    "rendered": "https://nodarishub.com/como-crear-una-pagina-web/",
+    "raw": "https://nodarishub.com/como-crear-una-pagina-web/"
+  },
+  "modified": "2026-08-12T15:18:12",
+  "modified_gmt": "2026-08-12T15:18:12",
+  "password": "",
+  "slug": "como-crear-una-pagina-web",
+  "status": "publish",
+  "type": "post",
+  "link": "https://nodarishub.com/como-crear-una-pagina-web/",
+  "title": {
+    "raw": "Cómo Crear una Página Web para tu Negocio en 2026",
+    "rendered": "Cómo Crear una Página Web para tu Negocio en 2026"
+  },
+  "content": {
+    "raw": "<!-- wp:html -->\n<div class=\"nh-article\">\n<style>\n.nh-article .nh-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.8rem 0;border:1px solid #e6ebf2;border-radius:14px;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article table.nh-compare{width:100%;border-collapse:collapse;min-width:620px;font-size:.96rem;line-height:1.5}\n.nh-article table.nh-compare caption{caption-side:bottom;padding:.9rem 1rem;font-size:.82rem;color:#5B6B82;text-align:left}\n.nh-article table.nh-compare thead th{background:#0E1726;color:#fff;text-align:left;font-weight:600;padding:.95rem 1rem;border-bottom:3px solid #00E0A4;letter-spacing:.01em}\n.nh-article table.nh-compare tbody th{background:#F5F8FC;color:#0E1726;text-align:left;font-weight:600;padding:.85rem 1rem;vertical-align:top;white-space:nowrap}\n.nh-article table.nh-compare tbody td{padding:.85rem 1rem;vertical-align:top;border-bottom:1px solid #eef2f7;color:#2a3342}\n.nh-article table.nh-compare tbody tr:nth-child(even) th,.nh-article table.nh-compare tbody tr:nth-child(even) td{background:#fafcfe}\n.nh-article table.nh-compare tbody tr:last-child td,.nh-article table.nh-compare tbody tr:last-child th{border-bottom:0}\n.nh-article blockquote.nh-regla{margin:2rem 0;padding:1.4rem 1.6rem;background:linear-gradient(180deg,#F5F8FC,#fff);border-left:4px solid #2F6BFF;border-radius:0 14px 14px 0;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article blockquote.nh-regla p{margin:0;font-size:1.08rem;line-height:1.6}\n.nh-article blockquote.nh-regla strong{color:#2F6BFF}\n.nh-article .nh-cta-box{margin:2.4rem 0;padding:1.8rem;background:linear-gradient(135deg,#0E1726,#16213a);border-radius:20px;text-align:center}\n.nh-article .nh-cta-box p{color:#fff;margin:0 0 1.1rem;font-size:1.05rem}\n.nh-article .nh-cta-box a{display:inline-block;background:#2F6BFF;color:#fff;font-weight:600;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;transition:background .2s}\n.nh-article .nh-cta-box a:hover{background:#00E0A4;color:#0E1726}\n@media(max-width:600px){.nh-article table.nh-compare{font-size:.9rem}.nh-article .nh-cta-box{padding:1.3rem}}\n</style>\n\n<p>Si estás buscando <strong>cómo crear una página web</strong> para tu negocio, probablemente ya te topaste con decenas de tutoriales, constructores \"gratis\" y videos que prometen tenerla lista en una tarde. El problema no es la falta de opciones: es que casi ninguna de ellas está pensada para lo que realmente necesita una empresa que quiere vender, cobrar y crecer en internet.</p>\n\n<p>Una página web para un negocio no es un experimento personal. Es la primera impresión que se lleva un cliente potencial, el lugar donde decide si confía en ti o sigue buscando, y muchas veces el canal que reemplaza a un vendedor de tiempo completo. Antes de decidir cómo construirla, vale la pena entender qué opciones existen y qué implica cada una para tu inversión y tus resultados.</p>\n\n<h2>Las tres rutas reales para crear una página web</h2>\n\n<p>Cuando alguien busca cómo crear una página web, en el fondo está eligiendo entre tres caminos distintos. Cada uno tiene una relación diferente entre tiempo invertido, control sobre el resultado y calidad final.</p>\n\n<div class=\"nh-tablewrap\">\n<table class=\"nh-compare\">\n<caption>Comparativa de las rutas más comunes para poner en marcha un sitio web de negocio.</caption>\n<thead>\n<tr>\n<th scope=\"col\">Ruta</th>\n<th scope=\"col\">Qué obtienes</th>\n<th scope=\"col\">Riesgo principal</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<th scope=\"row\">Constructor \"arrastra y suelta\"</th>\n<td>Plantilla genérica editable sin conocimientos técnicos.</td>\n<td>Carga lenta, diseño repetido en la competencia, SEO limitado.</td>\n</tr>\n<tr>\n<th scope=\"row\">Freelancer independiente</th>\n<td>Trabajo a medida, precio variable según experiencia.</td>\n<td>Disponibilidad irregular, soporte incierto a futuro.</td>\n</tr>\n<tr>\n<th scope=\"row\">Agencia especializada</th>\n<td>Diseño, código, SEO y estrategia integrados en un solo proyecto.</td>\n<td>Inversión mayor, pero con garantía de resultado y acompañamiento.</td>\n</tr>\n</tbody>\n</table>\n</div>\n\n<p>Ninguna ruta es \"incorrecta\" en abstracto: depende de qué tan crítico sea el sitio para la operación de tu negocio. Si la página es una tarjeta de presentación ocasional, un constructor puede alcanzar. Si va a ser tu principal canal de captación de clientes, la ecuación cambia.</p>\n\n<h2>Qué debe tener una página web para funcionar como herramienta de negocio</h2>\n\n<p>Más allá de \"cómo\" se construye, lo que determina si una página web funciona es lo que contiene y cómo está estructurada. Estos son los elementos que no pueden faltar:</p>\n\n<h3>1. Un objetivo claro por página</h3>\n<p>Cada página debe guiar al visitante hacia una acción concreta: escribir por WhatsApp, llenar un formulario, llamar o comprar. Un sitio sin objetivo es solo un catálogo bonito que no convierte visitas en clientes.</p>\n\n<h3>2. Velocidad de carga</h3>\n<p>La mayoría de los constructores gratuitos cargan código innecesario que ralentiza el sitio, sobre todo en celular. Un sitio lento pierde visitantes antes de que lean el primer párrafo, y Google penaliza esa lentitud en el posicionamiento.</p>\n\n<h3>3. Estructura pensada para buscadores</h3>\n<p>De nada sirve tener una página web si nadie la encuentra. Necesitas títulos, descripciones y contenido organizado siguiendo buenas prácticas de <a href=\"https://nodarishub.com/seo/\">SEO</a> desde el primer día, no como una corrección posterior.</p>\n\n<h3>4. Diseño responsive real</h3>\n<p>La mayoría del tráfico llega desde el celular. Un diseño \"adaptado\" que solo comprime el contenido de escritorio no es lo mismo que un diseño pensado desde cero para pantallas pequeñas.</p>\n\n<blockquote class=\"nh-regla\">\n<p><strong>El error más común:</strong> construir primero y pensar la estrategia después. El orden correcto es al revés: definir a quién le vendes y qué acción quieres que tome, y solo entonces diseñar la página alrededor de eso.</p>\n</blockquote>\n\n<h2>Por qué cada vez más negocios prefieren código propio a las plantillas</h2>\n\n<p>Las plantillas de constructores populares se ven bien en la demo, pero en la práctica arrastran un problema estructural: miles de negocios usan la misma base, con el mismo código de fondo y las mismas limitaciones de personalización. Con el tiempo, eso se traduce en sitios que se parecen entre sí y que no logran diferenciar a una marca de su competencia directa.</p>\n\n<p>Un sitio construido con <a href=\"https://nodarishub.com/diseno-web/\">desarrollo web a la medida</a> parte de cero: cada línea de código responde a lo que tu negocio necesita, sin el peso de funciones que nunca usarás. Eso se traduce en mejor velocidad, mejor SEO técnico y un diseño que sí distingue tu marca.</p>\n\n<h2>Cómo trabajamos en Nodarishub la creación de una página web</h2>\n\n<p>En Nodarishub combinamos diseño, código y posicionamiento desde el primer boceto, con foco en negocios que necesitan que su página trabaje para ellos, no solo que exista. El proceso típico incluye entender tu negocio y a tu cliente ideal, definir la arquitectura de páginas según ese objetivo, construir con código propio (sin plantillas genéricas) y dejar la estructura lista para posicionarse en buscadores desde el lanzamiento. Puedes ver el detalle completo del proceso y las opciones disponibles en nuestra página para <a href=\"https://nodarishub.com/crear-pagina-web/\">crear tu página web</a>.</p>\n\n<h2>Preguntas frecuentes sobre cómo crear una página web</h2>\n\n<h3>¿Cuánto tiempo toma tener una página web lista?</h3>\n<p>Depende del alcance. Una página enfocada en un solo objetivo puede estar lista en pocos días laborables; un sitio con varias secciones y contenido propio toma algunas semanas. Lo importante es que el tiempo se invierta en estructura y contenido, no solo en diseño visual.</p>\n\n<h3>¿Necesito saber programar para tener una página web profesional?</h3>\n<p>No. Ese es justamente el valor de trabajar con un equipo especializado: tú te enfocas en tu negocio y el equipo técnico se encarga del código, el hosting y la estructura, entregándote un sitio que puedes actualizar sin depender de nadie para lo básico.</p>\n\n<h3>¿Cuál es la diferencia real entre un constructor gratuito y un desarrollo profesional?</h3>\n<p>El constructor resuelve la urgencia de tener \"algo\" publicado. El desarrollo profesional resuelve el objetivo de negocio: captar clientes, posicionarse en buscadores y transmitir seriedad. La diferencia se nota en los resultados, no solo en la estética.</p>\n\n<div class=\"nh-cta-box\">\n<p>¿Listo para tener una página web que trabaje de verdad para tu negocio?</p>\n<a href=\"https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20mi%20proyecto%20digital\" target=\"_blank\" rel=\"noopener\">Cotiza tu proyecto</a>\n</div>\n\n<script type=\"application/ld+json\">\n{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"¿Cuánto tiempo toma tener una página web lista?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Depende del alcance. Una página enfocada en un solo objetivo puede estar lista en pocos días laborables; un sitio con varias secciones y contenido propio toma algunas semanas. Lo importante es que el tiempo se invierta en estructura y contenido, no solo en diseño visual.\"}},{\"@type\":\"Question\",\"name\":\"¿Necesito saber programar para tener una página web profesional?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. Ese es justamente el valor de trabajar con un equipo especializado: tú te enfocas en tu negocio y el equipo técnico se encarga del código, el hosting y la estructura, entregándote un sitio que puedes actualizar sin depender de nadie para lo básico.\"}},{\"@type\":\"Question\",\"name\":\"¿Cuál es la diferencia real entre un constructor gratuito y un desarrollo profesional?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"El constructor resuelve la urgencia de tener \\\"algo\\\" publicado. El desarrollo profesional resuelve el objetivo de negocio: captar clientes, posicionarse en buscadores y transmitir seriedad. La diferencia se nota en los resultados, no solo en la estética.\"}}]}\n</script>\n</div>\n\n<!-- /wp:html -->",
+    "rendered": "\n<div class=\"nh-article\">\n<style>\n.nh-article .nh-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.8rem 0;border:1px solid #e6ebf2;border-radius:14px;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article table.nh-compare{width:100%;border-collapse:collapse;min-width:620px;font-size:.96rem;line-height:1.5}\n.nh-article table.nh-compare caption{caption-side:bottom;padding:.9rem 1rem;font-size:.82rem;color:#5B6B82;text-align:left}\n.nh-article table.nh-compare thead th{background:#0E1726;color:#fff;text-align:left;font-weight:600;padding:.95rem 1rem;border-bottom:3px solid #00E0A4;letter-spacing:.01em}\n.nh-article table.nh-compare tbody th{background:#F5F8FC;color:#0E1726;text-align:left;font-weight:600;padding:.85rem 1rem;vertical-align:top;white-space:nowrap}\n.nh-article table.nh-compare tbody td{padding:.85rem 1rem;vertical-align:top;border-bottom:1px solid #eef2f7;color:#2a3342}\n.nh-article table.nh-compare tbody tr:nth-child(even) th,.nh-article table.nh-compare tbody tr:nth-child(even) td{background:#fafcfe}\n.nh-article table.nh-compare tbody tr:last-child td,.nh-article table.nh-compare tbody tr:last-child th{border-bottom:0}\n.nh-article blockquote.nh-regla{margin:2rem 0;padding:1.4rem 1.6rem;background:linear-gradient(180deg,#F5F8FC,#fff);border-left:4px solid #2F6BFF;border-radius:0 14px 14px 0;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article blockquote.nh-regla p{margin:0;font-size:1.08rem;line-height:1.6}\n.nh-article blockquote.nh-regla strong{color:#2F6BFF}\n.nh-article .nh-cta-box{margin:2.4rem 0;padding:1.8rem;background:linear-gradient(135deg,#0E1726,#16213a);border-radius:20px;text-align:center}\n.nh-article .nh-cta-box p{color:#fff;margin:0 0 1.1rem;font-size:1.05rem}\n.nh-article .nh-cta-box a{display:inline-block;background:#2F6BFF;color:#fff;font-weight:600;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;transition:background .2s}\n.nh-article .nh-cta-box a:hover{background:#00E0A4;color:#0E1726}\n@media(max-width:600px){.nh-article table.nh-compare{font-size:.9rem}.nh-article .nh-cta-box{padding:1.3rem}}\n</style>\n\n<p>Si estás buscando <strong>cómo crear una página web</strong> para tu negocio, probablemente ya te topaste con decenas de tutoriales, constructores &#8220;gratis&#8221; y videos que prometen tenerla lista en una tarde. El problema no es la falta de opciones: es que casi ninguna de ellas está pensada para lo que realmente necesita una empresa que quiere vender, cobrar y crecer en internet.</p>\n\n<p>Una página web para un negocio no es un experimento personal. Es la primera impresión que se lleva un cliente potencial, el lugar donde decide si confía en ti o sigue buscando, y muchas veces el canal que reemplaza a un vendedor de tiempo completo. Antes de decidir cómo construirla, vale la pena entender qué opciones existen y qué implica cada una para tu inversión y tus resultados.</p>\n\n<h2>Las tres rutas reales para crear una página web</h2>\n\n<p>Cuando alguien busca cómo crear una página web, en el fondo está eligiendo entre tres caminos distintos. Cada uno tiene una relación diferente entre tiempo invertido, control sobre el resultado y calidad final.</p>\n\n<div class=\"nh-tablewrap\">\n<table class=\"nh-compare\">\n<caption>Comparativa de las rutas más comunes para poner en marcha un sitio web de negocio.</caption>\n<thead>\n<tr>\n<th scope=\"col\">Ruta</th>\n<th scope=\"col\">Qué obtienes</th>\n<th scope=\"col\">Riesgo principal</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<th scope=\"row\">Constructor &#8220;arrastra y suelta&#8221;</th>\n<td>Plantilla genérica editable sin conocimientos técnicos.</td>\n<td>Carga lenta, diseño repetido en la competencia, SEO limitado.</td>\n</tr>\n<tr>\n<th scope=\"row\">Freelancer independiente</th>\n<td>Trabajo a medida, precio variable según experiencia.</td>\n<td>Disponibilidad irregular, soporte incierto a futuro.</td>\n</tr>\n<tr>\n<th scope=\"row\">Agencia especializada</th>\n<td>Diseño, código, SEO y estrategia integrados en un solo proyecto.</td>\n<td>Inversión mayor, pero con garantía de resultado y acompañamiento.</td>\n</tr>\n</tbody>\n</table>\n</div>\n\n<p>Ninguna ruta es &#8220;incorrecta&#8221; en abstracto: depende de qué tan crítico sea el sitio para la operación de tu negocio. Si la página es una tarjeta de presentación ocasional, un constructor puede alcanzar. Si va a ser tu principal canal de captación de clientes, la ecuación cambia.</p>\n\n<h2>Qué debe tener una página web para funcionar como herramienta de negocio</h2>\n\n<p>Más allá de &#8220;cómo&#8221; se construye, lo que determina si una página web funciona es lo que contiene y cómo está estructurada. Estos son los elementos que no pueden faltar:</p>\n\n<h3>1. Un objetivo claro por página</h3>\n<p>Cada página debe guiar al visitante hacia una acción concreta: escribir por WhatsApp, llenar un formulario, llamar o comprar. Un sitio sin objetivo es solo un catálogo bonito que no convierte visitas en clientes.</p>\n\n<h3>2. Velocidad de carga</h3>\n<p>La mayoría de los constructores gratuitos cargan código innecesario que ralentiza el sitio, sobre todo en celular. Un sitio lento pierde visitantes antes de que lean el primer párrafo, y Google penaliza esa lentitud en el posicionamiento.</p>\n\n<h3>3. Estructura pensada para buscadores</h3>\n<p>De nada sirve tener una página web si nadie la encuentra. Necesitas títulos, descripciones y contenido organizado siguiendo buenas prácticas de <a href=\"https://nodarishub.com/seo/\">SEO</a> desde el primer día, no como una corrección posterior.</p>\n\n<h3>4. Diseño responsive real</h3>\n<p>La mayoría del tráfico llega desde el celular. Un diseño &#8220;adaptado&#8221; que solo comprime el contenido de escritorio no es lo mismo que un diseño pensado desde cero para pantallas pequeñas.</p>\n\n<blockquote class=\"nh-regla\">\n<p><strong>El error más común:</strong> construir primero y pensar la estrategia después. El orden correcto es al revés: definir a quién le vendes y qué acción quieres que tome, y solo entonces diseñar la página alrededor de eso.</p>\n</blockquote>\n\n<h2>Por qué cada vez más negocios prefieren código propio a las plantillas</h2>\n\n<p>Las plantillas de constructores populares se ven bien en la demo, pero en la práctica arrastran un problema estructural: miles de negocios usan la misma base, con el mismo código de fondo y las mismas limitaciones de personalización. Con el tiempo, eso se traduce en sitios que se parecen entre sí y que no logran diferenciar a una marca de su competencia directa.</p>\n\n<p>Un sitio construido con <a href=\"https://nodarishub.com/diseno-web/\">desarrollo web a la medida</a> parte de cero: cada línea de código responde a lo que tu negocio necesita, sin el peso de funciones que nunca usarás. Eso se traduce en mejor velocidad, mejor SEO técnico y un diseño que sí distingue tu marca.</p>\n\n<h2>Cómo trabajamos en Nodarishub la creación de una página web</h2>\n\n<p>En Nodarishub combinamos diseño, código y posicionamiento desde el primer boceto, con foco en negocios que necesitan que su página trabaje para ellos, no solo que exista. El proceso típico incluye entender tu negocio y a tu cliente ideal, definir la arquitectura de páginas según ese objetivo, construir con código propio (sin plantillas genéricas) y dejar la estructura lista para posicionarse en buscadores desde el lanzamiento. Puedes ver el detalle completo del proceso y las opciones disponibles en nuestra página para <a href=\"https://nodarishub.com/crear-pagina-web/\">crear tu página web</a>.</p>\n\n<h2>Preguntas frecuentes sobre cómo crear una página web</h2>\n\n<h3>¿Cuánto tiempo toma tener una página web lista?</h3>\n<p>Depende del alcance. Una página enfocada en un solo objetivo puede estar lista en pocos días laborables; un sitio con varias secciones y contenido propio toma algunas semanas. Lo importante es que el tiempo se invierta en estructura y contenido, no solo en diseño visual.</p>\n\n<h3>¿Necesito saber programar para tener una página web profesional?</h3>\n<p>No. Ese es justamente el valor de trabajar con un equipo especializado: tú te enfocas en tu negocio y el equipo técnico se encarga del código, el hosting y la estructura, entregándote un sitio que puedes actualizar sin depender de nadie para lo básico.</p>\n\n<h3>¿Cuál es la diferencia real entre un constructor gratuito y un desarrollo profesional?</h3>\n<p>El constructor resuelve la urgencia de tener &#8220;algo&#8221; publicado. El desarrollo profesional resuelve el objetivo de negocio: captar clientes, posicionarse en buscadores y transmitir seriedad. La diferencia se nota en los resultados, no solo en la estética.</p>\n\n<div class=\"nh-cta-box\">\n<p>¿Listo para tener una página web que trabaje de verdad para tu negocio?</p>\n<a href=\"https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20mi%20proyecto%20digital\" target=\"_blank\" rel=\"noopener\">Cotiza tu proyecto</a>\n</div>\n\n<script type=\"application/ld+json\">\n{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"¿Cuánto tiempo toma tener una página web lista?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Depende del alcance. Una página enfocada en un solo objetivo puede estar lista en pocos días laborables; un sitio con varias secciones y contenido propio toma algunas semanas. Lo importante es que el tiempo se invierta en estructura y contenido, no solo en diseño visual.\"}},{\"@type\":\"Question\",\"name\":\"¿Necesito saber programar para tener una página web profesional?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. Ese es justamente el valor de trabajar con un equipo especializado: tú te enfocas en tu negocio y el equipo técnico se encarga del código, el hosting y la estructura, entregándote un sitio que puedes actualizar sin depender de nadie para lo básico.\"}},{\"@type\":\"Question\",\"name\":\"¿Cuál es la diferencia real entre un constructor gratuito y un desarrollo profesional?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"El constructor resuelve la urgencia de tener \\\"algo\\\" publicado. El desarrollo profesional resuelve el objetivo de negocio: captar clientes, posicionarse en buscadores y transmitir seriedad. La diferencia se nota en los resultados, no solo en la estética.\"}}]}\n</script>\n</div>\n\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>Si estás buscando cómo crear una página web para tu negocio, probablemente ya te topaste con decenas de tutoriales, constructores &#8220;gratis&#8221; y videos que prometen tenerla lista en una tarde. El problema no es la falta de opciones: es que casi ninguna de ellas está pensada para lo que realmente necesita una empresa que quiere [&hellip;]</p>\n",
+    "protected": false
+  },
+  "author": 2,
+  "featured_media": 304,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "footnotes": ""
+  },
+  "categories": [
+    17
+  ],
+  "tags": [],
+  "permalink_template": "https://nodarishub.com/%postname%/",
+  "generated_slug": "como-crear-una-pagina-web-para-tu-negocio-en-2026",
+  "class_list": [
+    "post-259",
+    "post",
+    "type-post",
+    "status-publish",
+    "format-standard",
+    "has-post-thumbnail",
+    "hentry",
+    "category-blog"
+  ],
+  "_links": {
+    "self": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/259",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/users/2"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/comments?post=259"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 1,
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/259/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 295,
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/259/revisions/295"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/media/304"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/media?parent=259"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/categories?post=259"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/tags?post=259"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/259"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/259"
+      }
+    ],
+    "wp:action-sticky": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/259"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/259"
+      }
+    ],
+    "wp:action-create-categories": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/259"
+      }
+    ],
+    "wp:action-assign-categories": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/259"
+      }
+    ],
+    "wp:action-create-tags": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/259"
+      }
+    ],
+    "wp:action-assign-tags": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/259"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

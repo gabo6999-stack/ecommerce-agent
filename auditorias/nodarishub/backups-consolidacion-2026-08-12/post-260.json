@@ -1,0 +1,177 @@
+{
+  "id": 260,
+  "date": "2026-08-07T10:00:00",
+  "date_gmt": "2026-08-07T10:00:00",
+  "guid": {
+    "rendered": "https://nodarishub.com/?p=260",
+    "raw": "https://nodarishub.com/?p=260"
+  },
+  "modified": "2026-08-12T15:50:01",
+  "modified_gmt": "2026-08-12T15:50:01",
+  "password": "",
+  "slug": "como-crear-una-pagina-web-para-negocio",
+  "status": "draft",
+  "type": "post",
+  "link": "https://nodarishub.com/?p=260",
+  "title": {
+    "raw": "Cómo Crear una Página Web para Negocio Paso a Paso",
+    "rendered": "Cómo Crear una Página Web para Negocio Paso a Paso"
+  },
+  "content": {
+    "raw": "<!-- wp:html -->\n<div class=\"nh-article\">\n<style>\n.nh-article .nh-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.8rem 0;border:1px solid #e6ebf2;border-radius:14px;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article table.nh-compare{width:100%;border-collapse:collapse;min-width:620px;font-size:.96rem;line-height:1.5}\n.nh-article table.nh-compare caption{caption-side:bottom;padding:.9rem 1rem;font-size:.82rem;color:#5B6B82;text-align:left}\n.nh-article table.nh-compare thead th{background:#0E1726;color:#fff;text-align:left;font-weight:600;padding:.95rem 1rem;border-bottom:3px solid #00E0A4;letter-spacing:.01em}\n.nh-article table.nh-compare tbody th{background:#F5F8FC;color:#0E1726;text-align:left;font-weight:600;padding:.85rem 1rem;vertical-align:top;white-space:nowrap}\n.nh-article table.nh-compare tbody td{padding:.85rem 1rem;vertical-align:top;border-bottom:1px solid #eef2f7;color:#2a3342}\n.nh-article table.nh-compare tbody tr:nth-child(even) th,.nh-article table.nh-compare tbody tr:nth-child(even) td{background:#fafcfe}\n.nh-article table.nh-compare tbody tr:last-child td,.nh-article table.nh-compare tbody tr:last-child th{border-bottom:0}\n.nh-article blockquote.nh-regla{margin:2rem 0;padding:1.4rem 1.6rem;background:linear-gradient(180deg,#F5F8FC,#fff);border-left:4px solid #2F6BFF;border-radius:0 14px 14px 0;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article blockquote.nh-regla p{margin:0;font-size:1.08rem;line-height:1.6}\n.nh-article blockquote.nh-regla strong{color:#2F6BFF}\n.nh-article .nh-cta-box{margin:2.4rem 0;padding:1.8rem;background:linear-gradient(135deg,#0E1726,#16213a);border-radius:20px;text-align:center}\n.nh-article .nh-cta-box p{color:#fff;margin:0 0 1.1rem;font-size:1.05rem}\n.nh-article .nh-cta-box a{display:inline-block;background:#2F6BFF;color:#fff;font-weight:600;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;transition:background .2s}\n.nh-article .nh-cta-box a:hover{background:#00E0A4;color:#0E1726}\n@media(max-width:600px){.nh-article table.nh-compare{font-size:.9rem}.nh-article .nh-cta-box{padding:1.3rem}}\n</style>\n\n<p>Crear una página web para negocio no es lo mismo que crear una página web personal, aunque el proceso técnico se parezca. Un blog personal puede improvisarse; un sitio que representa a tu empresa tiene que vender, generar confianza y responder preguntas concretas de alguien que está evaluando si comprarte a ti o a la competencia.</p>\n\n<p>Si estás en la etapa de planear cómo crear una página web para tu negocio, el punto de partida correcto no es \"qué plantilla elijo\", sino \"qué necesita ver un cliente potencial para decidirse por mí\". A partir de ahí, el diseño y la tecnología son solo herramientas.</p>\n\n<h2>Lo que cambia cuando el sitio es para un negocio</h2>\n\n<p>Un sitio de negocio tiene exigencias que una página personal no tiene: debe transmitir profesionalismo desde el primer segundo, facilitar el contacto sin fricción y estar preparado para aparecer en buscadores cuando alguien busca lo que tú ofreces.</p>\n\n<div class=\"nh-tablewrap\">\n<table class=\"nh-compare\">\n<caption>Diferencias entre una página personal y una página pensada para generar clientes.</caption>\n<thead>\n<tr>\n<th scope=\"col\">Elemento</th>\n<th scope=\"col\">Página personal</th>\n<th scope=\"col\">Página de negocio</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<th scope=\"row\">Objetivo</th>\n<td>Compartir contenido o presentarse.</td>\n<td>Generar contacto, cotización o venta.</td>\n</tr>\n<tr>\n<th scope=\"row\">Estructura</th>\n<td>Libre, sin jerarquía comercial.</td>\n<td>Servicios, prueba social, contacto claro.</td>\n</tr>\n<tr>\n<th scope=\"row\">SEO</th>\n<td>Opcional.</td>\n<td>Necesario: es la puerta de entrada de clientes nuevos.</td>\n</tr>\n<tr>\n<th scope=\"row\">Mantenimiento</th>\n<td>Cuando el usuario tenga tiempo.</td>\n<td>Continuo: representa a la marca todos los días.</td>\n</tr>\n</tbody>\n</table>\n</div>\n\n<h2>Las secciones que sí o sí necesita una página web de negocio</h2>\n\n<p>Independientemente del giro de tu empresa, hay una arquitectura mínima que funciona para la mayoría de las PyMEs:</p>\n\n<h3>Inicio con propuesta de valor clara</h3>\n<p>En los primeros segundos, el visitante debe entender qué haces, para quién y por qué elegirte a ti. Si tiene que desplazarse mucho para entenderlo, ya perdiste su atención.</p>\n\n<h3>Servicios o productos explicados en lenguaje de cliente</h3>\n<p>No basta con listar lo que vendes: hay que explicar el beneficio que obtiene el cliente. Un catálogo técnico convence menos que una explicación centrada en el problema que resuelves.</p>\n\n<h3>Prueba social</h3>\n<p>Testimonios, casos, logos de clientes o cifras de resultados. La confianza se construye mostrando evidencia, no solo afirmando calidad.</p>\n\n<h3>Contacto sin fricción</h3>\n<p>Botón de WhatsApp visible, formulario simple y datos de contacto claros. Cuantos más pasos tenga que dar el visitante para escribirte, más clientes pierdes en el camino.</p>\n\n<h3>Base de SEO desde el lanzamiento</h3>\n<p>Títulos, descripciones y estructura de contenido pensados para que Google entienda de qué trata tu negocio. Ver más en nuestra página de <a href=\"https://nodarishub.com/seo/\">posicionamiento SEO</a>.</p>\n\n<blockquote class=\"nh-regla\">\n<p><strong>Pregunta clave antes de empezar:</strong> si un cliente potencial entra a tu página web por primera vez, ¿sabe en cinco segundos qué haces, para quién y cómo contactarte? Si la respuesta es no, ese es el primer problema que resolver, antes que cualquier decisión de diseño.</p>\n</blockquote>\n\n<h2>Plantillas genéricas vs. una página diseñada para tu negocio</h2>\n\n<p>Los constructores automáticos ofrecen plantillas pensadas para \"cualquier negocio\", lo que en la práctica significa que no están pensadas para el tuyo en particular. Un restaurante, una clínica y un despacho contable no necesitan la misma estructura ni el mismo tono, aunque las tres empresas terminen usando la misma plantilla si eligen la ruta más barata.</p>\n\n<p>Un <a href=\"https://nodarishub.com/diseno-web/\">sitio web PyME diseñado a la medida</a> parte de tu negocio real: tu tipo de cliente, tu proceso de venta y tu zona geográfica, para construir una estructura que efectivamente convierte visitas en contactos.</p>\n\n<h2>Cómo lo resolvemos en Nodarishub</h2>\n\n<p>Trabajamos con negocios que necesitan una página web que funcione como vendedor permanente: entendemos tu servicio, definimos qué acción queremos que tome cada tipo de visitante, y construimos el sitio con código propio, sin plantillas repetidas ni funciones que no vas a usar. Conoce el proceso completo en nuestra página para <a href=\"https://nodarishub.com/crear-pagina-web/\">crear tu página web de negocio</a>.</p>\n\n<h2>Preguntas frecuentes</h2>\n\n<h3>¿Un negocio pequeño realmente necesita una página web propia y no solo redes sociales?</h3>\n<p>Sí. Las redes sociales dependen de algoritmos que cambian y de una plataforma que no controlas. Una página web es un activo propio: aparece en Google, no desaparece si cambia un algoritmo y te da control total sobre el mensaje y el diseño.</p>\n\n<h3>¿Cuántas páginas necesita mi sitio de negocio para empezar?</h3>\n<p>La mayoría de las PyMEs pueden empezar con inicio, servicios, contacto y una sección de confianza (nosotros o testimonios). Se puede crecer después con más páginas por servicio o por ciudad si el SEO lo pide.</p>\n\n<h3>¿Qué tan rápido veo resultados con una página web nueva?</h3>\n<p>Los primeros contactos pueden llegar apenas se publica, sobre todo si compartes el enlace en tus canales actuales. El posicionamiento orgánico en buscadores toma más tiempo y depende de una estrategia de SEO sostenida.</p>\n\n<div class=\"nh-cta-box\">\n<p>Cuéntanos de tu negocio y te ayudamos a definir la página que realmente necesitas.</p>\n<a href=\"https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20mi%20proyecto%20digital\" target=\"_blank\" rel=\"noopener\">Cotiza tu proyecto</a>\n</div>\n\n<script type=\"application/ld+json\">\n{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"¿Un negocio pequeño realmente necesita una página web propia y no solo redes sociales?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Sí. Las redes sociales dependen de algoritmos que cambian y de una plataforma que no controlas. Una página web es un activo propio: aparece en Google, no desaparece si cambia un algoritmo y te da control total sobre el mensaje y el diseño.\"}},{\"@type\":\"Question\",\"name\":\"¿Cuántas páginas necesita mi sitio de negocio para empezar?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"La mayoría de las PyMEs pueden empezar con inicio, servicios, contacto y una sección de confianza (nosotros o testimonios). Se puede crecer después con más páginas por servicio o por ciudad si el SEO lo pide.\"}},{\"@type\":\"Question\",\"name\":\"¿Qué tan rápido veo resultados con una página web nueva?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Los primeros contactos pueden llegar apenas se publica, sobre todo si compartes el enlace en tus canales actuales. El posicionamiento orgánico en buscadores toma más tiempo y depende de una estrategia de SEO sostenida.\"}}]}\n</script>\n</div>\n\n<!-- /wp:html -->",
+    "rendered": "\n<div class=\"nh-article\">\n<style>\n.nh-article .nh-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.8rem 0;border:1px solid #e6ebf2;border-radius:14px;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article table.nh-compare{width:100%;border-collapse:collapse;min-width:620px;font-size:.96rem;line-height:1.5}\n.nh-article table.nh-compare caption{caption-side:bottom;padding:.9rem 1rem;font-size:.82rem;color:#5B6B82;text-align:left}\n.nh-article table.nh-compare thead th{background:#0E1726;color:#fff;text-align:left;font-weight:600;padding:.95rem 1rem;border-bottom:3px solid #00E0A4;letter-spacing:.01em}\n.nh-article table.nh-compare tbody th{background:#F5F8FC;color:#0E1726;text-align:left;font-weight:600;padding:.85rem 1rem;vertical-align:top;white-space:nowrap}\n.nh-article table.nh-compare tbody td{padding:.85rem 1rem;vertical-align:top;border-bottom:1px solid #eef2f7;color:#2a3342}\n.nh-article table.nh-compare tbody tr:nth-child(even) th,.nh-article table.nh-compare tbody tr:nth-child(even) td{background:#fafcfe}\n.nh-article table.nh-compare tbody tr:last-child td,.nh-article table.nh-compare tbody tr:last-child th{border-bottom:0}\n.nh-article blockquote.nh-regla{margin:2rem 0;padding:1.4rem 1.6rem;background:linear-gradient(180deg,#F5F8FC,#fff);border-left:4px solid #2F6BFF;border-radius:0 14px 14px 0;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article blockquote.nh-regla p{margin:0;font-size:1.08rem;line-height:1.6}\n.nh-article blockquote.nh-regla strong{color:#2F6BFF}\n.nh-article .nh-cta-box{margin:2.4rem 0;padding:1.8rem;background:linear-gradient(135deg,#0E1726,#16213a);border-radius:20px;text-align:center}\n.nh-article .nh-cta-box p{color:#fff;margin:0 0 1.1rem;font-size:1.05rem}\n.nh-article .nh-cta-box a{display:inline-block;background:#2F6BFF;color:#fff;font-weight:600;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;transition:background .2s}\n.nh-article .nh-cta-box a:hover{background:#00E0A4;color:#0E1726}\n@media(max-width:600px){.nh-article table.nh-compare{font-size:.9rem}.nh-article .nh-cta-box{padding:1.3rem}}\n</style>\n\n<p>Crear una página web para negocio no es lo mismo que crear una página web personal, aunque el proceso técnico se parezca. Un blog personal puede improvisarse; un sitio que representa a tu empresa tiene que vender, generar confianza y responder preguntas concretas de alguien que está evaluando si comprarte a ti o a la competencia.</p>\n\n<p>Si estás en la etapa de planear cómo crear una página web para tu negocio, el punto de partida correcto no es &#8220;qué plantilla elijo&#8221;, sino &#8220;qué necesita ver un cliente potencial para decidirse por mí&#8221;. A partir de ahí, el diseño y la tecnología son solo herramientas.</p>\n\n<h2>Lo que cambia cuando el sitio es para un negocio</h2>\n\n<p>Un sitio de negocio tiene exigencias que una página personal no tiene: debe transmitir profesionalismo desde el primer segundo, facilitar el contacto sin fricción y estar preparado para aparecer en buscadores cuando alguien busca lo que tú ofreces.</p>\n\n<div class=\"nh-tablewrap\">\n<table class=\"nh-compare\">\n<caption>Diferencias entre una página personal y una página pensada para generar clientes.</caption>\n<thead>\n<tr>\n<th scope=\"col\">Elemento</th>\n<th scope=\"col\">Página personal</th>\n<th scope=\"col\">Página de negocio</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<th scope=\"row\">Objetivo</th>\n<td>Compartir contenido o presentarse.</td>\n<td>Generar contacto, cotización o venta.</td>\n</tr>\n<tr>\n<th scope=\"row\">Estructura</th>\n<td>Libre, sin jerarquía comercial.</td>\n<td>Servicios, prueba social, contacto claro.</td>\n</tr>\n<tr>\n<th scope=\"row\">SEO</th>\n<td>Opcional.</td>\n<td>Necesario: es la puerta de entrada de clientes nuevos.</td>\n</tr>\n<tr>\n<th scope=\"row\">Mantenimiento</th>\n<td>Cuando el usuario tenga tiempo.</td>\n<td>Continuo: representa a la marca todos los días.</td>\n</tr>\n</tbody>\n</table>\n</div>\n\n<h2>Las secciones que sí o sí necesita una página web de negocio</h2>\n\n<p>Independientemente del giro de tu empresa, hay una arquitectura mínima que funciona para la mayoría de las PyMEs:</p>\n\n<h3>Inicio con propuesta de valor clara</h3>\n<p>En los primeros segundos, el visitante debe entender qué haces, para quién y por qué elegirte a ti. Si tiene que desplazarse mucho para entenderlo, ya perdiste su atención.</p>\n\n<h3>Servicios o productos explicados en lenguaje de cliente</h3>\n<p>No basta con listar lo que vendes: hay que explicar el beneficio que obtiene el cliente. Un catálogo técnico convence menos que una explicación centrada en el problema que resuelves.</p>\n\n<h3>Prueba social</h3>\n<p>Testimonios, casos, logos de clientes o cifras de resultados. La confianza se construye mostrando evidencia, no solo afirmando calidad.</p>\n\n<h3>Contacto sin fricción</h3>\n<p>Botón de WhatsApp visible, formulario simple y datos de contacto claros. Cuantos más pasos tenga que dar el visitante para escribirte, más clientes pierdes en el camino.</p>\n\n<h3>Base de SEO desde el lanzamiento</h3>\n<p>Títulos, descripciones y estructura de contenido pensados para que Google entienda de qué trata tu negocio. Ver más en nuestra página de <a href=\"https://nodarishub.com/seo/\">posicionamiento SEO</a>.</p>\n\n<blockquote class=\"nh-regla\">\n<p><strong>Pregunta clave antes de empezar:</strong> si un cliente potencial entra a tu página web por primera vez, ¿sabe en cinco segundos qué haces, para quién y cómo contactarte? Si la respuesta es no, ese es el primer problema que resolver, antes que cualquier decisión de diseño.</p>\n</blockquote>\n\n<h2>Plantillas genéricas vs. una página diseñada para tu negocio</h2>\n\n<p>Los constructores automáticos ofrecen plantillas pensadas para &#8220;cualquier negocio&#8221;, lo que en la práctica significa que no están pensadas para el tuyo en particular. Un restaurante, una clínica y un despacho contable no necesitan la misma estructura ni el mismo tono, aunque las tres empresas terminen usando la misma plantilla si eligen la ruta más barata.</p>\n\n<p>Un <a href=\"https://nodarishub.com/diseno-web/\">sitio web PyME diseñado a la medida</a> parte de tu negocio real: tu tipo de cliente, tu proceso de venta y tu zona geográfica, para construir una estructura que efectivamente convierte visitas en contactos.</p>\n\n<h2>Cómo lo resolvemos en Nodarishub</h2>\n\n<p>Trabajamos con negocios que necesitan una página web que funcione como vendedor permanente: entendemos tu servicio, definimos qué acción queremos que tome cada tipo de visitante, y construimos el sitio con código propio, sin plantillas repetidas ni funciones que no vas a usar. Conoce el proceso completo en nuestra página para <a href=\"https://nodarishub.com/crear-pagina-web/\">crear tu página web de negocio</a>.</p>\n\n<h2>Preguntas frecuentes</h2>\n\n<h3>¿Un negocio pequeño realmente necesita una página web propia y no solo redes sociales?</h3>\n<p>Sí. Las redes sociales dependen de algoritmos que cambian y de una plataforma que no controlas. Una página web es un activo propio: aparece en Google, no desaparece si cambia un algoritmo y te da control total sobre el mensaje y el diseño.</p>\n\n<h3>¿Cuántas páginas necesita mi sitio de negocio para empezar?</h3>\n<p>La mayoría de las PyMEs pueden empezar con inicio, servicios, contacto y una sección de confianza (nosotros o testimonios). Se puede crecer después con más páginas por servicio o por ciudad si el SEO lo pide.</p>\n\n<h3>¿Qué tan rápido veo resultados con una página web nueva?</h3>\n<p>Los primeros contactos pueden llegar apenas se publica, sobre todo si compartes el enlace en tus canales actuales. El posicionamiento orgánico en buscadores toma más tiempo y depende de una estrategia de SEO sostenida.</p>\n\n<div class=\"nh-cta-box\">\n<p>Cuéntanos de tu negocio y te ayudamos a definir la página que realmente necesitas.</p>\n<a href=\"https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20mi%20proyecto%20digital\" target=\"_blank\" rel=\"noopener\">Cotiza tu proyecto</a>\n</div>\n\n<script type=\"application/ld+json\">\n{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"¿Un negocio pequeño realmente necesita una página web propia y no solo redes sociales?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Sí. Las redes sociales dependen de algoritmos que cambian y de una plataforma que no controlas. Una página web es un activo propio: aparece en Google, no desaparece si cambia un algoritmo y te da control total sobre el mensaje y el diseño.\"}},{\"@type\":\"Question\",\"name\":\"¿Cuántas páginas necesita mi sitio de negocio para empezar?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"La mayoría de las PyMEs pueden empezar con inicio, servicios, contacto y una sección de confianza (nosotros o testimonios). Se puede crecer después con más páginas por servicio o por ciudad si el SEO lo pide.\"}},{\"@type\":\"Question\",\"name\":\"¿Qué tan rápido veo resultados con una página web nueva?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Los primeros contactos pueden llegar apenas se publica, sobre todo si compartes el enlace en tus canales actuales. El posicionamiento orgánico en buscadores toma más tiempo y depende de una estrategia de SEO sostenida.\"}}]}\n</script>\n</div>\n\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>Crear una página web para negocio no es lo mismo que crear una página web personal, aunque el proceso técnico se parezca. Un blog personal puede improvisarse; un sitio que representa a tu empresa tiene que vender, generar confianza y responder preguntas concretas de alguien que está evaluando si comprarte a ti o a la [&hellip;]</p>\n",
+    "protected": false
+  },
+  "author": 2,
+  "featured_media": 305,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "footnotes": ""
+  },
+  "categories": [
+    17
+  ],
+  "tags": [],
+  "permalink_template": "https://nodarishub.com/%postname%/",
+  "generated_slug": "como-crear-una-pagina-web-para-negocio-paso-a-paso",
+  "class_list": [
+    "post-260",
+    "post",
+    "type-post",
+    "status-draft",
+    "format-standard",
+    "has-post-thumbnail",
+    "hentry",
+    "category-blog"
+  ],
+  "_links": {
+    "self": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/260",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/users/2"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/comments?post=260"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 2,
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/260/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 296,
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/260/revisions/296"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/media/305"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/media?parent=260"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/categories?post=260"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/tags?post=260"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/260"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/260"
+      }
+    ],
+    "wp:action-sticky": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/260"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/260"
+      }
+    ],
+    "wp:action-create-categories": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/260"
+      }
+    ],
+    "wp:action-assign-categories": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/260"
+      }
+    ],
+    "wp:action-create-tags": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/260"
+      }
+    ],
+    "wp:action-assign-tags": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/260"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}
