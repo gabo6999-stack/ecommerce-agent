@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import logging
 import os
+import re
 import time
 from dataclasses import dataclass, field
 from typing import Any, Iterable, Sequence
@@ -454,14 +455,22 @@ class DataForSEOClient:
         log.info("content_gap %s vs %s -> %d oportunidades", m.target, rival, len(gap))
         return gap
 
+    # Keywords que no son temas: dominios y URLs ajenas que DataForSEO devuelve
+    # como sugerencias (p. ej. "https hostingsgratis com 000webhost", 3.600/mes).
+    _BASURA = re.compile(
+        r"(^|\s)(https?|www)(\s|$)|\.(com|net|org|mx|ec|io|co)(\s|$)|\s(com|net)\s",
+        re.I,
+    )
+
     def blog_topics(
         self,
         market: str | Market,
         seeds: Sequence[str],
         limit: int = 200,
-        min_volume: int = 20,
+        min_volume: int = 100,
         max_difficulty: int = 35,
         location_code: int | None = None,
+        require_difficulty: bool = True,
     ) -> list[dict[str, Any]]:
         """
         Lo que consume el Blog Agent: keywords informacionales, con volumen real
@@ -477,6 +486,18 @@ class DataForSEOClient:
         binacional de nodarishub (sirve MX+EC): los temas se sacan del volumen
         de México (5-6x el de Ecuador para las mismas keywords), aunque el
         content_gap del mismo sitio siga midiéndose contra competidores de EC.
+
+        `require_difficulty` descarta las keywords sin KD medido. Importa: antes
+        se aceptaba `difficulty is None` como si fuera fácil, y DataForSEO deja
+        el KD vacío justo en el long-tail de poco volumen. Medido el 2026-08-13
+        sobre nodarishub, el 100% de los temas que sobrevivían al filtro tenían
+        KD desconocido -- es decir, `max_difficulty` no filtraba nada. De ahí
+        salieron artículos apuntando a 30-40 búsquedas/mes.
+
+        `min_volume` sube a 100 por lo mismo: un artículo de 2.500 palabras para
+        una keyword de 30/mes no paga su coste. Con las semillas reales quedan
+        54 temas para PYS, 144 para Arcade y 38 para nodarishub, así que ningún
+        sitio se queda sin cola.
         """
         seen: dict[str, dict[str, Any]] = {}
         for seed in seeds:
@@ -486,12 +507,19 @@ class DataForSEOClient:
                 if k["keyword"] not in seen:
                     seen[k["keyword"]] = k
 
-        topics = [
-            k for k in seen.values()
-            if (k["volume"] or 0) >= min_volume
-            and (k["difficulty"] is None or k["difficulty"] <= max_difficulty)
-            and k["intent"] in (None, "informational")
-        ]
+        def aceptable(k: dict[str, Any]) -> bool:
+            if (k["volume"] or 0) < min_volume:
+                return False
+            if k["intent"] not in (None, "informational"):
+                return False
+            if self._BASURA.search(k["keyword"] or ""):
+                return False
+            kd = k["difficulty"]
+            if kd is None:
+                return not require_difficulty
+            return kd <= max_difficulty
+
+        topics = [k for k in seen.values() if aceptable(k)]
         topics.sort(key=lambda r: r["volume"] or 0, reverse=True)
         return topics
 
