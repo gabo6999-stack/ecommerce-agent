@@ -1,0 +1,716 @@
+<title>Protocolos de Péptidos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+<style>
+  :root{
+    --ground:#EFF1EE; --surface:#FFFFFF; --surface-2:#E6EAE5;
+    --ink:#14191A; --ink-2:#3C4746; --muted:#68767A; --line:#D3D9D3;
+    --accent:#A65E12; --accent-soft:#F4E6D2;
+    --ok:#1E6B5E; --warn:#8C5A08; --crit:#9E3320;
+    --shadow:0 1px 2px rgba(20,25,26,.06), 0 8px 24px -18px rgba(20,25,26,.35);
+    --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+    --body:"Source Serif 4", Georgia, "Times New Roman", serif;
+    --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#111615; --surface:#191F1E; --surface-2:#222A28;
+      --ink:#EDF1EC; --ink-2:#C4CCC7; --muted:#8B9793; --line:#2D3735;
+      --accent:#E39B4A; --accent-soft:#3B2B17;
+      --ok:#5CC0A8; --warn:#D9A441; --crit:#E4735C;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -20px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#111615; --surface:#191F1E; --surface-2:#222A28;
+    --ink:#EDF1EC; --ink-2:#C4CCC7; --muted:#8B9793; --line:#2D3735;
+    --accent:#E39B4A; --accent-soft:#3B2B17;
+    --ok:#5CC0A8; --warn:#D9A441; --crit:#E4735C;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -20px rgba(0,0,0,.9);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:var(--body); font-size:17px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:58rem; margin:0 auto; padding-inline:20px; padding-block:0 72px}
+  h1,h2,h3{font-family:var(--display); text-wrap:balance; margin:0}
+  p{margin:0; max-width:66ch}
+  a{color:var(--accent); text-underline-offset:3px; text-decoration-thickness:1px}
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, tr:focus-visible{
+    outline:2px solid var(--ok); outline-offset:2px; border-radius:2px;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); margin:0;
+  }
+
+  /* ── cabecera ───────────────────────────────────────── */
+  header.top{
+    border-bottom:1px solid var(--line);
+    padding-block:44px 26px; display:flex; flex-direction:column; gap:14px;
+  }
+  header.top h1{font-size:clamp(2.3rem,7vw,3.5rem); font-weight:700; letter-spacing:-.025em; line-height:1.02}
+  header.top .deck{font-size:1.075rem; color:var(--ink-2)}
+  .stamp{
+    display:flex; flex-wrap:wrap; gap:8px 18px; font-family:var(--mono);
+    font-size:11.5px; color:var(--muted); letter-spacing:.04em;
+  }
+  .stamp b{color:var(--ink-2); font-weight:500}
+
+  .notice{
+    margin-top:20px; display:flex; gap:14px; align-items:flex-start;
+    border-left:3px solid var(--crit); background:var(--surface);
+    padding:14px 18px; box-shadow:var(--shadow);
+  }
+  .notice .k{
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--crit); white-space:nowrap; padding-top:3px;
+  }
+  .notice p{font-size:.95rem; color:var(--ink-2)}
+
+  section{padding-block:52px 0}
+  .sec-head{display:flex; flex-direction:column; gap:6px; margin-bottom:22px}
+  .sec-head h2{font-size:1.55rem; font-weight:600; letter-spacing:-.015em}
+  .sec-head p{color:var(--muted); font-size:.97rem}
+
+  /* ── instrumento: calculadora ───────────────────────── */
+  .rig{
+    background:var(--surface); border:1px solid var(--line);
+    box-shadow:var(--shadow); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+  }
+  @media (max-width:720px){ .rig{grid-template-columns:1fr} }
+  .rig .inputs{padding:26px 24px; display:flex; flex-direction:column; gap:18px; border-right:1px solid var(--line)}
+  @media (max-width:720px){ .rig .inputs{border-right:0; border-bottom:1px solid var(--line)} }
+  .field{display:flex; flex-direction:column; gap:6px}
+  .field label{
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+  }
+  .field select, .field input{
+    font-family:var(--mono); font-size:15px; color:var(--ink);
+    background:var(--ground); border:1px solid var(--line); border-radius:2px;
+    padding:9px 10px; width:100%;
+  }
+  .pair{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .dose-row{display:grid; grid-template-columns:1fr 92px; gap:8px; align-items:end}
+  .hint{font-family:var(--mono); font-size:11px; color:var(--muted); line-height:1.5}
+
+  .readout{padding:26px 24px; display:flex; flex-direction:column; gap:20px; background:var(--surface)}
+  .conc{font-family:var(--mono); font-size:12.5px; color:var(--ink-2); letter-spacing:.02em}
+  .conc b{color:var(--accent); font-weight:600}
+  .tiles{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+  @media (max-width:420px){ .tiles{grid-template-columns:1fr 1fr} }
+  .tile{display:flex; flex-direction:column; gap:2px}
+  .tile .n{
+    font-family:var(--display); font-weight:700; font-size:clamp(1.5rem,5vw,2.05rem);
+    letter-spacing:-.03em; font-variant-numeric:tabular-nums; line-height:1;
+  }
+  .tile.key .n{color:var(--accent)}
+  .tile .u{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  .syringe{color:var(--ink-2); width:100%; max-width:100%; height:auto; display:block}
+  .flag{
+    font-family:var(--mono); font-size:11.5px; line-height:1.5; color:var(--crit);
+    border-top:1px solid var(--line); padding-top:12px;
+  }
+  .flag[hidden]{display:none !important}
+
+  /* ── tablas ─────────────────────────────────────────── */
+  .scroll{overflow-x:auto; border:1px solid var(--line); background:var(--surface); box-shadow:var(--shadow)}
+  table{border-collapse:collapse; width:100%; min-width:540px}
+  caption{
+    text-align:left; padding:14px 18px 0; font-family:var(--mono); font-size:11px;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+  }
+  th,td{padding:10px 14px; text-align:right; font-family:var(--mono); font-size:13px; font-variant-numeric:tabular-nums}
+  th:first-child, td:first-child{text-align:left; font-family:var(--body); font-size:15px}
+  thead th{
+    font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted);
+    font-weight:500; border-bottom:1px solid var(--line); white-space:nowrap;
+  }
+  tbody tr{border-bottom:1px solid var(--line)}
+  tbody tr:last-child{border-bottom:0}
+  tbody tr.pick{cursor:pointer}
+  tbody tr.pick:hover{background:var(--surface-2)}
+  tbody tr.on{background:var(--accent-soft)}
+  td .sku{display:block; font-family:var(--mono); font-size:11px; color:var(--muted); margin-top:1px}
+  td.dil{color:var(--muted); font-style:italic; font-family:var(--body)}
+
+  /* ── secuencia ──────────────────────────────────────── */
+  ol.steps{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px; counter-reset:s}
+  ol.steps li{
+    counter-increment:s; display:grid; grid-template-columns:44px minmax(0,1fr); gap:16px;
+    padding:14px 0; border-bottom:1px solid var(--line);
+  }
+  ol.steps li:last-child{border-bottom:0}
+  ol.steps li::before{
+    content:counter(s,decimal-leading-zero);
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--accent);
+    padding-top:4px; letter-spacing:.04em;
+  }
+  ol.steps h3{font-size:1rem; font-weight:600; margin-bottom:2px}
+  ol.steps p{font-size:.95rem; color:var(--ink-2)}
+
+  /* ── manejo: pares clave/valor ──────────────────────── */
+  dl.specs{margin:0; display:grid; grid-template-columns:minmax(0,15rem) minmax(0,1fr); gap:0}
+  @media (max-width:600px){ dl.specs{grid-template-columns:1fr} }
+  dl.specs > div{display:contents}
+  dl.specs dt{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--muted); padding:14px 18px 14px 0; border-top:1px solid var(--line);
+  }
+  dl.specs dd{margin:0; padding:14px 0; border-top:1px solid var(--line); font-size:.98rem; color:var(--ink-2)}
+  @media (max-width:600px){
+    dl.specs dt{padding-bottom:2px; border-top:1px solid var(--line)}
+    dl.specs dd{padding-top:0; border-top:0; padding-bottom:16px}
+  }
+  dd .num{font-family:var(--mono); font-size:.9em; color:var(--ink); font-variant-numeric:tabular-nums}
+
+  /* ── identidad molecular ────────────────────────────── */
+  .ids{display:grid; grid-template-columns:repeat(auto-fit,minmax(17rem,1fr)); gap:1px; background:var(--line); border:1px solid var(--line)}
+  .id{background:var(--surface); padding:20px 20px 22px; display:flex; flex-direction:column; gap:8px}
+  .id .tag{
+    font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--warn); display:flex; align-items:center; gap:7px;
+  }
+  .id .tag::before{content:""; width:6px; height:6px; background:var(--warn); border-radius:50%; flex:none}
+  .id .tag.hard{color:var(--crit)} .id .tag.hard::before{background:var(--crit)}
+  .id .tag.soft{color:var(--ok)} .id .tag.soft::before{background:var(--ok)}
+  .id h3{font-size:1.05rem; font-weight:600}
+  .id p{font-size:.94rem; color:var(--ink-2)}
+  .id .cite{font-family:var(--mono); font-size:11px; color:var(--muted); line-height:1.6; margin-top:2px}
+  .id .cite a{color:var(--muted)}
+  .id .cite a:hover{color:var(--accent)}
+
+  /* ── referencias ────────────────────────────────────── */
+  ul.refs{list-style:none; margin:0; padding:0; columns:2; column-gap:34px}
+  @media (max-width:680px){ ul.refs{columns:1} }
+  ul.refs li{
+    break-inside:avoid; font-family:var(--mono); font-size:11.5px; line-height:1.65;
+    color:var(--ink-2); padding-block:9px; border-bottom:1px solid var(--line);
+  }
+  ul.refs .pmid{color:var(--accent)}
+
+  footer.legal{
+    margin-top:56px; border-top:1px solid var(--line); padding-top:24px;
+    display:flex; flex-direction:column; gap:12px;
+  }
+  footer.legal p{font-size:.88rem; color:var(--muted); max-width:72ch}
+  footer.legal .sig{font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.04em}
+  @media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important} }
+</style>
+
+<div class="wrap">
+
+  <header class="top">
+    <p class="eyebrow">peptidosysuplementos.mx · referencia de manejo</p>
+    <h1>Protocolos de Péptidos</h1>
+    <p class="deck">Cómo se reconstituye, se conserva y se identifica lo que hay dentro del vial. Catálogo de 14 fichas, referencias contrastadas contra PubMed.</p>
+    <div class="stamp">
+      <span>Revisión <b>2026-09-10</b></span>
+      <span>Referencias verificadas <b>2026-08-01</b></span>
+      <span>Vials en catálogo <b>13 + diluyente</b></span>
+    </div>
+    <div class="notice">
+      <span class="k">Sin dosis</span>
+      <p>Esta página <strong>no recomienda dosis ni pautas de uso</strong>. La calculadora convierte una cantidad que tú introduces a volumen y a unidades de jeringa; el número que pongas ahí es tuyo, no nuestro.</p>
+    </div>
+  </header>
+
+  <!-- ══ 1. CALCULADORA ══ -->
+  <section id="calc">
+    <div class="sec-head">
+      <h2>Reconstitución</h2>
+      <p>Vial liofilizado + agua bacteriostática. La jeringa de insulina se lee en unidades U-100: 1 ml = 100 U.</p>
+    </div>
+
+    <div class="rig">
+      <div class="inputs">
+        <div class="field">
+          <label for="prod">Producto</label>
+          <select id="prod"></select>
+        </div>
+        <div class="pair">
+          <div class="field">
+            <label for="mg">Contenido del vial</label>
+            <input id="mg" type="number" min="0" step="0.1" value="10" inputmode="decimal">
+            <span class="hint">mg</span>
+          </div>
+          <div class="field">
+            <label for="ml">Agua bacteriostática</label>
+            <input id="ml" type="number" min="0.1" step="0.1" value="2" inputmode="decimal">
+            <span class="hint">ml</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="dose">Cantidad por aplicación</label>
+          <div class="dose-row">
+            <input id="dose" type="number" min="0" step="1" value="250" inputmode="decimal">
+            <select id="unit">
+              <option value="mcg" selected>mcg</option>
+              <option value="mg">mg</option>
+            </select>
+          </div>
+          <span class="hint">Valor de ejemplo. Sustitúyelo por el que te corresponda.</span>
+        </div>
+      </div>
+
+      <div class="readout">
+        <p class="conc" id="conc"></p>
+        <div class="tiles">
+          <div class="tile">
+            <span class="n" id="out-ml">0.05</span>
+            <span class="u">ml por aplicación</span>
+          </div>
+          <div class="tile key">
+            <span class="n" id="out-u">5</span>
+            <span class="u">unidades U-100</span>
+          </div>
+          <div class="tile">
+            <span class="n" id="out-n">40</span>
+            <span class="u">aplicaciones/vial</span>
+          </div>
+        </div>
+
+        <svg class="syringe" viewBox="0 0 620 98" role="img" aria-labelledby="syr-t">
+          <title id="syr-t">Jeringa de insulina U-100 con la marca de llenado calculada</title>
+          <!-- aguja -->
+          <rect x="2" y="42" width="46" height="3" fill="currentColor" opacity=".55"></rect>
+          <!-- cuerpo -->
+          <rect x="48" y="24" width="504" height="40" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".65"></rect>
+          <!-- émbolo -->
+          <rect x="552" y="30" width="12" height="28" fill="currentColor" opacity=".45"></rect>
+          <rect x="564" y="18" width="8" height="52" fill="currentColor" opacity=".3"></rect>
+          <!-- llenado -->
+          <rect id="fill" x="49" y="25" width="24" height="38" fill="var(--accent)" opacity=".28"></rect>
+          <line id="mark" x1="73" y1="18" x2="73" y2="70" stroke="var(--accent)" stroke-width="2.5"></line>
+          <g id="ticks" fill="currentColor" stroke="currentColor"></g>
+          <text id="mark-l" x="73" y="12" font-family="IBM Plex Mono, monospace" font-size="17"
+                font-weight="600" fill="var(--accent)" text-anchor="middle">5 U</text>
+        </svg>
+
+        <p class="flag" id="flag" hidden></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 2. TABLA MAESTRA ══ -->
+  <section id="tabla">
+    <div class="sec-head">
+      <h2>Microgramos por unidad, por vial</h2>
+      <p>Cuánto entrega cada raya de la jeringa según el agua que le pongas. Toca una fila para cargarla arriba.</p>
+    </div>
+    <div class="scroll">
+      <table id="grid">
+        <caption>mcg por unidad U-100 · catálogo vigente</caption>
+        <thead>
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Vial</th>
+            <th scope="col">a 1 ml</th>
+            <th scope="col">a 2 ml</th>
+            <th scope="col">a 3 ml</th>
+            <th scope="col">a 5 ml</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══ 3. SECUENCIA ══ -->
+  <section id="secuencia">
+    <div class="sec-head">
+      <h2>Secuencia de reconstitución</h2>
+      <p>El orden importa: cada paso protege algo que el siguiente ya no puede recuperar.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <div>
+          <h3>Temperar el vial</h3>
+          <p>Deja que el liofilizado alcance temperatura ambiente antes de abrirlo. Un vial frío condensa humedad sobre el polvo al destaparlo.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Desinfectar los dos tapones</h3>
+          <p>Alcohol isopropílico al 70 % sobre el septo del vial de péptido y sobre el del agua bacteriostática; deja evaporar. El septo se perfora, no se retira.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Cargar el volumen de agua</h3>
+          <p>Toma con la jeringa el volumen que decidiste (es el que introdujiste arriba). Ese número fija la concentración de todo el vial: una vez dentro, no se corrige.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Dirigir el chorro a la pared</h3>
+          <p>Inclina el vial e inyecta el agua lentamente contra el vidrio, no sobre el polvo. El impacto directo y la espuma degradan péptido.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Girar, nunca agitar</h3>
+          <p>Rota el vial entre los dedos hasta que la solución quede transparente. Agitar genera espuma y desnaturaliza. Si a los pocos minutos no disuelve del todo, dale tiempo en frío antes de insistir.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Inspeccionar a contraluz</h3>
+          <p>Solución límpida y sin partículas. Turbidez, hilos o restos visibles descartan el vial: eso ya no se arregla filtrando.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Rotular con la fecha</h3>
+          <p>Fecha de reconstitución y concentración resultante sobre el propio vial. Sin esa etiqueta, el conteo de días del conservador deja de existir.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ══ 4. MANEJO ══ -->
+  <section id="manejo">
+    <div class="sec-head">
+      <h2>Manejo y estabilidad</h2>
+      <p>Parámetros de conservación y lo que aporta —y lo que implica— el conservador del diluyente.</p>
+    </div>
+    <dl class="specs">
+      <div><dt>Vial liofilizado, cerrado</dt>
+        <dd>Seco, en frío y al abrigo de la luz. El polvo liofilizado es la forma estable del producto: mientras no se abra, el reloj corre despacio.</dd></div>
+      <div><dt>Vial reconstituido</dt>
+        <dd>En frío y protegido de la luz, en posición vertical. En solución acuosa el péptido ya está expuesto a hidrólisis y oxidación.</dd></div>
+      <div><dt>Diluyente</dt>
+        <dd>Agua bacteriostática — agua estéril con <span class="num">0.9 %</span> de alcohol bencílico como conservador. Es lo que permite perforar el mismo vial varias veces sin que cada punción sea el final del contenido.</dd></div>
+      <div><dt>Vial multidosis abierto</dt>
+        <dd><span class="num">28 días</span> desde la primera punción, por convención de etiqueta del vial multidosis conservado; después se desecha aunque quede producto. El agua estéril sin conservador no admite ese conteo: es de un solo uso.</dd></div>
+      <div><dt>Alcohol bencílico — quién no</dt>
+        <dd>Excipiente con toxicidad documentada en neonatos y descrito como sensibilizante de contacto: hay alergia real a alcohol bencílico, incluso confundida con alergia a corticoides <span class="num">(PMID 27264293, 29505449)</span>.</dd></div>
+      <div><dt>Congelación</dt>
+        <dd>Los ciclos de congelado y descongelado son el daño que no se ve: cada uno cuesta producto. Si se congela una solución, se fracciona antes, no después.</dd></div>
+      <div><dt>Luz y agitación</dt>
+        <dd>Ámbar o caja cerrada; girar en lugar de agitar en cada manipulación posterior, no solo al reconstituir.</dd></div>
+      <div><dt>Material</dt>
+        <dd>Una jeringa por punción. Reutilizar agujas y jeringas es la advertencia que emiten los CDC, no la FDA — el matiz importa cuando se cita.</dd></div>
+    </dl>
+  </section>
+
+  <!-- ══ 5. IDENTIDAD MOLECULAR ══ -->
+  <section id="identidad">
+    <div class="sec-head">
+      <h2>Qué molécula es realmente</h2>
+      <p>Los errores más caros del sector no son de dosis: son de atribución. Estos son los casos donde el nombre comercial y la molécula estudiada no coinciden.</p>
+    </div>
+    <div class="ids">
+
+      <article class="id">
+        <span class="tag hard">Fragmento ≠ proteína</span>
+        <h3>TB-500 no es timosina beta-4</h3>
+        <p>La Tβ4 es una proteína de 43 aminoácidos; TB-500 reproduce solo el motivo de unión a actina, de 7. Ese fragmento se identificó como el segmento responsable de la actividad angiogénica de la proteína completa. El ensayo de Fase I en voluntarios sanos se hizo con Tβ4 completa, no con el fragmento.</p>
+        <p class="cite">FASEB J, 2003 · <a href="https://pubmed.ncbi.nlm.nih.gov/14500546/">PMID 14500546</a><br>Ann N Y Acad Sci, 2010 · <a href="https://pubmed.ncbi.nlm.nih.gov/20536472/">PMID 20536472</a></p>
+      </article>
+
+      <article class="id">
+        <span class="tag hard">Dos versiones distintas</span>
+        <h3>CJC-1295 con DAC vs. sin DAC</h3>
+        <p>El estudio que documenta secreción pulsátil bajo estimulación continua se hizo con la versión de acción prolongada (DAC). El producto no-DAC es el análogo de GHRH(1-29) modificado, de vida media corta: comparten nombre comercial, no farmacocinética.</p>
+        <p class="cite">J Clin Endocrinol Metab, 2006 · <a href="https://pubmed.ncbi.nlm.nih.gov/17018654/">PMID 17018654</a><br>Drug Test Anal, 2010 · <a href="https://pubmed.ncbi.nlm.nih.gov/21204297/">PMID 21204297</a></p>
+      </article>
+
+      <article class="id">
+        <span class="tag">Evidencia preclínica</span>
+        <h3>MOTS-c: ratón, no humano</h3>
+        <p>Péptido codificado en el ADN mitocondrial. El trabajo original en <em>Cell Metabolism</em> mostró mejoras metabólicas en ratones; no existen ensayos clínicos de pérdida de grasa en humanos que lo repliquen. En humanos lo medido son niveles endógenos, no administración.</p>
+        <p class="cite">Cell Metab, 2018 · <a href="https://pubmed.ncbi.nlm.nih.gov/29983246/">PMID 29983246</a><br>Aging Cell, 2015 · <a href="https://pubmed.ncbi.nlm.nih.gov/26289118/">PMID 26289118</a></p>
+      </article>
+
+      <article class="id">
+        <span class="tag">Modelo animal</span>
+        <h3>IGF-1 LR3 se estudió en ganado</h3>
+        <p>La evidencia disponible del análogo Long[R3] proviene de cerdos de engorda y de ovino fetal, donde además redujo GH plasmática, IGFBP-3 e IGF-I endógena. No hay ensayos clínicos humanos del análogo.</p>
+        <p class="cite">J Endocrinol, 1997 · <a href="https://pubmed.ncbi.nlm.nih.gov/9488001/">PMID 9488001</a><br>Front Physiol, 2022 · <a href="https://pubmed.ncbi.nlm.nih.gov/36091374/">PMID 36091374</a></p>
+      </article>
+
+      <article class="id">
+        <span class="tag">Población distinta</span>
+        <h3>Sermorelina: la revisión es pediátrica</h3>
+        <p>Es GHRH(1-29). La revisión de referencia describe su uso en diagnóstico y tratamiento de deficiencia idiopática de hormona de crecimiento <em>en niños</em>. Extrapolar ese material a adultos sanos es cambiar de población, no de dosis.</p>
+        <p class="cite">BioDrugs, 1999 · <a href="https://pubmed.ncbi.nlm.nih.gov/18031173/">PMID 18031173</a></p>
+      </article>
+
+      <article class="id">
+        <span class="tag hard">Cita mal atribuida en el sector</span>
+        <h3>Retatrutida y el receptor GIP</h3>
+        <p>Circula la afirmación de que su actividad sobre GIP-R es «atenuada». El artículo que suele citarse dice literalmente lo contrario: actividad equilibrada sobre GCGR y GLP-1R, y <em>mayor</em> actividad sobre GIPR. Verificar contra el abstract, no contra la redacción de quien lo cita.</p>
+        <p class="cite"><a href="https://pubmed.ncbi.nlm.nih.gov/35985340/">PMID 35985340</a> · npj Metab Health Dis, 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/40094000/">PMID 40094000</a></p>
+      </article>
+
+      <article class="id">
+        <span class="tag soft">Ensayo clínico existente</span>
+        <h3>Cagrilintida tiene fase 2 publicada</h3>
+        <p>Análogo de amilina de administración semanal, con ensayo multicéntrico aleatorizado, doble ciego, controlado con placebo y con comparador activo, de búsqueda de dosis, en sobrepeso y obesidad.</p>
+        <p class="cite">Lancet, 2021 · <a href="https://pubmed.ncbi.nlm.nih.gov/34798060/">PMID 34798060</a></p>
+      </article>
+
+      <article class="id">
+        <span class="tag soft">Ensayo clínico existente</span>
+        <h3>Timosina alfa-1: sepsis y pancreatitis</h3>
+        <p>Es de los pocos del catálogo con ensayos controlados en humanos: el ETASS en sepsis grave y el TRACE en necrosis pancreática infectada. Contexto hospitalario, no de rendimiento.</p>
+        <p class="cite">Crit Care, 2013 · <a href="https://pubmed.ncbi.nlm.nih.gov/23327199/">PMID 23327199</a><br>BMJ Open, 2020 · <a href="https://pubmed.ncbi.nlm.nih.gov/32994239/">PMID 32994239</a></p>
+      </article>
+
+      <article class="id">
+        <span class="tag">Vía distinta</span>
+        <h3>NAD+ inyectable ≠ ribósido de nicotinamida oral</h3>
+        <p>El ensayo de seguridad a largo plazo más citado es de ribósido de nicotinamida por vía oral, un precursor. La molécula, la vía y la farmacocinética son otras: el dato de seguridad no se transfiere sin decirlo.</p>
+        <p class="cite">Sci Rep, 2019 · <a href="https://pubmed.ncbi.nlm.nih.gov/31278280/">PMID 31278280</a><br>Cell Metab, 2018 · <a href="https://pubmed.ncbi.nlm.nih.gov/29249689/">PMID 29249689</a></p>
+      </article>
+
+      <article class="id">
+        <span class="tag">Modelo animal</span>
+        <h3>Selank: roedor, sobre todo</h3>
+        <p>Heptapéptido análogo de tuftsina. El grueso de lo publicado son modelos en rata —memoria bajo etanol, síndrome de abstinencia— más trabajo de conectómica funcional. Buena base mecanística, no un programa clínico.</p>
+        <p class="cite">Protein Pept Lett, 2018 · <a href="https://pubmed.ncbi.nlm.nih.gov/30255741/">PMID 30255741</a><br>Bull Exp Biol Med, 2014 · <a href="https://pubmed.ncbi.nlm.nih.gov/24913576/">PMID 24913576</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ══ 6. REFERENCIAS ══ -->
+  <section id="referencias">
+    <div class="sec-head">
+      <h2>Referencias</h2>
+      <p>Autor, revista y año contrastados contra el registro de PubMed el 2026-08-01. Donde la ficha del sitio discrepaba, aquí manda PubMed.</p>
+    </div>
+    <ul class="refs">
+      <li>Hsieh MJ et al. Therapeutic potential of pro-angiogenic BPC157 is associated with VEGFR2 activation and up-regulation. <em>J Mol Med (Berl)</em>, 2017. <span class="pmid">PMID 27847966</span></li>
+      <li>Hsieh MJ et al. Modulatory effects of BPC 157 on vasomotor tone and the Src-Caveolin-1-eNOS pathway. <em>Sci Rep</em>, 2020. <span class="pmid">PMID 33051481</span></li>
+      <li>He L et al. Pharmacokinetics, distribution, metabolism and excretion of body-protective compound 157 in rats and dogs. <em>Front Pharmacol</em>, 2022. <span class="pmid">PMID 36588717</span></li>
+      <li>Malinda KM et al. The actin binding site on thymosin beta4 promotes angiogenesis. <em>FASEB J</em>, 2003. <span class="pmid">PMID 14500546</span></li>
+      <li>Ruff D et al. A randomized, placebo-controlled, single and multiple dose study of intravenous thymosin beta4 in healthy volunteers. <em>Ann N Y Acad Sci</em>, 2010. <span class="pmid">PMID 20536472</span></li>
+      <li>Ionescu M et al. Pulsatile secretion of GH persists during continuous stimulation by CJC-1295. <em>J Clin Endocrinol Metab</em>, 2006. <span class="pmid">PMID 17018654</span></li>
+      <li>Henninge J et al. Identification of CJC-1295 in an unknown pharmaceutical preparation. <em>Drug Test Anal</em>, 2010. <span class="pmid">PMID 21204297</span></li>
+      <li>Andersen NB et al. Ipamorelin counteracts glucocorticoid-induced decrease in bone formation of adult rats. <em>Growth Horm IGF Res</em>, 2001. <span class="pmid">PMID 11735244</span></li>
+      <li>Memdouh S et al. Advances in the detection of growth hormone releasing hormone synthetic analogs. <em>Drug Test Anal</em>, 2021. <span class="pmid">PMID 34665524</span></li>
+      <li>Prakash A et al. Sermorelin: a review of its use in idiopathic growth hormone deficiency in children. <em>BioDrugs</em>, 1999. <span class="pmid">PMID 18031173</span></li>
+      <li>Kim KH et al. The mitochondrial-encoded peptide MOTS-c translocates to the nucleus to regulate nuclear gene expression. <em>Cell Metab</em>, 2018. <span class="pmid">PMID 29983246</span></li>
+      <li>Fuku N et al. The mitochondrial-derived peptide MOTS-c: a player in exceptional longevity? <em>Aging Cell</em>, 2015. <span class="pmid">PMID 26289118</span></li>
+      <li>Benayoun BA et al. MOTS-c: a mitochondrial-encoded regulator of the nucleus. <em>BioEssays</em>, 2019. <span class="pmid">PMID 31378979</span></li>
+      <li>Dunaiski V et al. Long[R3] IGF-I reduces growth, plasma GH, IGFBP-3 and endogenous IGF-I in finisher pigs. <em>J Endocrinol</em>, 1997. <span class="pmid">PMID 9488001</span></li>
+      <li>Stremming J et al. Sheep recombinant IGF-1 promotes organ-specific growth in fetal sheep. <em>Front Physiol</em>, 2022. <span class="pmid">PMID 36091374</span></li>
+      <li>Lau DCW et al. Once-weekly cagrilintide for weight management: dose-finding phase 2 trial. <em>Lancet</em>, 2021. <span class="pmid">PMID 34798060</span></li>
+      <li>Coskun T et al. LY3298176, a novel dual GIP and GLP-1 receptor agonist: from discovery to clinical proof of concept. <em>Mol Metab</em>, 2018. <span class="pmid">PMID 30473097</span></li>
+      <li>Del Prato S et al. Tirzepatide versus insulin glargine in type 2 diabetes and increased cardiovascular risk (SURPASS-4). <em>Lancet</em>, 2021. <span class="pmid">PMID 34672967</span></li>
+      <li>Marathe SJ et al. Incretin triple agonist retatrutide alleviates obesity-associated cancer progression. <em>npj Metab Health Dis</em>, 2025. <span class="pmid">PMID 40094000</span></li>
+      <li>Wu J et al. Efficacy of thymosin alpha 1 for severe sepsis (ETASS): multicenter randomized controlled trial. <em>Crit Care</em>, 2013. <span class="pmid">PMID 23327199</span></li>
+      <li>Zhou J et al. Thymosin alpha 1 in the prevention of infected pancreatic necrosis (TRACE). <em>BMJ Open</em>, 2020. <span class="pmid">PMID 32994239</span></li>
+      <li>Vyunova TV et al. Peptide-based anxiolytics: molecular aspects of heptapeptide Selank activity. <em>Protein Pept Lett</em>, 2018. <span class="pmid">PMID 30255741</span></li>
+      <li>Kolik LG et al. Efficacy of peptide anxiolytic selank in withdrawal syndrome in rats. <em>Bull Exp Biol Med</em>, 2014. <span class="pmid">PMID 24913576</span></li>
+      <li>Conze D et al. Safety and metabolism of long-term administration of nicotinamide riboside chloride. <em>Sci Rep</em>, 2019. <span class="pmid">PMID 31278280</span></li>
+      <li>Yoshino J et al. NAD+ intermediates: the biology and therapeutic potential of NMN and NR. <em>Cell Metab</em>, 2018. <span class="pmid">PMID 29249689</span></li>
+      <li>Johnson W et al. Safety assessment of benzyl alcohol, benzoic acid and its salts, and benzyl benzoate. <em>Int J Toxicol</em>, 2017. <span class="pmid">PMID 29243541</span></li>
+      <li>Kubin ME et al. Benzyl alcohol allergy mimicking corticosteroid allergy. <em>Contact Dermatitis</em>, 2016. <span class="pmid">PMID 27264293</span></li>
+      <li>Burbridge MA et al. Excipients in anesthesia medications. <em>Anesth Analg</em>, 2019. <span class="pmid">PMID 29505449</span></li>
+    </ul>
+  </section>
+
+  <footer class="legal">
+    <p class="eyebrow">Aviso</p>
+    <p>Contenido informativo sobre manejo y preparación. No sustituye la valoración de un profesional de la salud con cédula, ni constituye indicación de uso. Varios de los compuestos listados no cuentan con aprobación regulatoria para uso terapéutico; otros solo se comercializan bajo prescripción y marca registrada. Las citas se conservan con el año que figura en PubMed, que en varios casos no coincide con el que aparecía publicado en la ficha del producto.</p>
+    <p class="sig">Péptidos y Suplementos · peptidosysuplementos.mx · revisión 2026-09-10</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var CATALOGO = [
+    {n:"BPC-157 + TB-500",  mg:20, nota:"10 + 10 mg", url:"https://peptidosysuplementos.mx/product/bpc-157-tb-500-10-10mg/"},
+    {n:"Selank",            mg:10, url:"https://peptidosysuplementos.mx/product/selank-10-mg/"},
+    {n:"Cagrilintida",      mg:10, url:"https://peptidosysuplementos.mx/product/cagrilintida-10mg/"},
+    {n:"Retatrutida",       mg:30, url:"https://peptidosysuplementos.mx/product/retatrutida-30mg/"},
+    {n:"MOTS-c",            mg:10, url:"https://peptidosysuplementos.mx/product/mots-c-10mg/"},
+    {n:"MOTS-c",            mg:40, url:"https://peptidosysuplementos.mx/product/mots-c-40mg/"},
+    {n:"CJC-1295 no-DAC + Ipamorelina", mg:5, url:"https://peptidosysuplementos.mx/product/cjc-1295-ipamorelina-5mg/"},
+    {n:"IGF-1 LR3",         mg:1,  url:"https://peptidosysuplementos.mx/product/igf-1-lr3-1mg/"},
+    {n:"Sermorelina",       mg:10, url:"https://peptidosysuplementos.mx/product/sermorelina-10mg/"},
+    {n:"Timosina Alfa-1",   mg:10, url:"https://peptidosysuplementos.mx/product/thymosin-alpha-1-10mg/"},
+    {n:"Tirzepatida",       mg:30, url:"https://peptidosysuplementos.mx/product/tirzepatida-30-mg/"},
+    {n:"Tirzepatida",       mg:60, url:"https://peptidosysuplementos.mx/product/tirzepatida-60-mg/"},
+    {n:"NAD+",              mg:500, url:"https://peptidosysuplementos.mx/product/nad-plus-500mg/"},
+    {n:"Agua Bacteriostática", mg:0, dil:true, nota:"3 ml", url:"https://peptidosysuplementos.mx/product/agua-bacteriostatica-3ml/"}
+  ];
+
+  var $ = function(id){ return document.getElementById(id); };
+  var prod = $("prod"), mgIn = $("mg"), mlIn = $("ml"),
+      doseIn = $("dose"), unitIn = $("unit"), flag = $("flag");
+
+  function etiqueta(p){
+    return p.n + " · " + (p.dil ? p.nota : p.mg + " mg");
+  }
+
+  CATALOGO.forEach(function(p, i){
+    if (p.dil) return;
+    var o = document.createElement("option");
+    o.value = String(i);
+    o.textContent = etiqueta(p);
+    prod.appendChild(o);
+  });
+  var otro = document.createElement("option");
+  otro.value = "x"; otro.textContent = "Otro vial…";
+  prod.appendChild(otro);
+  prod.value = "4"; // MOTS-c 10 mg
+
+  function fmtMcg(v){
+    if (!isFinite(v) || v <= 0) return "—";
+    if (v >= 1000) return (v/1000).toFixed(v >= 10000 ? 0 : 2).replace(/\.00$/,"") + " mg";
+    if (v >= 100) return v.toFixed(0);
+    if (v >= 10) return v.toFixed(1).replace(/\.0$/,"");
+    return v.toFixed(2).replace(/0$/,"");
+  }
+  function fmtMl(v){
+    if (!isFinite(v) || v <= 0) return "—";
+    return v < 0.1 ? v.toFixed(3) : v.toFixed(2);
+  }
+
+  // ── reglas de la jeringa: una raya cada 10 U ──
+  (function ticks(){
+    var g = $("ticks"), i, x, ln, tx;
+    for (i = 0; i <= 100; i += 10){
+      x = 49 + i * 5.03;
+      ln = document.createElementNS("http://www.w3.org/2000/svg","line");
+      ln.setAttribute("x1", x); ln.setAttribute("x2", x);
+      ln.setAttribute("y1", 24); ln.setAttribute("y2", i % 20 === 0 ? 38 : 32);
+      ln.setAttribute("stroke-width", "1.4"); ln.setAttribute("opacity", ".6");
+      g.appendChild(ln);
+      if (i % 20 === 0){
+        tx = document.createElementNS("http://www.w3.org/2000/svg","text");
+        tx.setAttribute("x", x); tx.setAttribute("y", 84);
+        tx.setAttribute("text-anchor","middle");
+        tx.setAttribute("font-family","IBM Plex Mono, monospace");
+        tx.setAttribute("font-size","15"); tx.setAttribute("opacity",".8");
+        tx.setAttribute("stroke","none");
+        tx.textContent = i;
+        g.appendChild(tx);
+      }
+    }
+  })();
+
+  function recalcular(){
+    var mg = parseFloat(mgIn.value),
+        ml = parseFloat(mlIn.value),
+        d  = parseFloat(doseIn.value);
+
+    var mcgDosis = unitIn.value === "mg" ? d * 1000 : d;
+    var valido = mg > 0 && ml > 0;
+    var mcgPorMl = valido ? (mg * 1000) / ml : 0;
+    var vol = (valido && mcgDosis > 0) ? mcgDosis / mcgPorMl : 0;
+    var u = vol * 100;
+    var nDosis = (valido && mcgDosis > 0) ? Math.floor((mg * 1000) / mcgDosis) : 0;
+
+    $("conc").innerHTML = valido
+      ? "Concentración resultante <b>" + fmtMcg(mcgPorMl) + (mcgPorMl >= 1000 ? "" : " mcg") + "/ml</b>" +
+        " · cada unidad U-100 entrega <b>" + fmtMcg(mcgPorMl/100) + (mcgPorMl/100 >= 1000 ? "" : " mcg") + "</b>"
+      : "Introduce contenido del vial y volumen de agua.";
+
+    $("out-ml").textContent = fmtMl(vol);
+    $("out-u").textContent  = u > 0 ? (u < 10 ? u.toFixed(1).replace(/\.0$/,"") : Math.round(u)) : "—";
+    $("out-n").textContent  = nDosis > 0 ? nDosis : "—";
+
+    var uClamp = Math.max(0, Math.min(100, u));
+    var x = 49 + uClamp * 5.03;
+    $("fill").setAttribute("width", Math.max(0, x - 49));
+    $("mark").setAttribute("x1", x); $("mark").setAttribute("x2", x);
+    var lbl = $("mark-l");
+    lbl.setAttribute("x", Math.min(596, Math.max(28, x)));
+    lbl.textContent = u > 0 ? (u < 10 ? u.toFixed(1).replace(/\.0$/,"") : Math.round(u)) + " U" : "";
+
+    if (u > 100){
+      flag.hidden = false;
+      flag.textContent = "El volumen supera la capacidad de una jeringa de 100 U (1 ml). Reconstituye con menos agua para concentrar, o reparte la aplicación.";
+    } else if (u > 0 && u < 2){
+      flag.hidden = false;
+      flag.textContent = "Menos de 2 U: la lectura queda entre rayas y el error relativo se dispara. Reconstituir con más agua da un volumen más medible.";
+    } else {
+      flag.hidden = true;
+      flag.textContent = "";
+    }
+  }
+
+  prod.addEventListener("change", function(){
+    if (prod.value === "x"){ mgIn.focus(); mgIn.select(); return; }
+    mgIn.value = CATALOGO[parseInt(prod.value,10)].mg;
+    marcarFila();
+    recalcular();
+  });
+
+  [mgIn, mlIn, doseIn].forEach(function(el){
+    el.addEventListener("input", function(){
+      if (el === mgIn) sincronizarSelect();
+      recalcular();
+    });
+  });
+  unitIn.addEventListener("change", recalcular);
+
+  function sincronizarSelect(){
+    var mg = parseFloat(mgIn.value), i, hit = "x";
+    for (i = 0; i < CATALOGO.length; i++){
+      if (!CATALOGO[i].dil && CATALOGO[i].mg === mg){ hit = String(i); break; }
+    }
+    prod.value = hit;
+    marcarFila();
+  }
+
+  // ── tabla maestra ──
+  var tbody = document.querySelector("#grid tbody");
+  var VOLS = [1, 2, 3, 5];
+
+  CATALOGO.forEach(function(p, i){
+    var tr = document.createElement("tr");
+    var nombre = "<td><a href=\"" + p.url + "\" target=\"_blank\" rel=\"noopener\">" + p.n + "</a>" +
+                 (p.nota ? "<span class=\"sku\">" + p.nota + "</span>" : "") + "</td>";
+    if (p.dil){
+      tr.innerHTML = nombre + "<td>3 ml</td><td class=\"dil\" colspan=\"4\">Diluyente — alcohol bencílico 0.9 %</td>";
+    } else {
+      var celdas = VOLS.map(function(v){
+        return "<td>" + fmtMcg((p.mg * 1000 / v) / 100) + "</td>";
+      }).join("");
+      tr.innerHTML = nombre + "<td>" + p.mg + " mg</td>" + celdas;
+      tr.className = "pick";
+      tr.tabIndex = 0;
+      tr.dataset.i = String(i);
+      tr.addEventListener("click", function(ev){
+        if (ev.target.tagName === "A") return;
+        cargar(i);
+      });
+      tr.addEventListener("keydown", function(ev){
+        if (ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); cargar(i); }
+      });
+    }
+    tbody.appendChild(tr);
+  });
+
+  function cargar(i){
+    mgIn.value = CATALOGO[i].mg;
+    prod.value = String(i);
+    marcarFila();
+    recalcular();
+    document.getElementById("calc").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+
+  function marcarFila(){
+    Array.prototype.forEach.call(tbody.querySelectorAll("tr"), function(tr){
+      tr.classList.toggle("on", tr.dataset.i === prod.value);
+    });
+  }
+
+  marcarFila();
+  recalcular();
+})();
+</script>
