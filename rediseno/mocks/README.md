@@ -42,8 +42,9 @@ que deja el bloque de texto de frente.
 Anatomía real de un sello flip-off, que la primera versión tenía mal: corona
 plana de aluminio con hueco central, falda con estrías finas (por `roughnessMap`,
 no por geometría) y rizo por debajo de la pestaña de vidrio. El botón de plástico es **ancho y de tapa plana**, no una cúpula estrecha:
-ocupa casi toda la corona (radio 5.6 sobre un sello de 6.7) y deja un anillo de
-aluminio de menos de 1 mm alrededor, asentado dentro del hueco. Comprobado
+va **a ras del engaste**: radio 6.55 sobre un sello de 6.72, apoyado sobre la
+corona, dejando solo un filo de aluminio a la vista. A 5.6 se veía notoriamente
+más angosto que el aluminio, que es el fallo que delataba el render. Comprobado
 contra foto de un flip-off real.
 
 El canto del botón se redondea con **siete puntos de perfil**, no con dos: con
