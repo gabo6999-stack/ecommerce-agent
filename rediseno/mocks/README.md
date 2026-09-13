@@ -77,14 +77,49 @@ Se genera con `node generar-vial.js` (necesita `playwright-core` y el
 
 Parámetro a tocar: `u0 = .235` decide qué tramo de la etiqueta queda al frente.
 
-## `etiqueta_reta_corregida.pdf`
-La etiqueta original de Retatrutida con la errata corregida:
-decía **"*Vial lofolizado"**, debe decir **"*Vial liofilizado"**. La palabra se
-recompuso con la propia Optima-Regular incrustada en el PDF original, al mismo
-cuerpo (4 pt) y en el mismo origen (6.83, 38.95), así que es indistinguible
-del resto de la etiqueta.
+## `etiquetas/` — los dos PDF con la errata corregida
+Decían **"*Vial lofolizado"**; debe decir **"*Vial liofilizado"**. Afectaba a
+**14 de las 15 etiquetas** (la de agua bacteriostática no lleva esa línea).
 
-**La errata está en las 15 etiquetas de los dos PDF**, no solo en esta.
+La palabra se recompone con la propia Optima-Regular incrustada en el PDF
+original, al mismo cuerpo y en el mismo origen, así que es indistinguible del
+resto de la etiqueta.
+
+**Importante:** no basta con tapar la errata con un rectángulo blanco — así el
+texto viejo sigue en la capa de texto del PDF y aparece en cualquier búsqueda o
+preflight. Aquí se elimina de verdad con `apply_redactions`, conservando el
+dibujo vectorial (`PDF_REDACT_LINE_ART_NONE`). Verificado: cero apariciones de
+"lofolizado" en los dos archivos.
+
+## `viales/` — los 15 renders
+
+Uno por etiqueta. Se generan en lote con `generar-vial-3d.html` más `lote.js`:
+la escena se construye una sola vez (PMREM y torneados son lo caro) y cada
+producto solo cambia la textura de la etiqueta vía `window.__vial(url, conTorta)`.
+
+El agua bacteriostática se renderiza **sin torta liofilizada**: es una solución,
+no un liofilizado, y dibujarle polvo blanco sería un error de producto.
+
+Cada etiqueta se gira lo que le toca. El título no está en el mismo sitio en
+todas: va de u = 0.136 (Selank) a u = 0.340 (agua bacteriostática). `catalogo.json`
+guarda ese `u0` por producto, calculado del centro del bloque en negrita, con un
+suelo de 0.25 porque por debajo se asoma la costura por el canto izquierdo.
+
+## Tres hallazgos de los archivos de imprenta
+
+1. **La errata `lofolizado`** en 14 de las 15 etiquetas. Corregida.
+2. **Las bandas de "Solo para investigación" usan 13 tonos distintos** entre los
+   15 archivos: `#02f6c8`, `#bdfff2`, `#04bc99`, `#ff6ea9`, `#ffb6de`, `#ffdef1`,
+   `#c40062`, `#ff8fca`, `#5fedd2`, `#008e73`, `#9cdbcf`, `#d8efea`, `#ff50ac`.
+   Para una línea de producto es mucha variación; conviene decidir si es
+   deliberado (código por familia) o deriva de archivo en archivo.
+3. **Tres etiquetas tienen el bloque de texto demasiado ancho para el vial**:
+   agua bacteriostática, CJC-1295 NO DAC + IPAMORELIN y BPC-157 + TB500. Su
+   texto ocupa más de 150° de arco sobre un perímetro de 50 mm, así que los
+   extremos caen en el canto y no se leen de frente. No es fallo del render: en
+   el vial físico pasa igual. Se arregla con tipografía más chica, bloque más
+   estrecho, o vial de mayor diámetro — el agua bacteriostática de hecho suele
+   ir en vial de 10 ml, donde el mismo texto sí entraría holgado.
 
 ## Colores de marca, tomados de los PDF de imprenta
 No son aproximación: son los valores vectoriales del archivo.

@@ -60,7 +60,7 @@ const glass = new THREE.MeshPhysicalMaterial({
 scene.add(new THREE.Mesh(glassGeo, glass));
 
 // ── Etiqueta: 43 mm sobre un perímetro de 47.7 mm, con el bloque de texto al frente
-const tex = await new THREE.TextureLoader().loadAsync('label_hi.png');
+const tex = await new THREE.TextureLoader().loadAsync('label_retatrutida-30-mg.png');
 tex.colorSpace = THREE.SRGBColorSpace;
 tex.anisotropy = 8;
 const RLAB = 8.06, LW = 43, arc = (2 * Math.PI * LW) / (2 * Math.PI * RLAB);
@@ -150,6 +150,20 @@ scene.add(key);
 const rim = new THREE.DirectionalLight(0xffffff, 1.3); rim.position.set(46, 30, -28); scene.add(rim);
 const fill = new THREE.DirectionalLight(0xffffff, 0.7); fill.position.set(14, 12, 64); scene.add(fill);
 
+window.__vial = async (url, conTorta, u0) => {
+  const t = await new THREE.TextureLoader().loadAsync(url);
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.anisotropy = 8;
+  if (label.material.map) label.material.map.dispose();
+  label.material.map = t;
+  label.material.needsUpdate = true;
+  cake.visible = conTorta !== false;   // el agua bacteriostática no lleva torta
+  // el título no está en el mismo sitio en todas las etiquetas: se gira la
+  // etiqueta para dejarlo al frente en vez de asumir u=0.25 para todas
+  label.rotation.y = -((u0 === undefined ? 0.25 : u0) - 0.25) * arc;
+  renderer.render(scene, camera);
+  return true;
+};
 renderer.render(scene, camera);
 window.__listo = true;
 </script>
