@@ -93,7 +93,12 @@ a{color:inherit}
 .cart .count{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--accent);color:var(--on-accent);font-family:var(--f-mono);font-size:10px;font-weight:600;display:grid;place-items:center}
 
 /* ── hero ───────────────────────────────────────────────────── */
-.hero{border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--surface) 0%,var(--paper) 100%)}
+.hero{position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--surface) 0%,var(--paper) 100%)}
+.shader-bg{position:absolute;inset:0;z-index:-2;display:block;width:100%;height:100%;opacity:.85}
+.shader-scrim{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,var(--paper) 4%,color-mix(in srgb,var(--paper) 82%,transparent) 34%,color-mix(in srgb,var(--paper) 30%,transparent) 68%,transparent 100%),
+             linear-gradient(0deg,var(--paper) 0%,transparent 26%)}
+.hero .wrap{position:relative;z-index:1}
 .hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(44px,7vw,80px)}
 .hero h1{font-size:clamp(38px,5.4vw,64px);font-weight:800;margin-block:16px 18px}
 .hero h1 em{font-style:normal;color:var(--accent-text)}
@@ -332,6 +337,8 @@ footer .fine{font-family:var(--f-mono);font-size:10.5px;opacity:.5;display:flex;
 </nav>
 
 <header class="hero" id="top">
+  <canvas class="shader-bg" id="shader" aria-hidden="true"></canvas>
+  <div class="shader-scrim" aria-hidden="true"></div>
   <div class="wrap">
     <div>
       <span class="eyebrow">Lote PYS-2609-RT · liberado 04 sep 2026</span>
@@ -767,6 +774,127 @@ footer .fine{font-family:var(--f-mono);font-size:10.5px;opacity:.5;display:flex;
   }
   [mg,ml,dose].forEach(function(el){ el && el.addEventListener('input',calc); });
   calc();
+})();
+</script>
+
+<script>
+/* Shader "Neuro Noise" del Shader Builder de 21st.dev (Paper Shaders, Apache-2.0),
+   portado de React a JS plano: el GLSL es idéntico, lo que cambia es el ciclo de
+   vida. Recoloreado a la paleta de PYS: magenta #FF047E y aqua #02F6C8 sobre
+   fondo de marca. Añadido que el original no trae: respeta prefers-reduced-motion. */
+(function(){
+  var canvas = document.getElementById('shader');
+  if (!canvas) return;
+  var gl = canvas.getContext('webgl', { antialias:false, powerPreference:'low-power' });
+  if (!gl) { canvas.style.display = 'none'; return; }
+
+  var VERT = 'attribute vec2 a_position;void main(){gl_Position=vec4(a_position,0.0,1.0);}';
+  var FRAG = [
+  '#ifdef GL_FRAGMENT_PRECISION_HIGH','precision highp float;','#else','precision mediump float;','#endif',
+  'uniform vec3 u_colors[8];',
+  'uniform vec4 u_scene;','uniform vec4 u_shape;','uniform vec4 u_surface;','uniform vec4 u_finish;',
+  'uniform vec4 u_transform;','uniform vec4 u_space;',
+  '#define u_resolution u_scene.xy','#define u_time u_scene.z','#define u_colorCount u_scene.w',
+  '#define u_scale u_shape.x','#define u_intensity u_shape.y','#define u_paramA u_shape.z','#define u_warp u_shape.w',
+  '#define u_detail u_surface.x','#define u_contrast u_surface.y','#define u_brightness u_surface.z','#define u_saturation u_surface.w',
+  '#define u_vignette u_finish.y','#define u_blur u_finish.z','#define u_grain u_finish.w',
+  '#ifdef GL_FRAGMENT_PRECISION_HIGH','#define u_seed u_transform.x','#else','#define u_seed mod(u_transform.x,31.0)','#endif',
+  '#define u_rotate u_transform.y','#define u_drift u_transform.z',
+  '#define u_offset u_space.xy',
+  'float hash21(vec2 p){',
+  '#ifndef GL_FRAGMENT_PRECISION_HIGH','  p=mod(p,31.0);','#endif',
+  '  p=fract(p*vec2(234.34,435.345));p+=dot(p,p+34.23);return fract(p.x*p.y);}',
+  'float grainHash(vec2 p){vec3 p3=fract(vec3(p.xyx)*0.1031);p3+=dot(p3,p3.yzx+33.33);return fract((p3.x+p3.y)*p3.z);}',
+  'float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
+  '  return mix(mix(hash21(i),hash21(i+vec2(1.0,0.0)),u.x),mix(hash21(i+vec2(0.0,1.0)),hash21(i+vec2(1.0,1.0)),u.x),u.y);}',
+  'float fbm(vec2 p){float v=0.0;float a=0.5;for(int i=0;i<5;i++){v+=a*noise(p);p=p*2.03+vec2(17.0,9.2);a*=0.5;}return v;}',
+  'vec3 palette(float x){float n=max(u_colorCount-1.0,1.0);float f=clamp(x,0.0,1.0)*n;vec3 col=u_colors[0];',
+  '  for(int i=0;i<7;i++){if(float(i)<n)col=mix(col,u_colors[i+1],smoothstep(0.0,1.0,clamp(f-float(i),0.0,1.0)));}return col;}',
+  'vec3 shade(vec2 uv,vec2 p,float t){vec2 q=p*(1.6+u_intensity*2.4);float field=0.0;float weight=0.55;',
+  '  for(int i=0;i<6;i++){float fi=float(i);',
+  '    q+=vec2(sin(q.y*(1.7+fi*0.09)+t*(0.35+fi*0.04)+u_seed),cos(q.x*(1.5+fi*0.11)-t*(0.28+fi*0.03)))*(0.22+u_intensity*0.14);',
+  '    float filaments=abs(sin(q.x+q.y+fi*0.72));field+=weight/(0.08+filaments);weight*=0.62;q=q.yx*vec2(-1.08,1.04);}',
+  '  float glow=1.0-exp(-field*(0.018+u_paramA*0.04));return palette(clamp(glow,0.0,1.0));}',
+  'void main(){vec2 uv=gl_FragCoord.xy/u_resolution.xy;vec2 screenUv=uv;',
+  '  vec2 p=(gl_FragCoord.xy-0.5*u_resolution.xy)/min(u_resolution.x,u_resolution.y);',
+  '  uv=p*min(u_resolution.x,u_resolution.y)/u_resolution.xy+0.5;p*=u_scale;',
+  '  if(abs(u_rotate)>0.0001){float cr=cos(u_rotate),sr=sin(u_rotate);p=mat2(cr,-sr,sr,cr)*p;}',
+  '  p+=u_offset;',
+  '  if(u_drift>0.0001)p+=u_drift*vec2(sin(u_time*0.31),cos(u_time*0.23));',
+  '  if(u_warp>0.0)p+=u_warp*(vec2(fbm(p*u_detail+u_seed),fbm(p*u_detail+vec2(5.2,1.3)))-0.5);',
+  '  vec3 col;',
+  '  if(u_blur>0.0){float e=u_blur;float pe=e*u_scale;vec2 uvE=vec2(e)*min(u_resolution.x,u_resolution.y)/u_resolution.xy;',
+  '    col=shade(uv,p,u_time)*0.36;',
+  '    col+=shade(uv+vec2(uvE.x,0.0),p+vec2(pe,0.0),u_time)*0.16;',
+  '    col+=shade(uv-vec2(uvE.x,0.0),p-vec2(pe,0.0),u_time)*0.16;',
+  '    col+=shade(uv+vec2(0.0,uvE.y),p+vec2(0.0,pe),u_time)*0.16;',
+  '    col+=shade(uv-vec2(0.0,uvE.y),p-vec2(0.0,pe),u_time)*0.16;',
+  '  }else{col=shade(uv,p,u_time);}',
+  '  if(abs(u_contrast-1.0)>0.0001)col=(col-0.5)*u_contrast+0.5;',
+  '  if(abs(u_saturation-1.0)>0.0001){float luma=dot(col,vec3(0.299,0.587,0.114));col=mix(vec3(luma),col,u_saturation);}',
+  '  if(abs(u_brightness)>0.0001)col+=u_brightness;',
+  '  if(u_vignette>0.0001){float vd=length(screenUv-0.5)*1.41421356;col*=1.0-u_vignette*smoothstep(0.35,1.0,vd);}',
+  '  if(u_grain>0.0001)col+=(grainHash(gl_FragCoord.xy+vec2(u_seed*17.0,u_seed*31.0))-0.5)*u_grain;',
+  '  gl_FragColor=vec4(clamp(col,0.0,1.0),1.0);}'
+  ].join('\n');
+
+  function compilar(tipo, src){ var sh=gl.createShader(tipo); gl.shaderSource(sh,src); gl.compileShader(sh); return sh; }
+  var prog=gl.createProgram(), vs=compilar(gl.VERTEX_SHADER,VERT), fs=compilar(gl.FRAGMENT_SHADER,FRAG);
+  gl.attachShader(prog,vs); gl.attachShader(prog,fs); gl.linkProgram(prog);
+  if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){ canvas.style.display='none'; return; }
+  gl.deleteShader(vs); gl.deleteShader(fs); gl.useProgram(prog);
+
+  var buf=gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+  var loc=gl.getAttribLocation(prog,'a_position');
+  gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+
+  var u = {};
+  ['colors','scene','shape','surface','finish','transform','space'].forEach(function(n){
+    u[n]=gl.getUniformLocation(prog,'u_'+n);
+  });
+
+  // Paleta PYS, en lugar del cian y violeta que trae el preset
+  var COLORES=[[0.016,0.063,0.055],[0.008,0.965,0.784],[1.0,0.016,0.494],[1.0,0.886,0.937],
+               [1.0,0.886,0.937],[1.0,0.886,0.937],[1.0,0.886,0.937],[1.0,0.886,0.937]];
+  var plano=[]; COLORES.forEach(function(c){ plano.push(c[0],c[1],c[2]); });
+  gl.uniform3fv(u.colors,new Float32Array(plano));
+  gl.uniform4f(u.shape, 1.26, 0.35, 0.28, 0.0);      // escala, intensidad, paramA, warp
+  gl.uniform4f(u.surface, 1.824, 1.02, -0.06, 1.15); // detalle, contraste, brillo, saturación
+  gl.uniform4f(u.finish, 0.0, 0.22, 0.0012, 0.075);  // hue, viñeta, blur, grano
+  gl.uniform4f(u.transform, 1.0, 0.0, 0.204, 0.0);   // semilla, rotación, deriva, oklab
+
+  var quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var inicio = performance.now(), raf = 0, visible = true, enPantalla = true;
+
+  function medir(){
+    var r = canvas.getBoundingClientRect();
+    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    var w = Math.max(1, Math.round(r.width * dpr)), h = Math.max(1, Math.round(r.height * dpr));
+    var tope = Math.min(1, Math.sqrt(1400000 / Math.max(1, w * h)));
+    w = Math.max(1, Math.round(w * tope)); h = Math.max(1, Math.round(h * tope));
+    if (canvas.width !== w || canvas.height !== h){ canvas.width=w; canvas.height=h; gl.viewport(0,0,w,h); }
+  }
+  function pintar(ahora){
+    raf = 0;
+    medir();
+    var t = quieto ? 6.2 : ((ahora - inicio) / 1000) * 0.86;
+    gl.uniform4f(u.scene, canvas.width, canvas.height, t, 4.0);
+    gl.uniform4f(u.space, 0, 0, 0, 0);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    if (!quieto && visible && enPantalla) raf = requestAnimationFrame(pintar);
+  }
+  function arrancar(){ if (raf === 0 && visible && enPantalla) raf = requestAnimationFrame(pintar); }
+  function parar(){ if (raf !== 0){ cancelAnimationFrame(raf); raf = 0; } }
+
+  new ResizeObserver(function(){ medir(); if (quieto) requestAnimationFrame(pintar); else arrancar(); }).observe(canvas);
+  new IntersectionObserver(function(e){ enPantalla = e[0] ? e[0].isIntersecting : true; enPantalla ? arrancar() : parar(); }).observe(canvas);
+  document.addEventListener('visibilitychange', function(){
+    visible = document.visibilityState === 'visible';
+    visible ? arrancar() : parar();
+  });
+  requestAnimationFrame(pintar);
 })();
 </script>
 
