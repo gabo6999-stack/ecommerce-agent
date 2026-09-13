@@ -24,6 +24,19 @@ Lo que hace que lea como vidrio y no como plástico:
 Etiqueta envuelta con `thetaLength = 2pi·43/47.5` y `thetaStart = -0.25·arco`,
 que deja el bloque de texto de frente.
 
+### La tapa
+
+Anatomía real de un sello flip-off, que la primera versión tenía mal: corona
+plana de aluminio con hueco central, falda con estrías finas (por `roughnessMap`,
+no por geometría) y rizo por debajo de la pestaña de vidrio. El botón de plástico
+es **estrecho y abombado** — ocupa poco más de la mitad del diámetro del sello y
+deja un anillo de aluminio visible alrededor. Un disco plano del ancho del sello
+lee como tapa de frasco, no como vial.
+
+**La cámara tiene que ir por encima del sello** (y 43 contra los 37.3 de la tapa).
+Por debajo se ve el engaste desde abajo y el botón desaparece tras el borde: eso,
+y no el modelado, era lo que hacía que la tapa se viera rara.
+
 ### Lo que este render todavía no da
 
 No hay cáusticas, ni profundidad de campo, ni polvo o microrrayas en el vidrio, y
