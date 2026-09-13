@@ -60,8 +60,15 @@ tira esa inversión. No es un riesgo teórico.
 Dirección visual: **certificado de análisis**, no "landing de biotech genérica".
 La tesis del hero es el cromatograma HPLC, que es el diferenciador real del negocio.
 
-- **Color**: tinta `#0D1219`, papel frío `#EDEFF3`, acento azul de metileno `#1F4FD8`,
-  ámbar `#A85C13` solo para suplementos, verde `#146B48` solo para estados verificados.
+- **Color**: la paleta real de PYS, leída de capturas de la tienda (el dominio está
+  bloqueado por egress y no hay credenciales `WC_*`, así que los hex son aproximación
+  visual, no muestreo de píxel). Oscuro por defecto, que es como vive la marca:
+  fondo `#08120F`, magenta `#E1145C`, aqua `#46DFC9`, violeta `#9B83F2`.
+  **Un rol por color, y ninguno lo comparte**: magenta = acción (comprar, CTA, marca),
+  aqua = dato verificado (traza HPLC, pureza, COA aprobado, aviso de investigación),
+  violeta = solo la categoría de suplementos. Esto corrige lo que se observó en el
+  sitio actual, donde magenta, aqua y violeta compiten al mismo nivel y el botón de
+  compra terminó siendo negro porque el magenta ya estaba en todas partes.
 - **Tipografía**: Archivo (display) · IBM Plex Sans (texto) · IBM Plex Mono (todo dato:
   lotes, purezas, mg/ml, precios).
 - **Layout**: rejilla estricta con filetes de 1 px; las fichas parecen etiquetas de
@@ -91,3 +98,15 @@ Sin credenciales `WC_*` en el entorno y con egress bloqueado hacia
 `peptidosysuplementos.mx`, **los precios, lotes, purezas y métricas del prototipo son
 de ejemplo**, marcados como tales en la barra superior y en el pie. Con las llaves de
 WooCommerce se pueden traer los reales.
+
+
+## 7. Nota sobre el origen de la paleta
+
+En el repo hay tres paletas y **ninguna es de PYS**. Conviene dejarlo escrito para
+que nadie vuelva a tomar la equivocada:
+
+| Paleta | Dueño real | Evidencia |
+|---|---|---|
+| `#0e1726` `#2f6bff` `#00e0a4` | Nodarishub | Solo aparece en `auditorias/nodarishub/backups-*/post-*.json` |
+| `#ff8e00` (favicon.png/.ico) | Raditech | El commit `3aeff3c` y `favicon_redirect_snippet.php`, que redirige a `raditech.mx` |
+| `#7c3aed` `#818cf8` | Dashboard del agente | `templates/index.html` |

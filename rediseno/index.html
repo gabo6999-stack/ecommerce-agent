@@ -4,39 +4,45 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
 :root{
-  --paper:#EDEFF3; --surface:#FFFFFF; --surface-2:#F5F7FB;
-  --ink:#0D1219; --ink-2:#57616F; --ink-3:#8A94A3;
-  --line:#D8DDE6; --line-2:#C3CAD6;
-  --accent:#1F4FD8; --accent-2:#123AAE; --accent-soft:#E5EBFC; --on-accent:#FFFFFF;
-  --amber:#A85C13; --amber-soft:#FAEEDF;
-  --ok:#146B48; --ok-soft:#DFF0E7;
-  --shadow:0 1px 2px rgba(13,18,25,.05), 0 8px 24px -12px rgba(13,18,25,.18);
+  /* Paleta PYS — oscuro por defecto, que es como vive la marca.
+     Tres roles, uno por color: magenta = acción, aqua = dato verificado,
+     violeta = categoría suplementos. Nada más comparte esos colores. */
+  color-scheme:dark;
+  --paper:#08120F; --surface:#0E1A17; --surface-2:#132421;
+  --ink:#EAF4F1; --ink-2:#8FA8A1; --ink-3:#62807A;
+  --line:#1C302B; --line-2:#294039;
+  --accent:#E1145C; --accent-2:#FF4D87; --accent-text:#FF6B9C; --accent-soft:#2B0C1A; --on-accent:#FFFFFF;
+  --verify:#46DFC9; --verify-text:#46DFC9; --verify-soft:#08231F;
+  --cat:#9B83F2; --cat-text:#9B83F2; --cat-soft:#1A1433;
+  --warn:#E0A45A;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.9);
   --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
   --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
 }
-:root:not([data-theme="light"]) , :root{ color-scheme:light; }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --paper:#090D13; --surface:#111722; --surface-2:#161E2B;
-    --ink:#E9EDF4; --ink-2:#95A1B5; --ink-3:#6B7789;
-    --line:#212B3A; --line-2:#2D3A4D;
-    --accent:#7D9CFF; --accent-2:#A3B8FF; --accent-soft:#16203A; --on-accent:#07101F;
-    --amber:#E09A52; --amber-soft:#2A1F12;
-    --ok:#52CB95; --ok-soft:#10291F;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.8);
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    color-scheme:light;
+    --paper:#EFF3F2; --surface:#FFFFFF; --surface-2:#F4F8F7;
+    --ink:#08120F; --ink-2:#4E635E; --ink-3:#7B928C;
+    --line:#DBE4E1; --line-2:#C4D2CE;
+    --accent:#D01053; --accent-2:#A80B41; --accent-text:#B50C48; --accent-soft:#FDE7EF; --on-accent:#FFFFFF;
+    --verify:#0B7A68; --verify-text:#0B7A68; --verify-soft:#DEF5F0;
+    --cat:#6B4BD6; --cat-text:#6B4BD6; --cat-soft:#EEEAFC;
+    --warn:#A8620F;
+    --shadow:0 1px 2px rgba(8,18,15,.05), 0 8px 24px -12px rgba(8,18,15,.2);
   }
 }
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --paper:#090D13; --surface:#111722; --surface-2:#161E2B;
-  --ink:#E9EDF4; --ink-2:#95A1B5; --ink-3:#6B7789;
-  --line:#212B3A; --line-2:#2D3A4D;
-  --accent:#7D9CFF; --accent-2:#A3B8FF; --accent-soft:#16203A; --on-accent:#07101F;
-  --amber:#E09A52; --amber-soft:#2A1F12;
-  --ok:#52CB95; --ok-soft:#10291F;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.8);
+:root[data-theme="light"]{
+  color-scheme:light;
+  --paper:#EFF3F2; --surface:#FFFFFF; --surface-2:#F4F8F7;
+  --ink:#08120F; --ink-2:#4E635E; --ink-3:#7B928C;
+  --line:#DBE4E1; --line-2:#C4D2CE;
+  --accent:#D01053; --accent-2:#A80B41; --accent-text:#B50C48; --accent-soft:#FDE7EF; --on-accent:#FFFFFF;
+  --verify:#0B7A68; --verify-text:#0B7A68; --verify-soft:#DEF5F0;
+  --cat:#6B4BD6; --cat-text:#6B4BD6; --cat-soft:#EEEAFC;
+  --warn:#A8620F;
+  --shadow:0 1px 2px rgba(8,18,15,.05), 0 8px 24px -12px rgba(8,18,15,.2);
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -50,22 +56,22 @@ a{color:inherit}
 .eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
 
 /* ── barra superior ─────────────────────────────────────────── */
-.strip{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em}
+.strip{background:var(--surface-2);color:var(--ink-2);border-bottom:1px solid var(--line);font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em}
 .strip .wrap{display:flex;gap:16px;justify-content:space-between;align-items:center;padding-block:9px;flex-wrap:wrap}
-.strip b{font-weight:600;color:var(--surface)}
+.strip b{font-weight:600;color:var(--ink)}
 .proto{display:inline-flex;align-items:center;gap:7px}
-.proto::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--amber);flex:none}
+.proto::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--warn);flex:none}
 
 /* ── nav ────────────────────────────────────────────────────── */
 .nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;gap:clamp(12px,3vw,36px);padding-block:14px}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
-.brand .mark{width:34px;height:34px;border:1.5px solid var(--accent);border-radius:3px;display:grid;place-items:center;font-family:var(--f-mono);font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.02em}
+.brand .mark{width:34px;height:34px;border:1.5px solid var(--accent);border-radius:6px;display:grid;place-items:center;font-family:var(--f-display);font-size:13px;font-weight:700;color:var(--accent-text);letter-spacing:.02em}
 .brand .wm{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:-.01em;line-height:1.15}
 .brand .wm span{display:block;font-family:var(--f-mono);font-size:9.5px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
 .menu{display:flex;gap:clamp(10px,2vw,26px);list-style:none;margin:0;padding:0;font-size:14px;flex:1}
 .menu a{text-decoration:none;color:var(--ink-2);padding-block:6px;border-bottom:1.5px solid transparent;transition:color .18s,border-color .18s}
-.menu a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.menu a:hover{color:var(--ink);border-bottom-color:var(--accent-text)}
 .navtools{display:flex;align-items:center;gap:10px;flex:none}
 .icobtn{width:38px;height:38px;border:1px solid var(--line);background:var(--surface);border-radius:3px;color:var(--ink-2);display:grid;place-items:center;cursor:pointer;transition:border-color .18s,color .18s}
 .icobtn:hover{border-color:var(--line-2);color:var(--ink)}
@@ -76,7 +82,7 @@ a{color:inherit}
 .hero{border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--surface) 0%,var(--paper) 100%)}
 .hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(44px,7vw,80px)}
 .hero h1{font-size:clamp(38px,5.4vw,64px);font-weight:800;margin-block:16px 18px}
-.hero h1 em{font-style:normal;color:var(--accent)}
+.hero h1 em{font-style:normal;color:var(--accent-text)}
 .hero .lede{font-size:17px;color:var(--ink-2);max-width:46ch}
 .cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
 .btn{font-family:var(--f-body);font-size:14.5px;font-weight:600;padding:13px 22px;border-radius:3px;border:1px solid transparent;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:background .18s,border-color .18s}
@@ -87,21 +93,23 @@ a{color:inherit}
 .chips{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap}
 .chip{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;padding:6px 11px;border:1px solid var(--line);border-radius:3px;color:var(--ink-2);background:var(--surface)}
 .chip b{color:var(--ink);font-weight:600}
+.chip-verify{border-color:color-mix(in srgb,var(--verify) 40%,transparent);color:var(--verify-text);background:var(--verify-soft)}
+.chip-verify b{color:var(--verify-text)}
 
 /* ── tarjeta COA ────────────────────────────────────────────── */
 .coa{background:var(--surface);border:1px solid var(--line);border-radius:4px;box-shadow:var(--shadow);overflow:hidden}
 .coa-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
 .coa-head .t{font-family:var(--f-display);font-weight:700;font-size:14px}
 .coa-head .s{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
-.badge-ok{font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.06em;padding:5px 9px;border-radius:3px;background:var(--ok-soft);color:var(--ok);white-space:nowrap}
+.badge-ok{font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.06em;padding:5px 9px;border-radius:3px;background:var(--verify-soft);color:var(--verify-text);border:1px solid color-mix(in srgb,var(--verify) 35%,transparent);white-space:nowrap}
 .chart{position:relative;padding:14px 10px 0}
 .chart svg{display:block;width:100%;height:auto}
-.trace{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linejoin:round}
-.area{fill:var(--accent-soft);stroke:none}
+.trace{fill:none;stroke:var(--verify);stroke-width:1.6;stroke-linejoin:round}
+.area{fill:color-mix(in srgb,var(--verify) 14%,transparent);stroke:none}
 .grid{stroke:var(--line);stroke-width:1}
 .axis{fill:var(--ink-3);font-family:var(--f-mono);font-size:8.5px}
 .peaklab{fill:var(--ink);font-family:var(--f-mono);font-size:9px;font-weight:600}
-.scan{stroke:var(--accent);stroke-width:1;opacity:0}
+.scan{stroke:var(--verify);stroke-width:1;opacity:0}
 .coa-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
 .coa-grid div{padding:12px 14px;border-right:1px solid var(--line)}
 .coa-grid div:last-child{border-right:none}
@@ -120,7 +128,7 @@ section{padding-block:clamp(44px,6vw,76px)}
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:28px;flex-wrap:wrap}
 .sec-head h2{font-size:clamp(24px,3.2vw,34px);font-weight:700}
 .sec-head p{color:var(--ink-2);font-size:15px;max-width:52ch;margin-top:8px}
-.link-more{font-family:var(--f-mono);font-size:12px;color:var(--accent);text-decoration:none;letter-spacing:.04em;white-space:nowrap}
+.link-more{font-family:var(--f-mono);font-size:12px;color:var(--accent-text);text-decoration:none;letter-spacing:.04em;white-space:nowrap}
 .link-more:hover{text-decoration:underline}
 
 /* ── categorías ─────────────────────────────────────────────── */
@@ -141,8 +149,8 @@ section{padding-block:clamp(44px,6vw,76px)}
 .card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
 .card .vialbox{background:var(--surface-2);border-bottom:1px solid var(--line);display:grid;place-items:center;padding:22px 0 18px;position:relative}
 .card .vialbox svg{width:52px;height:auto}
-.tag{position:absolute;top:10px;left:10px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;padding:3px 7px;border-radius:2px;background:var(--accent-soft);color:var(--accent)}
-.tag.sup{background:var(--amber-soft);color:var(--amber)}
+.tag{position:absolute;top:10px;left:10px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;padding:3px 7px;border-radius:2px;background:transparent;border:1px solid var(--line-2);color:var(--ink-2)}
+.tag.sup{border-color:color-mix(in srgb,var(--cat) 45%,transparent);color:var(--cat-text)}
 .card .body{padding:14px 15px 0;display:flex;flex-direction:column;gap:5px;flex:1}
 .card h3{font-size:16px;font-weight:700}
 .card .sub{font-size:12.5px;color:var(--ink-2);line-height:1.45}
@@ -151,7 +159,7 @@ section{padding-block:clamp(44px,6vw,76px)}
 .buyrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 15px;border-top:1px solid var(--line);background:var(--surface-2)}
 .price{font-family:var(--f-mono);font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
 .price small{font-size:10px;color:var(--ink-3);font-weight:400;margin-left:3px}
-.add{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.05em;padding:9px 13px;border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:3px;cursor:pointer;transition:background .16s,color .16s}
+.add{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.05em;padding:9px 13px;border:1px solid var(--accent);background:transparent;color:var(--accent-text);border-radius:3px;cursor:pointer;transition:background .16s,color .16s}
 .add:hover{background:var(--accent);color:var(--on-accent)}
 
 /* ── ficha / calculadora ────────────────────────────────────── */
@@ -170,15 +178,15 @@ input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;bac
 .readout{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:18px 0 14px}
 .readout div{background:var(--surface);padding:12px 10px;text-align:center}
 .readout dt{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 5px}
-.readout dd{margin:0;font-family:var(--f-mono);font-size:19px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--accent)}
+.readout dd{margin:0;font-family:var(--f-mono);font-size:19px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--verify-text)}
 .readout dd span{font-size:11px;color:var(--ink-2);font-weight:400}
 .syr{width:100%;height:auto;display:block}
 .syr-body{fill:var(--surface);stroke:var(--line-2);stroke-width:1}
-.syr-fill{fill:var(--accent-soft)}
+.syr-fill{fill:color-mix(in srgb,var(--verify) 18%,transparent)}
 .syr-tick{stroke:var(--line-2);stroke-width:1}
 .syr-lab{fill:var(--ink-3);font-family:var(--f-mono);font-size:7.5px}
-.syr-mark{stroke:var(--accent);stroke-width:2}
-.syr-val{fill:var(--accent);font-family:var(--f-mono);font-size:9px;font-weight:600}
+.syr-mark{stroke:var(--verify);stroke-width:2}
+.syr-val{fill:var(--verify-text);font-family:var(--f-mono);font-size:9px;font-weight:600}
 .tbl{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:14px}
 .tbl caption{text-align:left;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding-bottom:9px}
 .tbl th,.tbl td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left}
@@ -187,20 +195,20 @@ input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;bac
 .tbl tr:hover td{background:var(--surface-2)}
 .tblwrap{overflow-x:auto}
 .refs{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
-.refs li{font-size:13px;color:var(--ink-2);padding-left:14px;border-left:2px solid var(--accent);line-height:1.5}
+.refs li{font-size:13px;color:var(--ink-2);padding-left:14px;border-left:2px solid var(--verify);line-height:1.5}
 .refs b{color:var(--ink);font-weight:600}
-.refs .pmid{font-family:var(--f-mono);font-size:11px;color:var(--accent)}
+.refs .pmid{font-family:var(--f-mono);font-size:11px;color:var(--verify-text)}
 
 /* ── recursos ───────────────────────────────────────────────── */
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .post{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:20px;text-decoration:none;display:flex;flex-direction:column;gap:9px;transition:border-color .2s;will-change:transform}
-.post:hover{border-color:var(--accent)}
+.post:hover{border-color:color-mix(in srgb,var(--accent) 60%,transparent)}
 .post h3{font-size:16.5px;font-weight:700;line-height:1.25}
 .post p{font-size:13.5px;color:var(--ink-2)}
 .post .meta{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;margin-top:auto;padding-top:8px}
 
 /* ── footer ─────────────────────────────────────────────────── */
-footer{background:var(--ink);color:var(--paper);padding-block:44px 30px}
+footer{background:var(--surface-2);color:var(--ink);border-top:1px solid var(--line);padding-block:44px 30px}
 footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:28px}
 footer h4{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.55;margin-bottom:12px;font-weight:500}
 footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:13.5px}
@@ -260,7 +268,7 @@ footer .fine{font-family:var(--f-mono);font-size:10.5px;opacity:.5;display:flex;
 <nav class="nav">
   <div class="wrap">
     <a class="brand" href="#top">
-      <span class="mark">PyS</span>
+      <span class="mark">P&amp;S</span>
       <span class="wm">Péptidos y Suplementos<span>peptidosysuplementos.mx</span></span>
     </a>
     <ul class="menu">
@@ -297,7 +305,7 @@ footer .fine{font-family:var(--f-mono);font-size:10.5px;opacity:.5;display:flex;
       <div class="chips">
         <span class="chip">Pureza <b>≥ 98 %</b> HPLC</span>
         <span class="chip">COA <b>por lote</b></span>
-        <span class="chip">Cadena de frío <b>2–8 °C</b></span>
+        <span class="chip chip-verify">Solo uso de <b>investigación</b></span>
       </div>
     </div>
 
@@ -448,21 +456,21 @@ footer .fine{font-family:var(--f-mono);font-size:10.5px;opacity:.5;display:flex;
     </article>
 
     <article class="card" data-cat="sup">
-      <div class="vialbox" style="color:var(--amber)"><span class="tag sup">NUTRICOST</span><svg><use href="#bottle"/></svg></div>
+      <div class="vialbox" style="color:var(--cat)"><span class="tag sup">NUTRICOST</span><svg><use href="#bottle"/></svg></div>
       <div class="body"><h3>Omega-3 2500 mg</h3><p class="sub">EPA/DHA concentrado, 120 softgels.</p></div>
       <div class="specs"><span>120 caps</span><span>·</span><span>EPA 900</span><span>·</span><span>DHA 600</span></div>
       <div class="buyrow"><span class="price">$690<small>MXN</small></span><button class="add">Agregar</button></div>
     </article>
 
     <article class="card" data-cat="sup">
-      <div class="vialbox" style="color:var(--amber)"><span class="tag sup">NUTRICOST</span><svg><use href="#bottle"/></svg></div>
+      <div class="vialbox" style="color:var(--cat)"><span class="tag sup">NUTRICOST</span><svg><use href="#bottle"/></svg></div>
       <div class="body"><h3>Zinc Picolinato 50 mg</h3><p class="sub">Alta biodisponibilidad, 240 cápsulas.</p></div>
       <div class="specs"><span>240 caps</span><span>·</span><span>50 mg</span><span>·</span><span>8 meses</span></div>
       <div class="buyrow"><span class="price">$420<small>MXN</small></span><button class="add">Agregar</button></div>
     </article>
 
     <article class="card" data-cat="sup">
-      <div class="vialbox" style="color:var(--amber)"><span class="tag sup">NUTRICOST</span><svg><use href="#bottle"/></svg></div>
+      <div class="vialbox" style="color:var(--cat)"><span class="tag sup">NUTRICOST</span><svg><use href="#bottle"/></svg></div>
       <div class="body"><h3>Glutatión 1500 mg</h3><p class="sub">Antioxidante intracelular y soporte de detoxificación.</p></div>
       <div class="specs"><span>120 caps</span><span>·</span><span>1500 mg</span><span>·</span><span>setria</span></div>
       <div class="buyrow"><span class="price">$860<small>MXN</small></span><button class="add">Agregar</button></div>
