@@ -166,17 +166,18 @@ section{padding-block:clamp(44px,6vw,76px)}
 .grid-prod{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:4px;display:flex;flex-direction:column;overflow:hidden;transition:border-color .2s,box-shadow .2s;will-change:transform}
 .card:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
-.card .vialbox{background:var(--surface-2);border-bottom:1px solid var(--line);display:grid;place-items:center;padding:22px 0 18px;position:relative}
-.card .vialbox svg{width:52px;height:auto}
+.card .vialbox{background:#F2F6F5;border-bottom:1px solid var(--line);display:grid;place-items:center;padding:14px 0;position:relative;min-height:258px}
+.card .vialbox img{height:232px;width:auto;max-width:100%;display:block}
+.card .vialbox svg{width:64px;height:auto}
 .tag{position:absolute;top:10px;left:10px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;padding:3px 7px;border-radius:2px;background:transparent;border:1px solid var(--line-2);color:var(--ink-2)}
 .tag.sup{border-color:color-mix(in srgb,var(--cat) 45%,transparent);color:var(--cat-text)}
 .card .body{padding:14px 15px 0;display:flex;flex-direction:column;gap:5px;flex:1}
-.card h3{font-size:16px;font-weight:700}
-.card .sub{font-size:12.5px;color:var(--ink-2);line-height:1.45}
+.card h3{font-size:16px;font-weight:700;overflow-wrap:anywhere;text-wrap:pretty}
+.card .sub{font-size:12.5px;color:var(--ink-2);line-height:1.45;overflow-wrap:anywhere}
 .specs{padding:11px 15px;font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:12px}
 .specs span{white-space:nowrap}
-.buyrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 15px;border-top:1px solid var(--line);background:var(--surface-2)}
-.price{font-family:var(--f-mono);font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
+.buyrow{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:12px 15px;border-top:1px solid var(--line);background:var(--surface-2)}
+.price{font-family:var(--f-mono);font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 .price small{font-size:10px;color:var(--ink-3);font-weight:400;margin-left:3px}
 .add{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.05em;padding:9px 13px;border:1px solid var(--accent);background:transparent;color:var(--accent-text);border-radius:3px;cursor:pointer;transition:background .16s,color .16s}
 .add:hover{background:var(--accent);color:var(--on-accent)}
@@ -416,8 +417,8 @@ footer .fine{font-family:var(--f-mono);font-size:10.5px;opacity:.5;display:flex;
     <a class="cat" href="#catalogo"><span class="k">REP</span><span class="n">Reparación</span><span class="c">2 referencias</span></a>
     <a class="cat" href="#catalogo"><span class="k">LON</span><span class="n">Longevidad</span><span class="c">3 referencias</span></a>
     <a class="cat" href="#catalogo"><span class="k">GH</span><span class="n">Secretagogos</span><span class="c">3 referencias</span></a>
-    <a class="cat" href="#catalogo"><span class="k">INM</span><span class="n">Inmunidad</span><span class="c">2 referencias</span></a>
-    <a class="cat" href="#catalogo"><span class="k">SUP</span><span class="n">Suplementos</span><span class="c">5 referencias</span></a>
+    <a class="cat" href="#catalogo"><span class="k">NOO</span><span class="n">Nootrópicos</span><span class="c">1 referencia</span></a>
+    <a class="cat" href="#catalogo"><span class="k">SUP</span><span class="n">Suplementos</span><span class="c">3 referencias</span></a>
   </div>
 </section>
 
@@ -436,71 +437,115 @@ footer .fine{font-family:var(--f-mono);font-size:10.5px;opacity:.5;display:flex;
     <button class="fbtn" data-filter="rep" aria-pressed="false">Reparación</button>
     <button class="fbtn" data-filter="lon" aria-pressed="false">Longevidad</button>
     <button class="fbtn" data-filter="gh" aria-pressed="false">Secretagogos</button>
+    <button class="fbtn" data-filter="noo" aria-pressed="false">Nootrópicos</button>
+    <button class="fbtn" data-filter="acc" aria-pressed="false">Accesorios</button>
     <button class="fbtn" data-filter="sup" aria-pressed="false">Suplementos</button>
   </div>
 
   <div class="grid-prod" id="grid">
     <article class="card" data-cat="glp1">
-      <div class="vialbox" style="color:var(--accent)"><span class="tag">GLP-1 · GIP · GCG</span><svg><use href="#vial"/></svg></div>
-      <div class="body"><h3>Retatrutida</h3><p class="sub">Triple agonista en investigación para control metabólico.</p></div>
-      <div class="specs"><span>30 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99.24 %</span></div>
+      <div class="vialbox"><span class="tag">GLP-1 · GIP · GCG</span><img src="img/vial-retatrutida-30-mg.jpg" alt="Vial de Retatrutida" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>Retatrutida</h3><p class="sub">Triple agonista GLP-1 / GIP / glucagón.</p></div>
+      <div class="specs"><span>30 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
       <div class="buyrow"><span class="price">$4,900<small>MXN</small></span><button class="add">Agregar</button></div>
     </article>
 
     <article class="card" data-cat="glp1">
-      <div class="vialbox" style="color:var(--accent)"><span class="tag">GLP-1 · GIP</span><svg><use href="#vial"/></svg></div>
-      <div class="body"><h3>Tirzepatida</h3><p class="sub">Doble agonista incretínico, presentación multidosis.</p></div>
-      <div class="specs"><span>30 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99.01 %</span></div>
+      <div class="vialbox"><span class="tag">GLP-1 · GIP</span><img src="img/vial-tirzepatida-30-mg.jpg" alt="Vial de Tirzepatida 30 mg" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>Tirzepatida 30 mg</h3><p class="sub">Doble agonista incretínico GLP-1 / GIP.</p></div>
+      <div class="specs"><span>30 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
       <div class="buyrow"><span class="price">$3,600<small>MXN</small></span><button class="add">Agregar</button></div>
     </article>
 
     <article class="card" data-cat="glp1">
-      <div class="vialbox" style="color:var(--accent)"><span class="tag">AMILINA</span><svg><use href="#vial"/></svg></div>
-      <div class="body"><h3>Cagrilintida</h3><p class="sub">Análogo de amilina de acción prolongada.</p></div>
-      <div class="specs"><span>10 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>98.76 %</span></div>
-      <div class="buyrow"><span class="price">$2,980<small>MXN</small></span><button class="add">Agregar</button></div>
+      <div class="vialbox"><span class="tag">GLP-1 · GIP</span><img src="img/vial-tirzepatida-60-mg.jpg" alt="Vial de Tirzepatida 60 mg" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>Tirzepatida 60 mg</h3><p class="sub">Presentación multidosis del doble agonista.</p></div>
+      <div class="specs"><span>60 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
+      <div class="buyrow"><span class="price">$6,400<small>MXN</small></span><button class="add">Agregar</button></div>
+    </article>
+
+    <article class="card" data-cat="glp1">
+      <div class="vialbox"><span class="tag">GLP-1</span><img src="img/vial-semaglutida-20-mg.jpg" alt="Vial de Semaglutida 20 mg" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>Semaglutida 20 mg</h3><p class="sub">Agonista GLP-1, presentación multidosis.</p></div>
+      <div class="specs"><span>20 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
+      <div class="buyrow"><span class="price">$3,200<small>MXN</small></span><button class="add">Agregar</button></div>
+    </article>
+
+    <article class="card" data-cat="glp1">
+      <div class="vialbox"><span class="tag">GLP-1</span><img src="img/vial-semaglutida-5-mg.jpg" alt="Vial de Semaglutida 5 mg" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>Semaglutida 5 mg</h3><p class="sub">Agonista GLP-1.</p></div>
+      <div class="specs"><span>5 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
+      <div class="buyrow"><span class="price">$1,450<small>MXN</small></span><button class="add">Agregar</button></div>
     </article>
 
     <article class="card" data-cat="rep">
-      <div class="vialbox" style="color:var(--accent)"><span class="tag">BLEND</span><svg><use href="#vial"/></svg></div>
-      <div class="body"><h3>BPC-157 + TB-500</h3><p class="sub">Mezcla 10/10 mg. Ficha con 7 referencias verificadas en PubMed.</p></div>
-      <div class="specs"><span>10/10 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99.11 %</span></div>
+      <div class="vialbox"><span class="tag">BLEND</span><img src="img/vial-bpc-157-tb500-5-5mg.jpg" alt="Vial de BPC-157 + TB500" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>BPC-157 + TB500</h3><p class="sub">Mezcla para reparación de tejido. Ficha con 7 referencias verificadas en PubMed.</p></div>
+      <div class="specs"><span>5/5 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
       <div class="buyrow"><span class="price">$2,150<small>MXN</small></span><button class="add">Agregar</button></div>
     </article>
 
+    <article class="card" data-cat="rep">
+      <div class="vialbox"><span class="tag">COBRE</span><img src="img/vial-ghk-cu-100-mg.jpg" alt="Vial de GHK-Cu" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>GHK-Cu</h3><p class="sub">Tripéptido de cobre.</p></div>
+      <div class="specs"><span>100 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
+      <div class="buyrow"><span class="price">$1,780<small>MXN</small></span><button class="add">Agregar</button></div>
+    </article>
+
     <article class="card" data-cat="lon">
-      <div class="vialbox" style="color:var(--accent)"><span class="tag">MITOCONDRIAL</span><svg><use href="#vial"/></svg></div>
-      <div class="body"><h3>MOTS-c</h3><p class="sub">Péptido derivado del ADN mitocondrial.</p></div>
-      <div class="specs"><span>10 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>98.94 %</span></div>
+      <div class="vialbox"><span class="tag">MITOCONDRIAL</span><img src="img/vial-mots-c-10-mg.jpg" alt="Vial de MOTS-c 10 mg" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>MOTS-c 10 mg</h3><p class="sub">Péptido derivado del ADN mitocondrial.</p></div>
+      <div class="specs"><span>10 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
       <div class="buyrow"><span class="price">$1,890<small>MXN</small></span><button class="add">Agregar</button></div>
     </article>
 
-    <article class="card" data-cat="gh">
-      <div class="vialbox" style="color:var(--accent)"><span class="tag">SECRETAGOGO</span><svg><use href="#vial"/></svg></div>
-      <div class="body"><h3>CJC-1295 no-DAC + Ipamorelina</h3><p class="sub">Combinación clásica de liberación pulsátil.</p></div>
-      <div class="specs"><span>5 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>98.82 %</span></div>
-      <div class="buyrow"><span class="price">$1,320<small>MXN</small></span><button class="add">Agregar</button></div>
+    <article class="card" data-cat="lon">
+      <div class="vialbox"><span class="tag">MITOCONDRIAL</span><img src="img/vial-mots-c-40-mg.jpg" alt="Vial de MOTS-c 40 mg" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>MOTS-c 40 mg</h3><p class="sub">Presentación multidosis del péptido mitocondrial.</p></div>
+      <div class="specs"><span>40 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
+      <div class="buyrow"><span class="price">$4,950<small>MXN</small></span><button class="add">Agregar</button></div>
     </article>
 
     <article class="card" data-cat="lon">
-      <div class="vialbox" style="color:var(--accent)"><span class="tag">NAD+</span><svg><use href="#vial"/></svg></div>
+      <div class="vialbox"><span class="tag">NAD+</span><img src="img/vial-nad-500-mg.jpg" alt="Vial de NAD+" loading="lazy" width="540" height="1043"></div>
       <div class="body"><h3>NAD+</h3><p class="sub">Dinucleótido para protocolos de longevidad.</p></div>
-      <div class="specs"><span>500 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99.05 %</span></div>
+      <div class="specs"><span>500 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
       <div class="buyrow"><span class="price">$2,400<small>MXN</small></span><button class="add">Agregar</button></div>
     </article>
 
-    <article class="card" data-cat="rep">
-      <div class="vialbox" style="color:var(--accent)"><span class="tag">ACCESORIO</span><svg><use href="#vial"/></svg></div>
-      <div class="body"><h3>Agua bacteriostática</h3><p class="sub">3 ml con alcohol bencílico al 0.9 % para reconstitución.</p></div>
-      <div class="specs"><span>3 ml</span><span>·</span><span>estéril</span><span>·</span><span>USP</span></div>
-      <div class="buyrow"><span class="price">$180<small>MXN</small></span><button class="add">Agregar</button></div>
+    <article class="card" data-cat="gh">
+      <div class="vialbox"><span class="tag">SECRETAGOGO</span><img src="img/vial-cjc-1295-ipamorelin-no-dac-5-5mg.jpg" alt="Vial de CJC-1295 + Ipamorelin" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>CJC-1295 + Ipamorelin</h3><p class="sub">Análogo de GHRH sin DAC más secretagogo.</p></div>
+      <div class="specs"><span>5/5 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
+      <div class="buyrow"><span class="price">$1,320<small>MXN</small></span><button class="add">Agregar</button></div>
     </article>
 
     <article class="card" data-cat="gh">
-      <div class="vialbox" style="color:var(--accent)"><span class="tag">SECRETAGOGO</span><svg><use href="#vial"/></svg></div>
-      <div class="body"><h3>Sermorelina</h3><p class="sub">Análogo de GHRH 1-29.</p></div>
-      <div class="specs"><span>10 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>98.90 %</span></div>
+      <div class="vialbox"><span class="tag">SECRETAGOGO</span><img src="img/vial-sermorelin-10-mg.jpg" alt="Vial de Sermorelin" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>Sermorelin</h3><p class="sub">Análogo de GHRH 1-29.</p></div>
+      <div class="specs"><span>10 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
       <div class="buyrow"><span class="price">$1,540<small>MXN</small></span><button class="add">Agregar</button></div>
+    </article>
+
+    <article class="card" data-cat="gh">
+      <div class="vialbox"><span class="tag">IGF</span><img src="img/vial-igf-1-lr3-1-mg.jpg" alt="Vial de IGF-1 LR3" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>IGF-1 LR3</h3><p class="sub">Análogo de IGF-1 de vida media larga.</p></div>
+      <div class="specs"><span>1 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
+      <div class="buyrow"><span class="price">$2,290<small>MXN</small></span><button class="add">Agregar</button></div>
+    </article>
+
+    <article class="card" data-cat="noo">
+      <div class="vialbox"><span class="tag">NOOTRÓPICO</span><img src="img/vial-selank-10-mg.jpg" alt="Vial de Selank" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>Selank</h3><p class="sub">Heptapéptido nootrópico.</p></div>
+      <div class="specs"><span>10 mg</span><span>·</span><span>liofilizado</span><span>·</span><span>99 % HPLC</span></div>
+      <div class="buyrow"><span class="price">$1,180<small>MXN</small></span><button class="add">Agregar</button></div>
+    </article>
+
+    <article class="card" data-cat="acc">
+      <div class="vialbox"><span class="tag">ACCESORIO</span><img src="img/vial-agua-bacteriostatica-0-9-alcohol-bencilico.jpg" alt="Vial de Agua bacteriostática" loading="lazy" width="540" height="1043"></div>
+      <div class="body"><h3>Agua bacteriostática</h3><p class="sub">Alcohol bencílico 0.9 %, para reconstitución.</p></div>
+      <div class="specs"><span>10 ml</span><span>·</span><span>estéril</span><span>·</span><span>USP</span></div>
+      <div class="buyrow"><span class="price">$180<small>MXN</small></span><button class="add">Agregar</button></div>
     </article>
 
     <article class="card" data-cat="sup">

@@ -50,6 +50,7 @@ push(3.5, 38.95);                                  // boca
 push(3.5, 37.4); push(3.5, 34.0);
 push(4.4, 32.7); push(5.5, 31.5); push(6.6, 30.4); push(6.9, 29.0);
 push(6.9, 3.0);  push(0.01, 3.0);
+const vialG = new THREE.Group(); scene.add(vialG);
 const glassGeo = new THREE.LatheGeometry(p, 192);
 const glass = new THREE.MeshPhysicalMaterial({
   color: 0xffffff, metalness: 0, roughness: 0.045,
@@ -57,7 +58,7 @@ const glass = new THREE.MeshPhysicalMaterial({
   attenuationColor: new THREE.Color(0xdff2ea), attenuationDistance: 70,
   clearcoat: 0.35, clearcoatRoughness: 0.06, envMapIntensity: 1.5,
 });
-scene.add(new THREE.Mesh(glassGeo, glass));
+vialG.add(new THREE.Mesh(glassGeo, glass));
 
 // ── Etiqueta: 43 mm sobre un perímetro de 47.7 mm, con el bloque de texto al frente
 const tex = await new THREE.TextureLoader().loadAsync('label_retatrutida-30-mg.png');
@@ -68,7 +69,6 @@ const labGeo = new THREE.CylinderGeometry(RLAB, RLAB, 22, 256, 1, true, -0.25 * 
 const label = new THREE.Mesh(labGeo, new THREE.MeshStandardMaterial({
   map: tex, roughness: 0.78, metalness: 0, side: THREE.FrontSide, envMapIntensity: 0.7,
 }));
-label.position.y = 16.0;
 scene.add(label);
 
 // ── Torta liofilizada
@@ -76,14 +76,14 @@ const cake = new THREE.Mesh(
   new THREE.CylinderGeometry(6.85, 6.85, 5.5, 96),
   new THREE.MeshStandardMaterial({ color: 0xf4f3ee, roughness: 0.96, metalness: 0 }));
 cake.position.y = 3.0 + 2.75;
-cake.visible = true; scene.add(cake);
+vialG.add(cake);
 
 // ── Tapón de bromobutilo
 const stop = new THREE.Mesh(
   new THREE.CylinderGeometry(3.42, 3.42, 6.0, 64),
   new THREE.MeshStandardMaterial({ color: 0x35383d, roughness: 0.82, metalness: 0 }));
 stop.position.y = 36.0;
-stop.visible = true; scene.add(stop);
+vialG.add(stop);
 
 // ── Sello de aluminio engastado (20 mm), torneado con su perfil real:
 // corona plana con hueco central, falda con estrías y rizo por debajo de la
@@ -105,7 +105,7 @@ const seal = new THREE.Mesh(sealGeo, new THREE.MeshStandardMaterial({
   color: 0xc9d0d4, metalness: 1, roughness: 0.19,
   side: THREE.DoubleSide, envMapIntensity: 1.35,
 }));
-scene.add(seal);
+vialG.add(seal);
 
 // ── Flip-off blanco satinado: el color va en la etiqueta, no en la tapa
 const flipPts = [
@@ -129,7 +129,7 @@ const flip = new THREE.Mesh(flipGeo, new THREE.MeshPhysicalMaterial({
   clearcoat: 0.25, clearcoatRoughness: 0.32,
   side: THREE.DoubleSide, envMapIntensity: 0.95,
 }));
-scene.add(flip);
+vialG.add(flip);
 
 // ── Suelo y luces
 // Sin suelo: un plano iluminado por el entorno sale gris y parte la imagen.
@@ -143,14 +143,24 @@ shCtx.fillStyle = shGrad; shCtx.fillRect(0, 0, 256, 256);
 const shTex = new THREE.CanvasTexture(shCan);
 const shadow = new THREE.Mesh(new THREE.PlaneGeometry(46, 30),
   new THREE.MeshBasicMaterial({ map: shTex, transparent: true, depthWrite: false }));
-shadow.rotation.x = -Math.PI / 2; shadow.position.y = 0.05; scene.add(shadow);
+shadow.rotation.x = -Math.PI / 2; shadow.position.y = 0.05; vialG.add(shadow);
 
 const key = new THREE.DirectionalLight(0xffffff, 2.6); key.position.set(-38, 52, 34);
 scene.add(key);
 const rim = new THREE.DirectionalLight(0xffffff, 1.3); rim.position.set(46, 30, -28); scene.add(rim);
 const fill = new THREE.DirectionalLight(0xffffff, 0.7); fill.position.set(14, 12, 64); scene.add(fill);
 
-window.__vial = async (url, conTorta, u0) => {
+const LW_MM = 43, R_BASE = 8.06;
+window.__vial = async (url, conTorta, u0, escala) => {
+  const s = escala || 1;
+  vialG.scale.setScalar(s);
+  const R = R_BASE * s, arco = LW_MM / R;
+  label.geometry.dispose();
+  label.geometry = new THREE.CylinderGeometry(R, R, 22, 256, 1, true,
+                                              -(u0 === undefined ? 0.25 : u0) * arco, arco);
+  label.position.y = 16 * s;
+  camera.position.set(0, 49 * s, 196 * s);
+  camera.lookAt(0, 17.5 * s, 0);
   const t = await new THREE.TextureLoader().loadAsync(url);
   t.colorSpace = THREE.SRGBColorSpace;
   t.anisotropy = 8;
@@ -160,7 +170,7 @@ window.__vial = async (url, conTorta, u0) => {
   cake.visible = conTorta !== false;   // el agua bacteriostática no lleva torta
   // el título no está en el mismo sitio en todas las etiquetas: se gira la
   // etiqueta para dejarlo al frente en vez de asumir u=0.25 para todas
-  label.rotation.y = -((u0 === undefined ? 0.25 : u0) - 0.25) * arc;
+
   renderer.render(scene, camera);
   return true;
 };

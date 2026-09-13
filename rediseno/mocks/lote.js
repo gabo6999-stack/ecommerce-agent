@@ -16,7 +16,7 @@ const catalogo = JSON.parse(fs.readFileSync('catalogo.json', 'utf8'));
   for (let i = 0; i < catalogo.length; i++) {
     const c = catalogo[i];
     const t0 = Date.now();
-    await p.evaluate(([u, t, r]) => window.__vial(u, t, r), [c.archivo, !c.agua, c.u0]);
+    await p.evaluate(([u, t, r, e]) => window.__vial(u, t, r, e), [c.archivo, !c.agua, c.u0, c.escala]);
     const salida = 'vial-' + c.archivo.replace(/^label_/, '').replace(/\.png$/, '') + '.png';
     await p.locator('#c').screenshot({ path: salida });
     console.log(`[${i + 1}/${catalogo.length}] ${salida}  (${Math.round((Date.now() - t0) / 1000)}s)`);
