@@ -24,6 +24,19 @@ Lo que hace que lea como vidrio y no como plástico:
 Etiqueta envuelta con `thetaLength = 2pi·43/47.5` y `thetaStart = -0.25·arco`,
 que deja el bloque de texto de frente.
 
+### Tres fallos que costaron varias vueltas
+
+1. **Costura vertical** partiendo la tapa y el hombro: la causaba llamar
+   `computeVertexNormals()` sobre las geometrías torneadas. `LatheGeometry` ya
+   resuelve el empalme y esa llamada lo rompe. Se quitó.
+2. **Vial demasiado corto.** Con 35 mm de alto, una etiqueta de 22 mm se comía
+   toda la pared recta y quedaba pegada a la base. El vial pasa a 39 mm (5 ml),
+   con 27 mm de pared recta: sobran 3 mm de vidrio abajo y 2 arriba.
+3. **Fondo oscuro.** El vidrio transparente sobre negro lee negro, por
+   definición: no hay nada que transmitir. Las fotos de la competencia están
+   sobre blanco, y por eso su vidrio se ve limpio. El estudio pasó a claro y con
+   eso desapareció el aspecto de plástico negro.
+
 ### La tapa
 
 Anatomía real de un sello flip-off, que la primera versión tenía mal: corona
