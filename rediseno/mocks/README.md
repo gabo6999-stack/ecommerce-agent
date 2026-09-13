@@ -91,7 +91,7 @@ No son aproximación: son los valores vectoriales del archivo.
 
 | Color | Hex | Uso en la etiqueta |
 |---|---|---|
-| Magenta | `#FF047E` | Nombre, chip de pureza, hexágono, monograma |
+| Magenta | `#FF047E` | Nombre, chip de pureza, hexágono, monograma. **Solo en la etiqueta**: el flip-off va blanco satinado, como el de la competencia |
 | Aqua | `#02F6C8` | Banda de "Solo para investigación" |
 | Negro | `#161616` | Texto |
 

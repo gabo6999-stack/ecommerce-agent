@@ -107,7 +107,7 @@ const seal = new THREE.Mesh(sealGeo, new THREE.MeshStandardMaterial({
 }));
 scene.add(seal);
 
-// ── Flip-off: botón abombado y estrecho, no un disco del ancho del sello
+// ── Flip-off blanco satinado: el color va en la etiqueta, no en la tapa
 const flipPts = [
   new THREE.Vector2(0.01, 41.70),
   new THREE.Vector2(3.80, 41.70),
@@ -125,9 +125,9 @@ const flipPts = [
 ];
 const flipGeo = new THREE.LatheGeometry(flipPts, 320);
 const flip = new THREE.Mesh(flipGeo, new THREE.MeshPhysicalMaterial({
-  color: 0xff047e, roughness: 0.52, metalness: 0.0,
-  clearcoat: 0.18, clearcoatRoughness: 0.35,
-  side: THREE.DoubleSide, envMapIntensity: 0.85,
+  color: 0xeef1f0, roughness: 0.46, metalness: 0.0,
+  clearcoat: 0.25, clearcoatRoughness: 0.32,
+  side: THREE.DoubleSide, envMapIntensity: 0.95,
 }));
 scene.add(flip);
 
