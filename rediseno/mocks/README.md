@@ -41,10 +41,15 @@ que deja el bloque de texto de frente.
 
 Anatomía real de un sello flip-off, que la primera versión tenía mal: corona
 plana de aluminio con hueco central, falda con estrías finas (por `roughnessMap`,
-no por geometría) y rizo por debajo de la pestaña de vidrio. El botón de plástico
-es **estrecho y abombado** — ocupa poco más de la mitad del diámetro del sello y
-deja un anillo de aluminio visible alrededor. Un disco plano del ancho del sello
-lee como tapa de frasco, no como vial.
+no por geometría) y rizo por debajo de la pestaña de vidrio. El botón de plástico es **ancho y de tapa plana**, no una cúpula estrecha:
+ocupa casi toda la corona (radio 5.6 sobre un sello de 6.7) y deja un anillo de
+aluminio de menos de 1 mm alrededor, asentado dentro del hueco. Comprobado
+contra foto de un flip-off real.
+
+El canto del botón se redondea con **siete puntos de perfil**, no con dos: con
+menos, la silueta se ve facetada al ampliar, que es lo que se lee como
+«pixeleado». Los torneados del sello y del botón van a 320 segmentos radiales,
+y el render sale a 2000 × 2880 para que aguante el zoom.
 
 **La cámara tiene que ir por encima del sello** (y 43 contra los 37.3 de la tapa).
 Por debajo se ve el engaste desde abajo y el botón desaparece tras el borde: eso,

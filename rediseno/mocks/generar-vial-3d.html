@@ -8,7 +8,7 @@
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
-const W = 820, H = 1180;
+const W = 1000, H = 1440;
 const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true });
 renderer.setPixelRatio(2);
 renderer.setSize(W, H, false);
@@ -88,7 +88,7 @@ stop.visible = true; scene.add(stop);
 // ── Sello de aluminio engastado (20 mm), torneado con su perfil real:
 // corona plana con hueco central, falda con estrías y rizo por debajo de la
 // pestaña de vidrio. El disco plano anterior parecía tapa de frasco.
-const RB = 3.30;          // radio del botón flip-off
+const RB = 5.45;          // hueco de la corona donde se aloja el botón
 const sealPts = [
   new THREE.Vector2(RB,        39.23),
   new THREE.Vector2(RB + 0.24, 39.41),
@@ -100,7 +100,7 @@ const sealPts = [
   new THREE.Vector2(6.00,      34.87),
   new THREE.Vector2(5.55,      35.00),
 ];
-const sealGeo = new THREE.LatheGeometry(sealPts, 192);
+const sealGeo = new THREE.LatheGeometry(sealPts, 320);
 const seal = new THREE.Mesh(sealGeo, new THREE.MeshStandardMaterial({
   color: 0xc9d0d4, metalness: 1, roughness: 0.26,
   side: THREE.DoubleSide, envMapIntensity: 1.35,
@@ -118,7 +118,7 @@ for (let i = 0; i < 1024; i++) {
 const ridgeTex = new THREE.CanvasTexture(ridgeCan);
 ridgeTex.wrapS = ridgeTex.wrapT = THREE.RepeatWrapping;
 const skirt = new THREE.Mesh(
-  new THREE.CylinderGeometry(6.73, 6.73, 2.7, 192, 1, true),
+  new THREE.CylinderGeometry(6.73, 6.73, 2.7, 320, 1, true),
   new THREE.MeshStandardMaterial({
     color: 0xc4cbcf, metalness: 1, roughness: 0.3,
     roughnessMap: ridgeTex, envMapIntensity: 1.3, side: THREE.DoubleSide,
@@ -128,19 +128,25 @@ scene.add(skirt);
 
 // ── Flip-off: botón abombado y estrecho, no un disco del ancho del sello
 const flipPts = [
-  new THREE.Vector2(0.01, 40.90),
-  new THREE.Vector2(1.40, 40.85),
-  new THREE.Vector2(2.40, 40.69),
-  new THREE.Vector2(2.98, 40.39),
-  new THREE.Vector2(3.26, 39.97),
-  new THREE.Vector2(RB,   39.50),
-  new THREE.Vector2(RB,   39.10),
-  new THREE.Vector2(0.01, 39.10),
+  new THREE.Vector2(0.01, 41.26),
+  new THREE.Vector2(2.60, 41.26),
+  new THREE.Vector2(4.35, 41.25),   // tapa plana
+  new THREE.Vector2(4.86, 41.23),
+  new THREE.Vector2(5.16, 41.18),   // el canto se redondea con 7 puntos:
+  new THREE.Vector2(5.37, 41.09),   // con menos, la silueta sale facetada
+  new THREE.Vector2(5.51, 40.96),
+  new THREE.Vector2(5.58, 40.80),
+  new THREE.Vector2(5.60, 40.62),
+  new THREE.Vector2(5.60, 39.72),   // falda del botón
+  new THREE.Vector2(5.56, 39.44),
+  new THREE.Vector2(5.40, 39.30),
+  new THREE.Vector2(0.01, 39.30),
 ];
-const flipGeo = new THREE.LatheGeometry(flipPts, 128);
-const flip = new THREE.Mesh(flipGeo, new THREE.MeshStandardMaterial({
-  color: 0xff047e, roughness: 0.34, metalness: 0.0,
-  side: THREE.DoubleSide, envMapIntensity: 1.0,
+const flipGeo = new THREE.LatheGeometry(flipPts, 320);
+const flip = new THREE.Mesh(flipGeo, new THREE.MeshPhysicalMaterial({
+  color: 0xff047e, roughness: 0.52, metalness: 0.0,
+  clearcoat: 0.18, clearcoatRoughness: 0.35,
+  side: THREE.DoubleSide, envMapIntensity: 0.85,
 }));
 scene.add(flip);
 
