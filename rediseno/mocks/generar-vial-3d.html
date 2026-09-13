@@ -1,0 +1,141 @@
+<canvas id="c"></canvas>
+<style>html,body{margin:0;background:#060c0a}canvas{display:block}</style>
+<script type="importmap">
+{"imports":{"three":"/node_modules/three/build/three.module.js",
+            "three/addons/":"/node_modules/three/examples/jsm/"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const W = 820, H = 1180;
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true });
+renderer.setPixelRatio(2);
+renderer.setSize(W, H, false);
+renderer.toneMapping = THREE.NeutralToneMapping;
+renderer.toneMappingExposure = 1.0;
+
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const scene = new THREE.Scene();
+const bgCan = document.createElement('canvas'); bgCan.width = 16; bgCan.height = 512;
+const bgCtx = bgCan.getContext('2d');
+const bgGrad = bgCtx.createLinearGradient(0, 0, 0, 512);
+bgGrad.addColorStop(0, '#040a09'); bgGrad.addColorStop(.52, '#0d1d19');
+bgGrad.addColorStop(.72, '#0a1613'); bgGrad.addColorStop(1, '#05100d');
+bgCtx.fillStyle = bgGrad; bgCtx.fillRect(0, 0, 16, 512);
+const bgTex = new THREE.CanvasTexture(bgCan);
+bgTex.colorSpace = THREE.SRGBColorSpace;
+scene.background = bgTex;
+
+// Entorno de estudio: sin esto el vidrio no tiene nada que reflejar y se ve muerto
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(20, W / H, 1, 1000);
+camera.position.set(0, 27.5, 168);
+camera.lookAt(0, 17.5, 0);
+
+// ── Perfil del vial 2R: pared de 1.1 mm y fondo de 2.6 mm, torneado con lathe.
+// Modelar la pared interior de verdad es lo que da refracción creíble; con un
+// cilindro macizo el vidrio parece plástico.
+const p = [];
+const push = (x, y) => p.push(new THREE.Vector2(x, y));
+push(0.01, 0); push(6.8, 0); push(7.4, 0.6);            // base exterior
+push(7.5, 2); push(7.5, 26);                             // cuerpo
+push(7.3, 28.2); push(5.6, 30.2); push(4.6, 31.4);       // hombro
+push(4.6, 33.2); push(5.35, 33.6); push(5.35, 34.6);     // cuello y pestaña
+push(4.25, 34.6);                                        // borde superior
+push(4.25, 33.0); push(3.5, 31.2);                       // pared interior del cuello
+push(5.0, 29.6); push(6.4, 27.6);
+push(6.4, 2.6); push(0.01, 2.6);                         // fondo interior grueso
+const glassGeo = new THREE.LatheGeometry(p, 192);
+glassGeo.computeVertexNormals();
+const glass = new THREE.MeshPhysicalMaterial({
+  color: 0xffffff, metalness: 0, roughness: 0.045,
+  transmission: 1, thickness: 2.4, ior: 1.52,
+  attenuationColor: new THREE.Color(0xcfe8dc), attenuationDistance: 42,
+  clearcoat: 0.35, clearcoatRoughness: 0.06, envMapIntensity: 1.5,
+});
+scene.add(new THREE.Mesh(glassGeo, glass));
+
+// ── Etiqueta: 43 mm sobre un perímetro de 47.7 mm, con el bloque de texto al frente
+const tex = await new THREE.TextureLoader().loadAsync('label_hi.png');
+tex.colorSpace = THREE.SRGBColorSpace;
+tex.anisotropy = 8;
+const RLAB = 7.56, LW = 43, arc = (2 * Math.PI * LW) / (2 * Math.PI * RLAB);
+const labGeo = new THREE.CylinderGeometry(RLAB, RLAB, 22, 256, 1, true, -0.25 * arc, arc);
+const label = new THREE.Mesh(labGeo, new THREE.MeshStandardMaterial({
+  map: tex, roughness: 0.78, metalness: 0, side: THREE.DoubleSide, envMapIntensity: 0.7,
+}));
+label.position.y = 16.0;
+scene.add(label);
+
+// ── Torta liofilizada
+const cake = new THREE.Mesh(
+  new THREE.CylinderGeometry(6.35, 6.35, 5.2, 96),
+  new THREE.MeshStandardMaterial({ color: 0xf4f3ee, roughness: 0.96, metalness: 0 }));
+cake.position.y = 2.6 + 2.6;
+cake.visible = true; scene.add(cake);
+
+// ── Tapón de bromobutilo
+const stop = new THREE.Mesh(
+  new THREE.CylinderGeometry(4.2, 4.2, 5.4, 64),
+  new THREE.MeshStandardMaterial({ color: 0x35383d, roughness: 0.82, metalness: 0 }));
+stop.position.y = 32.2;
+stop.visible = true; scene.add(stop);
+
+// ── Sello de aluminio engastado
+const crimp = new THREE.Mesh(
+  new THREE.CylinderGeometry(6.15, 6.05, 5.6, 128),
+  new THREE.MeshStandardMaterial({ color: 0xcfd5d8, metalness: 1, roughness: 0.23, envMapIntensity: 1.4 }));
+crimp.position.y = 32.6;
+crimp.visible = true; scene.add(crimp);
+const ring = new THREE.Mesh(
+  new THREE.TorusGeometry(6.05, 0.32, 16, 128),
+  new THREE.MeshStandardMaterial({ color: 0xe4e9eb, metalness: 1, roughness: 0.18 }));
+ring.rotation.x = Math.PI / 2; ring.position.y = 35.3; scene.add(ring);
+
+// ── Flip-off magenta de marca
+const flip = new THREE.Mesh(
+  new THREE.CylinderGeometry(4.55, 4.55, 2.2, 96),
+  new THREE.MeshStandardMaterial({ color: 0xff047e, roughness: 0.36, metalness: 0.05, envMapIntensity: 1.1 }));
+flip.position.y = 36.3;
+flip.visible = true; scene.add(flip);
+
+// ── Suelo y luces
+// Sin suelo: un plano iluminado por el entorno sale gris y parte la imagen.
+// En su lugar, charco de sombra con alfa, que es como se monta un bodegón.
+const shCan = document.createElement('canvas'); shCan.width = shCan.height = 256;
+const shCtx = shCan.getContext('2d');
+const shGrad = shCtx.createRadialGradient(128, 128, 4, 128, 128, 126);
+shGrad.addColorStop(0, 'rgba(0,0,0,.92)'); shGrad.addColorStop(.35, 'rgba(0,0,0,.45)');
+shGrad.addColorStop(.7, 'rgba(0,0,0,.12)'); shGrad.addColorStop(1, 'rgba(0,0,0,0)');
+shCtx.fillStyle = shGrad; shCtx.fillRect(0, 0, 256, 256);
+const shTex = new THREE.CanvasTexture(shCan);
+const shadow = new THREE.Mesh(new THREE.PlaneGeometry(46, 30),
+  new THREE.MeshBasicMaterial({ map: shTex, transparent: true, depthWrite: false }));
+shadow.rotation.x = -Math.PI / 2; shadow.position.y = 0.05; scene.add(shadow);
+
+// Cartulina de rebote detrás del vial: sin ella el vidrio no transmite nada
+// y el hombro sale negro con brillos de plástico.
+const cardCan = document.createElement('canvas'); cardCan.width = cardCan.height = 256;
+const cCtx = cardCan.getContext('2d');
+const cGrad = cCtx.createRadialGradient(128, 96, 8, 128, 120, 132);
+cGrad.addColorStop(0, 'rgba(96,168,150,.95)'); cGrad.addColorStop(.30, 'rgba(56,112,99,.72)');
+cGrad.addColorStop(.62, 'rgba(28,62,54,.30)'); cGrad.addColorStop(1, 'rgba(10,21,18,0)');
+cCtx.fillStyle = cGrad; cCtx.fillRect(0, 0, 256, 256);
+const cardTex = new THREE.CanvasTexture(cardCan);
+cardTex.colorSpace = THREE.SRGBColorSpace;
+const card = new THREE.Mesh(new THREE.PlaneGeometry(46, 78),
+  new THREE.MeshBasicMaterial({ map: cardTex, transparent: true, depthWrite: false }));
+card.position.set(0, 20, -24); scene.add(card);
+
+const key = new THREE.DirectionalLight(0xffffff, 2.6); key.position.set(-38, 52, 34);
+scene.add(key);
+const rim = new THREE.DirectionalLight(0xd8fff2, 1.9); rim.position.set(44, 26, -30); scene.add(rim);
+const fill = new THREE.DirectionalLight(0xffffff, 0.55); fill.position.set(16, 10, 60); scene.add(fill);
+
+renderer.render(scene, camera);
+window.__listo = true;
+</script>
