@@ -36,6 +36,7 @@ vivexa_audit.json
 # Optima: tipografía con licencia y este repo es público. Los archivos viven
 # en rediseno/mocks/fuentes/ (fuente) y rediseno/fonts/ (woff2 generados).
 # Ver rediseno/mocks/fuentes/README.md
-rediseno/fonts/*.woff2
+# IBM Plex Mono sí se versiona: es OFL. Optima no.
+rediseno/fonts/optima-*.woff2
 rediseno/mocks/fuentes/*.ttf
 rediseno/mocks/fuentes/*.TTF
