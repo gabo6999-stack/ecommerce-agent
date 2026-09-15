@@ -1,0 +1,122 @@
+[
+ {
+  "archivo": "label_retatrutida-30-mg.png",
+  "nombre": "RETATRUTIDA 30 MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-retatrutida-30-mg.jpg"
+ },
+ {
+  "archivo": "label_agua-bacteriostatica-0-9-alcohol-bencilico.png",
+  "nombre": "AGUA BACTERIOSTÁTICA 0.9% ALCOHOL BENCÍLICO",
+  "agua": true,
+  "u0": 0.3396,
+  "escala": 1.38,
+  "web": "vial-agua-bacteriostatica-0-9-alcohol-bencilico.jpg"
+ },
+ {
+  "archivo": "label_mots-c-40-mg.png",
+  "nombre": "MOTS-c 40 MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-mots-c-40-mg.jpg"
+ },
+ {
+  "archivo": "label_nad-500-mg.png",
+  "nombre": "NAD + 500 MG",
+  "agua": false,
+  "u0": 0.2782,
+  "escala": 1.0,
+  "web": "vial-nad-500-mg.jpg"
+ },
+ {
+  "archivo": "label_igf-1-lr3-1-mg.png",
+  "nombre": "IGF-1 LR3 1 MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-igf-1-lr3-1-mg.jpg"
+ },
+ {
+  "archivo": "label_ghk-cu-100-mg.png",
+  "nombre": "GHK-Cu 100 MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-ghk-cu-100-mg.jpg"
+ },
+ {
+  "archivo": "label_cjc-1295-ipamorelin-no-dac-5-5mg.png",
+  "nombre": "CJC-1295 +IPAMORELIN NO DAC · 5/5MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-cjc-1295-ipamorelin-no-dac-5-5mg.jpg"
+ },
+ {
+  "archivo": "label_bpc-157-tb500-5-5mg.png",
+  "nombre": "BPC-157 + TB500 5/5MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-bpc-157-tb500-5-5mg.jpg"
+ },
+ {
+  "archivo": "label_tirzepatida-30-mg.png",
+  "nombre": "Tirzepatida 30 MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-tirzepatida-30-mg.jpg"
+ },
+ {
+  "archivo": "label_tirzepatida-60-mg.png",
+  "nombre": "Tirzepatida 60 MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-tirzepatida-60-mg.jpg"
+ },
+ {
+  "archivo": "label_semaglutida-20-mg.png",
+  "nombre": "Semaglutida 20 MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-semaglutida-20-mg.jpg"
+ },
+ {
+  "archivo": "label_semaglutida-5-mg.png",
+  "nombre": "Semaglutida 5 MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-semaglutida-5-mg.jpg"
+ },
+ {
+  "archivo": "label_mots-c-10-mg.png",
+  "nombre": "MOTS-c 10 MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-mots-c-10-mg.jpg"
+ },
+ {
+  "archivo": "label_selank-10-mg.png",
+  "nombre": "Selank 10 MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-selank-10-mg.jpg"
+ },
+ {
+  "archivo": "label_sermorelin-10-mg.png",
+  "nombre": "Sermorelin 10 MG",
+  "agua": false,
+  "u0": 0.25,
+  "escala": 1.0,
+  "web": "vial-sermorelin-10-mg.jpg"
+ }
+]
