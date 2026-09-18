@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="es-MX">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Editorial científica PYS</title>
@@ -428,11 +430,14 @@ footer{border-top:1px solid var(--linea-2);padding-block:44px 30px;margin-top:cl
   traza.setAttribute("d", d);
 
   if (!quieto && animate && inView){
-    const largo = traza.getTotalLength();
-    traza.style.strokeDasharray = largo;
-    traza.style.strokeDashoffset = largo;
+    /* pathLength y no strokeDashoffset: motion no reconoce esa clave y la
+       animación no llegaba a correr. */
+    traza.setAttribute("pathLength", "1");
+    /* atributo, no estilo en línea: motion escribe el dasharray de
+       pathLength en el atributo y el estilo en línea le ganaría */
+    traza.setAttribute("stroke-dasharray", "0 1");
     inView(traza, () => {
-      animate(traza, { strokeDashoffset: [largo, 0] }, { duration: 2.4, ease: "easeInOut" });
+      animate(traza, { pathLength: [0, 1] }, { duration: 2.4, ease: "easeInOut" });
     }, { amount: 0.1 });
   }
 
@@ -492,3 +497,4 @@ footer{border-top:1px solid var(--linea-2);padding-block:44px 30px;margin-top:cl
   }
 })();
 </script>
+</html>
