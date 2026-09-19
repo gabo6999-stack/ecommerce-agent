@@ -15,6 +15,193 @@ app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
 
+# ═══════════════════════════════════════════════════════════════════════
+# PUERTA DE ACCESO
+#
+# Esta aplicación no tenía ninguna: ni decorador, ni before_request, ni
+# clave. Y expone unos cuarenta POST que escriben en sitios en vivo
+# —/pys-product-update reescribe fichas de producto, /raditech-page-update
+# reescribe páginas, /save-as-gutenberg sustituye contenido— más /chat, que
+# gasta la clave de Anthropic. Las URLs de Railway son públicas, así que
+# cualquiera que diera con el dominio podía usarlos. No había que adivinar
+# una contraseña: no había ninguna.
+#
+# Dos formas de entrar, porque hay dos usos:
+#   · Navegador  → contraseña en /login, que deja una sesión firmada.
+#   · Programa   → cabecera `X-API-Key` con el token.
+#
+# Se cierra por defecto: si no hay PANEL_PASSWORD ni API_TOKEN en el
+# entorno, la aplicación responde 503 y no atiende nada. Fallar cerrado es
+# la única opción sensata aquí — fallar abierto es exactamente el fallo que
+# esto viene a arreglar.
+#
+# En Railway → Variables:
+#   PANEL_PASSWORD     contraseña larga para entrar por el navegador
+#   API_TOKEN          token para las llamadas programáticas
+#   FLASK_SECRET_KEY   fija, o cada reinicio cierra la sesión de todos
+# ═══════════════════════════════════════════════════════════════════════
+
+import hmac
+from flask import url_for
+
+PANEL_PASSWORD = os.environ.get("PANEL_PASSWORD", "")
+API_TOKEN      = os.environ.get("API_TOKEN", "")
+
+if not os.environ.get("FLASK_SECRET_KEY"):
+    print("[acceso] AVISO: FLASK_SECRET_KEY no está fija. La clave se regenera "
+          "en cada arranque, así que cada despliegue cierra la sesión de todos.")
+if not PANEL_PASSWORD and not API_TOKEN:
+    print("[acceso] CERRADO: faltan PANEL_PASSWORD y API_TOKEN. La aplicación "
+          "no atenderá ninguna petición hasta que se configuren.")
+
+app.config.update(
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE="Lax",   # 'Strict' rompería la vuelta de OAuth de Google
+    SESSION_COOKIE_SECURE=os.environ.get("PANEL_COOKIE_INSEGURA") != "1",
+    PERMANENT_SESSION_LIFETIME=timedelta(days=14),
+)
+
+# /healthz para que Railway compruebe el estado sin credenciales
+RUTAS_ABIERTAS = {"/healthz", "/login", "/logout"}
+
+_intentos = {}          # ip -> (fallos, momento del primer fallo)
+LIMITE_INTENTOS = 8
+VENTANA_INTENTOS = 600  # 10 minutos
+
+
+def _igual(a, b):
+    """Comparación en tiempo constante que aguanta acentos.
+
+    `hmac.compare_digest` sobre `str` solo admite ASCII: con una contraseña
+    que lleve ñ o tilde —lo normal aquí— levanta TypeError, /login responde
+    500 y no entra nadie, ni el dueño. Se comparan los bytes.
+    """
+    return hmac.compare_digest((a or "").encode("utf-8"), (b or "").encode("utf-8"))
+
+
+def _ip_cliente():
+    reenviado = request.headers.get("X-Forwarded-For", "")
+    return (reenviado.split(",")[0].strip() if reenviado else request.remote_addr) or "?"
+
+
+def _throttled(ip):
+    fallos, desde = _intentos.get(ip, (0, 0))
+    if time.time() - desde > VENTANA_INTENTOS:
+        return False
+    return fallos >= LIMITE_INTENTOS
+
+
+def _apunta_fallo(ip):
+    fallos, desde = _intentos.get(ip, (0, 0))
+    if time.time() - desde > VENTANA_INTENTOS:
+        fallos, desde = 0, time.time()
+    _intentos[ip] = (fallos + 1, desde or time.time())
+
+
+def _quiere_html():
+    return "text/html" in (request.headers.get("Accept") or "")
+
+
+@app.before_request
+def _exigir_acceso():
+    if request.method == "OPTIONS":
+        return None
+    ruta = request.path
+    if ruta in RUTAS_ABIERTAS or ruta.startswith("/static/"):
+        return None
+
+    if not PANEL_PASSWORD and not API_TOKEN:
+        return jsonify({
+            "error": "aplicación cerrada",
+            "detalle": "Faltan PANEL_PASSWORD y API_TOKEN en las variables de entorno. "
+                       "Se cierra por seguridad en vez de quedar abierta al público.",
+        }), 503
+
+    token = request.headers.get("X-API-Key", "")
+    if API_TOKEN and token and _igual(token, API_TOKEN):
+        return None
+
+    if session.get("acceso") is True:
+        return None
+
+    if _quiere_html():
+        return redirect(url_for("login", siguiente=request.full_path))
+    return jsonify({"error": "no autorizado",
+                    "detalle": "Manda la cabecera X-API-Key, o entra por /login."}), 401
+
+
+@app.route("/healthz")
+def healthz():
+    return jsonify({
+        "ok": True,
+        "acceso_configurado": bool(PANEL_PASSWORD or API_TOKEN),
+    })
+
+
+_LOGIN_HTML = """<!doctype html>
+<html lang="es-MX"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acceso</title>
+<style>
+ :root{color-scheme:dark}
+ body{margin:0;min-height:100vh;display:grid;place-items:center;background:#050908;color:#EEF6F3;
+      font:16px/1.5 ui-sans-serif,system-ui,sans-serif}
+ form{width:min(340px,90vw);display:flex;flex-direction:column;gap:14px}
+ h1{margin:0 0 6px;font-size:19px;font-weight:500}
+ p{margin:0;color:#93AAA3;font-size:13px}
+ input{padding:12px 13px;border:1px solid #22362F;border-radius:3px;background:#0F1A17;
+       color:inherit;font-size:15px}
+ input:focus{outline:2px solid #FF047E;outline-offset:2px}
+ button{padding:12px;border:0;border-radius:3px;background:#FF047E;color:#fff;font-size:15px;
+        cursor:pointer}
+ .mal{color:#FF7AA8;font-size:13px}
+</style>
+<form method="post">
+  <h1>Agente PYS</h1>
+  <p>Este panel escribe en sitios en vivo. Hace falta la contraseña.</p>
+  <input type="hidden" name="siguiente" value="__SIGUIENTE__">
+  <input type="password" name="password" placeholder="Contraseña" autofocus
+         autocomplete="current-password" required>
+  <button type="submit">Entrar</button>
+  __ERROR__
+</form>
+</html>"""
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    error = ""
+    siguiente = request.values.get("siguiente") or "/"
+    if not siguiente.startswith("/"):
+        siguiente = "/"          # nada de redirigir a otro dominio
+
+    if request.method == "POST":
+        ip = _ip_cliente()
+        if _throttled(ip):
+            error = "Demasiados intentos. Espera diez minutos."
+        elif not PANEL_PASSWORD:
+            error = "No hay PANEL_PASSWORD configurada en el entorno."
+        elif _igual(request.form.get("password", ""), PANEL_PASSWORD):
+            session.permanent = True
+            session["acceso"] = True
+            _intentos.pop(ip, None)
+            return redirect(siguiente)
+        else:
+            _apunta_fallo(ip)
+            error = "Contraseña incorrecta."
+
+    from markupsafe import escape
+    html = _LOGIN_HTML.replace("__SIGUIENTE__", str(escape(siguiente)))
+    html = html.replace("__ERROR__", '<p class="mal">' + str(escape(error)) + "</p>" if error else "")
+    return html, (401 if error else 200)
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
+
+
 def notify_nexus(action, detail=None, url=None):
     """Reporta una actividad a NEXUS (Centro de Comando). Solo corre si hay NEXUS_URL y NEXUS_KEY."""
     nexus_url = os.environ.get("NEXUS_URL")
