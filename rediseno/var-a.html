@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="es-MX">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editorial científica PYS</title>
+<style>
+/* ════════════════════════════════════════════════════════════════════
+   VARIANTE A · EDITORIAL CIENTÍFICA
+   La página como una revista científica: rejilla estricta y visible,
+   tipografía enorme, cero adorno. La única imagen es la línea del
+   cromatograma; los viales solo aparecen al pasar por el índice.
+   Un solo peso de Optima: la jerarquía sale de escala, versalita y aire.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* IBM Plex Mono — SIL Open Font License 1.1, © IBM Corp.
+   Auto-hospedada igual que Optima: el prototipo no depende de ningún CDN. */
+@font-face{font-family:"Plex Mono";src:url(fonts/plex-mono-400.woff2) format("woff2");
+           font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Plex Mono";src:url(fonts/plex-mono-500.woff2) format("woff2");
+           font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Plex Mono";src:url(fonts/plex-mono-600.woff2) format("woff2");
+           font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Optima PYS";src:url(fonts/optima-500.woff2) format("woff2");
+           font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Optima PYS";src:url(fonts/optima-400-italic.woff2) format("woff2");
+           font-weight:400 700;font-style:italic;font-display:swap}
+
+:root{
+  color-scheme:dark;
+  /* Sin modo claro, el magenta real de imprenta (#FF047E) ya da 5.26:1
+     sobre el fondo y pasa AA. El #E1145C era una concesión al fondo blanco. */
+  --negro:#060B09; --carbon:#0B1411; --carbon-2:#101D19;
+  --linea:#182A25; --linea-2:#243B35;
+  --tinta:#ECF5F2; --tinta-2:#93AAA3; --tinta-3:#718C84;
+  --magenta:#FF047E; --aqua:#02F6C8; --violeta:#9B83F2;
+  --optima:Optima,"Optima nova LT Pro","Optima PYS",Candara,"Gill Sans",sans-serif;
+  --mono:"Plex Mono",ui-monospace,Consolas,monospace;
+  --gutter:clamp(18px,4.2vw,64px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--negro);color:var(--tinta);font-family:var(--optima);
+     font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{margin:0;font-weight:400;letter-spacing:0;line-height:1}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--magenta);outline-offset:4px}
+
+/* ── la rejilla, visible: es el argumento de esta variante ─────────── */
+.rejilla{position:fixed;inset:0;z-index:0;pointer-events:none;
+  padding-inline:var(--gutter);display:grid;grid-template-columns:repeat(12,1fr)}
+.rejilla i{border-left:1px solid var(--linea);opacity:.55}
+.rejilla i:last-child{border-right:1px solid var(--linea)}
+@media (max-width:780px){ .rejilla i:nth-child(n+7){display:none} .rejilla{grid-template-columns:repeat(6,1fr)} }
+
+.hoja{position:relative;z-index:1;padding-inline:var(--gutter)}
+.fila{display:grid;grid-template-columns:repeat(12,1fr);gap:0}
+
+/* ── versalita: el único recurso de jerarquía además del tamaño ────── */
+.vs{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--tinta-3);
+    line-height:1.4}
+.vs-m{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--tinta-3)}
+.dato{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ── cabecera ──────────────────────────────────────────────────────── */
+header.top{position:relative;z-index:3;display:flex;justify-content:space-between;
+  align-items:baseline;gap:20px;padding:22px 0 18px;border-bottom:1px solid var(--linea-2)}
+.marca{display:flex;align-items:baseline;gap:12px}
+.marca .mono-b{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--magenta)}
+.marca .nom{font-size:19px;letter-spacing:.01em}
+nav.top-nav{display:flex;gap:26px}
+nav.top-nav a{position:relative}
+nav.top-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:1px;
+  background:var(--magenta);transition:right .3s cubic-bezier(.22,.61,.36,1)}
+nav.top-nav a:hover::after{right:0}
+@media (max-width:720px){ nav.top-nav{display:none} }
+
+/* ── portada ───────────────────────────────────────────────────────── */
+.portada{padding-block:clamp(30px,4.6vw,58px) 0;min-height:calc(100vh - 90px);
+  display:flex;flex-direction:column;justify-content:space-between}
+.titular{font-size:clamp(44px,8.2vw,116px);line-height:.95;letter-spacing:-.012em;
+  max-width:15ch;margin-block:clamp(20px,3vw,36px) 0}
+/* cada renglón entra con una cortina, no con un fade: se "compone" */
+.ren{display:block;overflow:hidden}
+.ren>span{display:block;transform:translateY(102%)}
+.titular em{font-style:normal;color:var(--magenta)}
+
+.bajada{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter);
+  margin-top:clamp(24px,3.4vw,40px);align-items:end}
+.bajada .txt{grid-column:1/span 6;color:var(--tinta-2);font-size:clamp(16px,1.35vw,19px);max-width:44ch}
+.bajada .ficha{grid-column:9/span 4;display:flex;flex-direction:column;gap:9px;
+  border-top:1px solid var(--linea-2);padding-top:12px}
+.bajada .ficha div{display:flex;justify-content:space-between;gap:14px}
+.bajada .ficha b{font-weight:400;font-family:var(--mono);font-size:12.5px;color:var(--tinta)}
+@media (max-width:860px){ .bajada .txt{grid-column:1/-1} .bajada .ficha{grid-column:1/-1;margin-top:26px} }
+
+.acciones{display:flex;gap:14px;margin-top:clamp(22px,3vw,34px);flex-wrap:wrap}
+.btn{font-family:var(--optima);font-size:16px;padding:14px 26px;border:1px solid var(--linea-2);
+  display:inline-flex;align-items:center;gap:10px;transition:border-color .2s,color .2s,background .2s}
+.btn.pri{background:var(--magenta);border-color:var(--magenta);color:#fff}
+.btn:hover{border-color:var(--tinta)}
+.btn.pri:hover{background:#FF3D97;border-color:#FF3D97}
+
+/* el cromatograma como filete, a sangre: se dibuja solo */
+.traza{margin-top:clamp(26px,3.6vw,48px);margin-inline:calc(var(--gutter)*-1);
+  border-top:1px solid var(--linea-2);border-bottom:1px solid var(--linea-2);padding-block:6px}
+.traza svg{display:block;width:100%;height:clamp(90px,13vw,170px)}
+.traza path{fill:none;stroke:var(--aqua);stroke-width:1.25;vector-effect:non-scaling-stroke}
+.traza .base{stroke:var(--linea-2);stroke-width:1}
+.traza .pico{fill:var(--tinta-3);font-family:var(--mono);font-size:8px;letter-spacing:.1em}
+
+/* ── cifras ────────────────────────────────────────────────────────── */
+.cifras{border-bottom:1px solid var(--linea-2);display:grid;grid-template-columns:repeat(4,1fr)}
+.cifra{padding:clamp(28px,4vw,52px) 0 clamp(24px,3.4vw,44px);border-left:1px solid var(--linea);
+  padding-left:clamp(14px,1.6vw,24px)}
+.cifra:first-child{border-left:none;padding-left:0}
+.cifra .n{font-size:clamp(34px,4.6vw,68px);line-height:.95;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums}
+.cifra .n small{font-size:.42em;letter-spacing:.02em;color:var(--tinta-2);margin-left:.15em}
+.cifra .l{margin-top:12px;max-width:20ch}
+@media (max-width:760px){ .cifras{grid-template-columns:repeat(2,1fr)}
+  .cifra:nth-child(3){border-left:none;padding-left:0}
+  .cifra:nth-child(n+3){border-top:1px solid var(--linea)} }
+
+/* ── índice / catálogo ─────────────────────────────────────────────── */
+section{padding-block:clamp(56px,8vw,120px)}
+.sec-cab{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter);
+  align-items:baseline;margin-bottom:clamp(26px,3.6vw,48px)}
+.sec-cab .vs{grid-column:1/span 3}
+.sec-cab h2{grid-column:4/span 6;font-size:clamp(30px,4.6vw,62px);letter-spacing:-.015em}
+.sec-cab .der{grid-column:11/span 2;text-align:right}
+@media (max-width:860px){ .sec-cab .vs,.sec-cab h2,.sec-cab .der{grid-column:1/-1;text-align:left}
+  .sec-cab h2{margin-top:10px} }
+
+.indice{border-top:1px solid var(--linea-2)}
+.ren-prod{display:grid;grid-template-columns:44px 1fr 90px 90px 110px;gap:clamp(10px,2vw,26px);
+  align-items:baseline;padding-block:clamp(15px,1.9vw,24px);border-bottom:1px solid var(--linea);
+  cursor:pointer;transition:background .22s;position:relative}
+.ren-prod:hover{background:var(--carbon)}
+.ren-prod::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:0;
+  background:var(--magenta);transition:width .45s cubic-bezier(.22,.61,.36,1)}
+.ren-prod:hover::before{width:100%}
+.ren-prod .num{font-family:var(--mono);font-size:11px;color:var(--tinta-3);letter-spacing:.06em}
+.ren-prod .nom{font-size:clamp(19px,2.3vw,30px);letter-spacing:-.005em;transition:color .22s}
+.ren-prod:hover .nom{color:var(--magenta)}
+.ren-prod .nom span{display:block;font-size:13px;color:var(--tinta-3);letter-spacing:0;margin-top:3px}
+.ren-prod .d{font-family:var(--mono);font-size:12.5px;color:var(--tinta-2);text-align:right}
+.ren-prod .p{font-family:var(--mono);font-size:15px;text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:820px){
+  .ren-prod{grid-template-columns:34px 1fr auto;row-gap:4px}
+  .ren-prod .d:first-of-type{display:none}
+  .ren-prod .d{grid-column:2;text-align:left;font-size:11.5px}
+  .ren-prod .p{grid-column:3;grid-row:1}
+}
+
+/* el vial que persigue al cursor: la firma de esta variante */
+#lupa{position:fixed;z-index:20;pointer-events:none;width:210px;opacity:0;
+  transform:translate(-50%,-50%) scale(.9);will-change:transform,opacity;
+  filter:drop-shadow(0 24px 40px rgba(0,0,0,.65))}
+#lupa img{display:block;width:100%;background:#F2F6F5;border:1px solid var(--linea-2)}
+@media (hover:none){ #lupa{display:none} }
+
+/* ── método ────────────────────────────────────────────────────────── */
+.metodo{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);
+  border-top:1px solid var(--linea-2)}
+.paso{padding-top:26px;border-left:1px solid var(--linea);padding-left:clamp(14px,1.6vw,24px)}
+.paso:first-child{border-left:none;padding-left:0}
+.paso h3{font-size:clamp(21px,2.3vw,30px);margin-block:14px 12px;letter-spacing:-.01em}
+.paso p{color:var(--tinta-2);font-size:15.5px}
+.paso .ord{font-family:var(--mono);font-size:11px;color:var(--magenta);letter-spacing:.14em}
+@media (max-width:820px){ .metodo{grid-template-columns:1fr}
+  .paso{border-left:none;padding-left:0;border-top:1px solid var(--linea);margin-top:22px} }
+
+/* ── referencias ───────────────────────────────────────────────────── */
+.refs{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter);margin-top:clamp(40px,5vw,72px)}
+.refs ul{grid-column:5/span 8;list-style:none;margin:0;padding:0}
+.refs li{border-top:1px solid var(--linea);padding-block:18px;display:grid;
+  grid-template-columns:1fr 200px;gap:20px;align-items:baseline}
+.refs li p{color:var(--tinta-2);font-size:15.5px}
+.refs li b{font-weight:400;color:var(--tinta)}
+.refs li .pmid{font-family:var(--mono);font-size:11px;color:var(--aqua);letter-spacing:.06em;text-align:right}
+.refs .titulo{grid-column:1/span 3}
+@media (max-width:860px){ .refs ul,.refs .titulo{grid-column:1/-1}
+  .refs li{grid-template-columns:1fr} .refs li .pmid{text-align:left} }
+
+/* ── pie ───────────────────────────────────────────────────────────── */
+footer{border-top:1px solid var(--linea-2);padding-block:44px 30px;margin-top:clamp(40px,6vw,90px)}
+.pie-cols{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter)}
+.pie-cols .aviso{grid-column:1/span 5;color:var(--tinta-2);font-size:14px;line-height:1.6}
+.pie-cols .cols{grid-column:7/span 6;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pie-cols h4{margin:0 0 12px;font-weight:400}
+.pie-cols ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.pie-cols a{color:var(--tinta-2)}
+.pie-cols a:hover{color:var(--tinta)}
+.fin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:40px;
+  padding-top:18px;border-top:1px solid var(--linea)}
+@media (max-width:860px){ .pie-cols .aviso,.pie-cols .cols{grid-column:1/-1}
+  .pie-cols .cols{margin-top:30px} }
+
+/* ── cambiador de variante ─────────────────────────────────────────── */
+.switch{position:fixed;z-index:30;right:18px;bottom:18px;
+  display:flex;gap:1px;background:var(--linea-2);border:1px solid var(--linea-2);
+  border-radius:2px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.switch a{background:var(--carbon-2);padding:8px 12px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-3);transition:color .18s,background .18s}
+.switch a:hover{color:var(--tinta)}
+.switch a[aria-current]{background:var(--magenta);color:#fff}
+@media (max-width:560px){
+  .switch{right:10px;bottom:10px}
+  .switch a{padding:8px 10px;font-size:9.5px;letter-spacing:.06em}
+  .switch a span{display:none}      /* en móvil basta la letra */
+}
+</style>
+
+<div class="rejilla" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="hoja">
+
+<header class="top">
+  <div class="marca">
+    <span class="mono-b">P&amp;S</span>
+    <span class="nom">Péptidos y Suplementos</span>
+  </div>
+  <nav class="top-nav">
+    <a href="#indice">Índice</a>
+    <a href="#metodo">Método</a>
+    <a href="#refs">Referencias</a>
+  </nav>
+  <span class="vs-m">MX · 2026</span>
+</header>
+
+<div class="portada">
+  <div>
+    <span class="vs" data-rev>Péptidos de investigación · certificado por lote</span>
+
+    <h1 class="titular">
+      <span class="ren"><span>Cada vial sale</span></span>
+      <span class="ren"><span>con su <em>cromatograma</em>.</span></span>
+    </h1>
+
+    <div class="bajada">
+      <p class="txt" data-rev>Pureza verificada por HPLC, masa confirmada por espectrometría y
+        ficha técnica con referencias que puedes comprobar en PubMed. Nada que no podamos enseñarte.</p>
+      <div class="ficha" data-rev>
+        <div><span class="vs">Lote</span><b>PYS-2609-RT</b></div>
+        <div><span class="vs">Liberado</span><b>04 SEP 2026</b></div>
+        <div><span class="vs">Método</span><b>HPLC-UV 214 nm</b></div>
+        <div><span class="vs">Pureza</span><b style="color:var(--aqua)">99.24 %</b></div>
+      </div>
+    </div>
+
+    <div class="acciones" data-rev>
+      <a class="btn pri" href="#indice">Ver el índice</a>
+      <a class="btn" href="#metodo">Cómo se lee un COA</a>
+    </div>
+  </div>
+
+  <div class="traza">
+    <svg id="svg-traza" viewBox="0 0 1200 200" preserveAspectRatio="none" role="img"
+         aria-label="Cromatograma del lote PYS-2609-RT, pico principal 99.24 % a 8.42 minutos">
+      <line class="base" x1="0" y1="176" x2="1200" y2="176"/>
+      <path id="p-traza"></path>
+    </svg>
+  </div>
+</div>
+
+<div class="cifras">
+  <div class="cifra"><div class="n"><span data-num="99.24" data-dec="2">0</span><small>%</small></div>
+    <div class="vs l">pureza del lote en curso</div></div>
+  <div class="cifra"><div class="n"><span data-num="18">0</span></div>
+    <div class="vs l">referencias en catálogo</div></div>
+  <div class="cifra"><div class="n"><span data-num="15">0</span></div>
+    <div class="vs l">certificados publicados</div></div>
+  <div class="cifra"><div class="n"><span data-num="24">0</span><small>–48 h</small></div>
+    <div class="vs l">entrega nacional</div></div>
+</div>
+
+<section id="indice">
+  <div class="sec-cab">
+    <span class="vs">Catálogo</span>
+    <h2>Índice de péptidos</h2>
+    <span class="vs-m der">15 REF.</span>
+  </div>
+
+  <div class="indice" id="lista"></div>
+</section>
+
+<section id="metodo">
+  <div class="sec-cab">
+    <span class="vs">Procedimiento</span>
+    <h2>Lo que pasa antes de que llegue</h2>
+  </div>
+  <div class="metodo">
+    <div class="paso" data-rev>
+      <span class="ord">01</span>
+      <h3>Se corre el HPLC</h3>
+      <p>Cada lote entra al cromatógrafo antes de envasarse. El detector UV a 214 nm separa el
+        péptido de lo que no es péptido, y el área bajo el pico es la pureza.</p>
+    </div>
+    <div class="paso" data-rev>
+      <span class="ord">02</span>
+      <h3>Se confirma la masa</h3>
+      <p>La espectrometría dice si la molécula pesa lo que debe pesar. Un péptido con la pureza
+        correcta pero la masa equivocada es otro compuesto.</p>
+    </div>
+    <div class="paso" data-rev>
+      <span class="ord">03</span>
+      <h3>Se publica el COA</h3>
+      <p>El certificado se sube con su número de lote. No es un PDF genérico de proveedor: es el
+        de tu vial, con su fecha y su cromatograma.</p>
+    </div>
+  </div>
+</section>
+
+<section id="refs">
+  <div class="refs">
+    <div class="titulo">
+      <span class="vs">Referencias</span>
+      <h2 style="font-size:clamp(26px,3.2vw,40px);margin-top:12px;letter-spacing:-.015em">Cada afirmación,
+        con su PMID</h2>
+    </div>
+    <ul>
+      <li data-rev>
+        <p><b>TB-500 no es timosina β-4 completa.</b> El fragmento de 7 aminoácidos corresponde
+          solo al sitio de unión a actina.</p>
+        <span class="pmid">FASEB J · 2003 · 14500546</span>
+      </li>
+      <li data-rev>
+        <p><b>Sí existen datos farmacocinéticos de BPC-157</b>, pese a lo que declara la competencia.</p>
+        <span class="pmid">2022 · 36588717</span>
+      </li>
+      <li data-rev>
+        <p><b>Angiogénesis vía VEGFR2.</b> Hsieh MJ et al., J Mol Med (Berl).</p>
+        <span class="pmid">2017 · 27847966</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="pie-cols">
+    <p class="aviso">Los péptidos de este catálogo se comercializan para uso exclusivo de
+      investigación. No son medicamentos, no están aprobados por COFEPRIS para uso humano y
+      no sustituyen la consulta médica.</p>
+    <div class="cols">
+      <div><h4 class="vs">Catálogo</h4><ul><li><a href="#indice">Péptidos</a></li>
+        <li><a href="#indice">Suplementos</a></li><li><a href="#indice">Accesorios</a></li></ul></div>
+      <div><h4 class="vs">Calidad</h4><ul><li><a href="#metodo">Certificados</a></li>
+        <li><a href="#metodo">Reconstitución</a></li><li><a href="#refs">Referencias</a></li></ul></div>
+      <div><h4 class="vs">Tienda</h4><ul><li><a href="#">Envíos</a></li>
+        <li><a href="#">Devoluciones</a></li><li><a href="#">Contacto</a></li></ul></div>
+    </div>
+  </div>
+  <div class="fin">
+    <span class="vs-m">© 2026 PEPTIDOSYSUPLEMENTOS.MX</span>
+    <span class="vs-m">PROTOTIPO · PRECIOS DE EJEMPLO</span>
+  </div>
+</footer>
+
+</div>
+
+<div id="lupa" aria-hidden="true"><img alt="" src="img/vial-retatrutida-30-mg.jpg" width="540" height="1043"></div>
+
+<nav class="switch" aria-label="Variantes de diseño">
+  <a href="var-a.html" aria-current="page">A<span> · Editorial</span></a>
+  <a href="var-b.html">B<span> · Laboratorio</span></a>
+  <a href="var-c.html">C<span> · Instrumento</span></a>
+</nav>
+
+<script src="js/motion.js"></script>
+<script src="js/catalogo.js"></script>
+<script>
+(function(){
+  const { animate, inView, stagger, scroll } = window.Motion || {};
+  const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const suave = [0.22, 0.61, 0.36, 1];
+
+  /* ── índice de producto ─────────────────────────────────────────── */
+  const lista = document.getElementById("lista");
+  PYS_CATALOGO.forEach((p, i) => {
+    const a = document.createElement("a");
+    a.className = "ren-prod";
+    a.href = "#indice";
+    a.dataset.img = p.img;
+    a.innerHTML =
+      '<span class="num">' + String(i + 1).padStart(2, "0") + '</span>' +
+      '<span class="nom">' + p.nombre + '<span>' + p.sub + '</span></span>' +
+      '<span class="d">' + p.dosis + '</span>' +
+      '<span class="d">' + p.pureza + '</span>' +
+      '<span class="p">$' + p.precio.toLocaleString("es-MX") + '</span>';
+    lista.appendChild(a);
+  });
+
+  /* ── el vial que sigue al cursor sobre el índice ─────────────────── */
+  const lupa = document.getElementById("lupa");
+  const lupaImg = lupa.querySelector("img");
+  let raf = 0, x = 0, y = 0, visible = false;
+  function seguir(){
+    raf = 0;
+    lupa.style.transform = "translate(" + x + "px," + y + "px) translate(-50%,-50%) scale(" +
+                           (visible ? 1 : 0.9) + ")";
+  }
+  lista.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse") return;
+    x = e.clientX + 150; y = e.clientY;
+    if (!raf) raf = requestAnimationFrame(seguir);
+  });
+  lista.addEventListener("pointerover", (e) => {
+    const fila = e.target.closest(".ren-prod");
+    if (!fila || e.pointerType !== "mouse") return;
+    if (lupaImg.getAttribute("src") !== fila.dataset.img) lupaImg.src = fila.dataset.img;
+    visible = true; lupa.style.opacity = "1";
+    if (!raf) raf = requestAnimationFrame(seguir);
+  });
+  lista.addEventListener("pointerleave", () => {
+    visible = false; lupa.style.opacity = "0";
+    if (!raf) raf = requestAnimationFrame(seguir);
+  });
+
+  /* ── cromatograma: se dibuja como lo pinta el detector ───────────── */
+  const picos = [[760,22,120],[250,11,9],[980,15,7],[400,9,4.5],[600,8,3]];
+  let d = "M";
+  for (let X = 0; X <= 1200; X += 3){
+    let Y = 0;
+    for (const [c,s,h] of picos) Y += h * Math.exp(-Math.pow(X - c, 2) / (2*s*s));
+    d += (X ? "L" : "") + X + "," + (176 - Y).toFixed(2);
+  }
+  const traza = document.getElementById("p-traza");
+  traza.setAttribute("d", d);
+
+  if (!quieto && animate && inView){
+    /* pathLength y no strokeDashoffset: motion no reconoce esa clave y la
+       animación no llegaba a correr. */
+    traza.setAttribute("pathLength", "1");
+    /* atributo, no estilo en línea: motion escribe el dasharray de
+       pathLength en el atributo y el estilo en línea le ganaría */
+    traza.setAttribute("stroke-dasharray", "0 1");
+    inView(traza, () => {
+      animate(traza, { pathLength: [0, 1] }, { duration: 2.4, ease: "easeInOut" });
+    }, { amount: 0.1 });
+  }
+
+  if (!animate) return;   // sin la librería la página queda entera, solo sin coreografía
+
+  /* ── el titular se compone renglón por renglón ───────────────────── */
+  if (!quieto){
+    animate(".titular .ren > span", { transform: ["translateY(102%)", "translateY(0%)"] },
+            { duration: 0.95, delay: stagger(0.11, { startDelay: 0.15 }), ease: suave });
+  } else {
+    document.querySelectorAll(".titular .ren > span")
+            .forEach(s => s.style.transform = "translateY(0)");
+  }
+
+  /* ── reveals: solo lo que aún no se ve ──────────────────────────── */
+  const bajoLinea = (el) => el.getBoundingClientRect().top > innerHeight * 0.88;
+  document.querySelectorAll("[data-rev]").forEach((el) => {
+    if (quieto) return;
+    if (bajoLinea(el)){
+      el.style.opacity = "0";
+      inView(el, () => animate(el, { opacity: [0,1], y: [18,0] }, { duration: .7, ease: suave }),
+             { amount: 0.25 });
+    } else {
+      animate(el, { opacity: [0,1], y: [14,0] }, { duration: .8, delay: .45, ease: suave });
+    }
+  });
+
+  /* ── las cifras cuentan ─────────────────────────────────────────── */
+  document.querySelectorAll("[data-num]").forEach((el) => {
+    const fin = parseFloat(el.dataset.num), dec = parseInt(el.dataset.dec || "0", 10);
+    if (quieto){ el.textContent = fin.toFixed(dec); return; }
+    el.textContent = (0).toFixed(dec);
+    inView(el, () => {
+      animate(0, fin, { duration: 1.5, ease: "easeOut",
+        onUpdate: (v) => el.textContent = v.toFixed(dec) });
+    }, { amount: 0.6 });
+  });
+
+  /* ── las filas del índice entran escalonadas ────────────────────── */
+  if (!quieto){
+    const filas = document.querySelectorAll(".ren-prod");
+    filas.forEach(f => f.style.opacity = "0");
+    inView(lista, () => {
+      animate(filas, { opacity: [0,1], y: [14,0] },
+              { duration: .5, delay: stagger(0.035), ease: suave });
+    }, { amount: 0.05 });
+  }
+
+  /* ── la rejilla crece con el scroll: la página se "construye" ───── */
+  if (!quieto && scroll){
+    document.querySelectorAll(".rejilla i").forEach((c, i) => {
+      c.style.transformOrigin = "top";
+      c.style.transform = "scaleY(0)";
+      animate(c, { transform: ["scaleY(0)","scaleY(1)"] },
+              { duration: 1.1, delay: 0.1 + i * 0.045, ease: suave });
+    });
+  }
+})();
+</script>
+</html>
