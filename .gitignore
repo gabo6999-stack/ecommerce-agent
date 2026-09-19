@@ -33,3 +33,10 @@ vivexa_seo_surface.py
 vivexa_check_standalone.py
 vivexa_rebrand_audit.py
 vivexa_audit.json
+# Optima: tipografía con licencia y este repo es público. Los archivos viven
+# en rediseno/mocks/fuentes/ (fuente) y rediseno/fonts/ (woff2 generados).
+# Ver rediseno/mocks/fuentes/README.md
+# IBM Plex Mono sí se versiona: es OFL. Optima no.
+rediseno/fonts/optima-*.woff2
+rediseno/mocks/fuentes/*.ttf
+rediseno/mocks/fuentes/*.TTF
