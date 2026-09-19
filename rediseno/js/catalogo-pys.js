@@ -305,6 +305,7 @@ const PYS_PRODUCTOS = [
   "cat": "Muscular",
   "img": "img/vial-agua-bacteriostatica-0-9-alcohol-bencilico.jpg",
   "frasco": false,
+  "ml": 3,
   "precio": 180
  },
  {

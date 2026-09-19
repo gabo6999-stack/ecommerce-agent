@@ -78,6 +78,28 @@ const cake = new THREE.Mesh(
 cake.position.y = 3.0 + 2.75;
 vialG.add(cake);
 
+// ── Líquido, para los productos que vienen en solución y no liofilizados.
+// El interior del vial es un cilindro de radio 6.9 con el suelo en y = 3, así
+// que el alto de la columna sale de la cuenta y no a ojo:
+//     h = V / (pi * 6.9^2) = 6.686 mm por mililitro
+// El radio va 0.03 mm por dentro de la pared para que no pelee con el vidrio.
+const R_INT = 6.9, Y_SUELO = 3.0;
+const MM_POR_ML = 1000 / (Math.PI * R_INT * R_INT);
+const liquido = new THREE.Mesh(
+  new THREE.CylinderGeometry(R_INT - 0.03, R_INT - 0.03, 1, 96),
+  // Opaco a propósito. three.js resuelve `transmission` muestreando un búfer
+  // de lo opaco, así que un líquido transmisivo dentro del vidrio transmisivo
+  // sale invisible: comprobado, cero píxeles de diferencia. Lo que sí se ve a
+  // través del vidrio es lo opaco —por eso la torta liofilizada funciona—, así
+  // que el agua va opaca pero fría y con brillo especular alto, que es lo que
+  // la separa de la torta (mate y crema).
+  new THREE.MeshPhysicalMaterial({
+    color: 0xe6f4f0, metalness: 0, roughness: 0.04,
+    clearcoat: 1, clearcoatRoughness: 0.02, ior: 1.333, envMapIntensity: 1.7,
+  }));
+liquido.visible = false;
+vialG.add(liquido);
+
 // ── Tapón de bromobutilo
 const stop = new THREE.Mesh(
   new THREE.CylinderGeometry(3.42, 3.42, 6.0, 64),
@@ -151,7 +173,7 @@ const rim = new THREE.DirectionalLight(0xffffff, 1.3); rim.position.set(46, 30, 
 const fill = new THREE.DirectionalLight(0xffffff, 0.7); fill.position.set(14, 12, 64); scene.add(fill);
 
 const LW_MM = 43, R_BASE = 8.06;
-window.__vial = async (url, conTorta, u0, escala) => {
+window.__vial = async (url, conTorta, u0, escala, ml) => {
   const s = escala || 1;
   vialG.scale.setScalar(s);
   const R = R_BASE * s, arco = LW_MM / R;
@@ -168,6 +190,13 @@ window.__vial = async (url, conTorta, u0, escala) => {
   label.material.map = t;
   label.material.needsUpdate = true;
   cake.visible = conTorta !== false;   // el agua bacteriostática no lleva torta
+  // los productos en solución llevan su volumen real dentro, no vidrio vacío
+  liquido.visible = ml > 0;
+  if (ml > 0) {
+    const h = ml * MM_POR_ML;
+    liquido.scale.set(1, h, 1);
+    liquido.position.y = Y_SUELO + h / 2;
+  }
   // el título no está en el mismo sitio en todas las etiquetas: se gira la
   // etiqueta para dejarlo al frente en vez de asumir u=0.25 para todas
 

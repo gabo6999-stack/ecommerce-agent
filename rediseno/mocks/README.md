@@ -30,8 +30,11 @@ que deja el bloque de texto de frente.
    `computeVertexNormals()` sobre las geometrías torneadas. `LatheGeometry` ya
    resuelve el empalme y esa llamada lo rompe. Se quitó.
 2. **Vial demasiado corto.** Con 35 mm de alto, una etiqueta de 22 mm se comía
-   toda la pared recta y quedaba pegada a la base. El vial pasa a 39 mm (5 ml),
-   con 27 mm de pared recta: sobran 3 mm de vidrio abajo y 2 arriba.
+   toda la pared recta y quedaba pegada a la base. El vial pasa a 39 mm, con
+   27 mm de pared recta: sobran 3 mm de vidrio abajo y 2 arriba. Con radio
+   interior de 6.9 mm y suelo en y = 3, eso da 4.6 ml a ras y unos 3 ml de
+   llenado nominal: el mismo vidrio sirve para los péptidos liofilizados y
+   para el agua bacteriostática de 3 ml.
 3. **Fondo oscuro.** El vidrio transparente sobre negro lee negro, por
    definición: no hay nada que transmitir. Las fotos de la competencia están
    sobre blanco, y por eso su vidrio se ve limpio. El estudio pasó a claro y con
@@ -59,6 +62,25 @@ y el render sale a 2000 × 2880 para que aguante el zoom.
 **La cámara tiene que ir por encima del sello** (y 43 contra los 37.3 de la tapa).
 Por debajo se ve el engaste desde abajo y el botón desaparece tras el borde: eso,
 y no el modelado, era lo que hacía que la tapa se viera rara.
+
+### El líquido
+
+Los productos en solución llevan su volumen dentro, no vidrio vacío. El alto de
+la columna sale de la cuenta y no a ojo: con radio interior de 6.9 mm y el suelo
+en y = 3, son **6.686 mm por mililitro**. El agua bacteriostática de 3 ml llena
+20.1 mm, o sea poco más de la mitad de la pared recta.
+
+El material va **opaco**, que es contraintuitivo para agua. `transmission` en
+three.js se resuelve muestreando un búfer de lo opaco, así que un líquido
+transmisivo dentro de un vidrio transmisivo sale invisible: comprobado, cero
+píxeles de diferencia entre el render con líquido y sin él. Lo que sí se ve a
+través del vidrio es lo opaco —por eso la torta liofilizada funciona—, así que
+el agua va opaca pero fría y con especular alto, que es lo que la separa de la
+torta, mate y crema.
+
+Se ve poco, y es correcto que se vea poco: la etiqueta de 22 mm cubre de y = 5
+a y = 27 y el menisco queda a y = 23, detrás del papel. Lo que asoma es la
+banda de 2 mm entre la base de la etiqueta y el suelo de vidrio.
 
 ### Lo que este render todavía no da
 
@@ -118,8 +140,15 @@ suelo de 0.25 porque por debajo se asoma la costura por el canto izquierdo.
    texto ocupa más de 150° de arco sobre un perímetro de 50 mm, así que los
    extremos caen en el canto y no se leen de frente. No es fallo del render: en
    el vial físico pasa igual. Se arregla con tipografía más chica, bloque más
-   estrecho, o vial de mayor diámetro — el agua bacteriostática de hecho suele
-   ir en vial de 10 ml, donde el mismo texto sí entraría holgado.
+   estrecho, o vial de mayor diámetro.
+
+   El caso del agua bacteriostática estuvo mal diagnosticado un tiempo: se
+   supuso que iba en vial de 10 ml —donde el mismo texto entra holgado— y se
+   renderizó a escala 1.38. El inventario de la tienda dice otra cosa: el
+   producto vivo es `agua-bacteriostatica-3ml`, así que va en el mismo vidrio
+   de 16 × 39 mm que los péptidos y el título **no cabe** de frente. El render
+   ya está corregido a su envase real; la que sigue sin caber es la
+   tipografía, y eso es cosa del archivo de imprenta.
 
 ## Colores de marca, tomados de los PDF de imprenta
 No son aproximación: son los valores vectoriales del archivo.

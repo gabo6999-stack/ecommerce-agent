@@ -781,8 +781,12 @@ footer{border-top:1px solid var(--linea-2);background:var(--carbon);padding-bloc
         '</div>' +
         '<div class="cuerpo"><h3>' + p.nombre + '</h3>' +
           '<div class="sku">SKU ' + (p.sku || "—") + '</div></div>' +
-        '<div class="specs"><span>' + (p.frasco ? "suplemento" : "liofilizado") + '</span>' +
-          '<span>·</span><span>' + (p.frasco ? "cápsulas" : "99 % HPLC") + '</span>' +
+        '<div class="specs"><span>' +
+          (p.frasco ? "suplemento" : p.ml ? "solución" : "liofilizado") + '</span>' +
+          '<span>·</span><span>' +
+          /* el agua bacteriostática no es un liofilizado ni tiene pureza por
+             HPLC: lo que la describe es su volumen */
+          (p.frasco ? "cápsulas" : p.ml ? p.ml + " ml" : "99 % HPLC") + '</span>' +
           '<span>·</span><span>' + (agotado ? "sin existencia" : "en existencia") + '</span></div>' +
         '<div class="compra"><span class="precio">' + mxn(p.precio) + '<small>MXN</small></span>' +
           '<button class="add" type="button"' + (agotado ? ' disabled' : '') + '>' +

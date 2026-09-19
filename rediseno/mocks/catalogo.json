@@ -12,8 +12,9 @@
   "nombre": "AGUA BACTERIOSTÁTICA 0.9% ALCOHOL BENCÍLICO",
   "agua": true,
   "u0": 0.3396,
-  "escala": 1.38,
-  "web": "vial-agua-bacteriostatica-0-9-alcohol-bencilico.jpg"
+  "escala": 1.0,
+  "web": "vial-agua-bacteriostatica-0-9-alcohol-bencilico.jpg",
+  "ml": 3
  },
  {
   "archivo": "label_mots-c-40-mg.png",
