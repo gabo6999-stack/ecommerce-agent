@@ -1,0 +1,14 @@
+--- 2230-antes
++++ 2230-despues
+@@ -31,3 +31,3 @@
+ <h3>ETASS (2015) — señal de beneficio</h3>
+-<p>Ensayo aleatorizado controlado multicéntrico en seis hospitales terciarios universitarios de China, entre mayo de 2008 y diciembre de 2010. <strong>361 pacientes</strong> con sepsis grave en UCI, asignados 1:1 a control o timosina alfa-1 (Crit Care, 2015 · PMID 23327199):</p>
++<p>Ensayo aleatorizado controlado multicéntrico en seis hospitales terciarios universitarios de China, entre mayo de 2008 y diciembre de 2010. <strong>361 pacientes</strong> con sepsis grave en UCI, asignados 1:1 a control o timosina alfa-1 (Crit Care, 2013 · PMID 23327199):</p>
+ <ul>
+@@ -83,4 +83,4 @@
+ <ul>
+-<li><strong>Pancreatitis aguda necrotizante.</strong> Ensayo TRACE, sobre prevención de necrosis pancreática infectada (BMJ Open, 2021 · PMID 32994239), y trabajo sobre inflamación e infección en pancreatitis aguda grave mediante modulación inmune (Front Immunol, 2025 · PMID 40599771).</li>
+-<li><strong>Hepatitis B crónica.</strong> Revisión del tratamiento con timosina alfa-1 en esta indicación (Expert Opin Biol Ther, 2016 · PMID 25640173).</li>
++<li><strong>Pancreatitis aguda necrotizante.</strong> Ensayo TRACE, sobre prevención de necrosis pancreática infectada (BMJ Open, 2020 · PMID 32994239), y trabajo sobre inflamación e infección en pancreatitis aguda grave mediante modulación inmune (Front Immunol, 2025 · PMID 40599771).</li>
++<li><strong>Hepatitis B crónica.</strong> Revisión del tratamiento con timosina alfa-1 en esta indicación (Expert Opin Biol Ther, 2015 · PMID 25640173).</li>
+ <li><strong>VIH-1.</strong> Avances y perspectivas (Future Microbiol, 2017 · PMID 28106477).</li>

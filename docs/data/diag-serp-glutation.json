@@ -1,0 +1,267 @@
+{
+ "glutation": {
+  "composicion": {
+   "informativo": 3,
+   "otro": 5,
+   "TRANSACCIONAL": 1
+  },
+  "resultados": [
+   {
+    "pos": 3,
+    "dominio": "es.wikipedia.org",
+    "path": "/wiki/Glutati%C3%B3n",
+    "tipo": "informativo",
+    "titulo": "Glutatión - Wikipedia, la enciclopedia libre"
+   },
+   {
+    "pos": 4,
+    "dominio": "cun.es",
+    "path": "/diccionario-medico/terminos/glutation",
+    "tipo": "otro",
+    "titulo": "Glutatión: antioxidante celular esencial | Diccionario CUN"
+   },
+   {
+    "pos": 5,
+    "dominio": "bbc.com",
+    "path": "/mundo/noticias-41148985",
+    "tipo": "otro",
+    "titulo": "Glutatión, el peligroso antioxidante que mujeres en todo ..."
+   },
+   {
+    "pos": 6,
+    "dominio": "promopharma.it",
+    "path": "/es/blogs/magazine/glutatione-molecola-multi",
+    "tipo": "otro",
+    "titulo": "Glutatión: qué es, para qué sirve y cuánto tomarlo"
+   },
+   {
+    "pos": 7,
+    "dominio": "sciencemediacentre.es",
+    "path": "/un-estudio-en-ratones-y-tejido-humano-muest",
+    "tipo": "otro",
+    "titulo": "El antioxidante glutatión y el desarrollo de cáncer"
+   },
+   {
+    "pos": 8,
+    "dominio": "paulaschoice.es",
+    "path": "/es/beneficios-del-glutation-en-la-piel",
+    "tipo": "otro",
+    "titulo": "Beneficios del glutatión en la piel"
+   },
+   {
+    "pos": 9,
+    "dominio": "stemcellstransplantinstitute.com",
+    "path": "/es/que-es-glutation-y-para-que-se-utiliza/",
+    "tipo": "informativo",
+    "titulo": "¿Qué es el Glutatión? Beneficios y Usos"
+   },
+   {
+    "pos": 10,
+    "dominio": "mesoestetic.es",
+    "path": "/blog/glutation/",
+    "tipo": "informativo",
+    "titulo": "Glutatión: qué es, beneficios y cómo actúa en la piel"
+   },
+   {
+    "pos": 11,
+    "dominio": "mercadolibre.com.mx",
+    "path": "/glutation-antioxidante-regenera-celulas-60-",
+    "tipo": "TRANSACCIONAL",
+    "titulo": "Glutation Antioxidante Regenera Células 60 Cáps"
+   }
+  ]
+ },
+ "glutathione": {
+  "composicion": {
+   "informativo": 4,
+   "TRANSACCIONAL": 3
+  },
+  "resultados": [
+   {
+    "pos": 3,
+    "dominio": "es.wikipedia.org",
+    "path": "/wiki/Glutati%C3%B3n",
+    "tipo": "informativo",
+    "titulo": "Glutatión - Wikipedia, la enciclopedia libre"
+   },
+   {
+    "pos": 4,
+    "dominio": "amazon.com.mx",
+    "path": "/L-Glutathione-Glutation-100-caps/dp/B00F9F1",
+    "tipo": "TRANSACCIONAL",
+    "titulo": "L-Glutathione (Glutation) 100 mg 100 caps"
+   },
+   {
+    "pos": 5,
+    "dominio": "mx.iherb.com",
+    "path": "/blog/glutathione-guide/1015",
+    "tipo": "TRANSACCIONAL",
+    "titulo": "Glutatión: 5 beneficios respaldados por la ciencia"
+   },
+   {
+    "pos": 6,
+    "dominio": "mesoestetic.es",
+    "path": "/blog/glutation/",
+    "tipo": "informativo",
+    "titulo": "Glutatión: qué es, beneficios y cómo actúa en la piel"
+   },
+   {
+    "pos": 7,
+    "dominio": "webmd.com",
+    "path": "/vitamins-supplements/glutathione",
+    "tipo": "informativo",
+    "titulo": "Glutathione - Uses, Side Effects, and More"
+   },
+   {
+    "pos": 9,
+    "dominio": "listado.mercadolibre.com.mx",
+    "path": "/glutathione",
+    "tipo": "TRANSACCIONAL",
+    "titulo": "Glutathione | MercadoLibre"
+   },
+   {
+    "pos": 11,
+    "dominio": "youtube.com",
+    "path": "/watch",
+    "tipo": "informativo",
+    "titulo": "GLUTATHIONE: THE MOTHER OF ANTIOXIDANTS - reduces ..."
+   }
+  ]
+ },
+ "glutation precio": {
+  "composicion": {
+   "TRANSACCIONAL": 5,
+   "otro": 2,
+   "informativo": 1
+  },
+  "resultados": [
+   {
+    "pos": 2,
+    "dominio": "listado.mercadolibre.com.mx",
+    "path": "/glutation",
+    "tipo": "TRANSACCIONAL",
+    "titulo": "Glutation | MercadoLibre"
+   },
+   {
+    "pos": 4,
+    "dominio": "amazon.com.mx",
+    "path": "/glutation/s",
+    "tipo": "TRANSACCIONAL",
+    "titulo": "Amazon.com.mx: Glutation"
+   },
+   {
+    "pos": 5,
+    "dominio": "walmart.com.mx",
+    "path": "/ip/glutation-antioxidante-regenera-celulas-",
+    "tipo": "TRANSACCIONAL",
+    "titulo": "Glutation Antioxidante Regenera Células 60 Cáps"
+   },
+   {
+    "pos": 6,
+    "dominio": "fahorro.com",
+    "path": "/well-glutation-omega-3-60-capsulas.html",
+    "tipo": "TRANSACCIONAL",
+    "titulo": "Well Glutation + Omega 3 60 cápsulas"
+   },
+   {
+    "pos": 8,
+    "dominio": "gnc.com.mx",
+    "path": "/glutation-500-mg-gnc-60-capsulas.html",
+    "tipo": "otro",
+    "titulo": "Glutatión 500 mg GNC 60 Cápsulas - Glutathione"
+   },
+   {
+    "pos": 9,
+    "dominio": "supernaturista.com",
+    "path": "/products/glutation-60-cap-pure-nutrition",
+    "tipo": "otro",
+    "titulo": "Glutation 60 Cap PURE NUTRITION"
+   },
+   {
+    "pos": 10,
+    "dominio": "youtube.com",
+    "path": "/watch",
+    "tipo": "informativo",
+    "titulo": "The Ultimate Guide to Glutathione: Benefits and How to ..."
+   },
+   {
+    "pos": 11,
+    "dominio": "farmaciasanpablo.com.mx",
+    "path": "/san-pablo-natural/vitaminas-y-suplementos/p",
+    "tipo": "TRANSACCIONAL",
+    "titulo": "Glutation Proteína Sintetizada de Suero de Leche, Glicina, ..."
+   }
+  ]
+ },
+ "glutation inyectable": {
+  "composicion": {
+   "otro": 7,
+   "TRANSACCIONAL": 2
+  },
+  "resultados": [
+   {
+    "pos": 2,
+    "dominio": "bbc.com",
+    "path": "/mundo/noticias-41148985",
+    "tipo": "otro",
+    "titulo": "Glutatión, el peligroso antioxidante que mujeres en todo ..."
+   },
+   {
+    "pos": 4,
+    "dominio": "listado.mercadolibre.com.mx",
+    "path": "/glutation-inyectable",
+    "tipo": "TRANSACCIONAL",
+    "titulo": "Glutation Inyectable | MercadoLibre"
+   },
+   {
+    "pos": 5,
+    "dominio": "cun.es",
+    "path": "/diccionario-medico/terminos/glutation",
+    "tipo": "otro",
+    "titulo": "Glutatión: antioxidante celular esencial | Diccionario CUN"
+   },
+   {
+    "pos": 6,
+    "dominio": "clinicacarrasco.com",
+    "path": "/servicio/tratamiento-con-glutation-intraven",
+    "tipo": "otro",
+    "titulo": "Tratamiento con Glutatión intravenoso"
+   },
+   {
+    "pos": 7,
+    "dominio": "hemoclinicperu.com",
+    "path": "/glutation-el-antioxidante-clave-para-la-sal",
+    "tipo": "otro",
+    "titulo": "Glutatión: El Antioxidante Clave para la Salud Celular"
+   },
+   {
+    "pos": 8,
+    "dominio": "centurymedicaldental.com",
+    "path": "/es/razones-para-recibir-una-inyeccion-de-gl",
+    "tipo": "otro",
+    "titulo": "Razones para someterse a una inyección de glutatión"
+   },
+   {
+    "pos": 9,
+    "dominio": "gsdistribuidor.com",
+    "path": "/product/glutation-iv-im/",
+    "tipo": "TRANSACCIONAL",
+    "titulo": "Caja 10 viales Glutation IV/IM"
+   },
+   {
+    "pos": 10,
+    "dominio": "diebe.com.mx",
+    "path": "/products/mccm-glutation-5ml",
+    "tipo": "otro",
+    "titulo": "MCCM - Glutatión 5ml"
+   },
+   {
+    "pos": 11,
+    "dominio": "carehospitals.com",
+    "path": "/es/medicine-detail/glutathione",
+    "tipo": "otro",
+    "titulo": "Glutatión: Usos, efectos secundarios, dosis y precauciones"
+   }
+  ]
+ }
+}

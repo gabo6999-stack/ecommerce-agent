@@ -1,0 +1,59 @@
+{
+  "verdict": "PUBLIC_HTML_PASS",
+  "url": "https://peptidosysuplementos.mx/product/bpc-157-tb-500-10-10mg/",
+  "summary": {
+    "failures": 0,
+    "checks_examined": 15,
+    "markers_examined_per_response": 2,
+    "responses_examined": 2
+  },
+  "failures": [],
+  "responses": {
+    "normal": {
+      "title": "BPC-157 Precio | Combo BPC-157 + TB-500 5mg México",
+      "h1": [
+        "BPC-157 + TB-500"
+      ],
+      "canonical": "https://peptidosysuplementos.mx/product/bpc-157-tb-500-10-10mg/",
+      "description": "Combo BPC-157 + TB-500 5mg c/u. Pureza ≥99% HPLC. Regeneración muscular acelerada, reparación de tejidos y recuperación. Envío a toda la República Mexicana.",
+      "json_ld_count": 2,
+      "json_ld_invalid": 0,
+      "elementor_detected": true,
+      "requested_url": "https://peptidosysuplementos.mx/product/bpc-157-tb-500-10-10mg/",
+      "final_url": "https://peptidosysuplementos.mx/product/bpc-157-tb-500-10-10mg/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "cache_headers": {
+        "Cache-Control": "public, max-age=300, stale-while-revalidate=600",
+        "x-litespeed-cache": "hit"
+      },
+      "html_bytes": 62369,
+      "visible_text_chars": 17906,
+      "visible_text_sha256": "d0cd5cde8194963de7945c3f2da6fee72e741ea264ee6432ff0893f281bf5f4d"
+    },
+    "cache_bust": {
+      "title": "BPC-157 Precio | Combo BPC-157 + TB-500 5mg México",
+      "h1": [
+        "BPC-157 + TB-500"
+      ],
+      "canonical": "https://peptidosysuplementos.mx/product/bpc-157-tb-500-10-10mg/",
+      "description": "Combo BPC-157 + TB-500 5mg c/u. Pureza ≥99% HPLC. Regeneración muscular acelerada, reparación de tejidos y recuperación. Envío a toda la República Mexicana.",
+      "json_ld_count": 2,
+      "json_ld_invalid": 0,
+      "elementor_detected": true,
+      "requested_url": "https://peptidosysuplementos.mx/product/bpc-157-tb-500-10-10mg/?_hermes_verify=1785852873713164900",
+      "final_url": "https://peptidosysuplementos.mx/product/bpc-157-tb-500-10-10mg/?_hermes_verify=1785852873713164900",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "cache_headers": {
+        "Cache-Control": "public, max-age=300, stale-while-revalidate=600",
+        "x-litespeed-cache": "miss"
+      },
+      "html_bytes": 62762,
+      "visible_text_chars": 17906,
+      "visible_text_sha256": "44f987110a01e8b46322afbf06381a545b5228f77c458348b79c0dd1130130b5"
+    }
+  },
+  "screenshot_required": true,
+  "note": "PASS covers public HTML checks only; API read-back and anonymous screenshot remain required."
+}

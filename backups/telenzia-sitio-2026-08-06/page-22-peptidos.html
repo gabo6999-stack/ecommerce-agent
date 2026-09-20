@@ -1,0 +1,321 @@
+<!-- wp:group {"align":"full","tagName":"section","layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull">
+<!-- wp:html -->
+<!-- Telenzia — PÉPTIDOS · keyword: "péptidos"
+     LAYOUT PROPIO: hero lateral (texto izquierda + tarjeta de advertencia a la derecha)
+     + fichas de familias en MOSAICO asimétrico + banda regulatoria a sangre.
+     Distinto del home (hero con scrubber) y de Telemedicina (hero centrado + matriz). -->
+<style id="tlz-pep-css">
+.tlz-page .tlz-pep-hero{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(26px,3.6vw,56px);align-items:start;max-width:1320px;margin:0 auto;padding:clamp(40px,5vw,74px) clamp(20px,4vw,56px) clamp(22px,2.6vw,36px)}
+.tlz-page .tlz-pep-hero h1{font-size:clamp(30px,4.1vw,54px);line-height:1.07;letter-spacing:-.028em;margin:var(--tlz-s6) 0 clamp(16px,2vw,26px);max-width:18ch}
+.tlz-page .tlz-pep-hero .tlz-pep-intro{font-size:clamp(15px,1.15vw,18px);line-height:1.6;color:var(--tlz-n400);max-width:56ch}
+.tlz-page .tlz-pep-cta{display:flex;gap:var(--tlz-s4);margin-top:var(--tlz-s8);flex-wrap:wrap}
+.tlz-page .tlz-pep-cta .tlz-btn{padding:17px 32px;font-size:16px}
+.tlz-page .tlz-aviso{background:var(--tlz-surface);border-radius:var(--tlz-r-lg);padding:var(--tlz-s8);box-shadow:var(--tlz-sh-md);position:sticky;top:96px}
+.tlz-page .tlz-aviso .tlz-aviso-top{display:flex;align-items:center;gap:9px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tlz-a300);margin-bottom:var(--tlz-s6)}
+.tlz-page .tlz-aviso .tlz-aviso-top i{width:7px;height:7px;border-radius:50%;background:var(--tlz-accent);display:block;flex-shrink:0}
+.tlz-page .tlz-aviso h2{font-size:19px;letter-spacing:-.015em;margin-bottom:var(--tlz-s4)}
+.tlz-page .tlz-aviso p{font-size:13.5px;line-height:1.6;color:var(--tlz-n400);margin-bottom:var(--tlz-s4)}
+.tlz-page .tlz-aviso p:last-child{margin-bottom:0}
+
+/* mosaico asimétrico de familias */
+.tlz-page .tlz-mosaico{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--tlz-s4);margin-top:clamp(26px,3.2vw,46px)}
+.tlz-page .tlz-fam{grid-column:span 3;background:var(--tlz-surface);border-radius:var(--tlz-r-md);padding:var(--tlz-s8);display:flex;flex-direction:column;transition:transform .3s var(--tlz-ease),box-shadow .3s var(--tlz-ease)}
+.tlz-page .tlz-fam:hover{transform:translateY(-3px);box-shadow:var(--tlz-sh-md)}
+.tlz-page .tlz-fam.tlz-fam-ancha{grid-column:span 6}
+.tlz-page .tlz-fam.tlz-fam-tercio{grid-column:span 2}
+.tlz-page .tlz-fam-top{display:flex;align-items:baseline;justify-content:space-between;gap:var(--tlz-s4);margin-bottom:var(--tlz-s4)}
+.tlz-page .tlz-fam-sigla{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--tlz-accent);font-variant-numeric:tabular-nums}
+.tlz-page .tlz-fam h3{font-size:21px;letter-spacing:-.015em;margin-bottom:var(--tlz-s4)}
+.tlz-page .tlz-fam p{font-size:14px;line-height:1.55;color:var(--tlz-n400);flex:1;margin-bottom:var(--tlz-s6)}
+.tlz-page .tlz-fam-meta{display:flex;gap:var(--tlz-s3);flex-wrap:wrap;font-size:11px}
+
+/* — mini-sección editorial (misma pieza que en el home) — */
+.tlz-page .tlz-plat{max-width:560px;margin:clamp(40px,4.8vw,74px) auto clamp(8px,1.2vw,16px)}
+.tlz-page .tlz-plat .tlz-kicker{font-size:10px;letter-spacing:.16em;color:var(--tlz-n600);margin-bottom:var(--tlz-s6)}
+.tlz-page .tlz-plat .tlz-kicker::before{width:16px;background:var(--tlz-n700)}
+.tlz-page .tlz-plat figure{margin:0}
+.tlz-page .tlz-plat .tlz-img{position:relative;overflow:hidden;border-radius:var(--tlz-r-md);
+  aspect-ratio:1.44;background:#FCFBF9;padding:3.5%;
+  box-shadow:0 0 0 1px var(--tlz-filete);transition:box-shadow .5s var(--tlz-ease)}
+.tlz-page .tlz-plat .tlz-img img{width:100%;height:100%;object-fit:contain;display:block;
+  transition:transform .8s var(--tlz-ease),filter .55s var(--tlz-ease)}
+/* .tlz-plat se diseñó para la FOTO de "En la plataforma" (home): brightness(1.45)
+   + velo de viñeta le sientan bien a una foto de rango tonal continuo. Aquí es
+   line art de trazo fino sobre fondo casi blanco — el mismo brightness lava el
+   trazo (justo el reporte de Gabo: "trazo pobre"). Sin filtro y sin velo, que la
+   ilustración se lea con su propio contraste. Ver [[recolorear-line-art-por-luminancia]]. */
+.tlz-page .tlz-plat .tlz-img::after{display:none}
+.tlz-page .tlz-plat:hover .tlz-img{box-shadow:0 0 0 1px color-mix(in srgb,var(--tlz-accent) 40%,transparent)}
+.tlz-page .tlz-plat:hover .tlz-img img{transform:scale(1.04)}
+.tlz-page .tlz-plat figcaption{margin-top:var(--tlz-s6);font-size:13.5px;line-height:1.6;color:var(--tlz-n500);
+  display:flex;align-items:flex-start;gap:10px}
+.tlz-page .tlz-plat figcaption::before{content:"";width:14px;height:1px;background:var(--tlz-accent);margin-top:11px;flex-shrink:0}
+@media (prefers-reduced-motion:reduce){.tlz-page .tlz-plat:hover .tlz-img img{transform:none}}
+
+/* banda regulatoria a sangre */
+.tlz-page .tlz-reg{background:var(--tlz-section)}
+.tlz-page .tlz-reg-in{max-width:1320px;margin:0 auto;padding:clamp(38px,4.6vw,72px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(24px,3.4vw,52px);align-items:center}
+.tlz-page .tlz-reg h2{font-size:clamp(24px,2.9vw,36px);letter-spacing:-.025em;margin:var(--tlz-s6) 0 var(--tlz-s4);max-width:24ch}
+.tlz-page .tlz-reg p{font-size:15px;line-height:1.6;color:var(--tlz-n300);max-width:52ch;margin-bottom:var(--tlz-s4)}
+.tlz-page .tlz-reg .tlz-reg-kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tlz-a300)}
+.tlz-page .tlz-reg-lista{display:grid;gap:var(--tlz-s4);list-style:none}
+.tlz-page .tlz-reg-lista li{font-size:14px;line-height:1.55;color:var(--tlz-n300);padding-left:22px;position:relative}
+.tlz-page .tlz-reg-lista li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:1px;background:var(--tlz-a300)}
+
+/* preguntas: 4 en fila, mismo plano y misma altura */
+.tlz-page .tlz-pep-faq{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,18px);
+  margin-top:clamp(24px,3vw,42px);align-items:stretch;
+}
+.tlz-page .tlz-pep-faq>div{
+  --c:var(--tlz-accent);
+  background:var(--tlz-surface);border-radius:var(--tlz-r-md);
+  padding:var(--tlz-s8) var(--tlz-s6) calc(var(--tlz-s8) + 2px);
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
+  box-shadow:inset 0 0 0 1px var(--tlz-filete);
+  transition:transform .35s var(--tlz-ease),box-shadow .35s var(--tlz-ease),background .35s var(--tlz-ease);
+}
+/* filete superior de color, propio de cada pregunta */
+.tlz-page .tlz-pep-faq>div::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--c);
+  transform:scaleX(.28);transform-origin:left;transition:transform .45s var(--tlz-ease);
+}
+.tlz-page .tlz-pep-faq>div:nth-child(1){--c:#12706A}
+.tlz-page .tlz-pep-faq>div:nth-child(2){--c:#0B4F4A}
+.tlz-page .tlz-pep-faq>div:nth-child(3){--c:#12706A}
+.tlz-page .tlz-pep-faq>div:nth-child(4){--c:#0B4F4A}
+.tlz-page .tlz-pep-faq .tlz-faq-n{
+  font-size:10.5px;letter-spacing:.14em;color:var(--c);font-variant-numeric:tabular-nums;
+  margin-bottom:var(--tlz-s4);transition:opacity .35s var(--tlz-ease);opacity:.85;
+}
+.tlz-page .tlz-pep-faq h3{font-size:16px;line-height:1.3;letter-spacing:-.01em;margin-bottom:var(--tlz-s4);
+  transition:color .35s var(--tlz-ease)}
+.tlz-page .tlz-pep-faq p{font-size:13.5px;color:var(--tlz-n400);line-height:1.6;flex:1;
+  transition:color .35s var(--tlz-ease)}
+/* interacción: el señalado sube y se enciende, los demás se apagan */
+.tlz-page .tlz-pep-faq:hover>div{opacity:.5}
+.tlz-page .tlz-pep-faq:hover>div:hover{opacity:1}
+.tlz-page .tlz-pep-faq>div:hover{
+  transform:translateY(-5px);background:color-mix(in srgb,var(--c) 9%,var(--tlz-surface));
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 45%,transparent);
+}
+.tlz-page .tlz-pep-faq>div:hover::before{transform:scaleX(1)}
+.tlz-page .tlz-pep-faq>div:hover h3{color:var(--c)}
+.tlz-page .tlz-pep-faq>div:hover p{color:var(--tlz-n200)}
+.tlz-page .tlz-pep-faq>div:hover .tlz-faq-n{opacity:1}
+@media (max-width:1080px){.tlz-page .tlz-pep-faq{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.tlz-page .tlz-pep-faq{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.tlz-page .tlz-pep-faq>div:hover{transform:none}}
+
+.tlz-page .tlz-cierre{max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,56px) clamp(52px,6vw,92px)}
+.tlz-page .tlz-cierre-box{display:grid;place-items:center;gap:var(--tlz-s6);text-align:center;padding:clamp(32px,4.4vw,64px) clamp(20px,4vw,48px);background:var(--tlz-surface);border-radius:var(--tlz-r-lg);box-shadow:var(--tlz-sh-sm)}
+.tlz-page .tlz-cierre-box h2{font-size:clamp(24px,3vw,38px);letter-spacing:-.025em;max-width:24ch}
+.tlz-page .tlz-cierre-box p{max-width:54ch;font-size:15px;color:var(--tlz-n400)}
+.tlz-page .tlz-cierre-box .tlz-btn{padding:18px 36px;font-size:17px}
+
+@media (max-width:900px){
+  .tlz-page .tlz-pep-hero{grid-template-columns:1fr}
+  .tlz-page .tlz-aviso{position:static}
+  .tlz-page .tlz-fam,.tlz-page .tlz-fam.tlz-fam-tercio,.tlz-page .tlz-fam.tlz-fam-ancha{grid-column:span 6}
+}
+@media (max-width:640px){
+  .tlz-page .tlz-pep-hero{padding:30px 20px 18px}
+  .tlz-page .tlz-fam{padding:20px}
+}
+
+/* =========================================================================
+   2026-08-05 · Composición revC (propagada del Home) — SOLO esta página.
+   Numeración editorial 01–05: markup usa .tlz-numeral / .tlz-ed / .tlz-ed-num
+   / .tlz-ed-body, utilidades COMPARTIDAS que ya viven en header.html — aquí
+   no se duplican. Lo único propio de esta página es el hover de elevación
+   del CTA del hero (el home ya lo trae en su propio hero; este no lo tenía).
+   Va al final a propósito: es donde debe ganar sobre cualquier regla previa
+   con la misma especificidad. */
+.tlz-page .tlz-heroc-cta .tlz-btn-primary{transition:background .25s var(--tlz-ease),border-color .25s var(--tlz-ease),color .25s var(--tlz-ease),transform .25s var(--tlz-ease),box-shadow .25s var(--tlz-ease)}
+.tlz-page .tlz-heroc-cta .tlz-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(20,24,26,.16)}
+.tlz-page .tlz-heroc-cta .tlz-btn-primary:active{transform:translateY(0);box-shadow:none}
+@media (prefers-reduced-motion:reduce){
+  .tlz-page .tlz-heroc-cta .tlz-btn-primary:hover{transform:none;box-shadow:none}
+}
+</style>
+
+<div class="tlz-page">
+
+  <section class="tlz-heroc">
+    <svg class="tlz-heroc-bg" viewBox="0 0 1180 480" fill="none" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="tlzL2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#0B4F4A" stop-opacity=".20"/>
+          <stop offset="70%" stop-color="#0B4F4A" stop-opacity=".06"/>
+          <stop offset="100%" stop-color="#0B4F4A" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="tlzA2" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#CEC7B5" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#0B4F4A" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#CEC7B5" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="590" cy="240" rx="132" ry="196" fill="url(#tlzL2)"/>
+      <circle cx="458" cy="240" r="196" stroke="url(#tlzA2)" stroke-width="1.2"/>
+      <circle cx="722" cy="240" r="196" stroke="url(#tlzA2)" stroke-width="1.2"/>
+      <circle cx="458" cy="240" r="196" stroke="#CEC7B5" stroke-width=".7" stroke-dasharray="2 9" opacity=".7"/>
+      <circle cx="722" cy="240" r="196" stroke="#CEC7B5" stroke-width=".7" stroke-dasharray="2 9" opacity=".7"/>
+      <circle cx="590" cy="240" r="4.5" fill="#0B4F4A" opacity=".75"/>
+      <circle cx="590" cy="240" r="15" stroke="#0B4F4A" stroke-width=".9" opacity=".28"/>
+      <g stroke="#CEC7B5" stroke-width=".9" opacity=".55">
+        <line x1="60" y1="240" x2="238" y2="240" stroke-dasharray="3 10"/>
+        <line x1="942" y1="240" x2="1120" y2="240" stroke-dasharray="3 10"/>
+      </g>
+      <g fill="#5F6764" opacity=".6"><circle cx="238" cy="240" r="2.6"/><circle cx="942" cy="240" r="2.6"/></g>
+    </svg>
+    <div class="tlz-heroc-in">
+      <span class="tlz-numeral" aria-hidden="true">01</span>
+      <div class="tlz-kicker">Péptidos · valoración médica</div>
+      <h1>Péptidos, con un médico que te explica qué se sabe y qué no.</h1>
+      <p class="tlz-pep-intro">Los <strong>péptidos</strong> son cadenas cortas de aminoácidos que el cuerpo usa para señalizar: reparación de tejido, metabolismo, sueño, respuesta hormonal. En Telenzia no se venden ni se surten: agendas una consulta y un médico independiente valora si en tu caso hay indicación, con qué evidencia y con qué riesgos.</p>
+      <div class="tlz-heroc-cta">
+        <a class="tlz-btn tlz-btn-primary" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agenda tu consulta</a>
+      </div>
+    </div>
+    <aside class="tlz-heroc-panel tlz-aviso">
+      <div class="tlz-aviso-top"><i></i>Antes de seguir leyendo</div>
+      <h2>Esto no es un catálogo.</h2>
+      <p>Abajo se describen familias de péptidos con fines informativos. No es una lista de productos, no hay precios y no puedes adquirir nada aquí.</p>
+      <p>Varias de estas moléculas <strong style="color:var(--tlz-a300);font-weight:500">no cuentan con registro sanitario en México</strong> y su uso queda a criterio médico. El médico te explicará el estatus regulatorio de lo que valore para tu caso antes de decidir nada.</p>
+      <p>Si el médico concluye que no eres candidato, te lo dirá en la consulta.</p>
+    </aside>
+  </section>
+
+  <section class="tlz-section tlz-reveal" style="padding-top:clamp(20px,2.4vw,34px)">
+    <div class="tlz-ed">
+      <span class="tlz-ed-num" aria-hidden="true">02</span>
+      <div class="tlz-ed-body">
+    <div class="tlz-enc-c">
+      <div class="tlz-kicker">Las familias</div>
+      <h2 class="tlz-h2">Qué péptidos se valoran en consulta.</h2>
+      <p class="tlz-lead">Agrupados por lo que buscan hacer. Lo que aplique a tu caso —si aplica— lo determina el médico tras revisar tu historia y tus estudios.</p>
+    </div>
+
+    <div class="tlz-mosaico">
+      <article class="tlz-fam tlz-fam-ancha">
+        <div class="tlz-fam-top"><span class="tlz-fam-sigla">Familia 01 · manejo del peso</span><span class="tlz-tag tlz-tag-outline">Requiere valoración</span></div>
+        <h3>Análogos de GLP‑1 y péptidos metabólicos</h3>
+        <p>Semaglutida, tirzepatida y AOD‑9604. Actúan sobre las señales de saciedad y el metabolismo, y son el grupo con más evidencia clínica de todos los que aparecen en esta página. Requieren seguimiento: dosis progresiva, vigilancia de efectos gastrointestinales y revisión de contraindicaciones —antecedente personal o familiar de carcinoma medular de tiroides, entre otras—. El médico decide si aplica y a qué ritmo.</p>
+        <div class="tlz-fam-meta"><span class="tlz-tag tlz-tag-neutral">Con seguimiento</span><span class="tlz-tag tlz-tag-neutral">Dosis progresiva</span><span class="tlz-tag tlz-tag-neutral">Contraindicaciones a revisar</span></div>
+      </article>
+
+      <article class="tlz-fam">
+        <div class="tlz-fam-top"><span class="tlz-fam-sigla">Familia 02 · reparación</span></div>
+        <h3>BPC‑157 y TB‑500</h3>
+        <p>El grupo asociado a recuperación de tejido blando: tendón, músculo, mucosa intestinal. La evidencia disponible es sobre todo preclínica —modelos animales— y los ensayos en humanos son escasos. Eso no los descarta, pero sí obliga a que el médico te lo diga tal cual antes de que decidas.</p>
+        <div class="tlz-fam-meta"><span class="tlz-tag tlz-tag-neutral">Evidencia preclínica</span><span class="tlz-tag tlz-tag-neutral">Sin registro sanitario</span></div>
+      </article>
+
+      <article class="tlz-fam">
+        <div class="tlz-fam-top"><span class="tlz-fam-sigla">Familia 03 · eje somatotropo</span></div>
+        <h3>CJC‑1295 e ipamorelina</h3>
+        <p>Secretagogos: en vez de administrar hormona de crecimiento, buscan estimular su liberación propia. Se asocian a sueño profundo, composición corporal y recuperación. Exigen valorar el eje hormonal completo con laboratorio antes y durante, no a ciegas.</p>
+        <div class="tlz-fam-meta"><span class="tlz-tag tlz-tag-neutral">Con laboratorio</span><span class="tlz-tag tlz-tag-neutral">Control periódico</span></div>
+      </article>
+
+      <article class="tlz-fam tlz-fam-tercio">
+        <div class="tlz-fam-top"><span class="tlz-fam-sigla">Familia 04</span></div>
+        <h3>Epitalón</h3>
+        <p>Ligado a la regulación del ciclo sueño-vigilia y estudiado en el campo de la longevidad. Evidencia humana limitada.</p>
+        <div class="tlz-fam-meta"><span class="tlz-tag tlz-tag-neutral">Longevidad</span></div>
+      </article>
+
+      <article class="tlz-fam tlz-fam-tercio">
+        <div class="tlz-fam-top"><span class="tlz-fam-sigla">Familia 05</span></div>
+        <h3>Péptidos y salud hormonal</h3>
+        <p>En TRH masculina y salud hormonal femenina, a veces acompañan al esquema principal. Nunca lo sustituyen.</p>
+        <div class="tlz-fam-meta"><span class="tlz-tag tlz-tag-neutral">Complementario</span></div>
+      </article>
+
+      <article class="tlz-fam tlz-fam-tercio">
+        <div class="tlz-fam-top"><span class="tlz-fam-sigla">Familia 06</span></div>
+        <h3>Lo que no verás aquí</h3>
+        <p>Nada que prometa resultados garantizados, ni esquemas «estándar» sin valorar a la persona. No trabajamos así.</p>
+        <div class="tlz-fam-meta"><span class="tlz-tag tlz-tag-outline">Criterio médico</span></div>
+      </article>
+    </div>
+
+    <div class="tlz-plat">
+      <div class="tlz-kicker">Cómo se lee una familia</div>
+      <figure>
+        <div class="tlz-img">
+          <img src="https://telenzia.com/wp-content/uploads/2026/08/telenzia-rubro-peptidos-longevidad-b.webp"
+               alt="Péptidos: molécula y perfil de una cabeza unidos por un ciclo punteado"
+               width="855" height="595" decoding="async">
+        </div>
+        <figcaption>Cada familia se valora por lo que busca hacer y por la evidencia que la respalda, no por lo que promete.</figcaption>
+      </figure>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlz-reg tlz-reveal">
+    <div class="tlz-reg-in">
+      <div>
+        <span class="tlz-numeral tlz-numeral-claro" aria-hidden="true">03</span>
+        <div class="tlz-reg-kicker">Estatus regulatorio</div>
+        <h2>Lo que decimos sobre la legalidad de los péptidos.</h2>
+        <p>Decirlo claro protege tu decisión más que cualquier promesa: <strong style="color:var(--tlz-a300);font-weight:500">varias de estas moléculas no tienen registro sanitario en México</strong>. Su uso es materia de criterio médico y de consentimiento informado, no de publicidad.</p>
+        <p>Telenzia no comercializa ni distribuye ninguna de ellas, y no gana nada de lo que se te recete.</p>
+      </div>
+      <ul class="tlz-reg-lista">
+        <li tabindex="0">El médico te explica el estatus regulatorio de lo que valore, antes de indicarlo.</li>
+        <li tabindex="0">La receta detalla nombre, dosis e indicaciones, y va firmada por quien te atendió.</li>
+        <li tabindex="0">Tú decides dónde surtirla. Telenzia no participa en ese paso.</li>
+        <li tabindex="0">Si no eres candidato, la consulta lo aclara — y eso también es un resultado útil.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="tlz-section tlz-reveal">
+    <div class="tlz-ed">
+      <span class="tlz-ed-num" aria-hidden="true">04</span>
+      <div class="tlz-ed-body">
+    <div class="tlz-enc-c">
+      <div class="tlz-kicker">Preguntas frecuentes</div>
+      <h2 class="tlz-h2">Dudas razonables sobre los péptidos.</h2>
+    </div>
+    <div class="tlz-pep-faq">
+      <div><div class="tlz-faq-n">01</div><h3>¿Me pueden recetar péptidos en la primera consulta?</h3><p>Puede ocurrir si el médico considera que hay indicación y que tu caso está suficientemente valorado. También puede pedirte estudios antes. Ninguna de las dos cosas está decidida de antemano.</p></div>
+      <div><div class="tlz-faq-n">02</div><h3>¿Telenzia me los vende?</h3><p>No. Telenzia no vende, surte ni distribuye tratamientos. Solo te conecta con el médico y cobra la consulta.</p></div>
+      <div><div class="tlz-faq-n">03</div><h3>¿Sirven para todo lo que se lee en internet?</h3><p>No. Buena parte de lo que circula se apoya en estudios preclínicos presentados como si fueran conclusiones firmes. El médico distingue una cosa de la otra contigo.</p></div>
+      <div><div class="tlz-faq-n">04</div><h3>¿Hay riesgos?</h3><p>Sí, como con cualquier tratamiento: efectos adversos, interacciones y contraindicaciones. Por eso el punto de partida es una valoración y no un catálogo.</p></div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlz-cierre tlz-reveal">
+    <div class="tlz-cierre-box">
+      <span class="tlz-numeral tlz-numeral-claro" aria-hidden="true">05</span>
+      <h2>Que un médico revise si aplica a tu caso.</h2>
+      <p>Empiezas por el quiz de síntomas y agendas tu video-consulta con un médico de cédula verificada.</p>
+      <a class="tlz-btn tlz-btn-primary" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agenda tu consulta</a>
+    </div>
+  </section>
+</div>
+
+<script id="tlz-reveal-js">
+(function(){
+  var nodes=[].slice.call(document.querySelectorAll(".tlz-page .tlz-reveal:not(.tlz-in)"));
+  if(!nodes.length)return;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var show=function(n){n.classList.add("tlz-in")};
+  if(reduce||!("IntersectionObserver" in window)){nodes.forEach(show);return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}});
+  },{rootMargin:"0px 0px -12% 0px",threshold:.08});
+  nodes.forEach(function(n){io.observe(n)});
+  setTimeout(function(){nodes.forEach(show)},2600);
+})();
+</script>
+<!-- /wp:html -->
+</section>
+<!-- /wp:group -->

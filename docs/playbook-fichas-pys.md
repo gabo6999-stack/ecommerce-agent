@@ -166,6 +166,101 @@ vida en memoria. Un control negativo que solo se ha visto pasar en local no
 está verificado — el proceso de producción tiene caches, procesos concurrentes
 y variables de entorno que el entorno local no reproduce.
 
+**6. Un bug de robustez corregido en una función se busca en TODAS las que
+hacen la misma clase de llamada, no solo en la que falló.** `check_url()`
+(la validación de enlaces) tenía exactamente el mismo defecto que ya se había
+corregido en `_pubmed_record()` para `retrofeed_gates`: una sola llamada a
+eutils sin reintento, que ante un timeout puntual marcaba un PMID real como
+"no existe en PubMed". Nunca se replicó el fix a la función hermana hasta que
+la landing NAD+ (Fase 4b, 2026-08-02) lo disparó de nuevo, con 3 PMIDs
+verificados manualmente como falsos positivos. Regla: cuando se arregla un
+bug de reintentos/caché de fallos, se audita el resto del archivo por el mismo
+patrón de llamada (`requests.get` a eutils sin retry, en este caso), no solo
+el punto donde se manifestó.
+
+**Dato a favor del propio sistema:** los 4 años mal citados que arrastraba la
+ficha 1131 (PMID 26785480, 24786309, 31278280, 29249689 — ninguno de los 39
+que corrigió el Bloque A de Fase 2) los encontró **la compuerta 1, al validar
+contenido nuevo que citaba los mismos PMIDs**, no una auditoría dedicada. Es
+la compuerta funcionando exactamente como se diseñó: no hace falta acordarse
+de re-auditar todo cada vez — basta con que cualquier contenido nuevo que
+toque esas citas pase por retrofeed_gates() para que el error salga a la luz.
+
+**7. Mínimo de enlaces internos: la regla depende del tipo de contenido, no
+es un número fijo.** `validate_blog_html()` exige mínimo 2 fichas distintas
+enlazadas — pensada para artículos de blog que tocan varios compuestos. Al
+redactar la landing NAD+ (monocompuesto, Fase 4b) esa regla no encajaba:
+forzar un segundo enlace a una ficha no relacionada solo para satisfacer el
+número **es en sí mismo una violación de la regla de relevancia** que el
+resto del sistema protege. Regla explícita, no caso especial: el mínimo de
+**2** aplica a blog multi-compuesto; una **landing monocompuesto** (o
+cualquier contenido cuyo alcance real cubra un solo compuesto vendible) tiene
+mínimo **1** enlace, a su ficha destino. Un segundo enlace forzado no cuenta
+como cumplimiento — cuenta como el mismo error que esta regla existe para
+prevenir.
+
+**8. Un conteo de verificación siempre reporta cuántos elementos examinó, no
+solo cuántos fallaron — es la misma lección de la #2, con una instancia nueva
+y más cara.** Fase 2 (2026-08-01) corrigió 41 años mal citados y reverificó
+"129 citas, 0 discrepancias". Era cierto **solo sobre el subconjunto que su
+regex podía ver**: el formato de lista bibliográfica
+(`<li><em>Título</em> Revista, año. PMID: n.</li>`). Esa regex es ciega a las
+citas que aparecen **inline, en prosa dentro del cuerpo** (`(Revista, año ·
+PMID n)`), que citan los mismos PMID con su propio año declarado — y que
+Fase 2 nunca examinó. El 2026-08-02, un parser que sí barre todo el
+documento encontró **33 discrepancias adicionales, las 33 inline, en 10 de
+las 14 fichas**, con el mismo sesgo sistemático (+1 año) que ya se había
+diagnosticado y dado por resuelto. Confirmado por comparación de las dos
+corridas (mismo campo `pubdate`/`epubdate`, mismo criterio; el diff de Fase 2
+para la 1131 muestra que sí corrigió la lista de referencias y dejó intactas
+las mismas citas repetidas en el cuerpo) — no es un cambio de criterio, es
+cobertura incompleta, exactamente el patrón del regex de "et al." de la
+lección 2. **Regla: todo reporte de verificación debe declarar el
+denominador** ("N discrepancias de M examinadas"), nunca solo el numerador.
+"0 fallos" sin decir cuántos se examinaron es indistinguible de "0
+examinados" — y esa ambigüedad fue, literalmente, la causa raíz dos veces en
+esta misma fase. Aplicado y verificado: los 33 se corrigieron con el mismo
+mecanismo (backup + Elementor/plano + verificación en vivo) y la re-corrida
+final confirma **0 discrepancias de 254 citas examinadas** en las 14 fichas
+(`scripts/fase4c_reaudita_corrige_anios.py`).
+
+**9. Schema en PÁGINAS (no fichas, no productos): el `<script>` embebido en
+el contenido es el único mecanismo que funciona.** Al añadir el bloque
+`reviewedBy` + FAQPage a la landing NAD+ (Fase 4b, 2026-08-03):
+`rankmath/v1/updateSchemas` devuelve HTTP 200 con cuerpo `[]` pero **no
+persiste nada** — verificado hasta despachando `updateSchemas` directo en el
+store de React del propio editor de Rank Math (`wp.data.dispatch('rank-math')`)
+y guardando con el botón real; al recargar, el schema seguía sin estar. Causas
+de fondo, confirmadas desde el Schema Generator de la UI: **FAQ es función
+PRO** (su radio button en el selector de tipos enlaza a `rankmath.com/pricing`)
+y **`MedicalWebPage` ni siquiera es un tipo del generador** (no está en la
+lista de 20 tipos disponibles). El mecanismo que sí funciona, verificado en
+vivo: un `<script type="application/ld+json">` embebido directo en el
+`content` de la página. A diferencia de `description` de productos vía
+`wc/v3` (que SÍ lo borra — ver Fase 5, publicación), `wp/v2/pages` **no
+sanea `<script>`** del contenido: sobrevive el guardado y renderiza en el
+front-end tal cual. Mismo principio que el inyector PHP de fichas
+(`pys-medical-reviewer` en `wp_head`), solo que aquí va en el body vía
+contenido en lugar de un hook PHP.
+
+**10. Los widgets Elementor tipo `"html"` tienen el mismo bug de escapado
+que los `"text-editor"` — persisten, no renderizan.** Al intentar enlazar
+la landing NAD+ desde `/longevidad/` (página Elementor de un solo widget
+`html` gigante, id `96c40f4`): escribir `_elementor_data` vía
+`POST wp/v2/pages/{id}` con `{"meta": {"_elementor_data": ..., "_elementor_element_cache": ""}}`
+devolvió HTTP 200 y **sí persistió** en la base de datos (confirmado
+releyendo el meta) — pero el HTML servido en vivo, confirmado sin caché
+(`X-Litespeed-Cache: miss`, `x-hcdn-cache-status: MISS`, longitud de
+respuesta consistente con una renderización real, no una versión vieja),
+**no incluía el cambio**. Es el mismo síntoma ya documentado para widgets
+`text-editor` ("persiste, formato de escapado, no renderiza"), ahora
+confirmado también en widgets `html`. Se revirtió el cambio (no dejar la
+BD con una edición invisible/inconsistente) y se dejó para edición manual
+en el editor de Elementor. **Regla: ninguna edición de `_elementor_data`
+por API se da por buena solo con el HTTP 200 ni con releer el meta —
+hay que verificar el HTML servido en vivo, sin caché, antes de reportarla
+como aplicada.**
+
 ```bash
 # comprobación automática de las reglas 6 y del tamaño
 py -3 -c "import re,html,pathlib;t=pathlib.Path('docs/contenido/<archivo>.html').read_text(encoding='utf-8');p=re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>',' ',t)));print('palabras',len(p.split()));print('prohibidas',re.findall(r'farmacia|refrigeraci[oó]n.{0,40}transporte',p,re.I))"
@@ -273,3 +368,47 @@ un lote de 3 cuesta mucho menos que uno de 10.
 - **2234 Glutatión** — SERP de cápsulas orales de góndola, otro mercado. No rankeará se haga lo que se haga.
 - **1689 Semaglutida** — cabeza bloqueada 53%; el long-tail de investigación (`semaglutida liofilizada`, `semaglutida investigacion`) tiene **0 volumen**. Toda la demanda GLP-1 es de marca farmacéutica. Retorno mínimo.
 - **5 agotados** — semaglutida 20mg y los 4 Nutricost (suplementos de góndola, otro mercado).
+
+---
+
+## Reseñas de producto — criterio de moderación y captura (Fase 5, decidido 2026-08-02)
+
+Autorizado como pieza independiente de la Fase 5 (el resto de Fase 5 queda
+congelada como especificación acumulada). Nada de esto se ha implementado
+todavía — queda documentado para cuando se ejecute.
+
+**Configuración:** reseñas solo de compradores verificados; toda reseña queda
+**pendiente de aprobación manual** antes de publicarse — nunca se auto-publica.
+
+**`AggregateRating` condicionado, nunca inventado.** Mismo principio que
+`availability: OutOfStock` en el schema (ver `docs/superficie-pys-vs-exoma.md`
+y las lecciones de arriba): un dato falso en resultados enriquecidos es peor
+que no tener el dato. El bloque `aggregateRating` del schema de producto se
+omite por completo mientras `reviewCount == 0` — se genera únicamente cuando
+existe al menos una reseña real y aprobada.
+
+**El criterio de moderación es por CONTENIDO, nunca por calificación.** Se
+retira una reseña cuando:
+1. afirma que el producto cura, trata o previene una enfermedad;
+2. sugiere una dosis o pauta de uso;
+3. menciona un padecimiento concreto en el que se usó.
+
+Riesgo regulatorio real: es producto sin registro sanitario para uso clínico.
+**Se conserva** una reseña negativa, una queja de servicio, un "no me
+funcionó" — eso no es riesgo regulatorio, es una opinión real, y filtrar por
+calificación en vez de por contenido convertiría la sección de reseñas en
+propaganda, que es exactamente lo que la regla de "cero trampas, cero spam"
+de Fase 5 prohíbe.
+
+**Correo post-compra — a los 14 días DESPUÉS DE LA ENTREGA** (no de la
+compra: da margen al tránsito nacional y a que el cliente ya haya recibido y
+usado el producto). Sin cupón, sin descuento, sin incentivo de ningún tipo —
+una reseña pagada no es una reseña.
+
+**Regla de redacción del correo, la más importante de las dos:** preguntar
+por la **experiencia de compra** — empaque, discreción del envío, tiempo de
+entrega, presentación del producto, atención — **nunca por resultados ni
+efectos**. Invitar a reseñar "cómo te funcionó" genera exactamente el
+contenido clínico que la regla de moderación de arriba obliga a retirar
+después. Es más barato no provocar esas reseñas que moderarlas una por una
+tras el hecho — el filtro más eficiente es la pregunta que nunca se hizo.

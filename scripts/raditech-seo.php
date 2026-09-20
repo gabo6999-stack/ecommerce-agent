@@ -1,0 +1,160 @@
+<?php
+/**
+ * Plugin Name: Raditech SEO – Comentarios guías + FAQ Schema
+ * Description: Habilita comentarios moderados SOLO en las guías objetivo y añade FAQPage schema. Cierra comentarios en todo lo demás.
+ * Version: 1.5
+ */
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+function raditech_target_comment_slugs() {
+    return array(
+        'inteligencia-artificial-radiologia-diagnostica-mexico-2026',      // ID 842
+        'sistema-pacs-hospital-guia-completa-digitalizacion',              // ID 937
+        'teleradiologia-solucion-estrategica-hospitales-clinicas-mexico',  // ID 1015
+    );
+}
+
+// Autoritativo: comentarios ABIERTOS solo en los posts objetivo, CERRADOS en todo lo demás.
+// (En raditech hoy TODOS los posts tienen comment_status=open; este filtro garantiza
+//  "solo las guías" sin tener que hacer un UPDATE masivo destructivo en la BD.)
+add_filter( 'comments_open', function( $open, $post_id ) {
+    $post = get_post( $post_id );
+    if ( $post && in_array( $post->post_name, raditech_target_comment_slugs(), true ) ) {
+        return true;
+    }
+    return false;
+}, 20, 2 );
+
+// Pregunta/CTA rica en keywords antes del formulario de comentarios.
+add_action( 'comment_form_top', function() {
+    if ( ! is_singular( 'post' ) ) return;
+    global $post;
+    if ( ! $post || ! in_array( $post->post_name, raditech_target_comment_slugs(), true ) ) return;
+    echo '<div class="raditech-comment-prompt" style="border-left:4px solid #0b5; padding:12px 16px; margin:16px 0; background:#f5faf7;">'
+       . '<p style="margin:0;"><strong>¿Tienes dudas sobre implementación en tu hospital o clínica?</strong> '
+       . 'Pregunta sobre costos, integración con tu HIS/RIS, ancho de banda para teleradiología, '
+       . 'cumplimiento NOM-024-SSA3 / HIPAA o almacenamiento DICOM en México. '
+       . 'Un radiólogo del equipo Raditech te responde.</p></div>';
+});
+
+// FAQPage schema en la página FAQ.
+add_action( 'wp_head', function() {
+    if ( ! is_page( 'faq' ) ) return;
+    $faqs = array(
+        array('¿Qué es un PACS?', 'Un PACS (Picture Archiving Communication System) permite almacenar, transmitir, distribuir, visualizar e imprimir imágenes médicas digitales en formato DICOM.'),
+        array('¿Qué es un RIS?', 'Un RIS es un Sistema de Información Radiológica que administra las imágenes médicas digitales: programar citas, registrar datos del paciente, generar reportes y controlar el expediente radiológico.'),
+        array('¿Cuáles son los requisitos para instalar un PACS?', 'Los equipos deben producir imágenes DICOM, contar con conexión a internet y una IP libre dentro del segmento de red de los equipos de imagen.'),
+        array('¿En cuánto tiempo se instala un PACS?', 'La configuración e instalación del router toma aproximadamente cuatro días, con asesoría de los ingenieros de marca de las modalidades a conectar.'),
+        array('¿Por cuánto tiempo están disponibles las imágenes?', 'El almacenamiento de cada estudio es por 7 años.'),
+        array('¿Qué certificaciones tiene el PACS?', 'Cuenta con certificación HIPAA y datacenters TIER 4 con disponibilidad de 99.995%, redundancia doble y respaldos diarios, semanales y mensuales.'),
+        array('¿Es seguro el almacenamiento en la nube?', 'La información se encripta bajo protocolo SHA-256 y se transmite por HTTPS, con copias de seguridad por triplicado, superando en seguridad a películas, discos duros o archivos impresos.'),
+        array('¿Qué es la teleradiología?', 'Es la interpretación a distancia de estudios radiológicos, que permite a un hospital rural obtener la misma calidad de interpretación que uno de una gran ciudad, sin importar ubicación ni hora.'),
+        array('¿Cuáles son los tiempos de interpretación de los estudios?', 'Rayos X y ultrasonido: 1 hora; tomografía y fluoroscopias: 2 horas; resonancia magnética: 5 horas; mastografía: 24 horas.'),
+
+    );
+    $items = array();
+    foreach ( $faqs as $f ) {
+        $items[] = array(
+            '@type' => 'Question',
+            'name'  => $f[0],
+            'acceptedAnswer' => array('@type' => 'Answer', 'text' => $f[1]),
+        );
+    }
+    $schema = array('@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $items);
+    echo '<script type="application/ld+json">' . wp_json_encode( $schema ) . '</script>' . "\n";
+});
+
+// Las PÁGINAS (landings, contacto, home, FAQ…) NO son artículos. Rank Math las tipa como
+// Article por el default global de Páginas (pt_page_default_rich_snippet=article). Aquí
+// quitamos SOLO el nodo Article en cualquier página, dejando intacto el resto del grafo
+// (WebPage, Organization, WebSite, Person, BreadcrumbList) → quedan tipadas como WebPage.
+// Solo aplica a is_page() → los POSTS/guías del blog conservan su Article legítimo.
+// (El nodo Article #richSnippet no es referenciado por ningún otro nodo: borrarlo es limpio.)
+add_filter( 'rank_math/json_ld', function( $data, $jsonld ) {
+    if ( ! is_page() ) {
+        return $data;
+    }
+    foreach ( $data as $key => $piece ) {
+        if ( is_array( $piece ) && isset( $piece['@type'] ) ) {
+            $type       = $piece['@type'];
+            $is_article = ( 'Article' === $type ) || ( is_array( $type ) && in_array( 'Article', $type, true ) );
+            if ( $is_article ) {
+                unset( $data[ $key ] );
+            }
+        }
+    }
+    return $data;
+}, 99, 2 );
+
+/**
+ * Arregla la altura del formulario de HubSpot (2026-07-31).
+ *
+ * Diagnóstico: el embed de HubSpot crea un <iframe class="hs-form-iframe"> SIN
+ * atributo src — el contenido se escribe directamente en el documento. Al no
+ * haber origen, el postMessage con el que HubSpot normalmente ajusta la altura
+ * nunca se aplica, y el iframe se queda en los 150px que el navegador da por
+ * defecto a un iframe sin altura. El formulario mide 460px, así que solo se veía
+ * un 33%: el visitante no alcanzaba el botón "Enviar" sin desplazarse dentro de
+ * un marco diminuto. Medido a 1280px de ancho, no era un problema de móvil.
+ *
+ * Como el iframe es del mismo origen (sin src), sí se puede leer su
+ * contentDocument y sincronizar la altura. Eso es lo que hace este snippet.
+ * Se re-mide ante cambios (el form crece al mostrar errores de validación) y
+ * ante rotación/resize de la ventana.
+ */
+add_action( 'wp_footer', function () {
+	?>
+<script id="rt-hsform-altura">
+(function () {
+	var SEL = 'iframe.hs-form-iframe';
+
+	function ajusta( f ) {
+		try {
+			var d = f.contentDocument;
+			if ( ! d || ! d.body ) { return; }
+			var h = d.body.scrollHeight;
+			// 60px = umbral para no reaccionar a un iframe aún vacío
+			if ( h > 60 && Math.abs( f.offsetHeight - h ) > 4 ) {
+				f.style.height = h + 'px';
+			}
+		} catch ( e ) {}
+	}
+
+	function todos() {
+		var l = document.querySelectorAll( SEL );
+		for ( var i = 0; i < l.length; i++ ) { ajusta( l[ i ] ); }
+		return l.length;
+	}
+
+	function observa( f ) {
+		if ( f.dataset.rtObservado ) { return; }
+		f.dataset.rtObservado = '1';
+		try {
+			// el form cambia de alto al validar: hay que seguirlo, no medir una vez
+			var d = f.contentDocument;
+			if ( d && d.body && window.ResizeObserver ) {
+				new ResizeObserver( function () { ajusta( f ); } ).observe( d.body );
+			}
+		} catch ( e ) {}
+		f.addEventListener( 'load', function () { ajusta( f ); } );
+	}
+
+	function ciclo() {
+		var l = document.querySelectorAll( SEL );
+		for ( var i = 0; i < l.length; i++ ) { observa( l[ i ] ); ajusta( l[ i ] ); }
+	}
+
+	// el embed puede tardar: se reintenta un rato y luego se deja al observer
+	var t = 0;
+	var iv = setInterval( function () {
+		ciclo();
+		if ( ++t > 40 ) { clearInterval( iv ); }
+	}, 250 );
+
+	document.addEventListener( 'DOMContentLoaded', ciclo );
+	window.addEventListener( 'load', ciclo );
+	window.addEventListener( 'resize', todos );
+})();
+</script>
+	<?php
+}, 99 );

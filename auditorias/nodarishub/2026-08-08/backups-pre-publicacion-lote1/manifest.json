@@ -1,0 +1,61 @@
+{
+  "captured_at_utc": "2026-08-08T00:29:16.688147+00:00",
+  "endpoint": "GET /wp-json/wp/v2/pages?context=edit&per_page=100",
+  "read_only": true,
+  "objects": [
+    {
+      "id": 182,
+      "slug": "ec",
+      "link": "https://nodarishub.com/ec/",
+      "status": "publish",
+      "modified_gmt": "2026-07-31T13:43:03",
+      "content_raw_sha256": "f79feae0337e55c6b1297d5e25d7d5c6b5c4288daea5cb2640d9ed781d897be4",
+      "uses_elementor": false
+    },
+    {
+      "id": 184,
+      "slug": "diseno-web",
+      "link": "https://nodarishub.com/ec/diseno-web/",
+      "status": "publish",
+      "modified_gmt": "2026-07-31T13:42:24",
+      "content_raw_sha256": "f1d59e370d05dee2400e3f2c493b8448971c53762311f2ebaab9ec4176e430c2",
+      "uses_elementor": false
+    },
+    {
+      "id": 196,
+      "slug": "seo",
+      "link": "https://nodarishub.com/ec/seo/",
+      "status": "publish",
+      "modified_gmt": "2026-07-31T13:39:16",
+      "content_raw_sha256": "dc486531bee6c60b87ce559a2e17979d928cf489e0e30a52bf293eb31bd2c22b",
+      "uses_elementor": false
+    },
+    {
+      "id": 181,
+      "slug": "mx",
+      "link": "https://nodarishub.com/mx/",
+      "status": "publish",
+      "modified_gmt": "2026-07-23T19:19:12",
+      "content_raw_sha256": "5d6975e13ac650bd963a34d98f7d2746f656eef47257cf5151b4eebbd70f3c2e",
+      "uses_elementor": false
+    },
+    {
+      "id": 183,
+      "slug": "diseno-web",
+      "link": "https://nodarishub.com/mx/diseno-web/",
+      "status": "publish",
+      "modified_gmt": "2026-07-31T13:49:13",
+      "content_raw_sha256": "6f5ccdf88563164de8dd7e40076765ef825db16055a43ae3a7369457a3013dc6",
+      "uses_elementor": false
+    },
+    {
+      "id": 195,
+      "slug": "seo",
+      "link": "https://nodarishub.com/mx/seo/",
+      "status": "publish",
+      "modified_gmt": "2026-07-31T13:48:56",
+      "content_raw_sha256": "628fb31136a55ff493735eb2e9ff169ab154c3fa9418a6eda2108f3fd55206d1",
+      "uses_elementor": false
+    }
+  ]
+}

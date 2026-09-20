@@ -1,0 +1,28 @@
+{
+ "tamano": {
+  "https://peptidosysuplementos.mx": {
+   "total": 91,
+   "por_tipo": {
+    "wp-content": 25,
+    "product": 21,
+    "category": 5,
+    "productos": 2,
+    "(raíz)": 1,
+    "peptidos-en-mexico": 1,
+    "peptidosysuplementos.mx": 1,
+    "tirzepatida-en-mexico": 1
+   }
+  },
+  "https://exomapeptides.mx": {
+   "total": 0,
+   "por_tipo": {}
+  }
+ },
+ "indexacion": {
+  "https://peptidosysuplementos.mx/product/mots-c-10mg/": {
+   "estado": "otra URL responde",
+   "n_resultados": 9,
+   "frase": "Pérdida de Peso &nbsp;&#47;&nbsp;MOTS-c 10mg | Péptido Metabolismo y Longevidad México MOTS-c 10mg | Péptido Metabolismo y Longevidad México &#36; 1,200."
+  }
+ }
+}

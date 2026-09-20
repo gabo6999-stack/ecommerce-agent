@@ -1,0 +1,82 @@
+{
+  "version": "0.1.20260806",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "time": "0.0556 sec.",
+  "cost": 0.01272,
+  "tasks_count": 1,
+  "tasks_error": 0,
+  "tasks": [
+    {
+      "id": "08070453-2093-0392-0000-50f4ae90be5b",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0442 sec.",
+      "cost": 0.01272,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "dataforseo_labs",
+        "google",
+        "bulk_keyword_difficulty",
+        "live"
+      ],
+      "data": {
+        "api": "dataforseo_labs",
+        "function": "bulk_keyword_difficulty",
+        "se_type": "google",
+        "keywords": [
+          "agencia digital mexico",
+          "crear pagina web mexico",
+          "diseño de paginas web mexico",
+          "agencia de marketing digital mexico",
+          "agencia seo mexico",
+          "desarrollo de software a medida mexico"
+        ],
+        "location_code": 2484,
+        "language_code": "es"
+      },
+      "result": [
+        {
+          "se_type": "google",
+          "location_code": 2484,
+          "language_code": "es",
+          "total_count": 6,
+          "items_count": 6,
+          "items": [
+            {
+              "se_type": "google",
+              "keyword": "agencia de marketing digital mexico",
+              "keyword_difficulty": 100
+            },
+            {
+              "se_type": "google",
+              "keyword": "agencia digital mexico",
+              "keyword_difficulty": 36
+            },
+            {
+              "se_type": "google",
+              "keyword": "agencia seo mexico",
+              "keyword_difficulty": 54
+            },
+            {
+              "se_type": "google",
+              "keyword": "crear pagina web mexico",
+              "keyword_difficulty": null
+            },
+            {
+              "se_type": "google",
+              "keyword": "diseño de paginas web mexico",
+              "keyword_difficulty": 100
+            },
+            {
+              "se_type": "google",
+              "keyword": "desarrollo de software a medida mexico",
+              "keyword_difficulty": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+<!-- wp:group {"align":"full","tagName":"section","layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull">
+<!-- wp:html -->
+<!-- Telenzia — TELEMEDICINA · keyword: "servicios de telemedicina"
+     LAYOUT PROPIO: hero a una columna centrado + matriz de modalidades en 3 columnas.
+     (El home usa hero partido en 2 columnas con scrubber; aquí no hay scrubber ni
+     rejilla de 6 pasos.) El lenguaje de componentes viene del header global. -->
+<style id="tlz-tele-css">
+.tlz-page .tlz-tele-hero{text-align:center;padding:clamp(44px,5.4vw,80px) clamp(20px,4vw,56px) clamp(24px,2.6vw,38px);max-width:900px;margin:0 auto}
+.tlz-page .tlz-tele-hero .tlz-kicker{justify-content:center}
+.tlz-page .tlz-tele-hero h1{font-size:clamp(30px,4.1vw,54px);line-height:1.07;letter-spacing:-.028em;margin:var(--tlz-s6) auto clamp(16px,2vw,26px);max-width:20ch}
+.tlz-page .tlz-tele-hero p{font-size:clamp(15px,1.15vw,18px);line-height:1.6;color:var(--tlz-n400);max-width:58ch;margin:0 auto}
+.tlz-page .tlz-tele-cta{display:flex;justify-content:center;gap:var(--tlz-s4);margin-top:var(--tlz-s8);flex-wrap:wrap}
+.tlz-page .tlz-tele-cta .tlz-btn{padding:17px 32px;font-size:16px}
+.tlz-page .tlz-tele-facts{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(16px,2.4vw,34px);margin-top:var(--tlz-s8);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tlz-n600)}
+
+/* matriz de modalidades: 3 columnas con cabecera propia */
+.tlz-page .tlz-matriz{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--tlz-n900);margin-top:clamp(28px,3.4vw,50px);border-radius:var(--tlz-r-md);overflow:hidden}
+/* fijo a 3, no auto-fit: con auto-fit y 3 tarjetas de contenido denso el grid
+   ya rompía a 2 columnas hacia 1024px (min-300 cabía 2 veces antes que 3), y
+   la 3ª tarjeta quedaba sola en el renglón siguiente dejando una celda vacía
+   con el fondo del grid asomando — mismo bug que en home.html (#tlz-como
+   .tlz-steps). Con 3 tarjetas (no múltiplo limpio de 2) el salto directo a
+   1 columna es más predecible que un paso intermedio a 2 con huérfana. */
+@media (max-width:1024px){.tlz-page .tlz-matriz{grid-template-columns:1fr}}
+.tlz-page .tlz-mod{background:var(--tlz-bg);padding:var(--tlz-s8);display:flex;flex-direction:column;transition:background .3s var(--tlz-ease)}
+.tlz-page .tlz-mod:hover{background:var(--tlz-surface)}
+.tlz-page .tlz-mod-top{display:flex;align-items:center;justify-content:space-between;gap:var(--tlz-s4);margin-bottom:var(--tlz-s6)}
+.tlz-page .tlz-mod-num{font-size:11px;letter-spacing:.12em;color:var(--tlz-n600);font-variant-numeric:tabular-nums}
+.tlz-page .tlz-mod h3{font-size:20px;letter-spacing:-.015em;margin-bottom:var(--tlz-s4)}
+.tlz-page .tlz-mod>p{font-size:14px;color:var(--tlz-n400);margin-bottom:var(--tlz-s6)}
+.tlz-page .tlz-mod ul{list-style:none;display:grid;gap:var(--tlz-s3);margin-bottom:var(--tlz-s8)}
+.tlz-page .tlz-mod li{font-size:13.5px;line-height:1.5;color:var(--tlz-n400);padding-left:18px;position:relative}
+.tlz-page .tlz-mod li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:1px;background:var(--tlz-accent)}
+.tlz-page .tlz-mod .tlz-btn{margin-top:auto;align-self:flex-start;font-size:13px}
+
+/* — rubros ilustrados dentro de la banda azul — */
+.tlz-page .tlz-band-in{max-width:1320px;margin:0 auto;padding:clamp(38px,4.6vw,72px) clamp(20px,4vw,56px) 0}
+.tlz-page .tlz-band-in .tlz-kicker{color:var(--tlz-a300)}
+.tlz-page .tlz-band-in .tlz-kicker::before{background:var(--tlz-a300)}
+.tlz-page .tlz-band-h2{font-size:clamp(23px,2.7vw,34px);letter-spacing:-.025em;margin:var(--tlz-s6) 0 var(--tlz-s4);max-width:26ch}
+.tlz-page .tlz-band-lead{font-size:14.5px;line-height:1.6;color:var(--tlz-n300);max-width:58ch}
+.tlz-page .tlz-rub3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,22px);margin-top:clamp(24px,3vw,40px)}
+@media (max-width:1024px){.tlz-page .tlz-rub3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tlz-page .tlz-rub3 figure{margin:0}
+.tlz-page .tlz-rub3 .tlz-img{
+  position:relative;overflow:hidden;border-radius:var(--tlz-r-md);aspect-ratio:1.37;
+  background:#FCFBF9;box-shadow:0 0 0 1px var(--tlz-filete);
+  padding:3.5%;
+  transition:box-shadow .45s var(--tlz-ease),transform .45s var(--tlz-ease);
+}
+/* contain + margen interno: ningún icono ni silueta se corta contra el marco */
+.tlz-page .tlz-rub3 .tlz-img img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;
+  transition:transform .7s var(--tlz-ease),filter .5s var(--tlz-ease)}
+/* vignette: nítido en el centro, disuelto en los bordes hacia el fondo de la tarjeta.
+   Idéntico en las 3: mismo radio y mismo color de destino. */
+.tlz-page .tlz-rub3 .tlz-img::after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
+  background:radial-gradient(ellipse 74% 74% at 50% 50%,
+    rgba(11,79,74,0) 42%,
+    rgba(11,79,74,.45) 68%,
+    rgba(11,79,74,.85) 86%,
+    rgba(11,79,74,1) 100%);
+}
+.tlz-page .tlz-rub3 figure:hover .tlz-img{transform:translateY(-3px);box-shadow:0 0 0 1px var(--tlz-a400)}
+.tlz-page .tlz-rub3 figure:hover .tlz-img img{transform:scale(1.05);filter:saturate(1.1)}
+.tlz-page .tlz-rub3 figcaption{margin-top:var(--tlz-s4)}
+.tlz-page .tlz-rub3 b{display:block;font-size:16px;font-weight:500;letter-spacing:-.01em;color:var(--tlz-text)}
+.tlz-page .tlz-rub3 span{display:block;font-size:13px;line-height:1.55;color:var(--tlz-n300);margin-top:5px}
+@media (prefers-reduced-motion:reduce){.tlz-page .tlz-rub3 figure:hover .tlz-img,.tlz-page .tlz-rub3 figure:hover .tlz-img img{transform:none}}
+
+/* franja de datos */
+.tlz-page .tlz-datos{margin-top:clamp(30px,3.6vw,52px);display:grid;grid-template-columns:repeat(auto-fit,minmax(max(160px,22%),1fr));gap:1px;background:color-mix(in srgb,#14181A 14%,transparent);max-width:1320px;margin-inline:auto}
+.tlz-page .tlz-dato{background:var(--tlz-section);padding:var(--tlz-s8) var(--tlz-s6);text-align:center}
+.tlz-page .tlz-dato b{display:block;font-size:30px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.tlz-page .tlz-dato span{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tlz-n300);margin-top:5px}
+
+/* dos columnas: qué resuelve / qué no */
+.tlz-page .tlz-duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--tlz-s4);margin-top:clamp(24px,3vw,42px)}
+.tlz-page .tlz-duo>div{background:var(--tlz-surface);border-radius:var(--tlz-r-md);padding:var(--tlz-s8);box-shadow:var(--tlz-sh-sm)}
+.tlz-page .tlz-duo h3{font-size:18px;margin-bottom:var(--tlz-s4)}
+.tlz-page .tlz-duo ul{list-style:none;display:grid;gap:var(--tlz-s4)}
+.tlz-page .tlz-duo li{font-size:14px;line-height:1.55;color:var(--tlz-n400);padding-left:20px;position:relative}
+.tlz-page .tlz-duo li::before{content:"";position:absolute;left:0;top:8px;width:9px;height:1px;background:var(--tlz-accent)}
+
+.tlz-page .tlz-cierre{max-width:1320px;margin:0 auto;padding:clamp(12px,1.6vw,28px) clamp(20px,4vw,56px) clamp(52px,6vw,92px)}
+.tlz-page .tlz-cierre-box{display:grid;place-items:center;gap:var(--tlz-s6);text-align:center;padding:clamp(32px,4.4vw,64px) clamp(20px,4vw,48px);background:var(--tlz-surface);border-radius:var(--tlz-r-lg);box-shadow:var(--tlz-sh-sm)}
+.tlz-page .tlz-cierre-box h2{font-size:clamp(24px,3vw,38px);letter-spacing:-.025em;max-width:24ch}
+.tlz-page .tlz-cierre-box p{max-width:54ch;font-size:15px;color:var(--tlz-n400)}
+.tlz-page .tlz-cierre-box .tlz-btn{padding:18px 36px;font-size:17px}
+@media (max-width:640px){
+  .tlz-page .tlz-tele-hero{padding:32px 20px 20px}
+  .tlz-page .tlz-mod{padding:20px}
+  .tlz-page .tlz-datos{grid-template-columns:1fr 1fr}
+  .tlz-page .tlz-rub3{grid-template-columns:1fr}
+  .tlz-page .tlz-duo{grid-template-columns:1fr}
+}
+
+/* =========================================================================
+   ===== Composición v2 (revC) — 2026-08-05 =====
+   Traduce "Telenzia Telemedicina v2" (Claude Design): numeración editorial
+   por sección reutilizando .tlz-ed/.tlz-ed-num/.tlz-ed-body/.tlz-numeral
+   (utilidades compartidas, viven en el header, no aquí) y más peso para
+   "02 Modalidades" como punto focal de la página. CERO texto nuevo — solo
+   estructura y espacio. Va al final a propósito: aquí es donde debe ganar
+   sobre las reglas de arriba.
+   Fix de rejilla fantasma incluido arriba: .tlz-rub3 (3 tarjetas) y
+   .tlz-duo (2 columnas) pasaron de auto-fit a columnas fijas. Con
+   auto-fit(min-260px) y contenedor ~1208px a 1280/1366/1440/1920, cabía una
+   4ª pista invisible en .tlz-rub3 y una 3ª en .tlz-duo — el mismo bug de
+   columna fantasma que en home.html (#tlz-recorrido), aquí sin necesitar
+   min-width extremo para reproducirlo: bastaban los anchos normales de QA. */
+
+/* — 02 modalidades: punto focal de la página, más aire y titular más grande — */
+#tlz-modalidades{padding-block:clamp(56px,7vw,110px)}
+#tlz-modalidades .tlz-h2{font-size:clamp(30px,4.4vw,58px);max-width:24ch}
+
+/* — 04 alcance: el encabezado vive ahora dentro del carril editorial
+   (.tlz-ed-body); .tlz-enc-c centra por defecto, aquí se alinea a la
+   izquierda para no chocar con el numeral/filete del margen — */
+#tlz-alcance .tlz-enc-c{text-align:left;max-width:44ch;margin:0}
+#tlz-alcance .tlz-enc-c .tlz-kicker{justify-content:flex-start}
+#tlz-alcance .tlz-enc-c .tlz-h2{margin-inline:0;text-align:left}
+</style>
+
+<div class="tlz-page">
+
+  <section class="tlz-heroc">
+    <svg class="tlz-heroc-bg" viewBox="0 0 1180 480" fill="none" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="tlzL1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#0B4F4A" stop-opacity=".20"/>
+          <stop offset="70%" stop-color="#0B4F4A" stop-opacity=".06"/>
+          <stop offset="100%" stop-color="#0B4F4A" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="tlzA1" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#CEC7B5" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#0B4F4A" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#CEC7B5" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="590" cy="240" rx="132" ry="196" fill="url(#tlzL1)"/>
+      <circle cx="458" cy="240" r="196" stroke="url(#tlzA1)" stroke-width="1.2"/>
+      <circle cx="722" cy="240" r="196" stroke="url(#tlzA1)" stroke-width="1.2"/>
+      <circle cx="458" cy="240" r="196" stroke="#CEC7B5" stroke-width=".7" stroke-dasharray="2 9" opacity=".7"/>
+      <circle cx="722" cy="240" r="196" stroke="#CEC7B5" stroke-width=".7" stroke-dasharray="2 9" opacity=".7"/>
+      <circle cx="590" cy="240" r="4.5" fill="#0B4F4A" opacity=".75"/>
+      <circle cx="590" cy="240" r="15" stroke="#0B4F4A" stroke-width=".9" opacity=".28"/>
+      <g stroke="#CEC7B5" stroke-width=".9" opacity=".55">
+        <line x1="60" y1="240" x2="238" y2="240" stroke-dasharray="3 10"/>
+        <line x1="942" y1="240" x2="1120" y2="240" stroke-dasharray="3 10"/>
+      </g>
+      <g fill="#5F6764" opacity=".6"><circle cx="238" cy="240" r="2.6"/><circle cx="942" cy="240" r="2.6"/></g>
+    </svg>
+    <div class="tlz-heroc-in">
+      <span class="tlz-numeral" aria-hidden="true">01</span>
+      <div class="tlz-kicker">Servicios de telemedicina · México</div>
+    <h1>Servicios de telemedicina con médicos de cédula verificada.</h1>
+    <p>Los <strong>servicios de telemedicina</strong> de Telenzia conectan a un paciente con un médico independiente por video, sin traslados y sin sala de espera. La plataforma agenda, cobra la consulta y verifica la cédula; el criterio clínico es del médico.</p>
+    <div class="tlz-heroc-cta">
+      <a class="tlz-btn tlz-btn-primary" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agenda tu consulta</a>
+    </div>
+    <div class="tlz-heroc-facts">
+      <span>Consulta $1,500 MXN</span>
+      <span>Cédula verificada</span>
+      <span>Cuatro rubros</span>
+      <span>Sin membresías</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlz-section tlz-reveal" id="tlz-modalidades">
+    <div class="tlz-ed">
+      <span class="tlz-ed-num" aria-hidden="true">02</span>
+      <div class="tlz-ed-body">
+    <div class="tlz-kicker">Las tres modalidades</div>
+    <h2 class="tlz-h2">Qué incluyen nuestros servicios de telemedicina.</h2>
+    <p class="tlz-lead">No todas las consultas persiguen lo mismo. Estas son las tres formas en que se usa la plataforma, con lo que cubre cada una y lo que cuesta.</p>
+
+    <div class="tlz-matriz">
+      <article class="tlz-mod">
+        <div class="tlz-mod-top"><span class="tlz-mod-num">MODALIDAD 01</span><span class="tlz-tag tlz-tag-outline">Más frecuente</span></div>
+        <h3>Primera valoración</h3>
+        <p>La consulta con la que entra la mayoría. El médico revisa tu caso desde cero y decide si hay indicación de tratamiento.</p>
+        <ul>
+          <li>Revisión del quiz de síntomas que llenaste</li>
+          <li>Lectura de los estudios que ya tengas</li>
+          <li>Decisión clínica: procede, no procede, o faltan estudios</li>
+          <li>Receta firmada si el caso lo amerita</li>
+        </ul>
+        <a class="tlz-btn tlz-btn-ghost" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agendar valoración</a>
+      </article>
+
+      <article class="tlz-mod">
+        <div class="tlz-mod-top"><span class="tlz-mod-num">MODALIDAD 02</span><span class="tlz-tag tlz-tag-neutral">Con laboratorio</span></div>
+        <h3>Interpretación de estudios</h3>
+        <p>Traes resultados de laboratorio y quieres que un médico te los explique y te diga qué significan en tu caso.</p>
+        <ul>
+          <li>Perfil hormonal, metabólico o el que traigas</li>
+          <li>Qué está fuera de rango y qué implica</li>
+          <li>Si hace falta repetir o ampliar estudios</li>
+          <li>Qué se puede hacer y con qué expectativa realista</li>
+        </ul>
+        <a class="tlz-btn tlz-btn-ghost" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agendar interpretación</a>
+      </article>
+
+      <article class="tlz-mod">
+        <div class="tlz-mod-top"><span class="tlz-mod-num">MODALIDAD 03</span><span class="tlz-tag tlz-tag-neutral">Continuidad</span></div>
+        <h3>Seguimiento de tratamiento</h3>
+        <p>Ya estás en un esquema y toca revisar cómo va: qué mejoró, qué efectos aparecieron y qué se ajusta.</p>
+        <ul>
+          <li>Revisión de tolerancia y efectos adversos</li>
+          <li>Ajuste de dosis o cambio de esquema</li>
+          <li>Nuevos estudios de control si proceden</li>
+          <li>Receta actualizada cuando corresponde</li>
+        </ul>
+        <a class="tlz-btn tlz-btn-ghost" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agendar seguimiento</a>
+      </article>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlz-band tlz-reveal">
+    <div class="tlz-band-in">
+      <span class="tlz-numeral tlz-numeral-claro" aria-hidden="true">03</span>
+      <div class="tlz-kicker">Rubros que cubre esta página</div>
+      <h2 class="tlz-band-h2">Tres motivos que se atienden por telemedicina.</h2>
+      <p class="tlz-band-lead">Péptidos tiene su propia página; estos tres se valoran directamente aquí, en cualquiera de las tres modalidades de consulta.</p>
+      <div class="tlz-rub3">
+        <figure>
+          <div class="tlz-img">
+            <img src="https://telenzia.com/wp-content/uploads/2026/08/telenzia-rubro-perdida-de-peso-b.webp"
+                 alt="Pérdida de peso, uno de los servicios de telemedicina de Telenzia: silueta corporal junto a una curva descendente de peso"
+                 width="740" height="542" loading="lazy" decoding="async">
+          </div>
+          <figcaption><b>Pérdida de peso</b><span>Manejo médico con análogos de GLP‑1 y otros tratamientos que el médico valore.</span></figcaption>
+        </figure>
+        <figure>
+          <div class="tlz-img">
+            <img src="https://telenzia.com/wp-content/uploads/2026/08/telenzia-rubro-salud-hombres-b.webp"
+                 alt="Silueta masculina dentro de un círculo, rodeada de indicadores de energía y equilibrio hormonal"
+                 width="855" height="595" loading="lazy" decoding="async">
+          </div>
+          <figcaption><b>Salud para hombres</b><span>TRH cuando hay indicación: testosterona baja confirmada, energía, libido. Con laboratorio.</span></figcaption>
+        </figure>
+        <figure>
+          <div class="tlz-img">
+            <img src="https://telenzia.com/wp-content/uploads/2026/08/telenzia-rubro-salud-mujeres-b.webp"
+                 alt="Silueta femenina dentro de un círculo, con una flor de loto y marcadores de salud hormonal"
+                 width="855" height="655" loading="lazy" decoding="async">
+          </div>
+          <figcaption><b>Salud para mujeres</b><span>Menopausia y perimenopausia, libido, equilibrio hormonal y SOP.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="tlz-datos">
+      <div class="tlz-dato"><b>$1,500</b><span>Consulta, MXN</span></div>
+      <div class="tlz-dato"><b>03</b><span>Modalidades</span></div>
+      <div class="tlz-dato"><b>04</b><span>Rubros atendidos</span></div>
+      <div class="tlz-dato"><b>100%</b><span>Cédulas verificadas</span></div>
+    </div>
+  </section>
+
+  <section class="tlz-section tlz-reveal" id="tlz-alcance">
+    <div class="tlz-ed">
+      <span class="tlz-ed-num" aria-hidden="true">04</span>
+      <div class="tlz-ed-body">
+    <div class="tlz-enc-c">
+      <div class="tlz-kicker">Alcance real</div>
+      <h2 class="tlz-h2">Hasta dónde llega una consulta por video.</h2>
+    </div>
+    <div class="tlz-duo">
+      <div>
+        <h3>Lo que sí resuelve</h3>
+        <ul>
+          <li>Valorar si eres candidato a un tratamiento y explicarte por qué.</li>
+          <li>Interpretar estudios de laboratorio contigo, no mandarte un PDF.</li>
+          <li>Emitir receta con nombre, dosis e indicaciones cuando procede.</li>
+          <li>Ajustar un esquema en curso y vigilar efectos.</li>
+          <li>Responder tus dudas sin reloj de por medio: el tiempo ya está pagado.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Lo que no sustituye</h3>
+        <ul>
+          <li>Urgencias médicas: ahí el camino es el servicio de urgencias.</li>
+          <li>Exploración física, toma de muestras y estudios de imagen.</li>
+          <li>Procedimientos e intervenciones de cualquier tipo.</li>
+          <li>Casos que el médico considere que requieren valoración presencial. Si es el tuyo, te lo dirá en la consulta.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tlz-note" style="margin-top:clamp(24px,3vw,40px)">
+      <p style="font-size:14px;line-height:1.6;color:var(--tlz-n300);max-width:74ch"><strong>Telenzia es una plataforma tecnológica, no un prestador de servicios médicos.</strong> Los médicos son profesionales independientes con cédula verificada, responsables de su acto médico. Lo que Telenzia cobra no depende de lo que se te recete.</p>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlz-cierre tlz-reveal">
+    <div class="tlz-cierre-box">
+      <span class="tlz-numeral tlz-numeral-claro" aria-hidden="true">05</span>
+      <h2>Empieza por el quiz de síntomas.</h2>
+      <p>Unos minutos de preguntas y tu video-consulta agendada con un médico de cédula verificada.</p>
+      <a class="tlz-btn tlz-btn-primary" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agenda tu consulta</a>
+    </div>
+  </section>
+</div>
+
+<script id="tlz-reveal-js">
+(function(){
+  var nodes=[].slice.call(document.querySelectorAll(".tlz-page .tlz-reveal:not(.tlz-in)"));
+  if(!nodes.length)return;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var show=function(n){n.classList.add("tlz-in")};
+  if(reduce||!("IntersectionObserver" in window)){nodes.forEach(show);return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}});
+  },{rootMargin:"0px 0px -12% 0px",threshold:.08});
+  nodes.forEach(function(n){io.observe(n)});
+  setTimeout(function(){nodes.forEach(show)},2600);
+})();
+</script>
+<!-- /wp:html -->
+</section>
+<!-- /wp:group -->

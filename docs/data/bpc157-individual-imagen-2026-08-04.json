@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "product_id": 2464,
+  "media_id": 2468,
+  "source_url": "https://peptidosysuplementos.mx/wp-content/uploads/2026/08/bpc-157-presentacion-individual-sin-existencias.png",
+  "checks": {
+    "wp_featured_media": true,
+    "media_alt_readback": true,
+    "public_media_url": true,
+    "public_alt": true
+  }
+}

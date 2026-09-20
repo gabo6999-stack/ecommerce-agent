@@ -1,0 +1,121 @@
+{
+  "measured_at_utc": "2026-08-07T04:53:20.979821+00:00",
+  "markets": {
+    "ec": {
+      "location_code": 2218,
+      "requested": 6,
+      "volume_rows_received": 6,
+      "difficulty_rows_received": 6,
+      "rows": [
+        {
+          "keyword": "agencia digital ecuador",
+          "search_volume": 30,
+          "cpc": 2.62,
+          "competition": "MEDIUM",
+          "competition_index": 35,
+          "keyword_difficulty": null
+        },
+        {
+          "keyword": "crear pagina web ecuador",
+          "search_volume": 10,
+          "cpc": null,
+          "competition": "HIGH",
+          "competition_index": 79,
+          "keyword_difficulty": null
+        },
+        {
+          "keyword": "diseño de paginas web ecuador",
+          "search_volume": 70,
+          "cpc": 2,
+          "competition": "LOW",
+          "competition_index": 7,
+          "keyword_difficulty": 100
+        },
+        {
+          "keyword": "agencia de marketing digital ecuador",
+          "search_volume": 110,
+          "cpc": 2.5,
+          "competition": "MEDIUM",
+          "competition_index": 43,
+          "keyword_difficulty": 89
+        },
+        {
+          "keyword": "agencia seo ecuador",
+          "search_volume": 90,
+          "cpc": 0.74,
+          "competition": "LOW",
+          "competition_index": 16,
+          "keyword_difficulty": null
+        },
+        {
+          "keyword": "desarrollo de software a medida ecuador",
+          "search_volume": null,
+          "cpc": null,
+          "competition": null,
+          "competition_index": null,
+          "keyword_difficulty": null
+        }
+      ]
+    },
+    "mx": {
+      "location_code": 2484,
+      "requested": 6,
+      "volume_rows_received": 6,
+      "difficulty_rows_received": 6,
+      "rows": [
+        {
+          "keyword": "agencia digital mexico",
+          "search_volume": 140,
+          "cpc": 3.25,
+          "competition": "MEDIUM",
+          "competition_index": 40,
+          "keyword_difficulty": 36
+        },
+        {
+          "keyword": "crear pagina web mexico",
+          "search_volume": 10,
+          "cpc": null,
+          "competition": null,
+          "competition_index": null,
+          "keyword_difficulty": null
+        },
+        {
+          "keyword": "diseño de paginas web mexico",
+          "search_volume": 40,
+          "cpc": 1.99,
+          "competition": "LOW",
+          "competition_index": 14,
+          "keyword_difficulty": 100
+        },
+        {
+          "keyword": "agencia de marketing digital mexico",
+          "search_volume": 480,
+          "cpc": 5.27,
+          "competition": "LOW",
+          "competition_index": 9,
+          "keyword_difficulty": 100
+        },
+        {
+          "keyword": "agencia seo mexico",
+          "search_volume": 170,
+          "cpc": 8.13,
+          "competition": "LOW",
+          "competition_index": 12,
+          "keyword_difficulty": 54
+        },
+        {
+          "keyword": "desarrollo de software a medida mexico",
+          "search_volume": null,
+          "cpc": null,
+          "competition": null,
+          "competition_index": null,
+          "keyword_difficulty": null
+        }
+      ]
+    }
+  },
+  "costs": {
+    "volume": 0.18,
+    "difficulty": 0.02544
+  }
+}

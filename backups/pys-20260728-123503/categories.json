@@ -1,0 +1,542 @@
+[
+ {
+  "id": 207,
+  "count": 12,
+  "description": "",
+  "link": "https://peptidosysuplementos.mx/category/blog/",
+  "name": "Blog",
+  "slug": "blog",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/207",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=207"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 42,
+  "count": 1,
+  "description": "<img class=\"alignnone size-medium wp-image-903\" src=\"http://peptidosysuplementos.mx/wp-content/uploads/2026/05/crecimiento-y-reparacion-muscular-regeneracion-tejidos-300x200.png\" alt=\"crecimiento y reparación muscular en atleta durante recuperación física\" width=\"300\" height=\"200\" />\r\n\r\nEsta selección de <b data-path-to-node=\"1\" data-index-in-node=\"18\">Crecimiento y Reparación de Tejidos</b> se especializa en péptidos de alta pureza, los cuales actúan como mensajeros celulares específicos que señalizan al organismo para iniciar una reparación muscular más rápida y eficiente. Estos compuestos de cadena corta permiten una absorción superior, optimizando la síntesis de colágeno y la regeneración de fibras musculares a nivel molecular.",
+  "link": "https://peptidosysuplementos.mx/category/crecimiento-y-reparacion/",
+  "name": "CRECIMIENTO Y REPARACIÓN",
+  "slug": "crecimiento-y-reparacion",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/42",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=42"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 45,
+  "count": 0,
+  "description": "Compuestos dirigidos a la <strong data-start=\"185\" data-end=\"218\">producción de energía celular</strong> y la <strong data-start=\"224\" data-end=\"248\">función mitocondrial</strong>, diseñados para optimizar el rendimiento físico y mental desde el interior del organismo. Esta categoría incluye soluciones que favorecen la <strong data-start=\"390\" data-end=\"431\">generación de energía a nivel celular</strong>, apoyando el correcto funcionamiento de las mitocondrias, conocidas como las “centrales energéticas” del cuerpo.<img class=\"size-medium wp-image-904 aligncenter\" src=\"http://peptidosysuplementos.mx/wp-content/uploads/2026/05/categoria-energia-celular-y-mitocondrial-300x164.png\" alt=\"Energía celular y mitocondrial: mitocondria activa liberando moléculas de ATP para optimización metabólica.\" width=\"300\" height=\"164\" />",
+  "link": "https://peptidosysuplementos.mx/category/energia-celular-y-mitocondrial/",
+  "name": "ENERGÍA CELULAR Y MITOCONDRIAL",
+  "slug": "energia-celular-y-mitocondrial",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/45",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=45"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 110,
+  "count": 1,
+  "description": "",
+  "link": "https://peptidosysuplementos.mx/category/metabolismo/",
+  "name": "metabolismo",
+  "slug": "metabolismo",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/110",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=110"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 37,
+  "count": 0,
+  "description": "Nuestra línea de <b data-path-to-node=\"8,0\" data-index-in-node=\"17\">Oncología y Destino Celular</b> se enfoca en la investigación avanzada de la apoptosis, la proliferación y la regulación precisa del ciclo celular. Ofrecemos péptidos funcionales diseñados para intervenir en los mecanismos de destino celular, proporcionando herramientas de alta biotecnología para quienes buscan resultados reales en la modulación y soporte de procesos celulares complejos.<img class=\"alignnone size-medium wp-image-905\" src=\"http://peptidosysuplementos.mx/wp-content/uploads/2026/05/oncologia-y-destino-celular-300x164.png\" alt=\"Oncología y destino celular: regulación del ciclo celular y procesos de apoptosis celular.\" width=\"300\" height=\"164\" />",
+  "link": "https://peptidosysuplementos.mx/category/oncologia-destino-celular/",
+  "name": "ONCOLOGÍA Y DESTINO CELULAR",
+  "slug": "oncologia-destino-celular",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/37",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=37"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 38,
+  "count": 2,
+  "description": "<b data-path-to-node=\"9,0\" data-index-in-node=\"1\">Regeneración y Longevidad</b> definen el estándar de nuestra investigación en reparación celular profunda. A través de péptidos diseñados para la optimización biológica, intervenimos en la restauración del ADN y la vitalidad mitocondrial. No se trata solo de suplementación, sino de un cambio funcional hacia un envejecimiento optimizado, proporcionando herramientas científicas para quienes exigen resultados reales en su salud sistémica.<img class=\"size-medium wp-image-906 aligncenter\" src=\"http://peptidosysuplementos.mx/wp-content/uploads/2026/05/soluciones-longevidad-regeneracion-biologica-mexico-300x140.png\" alt=\"Longevidad y regeneración biológica: optimización de la salud celular mediante péptidos y suplementos que ayudan a reparar el ADN y mejorar la función mitocondrial para una vejez vital.\" width=\"300\" height=\"140\" />*",
+  "link": "https://peptidosysuplementos.mx/category/longevidad-y-regeneracion-biologica/",
+  "name": "REGENERACIÓN Y LONGEVIDAD",
+  "slug": "longevidad-y-regeneracion-biologica",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/38",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=38"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 40,
+  "count": 0,
+  "description": "La <b data-path-to-node=\"6,1\" data-index-in-node=\"3\">Salud Cognitiva y Neurológica</b> consiste en el mantenimiento y la optimización de las funciones superiores del cerebro, como la memoria, el aprendizaje y la velocidad de procesamiento. Mediante el uso de <b data-path-to-node=\"6,1\" data-index-in-node=\"205\">péptidos para memoria y suplementos de neuroprotección</b>, ayudamos a fortalecer la plasticidad sináptica y a proteger las neuronas contra el estrés oxidativo.<img class=\"size-medium wp-image-907 aligncenter\" src=\"http://peptidosysuplementos.mx/wp-content/uploads/2026/05/salud-cognitiva-y-neurologica-peptidos-suplementos-300x140.png\" alt=\"Salud cognitiva y neurológica: sinapsis neuronales activas y cerebro optimizado con péptidos para memoria y neuroprotección.\" width=\"300\" height=\"140\" />",
+  "link": "https://peptidosysuplementos.mx/category/salud-cognitiva-y-neurologica/",
+  "name": "SALUD COGNITIVA Y NEUROLÓGICA",
+  "slug": "salud-cognitiva-y-neurologica",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/40",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=40"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 41,
+  "count": 0,
+  "description": "La <b data-path-to-node=\"6,1\" data-index-in-node=\"3\">Salud de la Piel, Cabello y Tejidos</b> consiste en la restauración profunda de las estructuras celulares que sostienen nuestra apariencia y vitalidad física. Mediante <b data-path-to-node=\"6,1\" data-index-in-node=\"167\">péptidos para regeneración dérmica y crecimiento capilar</b>, impulsamos soluciones avanzadas diseñadas para actuar directamente desde el núcleo de las células.<img class=\"alignnone size-medium wp-image-908\" src=\"http://peptidosysuplementos.mx/wp-content/uploads/2026/05/salud-piel-cabello-tejidos-regeneracion-300x167.png\" alt=\"Salud de la piel, cabello y tejidos: visualización de un modelo anatómico de piel sana, colágeno y folículos capilares fortalecidos con péptidos.\" width=\"300\" height=\"167\" />",
+  "link": "https://peptidosysuplementos.mx/category/salud-de-la-piel-cabello-tejidos/",
+  "name": "SALUD DE LA PIEL, CABELLO Y TEJIDOS",
+  "slug": "salud-de-la-piel-cabello-tejidos",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/41",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=41"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 44,
+  "count": 3,
+  "description": "La <b data-path-to-node=\"4\" data-index-in-node=\"3\">Salud Metabólica</b> es el motor central de un cuerpo funcional y una vida vibrante. El uso de <b data-path-to-node=\"4\" data-index-in-node=\"94\">péptidos enfocados en el metabolismo</b> representa la frontera más avanzada en la optimización biológica, permitiendo reprogramar de manera precisa la forma en que el organismo gestiona, almacena y utiliza la energía.<img class=\"alignnone size-medium wp-image-909\" src=\"http://peptidosysuplementos.mx/wp-content/uploads/2026/05/nutricion-salud-metabolica-300x164.png\" alt=\"Optimización de la salud metabólica y control de glucosa mediante péptidos avanzados para la quema de grasa.\" width=\"300\" height=\"164\" />",
+  "link": "https://peptidosysuplementos.mx/category/salud-metabolica/",
+  "name": "SALUD METABÓLICA",
+  "slug": "salud-metabolica",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/44",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=44"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 43,
+  "count": 0,
+  "description": "El enfoque principal en el <b data-path-to-node=\"0\" data-index-in-node=\"27\">SISTEMA INMUNE E INFLAMACIÓN</b> se centra en el uso de <b data-path-to-node=\"0\" data-index-in-node=\"79\">péptidos para modular la respuesta inmune y procesos inflamatorios</b> de manera estratégica. Mantener un equilibrio en estas funciones es vital, ya que el sistema inmunitario no solo nos defiende de agentes externos, sino que también gestiona la recuperación interna a través de la inflamación controlada.<img class=\"alignnone size-medium wp-image-910\" src=\"http://peptidosysuplementos.mx/wp-content/uploads/2026/05/sistema-inmune-respuesta-inflamatoria-citoquinas-300x164.png\" alt=\"Visualización médica 3D de alta resolución que ilustra una respuesta inflamatoria celular compleja, mostrando macrófagos, linfocitos y neutrófilos interactuando con moléculas de señalización (citoquinas) en tejido humano.\" width=\"300\" height=\"164\" />",
+  "link": "https://peptidosysuplementos.mx/category/sistema-inmune-e-inflamacion/",
+  "name": "SISTEMA INMUNE E INFLAMACIÓN",
+  "slug": "sistema-inmune-e-inflamacion",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/43",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=43"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 39,
+  "count": 0,
+  "description": "<p data-path-to-node=\"1\"><img class=\"size-medium wp-image-911 aligncenter\" src=\"http://peptidosysuplementos.mx/wp-content/uploads/2026/05/sistema-reproductivo-y-neuroendocrino-300x164.png\" alt=\"Ilustración médica detallada del Sistema Reproductivo y Neuroendocrino femenino sobre un escritorio con suplementos, mostrando la conexión hormonal.\" width=\"300\" height=\"164\" />Optimiza tu salud con nuestra gama dedicada al <b data-path-to-node=\"1\" data-index-in-node=\"48\">Sistema Reproductivo y Neuroendocrino</b>, donde la ciencia y el bienestar se encuentran. Ofrecemos compuestos avanzados diseñados para la regulación hormonal y el equilibrio de las funciones vitales del organismo.</p>\r\n<p data-path-to-node=\"2\">Nuestras soluciones se enfocan en apoyar el eje hipotálamo-hipofisario y promover una salud reproductiva integral, ayudando a estabilizar los procesos metabólicos y la respuesta al estrés. Con un enfoque en la pureza y la eficacia, estos suplementos y péptidos están formulados para restaurar la armonía biológica, potenciando tu vitalidad y rendimiento de forma segura.</p>",
+  "link": "https://peptidosysuplementos.mx/category/sistema-reproductivo/",
+  "name": "SISTEMA REPRODUCTIVO Y NEUROENDOCRINO",
+  "slug": "sistema-reproductivo",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/39",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=39"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 1,
+  "count": 0,
+  "description": "",
+  "link": "https://peptidosysuplementos.mx/category/uncategorized/",
+  "name": "Uncategorized",
+  "slug": "uncategorized",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories/1",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wp/v2/posts?categories=1"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ }
+]

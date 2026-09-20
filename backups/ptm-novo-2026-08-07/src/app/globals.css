@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0c18;
+  --foreground: #e2e8f8;
+  --primary: #1ec8f0;
+  --primary-light: #45d5f5;
+  --primary-dark: #06080f;
+  --accent: #c8890a;
+  --accent-light: #0d1a28;
+  --muted: #0d1020;
+  --border: rgba(30, 200, 240, 0.18);
+  --card: #111828;
+  --text-muted: #8892b0;
+  --sidebar: #060810;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* ─── Dark mode: card backgrounds ─────────────────────── */
+.bg-white {
+  background-color: var(--card) !important;
+}
+.bg-gray-50 {
+  background-color: #0d1020 !important;
+}
+.bg-gray-100 {
+  background-color: #111828 !important;
+}
+.bg-gray-200 {
+  background-color: #1a2035 !important;
+}
+
+/* ─── Dark mode: text ──────────────────────────────────── */
+.text-gray-900 { color: #f0f4ff !important; }
+.text-gray-800 { color: #e2e8f8 !important; }
+.text-gray-700 { color: #c8d3e8 !important; }
+.text-gray-600 { color: #a8b3cc !important; }
+.text-gray-500 { color: #8892b0 !important; }
+
+/* ─── Dark mode: borders ───────────────────────────────── */
+.border-gray-200 { border-color: rgba(30, 200, 240, 0.12) !important; }
+.border-gray-300 { border-color: rgba(30, 200, 240, 0.2) !important; }
+
+/* ─── Dark mode: form inputs ───────────────────────────── */
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  background-color: #141928 !important;
+  color: #e2e8f8 !important;
+  border-color: rgba(30, 200, 240, 0.2) !important;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #6b7a99 !important;
+}
+select option {
+  background-color: #141928;
+  color: #e2e8f8;
+}
+
+/* ─── Dark mode: colored badges ────────────────────────── */
+.bg-red-50    { background-color: rgba(239, 68, 68, 0.12)   !important; }
+.bg-red-100   { background-color: rgba(239, 68, 68, 0.18)   !important; }
+.bg-green-50  { background-color: rgba(34, 197, 94, 0.12)   !important; }
+.bg-green-100 { background-color: rgba(34, 197, 94, 0.18)   !important; }
+.bg-blue-50   { background-color: rgba(30, 200, 240, 0.12)  !important; }
+.bg-blue-100  { background-color: rgba(30, 200, 240, 0.18)  !important; }
+.bg-purple-50 { background-color: rgba(168, 85, 247, 0.12)  !important; }
+.bg-purple-100{ background-color: rgba(168, 85, 247, 0.18)  !important; }
+.bg-yellow-50 { background-color: rgba(200, 137, 10, 0.12)  !important; }
+.bg-orange-50 { background-color: rgba(249, 115, 22, 0.12)  !important; }
+
+/* Badge text — keep vibrant on dark */
+.text-red-600, .text-red-700   { color: #f87171 !important; }
+.text-green-600, .text-green-700 { color: #4ade80 !important; }
+.text-blue-600, .text-blue-700 { color: #38bdf8 !important; }
+.text-purple-600, .text-purple-700 { color: #c084fc !important; }
+.text-yellow-600, .text-yellow-700 { color: #fbbf24 !important; }
+.text-orange-600 { color: #fb923c !important; }
+
+/* Badge borders */
+.border-red-200    { border-color: rgba(239, 68, 68, 0.3)   !important; }
+.border-green-200  { border-color: rgba(34, 197, 94, 0.3)   !important; }
+.border-blue-200   { border-color: rgba(30, 200, 240, 0.3)  !important; }
+.border-purple-200 { border-color: rgba(168, 85, 247, 0.3)  !important; }
+.border-yellow-200 { border-color: rgba(200, 137, 10, 0.3)  !important; }
+
+/* ─── Glow effect for primary buttons ──────────────────── */
+.bg-\[var\(--primary\)\] {
+  box-shadow: 0 0 20px rgba(30, 200, 240, 0.25);
+}
+.bg-\[var\(--primary\)\]:hover {
+  box-shadow: 0 0 28px rgba(30, 200, 240, 0.4);
+}
+
+/* ─── Card subtle glow on border ───────────────────────── */
+.rounded-xl.border,
+.rounded-2xl.border {
+  box-shadow: 0 0 0 1px rgba(30, 200, 240, 0.06), 0 4px 24px rgba(0, 0, 0, 0.4);
+}

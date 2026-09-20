@@ -1,0 +1,114 @@
+{
+  "1151": {
+    "slug": "omega-3-nutricost-2500mg",
+    "meta_id": 19562,
+    "value": {
+      "@type": "FAQPage",
+      "metadata": {
+        "title": "FAQ",
+        "type": "template",
+        "shortcode": "s-42b0835938214",
+        "isPrimary": 0,
+        "reviewLocation": "custom"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuántos miligramos de EPA y DHA contiene cada porción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cada porción de 3 softgels aporta 2,500 mg totales de ácidos grasos omega-3, de los cuales 1,200 mg corresponden a EPA y 850 mg a DHA, ambos en forma de éster etílico (EE). Estos valores están tomados directamente del panel Supplement Facts de la etiqueta oficial del producto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántas cápsulas trae el frasco y para cuánto tiempo alcanza?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El frasco contiene 120 softgels. Con la porción recomendada de 3 softgels al día, el frasco cubre 40 días de suplementación continua. Es un formato práctico que garantiza suministro constante como parte de una rutina de bienestar diaria."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué significa que el omega-3 esté en forma de éster etílico (EE)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El éster etílico es una forma concentrada y purificada del omega-3 que permite alcanzar dosis más altas de EPA y DHA por cápsula en comparación con el aceite de pescado natural sin procesar. Es la forma utilizada en la gran mayoría de suplementos de omega-3 de alta concentración disponibles en el mercado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿A qué hora es mejor tomar el Omega-3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se recomienda tomar las 3 softgels junto con los alimentos —preferentemente con la comida o la cena— ya que el omega-3 se absorbe mejor en presencia de grasa dietética. Tomarlo con comida también ayuda a reducir el posible sabor residual a pescado que puede presentarse en algunas personas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es compatible con otros suplementos de la línea Nutricost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. El Omega-3 Nutricost complementa bien con otros productos de la línea, como el NAD+ 500mg para soporte energético mitocondrial, el Zinc Picolinato 50mg para inmunidad, o el Complejo B Metilado para metabolismo energético. Se sugiere orientación profesional antes de combinar suplementos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El Omega-3 Nutricost contiene alérgenos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Contiene pescado (anchoa, sardina, caballa y/o arenque), declarado en la etiqueta oficial del producto. La cápsula softgel contiene gelatina, glicerina y agua purificada como excipientes. Consulta siempre la etiqueta completa si tienes alergias o restricciones alimentarias."
+          }
+        }
+      ]
+    }
+  },
+  "2240": {
+    "slug": "cagrilintida-10mg",
+    "meta_id": 21435,
+    "value": {
+      "@type": "FAQPage",
+      "metadata": {
+        "title": "FAQ",
+        "type": "template",
+        "shortcode": "s-4ce01edb9bfe4",
+        "isPrimary": 0,
+        "reviewLocation": "custom"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es la Cagrilintida (Cagrilintide)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La Cagrilintida es un análogo de amilina de acción prolongada. Se investiga por su papel en la señalización de saciedad y el control del apetito y el peso corporal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cagrilintida y Cagrilintide son lo mismo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. \"Cagrilintida\" es la grafía en español y \"Cagrilintide\" el nombre en inglés del mismo análogo de amilina. Solo cambia la nomenclatura entre idiomas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿En qué se diferencia de la semaglutida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La Cagrilintida es un análogo de amilina, mientras que la semaglutida es un agonista del receptor GLP-1. Actúan por vías distintas y en investigación se combinan (CagriSema) por su efecto complementario sobre el apetito y el peso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hacen envíos a toda la República Mexicana?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Realizamos envíos a toda la República Mexicana con embalaje discreto."
+          }
+        }
+      ]
+    }
+  }
+}

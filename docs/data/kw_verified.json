@@ -1,0 +1,3547 @@
+[
+ {
+  "eje": "Resistencia a la insulina / salud metabólica",
+  "keyword": "resistencia a la insulina",
+  "vol_excel": 90500,
+  "cpc_excel": 0.12,
+  "sd_excel": 42.0,
+  "intencion_excel": "Informacional",
+  "nota": "Keyword madre de alto volumen para captar demanda metabólica antes de elegir producto.",
+  "vol_real": 90500,
+  "cpc_real": 0.14,
+  "kd_real": 11,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 110000
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 110000
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 110000
+   }
+  ]
+ },
+ {
+  "eje": "Resistencia a la insulina / salud metabólica",
+  "keyword": "que es la resistencia a la insulina",
+  "vol_excel": 18100,
+  "cpc_excel": 0.1,
+  "sd_excel": 31.0,
+  "intencion_excel": "Informacional",
+  "nota": "Entrada educativa amplia para enlazar a contenidos de control metabólico y pérdida de peso.",
+  "vol_real": 18100,
+  "cpc_real": 0.12,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 27100
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 27100
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 22200
+   }
+  ]
+ },
+ {
+  "eje": "Resistencia a la insulina / salud metabólica",
+  "keyword": "síntomas de resistencia a la insulina",
+  "vol_excel": 12100,
+  "cpc_excel": 0.26,
+  "sd_excel": 39.0,
+  "intencion_excel": "Informacional",
+  "nota": "Muy buen volumen para captar usuarios que aún no identifican su necesidad terapéutica.",
+  "vol_real": 9900,
+  "cpc_real": 0.24,
+  "kd_real": 11,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 12100
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 12100
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 12100
+   }
+  ]
+ },
+ {
+  "eje": "Resistencia a la insulina / salud metabólica",
+  "keyword": "resistencia a la insulina síntomas",
+  "vol_excel": 6600,
+  "cpc_excel": 0.22,
+  "sd_excel": 35.0,
+  "intencion_excel": "Informacional",
+  "nota": "Variante de gran volumen; debe trabajarse como keyword secundaria en la URL de síntomas para evitar canibalización.",
+  "vol_real": 6600,
+  "cpc_real": 0.17,
+  "kd_real": 11,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 8100
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 8100
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 8100
+   }
+  ]
+ },
+ {
+  "eje": "Resistencia a la insulina / salud metabólica",
+  "keyword": "como saber si tengo resistencia a la insulina",
+  "vol_excel": 5400,
+  "cpc_excel": 0.57,
+  "sd_excel": 27.0,
+  "intencion_excel": "Informacional",
+  "nota": "Alta intención diagnóstica/educativa; excelente para contenido de señales y siguientes pasos.",
+  "vol_real": 6600,
+  "cpc_real": 0.44,
+  "kd_real": 4,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 8100
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 8100
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 8100
+   }
+  ]
+ },
+ {
+  "eje": "Resistencia a la insulina / salud metabólica",
+  "keyword": "resistencia a la insulina síntomas mujeres",
+  "vol_excel": 4400,
+  "cpc_excel": 0.42,
+  "sd_excel": 34.0,
+  "intencion_excel": "Informacional",
+  "nota": "Segmenta por público femenino y conecta con peso, apetito y salud metabólica.",
+  "vol_real": 4400,
+  "cpc_real": 0.35,
+  "kd_real": 7,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 3600
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 4400
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 4400
+   }
+  ]
+ },
+ {
+  "eje": "Resistencia a la insulina / salud metabólica",
+  "keyword": "resistencia a la insulina tratamiento",
+  "vol_excel": 3600,
+  "cpc_excel": 0.43,
+  "sd_excel": 38.0,
+  "intencion_excel": "Comercial",
+  "nota": "Búsqueda puente entre información médica y soluciones; requiere contenido prudente y bien estructurado.",
+  "vol_real": 3600,
+  "cpc_real": 0.4,
+  "kd_real": 3,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 3600
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 3600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 4400
+   }
+  ]
+ },
+ {
+  "eje": "Resistencia a la insulina / salud metabólica",
+  "keyword": "como revertir la resistencia a la insulina",
+  "vol_excel": 2900,
+  "cpc_excel": 0.3,
+  "sd_excel": 43.0,
+  "intencion_excel": "Informacional",
+  "nota": "Muy buena intención de cambio conductual/metabólico; ideal para guía larga con CTA suave.",
+  "vol_real": 2900,
+  "cpc_real": 0.36,
+  "kd_real": 11,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 4400
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 4400
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 3600
+   }
+  ]
+ },
+ {
+  "eje": "Resistencia a la insulina / salud metabólica",
+  "keyword": "medicamentos para la resistencia a la insulina",
+  "vol_excel": 2900,
+  "cpc_excel": 0.22,
+  "sd_excel": 41.0,
+  "intencion_excel": "Comercial",
+  "nota": "Intención comercial/terapéutica sin marca; permite educar sobre opciones y supervisión médica.",
+  "vol_real": 2900,
+  "cpc_real": 0.17,
+  "kd_real": 11,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 2400
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 3600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 2900
+   }
+  ]
+ },
+ {
+  "eje": "Resistencia a la insulina / salud metabólica",
+  "keyword": "índice de resistencia a la insulina",
+  "vol_excel": 2400,
+  "cpc_excel": 0.73,
+  "sd_excel": 34.0,
+  "intencion_excel": "Informacional",
+  "nota": "CPC alto y buen volumen; buen contenido para explicar HOMA, laboratorio y control metabólico.",
+  "vol_real": 2400,
+  "cpc_real": 0.2,
+  "kd_real": 11,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 3600
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 3600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 2900
+   }
+  ]
+ },
+ {
+  "eje": "Resistencia a la insulina / salud metabólica",
+  "keyword": "medicamento para la resistencia a la insulina",
+  "vol_excel": 2400,
+  "cpc_excel": 0.2,
+  "sd_excel": 41.0,
+  "intencion_excel": "Comercial",
+  "nota": "Versión singular con intención terapéutica; conviene para contenido comparativo y responsable.",
+  "vol_real": 2900,
+  "cpc_real": 0.17,
+  "kd_real": 7,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 2400
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 3600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 2900
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "pastillas para bajar de peso",
+  "vol_excel": 40500,
+  "cpc_excel": 0.2,
+  "sd_excel": 35.0,
+  "intencion_excel": "Comercial",
+  "nota": "Volumen alto y búsqueda de solución; útil para comparar opciones y dirigir a categorías seguras.",
+  "vol_real": 40500,
+  "cpc_real": 0.44,
+  "kd_real": 8,
+  "intent_real": "transactional",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 40500
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 49500
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 49500
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "dieta para bajar de peso",
+  "vol_excel": 22200,
+  "cpc_excel": 0.4,
+  "sd_excel": 64.0,
+  "intencion_excel": "Informacional",
+  "nota": "Aunque tiene SD alta, combina mucho volumen y CPC; conviene como guía pilar/top funnel.",
+  "vol_real": 18100,
+  "cpc_real": 0.97,
+  "kd_real": 20,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 14800
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 18100
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 18100
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "qué tomar para bajar de peso rápido",
+  "vol_excel": 12100,
+  "cpc_excel": 0.26,
+  "sd_excel": 55.0,
+  "intencion_excel": "Comercial",
+  "nota": "Pregunta con intención de solución inmediata; usar con enfoque responsable y comparativo.",
+  "vol_real": 210,
+  "cpc_real": 0.3,
+  "kd_real": 27,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 170
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 260
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 260
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "ejercicio para bajar de peso",
+  "vol_excel": 8100,
+  "cpc_excel": 0.28,
+  "sd_excel": 14.0,
+  "intencion_excel": "Informacional",
+  "nota": "Mucho volumen con dificultad muy baja; excelente contenido de entrada para enlazar hacia nutrición y soluciones complementarias.",
+  "vol_real": 6600,
+  "cpc_real": 0.71,
+  "kd_real": 4,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 5400
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 6600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 6600
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "bajar de peso rápido",
+  "vol_excel": 6600,
+  "cpc_excel": 0.3,
+  "sd_excel": 30.0,
+  "intencion_excel": "Informacional",
+  "nota": "Término pilar de necesidad; permite enlazar a apetito, saciedad, metabolismo y opciones disponibles.",
+  "vol_real": null,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": null,
+  "competition": null,
+  "monthly_recent": null
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "pastillas para bajar de peso naturistas",
+  "vol_excel": 4400,
+  "cpc_excel": 0.17,
+  "sd_excel": 30.0,
+  "intencion_excel": "Comercial",
+  "nota": "Captura usuarios buscando alternativas percibidas como naturales; permite comparar con suplementos.",
+  "vol_real": 2900,
+  "cpc_real": 0.16,
+  "kd_real": 0,
+  "intent_real": "transactional",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 2900
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 2900
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 2900
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "pastillas para bajar de peso farmacia guadalajara",
+  "vol_excel": 2400,
+  "cpc_excel": 0.15,
+  "sd_excel": 15.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Intención de compra clara con baja SD; útil para pieza comparativa de farmacia vs e-commerce especializado.",
+  "vol_real": 1900,
+  "cpc_real": 0.34,
+  "kd_real": 0,
+  "intent_real": "transactional",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 880
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1000
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1000
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "formas de bajar de peso rápido para mujeres",
+  "vol_excel": 1300,
+  "cpc_excel": 0.34,
+  "sd_excel": 42.0,
+  "intencion_excel": "Informacional",
+  "nota": "Consulta femenina y orientada a resultado; permite una página guía amplia sin centrarse en una molécula.",
+  "vol_real": 1000,
+  "cpc_real": 0.73,
+  "kd_real": 17,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 590
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 880
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 880
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "pastillas para bajar de peso rápido",
+  "vol_excel": 1300,
+  "cpc_excel": 0.23,
+  "sd_excel": 26.0,
+  "intencion_excel": "Comercial",
+  "nota": "Buena combinación de volumen y SD; orienta a comparativas de velocidad, seguridad y expectativas.",
+  "vol_real": 1300,
+  "cpc_real": 0.33,
+  "kd_real": 5,
+  "intent_real": "transactional",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1000
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1000
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1300
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "ejercicios para bajar de peso rápido para mujeres",
+  "vol_excel": 1000,
+  "cpc_excel": 0.87,
+  "sd_excel": 32.0,
+  "intencion_excel": "Informacional",
+  "nota": "CPC muy alto y volumen relevante; atrae público femenino con urgencia y puede enlazar a soluciones de apoyo.",
+  "vol_real": 1000,
+  "cpc_real": 0.7,
+  "kd_real": 5,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1300
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1300
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "endocrinólogo pastillas para bajar de peso",
+  "vol_excel": 880,
+  "cpc_excel": 0.42,
+  "sd_excel": 32.0,
+  "intencion_excel": "Comercial",
+  "nota": "Búsqueda con componente médico; buena para generar confianza y contenido de supervisión profesional.",
+  "vol_real": 720,
+  "cpc_real": 1.61,
+  "kd_real": 2,
+  "intent_real": "transactional",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 320
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 390
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 480
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "pastillas para bajar de peso sin receta",
+  "vol_excel": 880,
+  "cpc_excel": 0.25,
+  "sd_excel": 41.0,
+  "intencion_excel": "Comercial",
+  "nota": "Intención comercial clara; conviene como contenido educativo de seguridad y alternativas.",
+  "vol_real": 2900,
+  "cpc_real": 0.27,
+  "kd_real": 12,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 5400
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 4400
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 4400
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "cuales son las mejores pastillas para bajar de peso",
+  "vol_excel": 720,
+  "cpc_excel": 0.39,
+  "sd_excel": 36.0,
+  "intencion_excel": "Comercial",
+  "nota": "Pregunta comercial comparativa; buena para artículo tipo ranking responsable.",
+  "vol_real": null,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": null,
+  "competition": null,
+  "monthly_recent": null
+ },
+ {
+  "eje": "Control de peso / pérdida de grasa",
+  "keyword": "que es bueno para bajar de peso rápido",
+  "vol_excel": 480,
+  "cpc_excel": 0.39,
+  "sd_excel": 39.0,
+  "intencion_excel": "Comercial",
+  "nota": "Pregunta abierta de solución con CPC sólido; ideal para comparar opciones por perfil y objetivo.",
+  "vol_real": 480,
+  "cpc_real": 0.39,
+  "kd_real": 4,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 480
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 480
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 590
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "inyecciones para bajar de peso",
+  "vol_excel": 22200,
+  "cpc_excel": 0.39,
+  "sd_excel": 30.0,
+  "intencion_excel": "Comercial",
+  "nota": "Búsqueda transversal de alta intención antes de que el usuario elija molécula o marca.",
+  "vol_real": 27100,
+  "cpc_real": 0.67,
+  "kd_real": 11,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 40500
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 33100
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 33100
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "medicamento para bajar de peso",
+  "vol_excel": 14800,
+  "cpc_excel": 0.27,
+  "sd_excel": 30.0,
+  "intencion_excel": "Comercial",
+  "nota": "Captura usuarios comparando alternativas farmacológicas sin buscar una marca concreta.",
+  "vol_real": 14800,
+  "cpc_real": 0.63,
+  "kd_real": 28,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 14800
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 14800
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 14800
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "inyección para bajar de peso",
+  "vol_excel": 9900,
+  "cpc_excel": 0.36,
+  "sd_excel": 9.0,
+  "intencion_excel": "Comercial",
+  "nota": "Excelente SD baja con alta intención comercial; landing transversal sin marca.",
+  "vol_real": 27100,
+  "cpc_real": 0.67,
+  "kd_real": 28,
+  "intent_real": "transactional",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 40500
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 33100
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 33100
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "pastillas para bajar de peso en similares",
+  "vol_excel": 6600,
+  "cpc_excel": 0.27,
+  "sd_excel": 23.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Gran volumen, CPC y dificultad moderada-baja; puede competir con farmacias mediante una comparativa de opciones.",
+  "vol_real": 8100,
+  "cpc_real": 0.24,
+  "kd_real": 3,
+  "intent_real": "commercial",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 8100
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 8100
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 8100
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "medicamento para bajar de peso similares",
+  "vol_excel": 1300,
+  "cpc_excel": 0.18,
+  "sd_excel": 22.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Volumen alto y SD baja; capta comparación de farmacia antes de que el usuario decida qué tratamiento elegir.",
+  "vol_real": 1300,
+  "cpc_real": 0.41,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1600
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1600
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "medicamento para bajar de peso sin receta",
+  "vol_excel": 880,
+  "cpc_excel": 0.21,
+  "sd_excel": 42.0,
+  "intencion_excel": "Comercial",
+  "nota": "Keyword riesgosa pero valiosa para contenido de cumplimiento: aclarar límites y uso responsable.",
+  "vol_real": 880,
+  "cpc_real": 0.75,
+  "kd_real": 13,
+  "intent_real": "transactional",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1300
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1300
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "pastillas para bajar de peso farmacias del ahorro",
+  "vol_excel": 590,
+  "cpc_excel": 0.39,
+  "sd_excel": 23.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Búsqueda comercial de farmacia con CPC alto; útil para captar usuarios que están comparando puntos de compra.",
+  "vol_real": null,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": null,
+  "competition": null,
+  "monthly_recent": null
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "medicamento para bajar de peso inyectado",
+  "vol_excel": 590,
+  "cpc_excel": 0.33,
+  "sd_excel": 27.0,
+  "intencion_excel": "Comercial",
+  "nota": "Long-tail con intención clara hacia formato inyectable sin mencionar marca.",
+  "vol_real": 590,
+  "cpc_real": 0.33,
+  "kd_real": 11,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 260
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 320
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 480
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "pastillas para bajar de peso sin receta farmacia guadalajara",
+  "vol_excel": 590,
+  "cpc_excel": 0.14,
+  "sd_excel": 17.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Long-tail transaccional con dificultad baja; requiere contenido responsable sobre seguridad y disponibilidad.",
+  "vol_real": 480,
+  "cpc_real": 0.09,
+  "kd_real": 0,
+  "intent_real": "transactional",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 110
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 140
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 90
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "nombre de inyecciones para quemar grasa abdominal",
+  "vol_excel": 480,
+  "cpc_excel": 0.31,
+  "sd_excel": 14.0,
+  "intencion_excel": "Comercial",
+  "nota": "Muy baja SD y búsqueda de opciones; útil para guía comparativa sin marcas saturadas.",
+  "vol_real": 480,
+  "cpc_real": 0.1,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 320
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 320
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 320
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "mejores pastillas para bajar de peso",
+  "vol_excel": 480,
+  "cpc_excel": 0.27,
+  "sd_excel": 32.0,
+  "intencion_excel": "Comercial",
+  "nota": "Intención comparativa fuerte; adecuada para una guía que clasifique opciones sin depender de marcas saturadas.",
+  "vol_real": 480,
+  "cpc_real": 0.43,
+  "kd_real": 21,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 590
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 480
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 480
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "pastillas para bajar de peso aprobadas por la fda",
+  "vol_excel": 480,
+  "cpc_excel": 0.19,
+  "sd_excel": 52.0,
+  "intencion_excel": "Comercial",
+  "nota": "El usuario busca seguridad y legitimidad; aunque la SD es mayor, el tema tiene alta relevancia para confianza y conversión.",
+  "vol_real": 480,
+  "cpc_real": 0.37,
+  "kd_real": 24,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 590
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 720
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 590
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "medicamento para bajar de peso rápido",
+  "vol_excel": 390,
+  "cpc_excel": 0.44,
+  "sd_excel": 36.0,
+  "intencion_excel": "Comercial",
+  "nota": "CPC sólido; conviene para explicar expectativas reales y opciones supervisadas.",
+  "vol_real": 480,
+  "cpc_real": 0.78,
+  "kd_real": null,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 480
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 590
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 590
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "cual es la mejor inyección para bajar de peso",
+  "vol_excel": 390,
+  "cpc_excel": 0.33,
+  "sd_excel": 33.0,
+  "intencion_excel": "Comercial",
+  "nota": "Comparativa de alta intención sin producto específico; ideal para contenido puente.",
+  "vol_real": 390,
+  "cpc_real": 1.61,
+  "kd_real": 16,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 480
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 390
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 390
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "inyección para bajar de peso precio",
+  "vol_excel": 320,
+  "cpc_excel": 2.27,
+  "sd_excel": 18.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Una de las mejores oportunidades por CPC muy alto y SD baja; intención de compra directa.",
+  "vol_real": 320,
+  "cpc_real": 2.27,
+  "kd_real": 0,
+  "intent_real": "transactional",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 480
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 480
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 390
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "mejor medicamento para bajar de peso",
+  "vol_excel": 320,
+  "cpc_excel": 0.67,
+  "sd_excel": 38.0,
+  "intencion_excel": "Comercial",
+  "nota": "CPC alto e intención comparativa fuerte; usar para guía responsable.",
+  "vol_real": 320,
+  "cpc_real": 0.67,
+  "kd_real": 16,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 320
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 390
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 320
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "medicamento para bajar de peso natural",
+  "vol_excel": 320,
+  "cpc_excel": 0.16,
+  "sd_excel": 36.0,
+  "intencion_excel": "Comercial",
+  "nota": "Búsqueda de alternativa percibida como natural; útil para aclarar diferencias entre suplemento y medicamento.",
+  "vol_real": 320,
+  "cpc_real": 0.17,
+  "kd_real": 12,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 390
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 480
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 390
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "nuevo medicamento para bajar de peso",
+  "vol_excel": 140,
+  "cpc_excel": 0.16,
+  "sd_excel": 40.0,
+  "intencion_excel": "Informacional",
+  "nota": "Captura interés por innovaciones sin nombrar productos; apta para una página actualizable de novedades y comparativas.",
+  "vol_real": 140,
+  "cpc_real": 0.26,
+  "kd_real": 24,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 170
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 170
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 260
+   }
+  ]
+ },
+ {
+  "eje": "Medicamentos e inyectables para bajar de peso",
+  "keyword": "medicamento para bajar de peso farmacia guadalajara",
+  "vol_excel": 140,
+  "cpc_excel": 0.09,
+  "sd_excel": 16.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Long-tail de compra con dificultad muy baja; puede atraer usuarios que comparan disponibilidad y precio.",
+  "vol_real": 70,
+  "cpc_real": 1.4,
+  "kd_real": 0,
+  "intent_real": "transactional",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 50
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 50
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 50
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "índice de masa muscular",
+  "vol_excel": 12100,
+  "cpc_excel": 0.23,
+  "sd_excel": 32.0,
+  "intencion_excel": "Informacional",
+  "nota": "Mucho volumen y buen CPC; herramienta o guía de composición corporal que puede derivar a productos de rendimiento.",
+  "vol_real": 12100,
+  "cpc_real": 0.3,
+  "kd_real": 19,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 8100
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 9900
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 9900
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "proteína para aumentar masa muscular",
+  "vol_excel": 6600,
+  "cpc_excel": 0.15,
+  "sd_excel": 37.0,
+  "intencion_excel": "Comercial",
+  "nota": "Volumen alto e intención de suplementación; útil aunque no sea péptido específico.",
+  "vol_real": 4400,
+  "cpc_real": 0.14,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 4400
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 4400
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 4400
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "masa muscular como aumentar",
+  "vol_excel": 4400,
+  "cpc_excel": 0.18,
+  "sd_excel": 26.0,
+  "intencion_excel": "Informacional",
+  "nota": "Consulta de necesidad con alto volumen; usar como keyword secundaria dentro del clúster de ganancia muscular.",
+  "vol_real": 3600,
+  "cpc_real": 0.32,
+  "kd_real": 4,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 2400
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 2900
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 2900
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "masa muscular",
+  "vol_excel": 3600,
+  "cpc_excel": 0.35,
+  "sd_excel": 48.0,
+  "intencion_excel": "Informacional",
+  "nota": "Keyword pilar de rendimiento físico; enlaza a recuperación, energía y suplementos.",
+  "vol_real": 3600,
+  "cpc_real": 0.12,
+  "kd_real": 49,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 2900
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 3600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 3600
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "cómo ganar masa muscular",
+  "vol_excel": 3600,
+  "cpc_excel": 0.17,
+  "sd_excel": 15.0,
+  "intencion_excel": "Informacional",
+  "nota": "Muy buen equilibrio volumen-SD; ideal para guía pilar de rendimiento.",
+  "vol_real": 2900,
+  "cpc_real": 0.41,
+  "kd_real": 3,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 2400
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 2900
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 2900
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "vitaminas para subir de peso y masa muscular",
+  "vol_excel": 3600,
+  "cpc_excel": 0.13,
+  "sd_excel": 17.0,
+  "intencion_excel": "Comercial",
+  "nota": "Buen volumen con SD baja; intención de producto/suplemento clara.",
+  "vol_real": 3600,
+  "cpc_real": 0.17,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 2900
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 3600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 2400
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "alimentación para aumentar masa muscular",
+  "vol_excel": 2900,
+  "cpc_excel": 0.11,
+  "sd_excel": 24.0,
+  "intencion_excel": "Informacional",
+  "nota": "Top funnel con dificultad moderada; permite enlazar a suplementos y recuperación.",
+  "vol_real": 2400,
+  "cpc_real": 0.37,
+  "kd_real": 4,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 2400
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 2400
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 2400
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "dietas para aumentar masa muscular",
+  "vol_excel": 2400,
+  "cpc_excel": 0.31,
+  "sd_excel": 22.0,
+  "intencion_excel": "Informacional",
+  "nota": "Buen volumen, CPC y dificultad baja; contenido de apoyo para enlazar hacia suplementos de rendimiento.",
+  "vol_real": 1600,
+  "cpc_real": 0.48,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 880
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 880
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1300
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "alimentos para aumentar masa muscular",
+  "vol_excel": 2400,
+  "cpc_excel": 0.22,
+  "sd_excel": 15.0,
+  "intencion_excel": "Informacional",
+  "nota": "SD muy baja con volumen sólido; excelente pieza informativa para construir autoridad en el eje muscular.",
+  "vol_real": 2400,
+  "cpc_real": 0.37,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 2400
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 2400
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 2400
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "suplemento para aumentar la masa muscular",
+  "vol_excel": 2400,
+  "cpc_excel": 0.23,
+  "sd_excel": 36.0,
+  "intencion_excel": "Comercial",
+  "nota": "Intención de compra directa para catálogo de rendimiento y recuperación.",
+  "vol_real": null,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": null,
+  "competition": null,
+  "monthly_recent": null
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "cual es la mejor proteina para ganar masa muscular",
+  "vol_excel": 1900,
+  "cpc_excel": 0.21,
+  "sd_excel": 20.0,
+  "intencion_excel": "Comercial",
+  "nota": "Intención comparativa y dificultad baja; puede atraer usuarios listos para evaluar una compra.",
+  "vol_real": 1900,
+  "cpc_real": 0.2,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 2400
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 2400
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1900
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "vitaminas para aumentar masa muscular rápidamente",
+  "vol_excel": 1900,
+  "cpc_excel": 0.17,
+  "sd_excel": 17.0,
+  "intencion_excel": "Comercial",
+  "nota": "Excelente relación volumen/SD y búsqueda de solución consumible; fuerte oportunidad para e-commerce.",
+  "vol_real": 1600,
+  "cpc_real": 0.3,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1300
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1600
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "proteínas para aumentar masa muscular en piernas y glúteos mujeres",
+  "vol_excel": 1900,
+  "cpc_excel": 0.18,
+  "sd_excel": 32.0,
+  "intencion_excel": "Comercial",
+  "nota": "Long-tail femenina de volumen alto e intención de producto; buena oportunidad para contenido y categoría enlazados.",
+  "vol_real": 1900,
+  "cpc_real": 0.15,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1600
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1900
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1600
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "perdida de masa muscular",
+  "vol_excel": 1600,
+  "cpc_excel": 0.16,
+  "sd_excel": 31.0,
+  "intencion_excel": "Informacional",
+  "nota": "Problema expresado directamente; permite abordar preservación muscular, recuperación y envejecimiento saludable.",
+  "vol_real": 1600,
+  "cpc_real": 0.01,
+  "kd_real": 8,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1300
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1600
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "masa muscular en mujer",
+  "vol_excel": 1600,
+  "cpc_excel": 0.11,
+  "sd_excel": 15.0,
+  "intencion_excel": "Informacional",
+  "nota": "Segmentación femenina con buen volumen y baja competencia; útil para una guía específica de composición corporal.",
+  "vol_real": 1600,
+  "cpc_real": 0.83,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1300
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1300
+   }
+  ]
+ },
+ {
+  "eje": "Rendimiento deportivo / masa muscular",
+  "keyword": "alto rendimiento deportivo",
+  "vol_excel": 170,
+  "cpc_excel": 0.98,
+  "sd_excel": 36.0,
+  "intencion_excel": "Comercial",
+  "nota": "CPC excepcionalmente alto; término paraguas para soluciones de energía, fuerza, enfoque y recuperación.",
+  "vol_real": 170,
+  "cpc_real": 2.52,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 170
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 170
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 170
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "quemadores de grasa",
+  "vol_excel": 12100,
+  "cpc_excel": 0.2,
+  "sd_excel": 19.0,
+  "intencion_excel": "Comercial",
+  "nota": "Buen equilibrio volumen-SD; ideal para categoría comparativa de soluciones para pérdida de grasa.",
+  "vol_real": 12100,
+  "cpc_real": 0.17,
+  "kd_real": 0,
+  "intent_real": "transactional",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 12100
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 12100
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 12100
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "cómo quemar grasa abdominal rápidamente",
+  "vol_excel": 1900,
+  "cpc_excel": 0.26,
+  "sd_excel": 19.0,
+  "intencion_excel": "Informacional",
+  "nota": "Long-tail con baja SD y buena intención de solución; ideal para blog pilar de grasa abdominal.",
+  "vol_real": null,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": null,
+  "competition": null,
+  "monthly_recent": null
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "quemar grasa abdominal",
+  "vol_excel": 1300,
+  "cpc_excel": 0.2,
+  "sd_excel": 30.0,
+  "intencion_excel": "Informacional",
+  "nota": "Necesidad central de composición corporal; permite conectar con saciedad, ejercicio y suplementos.",
+  "vol_real": 1000,
+  "cpc_real": 0.28,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1000
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1000
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1000
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "ejercicios para quemar grasa abdominal",
+  "vol_excel": 1000,
+  "cpc_excel": 0.56,
+  "sd_excel": 40.0,
+  "intencion_excel": "Informacional",
+  "nota": "Combina volumen y CPC; buen contenido de apoyo para tráfico cualificado.",
+  "vol_real": 1000,
+  "cpc_real": 0.86,
+  "kd_real": 10,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 880
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1000
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1000
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "como bajar grasa corporal",
+  "vol_excel": 880,
+  "cpc_excel": 0.64,
+  "sd_excel": 33.0,
+  "intencion_excel": "Informacional",
+  "nota": "Una de las mejores oportunidades nuevas por volumen y CPC; ideal para contenido pilar orientado a resultados corporales.",
+  "vol_real": 880,
+  "cpc_real": 1.15,
+  "kd_real": 8,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 720
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 880
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 880
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "como quemar grasa abdominal",
+  "vol_excel": 720,
+  "cpc_excel": 0.55,
+  "sd_excel": 24.0,
+  "intencion_excel": "Informacional",
+  "nota": "Buen CPC y dificultad moderada; útil para capturar búsqueda práctica sin producto específico.",
+  "vol_real": 720,
+  "cpc_real": 0.65,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 880
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 880
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 880
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "como eliminar grasa visceral",
+  "vol_excel": 390,
+  "cpc_excel": 0.29,
+  "sd_excel": 16.0,
+  "intencion_excel": "Informacional",
+  "nota": "Mayor volumen dentro del clúster y dificultad baja; muy buena entrada para capturar usuarios con un problema concreto.",
+  "vol_real": 1600,
+  "cpc_real": 0.48,
+  "kd_real": 1,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1900
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1900
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1900
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "medicamentos para eliminar grasa visceral",
+  "vol_excel": 320,
+  "cpc_excel": 0.32,
+  "sd_excel": 15.0,
+  "intencion_excel": "Comercial",
+  "nota": "Búsqueda de solución farmacológica con volumen y SD favorable; útil para una comparativa educativa y prudente.",
+  "vol_real": 320,
+  "cpc_real": 0.32,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 260
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 320
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 320
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "eliminar grasa visceral",
+  "vol_excel": 210,
+  "cpc_excel": 0.34,
+  "sd_excel": 10.0,
+  "intencion_excel": "Informacional",
+  "nota": "Keyword de necesidad específica con excelente SD; permite una guía pilar sobre grasa visceral y opciones de abordaje.",
+  "vol_real": 210,
+  "cpc_real": 0.66,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 260
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 210
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 170
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "bajar grasa corporal",
+  "vol_excel": 210,
+  "cpc_excel": 0.35,
+  "sd_excel": 30.0,
+  "intencion_excel": "Informacional",
+  "nota": "Necesidad transversal distinta de sólo bajar kilos; permite hablar de composición corporal y preservar masa magra.",
+  "vol_real": 210,
+  "cpc_real": 0.83,
+  "kd_real": 1,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 140
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 170
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 210
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "dieta para bajar grasa corporal",
+  "vol_excel": 170,
+  "cpc_excel": 0.8,
+  "sd_excel": 38.0,
+  "intencion_excel": "Informacional",
+  "nota": "CPC muy alto y necesidad definida; puede atraer usuarios que después comparen suplementos o soluciones metabólicas.",
+  "vol_real": 140,
+  "cpc_real": 1.18,
+  "kd_real": 11,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 90
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 110
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 110
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "como bajar grasa corporal rápido",
+  "vol_excel": 170,
+  "cpc_excel": 0.29,
+  "sd_excel": 31.0,
+  "intencion_excel": "Informacional",
+  "nota": "Introduce urgencia sin depender de una marca; conviene responder expectativas realistas y opciones disponibles.",
+  "vol_real": 110,
+  "cpc_real": 0.5,
+  "kd_real": 5,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 140
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 140
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 140
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "inyecciones para quemar grasa abdominal",
+  "vol_excel": 170,
+  "cpc_excel": 0.22,
+  "sd_excel": 16.0,
+  "intencion_excel": "Comercial",
+  "nota": "Intención cercana a tratamientos inyectables y SD baja; permite una landing transversal sin usar nombres de moléculas.",
+  "vol_real": 210,
+  "cpc_real": 0.88,
+  "kd_real": 1,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 480
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 210
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 170
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "quemar grasa abdominal mujeres",
+  "vol_excel": 170,
+  "cpc_excel": 0.2,
+  "sd_excel": 22.0,
+  "intencion_excel": "Informacional",
+  "nota": "Segmenta por público y mantiene dificultad baja; buena subsección dentro del clúster de grasa abdominal.",
+  "vol_real": 110,
+  "cpc_real": 0.13,
+  "kd_real": 0,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 70
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 110
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 110
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "alimentacion para bajar grasa corporal",
+  "vol_excel": 70,
+  "cpc_excel": 0.21,
+  "sd_excel": 10.0,
+  "intencion_excel": "Informacional",
+  "nota": "Dificultad muy baja y CPC visible; buena pieza de apoyo para un clúster de composición corporal.",
+  "vol_real": 40,
+  "cpc_real": 0.94,
+  "kd_real": null,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 30
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 50
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 40
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "alimentos para bajar grasa corporal",
+  "vol_excel": 40,
+  "cpc_excel": 0.3,
+  "sd_excel": 12.0,
+  "intencion_excel": "Informacional",
+  "nota": "Long-tail de baja competencia que ayuda a construir autoridad temática y enlazar hacia soluciones del catálogo.",
+  "vol_real": 40,
+  "cpc_real": 0.94,
+  "kd_real": 61,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 30
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 50
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 40
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "bajar grasa corporal mujer",
+  "vol_excel": 10,
+  "cpc_excel": 0.45,
+  "sd_excel": 29.0,
+  "intencion_excel": "Comercial",
+  "nota": "Segmentación femenina con CPC alto; conviene tratarla como subsección y no como URL aislada.",
+  "vol_real": 10,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": "transactional",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 20
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 10
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 20
+   }
+  ]
+ },
+ {
+  "eje": "Quema de grasa / composición corporal",
+  "keyword": "como eliminar grasa visceral mujeres",
+  "vol_excel": 10,
+  "cpc_excel": 0.33,
+  "sd_excel": 24.0,
+  "intencion_excel": "Informacional",
+  "nota": "Long-tail segmentada con CPC relevante; puede integrarse como subsección femenina dentro de la página principal del tema.",
+  "vol_real": 20,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 20
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 10
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 40
+   }
+  ]
+ },
+ {
+  "eje": "Suplementos deportivos / compra",
+  "keyword": "suplementos deportivos",
+  "vol_excel": 1900,
+  "cpc_excel": 0.5,
+  "sd_excel": 26.0,
+  "intencion_excel": "Comercial",
+  "nota": "Keyword comercial general, útil para categoría amplia y navegación de e-commerce.",
+  "vol_real": 1600,
+  "cpc_real": 0.47,
+  "kd_real": 0,
+  "intent_real": "commercial",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1600
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1600
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1600
+   }
+  ]
+ },
+ {
+  "eje": "Suplementos deportivos / compra",
+  "keyword": "tienda de suplementos deportivos",
+  "vol_excel": 880,
+  "cpc_excel": 0.18,
+  "sd_excel": 34.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Intención transaccional clara; buena para SEO de tienda/categoría.",
+  "vol_real": 880,
+  "cpc_real": 0.19,
+  "kd_real": 0,
+  "intent_real": "commercial",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 720
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 720
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 880
+   }
+  ]
+ },
+ {
+  "eje": "Suplementos deportivos / compra",
+  "keyword": "suplementos deportivos cerca de mi",
+  "vol_excel": 880,
+  "cpc_excel": 0.12,
+  "sd_excel": 23.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Búsqueda local/transaccional; puede captar compradores listos para pedir en línea.",
+  "vol_real": 880,
+  "cpc_real": 0.07,
+  "kd_real": 0,
+  "intent_real": "transactional",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1000
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 880
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 880
+   }
+  ]
+ },
+ {
+  "eje": "Suplementos deportivos / compra",
+  "keyword": "tienda de suplementos deportivos cerca de mi",
+  "vol_excel": 590,
+  "cpc_excel": 0.18,
+  "sd_excel": 31.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Búsqueda local/transaccional con volumen; una tienda online puede competir destacando envío nacional y confianza.",
+  "vol_real": 480,
+  "cpc_real": 0.21,
+  "kd_real": 0,
+  "intent_real": "transactional",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 320
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 480
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 590
+   }
+  ]
+ },
+ {
+  "eje": "Suplementos deportivos / compra",
+  "keyword": "ventas de suplementos deportivos",
+  "vol_excel": 390,
+  "cpc_excel": 0.83,
+  "sd_excel": 23.0,
+  "intencion_excel": "Transaccional",
+  "nota": "CPC muy alto y dificultad moderada-baja; término comercial para categoría o página de tienda.",
+  "vol_real": 320,
+  "cpc_real": 0.26,
+  "kd_real": 0,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 260
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 320
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 320
+   }
+  ]
+ },
+ {
+  "eje": "Suplementos deportivos / compra",
+  "keyword": "venta de suplementos deportivos",
+  "vol_excel": 320,
+  "cpc_excel": 0.26,
+  "sd_excel": 18.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Muy buena SD baja con intención de compra explícita.",
+  "vol_real": 320,
+  "cpc_real": 0.26,
+  "kd_real": 0,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 260
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 320
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 320
+   }
+  ]
+ },
+ {
+  "eje": "Suplementos deportivos / compra",
+  "keyword": "suplementos deportivos tienda",
+  "vol_excel": 170,
+  "cpc_excel": 0.33,
+  "sd_excel": 35.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Consulta de compra explícita y transversal; complementa la categoría general sin mencionar productos concretos.",
+  "vol_real": 170,
+  "cpc_real": 0.14,
+  "kd_real": 0,
+  "intent_real": "navigational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 140
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 170
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 110
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / suplementos",
+  "keyword": "suplementos para bajar de peso",
+  "vol_excel": 2900,
+  "cpc_excel": 0.2,
+  "sd_excel": 41.0,
+  "intencion_excel": "Comercial",
+  "nota": "Keyword comercial transversal para una categoría o guía de selección sin mencionar marcas saturadas.",
+  "vol_real": 2900,
+  "cpc_real": 0.27,
+  "kd_real": 3,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 2900
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 2900
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 2900
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / suplementos",
+  "keyword": "mejores suplementos para bajar de peso",
+  "vol_excel": 260,
+  "cpc_excel": 0.42,
+  "sd_excel": 32.0,
+  "intencion_excel": "Comercial",
+  "nota": "Keyword comparativa perfecta para categoría y guía de compra.",
+  "vol_real": 210,
+  "cpc_real": 0.33,
+  "kd_real": 0,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 260
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 260
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 210
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / suplementos",
+  "keyword": "suplementos para bajar de peso y tonificar",
+  "vol_excel": 260,
+  "cpc_excel": 0.18,
+  "sd_excel": 21.0,
+  "intencion_excel": "Comercial",
+  "nota": "Long-tail de intención fitness con SD baja; buen puente a composición corporal.",
+  "vol_real": 140,
+  "cpc_real": 0.31,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 110
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 110
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 110
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / suplementos",
+  "keyword": "suplementos para bajar de peso naturales",
+  "vol_excel": 170,
+  "cpc_excel": 0.22,
+  "sd_excel": 33.0,
+  "intencion_excel": "Comercial",
+  "nota": "Captura usuarios que buscan alternativas no farmacológicas; buena para comparativas de suplementos.",
+  "vol_real": 50,
+  "cpc_real": 0.08,
+  "kd_real": 6,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 50
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 50
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 70
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / suplementos",
+  "keyword": "suplementos para bajar de peso mujeres",
+  "vol_excel": 170,
+  "cpc_excel": 0.18,
+  "sd_excel": 38.0,
+  "intencion_excel": "Comercial",
+  "nota": "Segmentación femenina con intención de producto; puede integrarse en una categoría o guía específica.",
+  "vol_real": 170,
+  "cpc_real": 0.23,
+  "kd_real": 2,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 260
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 260
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 260
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / suplementos",
+  "keyword": "suplementos para bajar de peso similares",
+  "vol_excel": 140,
+  "cpc_excel": 0.22,
+  "sd_excel": 21.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Búsqueda de compra con baja dificultad; útil para comparar alternativas disponibles fuera de cadenas tradicionales.",
+  "vol_real": 140,
+  "cpc_real": 0.22,
+  "kd_real": 0,
+  "intent_real": "commercial",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 210
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 110
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 170
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / suplementos",
+  "keyword": "suplementos para bajar de peso rápido",
+  "vol_excel": 140,
+  "cpc_excel": 0.06,
+  "sd_excel": 33.0,
+  "intencion_excel": "Comercial",
+  "nota": "Tiene volumen y CPC; sirve como término secundario dentro de la categoría principal de suplementos para peso.",
+  "vol_real": 50,
+  "cpc_real": 0.24,
+  "kd_real": 6,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 70
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 50
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 70
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / suplementos",
+  "keyword": "suplementos para bajar de peso gym",
+  "vol_excel": 70,
+  "cpc_excel": 0.29,
+  "sd_excel": 36.0,
+  "intencion_excel": "Comercial",
+  "nota": "Usuario con contexto deportivo y clara intención de producto; conecta control de grasa con rendimiento.",
+  "vol_real": 40,
+  "cpc_real": 0.54,
+  "kd_real": null,
+  "intent_real": "transactional",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 10
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 20
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 20
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / suplementos",
+  "keyword": "suplementos para bajar de peso y quemar grasa",
+  "vol_excel": 30,
+  "cpc_excel": 0.68,
+  "sd_excel": 36.0,
+  "intencion_excel": "Comercial",
+  "nota": "Bajo volumen con CPC alto; long-tail comercial para categoría específica.",
+  "vol_real": 40,
+  "cpc_real": 0.14,
+  "kd_real": null,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 70
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 110
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 70
+   }
+  ]
+ },
+ {
+  "eje": "Control de peso / suplementos",
+  "keyword": "suplementos para bajar de peso sin ejercicio",
+  "vol_excel": 30,
+  "cpc_excel": 0.29,
+  "sd_excel": 34.0,
+  "intencion_excel": "Comercial",
+  "nota": "Long-tail de compra con CPC alto; conviene responder límites, expectativas y opciones de apoyo.",
+  "vol_real": 20,
+  "cpc_real": 0.64,
+  "kd_real": null,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 20
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 10
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 10
+   }
+  ]
+ },
+ {
+  "eje": "Control de apetito / saciedad",
+  "keyword": "pastillas para quitar el hambre farmacia",
+  "vol_excel": 1300,
+  "cpc_excel": 0.18,
+  "sd_excel": 26.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Buen volumen y búsqueda de compra directa; útil para una comparativa responsable entre formatos y alternativas.",
+  "vol_real": 880,
+  "cpc_real": 0.18,
+  "kd_real": 9,
+  "intent_real": "transactional",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 480
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 590
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 880
+   }
+  ]
+ },
+ {
+  "eje": "Control de apetito / saciedad",
+  "keyword": "como quitar el hambre",
+  "vol_excel": 880,
+  "cpc_excel": 0.31,
+  "sd_excel": 19.0,
+  "intencion_excel": "Informacional",
+  "nota": "Problema claramente expresado, CPC sólido y dificultad baja; excelente artículo pilar con enlaces a soluciones del catálogo.",
+  "vol_real": 720,
+  "cpc_real": 0.34,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 590
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 880
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 720
+   }
+  ]
+ },
+ {
+  "eje": "Control de apetito / saciedad",
+  "keyword": "pastillas para quitar el hambre",
+  "vol_excel": 590,
+  "cpc_excel": 0.14,
+  "sd_excel": 26.0,
+  "intencion_excel": "Comercial",
+  "nota": "Captura al usuario que ya busca una solución, aunque todavía no conoce un ingrediente o producto concreto.",
+  "vol_real": 590,
+  "cpc_real": 0.23,
+  "kd_real": 4,
+  "intent_real": "transactional",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 590
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 590
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 590
+   }
+  ]
+ },
+ {
+  "eje": "Control de apetito / saciedad",
+  "keyword": "supresor de apetito",
+  "vol_excel": 480,
+  "cpc_excel": 0.19,
+  "sd_excel": 22.0,
+  "intencion_excel": "Comercial",
+  "nota": "Término de categoría con intención comercial y SD baja; puede concentrar opciones orientadas al control del apetito.",
+  "vol_real": 480,
+  "cpc_real": 0.27,
+  "kd_real": 0,
+  "intent_real": "transactional",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 590
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 590
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 480
+   }
+  ]
+ },
+ {
+  "eje": "Control de apetito / saciedad",
+  "keyword": "pastillas para quitar el hambre farmacia sin receta",
+  "vol_excel": 140,
+  "cpc_excel": 0.92,
+  "sd_excel": 32.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Long-tail con CPC muy alto e intención de compra explícita; conviene responder seguridad, regulación y alternativas.",
+  "vol_real": 110,
+  "cpc_real": 0.45,
+  "kd_real": 0,
+  "intent_real": "transactional",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 40
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 140
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 170
+   }
+  ]
+ },
+ {
+  "eje": "Control de apetito / saciedad",
+  "keyword": "que tomar para ansiedad por comer",
+  "vol_excel": 50,
+  "cpc_excel": 0.12,
+  "sd_excel": 11.0,
+  "intencion_excel": "Comercial",
+  "nota": "Pregunta de solución directa con dificultad muy baja; adecuada para contenido que compare alternativas sin enfocarse en marcas.",
+  "vol_real": null,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": null,
+  "competition": null,
+  "monthly_recent": null
+ },
+ {
+  "eje": "Control de apetito / saciedad",
+  "keyword": "pastillas para controlar ansiedad por comer",
+  "vol_excel": 50,
+  "cpc_excel": 0.07,
+  "sd_excel": 10.0,
+  "intencion_excel": "Transaccional",
+  "nota": "SD muy baja e intención comercial; oportunidad long-tail para una guía de opciones y criterios de seguridad.",
+  "vol_real": null,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": null,
+  "competition": null,
+  "monthly_recent": null
+ },
+ {
+  "eje": "Control de apetito / saciedad",
+  "keyword": "suplementos para quitar el hambre",
+  "vol_excel": 50,
+  "cpc_excel": 0.09,
+  "sd_excel": 35.0,
+  "intencion_excel": "Comercial",
+  "nota": "Búsqueda transversal perfectamente alineada con el catálogo; puede trabajarse como sección dentro de una guía de apetito.",
+  "vol_real": 50,
+  "cpc_real": 0.16,
+  "kd_real": null,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 40
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 50
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 30
+   }
+  ]
+ },
+ {
+  "eje": "Control de apetito / saciedad",
+  "keyword": "control de apetito",
+  "vol_excel": 40,
+  "cpc_excel": 0.23,
+  "sd_excel": 42.0,
+  "intencion_excel": "Informacional",
+  "nota": "Aunque pequeño, es eje estratégico para enlazar con saciedad y pérdida de peso.",
+  "vol_real": 30,
+  "cpc_real": 0.21,
+  "kd_real": 56,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 20
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 20
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 30
+   }
+  ]
+ },
+ {
+  "eje": "Control de apetito / saciedad",
+  "keyword": "suplementos para la ansiedad por comer",
+  "vol_excel": 20,
+  "cpc_excel": 0.06,
+  "sd_excel": 15.0,
+  "intencion_excel": "Comercial",
+  "nota": "Aunque el volumen es pequeño, combina CPC y baja dificultad con una intención muy cercana al catálogo.",
+  "vol_real": 20,
+  "cpc_real": 0.21,
+  "kd_real": null,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 20
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 10
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 20
+   }
+  ]
+ },
+ {
+  "eje": "Control de apetito / saciedad",
+  "keyword": "pastillas naturales para quitar el hambre y la ansiedad",
+  "vol_excel": 10,
+  "cpc_excel": 0.39,
+  "sd_excel": 32.0,
+  "intencion_excel": "Transaccional",
+  "nota": "Volumen pequeño pero CPC alto y necesidad doble muy concreta; long-tail de compra con potencial de conversión.",
+  "vol_real": 10,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 10
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 10
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 10
+   }
+  ]
+ },
+ {
+  "eje": "Articulaciones / ligamentos",
+  "keyword": "suplementos para articulaciones",
+  "vol_excel": 1300,
+  "cpc_excel": 0.13,
+  "sd_excel": 24.0,
+  "intencion_excel": "Comercial",
+  "nota": "Término de categoría para recuperación, lesiones y prevención articular.",
+  "vol_real": 1000,
+  "cpc_real": 0.22,
+  "kd_real": 0,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1000
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1000
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1000
+   }
+  ]
+ },
+ {
+  "eje": "Articulaciones / ligamentos",
+  "keyword": "mejores suplementos para articulaciones",
+  "vol_excel": 50,
+  "cpc_excel": 0.36,
+  "sd_excel": 36.0,
+  "intencion_excel": "Comercial",
+  "nota": "Búsqueda comparativa directamente alineada con suplementos y con CPC atractivo.",
+  "vol_real": 50,
+  "cpc_real": 0.32,
+  "kd_real": null,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 40
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 50
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 50
+   }
+  ]
+ },
+ {
+  "eje": "Articulaciones / ligamentos",
+  "keyword": "suplementos para articulaciones y ligamentos",
+  "vol_excel": 40,
+  "cpc_excel": 0.23,
+  "sd_excel": 36.0,
+  "intencion_excel": "Comercial",
+  "nota": "Long-tail de producto que une dos necesidades cercanas; buena para una subcategoría o guía de compra.",
+  "vol_real": 30,
+  "cpc_real": 0.24,
+  "kd_real": null,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 20
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 10
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 20
+   }
+  ]
+ },
+ {
+  "eje": "Antiedad / envejecimiento saludable",
+  "keyword": "envejecimiento saludable",
+  "vol_excel": 1300,
+  "cpc_excel": 0.77,
+  "sd_excel": 44.0,
+  "intencion_excel": "Informacional",
+  "nota": "CPC alto y eje estratégico antiedad sin usar el término excluido de longevidad.",
+  "vol_real": 1300,
+  "cpc_real": 0.01,
+  "kd_real": 28,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 1000
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 1300
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 1000
+   }
+  ]
+ },
+ {
+  "eje": "Recuperación muscular / lesiones",
+  "keyword": "recuperación muscular",
+  "vol_excel": 320,
+  "cpc_excel": 0.33,
+  "sd_excel": 15.0,
+  "intencion_excel": "Informacional",
+  "nota": "Baja SD y CPC útil; keyword pilar para conectar recuperación, entrenamiento y suplementos.",
+  "vol_real": 320,
+  "cpc_real": 0.33,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "MEDIUM",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 320
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 320
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 320
+   }
+  ]
+ },
+ {
+  "eje": "Recuperación muscular / lesiones",
+  "keyword": "suplemento para recuperación muscular",
+  "vol_excel": 110,
+  "cpc_excel": 0.28,
+  "sd_excel": 36.0,
+  "intencion_excel": "Comercial",
+  "nota": "Intención de compra directa para soluciones de recuperación post-entrenamiento.",
+  "vol_real": 90,
+  "cpc_real": 0.29,
+  "kd_real": 53,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 90
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 110
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 110
+   }
+  ]
+ },
+ {
+  "eje": "Recuperación muscular / lesiones",
+  "keyword": "suplementos para la recuperación muscular",
+  "vol_excel": 50,
+  "cpc_excel": 0.55,
+  "sd_excel": 35.0,
+  "intencion_excel": "Comercial",
+  "nota": "CPC alto para long-tail; conviene en guía de selección de suplementos de recuperación.",
+  "vol_real": 50,
+  "cpc_real": 0.24,
+  "kd_real": 53,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 50
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 50
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 40
+   }
+  ]
+ },
+ {
+  "eje": "Recuperación muscular / lesiones",
+  "keyword": "recuperación muscular suplemento",
+  "vol_excel": 50,
+  "cpc_excel": 0.57,
+  "sd_excel": 44.0,
+  "intencion_excel": "Comercial",
+  "nota": "CPC alto y búsqueda directa de producto; usar como variante secundaria de la landing de recuperación muscular.",
+  "vol_real": 40,
+  "cpc_real": 0.73,
+  "kd_real": 53,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 30
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 40
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 40
+   }
+  ]
+ },
+ {
+  "eje": "Recuperación muscular / lesiones",
+  "keyword": "alimentos para recuperación muscular",
+  "vol_excel": 40,
+  "cpc_excel": 0.7,
+  "sd_excel": 12.0,
+  "intencion_excel": "Informacional",
+  "nota": "Muy baja SD y CPC alto; excelente entrada educativa hacia recuperación y suplementación.",
+  "vol_real": null,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": null,
+  "competition": null,
+  "monthly_recent": null
+ },
+ {
+  "eje": "Recuperación muscular / lesiones",
+  "keyword": "rodilla lesiones deportivas",
+  "vol_excel": 20,
+  "cpc_excel": 0.42,
+  "sd_excel": 20.0,
+  "intencion_excel": "Informacional",
+  "nota": "Problema anatómico concreto con CPC alto y SD baja; útil como artículo de recuperación y soporte articular.",
+  "vol_real": null,
+  "cpc_real": null,
+  "kd_real": null,
+  "intent_real": null,
+  "competition": null,
+  "monthly_recent": null
+ },
+ {
+  "eje": "Control de peso / condiciones asociadas",
+  "keyword": "medicamento para bajar de peso con hipotiroidismo",
+  "vol_excel": 390,
+  "cpc_excel": 0.21,
+  "sd_excel": 20.0,
+  "intencion_excel": "Informacional",
+  "nota": "Long-tail de baja SD con problema específico; atrae tráfico cualificado.",
+  "vol_real": 320,
+  "cpc_real": 0.91,
+  "kd_real": 0,
+  "intent_real": "informational",
+  "competition": "LOW",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 210
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 260
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 320
+   }
+  ]
+ },
+ {
+  "eje": "Energía / enfoque",
+  "keyword": "suplementos para energía",
+  "vol_excel": 210,
+  "cpc_excel": 0.25,
+  "sd_excel": 22.0,
+  "intencion_excel": "Comercial",
+  "nota": "Buen término de categoría para usuarios con fatiga, rendimiento o enfoque.",
+  "vol_real": 210,
+  "cpc_real": 0.25,
+  "kd_real": 0,
+  "intent_real": "commercial",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 170
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 210
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 170
+   }
+  ]
+ },
+ {
+  "eje": "Energía / enfoque",
+  "keyword": "suplementos para energía y concentración",
+  "vol_excel": 30,
+  "cpc_excel": 0.54,
+  "sd_excel": 36.0,
+  "intencion_excel": "Comercial",
+  "nota": "Long-tail con CPC alto; útil para landing de energía mental/física.",
+  "vol_real": 20,
+  "cpc_real": 0.19,
+  "kd_real": null,
+  "intent_real": "informational",
+  "competition": "HIGH",
+  "monthly_recent": [
+   {
+    "year": 2026,
+    "month": 6,
+    "search_volume": 10
+   },
+   {
+    "year": 2026,
+    "month": 5,
+    "search_volume": 10
+   },
+   {
+    "year": 2026,
+    "month": 4,
+    "search_volume": 30
+   }
+  ]
+ }
+]

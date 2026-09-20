@@ -1,0 +1,2019 @@
+{
+  "source": "C:\\Users\\gabom\\Proyectos\\ecommerce-agent\\auditorias\\nodarishub\\2026-08-06\\serps-live.json",
+  "method": {
+    "queries": 12,
+    "first_10_organic_examined": 120,
+    "classification": "Reglas deterministas por dominio, tipo de página y title; revisar manualmente antes de decisiones irreversibles."
+  },
+  "owner_visible_depth30_queries": 0,
+  "market_counts": {
+    "ec": {
+      "agencia_servicio_directo": 40,
+      "directorio_editorial": 15,
+      "proveedor_software": 5
+    },
+    "mx": {
+      "publico_academico": 9,
+      "directorio_editorial": 17,
+      "agencia_servicio_directo": 23,
+      "plataforma_diy": 4,
+      "otro": 2,
+      "proveedor_software": 5
+    }
+  },
+  "top_domains_by_market": {
+    "ec": [
+      [
+        "agenciadigital.com.ec",
+        5
+      ],
+      [
+        "innovacenter.ec",
+        4
+      ],
+      [
+        "hellomediaec.com",
+        3
+      ],
+      [
+        "doptus.com",
+        3
+      ],
+      [
+        "serendipia.ec",
+        2
+      ],
+      [
+        "bimsoluciones.com",
+        2
+      ],
+      [
+        "qbit.com.ec",
+        2
+      ],
+      [
+        "linkatomic.com",
+        2
+      ],
+      [
+        "altitude.ec",
+        2
+      ],
+      [
+        "monkeyplusbc.com",
+        2
+      ],
+      [
+        "paginaswebecuador.ec",
+        2
+      ],
+      [
+        "publitek.com.ec",
+        2
+      ],
+      [
+        "paginaswebquito.com",
+        2
+      ],
+      [
+        "disenowebquito.com",
+        2
+      ],
+      [
+        "eaweb.ec",
+        2
+      ],
+      [
+        "mndesarrolloweb.com",
+        2
+      ],
+      [
+        "sortlist.com",
+        2
+      ],
+      [
+        "mentha.ec",
+        1
+      ],
+      [
+        "narviz.com",
+        1
+      ],
+      [
+        "hosteo.ec",
+        1
+      ],
+      [
+        "hostingthewave.com",
+        1
+      ],
+      [
+        "webcreativo.ec",
+        1
+      ],
+      [
+        "seonetdigital.com",
+        1
+      ],
+      [
+        "alphaseoec.com",
+        1
+      ],
+      [
+        "agenciaseoecuador.com",
+        1
+      ],
+      [
+        "seoecuador.ec",
+        1
+      ],
+      [
+        "zewsweb.com",
+        1
+      ],
+      [
+        "daseo.digital",
+        1
+      ],
+      [
+        "pulpo.ec",
+        1
+      ],
+      [
+        "empresadesoftware.com.ec",
+        1
+      ],
+      [
+        "iqlatam.com",
+        1
+      ],
+      [
+        "pacusoft.com",
+        1
+      ],
+      [
+        "azirgo.com",
+        1
+      ],
+      [
+        "seven.ec",
+        1
+      ],
+      [
+        "innova3ec.com",
+        1
+      ],
+      [
+        "wappiad.com",
+        1
+      ]
+    ],
+    "mx": [
+      [
+        "gob.mx",
+        2
+      ],
+      [
+        "newemage.com.mx",
+        2
+      ],
+      [
+        "sourcecode.mx",
+        2
+      ],
+      [
+        "marketing4ecommerce.mx",
+        2
+      ],
+      [
+        "octopus.mx",
+        2
+      ],
+      [
+        "facebook.com",
+        1
+      ],
+      [
+        "agenciadigital.edomex.gob.mx",
+        1
+      ],
+      [
+        "x.com",
+        1
+      ],
+      [
+        "es.wikipedia.org",
+        1
+      ],
+      [
+        "atd.qroo.gob.mx",
+        1
+      ],
+      [
+        "datos.gob.mx",
+        1
+      ],
+      [
+        "agenciadigitalmx.com",
+        1
+      ],
+      [
+        "adip.cdmx.gob.mx",
+        1
+      ],
+      [
+        "webador.mx",
+        1
+      ],
+      [
+        "godaddy.com",
+        1
+      ],
+      [
+        "pagina.mx",
+        1
+      ],
+      [
+        "es.wix.com",
+        1
+      ],
+      [
+        "reddit.com",
+        1
+      ],
+      [
+        "canva.com",
+        1
+      ],
+      [
+        "paginawebmx.com",
+        1
+      ],
+      [
+        "shopify.com",
+        1
+      ],
+      [
+        "hypemedia.mx",
+        1
+      ],
+      [
+        "seonetdigital.com",
+        1
+      ],
+      [
+        "instagram.com",
+        1
+      ],
+      [
+        "ariapsa.com",
+        1
+      ],
+      [
+        "desarrollowebmexico.com",
+        1
+      ],
+      [
+        "quericomambo.mx",
+        1
+      ],
+      [
+        "mx.indeed.com",
+        1
+      ],
+      [
+        "evolucionweb.mx",
+        1
+      ],
+      [
+        "cocktailmarketing.com.mx",
+        1
+      ],
+      [
+        "puromarketing.com",
+        1
+      ],
+      [
+        "huella-digital.mx",
+        1
+      ],
+      [
+        "seonet.mx",
+        1
+      ],
+      [
+        "beenet.mx",
+        1
+      ],
+      [
+        "mdmarketingdigital.com",
+        1
+      ],
+      [
+        "subeagenciadigital.com",
+        1
+      ],
+      [
+        "amarilio.com.mx",
+        1
+      ],
+      [
+        "seoenmexico.com",
+        1
+      ],
+      [
+        "agenciaseomexico.mx",
+        1
+      ],
+      [
+        "codefy.com.mx",
+        1
+      ],
+      [
+        "ecomsystem.amvo.org.mx",
+        1
+      ],
+      [
+        "optimizacion-online.com",
+        1
+      ],
+      [
+        "eleven.agency",
+        1
+      ],
+      [
+        "mx.linkedin.com",
+        1
+      ],
+      [
+        "autenticoseo.com",
+        1
+      ],
+      [
+        "dosbytes.com.mx",
+        1
+      ],
+      [
+        "northware.mx",
+        1
+      ],
+      [
+        "tic.unam.mx",
+        1
+      ],
+      [
+        "syca.com.mx",
+        1
+      ],
+      [
+        "iisi.com.mx",
+        1
+      ],
+      [
+        "sokodb.com.mx",
+        1
+      ],
+      [
+        "magokoro.mx",
+        1
+      ],
+      [
+        "arteco-consulting.com",
+        1
+      ],
+      [
+        "conlineweb.com",
+        1
+      ],
+      [
+        "vexilo.com",
+        1
+      ]
+    ]
+  },
+  "query_overlap_by_market": {
+    "ec": [
+      [
+        "agenciadigital.com.ec",
+        5
+      ],
+      [
+        "innovacenter.ec",
+        4
+      ],
+      [
+        "hellomediaec.com",
+        3
+      ],
+      [
+        "serendipia.ec",
+        2
+      ],
+      [
+        "qbit.com.ec",
+        2
+      ],
+      [
+        "altitude.ec",
+        2
+      ],
+      [
+        "monkeyplusbc.com",
+        2
+      ],
+      [
+        "bimsoluciones.com",
+        2
+      ],
+      [
+        "linkatomic.com",
+        2
+      ],
+      [
+        "eaweb.ec",
+        2
+      ],
+      [
+        "mndesarrolloweb.com",
+        2
+      ],
+      [
+        "publitek.com.ec",
+        2
+      ],
+      [
+        "disenowebquito.com",
+        2
+      ],
+      [
+        "paginaswebecuador.ec",
+        2
+      ],
+      [
+        "paginaswebquito.com",
+        2
+      ],
+      [
+        "doptus.com",
+        2
+      ],
+      [
+        "sortlist.com",
+        2
+      ],
+      [
+        "mentha.ec",
+        1
+      ],
+      [
+        "narviz.com",
+        1
+      ],
+      [
+        "hostingthewave.com",
+        1
+      ],
+      [
+        "hosteo.ec",
+        1
+      ],
+      [
+        "webcreativo.ec",
+        1
+      ],
+      [
+        "seonetdigital.com",
+        1
+      ],
+      [
+        "seoecuador.ec",
+        1
+      ],
+      [
+        "daseo.digital",
+        1
+      ],
+      [
+        "agenciaseoecuador.com",
+        1
+      ],
+      [
+        "alphaseoec.com",
+        1
+      ],
+      [
+        "zewsweb.com",
+        1
+      ],
+      [
+        "empresadesoftware.com.ec",
+        1
+      ],
+      [
+        "innova3ec.com",
+        1
+      ],
+      [
+        "pacusoft.com",
+        1
+      ],
+      [
+        "pulpo.ec",
+        1
+      ],
+      [
+        "azirgo.com",
+        1
+      ],
+      [
+        "iqlatam.com",
+        1
+      ],
+      [
+        "wappiad.com",
+        1
+      ],
+      [
+        "seven.ec",
+        1
+      ]
+    ],
+    "mx": [
+      [
+        "newemage.com.mx",
+        2
+      ],
+      [
+        "sourcecode.mx",
+        2
+      ],
+      [
+        "octopus.mx",
+        2
+      ],
+      [
+        "marketing4ecommerce.mx",
+        2
+      ],
+      [
+        "agenciadigitalmx.com",
+        1
+      ],
+      [
+        "x.com",
+        1
+      ],
+      [
+        "gob.mx",
+        1
+      ],
+      [
+        "atd.qroo.gob.mx",
+        1
+      ],
+      [
+        "facebook.com",
+        1
+      ],
+      [
+        "agenciadigital.edomex.gob.mx",
+        1
+      ],
+      [
+        "es.wikipedia.org",
+        1
+      ],
+      [
+        "datos.gob.mx",
+        1
+      ],
+      [
+        "adip.cdmx.gob.mx",
+        1
+      ],
+      [
+        "canva.com",
+        1
+      ],
+      [
+        "shopify.com",
+        1
+      ],
+      [
+        "godaddy.com",
+        1
+      ],
+      [
+        "reddit.com",
+        1
+      ],
+      [
+        "paginawebmx.com",
+        1
+      ],
+      [
+        "es.wix.com",
+        1
+      ],
+      [
+        "webador.mx",
+        1
+      ],
+      [
+        "pagina.mx",
+        1
+      ],
+      [
+        "hypemedia.mx",
+        1
+      ],
+      [
+        "quericomambo.mx",
+        1
+      ],
+      [
+        "mx.indeed.com",
+        1
+      ],
+      [
+        "evolucionweb.mx",
+        1
+      ],
+      [
+        "desarrollowebmexico.com",
+        1
+      ],
+      [
+        "seonetdigital.com",
+        1
+      ],
+      [
+        "ariapsa.com",
+        1
+      ],
+      [
+        "instagram.com",
+        1
+      ],
+      [
+        "huella-digital.mx",
+        1
+      ],
+      [
+        "subeagenciadigital.com",
+        1
+      ],
+      [
+        "cocktailmarketing.com.mx",
+        1
+      ],
+      [
+        "seonet.mx",
+        1
+      ],
+      [
+        "beenet.mx",
+        1
+      ],
+      [
+        "amarilio.com.mx",
+        1
+      ],
+      [
+        "mdmarketingdigital.com",
+        1
+      ],
+      [
+        "puromarketing.com",
+        1
+      ],
+      [
+        "seoenmexico.com",
+        1
+      ],
+      [
+        "codefy.com.mx",
+        1
+      ],
+      [
+        "autenticoseo.com",
+        1
+      ],
+      [
+        "mx.linkedin.com",
+        1
+      ],
+      [
+        "agenciaseomexico.mx",
+        1
+      ],
+      [
+        "ecomsystem.amvo.org.mx",
+        1
+      ],
+      [
+        "eleven.agency",
+        1
+      ],
+      [
+        "optimizacion-online.com",
+        1
+      ],
+      [
+        "magokoro.mx",
+        1
+      ],
+      [
+        "sokodb.com.mx",
+        1
+      ],
+      [
+        "conlineweb.com",
+        1
+      ],
+      [
+        "dosbytes.com.mx",
+        1
+      ],
+      [
+        "vexilo.com",
+        1
+      ],
+      [
+        "tic.unam.mx",
+        1
+      ],
+      [
+        "syca.com.mx",
+        1
+      ],
+      [
+        "northware.mx",
+        1
+      ],
+      [
+        "arteco-consulting.com",
+        1
+      ],
+      [
+        "iisi.com.mx",
+        1
+      ]
+    ]
+  },
+  "queries": [
+    {
+      "market": "ec",
+      "keyword": "agencia digital ecuador",
+      "owner": "https://nodarishub.com/ec/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 9,
+      "counts_first_10_organic": {
+        "agencia_servicio_directo": 8,
+        "directorio_editorial": 2
+      },
+      "results": [
+        {
+          "rank_absolute": 2,
+          "rank_group": 1,
+          "domain": "agenciadigital.com.ec",
+          "url": "https://agenciadigital.com.ec/",
+          "title": "Agencia de Marketing Digital en Ecuador ✔️ AMD Agencia",
+          "description": "En AMD como agencia SEO Ecuador llevamos tu marca al primer lugar de Google con estrategias de posicionamiento orgánico, SEO On Page, Off Page y SEO local.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 3,
+          "rank_group": 2,
+          "domain": "serendipia.ec",
+          "url": "https://serendipia.ec/",
+          "title": "Agencia de Marketing Digital Guayaquil, Quito, Ecuador",
+          "description": "Agencia de Marketing Digital Guayaquil y Quito con experiencia europea, creamos estrategias orientadas a conseguir resultados garantizados.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 4,
+          "rank_group": 3,
+          "domain": "hellomediaec.com",
+          "url": "https://hellomediaec.com/",
+          "title": "Agencia de marketing digital en Quito y Guayaquil | HELLO",
+          "description": "Agencia de marketing digital en Quito Guayaquil Ecuador, expertos en 360, Growth, SEO, SEM, Branding y publicidad ADS con inteligencia artificial.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 5,
+          "rank_group": 4,
+          "domain": "bimsoluciones.com",
+          "url": "https://bimsoluciones.com/",
+          "title": "BIM Soluciones: Agencia de Marketing Digital Ecuador + IA",
+          "description": "Agencia de Marketing Digital en Quito y Ecuador. En BIM Soluciones ayudamos a empresas a generar más leads y ventas con SEO, GEO, Google Ads, Diseño Web, CRM y ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 6,
+          "rank_group": 5,
+          "domain": "innovacenter.ec",
+          "url": "https://www.innovacenter.ec/agencia-de-marketing-digital/",
+          "title": "Agencia de Marketing Digital en Quito | Growth, Ads + IA",
+          "description": "Agencia de marketing digital en Quito con 20 años de experiencia en Google, Meta Ads, SEO. Growth Marketing y diseño de arquitectura de ventas B2B/B2C.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 7,
+          "rank_group": 6,
+          "domain": "qbit.com.ec",
+          "url": "https://qbit.com.ec/",
+          "title": "ᐅ Agencia #1 de Marketing Digital en Guayaquil Ecuador",
+          "description": "Ofrecemos servicios digitales como administración y generación de contenidos para redes sociales, campañas con influenciadores, manuales de crisis digitales, ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 8,
+          "rank_group": 7,
+          "domain": "linkatomic.com",
+          "url": "https://linkatomic.com/es/agencias/ecuador/",
+          "title": "Las mejores agencias de marketing digital en Ecuador",
+          "description": "Intelligenta Studio es una agencia de marketing digital y desarrollo web con base en Quito, Ecuador. Nos especializamos en la creación de ecosistemas digitales ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 9,
+          "rank_group": 8,
+          "domain": "altitude.ec",
+          "url": "https://www.altitude.ec/",
+          "title": "Agencia de Generación de Leads en Ecuador | Altitude",
+          "description": "Agencia de marketing digital especializada en SEO, publicidad digital, redes sociales y diseño web. Desde 2016. Servicios. Pauta Digital Social Media Marketing ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 9,
+          "domain": "monkeyplusbc.com",
+          "url": "https://monkeyplusbc.com/contenido/top-de-agencias-de-marketing-digital-en-guayaquil",
+          "title": "Conoce el Top 5 de agencias de marketing digital en ...",
+          "description": "Altitude. Altitude se destaca por su enfoque estratégico y su amplio conocimiento en marketing digital. · Qbit. Qbit es una agencia de marketing digital que ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 12,
+          "rank_group": 10,
+          "domain": "mentha.ec",
+          "url": "https://mentha.ec/",
+          "title": "INICIO - MENTHA - Agencia Digital en Quito Ecuador",
+          "description": "Somos una agencia de marketing integral, con enfoque a proyectos de transformación social, ambiental y cultural en Ecuador. Nos establecimos en Ecuador ...",
+          "category": "agencia_servicio_directo"
+        }
+      ]
+    },
+    {
+      "market": "ec",
+      "keyword": "crear pagina web ecuador",
+      "owner": "https://nodarishub.com/ec/crear-pagina-web/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 10,
+      "counts_first_10_organic": {
+        "agencia_servicio_directo": 8,
+        "directorio_editorial": 2
+      },
+      "results": [
+        {
+          "rank_absolute": 1,
+          "rank_group": 1,
+          "domain": "paginaswebecuador.ec",
+          "url": "https://paginaswebecuador.ec/",
+          "title": "PÁGINAS WEB ECUADOR | Convierte Visitas en Clientes",
+          "description": "PÁGINAS WEB ECUADOR ® creamos páginas web en Ecuador que explican, generan confianza y convierten visitas en clientes +13 años +1200 proyectos.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 2,
+          "rank_group": 2,
+          "domain": "narviz.com",
+          "url": "https://narviz.com/desarrollo-paginas-web-ecuador/",
+          "title": "Desarrollo y Diseño de Páginas Web Ecuador ideal para ...",
+          "description": "Diseñamos Web optimizadas en SEO. Creamos soluciones digitales impactantes y funcionales, desde sitios web a medida hasta plataformas complejas. Nuestro enfoque ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 3,
+          "rank_group": 3,
+          "domain": "innovacenter.ec",
+          "url": "https://www.innovacenter.ec/paginas-web-quito/",
+          "title": "Agencia de Diseño Web en Quito | Páginas Web",
+          "description": "INNOVAcenter, agencia de diseño web en Quito y Ecuador · Más de 21 años de experiencia entre España y Ecuador · Más de 452 Proyectos digitales, Web, Bot y Ads.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 4,
+          "rank_group": 4,
+          "domain": "publitek.com.ec",
+          "url": "https://www.publitek.com.ec/",
+          "title": "Diseño de Páginas Web en Ecuador - Agencia Publitek™",
+          "description": "Diseño de páginas web profesionales en Quito y Guayaquil. Somos una agencia de diseño y desarrollo web para empresas en Ecuador. ¡Llama ya!",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 5,
+          "rank_group": 5,
+          "domain": "paginaswebquito.com",
+          "url": "https://paginaswebquito.com/",
+          "title": "PÁGINAS WEB QUITO | DISEÑO Y CREACIÓN PÁGINAS WEB",
+          "description": "Con Páginas Web Quito comienza tu negocio con todo lo que necesitas en menos de 24 horas: Hosting: Alojamiento para tu página. Dominio: Asegura tu nombre en ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 6,
+          "rank_group": 6,
+          "domain": "disenowebquito.com",
+          "url": "https://disenowebquito.com/",
+          "title": "Diseño Web Quito | Agencia de Páginas Web en Quito",
+          "description": "Diseño Web Quito crea sitios modernos, responsivos y optimizados para SEO. Con 20 años de experiencia, impulsamos tu negocio con soluciones a medida.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 7,
+          "rank_group": 7,
+          "domain": "eaweb.ec",
+          "url": "https://eaweb.ec/",
+          "title": "Diseño de páginas web | Paginas web | Quito - Ecuador",
+          "description": "Nuestra experiencia nos permite diseñar páginas web a cualquier nivel de dificultad: desde una página web de presentación hasta un complejo catálogo de ventas, ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 8,
+          "rank_group": 8,
+          "domain": "hosteo.ec",
+          "url": "https://hosteo.ec/como-crear-una-pagina-web-en-ecuador-paso-a-paso-guia-completa-2026/",
+          "title": "Cómo crear una página web en Ecuador paso a paso - Hosteo",
+          "description": "Paso a paso · 1. Elegir dominio · 2. Contratar Hosting · 3. Instalar WordPress · 4. Diseñar tu web · 5. Publicar. Tu sitio ya estará en línea.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 9,
+          "rank_group": 9,
+          "domain": "mndesarrolloweb.com",
+          "url": "https://mndesarrolloweb.com/",
+          "title": "Agencia de diseño web: Diseño de páginas web en Ecuador",
+          "description": "Buscas diseño de páginas web en Ecuador? En MN Desarrollo Web creamos sitios rápidos, optimizados para SEO y enfocados en ventas.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 10,
+          "domain": "hostingthewave.com",
+          "url": "https://hostingthewave.com/2025/03/11/diseno-web-profesional-en-ecuador/",
+          "title": "Diseño Web Profesional en Ecuador: Páginas Web y Tiendas ...",
+          "description": "11 mar 2025 — Planes de diseño web y Hosting en Ecuador con optimización ecommerce, backups 24/7, software en un clic, editor visual, correos, SSL.",
+          "category": "directorio_editorial"
+        }
+      ]
+    },
+    {
+      "market": "ec",
+      "keyword": "diseño de paginas web ecuador",
+      "owner": "https://nodarishub.com/ec/diseno-web/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 7,
+      "counts_first_10_organic": {
+        "agencia_servicio_directo": 9,
+        "directorio_editorial": 1
+      },
+      "results": [
+        {
+          "rank_absolute": 1,
+          "rank_group": 1,
+          "domain": "agenciadigital.com.ec",
+          "url": "https://agenciadigital.com.ec/diseno-de-paginas-web/",
+          "title": "Diseño de páginas web - AMD Agencia de Marketing Digital",
+          "description": "Agencia de diseño web Ecuador ☎️ AMD profesionales en diseño UX/UI expertos en SEO E-commerce y sitios empresa de páginas web.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 2,
+          "rank_group": 2,
+          "domain": "paginaswebecuador.ec",
+          "url": "https://paginaswebecuador.ec/",
+          "title": "PÁGINAS WEB ECUADOR | Convierte Visitas en Clientes",
+          "description": "PÁGINAS WEB ECUADOR ® creamos páginas web en Ecuador que explican, generan confianza y convierten visitas en clientes +13 años +1200 proyectos.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 3,
+          "rank_group": 3,
+          "domain": "publitek.com.ec",
+          "url": "https://www.publitek.com.ec/",
+          "title": "Diseño de Páginas Web en Ecuador - Agencia Publitek™",
+          "description": "Somos una agencia de marketing digital y diseño de páginas web en Quito Ecuador con presencia en Guayaquil y Manta. Creamos páginas web modernas con diseños ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 4,
+          "rank_group": 4,
+          "domain": "innovacenter.ec",
+          "url": "https://www.innovacenter.ec/paginas-web-quito/",
+          "title": "Agencia de Diseño Web en Quito | Páginas Web",
+          "description": "Creamos páginas web en Quito con WordPress, diseño responsive, velocidad, seguridad, formularios de contacto y herramientas para captar clientes desde Google, ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 5,
+          "rank_group": 5,
+          "domain": "paginaswebquito.com",
+          "url": "https://paginaswebquito.com/",
+          "title": "PÁGINAS WEB QUITO | DISEÑO Y CREACIÓN PÁGINAS WEB",
+          "description": "Páginas Web Quito 15 años creando páginas web y tiendas virtuales efectivas y atractivas, más de 1250 negocios y clientes en más de 20 países.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 9,
+          "rank_group": 6,
+          "domain": "mndesarrolloweb.com",
+          "url": "https://mndesarrolloweb.com/",
+          "title": "Agencia de diseño web: Diseño de páginas web en Ecuador",
+          "description": "Buscas diseño de páginas web en Ecuador? En MN Desarrollo Web creamos sitios rápidos, optimizados para SEO y enfocados en ventas.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 7,
+          "domain": "webcreativo.ec",
+          "url": "https://webcreativo.ec/",
+          "title": "Diseño web en Quito | WordPress rápido y SEO",
+          "description": "Diseño web en Quito en WordPress que atrae clientes. Sitios rápidos + SEO técnico + copy orientado a conversiones para negocios en Quito y Ecuador.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 11,
+          "rank_group": 8,
+          "domain": "disenowebquito.com",
+          "url": "https://disenowebquito.com/",
+          "title": "Diseño Web Quito | Agencia de Páginas Web en Quito",
+          "description": "Diseño Web Quito crea sitios modernos, responsivos y optimizados para SEO. Con 20 años de experiencia, impulsamos tu negocio con soluciones a medida.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 12,
+          "rank_group": 9,
+          "domain": "bimsoluciones.com",
+          "url": "https://bimsoluciones.com/5-mejores-agencias-de-diseno-web-en-ecuador-2025/",
+          "title": "Agencias de páginas web en Ecuador: Top 5 (Actualizado ...",
+          "description": "8 mar 2025 — Las 5 mejores empresas de diseño web en ecuador en 2025 · 1. BIM Soluciones · 2. Pedro Pixel · 3. Synergia MKT Digital · 4. WebCorp Ecuador · 5.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 13,
+          "rank_group": 10,
+          "domain": "eaweb.ec",
+          "url": "https://eaweb.ec/",
+          "title": "Diseño de páginas web | Paginas web | Quito - Ecuador",
+          "description": "Nuestra experiencia nos permite diseñar páginas web a cualquier nivel de dificultad: desde una página web de presentación hasta un complejo catálogo de ventas, ...",
+          "category": "agencia_servicio_directo"
+        }
+      ]
+    },
+    {
+      "market": "ec",
+      "keyword": "agencia de marketing digital ecuador",
+      "owner": "https://nodarishub.com/ec/marketing/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 6,
+      "counts_first_10_organic": {
+        "agencia_servicio_directo": 8,
+        "directorio_editorial": 2
+      },
+      "results": [
+        {
+          "rank_absolute": 5,
+          "rank_group": 1,
+          "domain": "innovacenter.ec",
+          "url": "https://www.innovacenter.ec/agencia-de-marketing-digital/",
+          "title": "Agencia de Marketing Digital en Quito | Growth, Ads + IA",
+          "description": "Agencia de marketing digital en Quito con 20 años de experiencia en Google, Meta Ads, SEO. Growth Marketing y diseño de arquitectura de ventas B2B/B2C.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 6,
+          "rank_group": 2,
+          "domain": "hellomediaec.com",
+          "url": "https://hellomediaec.com/",
+          "title": "Agencia de marketing digital en Quito y Guayaquil | HELLO",
+          "description": "Agencia de marketing digital en Quito Guayaquil Ecuador, expertos en 360, Growth, SEO, SEM, Branding y publicidad ADS con inteligencia artificial.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 7,
+          "rank_group": 3,
+          "domain": "linkatomic.com",
+          "url": "https://linkatomic.com/es/agencias/ecuador/",
+          "title": "Las mejores agencias de marketing digital en Ecuador",
+          "description": "Intelligenta Studio es una agencia de marketing digital y desarrollo web con base en Quito, Ecuador. Nos especializamos en la creación de ecosistemas digitales ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 8,
+          "rank_group": 4,
+          "domain": "monkeyplusbc.com",
+          "url": "https://monkeyplusbc.com/",
+          "title": "Monkey Plus: Agencia de Marketing Digital en Ecuador ...",
+          "description": "Monkey Plus es una agencia de marketing digital en Ecuador con enfoque integral: estrategia de embudo completo, automatización de ventas, SMarketing (fusión ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 9,
+          "rank_group": 5,
+          "domain": "agenciadigital.com.ec",
+          "url": "https://agenciadigital.com.ec/",
+          "title": "Agencia de Marketing Digital en Ecuador ✔️ AMD Agencia",
+          "description": "En AMD como agencia SEO Ecuador llevamos tu marca al primer lugar de Google con estrategias de posicionamiento orgánico, SEO On Page, Off Page y SEO local.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 6,
+          "domain": "seonetdigital.com",
+          "url": "https://www.seonetdigital.com/es/blog/agencias-de-marketing-digital-en-ecuador",
+          "title": "Las 10 mejores agencias de marketing digital en Ecuador",
+          "description": "13 nov 2023 — Las 10 mejores agencias de marketing digital en Ecuador · 1. Monkey Plus · 2. Seonet · 3. Doptus · 4. Design Republik · 5. Medium Multimedia · 6 ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 11,
+          "rank_group": 7,
+          "domain": "serendipia.ec",
+          "url": "https://serendipia.ec/",
+          "title": "Agencia de Marketing Digital Guayaquil, Quito, Ecuador",
+          "description": "Agencia de Marketing Digital Guayaquil y Quito con experiencia europea, creamos estrategias orientadas a conseguir resultados garantizados.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 12,
+          "rank_group": 8,
+          "domain": "qbit.com.ec",
+          "url": "https://qbit.com.ec/",
+          "title": "ᐅ Agencia #1 de Marketing Digital en Guayaquil Ecuador",
+          "description": "Agencia de Marketing Digital Qbit ➤ Especialistas en Redes sociales, Marketing de Contenidos, Desarrollo de Webs APP Móviles☎️ +593 42 881112.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 13,
+          "rank_group": 9,
+          "domain": "doptus.com",
+          "url": "https://www.doptus.com/",
+          "title": "Doptus | Agencia de Marketing Estratégica y Consultoría",
+          "description": "Doptus es la Agencia de Marketing que Diagnostica, Diseña y Ejecuta comunicación integral 360 para Grandes Organizaciones en Ecuador y USA resultados ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 15,
+          "rank_group": 10,
+          "domain": "doptus.com",
+          "url": "https://www.doptus.com/",
+          "title": "Doptus | Agencia de Marketing Estratégica y Consultoría",
+          "description": "Doptus es la Agencia de Marketing que Diagnostica, Diseña y Ejecuta comunicación integral 360 para Grandes Organizaciones en Ecuador y USA resultados ...",
+          "category": "agencia_servicio_directo"
+        }
+      ]
+    },
+    {
+      "market": "ec",
+      "keyword": "agencia seo ecuador",
+      "owner": "https://nodarishub.com/ec/seo/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 7,
+      "counts_first_10_organic": {
+        "agencia_servicio_directo": 7,
+        "directorio_editorial": 3
+      },
+      "results": [
+        {
+          "rank_absolute": 1,
+          "rank_group": 1,
+          "domain": "alphaseoec.com",
+          "url": "https://alphaseoec.com/",
+          "title": "Agencia SEO GEO | posicionamiento web en Ecuador ...",
+          "description": "AlphaSEO una agencia SEO, AEO y GEO en Ecuador. Posicionamiento web para Google, ChatGPT y Gemini te ayudamos a llegar a los primeros resultados.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 2,
+          "rank_group": 2,
+          "domain": "agenciaseoecuador.com",
+          "url": "https://agenciaseoecuador.com/",
+          "title": "Agencia SEO en Ecuador ✔️ N°1 en Posicionamiento Web",
+          "description": "Una agencia SEO posicionamiento que diseña estrategias efectivas para mejorar la visibilidad de marcas en internet. A través del marketing digital en Ecuador, ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 3,
+          "rank_group": 3,
+          "domain": "seoecuador.ec",
+          "url": "https://seoecuador.ec/",
+          "title": "SEO Ecuador - Agencia SEO | Posicionamiento Web #1",
+          "description": "Agencia SEO en Ecuador experta en posicionamiento web. Mejora tu visibilidad en Google con estrategias SEO efectivas ¡Cotiza Hoy!",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 4,
+          "rank_group": 4,
+          "domain": "zewsweb.com",
+          "url": "https://www.zewsweb.com/zonas/ecuador/",
+          "title": "Agencia SEO & Marketing Digital en Ecuador - ZEWS WEB",
+          "description": "En ZEWS, nos especializamos en la gestión y optimización de campañas de Google Ads. Contamos con un equipo de expertos que se dedica a maximizar el retorno de ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 8,
+          "rank_group": 5,
+          "domain": "sortlist.com",
+          "url": "https://www.sortlist.com/es/posicionamiento-web/guayaquil-guayas-ec",
+          "title": "Las 10 mejores agencias SEO en Guayaquil - 2026 Reseñas",
+          "description": "Agencia Vértice | Innovación, Datos & IA Marketing · (1 reseñas) ; Ap Corp Experto SEO Ecuador Posicionamiento Web Orgánico Inmediato · (1 reseñas) ; Geeks Ecuador.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 9,
+          "rank_group": 6,
+          "domain": "hellomediaec.com",
+          "url": "https://hellomediaec.com/blog/10-mejores-expertos-seo-posicionamiento-ecuador",
+          "title": "10 mejores expertos SEO y posicionamiento en Ecuador",
+          "description": "SEO Ecuador es un equipo que combina experiencia local e internacional para optimizar la presencia digital de marcas ecuatorianas. Trabajan en nichos como salud ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 7,
+          "domain": "agenciadigital.com.ec",
+          "url": "https://agenciadigital.com.ec/agencia-seo-ecuador/",
+          "title": "Agencia SEO Ecuador AMD ✔️ N°1 en posicionamiento web",
+          "description": "AMD Agencia de Marketing Digital en Ecuador lidera la optimización semántica avanzada para conectar su marca con intenciones de búsqueda profundas y ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 11,
+          "rank_group": 8,
+          "domain": "altitude.ec",
+          "url": "https://www.altitude.ec/seo/",
+          "title": "SEO Ecuador: Posicionamiento en Google e IA",
+          "description": "Posicionamiento en Google y en motores de IA. Auditoría técnica, link building y SEO local para empresas en Guayaquil, Quito y todo Ecuador.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 12,
+          "rank_group": 9,
+          "domain": "daseo.digital",
+          "url": "https://www.daseo.digital/blog/agencias-seo-en-ecuador",
+          "title": "Top 15 Agencias SEO en Ecuador 2026 | Ranking ...",
+          "description": "Top 15 Agencias SEO en Ecuador 2026 | Ranking Actualizado · 1. DA SEO Digital — La agencia líder en posicionamiento SEO · 2. Los Creativos · 3. ToGrow Agencia.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 13,
+          "rank_group": 10,
+          "domain": "doptus.com",
+          "url": "https://www.doptus.com/servicios-de-marketing-digital/agencia-seo/",
+          "title": "Agencia SEO: Posicionamiento en Google y Motores de IA",
+          "description": "Servicio SEO 360 : auditoría técnica, contenido, link building y optimización para IA. Somos tu agencia seo para posicionamiento en Google.",
+          "category": "agencia_servicio_directo"
+        }
+      ]
+    },
+    {
+      "market": "ec",
+      "keyword": "desarrollo de software a medida ecuador",
+      "owner": "https://nodarishub.com/ec/software/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 8,
+      "counts_first_10_organic": {
+        "proveedor_software": 5,
+        "directorio_editorial": 5
+      },
+      "results": [
+        {
+          "rank_absolute": 2,
+          "rank_group": 1,
+          "domain": "pulpo.ec",
+          "url": "https://pulpo.ec/",
+          "title": "Desarrollo de software a medida en Ecuador | PULPO",
+          "description": "Impulsa tu empresa con desarrollo de software a medida en Ecuador. Creamos apps, ERP y sistemas innovadores para escalar tu negocio. ¡Cotiza tu proyecto!",
+          "category": "proveedor_software"
+        },
+        {
+          "rank_absolute": 3,
+          "rank_group": 2,
+          "domain": "empresadesoftware.com.ec",
+          "url": "https://empresadesoftware.com.ec/",
+          "title": "Empresa de Software códigos ✔️ Agencia de desarrollo ...",
+          "description": "Empresa de software ☎️ desarrollo a la medida, agencia de software líder en Ecuador, empresa de apps y soluciones con IA innovadoras y personalizadas.",
+          "category": "proveedor_software"
+        },
+        {
+          "rank_absolute": 4,
+          "rank_group": 3,
+          "domain": "iqlatam.com",
+          "url": "https://iqlatam.com/",
+          "title": "IQ Latam: Desarrollo de Software en Quito Guayaquil Ecuador",
+          "description": "Desarrollo a la medida. Creamos y desarrollamos herramientas intuitivas y productivas que generan valor a marcas y organizaciones.",
+          "category": "proveedor_software"
+        },
+        {
+          "rank_absolute": 6,
+          "rank_group": 4,
+          "domain": "sortlist.com",
+          "url": "https://www.sortlist.com/es/s/software-development/ecuador-ec",
+          "title": "Top empresas de desarrollo de software en Ecuador",
+          "description": "Software B2B a la medida para empresas en Ecuador y América Latina. TecByte desarrolla sistemas de software a medida, proyectos de inteligencia artificial y ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 7,
+          "rank_group": 5,
+          "domain": "pacusoft.com",
+          "url": "https://pacusoft.com/desarrollo-de-software-a-medida-en-ecuador/",
+          "title": "Desarrollo de Software a Medida en Ecuador",
+          "description": "Pacusoft desarrolla software a medida con tecnologías modernas (React, Next.js, .NET, Node.js, Python), metodologías ágiles y un compromiso claro: el código ...",
+          "category": "proveedor_software"
+        },
+        {
+          "rank_absolute": 8,
+          "rank_group": 6,
+          "domain": "agenciadigital.com.ec",
+          "url": "https://agenciadigital.com.ec/desarrollo-de-software/empresas-desarrollo-software-ecuador/",
+          "title": "Top 10 Empresas de desarrollo de software en Ecuador 2026",
+          "description": "8 may 2026 — Facilitech es una empresa ecuatoriana con más de 12 años de experiencia en desarrollo de software empresarial, especialmente soluciones ERP, CRM ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 9,
+          "rank_group": 7,
+          "domain": "azirgo.com",
+          "url": "https://azirgo.com/blog/desarrollo-software-ecuador-guia-2026/",
+          "title": "Desarrollo de software a medida en Ecuador: guía 2026",
+          "description": "18 may 2026 — Contratar software a medida en Ecuador es una de las decisiones más caras que puede tomar una empresa mediana. Un proyecto típico oscila entre ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 8,
+          "domain": "seven.ec",
+          "url": "https://www.seven.ec/",
+          "title": "Seven.ec - Desarrollo de Software a Medida en Ecuador",
+          "description": "Seven.ec: Desarrollo de software 100% a medida en Ecuador. Transformamos procesos en soluciones tecnológicas seguras, escalables y orientadas a resultados.",
+          "category": "proveedor_software"
+        },
+        {
+          "rank_absolute": 11,
+          "rank_group": 9,
+          "domain": "innova3ec.com",
+          "url": "https://innova3ec.com/desarrollo-software-ecuador/",
+          "title": "Desarrollo de Software en Ecuador: Tendencias y Desafíos",
+          "description": "Software a medida : Las empresas locales buscan cada vez más soluciones personalizadas que se adapten específicamente a sus operaciones y a las regulaciones ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 13,
+          "rank_group": 10,
+          "domain": "wappiad.com",
+          "url": "https://wappiad.com/blog/empresa-de-desarrollo-de-software-en-ecuador",
+          "title": "Empresa de desarrollo de software en Ecuador - Wappiad",
+          "description": "21 abr 2026 — Wappiad es una empresa de desarrollo de software en Ecuador con más de 6 años de experiencia. Creamos software a medida, aplicaciones web, ...",
+          "category": "directorio_editorial"
+        }
+      ]
+    },
+    {
+      "market": "mx",
+      "keyword": "agencia digital mexico",
+      "owner": "https://nodarishub.com/mx/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 8,
+      "counts_first_10_organic": {
+        "publico_academico": 8,
+        "directorio_editorial": 1,
+        "agencia_servicio_directo": 1
+      },
+      "results": [
+        {
+          "rank_absolute": 1,
+          "rank_group": 1,
+          "domain": "gob.mx",
+          "url": "https://www.gob.mx/atdt/",
+          "title": "Agencia de Transformación Digital y Telecomunicaciones",
+          "description": "Agencia de. Transformación Digital y Telecomunicaciones. Garantizamos el acceso a servicios públicos digitales para: Ver avance Ver Planes Nacionales.",
+          "category": "publico_academico"
+        },
+        {
+          "rank_absolute": 2,
+          "rank_group": 2,
+          "domain": "gob.mx",
+          "url": "https://www.gob.mx/atdt/sobre-la-agencia",
+          "title": "Agencia de Transformación Digital y Telecomunicaciones",
+          "description": "Fortalecemos las capacidades del gobierno federal con soluciones tecnológicas que permiten atender mejor a la ciudadanía. Habilitamos trámites y servicios ...",
+          "category": "publico_academico"
+        },
+        {
+          "rank_absolute": 4,
+          "rank_group": 3,
+          "domain": "facebook.com",
+          "url": "https://www.facebook.com/AgenciaGobMX/",
+          "title": "Agencia de Transformación Digital y Telecomunicaciones",
+          "description": "¡Digitalizamos el Formato de Migración ! Si eres mexicano o mexicana y viajas al extranjero, puedes llenar el formato completamente en línea y si tienes ...",
+          "category": "publico_academico"
+        },
+        {
+          "rank_absolute": 6,
+          "rank_group": 4,
+          "domain": "agenciadigital.edomex.gob.mx",
+          "url": "https://agenciadigital.edomex.gob.mx/",
+          "title": "Agencia Digital del Estado de México: Inicio",
+          "description": "NUESTROS SERVICIOS · Administración de Sitios Web · Correo Electrónico Masivo · Medios Interactivos · Dictaminación · Sistema de Gestión Interna · Correo ...",
+          "category": "publico_academico"
+        },
+        {
+          "rank_absolute": 7,
+          "rank_group": 5,
+          "domain": "x.com",
+          "url": "https://x.com/AgenciaGobMX",
+          "title": "Agencia de Transformación Digital (@AgenciaGobMX) / ...",
+          "description": "Ingresa a datos.gob.mx y consulta información de manera sencilla con gráficas, tablas dinámicas y mapas interactivos. Más de 7 mil 300 bases de datos ...",
+          "category": "publico_academico"
+        },
+        {
+          "rank_absolute": 8,
+          "rank_group": 6,
+          "domain": "es.wikipedia.org",
+          "url": "https://es.wikipedia.org/wiki/Agencia_de_Transformaci%C3%B3n_Digital_y_Telecomunicaciones",
+          "title": "Agencia de Transformación Digital y Telecomunicaciones",
+          "description": "La Agencia de Transformación Digital y Telecomunicaciones (ATDT ) es una de las veintiún secretarías de Estado que, junto con la Consejería Jurídica del ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 9,
+          "rank_group": 7,
+          "domain": "atd.qroo.gob.mx",
+          "url": "https://atd.qroo.gob.mx/",
+          "title": "Agencia de Transformación Digital del Estado de Quintana ...",
+          "description": "Conectividad · Ciberseguridad · Red Compartida Quintana Roo · Análisis y Evaluación de Bienes y Servicios Informáticos (AEBSI) · Planeación Institucional ...",
+          "category": "publico_academico"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 8,
+          "domain": "datos.gob.mx",
+          "url": "https://www.datos.gob.mx/organization/about/atdt",
+          "title": "Agencia de Transformación Digital y Telecomunicaciones ...",
+          "description": "Agencia de Transformación Digital y Telecomunicaciones (ATDT). Construye un modelo de autonomía tecnológica, unificando capacidades, generando ahorros ...",
+          "category": "publico_academico"
+        },
+        {
+          "rank_absolute": 11,
+          "rank_group": 9,
+          "domain": "agenciadigitalmx.com",
+          "url": "https://agenciadigitalmx.com/",
+          "title": "Agencia Digital MX: Marketing Digital y Desarrollo Web en ...",
+          "description": "Agencia Digital MX ofrece desarrollo web, SEO local y nacional, marketing digital, publicidad online y hosting de alto rendimiento en México.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 13,
+          "rank_group": 10,
+          "domain": "adip.cdmx.gob.mx",
+          "url": "https://adip.cdmx.gob.mx/dependencia/acerca-de",
+          "title": "Acerca de - Agencia Digital de Innovación Pública - CDMX",
+          "description": "La Agencia Digital de Innovación Pública tiene la responsabilidad de conducir, diseñar y vigilar la implementación de políticas de gestión de datos, ...",
+          "category": "publico_academico"
+        }
+      ]
+    },
+    {
+      "market": "mx",
+      "keyword": "crear pagina web mexico",
+      "owner": "https://nodarishub.com/mx/crear-pagina-web/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 8,
+      "counts_first_10_organic": {
+        "plataforma_diy": 4,
+        "directorio_editorial": 4,
+        "agencia_servicio_directo": 2
+      },
+      "results": [
+        {
+          "rank_absolute": 2,
+          "rank_group": 1,
+          "domain": "webador.mx",
+          "url": "https://www.webador.mx/",
+          "title": "Crea tu propia Web 2026 | .COM.MX dominio gratis el primer ...",
+          "description": "Libre de estrés: Nuestro creador de páginas web con IA hace que la configuración sea muy sencilla · Rápido y fácil: Responde 3 sencillas preguntas y listo.",
+          "category": "plataforma_diy"
+        },
+        {
+          "rank_absolute": 3,
+          "rank_group": 2,
+          "domain": "godaddy.com",
+          "url": "https://www.godaddy.com/resources/latam/clientes/cuanto-cuesta-una-pagina-web-mexico",
+          "title": "¿Cuánto cuesta crear una página web en México?",
+          "description": "20 nov 2025 — Dominio: Entre $200 y $500 MXN al año para extensiones comunes (.com, .mx), con privacidad de dominio gratuita incluida, aunque lo mejor es ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 4,
+          "rank_group": 3,
+          "domain": "pagina.mx",
+          "url": "https://pagina.mx/paginas-web/crear-pagina-web",
+          "title": "CREAR PAGINA WEB | Página Web Gratis Para Negocio",
+          "description": "Con Pagina.mx tienes la opción de crear tu sitio web con el creador de páginas web, conservando el plan gratuito, en caso de requerir un dominio profesional .MX ...",
+          "category": "plataforma_diy"
+        },
+        {
+          "rank_absolute": 5,
+          "rank_group": 4,
+          "domain": "es.wix.com",
+          "url": "https://es.wix.com/",
+          "title": "Wix.com: Crear Página Web gratis | Creador de Páginas Web",
+          "description": "Crea tu sitio web con IA en minutos y personaliza su diseño. Describe tu idea o negocio y obtén al instante una página web gratuita completamente funcional, ...",
+          "category": "plataforma_diy"
+        },
+        {
+          "rank_absolute": 6,
+          "rank_group": 5,
+          "domain": "reddit.com",
+          "url": "https://www.reddit.com/r/mexico/comments/9dmmto/mejor_opci%C3%B3n_para_crear_un_sitio_web_en_m%C3%A9xico/",
+          "title": "¿Mejor opción para crear un Sitio Web en México?",
+          "description": "Me gustaría tener una página para promocionar mi trabajo, pero no tengo la menor idea de como empezar. Sé que puedo hacer un blog gratis en blogspot, ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 7,
+          "rank_group": 6,
+          "domain": "canva.com",
+          "url": "https://www.canva.com/es_mx/crear/paginas-web/",
+          "title": "Crea páginas web online gratis",
+          "description": "El creador de páginas web gratuito de Canva te permite crear tu propio sitio web en menos de una hora y optimizarlo para escritorio o móvil. Empieza a diseñar ...",
+          "category": "plataforma_diy"
+        },
+        {
+          "rank_absolute": 8,
+          "rank_group": 7,
+          "domain": "paginawebmx.com",
+          "url": "https://www.paginawebmx.com/",
+          "title": "Pagina Web MX | Diseño de Sitios Web en México |Paginas ...",
+          "description": "En Página Web Mx somos profesionales en el diseño de páginas web con más de 18 años de experiencia, diseñamos sitios web optimizados para su posicionamiento ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 8,
+          "domain": "shopify.com",
+          "url": "https://www.shopify.com/es/blog/mejor-plataforma-para-crear-paginas-web-en-mexico",
+          "title": "7 plataformas para crear páginas web en México",
+          "description": "10 dic 2025 — Las 7 mejores plataformas para crear páginas web · 1. Shopify: El Mejor para Comercio Electrónico · 2. WordPress: Sin Límites · 3. GoDaddy · 4.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 12,
+          "rank_group": 9,
+          "domain": "newemage.com.mx",
+          "url": "https://newemage.com.mx/cuanto-cuesta-una-pagina-web-en-mexico/",
+          "title": "¿Cuánto cuesta una página web en México en 2026?",
+          "description": "El costo de una página web en México varía enormemente: desde $999 MXN si la haces tú mismo, pasando por $5,000 – $25,000 MXN con un freelancer, ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 13,
+          "rank_group": 10,
+          "domain": "sourcecode.mx",
+          "url": "https://sourcecode.mx/",
+          "title": "Agencia de Diseño Web en México - Source Code",
+          "description": "Como expertos en diseño web, nuestro equipo creará un sitio efectivo y atractivo para tu negocio. Contamos con el paquete perfecto para su empresa. Sitio Web ...",
+          "category": "agencia_servicio_directo"
+        }
+      ]
+    },
+    {
+      "market": "mx",
+      "keyword": "diseño de paginas web mexico",
+      "owner": "https://nodarishub.com/mx/diseno-web/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 9,
+      "counts_first_10_organic": {
+        "agencia_servicio_directo": 7,
+        "directorio_editorial": 2,
+        "otro": 1
+      },
+      "results": [
+        {
+          "rank_absolute": 2,
+          "rank_group": 1,
+          "domain": "hypemedia.mx",
+          "url": "https://hypemedia.mx/",
+          "title": "Hype Media | Diseño de Páginas Web en México CDMX",
+          "description": "Agencia de diseño de Páginas Web en México CDMX. Te ofecemos asesoría, planeación y estrategia personalizada. Nuestras páginas web generan ventas y expanden el ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 3,
+          "rank_group": 2,
+          "domain": "newemage.com.mx",
+          "url": "https://newemage.com.mx/",
+          "title": "Agencia de diseño web en México Diseño de páginas web ...",
+          "description": "Newemage es una agencia de diseño web líder en México, con más de 19 años de experiencia en el sector. Desde su creación en 2005, ha sido reconocida por más de ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 4,
+          "rank_group": 3,
+          "domain": "seonetdigital.com",
+          "url": "https://www.seonetdigital.com/es/blog/agencias-de-diseno-web-en-mexico",
+          "title": "Las 10 mejores agencias de diseño web en México",
+          "description": "29 may 2025 — Las 10 mejores agencias de diseño web en México · 1. Cocktail · 2. Seonet · 3. Selfish · 4. Cloudstudio · 5. Newemage · 6. Brand Backers · 7. Source ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 5,
+          "rank_group": 4,
+          "domain": "sourcecode.mx",
+          "url": "https://sourcecode.mx/",
+          "title": "Agencia de Diseño Web en México - Source Code",
+          "description": "Somos una Agencia de diseño y desarrollo web en México enfocada en resultados. Nos especializamos en diseñar y desarrollar sitios web de alto rendimiento.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 6,
+          "rank_group": 5,
+          "domain": "instagram.com",
+          "url": "https://www.instagram.com/paginaswebmx/",
+          "title": "Diseño de Páginas Web (@paginaswebmx) · Mexico City",
+          "description": "Somos la empresa 1° de Diseño Web en México y uno de los mayores diseñadores de Páginas Web Tu Negocio y publicidad en línea  .",
+          "category": "otro"
+        },
+        {
+          "rank_absolute": 7,
+          "rank_group": 6,
+          "domain": "ariapsa.com",
+          "url": "https://ariapsa.com/diseno-de-paginas-web/",
+          "title": "Diseño de Páginas web en México: Landing page, tienda ...",
+          "description": "En Ariapsa diseñamos el sitio web de tu empresa, desde un landing page hasta tiendas online. Planes incluyen dominio, hosting, correos y certificado SSL. Ver ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 8,
+          "rank_group": 7,
+          "domain": "desarrollowebmexico.com",
+          "url": "https://desarrollowebmexico.com/",
+          "title": "Desarrollo Web México",
+          "description": "Somos la única empresa en México especializada en el desarrollo de páginas web para el mercado B2B. Con más de 20 años de experiencia en desarrollo web, ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 9,
+          "rank_group": 8,
+          "domain": "quericomambo.mx",
+          "url": "https://quericomambo.mx/diseno-de-paginas-web-en-cdmx/",
+          "title": "🔥Diseño de paginas web en CDMX",
+          "description": "Mambo agencia de diseño de paginas web en CDMX. Diseño web súper bonito, ultra rápido, paginas web que enamoran. ¡Somos expertos!",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 9,
+          "domain": "mx.indeed.com",
+          "url": "https://mx.indeed.com/orientacion-profesional/como-encontrar-empleo/empresas-diseno-web",
+          "title": "Empresas de diseño web en México",
+          "description": "En Evolución Web MX cuentan con un equipo de expertos en todos los campos del marketing digital como diseñadores gráficos, programadores, publicistas e ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 12,
+          "rank_group": 10,
+          "domain": "evolucionweb.mx",
+          "url": "https://evolucionweb.mx/",
+          "title": "Diseño de Paginas Web, Diseño Web, Paginas web ...",
+          "description": "Diseño de páginas web profesionales y desarrollo web a medida. Expertos en diseño web creativo, páginas web responsivas y soluciones digitales para tu ...",
+          "category": "agencia_servicio_directo"
+        }
+      ]
+    },
+    {
+      "market": "mx",
+      "keyword": "agencia de marketing digital mexico",
+      "owner": "https://nodarishub.com/mx/marketing/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 6,
+      "counts_first_10_organic": {
+        "agencia_servicio_directo": 7,
+        "directorio_editorial": 3
+      },
+      "results": [
+        {
+          "rank_absolute": 1,
+          "rank_group": 1,
+          "domain": "cocktailmarketing.com.mx",
+          "url": "https://cocktailmarketing.com.mx/",
+          "title": "Cocktail Marketing: Agencia de Marketing Digital CDMX ...",
+          "description": "Somos una agencia boutique de marketing digital en México y Estados Unidos. Desde CDMX, ofrecemos servicios integrales para marcas y empresas en todo el mundo.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 2,
+          "rank_group": 2,
+          "domain": "puromarketing.com",
+          "url": "https://www.puromarketing.com/rankings/mejores-agencias-mexico",
+          "title": "Las mejores agencias de marketing en México",
+          "description": "Las mejores agencias de marketing en México · SUBE · BNN México · Marketeros · Conqr · Mailclick · Agencia SEO en México.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 3,
+          "rank_group": 3,
+          "domain": "huella-digital.mx",
+          "url": "https://huella-digital.mx/",
+          "title": "Agencia de Marketing Digital en México – Huella digital ®",
+          "description": "Ofrecemos experiencia en la gestión de redes sociales corporativas, SEO para destacar en Google, diseño web, comercio electrónico, captación de clientes, ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 4,
+          "rank_group": 4,
+          "domain": "seonet.mx",
+          "url": "https://www.seonet.mx/",
+          "title": "Seonet: Agencia de Marketing Digital en México",
+          "description": "Nuestra agencia de marketing digital ofrece servicios de SEO, publicidad en redes sociales, diseño web, marketing de contenidos y más ¡Contáctanos!",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 9,
+          "rank_group": 5,
+          "domain": "marketing4ecommerce.mx",
+          "url": "https://marketing4ecommerce.mx/mejores-agencias-de-marketing-digital-en-mexico/",
+          "title": "Las mejores agencias de marketing digital en México",
+          "description": "Estas son las +50 mejores agencias de marketing digital en México (2026) · Azurally (antes ROI Up Group) · Octopus · SEOnet · Aloha! · Cocktail Marketing.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 6,
+          "domain": "beenet.mx",
+          "url": "https://beenet.mx/",
+          "title": "Agencia de Marketing Digital | Beenet",
+          "description": "10 mar 2026 — Beenet es una agencia de marketing digital en México con más de 15 años de experiencia ayudando a empresas a crecer y destacar en el mundo ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 11,
+          "rank_group": 7,
+          "domain": "mdmarketingdigital.com",
+          "url": "https://www.mdmarketingdigital.com/blog/mejores-agencias-de-marketing-digital-mexico/",
+          "title": "Top 10 Mejores Agencias de Marketing Digital de México",
+          "description": "7 feb 2025 — Top 10 de las mejores agencias de Marketing Digital de México · 1. Cocktail Marketing · 2. Sube Agencia Digital · 3. Octopus · 4. ABC Digital.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 12,
+          "rank_group": 8,
+          "domain": "subeagenciadigital.com",
+          "url": "https://www.subeagenciadigital.com/",
+          "title": "SUBE Agencia Digital: Agencia de Marketing Digital en México",
+          "description": "Quieres impulsar tu negocio online? Somos tu agencia de marketing digital experta en crear estrategias, contenido y ecosistemas digitales que generan ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 13,
+          "rank_group": 9,
+          "domain": "amarilio.com.mx",
+          "url": "https://amarilio.com.mx/",
+          "title": "Agencia de Marketing Digital Amarilio | Agencia Growth ...",
+          "description": "En Agencia de Marketing Digital Amarilio ofrecemos estrategias y soluciones digitales para incrementar el rendimiento de tu negocio en internet.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 14,
+          "rank_group": 10,
+          "domain": "octopus.mx",
+          "url": "https://octopus.mx/",
+          "title": "Agencia de Marketing Digital - Octopus",
+          "description": "Octopus es la agencia de marketing digital #1 en México. Ofrecemos servicios de SEO, PPC, diseño web y más. Conócenos y descubre cómo te ayudamos a crecer ...",
+          "category": "agencia_servicio_directo"
+        }
+      ]
+    },
+    {
+      "market": "mx",
+      "keyword": "agencia seo mexico",
+      "owner": "https://nodarishub.com/mx/seo/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 7,
+      "counts_first_10_organic": {
+        "agencia_servicio_directo": 6,
+        "directorio_editorial": 3,
+        "otro": 1
+      },
+      "results": [
+        {
+          "rank_absolute": 1,
+          "rank_group": 1,
+          "domain": "seoenmexico.com",
+          "url": "https://www.seoenmexico.com/",
+          "title": "▷ Agencia SEO en México ▷ Agencia de Posicionamiento Web",
+          "description": "En Agencia SEO en México desarrollamos estrategias personalizadas de marketing que mejoran tu presencia en buscadores. Como una de las mejores agencias de ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 5,
+          "rank_group": 2,
+          "domain": "agenciaseomexico.mx",
+          "url": "https://agenciaseomexico.mx/",
+          "title": "Agencia SEO México: Expertos en Posicionamiento Web",
+          "description": "Agencia SEO México maximiza tu visibilidad en Google y aumenta tus ventas con estrategias de optimización digital efectivas y sostenibles.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 6,
+          "rank_group": 3,
+          "domain": "marketing4ecommerce.mx",
+          "url": "https://marketing4ecommerce.mx/top-las-mejores-agencias-seo-en-mexico/",
+          "title": "Conoce las mejores agencias SEO en México",
+          "description": "Conoce las 50 mejores agencias SEO en México según su propio trabajo (2026) · 1. Azurally (antes ROI UP) ⭐️ · 2. ABC Digital (by ABCW) ⭐️ · 3. SUBE Agencia ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 7,
+          "rank_group": 4,
+          "domain": "codefy.com.mx",
+          "url": "https://www.codefy.com.mx/blogs/blog/mejores-agencias-seo-mexico?srsltid=AfmBOorOXdbgQ_-v2S2fpXaaWJuUUtYiHx_b_BvUw9IXi-vhkr-CRnqr",
+          "title": "Mejor Agencia de SEO en México 2026 | Top 10",
+          "description": "Top 10 Mejores Agencias SEO en México 2026 · 1. Codefy – Catalogada como la Mejor Agencia SEO en México 2026 · 2. SUBE Agencia Digital · 3. SEOTopSecret - SEO ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 8,
+          "rank_group": 5,
+          "domain": "octopus.mx",
+          "url": "https://octopus.mx/posicionamiento-web/",
+          "title": "Agencia de SEO en México, estrategia y consultoría ...",
+          "description": "Nos enfocamos en atraer al público adecuado, utilizando estrategias de SEO personalizadas que alinean tu presencia en línea con las metas de tu negocio. A ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 9,
+          "rank_group": 6,
+          "domain": "ecomsystem.amvo.org.mx",
+          "url": "https://www.ecomsystem.amvo.org.mx/empresas/agenciaseomxico",
+          "title": "Agencia SEO México - Ecomsystem",
+          "description": "Agencia SEO México se especializa en optimización SEO para mejorar el posicionamiento web de negocios en buscadores, especialmente en Google.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 7,
+          "domain": "optimizacion-online.com",
+          "url": "https://www.optimizacion-online.com/",
+          "title": "La Mejor Agencia SEO GEO AI overviews y AEO en México y ...",
+          "description": "Diseño y Optimización Online SA de CV es la agencia SEO, GEO, AI overviews, y AEO, líder en México y LATAM. Ayudamos a más de 1500 empresas a llegar a la ...",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 11,
+          "rank_group": 8,
+          "domain": "eleven.agency",
+          "url": "https://eleven.agency/agencia-seo-mexico/",
+          "title": "Agencia SEO México | Estrategia y posicionamiento web",
+          "description": "Agencia SEO en México para mejorar tu posicionamiento en buscadores y LLMs. Contactanos para obtener más tráfico y resultados.",
+          "category": "agencia_servicio_directo"
+        },
+        {
+          "rank_absolute": 12,
+          "rank_group": 9,
+          "domain": "mx.linkedin.com",
+          "url": "https://mx.linkedin.com/company/seo-en-mexico",
+          "title": "Agencia SEO En México",
+          "description": "Agencia SEO en México está conformada por hombres y mujeres apasionados por las nuevas tecnologías. Compartir esta pasión, nos ha consolidado como un fuerte ...",
+          "category": "otro"
+        },
+        {
+          "rank_absolute": 13,
+          "rank_group": 10,
+          "domain": "autenticoseo.com",
+          "url": "https://autenticoseo.com/",
+          "title": "Agencia SEO en México | Expertos en Posicionamiento Web",
+          "description": "\"Somos una agencia SEO en México, expertos en posicionamiento web, motores de búsqueda, SEO local, SEO ecommerce y SEO internacional. ¡Contáctanos hoy!\"",
+          "category": "agencia_servicio_directo"
+        }
+      ]
+    },
+    {
+      "market": "mx",
+      "keyword": "desarrollo de software a medida mexico",
+      "owner": "https://nodarishub.com/mx/software/",
+      "owner_visible_depth30": false,
+      "nodaris_visible_depth30": false,
+      "organic_in_absolute_top10": 9,
+      "counts_first_10_organic": {
+        "proveedor_software": 5,
+        "publico_academico": 1,
+        "directorio_editorial": 4
+      },
+      "results": [
+        {
+          "rank_absolute": 2,
+          "rank_group": 1,
+          "domain": "dosbytes.com.mx",
+          "url": "https://www.dosbytes.com.mx/empresa-de-desarrollo-de-software",
+          "title": "Desarrollo de Software a Medida en México - Dosbytes",
+          "description": "Somos especialistas en el desarrollo de software a la medida para empresas, Desarrollamos todo tipo de software multiplataforma Aplicación web o Aplicación ...",
+          "category": "proveedor_software"
+        },
+        {
+          "rank_absolute": 3,
+          "rank_group": 2,
+          "domain": "northware.mx",
+          "url": "https://www.northware.mx/desarrollo-de-software-empresarial/",
+          "title": "Desarrollo de Software Empresarial a la Medida",
+          "description": "En Northware desarrollamos software empresarial a la medida para organizaciones que necesitan escalar, modernizar o integrar sus sistemas y soluciones de ...",
+          "category": "proveedor_software"
+        },
+        {
+          "rank_absolute": 4,
+          "rank_group": 3,
+          "domain": "tic.unam.mx",
+          "url": "https://www.tic.unam.mx/servicios-de-tic/desarrollo-de-software-a-la-medida/",
+          "title": "Desarrollo de software a la medida",
+          "description": "Consiste en la creación de soluciones de software funcionales que cumplan con las especificaciones documentadas por las áreas universitarias.",
+          "category": "publico_academico"
+        },
+        {
+          "rank_absolute": 5,
+          "rank_group": 4,
+          "domain": "syca.com.mx",
+          "url": "https://syca.com.mx/desarrollo-de-software/",
+          "title": "Desarrollo de software para empresas en México",
+          "description": "Diseñamos y desarrollamos software de manera personalizada con Zoho Creator, Sap business One y Odoo para que mejoren tus procesos empresariales y de ...",
+          "category": "proveedor_software"
+        },
+        {
+          "rank_absolute": 6,
+          "rank_group": 5,
+          "domain": "iisi.com.mx",
+          "url": "https://iisi.com.mx/desarrollo-de-software-a-medida-la-clave-para-el-exito-empresarialdesarrollo-de-software-a-medida-la-clave-para-el-exito-empresarial/",
+          "title": "Desarrollo de Software a Medida: La Clave para el Éxito ... - IISI",
+          "description": "Personalización Total : El software a medida se adapta completamente a las necesidades específicas de la empresa, lo que permite una mayor personalización y ...",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 7,
+          "rank_group": 6,
+          "domain": "sokodb.com.mx",
+          "url": "https://www.sokodb.com.mx/desarrollodesoftwarealamedida",
+          "title": "Desarrollo de Software a la Medida",
+          "description": "Nos adaptamos a tus necesidades, ya sea mediante un enfoque de desarrollo completo o metodologías ágiles que permiten mayor flexibilidad. ciclos completos.png.",
+          "category": "proveedor_software"
+        },
+        {
+          "rank_absolute": 8,
+          "rank_group": 7,
+          "domain": "magokoro.mx",
+          "url": "https://www.magokoro.mx/blog/desarrollo-de-software-en-mexico-una-guia-completa-2",
+          "title": "Desarrollo de software en México: una guía completa",
+          "description": "31 mar 2025 — El desarrollo de software empresarial a medida permite a las empresas automatizar procesos clave como ventas, inventarios, facturación y más.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 9,
+          "rank_group": 8,
+          "domain": "arteco-consulting.com",
+          "url": "https://www.arteco-consulting.com/articulos/que-es-desarrollo-software-personalizado/",
+          "title": "Qué es el Desarrollo de software a medida",
+          "description": "El software a medida es un programa diseñado y desarrollado específicamente para los procesos de una empresa, a diferencia del SaaS genérico.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 10,
+          "rank_group": 9,
+          "domain": "conlineweb.com",
+          "url": "https://conlineweb.com/blog/articulo/software-a-medida-beneficios-pymes-mexico/",
+          "title": "Software a Medida: Beneficios para PyMEs en México",
+          "description": "19 jul 2026 — Descubre cómo el software a medida puede transformar la operación de tu PyME en México, optimizando procesos y aumentando la competitividad.",
+          "category": "directorio_editorial"
+        },
+        {
+          "rank_absolute": 11,
+          "rank_group": 10,
+          "domain": "vexilo.com",
+          "url": "https://www.vexilo.com/",
+          "title": "Vexilo: Desarrollo de Software a la Medida en México",
+          "description": "Empresa de desarrollo de software en México con +17 años de experiencia. Creamos aplicaciones web y móviles a la medida. Solicita cotización.",
+          "category": "proveedor_software"
+        }
+      ]
+    }
+  ]
+}

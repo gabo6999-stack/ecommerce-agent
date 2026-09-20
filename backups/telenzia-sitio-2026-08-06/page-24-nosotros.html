@@ -1,0 +1,477 @@
+<!-- wp:group {"align":"full","tagName":"section","layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull">
+<!-- wp:html -->
+<!-- Telenzia — NOSOTROS
+     LAYOUT PROPIO: MANIFIESTO. Declaración tipográfica a toda página (sin imagen,
+     sin tarjetas arriba) + verificación de cédula en pasos verticales numerados con
+     línea de tiempo + tres pilares al cierre.
+     Distinto del home, de Telemedicina (matriz) y Péptidos (mosaico).
+     Sin keyword SEO objetivo: se cuida claridad y confianza. Sin bios de médicos:
+     la credencialización está parcial y no se inventa nada. -->
+<style id="tlz-nos-css">
+.tlz-page .tlz-manifiesto{
+  position:relative;overflow:hidden;isolation:isolate;
+  padding:clamp(52px,6.4vw,104px) clamp(20px,4vw,56px) clamp(34px,3.8vw,58px);
+}
+/* ilustración de fondo: el punto de encuentro del isotipo, a gran escala */
+.tlz-page .tlz-mani-fondo{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(1180px,132%);height:auto;z-index:0;pointer-events:none;
+  opacity:.5;
+}
+.tlz-page .tlz-mani-in{position:relative;z-index:1;max-width:920px;margin:0 auto;text-align:center}
+.tlz-page .tlz-manifiesto h1{font-size:clamp(27px,3.6vw,48px);line-height:1.16;letter-spacing:-.028em;
+  margin:var(--tlz-s8) auto 0;max-width:23ch}
+.tlz-page .tlz-manifiesto .tlz-mani-2{color:var(--tlz-n500);font-family:var(--tlz-font);font-weight:500;
+  font-size:clamp(27px,3.6vw,48px);line-height:1.16;letter-spacing:-.028em;margin:var(--tlz-s6) auto 0;max-width:23ch}
+.tlz-page .tlz-manifiesto .tlz-kicker{justify-content:center}
+.tlz-page .tlz-mani-firma{margin-top:clamp(30px,3.4vw,50px);padding-top:var(--tlz-s8);
+  border-top:1px solid var(--tlz-divider);display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));
+  gap:clamp(18px,2.6vw,40px);text-align:left}
+.tlz-page .tlz-mani-firma p{font-size:15px;line-height:1.62;color:var(--tlz-n400);max-width:46ch}
+
+/* línea de tiempo vertical de verificación */
+.tlz-page .tlz-verif{max-width:860px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+.tlz-page .tlz-pasos{list-style:none;position:relative;margin-top:clamp(26px,3vw,44px);padding-left:38px}
+.tlz-page .tlz-pasos::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:1px;background:var(--tlz-n800)}
+.tlz-page .tlz-paso{position:relative;padding-bottom:clamp(24px,3vw,40px)}
+.tlz-page .tlz-paso:last-child{padding-bottom:0}
+.tlz-page .tlz-paso::before{
+  content:"";position:absolute;left:-34px;top:5px;width:19px;height:19px;border-radius:50%;
+  background:var(--tlz-bg);border:1px solid var(--tlz-n700);transition:border-color .3s var(--tlz-ease),background .3s var(--tlz-ease);
+}
+.tlz-page .tlz-paso::after{
+  content:"";position:absolute;left:-27px;top:12px;width:5px;height:5px;border-radius:50%;
+  background:var(--tlz-n700);transition:background .3s var(--tlz-ease),transform .3s var(--tlz-ease);
+}
+.tlz-page .tlz-paso:hover::before{border-color:var(--tlz-accent)}
+.tlz-page .tlz-paso:hover::after{background:var(--tlz-accent);transform:scale(1.3)}
+.tlz-page .tlz-paso-n{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tlz-n600);font-variant-numeric:tabular-nums}
+.tlz-page .tlz-paso h3{font-size:19px;letter-spacing:-.015em;margin:6px 0 var(--tlz-s3)}
+.tlz-page .tlz-paso p{font-size:14.5px;line-height:1.6;color:var(--tlz-n400);max-width:56ch}
+
+/* — verificación: la cédula va de FONDO de toda la sección — */
+.tlz-page .tlz-verif-band{position:relative;overflow:hidden;padding:clamp(46px,5.4vw,86px) 0;isolation:isolate}
+/* la foto cubre la sección entera, centrada en los dos ejes */
+.tlz-page .tlz-verif-bg{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center center;
+  z-index:0;display:block;
+  transform:scale(1.04);
+  filter:saturate(.85) contrast(1.05);
+}
+/* overlay: violeta-oscuro del sistema. Doble capa —plana + radial— para que el
+   centro (donde vive el texto) quede aún más apagado que los bordes. */
+.tlz-page .tlz-verif-band::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    /* apaga más donde va el texto (izquierda-centro) y deja respirar la foto a la derecha */
+    linear-gradient(100deg, rgba(11,79,74,.92) 0%, rgba(11,79,74,.86) 42%, rgba(11,79,74,.62) 72%, rgba(14,90,84,.52) 100%),
+    radial-gradient(ellipse 70% 90% at 22% 50%, rgba(11,79,74,.55) 0%, rgba(11,79,74,0) 70%);
+}
+/* contenido: una sola columna centrada, sin sticky ni dos partes */
+.tlz-page .tlz-verif-in{position:relative;z-index:2;max-width:780px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+/* encabezado de la sección: centrado */
+.tlz-page .tlz-verif-band .tlz-kicker{color:var(--tlz-a300);justify-content:center}
+.tlz-page .tlz-verif-band .tlz-kicker::before{background:var(--tlz-a300)}
+.tlz-page .tlz-verif-band .tlz-h2{color:var(--tlz-text);max-width:24ch;margin-inline:auto;text-align:center}
+.tlz-page .tlz-verif-band .tlz-lead{color:var(--tlz-n300);max-width:58ch;margin-inline:auto;text-align:center}
+.tlz-page .tlz-verif-pie{
+  position:relative;z-index:2;max-width:780px;margin:clamp(22px,2.6vw,36px) auto 0;
+  padding:0 clamp(20px,4vw,56px);font-size:12.5px;line-height:1.6;color:var(--tlz-n400);
+  display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;
+}
+.tlz-page .tlz-verif-pie::before{content:"";width:14px;height:1px;background:var(--tlz-a300);flex-shrink:0}
+
+/* pasos: compactos, sobre el fondo */
+.tlz-page .tlz-verif-band .tlz-pasos{margin-top:clamp(22px,2.6vw,36px);padding-left:34px}
+.tlz-page .tlz-verif-band .tlz-paso{padding-bottom:clamp(16px,1.9vw,26px)}
+.tlz-page .tlz-verif-band .tlz-paso h3{font-size:18px;margin:5px 0 6px}
+.tlz-page .tlz-verif-band .tlz-paso p{font-size:14px;line-height:1.55;color:var(--tlz-n300);max-width:56ch}
+.tlz-page .tlz-verif-band .tlz-paso-n{color:var(--tlz-a300);opacity:.75;transition:opacity .45s var(--tlz-ease)}
+.tlz-page .tlz-verif-band .tlz-pasos::before{background:color-mix(in srgb,#FCFBF9 22%,transparent)}
+
+/* animación de entrada por paso + punto que se enciende (se conserva) */
+.tlz-page .tlz-verif-band .tlz-paso{opacity:0;transform:translateY(14px);
+  transition:opacity .6s var(--tlz-ease),transform .6s var(--tlz-ease)}
+.tlz-page .tlz-verif-band .tlz-paso.tlz-on{opacity:1;transform:none}
+.tlz-page .tlz-verif-band .tlz-paso::before{background:rgba(11,79,74,.55);
+  border-color:color-mix(in srgb,#FCFBF9 30%,transparent);
+  transition:border-color .45s var(--tlz-ease),box-shadow .45s var(--tlz-ease)}
+.tlz-page .tlz-verif-band .tlz-paso::after{background:color-mix(in srgb,#FCFBF9 34%,transparent);
+  transition:background .45s var(--tlz-ease),transform .45s var(--tlz-ease)}
+.tlz-page .tlz-verif-band .tlz-paso.tlz-on::before{border-color:var(--tlz-a300);
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--tlz-accent) 16%,transparent)}
+.tlz-page .tlz-verif-band .tlz-paso.tlz-on::after{background:var(--tlz-a300);transform:scale(1.25)}
+.tlz-page .tlz-verif-band .tlz-paso.tlz-on .tlz-paso-n{opacity:1}
+
+/* ===== DESKTOP: la línea de tiempo se vuelve HORIZONTAL ===== */
+@media (min-width:901px){
+  .tlz-page .tlz-verif-in{max-width:1320px}
+  .tlz-page .tlz-verif-band .tlz-h2{max-width:26ch;margin-inline:auto;text-align:center}
+  .tlz-page .tlz-verif-band .tlz-pasos{
+    display:grid;grid-template-columns:repeat(5,1fr);
+    gap:clamp(14px,1.8vw,30px);
+    padding-left:0;margin-top:clamp(30px,3.4vw,48px);
+  }
+  /* el raíl va del centro del primer punto al del último */
+  .tlz-page .tlz-verif-band .tlz-pasos::before{
+    top:9px;left:9px;right:auto;bottom:auto;
+    width:calc(80% + 1px);height:1px;
+  }
+  .tlz-page .tlz-verif-band .tlz-paso{padding:32px 0 0;position:relative}
+  .tlz-page .tlz-verif-band .tlz-paso::before{left:0;top:0}
+  .tlz-page .tlz-verif-band .tlz-paso::after{left:7px;top:7px}
+  .tlz-page .tlz-verif-band .tlz-paso h3{font-size:17px;margin:6px 0 7px;letter-spacing:-.012em}
+  .tlz-page .tlz-verif-band .tlz-paso p{font-size:13.5px;line-height:1.55;max-width:none}
+  .tlz-page .tlz-verif-band .tlz-paso-n{font-size:10px;letter-spacing:.15em}
+  /* entrada escalonada de izquierda a derecha */
+  .tlz-page .tlz-verif-band .tlz-paso:nth-child(1){transition-delay:0s}
+  .tlz-page .tlz-verif-band .tlz-paso:nth-child(2){transition-delay:.09s}
+  .tlz-page .tlz-verif-band .tlz-paso:nth-child(3){transition-delay:.18s}
+  .tlz-page .tlz-verif-band .tlz-paso:nth-child(4){transition-delay:.27s}
+  .tlz-page .tlz-verif-band .tlz-paso:nth-child(5){transition-delay:.36s}
+  /* el raíl se dibuja al entrar la sección */
+  .tlz-page .tlz-verif-band .tlz-pasos{--tlz-rail:0}
+  .tlz-page .tlz-verif-band .tlz-pasos::before{transform:scaleX(var(--tlz-rail));transform-origin:left center;
+    transition:transform 1.1s var(--tlz-ease) .1s}
+  .tlz-page .tlz-verif-band.tlz-in .tlz-pasos{--tlz-rail:1}
+  .tlz-page .tlz-verif-pie{max-width:1320px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tlz-page .tlz-verif-band .tlz-pasos::before{transform:none}
+}
+
+/* ===== línea de tiempo: color por paso + interacción ===== */
+.tlz-page .tlz-verif-band .tlz-paso{--c:var(--tlz-accent)}
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(1){--c:#5B95E0}
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(2){--c:#DA6B45}
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(3){--c:#2AA87C}
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(4){--c:#A87BD0}
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(5){--c:#B98C28}
+
+/* el punto toma el color del paso */
+.tlz-page .tlz-verif-band .tlz-paso.tlz-on::before{border-color:var(--c);
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 18%,transparent)}
+.tlz-page .tlz-verif-band .tlz-paso.tlz-on::after{background:var(--c)}
+.tlz-page .tlz-verif-band .tlz-paso.tlz-on .tlz-paso-n{color:var(--c);opacity:1}
+
+/* el raíl se tiñe con la progresión completa */
+@media (min-width:901px){
+  .tlz-page .tlz-verif-band .tlz-pasos::before{
+    height:2px;border-radius:0;
+    background:linear-gradient(90deg,#5B95E0 0%,#DA6B45 25%,#2AA87C 50%,#A87BD0 75%,#B98C28 100%);
+  }
+  /* cada paso es una columna interactiva */
+  .tlz-page .tlz-verif-band .tlz-paso{
+    cursor:default;padding:32px 14px 16px 0;border-radius:0;
+    transition:opacity .6s var(--tlz-ease),transform .6s var(--tlz-ease),background .35s var(--tlz-ease);
+  }
+  .tlz-page .tlz-verif-band .tlz-paso::before{left:0}
+  .tlz-page .tlz-verif-band .tlz-paso::after{left:7px}
+  /* al pasar el ratón: el activo sube y los demás se apagan un punto */
+  .tlz-page .tlz-verif-band .tlz-pasos:hover .tlz-paso{opacity:.45}
+  .tlz-page .tlz-verif-band .tlz-pasos:hover .tlz-paso:hover{opacity:1}
+  .tlz-page .tlz-verif-band .tlz-paso:hover{
+    background:linear-gradient(180deg,color-mix(in srgb,var(--c) 12%,transparent) 0%,transparent 78%);
+    transform:translateY(-4px);
+  }
+  .tlz-page .tlz-verif-band .tlz-paso:hover::before{
+    border-color:var(--c);
+    box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 22%,transparent),0 0 22px color-mix(in srgb,var(--c) 55%,transparent);
+  }
+  .tlz-page .tlz-verif-band .tlz-paso:hover::after{transform:scale(1.7)}
+  .tlz-page .tlz-verif-band .tlz-paso:hover h3{color:var(--c)}
+  .tlz-page .tlz-verif-band .tlz-paso:hover p{color:var(--tlz-n200)}
+  /* una barrita bajo el título que crece con el hover */
+  .tlz-page .tlz-verif-band .tlz-paso h3{position:relative;padding-bottom:7px;
+    transition:color .35s var(--tlz-ease)}
+  .tlz-page .tlz-verif-band .tlz-paso h3::after{
+    content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--c);
+    border-radius:0;transition:width .45s var(--tlz-ease);
+  }
+  .tlz-page .tlz-verif-band .tlz-paso:hover h3::after{width:34px}
+  .tlz-page .tlz-verif-band .tlz-paso p{transition:color .35s var(--tlz-ease)}
+  /* latido del punto al activarse por scroll */
+  .tlz-page .tlz-verif-band .tlz-paso.tlz-on::before{animation:tlz-ping .9s var(--tlz-ease) 1}
+  @keyframes tlz-ping{
+    0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--c) 55%,transparent)}
+    100%{box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 18%,transparent),0 0 0 14px transparent}
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .tlz-page .tlz-verif-band .tlz-paso:hover{transform:none}
+  .tlz-page .tlz-verif-band .tlz-paso.tlz-on::before{animation:none}
+}
+
+@media (max-width:640px){
+  .tlz-page .tlz-verif-band .tlz-pasos{padding-left:28px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tlz-page .tlz-verif-band .tlz-paso{opacity:1;transform:none}
+}
+
+/* — nota de cierre: centrada y sobria, sin barra lateral — */
+.tlz-page .tlz-nota-centro{
+  max-width:720px;margin:clamp(30px,3.6vw,52px) auto 0;
+  padding:clamp(26px,3vw,40px) clamp(22px,3vw,44px);
+  background:color-mix(in srgb,var(--tlz-surface) 62%,transparent);
+  border:1px solid color-mix(in srgb,#14181A 8%,transparent);
+  border-radius:var(--tlz-r-lg);
+  text-align:center;position:relative;
+}
+/* una regla corta de acento arriba, centrada, en vez del borde izquierdo */
+.tlz-page .tlz-nota-centro::before{
+  content:"";position:absolute;top:0;left:50%;transform:translate(-50%,-50%);
+  width:34px;height:2px;background:var(--tlz-accent);border-radius:0;
+}
+.tlz-page .tlz-nota-centro .tlz-nota-tit{
+  font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tlz-n500);margin-bottom:var(--tlz-s6);display:block;
+}
+.tlz-page .tlz-nota-centro p{
+  font-size:14.5px;line-height:1.72;color:var(--tlz-n300);
+  max-width:60ch;margin:0 auto;
+}
+
+/* tres pilares */
+.tlz-page .tlz-pilares{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:var(--tlz-s4);margin-top:clamp(26px,3vw,44px)}
+.tlz-page .tlz-pilar{background:var(--tlz-surface);border-radius:var(--tlz-r-md);padding:var(--tlz-s8);box-shadow:var(--tlz-sh-sm);transition:transform .3s var(--tlz-ease),box-shadow .3s var(--tlz-ease)}
+.tlz-page .tlz-pilar:hover{transform:translateY(-3px);box-shadow:var(--tlz-sh-md)}
+.tlz-page .tlz-pilar-ico{width:34px;height:34px;margin-bottom:var(--tlz-s6)}
+.tlz-page .tlz-pilar h3{font-size:18px;margin-bottom:var(--tlz-s4)}
+.tlz-page .tlz-pilar p{font-size:14px;line-height:1.6;color:var(--tlz-n400)}
+
+.tlz-page .tlz-cierre{max-width:1320px;margin:0 auto;padding:clamp(34px,4vw,60px) clamp(20px,4vw,56px) clamp(52px,6vw,92px)}
+.tlz-page .tlz-cierre-box{display:grid;place-items:center;gap:var(--tlz-s6);text-align:center;padding:clamp(32px,4.4vw,64px) clamp(20px,4vw,48px);background:var(--tlz-surface);border-radius:var(--tlz-r-lg);box-shadow:var(--tlz-sh-sm)}
+.tlz-page .tlz-cierre-box h2{font-size:clamp(24px,3vw,38px);letter-spacing:-.025em;max-width:24ch}
+.tlz-page .tlz-cierre-box p{max-width:54ch;font-size:15px;color:var(--tlz-n400)}
+.tlz-page .tlz-cierre-box .tlz-btn{padding:18px 36px;font-size:17px}
+@media (max-width:640px){
+  .tlz-page .tlz-manifiesto{padding:34px 20px 22px}
+  .tlz-page .tlz-pasos{padding-left:30px}
+}
+
+/* =========================================================================
+   2026-08-05 · Composición revC — numeración editorial (propagada del home)
+   Cuatro capítulos: 01 Manifiesto · 02 Verificación · 03 Pilares · 04 Cierre.
+   Usa las utilidades COMPARTIDAS .tlz-numeral/.tlz-numeral-claro/.tlz-ed/
+   .tlz-ed-num/.tlz-ed-body, definidas en header.html (tlz-chrome-css) — no se
+   duplican aquí. El manifiesto y el cierre ya eran cajas centradas propias
+   (como el hero y el cierre del home), así que llevan el numeral suelto
+   .tlz-numeral; la banda de verificación es oscura, así que usa la variante
+   .tlz-numeral-claro. Pilares es una sección .tlz-section normal y adopta la
+   rejilla completa .tlz-ed (numeral en el margen + cuerpo), igual que
+   #tlz-como/#tlz-alcance en el home — su encabezado centrado (.tlz-enc-c) no
+   se toca, solo queda envuelto. CERO texto nuevo salvo los numerales 01-04.
+
+   BUG encontrado y corregido en QA: .tlz-pilares es auto-fit/minmax(280px),
+   y en revB (sin numeral) 3 columnas cabían de 1024px en adelante. Al envolver
+   la sección en .tlz-ed, el cuerpo pierde la columna del numeral (~72-120px) +
+   su padding-left (~16-40px): a 1024px eso bastaba para que la 3ª tarjeta ya
+   no cupiera y auto-fit colapsara a 2 columnas, dejando "Decimos que no" huér-
+   fana en su propia fila (medido con Playwright: 3 tops distintos en vez de 1).
+   Se fija a columnas EXPLÍCITAS por breakpoint, alineado con los quiebres ya
+   documentados del sistema (1024 → 3 a 2 · 720 → 1 columna), en vez de dejarlo
+   a la suerte del auto-fit con el nuevo ancho disponible. */
+#tlz-pilares .tlz-pilares{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:1024px){
+  #tlz-pilares .tlz-pilares{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:720px){
+  #tlz-pilares .tlz-pilares{grid-template-columns:minmax(0,1fr)}
+}
+/* ========================================================================= */
+</style>
+
+<div class="tlz-page">
+
+  <section class="tlz-manifiesto" id="tlz-manifiesto">
+    <svg class="tlz-mani-fondo" viewBox="0 0 1180 480" fill="none" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="tlzLente" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#0B4F4A" stop-opacity=".20"/>
+          <stop offset="70%" stop-color="#0B4F4A" stop-opacity=".06"/>
+          <stop offset="100%" stop-color="#0B4F4A" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="tlzArco" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#CEC7B5" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#0B4F4A" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#CEC7B5" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <!-- la lente que comparten: donde se encuentran paciente y médico -->
+      <ellipse cx="590" cy="240" rx="132" ry="196" fill="url(#tlzLente)"/>
+      <!-- las dos circunferencias del isotipo, a escala de página -->
+      <circle cx="458" cy="240" r="196" stroke="url(#tlzArco)" stroke-width="1.2"/>
+      <circle cx="722" cy="240" r="196" stroke="url(#tlzArco)" stroke-width="1.2"/>
+      <circle cx="458" cy="240" r="196" stroke="#CEC7B5" stroke-width=".7" stroke-dasharray="2 9" opacity=".7"/>
+      <circle cx="722" cy="240" r="196" stroke="#CEC7B5" stroke-width=".7" stroke-dasharray="2 9" opacity=".7"/>
+      <!-- el núcleo: la consulta ocurriendo -->
+      <circle cx="590" cy="240" r="4.5" fill="#0B4F4A" opacity=".75"/>
+      <circle cx="590" cy="240" r="15" stroke="#0B4F4A" stroke-width=".9" opacity=".28"/>
+      <!-- pulsos laterales, muy tenues -->
+      <g stroke="#CEC7B5" stroke-width=".9" opacity=".55">
+        <line x1="60" y1="240" x2="238" y2="240" stroke-dasharray="3 10"/>
+        <line x1="942" y1="240" x2="1120" y2="240" stroke-dasharray="3 10"/>
+      </g>
+      <g fill="#5F6764" opacity=".6">
+        <circle cx="238" cy="240" r="2.6"/><circle cx="942" cy="240" r="2.6"/>
+      </g>
+    </svg>
+    <div class="tlz-mani-in">
+      <span class="tlz-numeral" aria-hidden="true">01</span>
+      <div class="tlz-kicker">Nosotros</div>
+    <h1>Telenzia existe porque conseguir una buena consulta no debería depender de a quién conoces.</h1>
+    <p class="tlz-mani-2">Y porque quien te receta no debería ganar por recetarte.</p>
+    <div class="tlz-mani-firma">
+      <p>Somos una <strong>plataforma tecnológica</strong>, no un consultorio y no una tienda. Lo único que hacemos es poner en contacto a alguien que necesita una valoración con un médico independiente que puede darla, cobrar esa consulta y quitarnos de en medio.</p>
+      <p>Lo que decide un médico de la red <strong>no pasa por nosotros</strong>: ni el tratamiento, ni su duración, ni dónde decidas obtenerlo. No vendemos producto ni tenemos nada que colocarte. Ese detalle aburrido es, en realidad, todo el modelo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlz-band tlz-verif-band tlz-reveal" id="tlz-verificacion">
+    <img class="tlz-verif-bg"
+         src="https://telenzia.com/wp-content/uploads/2026/08/telenzia-confianza-cedula-verificada-b.webp"
+         alt="Cédula profesional con sello junto a una placa grabada con un escudo de verificación, iluminada por un foco violeta"
+         width="1448" height="1086" loading="lazy" decoding="async">
+    <div class="tlz-verif-in">
+    <span class="tlz-numeral tlz-numeral-claro" aria-hidden="true" style="text-align:center">02</span>
+    <div class="tlz-kicker">Verificación</div>
+    <h2 class="tlz-h2" style="max-width:22ch">Cómo verificamos a un médico antes de asignarlo.</h2>
+    <p class="tlz-lead" style="max-width:56ch">No basta con que alguien diga que es médico. Este es el recorrido que hace un profesional antes de poder atender a un paciente en la plataforma.</p>
+
+    <ol class="tlz-pasos">
+      <li class="tlz-paso">
+        <div class="tlz-paso-n">Paso 01</div>
+        <h3>Cédula contra el registro oficial</h3>
+        <p>Se coteja contra el <a href="https://www.cedulaprofesional.sep.gob.mx/cedula/presidencia/indexAvanzada.action" target="_blank" rel="noopener" style="color:var(--tlz-a300);text-decoration:underline;text-underline-offset:3px">Registro Nacional de Profesionistas de la SEP</a>. Si el nombre y la cédula no coinciden, no hay conversación posible.</p>
+      </li>
+      <li class="tlz-paso">
+        <div class="tlz-paso-n">Paso 02</div>
+        <h3>Identidad</h3>
+        <p>Que quien solicita el alta sea quien aparece en esa cédula. Parece obvio: es donde se cae la mayoría de las suplantaciones.</p>
+      </li>
+      <li class="tlz-paso">
+        <div class="tlz-paso-n">Paso 03</div>
+        <h3>Rubro y alcance</h3>
+        <p>En qué rubros puede atender, según su formación y experiencia. Nadie atiende de todo por defecto.</p>
+      </li>
+      <li class="tlz-paso">
+        <div class="tlz-paso-n">Paso 04</div>
+        <h3>Reglas de la plataforma</h3>
+        <p>Acepta por escrito lo que aquí no se hace: prometer resultados, recetar sin valorar o condicionar el criterio clínico. Su acto médico es suyo, y su responsabilidad también.</p>
+      </li>
+      <li class="tlz-paso">
+        <div class="tlz-paso-n">Paso 05</div>
+        <h3>Visible para ti</h3>
+        <p>Ves quién es y su cédula <em>antes</em> de la videollamada. Si algo no te cuadra, no entras.</p>
+      </li>
+    </ol>
+    </div>
+    <p class="tlz-verif-pie">Cada cédula se coteja contra el registro oficial de la SEP antes de asignar un paciente.</p>
+  </section>
+
+  <section class="tlz-section tlz-reveal" id="tlz-pilares">
+    <div class="tlz-ed">
+      <span class="tlz-ed-num" aria-hidden="true">03</span>
+      <div class="tlz-ed-body">
+    <div class="tlz-enc-c">
+      <div class="tlz-kicker">En qué nos pueden medir</div>
+      <h2 class="tlz-h2">Tres cosas que sostenemos por escrito.</h2>
+    </div>
+    <div class="tlz-pilares">
+      <div class="tlz-pilar">
+        <svg class="tlz-pilar-ico" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 8.52 A 9 9 0 0 1 16 23.48 A 9 9 0 0 1 16 8.52 Z" fill="none" stroke="#3B4442" stroke-width="1.3" stroke-linejoin="round"></path>
+          <line x1="12.7" y1="13.1" x2="19.3" y2="13.1" stroke="#14181A" stroke-width="1.5" stroke-linecap="round"></line>
+          <line x1="16" y1="13.1" x2="16" y2="19.6" stroke="#14181A" stroke-width="1.5" stroke-linecap="round"></line>
+          <circle cx="16" cy="19.6" r="2" fill="#0B4F4A"></circle>
+        </svg>
+        <h3>Nada atado al tratamiento</h3>
+        <p>Telenzia no vende, no distribuye y no interviene en lo que se te receta. La decisión clínica es del médico; la de compra, tuya y de nadie más.</p>
+      </div>
+      <div class="tlz-pilar">
+        <svg class="tlz-pilar-ico" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="7" y="9" width="18" height="14" rx="2.5" stroke="#3B4442" stroke-width="1.3"></rect>
+          <line x1="11" y1="14" x2="21" y2="14" stroke="#59615E" stroke-width="1.3" stroke-linecap="round"></line>
+          <line x1="11" y1="18" x2="17" y2="18" stroke="#59615E" stroke-width="1.3" stroke-linecap="round"></line>
+          <circle cx="21" cy="18" r="1.8" fill="#0B4F4A"></circle>
+        </svg>
+        <h3>La receta es tuya</h3>
+        <p>Sale a tu nombre, con dosis e indicaciones, firmada por quien te atendió. Dónde la surtes es decisión tuya y Telenzia no participa en ese paso ni gana nada de él.</p>
+      </div>
+      <div class="tlz-pilar">
+        <svg class="tlz-pilar-ico" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 7 L24 10.5 V17 C24 20.6 20.6 23.7 16 25 C11.4 23.7 8 20.6 8 17 V10.5 Z" stroke="#3B4442" stroke-width="1.3" stroke-linejoin="round" fill="none"></path>
+          <path d="M12.6 16.2 L15.1 18.6 L19.6 13.8" stroke="#0B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+        </svg>
+        <h3>Decimos que no</h3>
+        <p>Si no eres candidato, el médico te lo dice y la consulta se cobra igual: pagaste tiempo y criterio, no un producto. Un «no» a tiempo también es un buen resultado.</p>
+      </div>
+    </div>
+
+    <div class="tlz-nota-centro">
+      <figure class="tlz-nota-fig">
+        <div class="tlz-img">
+          <img src="https://telenzia.com/wp-content/uploads/2026/08/telenzia-confianza-cedula-verificada-b.webp"
+               alt="Cédula profesional con sello, junto a una placa grabada con un escudo de verificación"
+               width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
+        <figcaption>Cédula y placa de verificación</figcaption>
+      </figure>
+      <div class="tlz-nota-txt">
+        <span class="tlz-nota-tit">Sobre los médicos de la red</span>
+        <p>Son contratistas independientes con cédula verificada, no empleados de Telenzia: su criterio clínico no depende de nosotros y son responsables de su acto médico. Todavía no publicamos perfiles individuales — la credencialización sigue en curso, y preferimos no mostrar lo que aún no está completo.</p>
+      </div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlz-cierre tlz-reveal">
+    <div class="tlz-cierre-box">
+      <span class="tlz-numeral tlz-numeral-claro" aria-hidden="true">04</span>
+      <h2>La forma más rápida de conocernos es usarnos.</h2>
+      <p>Empiezas por el quiz de síntomas y agendas tu video-consulta con un médico de cédula verificada. $1,500 MXN, sin membresías.</p>
+      <a class="tlz-btn tlz-btn-primary" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agenda tu consulta</a>
+    </div>
+  </section>
+</div>
+
+<script id="tlz-verif-js">
+(function(){
+  var band=document.querySelector(".tlz-verif-band");
+  if(!band||band.dataset.on)return; band.dataset.on="1";
+  var pasos=[].slice.call(band.querySelectorAll(".tlz-paso"));
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce||!("IntersectionObserver" in window)){
+    pasos.forEach(function(p){p.classList.add("tlz-on")}); return;
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("tlz-on"); io.unobserve(e.target); } });
+  },{rootMargin:"0px 0px -14% 0px",threshold:.15});
+  pasos.forEach(function(p){io.observe(p)});
+  setTimeout(function(){pasos.forEach(function(p){p.classList.add("tlz-on")})},3200);
+})();
+</script>
+
+<script id="tlz-reveal-js">
+(function(){
+  var nodes=[].slice.call(document.querySelectorAll(".tlz-page .tlz-reveal:not(.tlz-in)"));
+  if(!nodes.length)return;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var show=function(n){n.classList.add("tlz-in")};
+  if(reduce||!("IntersectionObserver" in window)){nodes.forEach(show);return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}});
+  },{rootMargin:"0px 0px -12% 0px",threshold:.08});
+  nodes.forEach(function(n){io.observe(n)});
+  setTimeout(function(){nodes.forEach(show)},2600);
+})();
+</script>
+<!-- /wp:html -->
+</section>
+<!-- /wp:group -->

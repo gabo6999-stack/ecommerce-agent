@@ -1,0 +1,328 @@
+{
+ "_nota": "Línea base por ficha ANTES de optimizar. No editar los valores 'antes': son el punto de comparación. Añadir una entrada nueva cada vez que se optimiza una ficha.",
+ "medicion_global_inicial": {
+  "fecha": "2026-07-30",
+  "top10": 0,
+  "top20": 0,
+  "mejor_posicion": 38,
+  "keywords_medidas": 32
+ },
+ "fichas": [
+  {
+   "id": 795,
+   "slug": "bpc-157-tb-500-10-10mg",
+   "keyword": "bpc 157 precio",
+   "keyword_secundaria": "tb-500",
+   "volumen": 210,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": 38,
+    "palabras": 939,
+    "h1": "BPC-157 + TB-500 5mg | Regeneración Muscular México",
+    "secciones": 4
+   },
+   "despues": {
+    "palabras": 2530,
+    "h1": "BPC-157 + TB-500",
+    "secciones": 13,
+    "referencias_pubmed": 7
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": 6,
+    "url": "https://exomapeptides.mx/producto/bpc-157-tb-500",
+    "palabras": 1670
+   }
+  },
+  {
+   "id": 1699,
+   "slug": "selank-10-mg",
+   "keyword": "selank",
+   "keyword_secundaria": null,
+   "volumen": 480,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": 47,
+    "palabras": 996,
+    "h1": "Selank 10mg | Péptido Nootrópico Ansiedad y Focus México",
+    "secciones": 9
+   },
+   "despues": {
+    "palabras": 3253,
+    "h1": "Selank",
+    "secciones": 17,
+    "referencias_pubmed": 11
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": 4,
+    "url": "https://exomapeptides.mx/producto/selank",
+    "palabras": 2821
+   }
+  },
+  {
+   "id": 2240,
+   "slug": "cagrilintida-10mg",
+   "keyword": "cagrilintida",
+   "keyword_secundaria": "cagrilintide",
+   "volumen": 590,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": null,
+    "palabras": 552,
+    "h1": "Cagrilintida 10mg | Amilina Control de Peso México",
+    "secciones": 5
+   },
+   "despues": {
+    "palabras": 3076,
+    "h1": "Cagrilintida",
+    "secciones": 16,
+    "referencias_pubmed": 11
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": 18,
+    "url": "https://exomapeptides.mx/producto/cagrilintide",
+    "palabras": 2020
+   }
+  },
+  {
+   "id": 19,
+   "slug": "retatrutida-30mg",
+   "keyword": "retatrutide precio",
+   "keyword_secundaria": "retatrutida",
+   "volumen": 4400,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": 59,
+    "palabras": 1702,
+    "h1": "Retatrutida 30mg | Triple Agonista GLP-1 Control Peso",
+    "secciones": 10
+   },
+   "despues": {
+    "palabras": 3319,
+    "h1": "Retatrutida",
+    "secciones": 17,
+    "referencias_pubmed": 11
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": 4,
+    "url": "https://exomapeptides.mx/producto/retatrutida",
+    "palabras": 3128
+   }
+  },
+  {
+   "id": 799,
+   "slug": "agua-bacteriostatica-3ml",
+   "keyword": "agua bacteriostatica",
+   "keyword_secundaria": null,
+   "volumen": 1600,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": 66,
+    "palabras": 919,
+    "h1": "Agua Bacteriostática 3ml | Reconstitución Péptidos México",
+    "secciones": 9
+   },
+   "despues": {
+    "palabras": 2363,
+    "h1": "Agua Bacteriostática",
+    "secciones": 15,
+    "referencias_pubmed": 10
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": 6,
+    "url": "https://exomapeptides.mx/producto/agua-bacteriostatica",
+    "palabras": 2004
+   }
+  },
+  {
+   "id": 790,
+   "slug": "mots-c-10mg",
+   "keyword": "mots-c",
+   "keyword_secundaria": null,
+   "volumen": 880,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": 82,
+    "palabras": 972,
+    "h1": "MOTS-c 10mg | Péptido Metabolismo y Longevidad México",
+    "secciones": 8
+   },
+   "despues": {
+    "palabras": 3101,
+    "h1": "MOTS-c",
+    "secciones": 17,
+    "referencias_pubmed": 14
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": 4,
+    "url": "https://exomapeptides.mx/producto/mots-c",
+    "palabras": 2906
+   },
+   "nota": "consolidada: 793 (40mg) con canonical -> 790; 793 sigue comprable"
+  },
+  {
+   "id": 2232,
+   "slug": "cjc-1295-ipamorelina-5mg",
+   "keyword": "ipamorelina",
+   "keyword_secundaria": "cjc-1295",
+   "volumen": 2900,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": null,
+    "palabras": 608,
+    "h1": "CJC-1295 no-DAC + Ipamorelina 5mg | Combo GH México",
+    "secciones": 5
+   },
+   "despues": {
+    "palabras": 3066,
+    "h1": "CJC-1295 (no-DAC) + Ipamorelina",
+    "secciones": 17,
+    "referencias_pubmed": 11
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": 2,
+    "url": "https://exomapeptides.mx/producto/ipamorelin",
+    "palabras": 3633
+   },
+   "nota": "exoma tiene 3 paginas (ipamorelin 3633, cjc-1295-dac 3716, combo 2889); PYS solo el combo por stock"
+  },
+  {
+   "id": 1128,
+   "slug": "igf-1-lr3-1mg",
+   "keyword": "igf-1 lr3",
+   "keyword_secundaria": null,
+   "volumen": 390,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": 75,
+    "palabras": 1118,
+    "h1": "IGF-1 LR3 1mg | Crecimiento Muscular Avanzado México",
+    "secciones": 9
+   },
+   "despues": {
+    "palabras": 2723,
+    "h1": "IGF-1 LR3",
+    "secciones": 16,
+    "referencias_pubmed": 8
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": 2,
+    "url": "https://exomapeptides.mx/producto/igf-1-lr3",
+    "palabras": 2509
+   }
+  },
+  {
+   "id": 2231,
+   "slug": "sermorelina-10mg",
+   "keyword": "sermorelin",
+   "keyword_secundaria": "sermorelina",
+   "volumen": 880,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": null,
+    "palabras": 528,
+    "h1": "Sermorelina 10mg | Péptido Hormona de Crecimiento México",
+    "secciones": 5
+   },
+   "despues": {
+    "palabras": 2134,
+    "h1": "Sermorelina",
+    "secciones": 16,
+    "referencias_pubmed": 10
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": 4,
+    "url": "https://exomapeptides.mx/producto/acetato-de-sermorelina",
+    "palabras": 1880
+   }
+  },
+  {
+   "id": 2230,
+   "slug": "thymosin-alpha-1-10mg",
+   "keyword": "thymosin alpha 1",
+   "keyword_secundaria": null,
+   "volumen": 170,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": null,
+    "palabras": 536,
+    "h1": "Thymosin Alpha-1 10mg | Péptido Sistema Inmune México",
+    "secciones": 5
+   },
+   "despues": {
+    "palabras": 2272,
+    "h1": "Timosina Alfa-1",
+    "secciones": 13,
+    "referencias_pubmed": 10
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": 8,
+    "url": "https://exomapeptides.mx/producto/thymosin-alpha-1",
+    "palabras": 1535
+   }
+  },
+  {
+   "id": 1525,
+   "slug": "tirzepatida-30-mg",
+   "keyword": "tirzepatida precio mexico",
+   "keyword_secundaria": "tirzepatida mexico",
+   "volumen": 1200,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": null,
+    "palabras": 1052,
+    "h1": "Tirzepatida 30mg | Péptido GLP-1 Control Peso México",
+    "secciones": 6
+   },
+   "despues": {
+    "palabras": 2450,
+    "h1": "Tirzepatida",
+    "secciones": 15,
+    "referencias_pubmed": 13
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": null,
+    "url": "https://exomapeptides.mx/producto/tirzepatida",
+    "palabras": 0
+   },
+   "nota": "consolidada: 1531 (60mg) con canonical -> 1525; 1531 sigue comprable. Cabeza \"tirzepatida\" (90.5K) BLOQUEADA 82%"
+  },
+  {
+   "id": 1131,
+   "slug": "nad-plus-500mg",
+   "keyword": "nad iv",
+   "keyword_secundaria": "nad+ inyectable",
+   "volumen": 390,
+   "optimizada_el": "2026-07-30",
+   "antes": {
+    "posicion": null,
+    "palabras": 964,
+    "h1": "NAD+ 500mg | Energía Celular Anti-Aging Nutricost México",
+    "secciones": 6
+   },
+   "despues": {
+    "palabras": 2753,
+    "h1": "NAD+",
+    "secciones": 16,
+    "referencias_pubmed": 13
+   },
+   "competidor": {
+    "dominio": "exomapeptides.mx",
+    "posicion": null,
+    "url": "https://exomapeptides.mx/producto/nad",
+    "palabras": 1502
+   },
+   "nota": "objetivo nad iv/nad+ inyectable (producto correcto), NO nad+ (5400/mes pero es mercado de capsulas orales)"
+  }
+ ]
+}

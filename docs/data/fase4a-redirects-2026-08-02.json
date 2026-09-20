@@ -1,0 +1,55 @@
+{
+ "fecha": "2026-08-02",
+ "creados": [
+  {
+   "origen": "/category/metabolismo/",
+   "destino": "/category/blog/",
+   "http": 200,
+   "id": null
+  },
+  {
+   "origen": "/category/salud-metabolica/",
+   "destino": "/category/blog/",
+   "http": 200,
+   "id": null
+  },
+  {
+   "origen": "/category/longevidad-y-regeneracion-biologica/",
+   "destino": "/category/blog/",
+   "http": 200,
+   "id": null
+  },
+  {
+   "origen": "/category/crecimiento-y-reparacion/",
+   "destino": "/category/blog/",
+   "http": 200,
+   "id": null
+  }
+ ],
+ "verificacion": [
+  {
+   "origen": "/category/metabolismo/",
+   "destino_final": "https://peptidosysuplementos.mx/category/metabolismo/",
+   "http": 200,
+   "ok": false
+  },
+  {
+   "origen": "/category/salud-metabolica/",
+   "destino_final": "https://peptidosysuplementos.mx/category/salud-metabolica/",
+   "http": 200,
+   "ok": false
+  },
+  {
+   "origen": "/category/longevidad-y-regeneracion-biologica/",
+   "destino_final": "https://peptidosysuplementos.mx/category/longevidad-y-regeneracion-biologica/",
+   "http": 200,
+   "ok": false
+  },
+  {
+   "origen": "/category/crecimiento-y-reparacion/",
+   "destino_final": "https://peptidosysuplementos.mx/category/crecimiento-y-reparacion/",
+   "http": 200,
+   "ok": false
+  }
+ ]
+}

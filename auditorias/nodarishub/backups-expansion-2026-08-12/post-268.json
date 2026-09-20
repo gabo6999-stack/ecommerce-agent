@@ -1,0 +1,179 @@
+{
+  "id": 268,
+  "date": "2026-08-15T10:00:00",
+  "date_gmt": "2026-08-15T10:00:00",
+  "guid": {
+    "rendered": "https://nodarishub.com/?p=268",
+    "raw": "https://nodarishub.com/?p=268"
+  },
+  "modified": "2026-08-13T10:13:53",
+  "modified_gmt": "2026-08-13T10:13:53",
+  "password": "",
+  "slug": "como-automatizar-un-negocio",
+  "status": "future",
+  "type": "post",
+  "link": "https://nodarishub.com/ec/blog/como-automatizar-un-negocio/",
+  "title": {
+    "raw": "Cómo Automatizar un Negocio: Guía Práctica",
+    "rendered": "Cómo Automatizar un Negocio: Guía Práctica"
+  },
+  "content": {
+    "raw": "<!-- wp:html -->\n<div class=\"nh-article\">\n<style>\n.nh-article .nh-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.8rem 0;border:1px solid #e6ebf2;border-radius:14px;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article table.nh-compare{width:100%;border-collapse:collapse;min-width:620px;font-size:.96rem;line-height:1.5}\n.nh-article table.nh-compare caption{caption-side:bottom;padding:.9rem 1rem;font-size:.82rem;color:#5B6B82;text-align:left}\n.nh-article table.nh-compare thead th{background:#0E1726;color:#fff;text-align:left;font-weight:600;padding:.95rem 1rem;border-bottom:3px solid #00E0A4;letter-spacing:.01em}\n.nh-article table.nh-compare tbody th{background:#F5F8FC;color:#0E1726;text-align:left;font-weight:600;padding:.85rem 1rem;vertical-align:top;white-space:nowrap}\n.nh-article table.nh-compare tbody td{padding:.85rem 1rem;vertical-align:top;border-bottom:1px solid #eef2f7;color:#2a3342}\n.nh-article table.nh-compare tbody tr:nth-child(even) th,.nh-article table.nh-compare tbody tr:nth-child(even) td{background:#fafcfe}\n.nh-article table.nh-compare tbody tr:last-child td,.nh-article table.nh-compare tbody tr:last-child th{border-bottom:0}\n.nh-article blockquote.nh-regla{margin:2rem 0;padding:1.4rem 1.6rem;background:linear-gradient(180deg,#F5F8FC,#fff);border-left:4px solid #2F6BFF;border-radius:0 14px 14px 0;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article blockquote.nh-regla p{margin:0;font-size:1.08rem;line-height:1.6}\n.nh-article blockquote.nh-regla strong{color:#2F6BFF}\n.nh-article .nh-cta-box{margin:2.4rem 0;padding:1.8rem;background:linear-gradient(135deg,#0E1726,#16213a);border-radius:20px;text-align:center}\n.nh-article .nh-cta-box p{color:#fff;margin:0 0 1.1rem;font-size:1.05rem}\n.nh-article .nh-cta-box a{display:inline-block;background:#2F6BFF;color:#fff;font-weight:600;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;transition:background .2s}\n.nh-article .nh-cta-box a:hover{background:#00E0A4;color:#0E1726}\n@media(max-width:600px){.nh-article table.nh-compare{font-size:.9rem}.nh-article .nh-cta-box{padding:1.3rem}}\n</style>\n\n<p>Muchos dueños de negocio empiezan a buscar <strong>cómo automatizar un negocio</strong> en el momento exacto en que sienten que las tareas repetitivas les están robando el tiempo que deberían dedicar a hacer crecer la empresa. Responder los mismos mensajes de WhatsApp, actualizar hojas de cálculo a mano, generar cotizaciones una por una: son procesos que consumen horas cada semana y que, en la mayoría de los casos, se pueden resolver con automatización.</p>\n\n<p>Automatizar no significa reemplazar a las personas de tu equipo, sino quitarles del camino las tareas mecánicas y repetitivas para que dediquen su tiempo a lo que realmente requiere criterio humano: atender clientes, cerrar ventas, resolver problemas complejos.</p>\n\n<h2>Qué procesos de un negocio se pueden automatizar primero</h2>\n\n<p>No todos los procesos tienen el mismo potencial de automatización. Los mejores candidatos son las tareas repetitivas, basadas en reglas claras y que hoy consumen tiempo de forma constante.</p>\n\n<div class=\"nh-tablewrap\">\n<table class=\"nh-compare\">\n<caption>Procesos comunes de negocio con alto potencial de automatización.</caption>\n<thead>\n<tr>\n<th scope=\"col\">Proceso</th>\n<th scope=\"col\">Qué se automatiza</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<th scope=\"row\">Atención inicial por WhatsApp</th>\n<td>Respuestas automáticas para preguntas frecuentes y filtrado de contactos.</td>\n</tr>\n<tr>\n<th scope=\"row\">Generación de cotizaciones</th>\n<td>Formularios que calculan y envían propuestas sin intervención manual.</td>\n</tr>\n<tr>\n<th scope=\"row\">Reportes y seguimiento de ventas</th>\n<td>Actualización automática de hojas de cálculo o paneles con datos en tiempo real.</td>\n</tr>\n<tr>\n<th scope=\"row\">Gestión de citas o reservas</th>\n<td>Agenda automática que evita choques de horario y confirma por mensaje.</td>\n</tr>\n<tr>\n<th scope=\"row\">Seguimiento a clientes</th>\n<td>Recordatorios y mensajes programados sin depender de que alguien lo recuerde.</td>\n</tr>\n</tbody>\n</table>\n</div>\n\n<h2>Por qué automatizar impacta directo en la rentabilidad de tu negocio</h2>\n\n<h3>Menos horas en tareas que no generan ventas</h3>\n<p>Cada hora que tu equipo dedica a copiar datos de un lado a otro es una hora que no está dedicando a vender o a atender clientes. Automatizar libera ese tiempo de forma directa y medible.</p>\n\n<h3>Menos errores humanos</h3>\n<p>Los procesos manuales repetitivos son propensos a errores por cansancio o distracción: un dato mal copiado, un mensaje que se olvida enviar. La automatización ejecuta la misma tarea de la misma forma, todas las veces.</p>\n\n<h3>Respuesta más rápida a tus clientes</h3>\n<p>Un cliente que escribe fuera de horario y recibe una respuesta automática relevante tiene más probabilidades de seguir en el proceso de compra que uno que espera horas sin ninguna señal de que fue atendido.</p>\n\n<blockquote class=\"nh-regla\">\n<p><strong>Punto de partida recomendado:</strong> no automatices todo a la vez. Identifica la tarea que más tiempo te quita cada semana, automatiza esa primero, y expande desde ahí con base en resultados reales.</p>\n</blockquote>\n\n<h2>Cómo empezar a automatizar tu negocio sin complicarte</h2>\n\n<p>El primer paso no es tecnológico, es de diagnóstico: mapear qué procesos se repiten cada semana, cuánto tiempo consumen y qué reglas siguen (si son predecibles, son buenos candidatos para automatizar). A partir de ahí, se elige la herramienta correcta según la complejidad: desde integraciones simples entre plataformas hasta <a href=\"https://nodarishub.com/software/\">software a la medida</a> cuando el proceso lo requiere.</p>\n\n<p>Muchas automatizaciones también se apoyan en tu <a href=\"https://nodarishub.com/crear-pagina-web/\">página web</a> como punto de entrada: formularios inteligentes, conexión directa a WhatsApp Business y flujos que capturan información del cliente sin intervención manual desde el primer contacto.</p>\n\n<h2>Cómo lo trabajamos en Nodarishub</h2>\n\n<p>Empezamos por entender tu operación real: qué procesos se repiten, dónde se pierde tiempo y qué herramientas usas hoy. Con esa información, diseñamos automatizaciones a la medida de tu negocio, desde flujos sencillos hasta sistemas más complejos de <a href=\"https://nodarishub.com/software/\">software a la medida</a>, siempre priorizando lo que da resultado más rápido primero.</p>\n\n<h2>Preguntas frecuentes</h2>\n\n<h3>¿Necesito un negocio grande para justificar la automatización?</h3>\n<p>No. De hecho, los negocios pequeños suelen notar el impacto más rápido, porque cada hora ahorrada representa una proporción mayor del tiempo total disponible del equipo.</p>\n\n<h3>¿Cuánto tiempo toma implementar una automatización?</h3>\n<p>Depende de la complejidad del proceso. Automatizaciones sencillas, como respuestas de WhatsApp o formularios inteligentes, pueden implementarse en poco tiempo; sistemas más complejos requieren un análisis y desarrollo más detallado.</p>\n\n<h3>¿Automatizar significa que voy a necesitar menos personal?</h3>\n<p>No necesariamente. En la mayoría de los casos, automatizar libera a tu equipo de tareas repetitivas para que se enfoque en actividades de mayor valor, como atención personalizada y cierre de ventas, en lugar de reducir personal.</p>\n\n<div class=\"nh-cta-box\">\n<p>Cuéntanos qué proceso te quita más tiempo cada semana y te ayudamos a automatizarlo.</p>\n<a href=\"https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20mi%20proyecto%20digital\" target=\"_blank\" rel=\"noopener\">Cotiza tu proyecto</a>\n</div>\n\n<script type=\"application/ld+json\">\n{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"¿Necesito un negocio grande para justificar la automatización?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. De hecho, los negocios pequeños suelen notar el impacto más rápido, porque cada hora ahorrada representa una proporción mayor del tiempo total disponible del equipo.\"}},{\"@type\":\"Question\",\"name\":\"¿Cuánto tiempo toma implementar una automatización?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Depende de la complejidad del proceso. Automatizaciones sencillas, como respuestas de WhatsApp o formularios inteligentes, pueden implementarse en poco tiempo; sistemas más complejos requieren un análisis y desarrollo más detallado.\"}},{\"@type\":\"Question\",\"name\":\"¿Automatizar significa que voy a necesitar menos personal?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No necesariamente. En la mayoría de los casos, automatizar libera a tu equipo de tareas repetitivas para que se enfoque en actividades de mayor valor, como atención personalizada y cierre de ventas, en lugar de reducir personal.\"}}]}\n</script>\n</div>\n\n<!-- /wp:html -->",
+    "rendered": "\n<div class=\"nh-article\">\n<style>\n.nh-article .nh-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.8rem 0;border:1px solid #e6ebf2;border-radius:14px;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article table.nh-compare{width:100%;border-collapse:collapse;min-width:620px;font-size:.96rem;line-height:1.5}\n.nh-article table.nh-compare caption{caption-side:bottom;padding:.9rem 1rem;font-size:.82rem;color:#5B6B82;text-align:left}\n.nh-article table.nh-compare thead th{background:#0E1726;color:#fff;text-align:left;font-weight:600;padding:.95rem 1rem;border-bottom:3px solid #00E0A4;letter-spacing:.01em}\n.nh-article table.nh-compare tbody th{background:#F5F8FC;color:#0E1726;text-align:left;font-weight:600;padding:.85rem 1rem;vertical-align:top;white-space:nowrap}\n.nh-article table.nh-compare tbody td{padding:.85rem 1rem;vertical-align:top;border-bottom:1px solid #eef2f7;color:#2a3342}\n.nh-article table.nh-compare tbody tr:nth-child(even) th,.nh-article table.nh-compare tbody tr:nth-child(even) td{background:#fafcfe}\n.nh-article table.nh-compare tbody tr:last-child td,.nh-article table.nh-compare tbody tr:last-child th{border-bottom:0}\n.nh-article blockquote.nh-regla{margin:2rem 0;padding:1.4rem 1.6rem;background:linear-gradient(180deg,#F5F8FC,#fff);border-left:4px solid #2F6BFF;border-radius:0 14px 14px 0;box-shadow:0 1px 3px rgba(14,23,38,.08)}\n.nh-article blockquote.nh-regla p{margin:0;font-size:1.08rem;line-height:1.6}\n.nh-article blockquote.nh-regla strong{color:#2F6BFF}\n.nh-article .nh-cta-box{margin:2.4rem 0;padding:1.8rem;background:linear-gradient(135deg,#0E1726,#16213a);border-radius:20px;text-align:center}\n.nh-article .nh-cta-box p{color:#fff;margin:0 0 1.1rem;font-size:1.05rem}\n.nh-article .nh-cta-box a{display:inline-block;background:#2F6BFF;color:#fff;font-weight:600;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;transition:background .2s}\n.nh-article .nh-cta-box a:hover{background:#00E0A4;color:#0E1726}\n@media(max-width:600px){.nh-article table.nh-compare{font-size:.9rem}.nh-article .nh-cta-box{padding:1.3rem}}\n</style>\n\n<p>Muchos dueños de negocio empiezan a buscar <strong>cómo automatizar un negocio</strong> en el momento exacto en que sienten que las tareas repetitivas les están robando el tiempo que deberían dedicar a hacer crecer la empresa. Responder los mismos mensajes de WhatsApp, actualizar hojas de cálculo a mano, generar cotizaciones una por una: son procesos que consumen horas cada semana y que, en la mayoría de los casos, se pueden resolver con automatización.</p>\n\n<p>Automatizar no significa reemplazar a las personas de tu equipo, sino quitarles del camino las tareas mecánicas y repetitivas para que dediquen su tiempo a lo que realmente requiere criterio humano: atender clientes, cerrar ventas, resolver problemas complejos.</p>\n\n<h2>Qué procesos de un negocio se pueden automatizar primero</h2>\n\n<p>No todos los procesos tienen el mismo potencial de automatización. Los mejores candidatos son las tareas repetitivas, basadas en reglas claras y que hoy consumen tiempo de forma constante.</p>\n\n<div class=\"nh-tablewrap\">\n<table class=\"nh-compare\">\n<caption>Procesos comunes de negocio con alto potencial de automatización.</caption>\n<thead>\n<tr>\n<th scope=\"col\">Proceso</th>\n<th scope=\"col\">Qué se automatiza</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<th scope=\"row\">Atención inicial por WhatsApp</th>\n<td>Respuestas automáticas para preguntas frecuentes y filtrado de contactos.</td>\n</tr>\n<tr>\n<th scope=\"row\">Generación de cotizaciones</th>\n<td>Formularios que calculan y envían propuestas sin intervención manual.</td>\n</tr>\n<tr>\n<th scope=\"row\">Reportes y seguimiento de ventas</th>\n<td>Actualización automática de hojas de cálculo o paneles con datos en tiempo real.</td>\n</tr>\n<tr>\n<th scope=\"row\">Gestión de citas o reservas</th>\n<td>Agenda automática que evita choques de horario y confirma por mensaje.</td>\n</tr>\n<tr>\n<th scope=\"row\">Seguimiento a clientes</th>\n<td>Recordatorios y mensajes programados sin depender de que alguien lo recuerde.</td>\n</tr>\n</tbody>\n</table>\n</div>\n\n<h2>Por qué automatizar impacta directo en la rentabilidad de tu negocio</h2>\n\n<h3>Menos horas en tareas que no generan ventas</h3>\n<p>Cada hora que tu equipo dedica a copiar datos de un lado a otro es una hora que no está dedicando a vender o a atender clientes. Automatizar libera ese tiempo de forma directa y medible.</p>\n\n<h3>Menos errores humanos</h3>\n<p>Los procesos manuales repetitivos son propensos a errores por cansancio o distracción: un dato mal copiado, un mensaje que se olvida enviar. La automatización ejecuta la misma tarea de la misma forma, todas las veces.</p>\n\n<h3>Respuesta más rápida a tus clientes</h3>\n<p>Un cliente que escribe fuera de horario y recibe una respuesta automática relevante tiene más probabilidades de seguir en el proceso de compra que uno que espera horas sin ninguna señal de que fue atendido.</p>\n\n<blockquote class=\"nh-regla\">\n<p><strong>Punto de partida recomendado:</strong> no automatices todo a la vez. Identifica la tarea que más tiempo te quita cada semana, automatiza esa primero, y expande desde ahí con base en resultados reales.</p>\n</blockquote>\n\n<h2>Cómo empezar a automatizar tu negocio sin complicarte</h2>\n\n<p>El primer paso no es tecnológico, es de diagnóstico: mapear qué procesos se repiten cada semana, cuánto tiempo consumen y qué reglas siguen (si son predecibles, son buenos candidatos para automatizar). A partir de ahí, se elige la herramienta correcta según la complejidad: desde integraciones simples entre plataformas hasta <a href=\"https://nodarishub.com/software/\">software a la medida</a> cuando el proceso lo requiere.</p>\n\n<p>Muchas automatizaciones también se apoyan en tu <a href=\"https://nodarishub.com/crear-pagina-web/\">página web</a> como punto de entrada: formularios inteligentes, conexión directa a WhatsApp Business y flujos que capturan información del cliente sin intervención manual desde el primer contacto.</p>\n\n<h2>Cómo lo trabajamos en Nodarishub</h2>\n\n<p>Empezamos por entender tu operación real: qué procesos se repiten, dónde se pierde tiempo y qué herramientas usas hoy. Con esa información, diseñamos automatizaciones a la medida de tu negocio, desde flujos sencillos hasta sistemas más complejos de <a href=\"https://nodarishub.com/software/\">software a la medida</a>, siempre priorizando lo que da resultado más rápido primero.</p>\n\n<h2>Preguntas frecuentes</h2>\n\n<h3>¿Necesito un negocio grande para justificar la automatización?</h3>\n<p>No. De hecho, los negocios pequeños suelen notar el impacto más rápido, porque cada hora ahorrada representa una proporción mayor del tiempo total disponible del equipo.</p>\n\n<h3>¿Cuánto tiempo toma implementar una automatización?</h3>\n<p>Depende de la complejidad del proceso. Automatizaciones sencillas, como respuestas de WhatsApp o formularios inteligentes, pueden implementarse en poco tiempo; sistemas más complejos requieren un análisis y desarrollo más detallado.</p>\n\n<h3>¿Automatizar significa que voy a necesitar menos personal?</h3>\n<p>No necesariamente. En la mayoría de los casos, automatizar libera a tu equipo de tareas repetitivas para que se enfoque en actividades de mayor valor, como atención personalizada y cierre de ventas, en lugar de reducir personal.</p>\n\n<div class=\"nh-cta-box\">\n<p>Cuéntanos qué proceso te quita más tiempo cada semana y te ayudamos a automatizarlo.</p>\n<a href=\"https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20mi%20proyecto%20digital\" target=\"_blank\" rel=\"noopener\">Cotiza tu proyecto</a>\n</div>\n\n<script type=\"application/ld+json\">\n{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"¿Necesito un negocio grande para justificar la automatización?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. De hecho, los negocios pequeños suelen notar el impacto más rápido, porque cada hora ahorrada representa una proporción mayor del tiempo total disponible del equipo.\"}},{\"@type\":\"Question\",\"name\":\"¿Cuánto tiempo toma implementar una automatización?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Depende de la complejidad del proceso. Automatizaciones sencillas, como respuestas de WhatsApp o formularios inteligentes, pueden implementarse en poco tiempo; sistemas más complejos requieren un análisis y desarrollo más detallado.\"}},{\"@type\":\"Question\",\"name\":\"¿Automatizar significa que voy a necesitar menos personal?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No necesariamente. En la mayoría de los casos, automatizar libera a tu equipo de tareas repetitivas para que se enfoque en actividades de mayor valor, como atención personalizada y cierre de ventas, en lugar de reducir personal.\"}}]}\n</script>\n</div>\n\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>Muchos dueños de negocio empiezan a buscar cómo automatizar un negocio en el momento exacto en que sienten que las tareas repetitivas les están robando el tiempo que deberían dedicar a hacer crecer la empresa. Responder los mismos mensajes de WhatsApp, actualizar hojas de cálculo a mano, generar cotizaciones una por una: son procesos que [&hellip;]</p>\n",
+    "protected": false
+  },
+  "author": 2,
+  "featured_media": 335,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "footnotes": ""
+  },
+  "categories": [
+    17,
+    60
+  ],
+  "tags": [],
+  "permalink_template": "https://nodarishub.com/ec/blog/como-automatizar-un-negocio-guia-practica/",
+  "generated_slug": "como-automatizar-un-negocio-guia-practica",
+  "class_list": [
+    "post-268",
+    "post",
+    "type-post",
+    "status-future",
+    "format-standard",
+    "has-post-thumbnail",
+    "hentry",
+    "category-blog",
+    "category-ec"
+  ],
+  "_links": {
+    "self": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/268",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/users/2"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/comments?post=268"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 1,
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/268/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 336,
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/268/revisions/336"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/media/335"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/media?parent=268"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/categories?post=268"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://nodarishub.com/wp-json/wp/v2/tags?post=268"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/268"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/268"
+      }
+    ],
+    "wp:action-sticky": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/268"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/268"
+      }
+    ],
+    "wp:action-create-categories": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/268"
+      }
+    ],
+    "wp:action-assign-categories": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/268"
+      }
+    ],
+    "wp:action-create-tags": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/268"
+      }
+    ],
+    "wp:action-assign-tags": [
+      {
+        "href": "https://nodarishub.com/wp-json/wp/v2/posts/268"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

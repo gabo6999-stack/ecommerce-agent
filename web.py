@@ -2269,9 +2269,9 @@ RADITECH — SOFTWARE MÉDICO B2B (raditech.mx)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 IDENTIDAD: Empresa mexicana de software médico con 20+ años, 400+ clientes, 40,000+ estudios/mes.
-Productos: VIRA PACS-RIS, Teleradiología 24/7, Medsi HIS, Monitores médicos de diagnóstico, X-Card.
+Productos y servicios: VIRA PACS-RIS, Teleradiología 24/7, Monitores médicos de diagnóstico y X-Card.
 Audiencia B2B: directores médicos, jefes de radiología, gerentes TI hospitalario.
-SEO orientado a capturar tráfico de decisores evaluando PACS, RIS, HIS o teleradiología.
+SEO orientado a capturar tráfico de decisores evaluando PACS, RIS, teleradiología o soluciones de imagen médica.
 
 E-E-A-T PARA RADITECH (YMYL B2B médico):
   - Autor de blogs: Dr. Antonio Gavito Hernández — Médico Radiólogo (ya configurado)
@@ -2287,7 +2287,7 @@ SCHEMA MedicalOrganization PARA RADITECH (agregar en homepage y landings):
     "@type": "MedicalOrganization",
     "name": "Raditech",
     "url": "https://raditech.mx",
-    "description": "Software médico PACS-RIS, teleradiología y HIS para hospitales y clínicas en México y LATAM.",
+    "description": "Software médico PACS-RIS y servicios de teleradiología para hospitales y clínicas en México y LATAM.",
     "medicalSpecialty": "Radiology",
     "areaServed": [
       {"@type": "Country", "name": "México"},
@@ -2466,7 +2466,6 @@ ESTADO DE MIGRACIÓN RADITECH (NO recrear páginas completadas)
   ✅ /monitores-medicos-radiologia/      (ID 879)
   ✅ /portal-x-card/                     (ID 881)
   ✅ /sistema-pacs-ris/                  (ID 883)
-  ⏳ /sistema-his-medsi/                 (pendiente crear)
   ⏳ /teleradiologia-resonancia-cardiovascular/ (pendiente crear)
   ⏳ /teleradiologia-tomografia-cardiaca/ (pendiente crear)
 

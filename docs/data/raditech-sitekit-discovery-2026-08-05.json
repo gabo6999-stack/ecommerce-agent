@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "modules": [
+    {
+      "slug": "site-verification",
+      "name": "Verificación del sitio",
+      "description": "La verificación del sitio de Google te permite gestionar la propiedad de tu sitio.",
+      "active": true,
+      "connected": true,
+      "recoverable": false,
+      "shareable": false
+    },
+    {
+      "slug": "search-console",
+      "name": "Search Console",
+      "description": "Google Search Console te ayuda a comprender cómo ve Google tu sitio y a optimizar su rendimiento en los resultados de búsqueda.",
+      "active": true,
+      "connected": true,
+      "recoverable": false,
+      "shareable": true
+    },
+    {
+      "slug": "ads",
+      "name": "Ads",
+      "description": "Aumenta las ventas, los contactos o la notoriedad de tu empresa anunciándote con Google Ads",
+      "active": false,
+      "connected": false,
+      "recoverable": false,
+      "shareable": false
+    },
+    {
+      "slug": "analytics-4",
+      "name": "Analytics",
+      "description": "Obtén una comprensión más profunda de tus clientes. Google Analytics te brinda las herramientas gratuitas que necesitas para analizar los datos de tu empresa en un solo lugar.",
+      "active": true,
+      "connected": true,
+      "recoverable": false,
+      "shareable": true
+    },
+    {
+      "slug": "tagmanager",
+      "name": "Tag Manager",
+      "description": "Tag Manager crea una forma fácil de gestionar la creación de etiquetas en tu sitio sin actualizar el código",
+      "active": false,
+      "connected": false,
+      "recoverable": false,
+      "shareable": false
+    },
+    {
+      "slug": "adsense",
+      "name": "AdSense",
+      "description": "Gana dinero poniendo anuncios en tu web. Es gratis y fácil.",
+      "active": false,
+      "connected": false,
+      "recoverable": false,
+      "shareable": false
+    },
+    {
+      "slug": "pagespeed-insights",
+      "name": "PageSpeed Insights",
+      "description": "Google PageSpeed Insights te ofrece métricas sobre rendimiento, accesibilidad, SEO y PWA",
+      "active": true,
+      "connected": true,
+      "recoverable": false,
+      "shareable": true
+    },
+    {
+      "slug": "sign-in-with-google",
+      "name": "Sign in with Google",
+      "description": "Mejora la implicación de los usuarios, la confianza y la privacidad de los datos, al tiempo que creas una experiencia sencilla, segura y personalizada para tus visitantes",
+      "active": false,
+      "connected": false,
+      "recoverable": false,
+      "shareable": false
+    },
+    {
+      "slug": "reader-revenue-manager",
+      "name": "Reader Revenue Manager",
+      "description": "Add simple CTAs to your pages that ask readers to sign up for your newsletter, complete a survey, make a contribution, or subscribe",
+      "active": false,
+      "connected": false,
+      "recoverable": false,
+      "shareable": false
+    }
+  ]
+}

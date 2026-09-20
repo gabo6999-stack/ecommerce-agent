@@ -1,0 +1,92 @@
+[
+ {
+  "id": 21,
+  "slug": "telemedicina",
+  "bytes": 20406,
+  "estilos": [
+   "tlz-tele-css"
+  ],
+  "hex_unicos": [
+   "#14181A",
+   "#FCFBF9"
+  ],
+  "tokens": []
+ },
+ {
+  "id": 22,
+  "slug": "peptidos",
+  "bytes": 22058,
+  "estilos": [
+   "tlz-pep-css"
+  ],
+  "hex_unicos": [
+   "#0B4F4A",
+   "#12706A",
+   "#FCFBF9"
+  ],
+  "tokens": []
+ },
+ {
+  "id": 24,
+  "slug": "nosotros",
+  "bytes": 28007,
+  "estilos": [
+   "tlz-nos-css"
+  ],
+  "hex_unicos": [
+   "#14181A",
+   "#2AA87C",
+   "#5B95E0",
+   "#A87BD0",
+   "#B98C28",
+   "#DA6B45",
+   "#FCFBF9"
+  ],
+  "tokens": [
+   "tlz-rail"
+  ]
+ },
+ {
+  "id": 25,
+  "slug": "contacto",
+  "bytes": 18820,
+  "estilos": [
+   "tlz-cont-css"
+  ],
+  "hex_unicos": [
+   "#0B4F4A",
+   "#12706A"
+  ],
+  "tokens": []
+ },
+ {
+  "id": 61,
+  "slug": "blog",
+  "bytes": 4299,
+  "estilos": [
+   "tlz-blog-css"
+  ],
+  "hex_unicos": [],
+  "tokens": []
+ },
+ {
+  "id": 3,
+  "slug": "aviso-de-privacidad",
+  "bytes": 26772,
+  "estilos": [
+   "tlz-priv-css"
+  ],
+  "hex_unicos": [],
+  "tokens": []
+ },
+ {
+  "id": 27,
+  "slug": "terminos-y-condiciones",
+  "bytes": 23715,
+  "estilos": [
+   "tlz-tyc-css"
+  ],
+  "hex_unicos": [],
+  "tokens": []
+ }
+]

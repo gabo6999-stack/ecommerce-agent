@@ -1,0 +1,333 @@
+<!-- wp:group {"align":"full","tagName":"section","layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull">
+<!-- wp:html -->
+<!-- Telenzia — AVISO DE PRIVACIDAD (LFPDPPP) · BORRADOR pendiente de revisión legal
+     LAYOUT PROPIO: dos columnas — índice lateral pegajoso (position:sticky) a la izquierda
+     con anclas a cada apartado + cuerpo de lectura a la derecha en medida ~68ch.
+     Colapsa a una columna bajo 900px (el índice sube arriba y pierde el sticky).
+     Distinto del home (hero con scrubber), de Telemedicina (hero centrado + matriz),
+     de Péptidos (hero lateral + mosaico) y de Términos (columna única numerada).
+     El lenguaje de componentes viene del header global.
+     Los datos de sociedad (domicilio fiscal, RFC) NO constan: el texto se redactó
+     sin ellos, por decisión de Gabo (2026-08-04). Sigue pendiente de revisión legal. -->
+<style id="tlz-priv-css">
+.tlz-page .tlz-priv-hero{max-width:1320px;margin:0 auto;padding:clamp(40px,5vw,74px) clamp(20px,4vw,56px) clamp(18px,2.2vw,30px)}
+.tlz-page .tlz-priv-hero h1{font-size:clamp(28px,3.8vw,50px);line-height:1.07;letter-spacing:-.028em;margin:var(--tlz-s6) 0 clamp(14px,1.8vw,22px);max-width:22ch}
+.tlz-page .tlz-priv-hero .tlz-priv-intro{font-size:clamp(15px,1.1vw,17px);line-height:1.6;color:var(--tlz-n400);max-width:62ch}
+.tlz-page .tlz-priv-meta{display:flex;flex-wrap:wrap;gap:var(--tlz-s3);margin-top:var(--tlz-s8)}
+.tlz-page .tlz-priv-borrador{max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+.tlz-page .tlz-priv-borrador .tlz-note p{font-size:14px;line-height:1.65;color:var(--tlz-n300);max-width:76ch}
+.tlz-page .tlz-priv-borrador .tlz-note p+p{margin-top:var(--tlz-s4)}
+
+/* — rejilla de dos columnas: índice pegajoso + cuerpo — */
+.tlz-page .tlz-priv-grid{
+  max-width:1320px;margin:0 auto;
+  padding:clamp(26px,3.2vw,48px) clamp(20px,4vw,56px) clamp(52px,6vw,92px);
+  display:grid;grid-template-columns:minmax(220px,268px) minmax(0,1fr);
+  gap:clamp(28px,4vw,68px);align-items:start;
+}
+.tlz-page .tlz-priv-indice{position:sticky;top:92px;align-self:start}
+.tlz-page .tlz-priv-indice .tlz-priv-indice-tit{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--tlz-n700);margin-bottom:var(--tlz-s6)}
+.tlz-page .tlz-priv-indice ol{list-style:none;display:grid;gap:2px;counter-reset:tlzpriv;border-left:1px solid var(--tlz-divider)}
+.tlz-page .tlz-priv-indice li{counter-increment:tlzpriv}
+.tlz-page .tlz-priv-indice a{
+  display:flex;gap:10px;align-items:baseline;text-decoration:none;
+  font-size:13px;line-height:1.4;color:var(--tlz-n500);
+  padding:7px 10px 7px 13px;margin-left:-1px;border-left:1px solid transparent;
+  transition:color .22s var(--tlz-ease),border-color .22s var(--tlz-ease);
+}
+.tlz-page .tlz-priv-indice a::before{
+  content:counter(tlzpriv,decimal-leading-zero);
+  font-size:10.5px;font-variant-numeric:tabular-nums;letter-spacing:.06em;
+  color:var(--tlz-n700);flex-shrink:0;
+}
+.tlz-page .tlz-priv-indice a:hover{color:var(--tlz-text);border-left-color:var(--tlz-accent)}
+.tlz-page .tlz-priv-indice a:hover::before{color:var(--tlz-accent)}
+.tlz-page .tlz-priv-indice a:focus-visible{outline:2px solid var(--tlz-a400);outline-offset:2px;border-radius:0}
+
+/* — cuerpo en medida de lectura — */
+.tlz-page .tlz-priv-cuerpo{max-width:68ch;display:grid;gap:clamp(30px,3.6vw,52px)}
+.tlz-page .tlz-priv-art{scroll-margin-top:104px}
+.tlz-page .tlz-priv-art>h2{font-size:clamp(20px,2vw,26px);letter-spacing:-.02em;max-width:30ch}
+.tlz-page .tlz-priv-art>h2 .tlz-priv-num{
+  display:block;font-size:10.5px;font-weight:400;letter-spacing:.13em;text-transform:uppercase;
+  font-variant-numeric:tabular-nums;color:var(--tlz-accent);margin-bottom:7px;
+}
+.tlz-page .tlz-priv-art p{font-size:14.5px;line-height:1.7;color:var(--tlz-n400);margin-top:var(--tlz-s6)}
+.tlz-page .tlz-priv-art h3{font-size:15px;letter-spacing:-.01em;color:var(--tlz-n200);margin-top:var(--tlz-s8)}
+.tlz-page .tlz-priv-art ul{list-style:none;display:grid;gap:var(--tlz-s4);margin-top:var(--tlz-s6)}
+.tlz-page .tlz-priv-art li{font-size:14px;line-height:1.6;color:var(--tlz-n400);padding-left:20px;position:relative}
+.tlz-page .tlz-priv-art li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:1px;background:var(--tlz-accent)}
+.tlz-page .tlz-priv-art strong{color:var(--tlz-n200);font-weight:500}
+.tlz-page .tlz-priv-dl{margin-top:var(--tlz-s6);display:grid;gap:1px;background:var(--tlz-n900);border-radius:var(--tlz-r-md);overflow:hidden}
+.tlz-page .tlz-priv-dl>div{background:var(--tlz-surface);padding:var(--tlz-s6);display:grid;grid-template-columns:minmax(120px,166px) minmax(0,1fr);gap:var(--tlz-s6);align-items:baseline}
+.tlz-page .tlz-priv-dl dt{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--tlz-n600)}
+.tlz-page .tlz-priv-dl dd{font-size:14px;line-height:1.6;color:var(--tlz-n300);margin:0}
+.tlz-page .tlz-hueco{
+  display:inline-block;font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  color:var(--tlz-a300);background:color-mix(in srgb,var(--tlz-accent) 14%,transparent);
+  border-bottom:1px dashed var(--tlz-accent);border-radius:0;padding:0 5px;
+}
+.tlz-page .tlz-priv-cierre{margin-top:clamp(30px,3.6vw,52px);text-align:center}
+.tlz-page .tlz-priv-cierre .tlz-btn{margin-top:var(--tlz-s6)}
+
+/* ===== 2026-08-05 · fix: el índice pegajoso no se quedaba pegado =====
+   .tlz-page trae `overflow-x:hidden` en el header COMPARTIDO. Sin overflow-y
+   explícito, el navegador aparea los dos ejes y fuerza el otro a "auto"
+   (misma regla en todos los navegadores modernos): eso convierte a
+   .tlz-page en su propio contenedor de scroll, y position:sticky en
+   .tlz-priv-indice pasa a calcularse contra ESE contenedor —que nunca se
+   desplaza, porque quien hace scroll de verdad es <html>—, así que el
+   índice se despegaba a los pocos px. Es un bug PREVIO y compartido (mismo
+   overflow-x:hidden en propuestas/revB/header.html, la versión publicada);
+   no se toca header.html porque afectaría a las demás páginas y esta es la
+   única con position:sticky dentro de .tlz-page. Se corrige solo aquí con
+   overflow-x:clip (recorta igual que hidden, sin crear contenedor de
+   scroll) + overflow-y:visible explícito.
+   Medido con Playwright a 1440px: .tlz-priv-indice queda fijo en top:92
+   desde scroll 400px hasta el final de la rejilla (7556px de alto total),
+   y scrollWidth==clientWidth en los 9 anchos auditados (320–1920): el fix
+   no reabre el desbordamiento horizontal que overflow-x:hidden prevenía. */
+.tlz-page{overflow-x:clip;overflow-y:visible}
+
+@media (max-width:900px){
+  .tlz-page .tlz-priv-grid{grid-template-columns:1fr;gap:clamp(24px,3vw,36px)}
+  .tlz-page .tlz-priv-indice{position:static;top:auto;padding-bottom:var(--tlz-s6);border-bottom:1px solid var(--tlz-divider)}
+  .tlz-page .tlz-priv-indice ol{grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));border-left:0}
+  .tlz-page .tlz-priv-indice a{border-left:0;padding-left:0;margin-left:0}
+  .tlz-page .tlz-priv-indice a:hover{border-left:0}
+  .tlz-page .tlz-priv-cuerpo{max-width:none}
+}
+@media (max-width:640px){
+  .tlz-page .tlz-priv-hero{padding:30px 20px 16px}
+  .tlz-page .tlz-priv-dl>div{grid-template-columns:1fr;gap:5px}
+}
+</style>
+
+<div class="tlz-page">
+
+  <section class="tlz-priv-hero">
+    <div class="tlz-kicker">Legales · Telenzia</div>
+    <h1>Aviso de privacidad</h1>
+    <p class="tlz-priv-intro">Cómo Telenzia recaba, usa, resguarda y comparte tus datos personales, incluidos los datos sensibles de salud, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) publicada en el Diario Oficial de la Federación el 20 de marzo de 2025 y en vigor desde el 21 de marzo de 2025, y a la normativa que la desarrolla.</p>
+    <div class="tlz-priv-meta">
+      <span class="tlz-tag tlz-tag-neutral">LFPDPPP · México</span>
+      <span class="tlz-tag tlz-tag-neutral">Última actualización: 4 de agosto de 2026</span>
+    </div>
+  </section>
+
+
+  <div class="tlz-priv-grid">
+
+    <nav class="tlz-priv-indice" aria-label="Índice del aviso de privacidad">
+      <div class="tlz-priv-indice-tit">Contenido</div>
+      <ol>
+        <li><a href="#priv-responsable">Identidad del responsable</a></li>
+        <li><a href="#priv-datos">Datos personales que recabamos</a></li>
+        <li><a href="#priv-sensibles">Datos sensibles de salud</a></li>
+        <li><a href="#priv-primarias">Finalidades primarias</a></li>
+        <li><a href="#priv-secundarias">Finalidades secundarias</a></li>
+        <li><a href="#priv-medico">El médico tratante como responsable independiente</a></li>
+        <li><a href="#priv-transferencias">Transferencias y encargados</a></li>
+        <li><a href="#priv-arco">Derechos ARCO</a></li>
+        <li><a href="#priv-revocacion">Revocación del consentimiento</a></li>
+        <li><a href="#priv-limitacion">Limitación de uso y divulgación</a></li>
+        <li><a href="#priv-cookies">Cookies y tecnologías de rastreo</a></li>
+        <li><a href="#priv-seguridad">Conservación y seguridad</a></li>
+        <li><a href="#priv-menores">Menores de edad</a></li>
+        <li><a href="#priv-cambios">Cambios al aviso</a></li>
+      </ol>
+    </nav>
+
+    <div class="tlz-priv-cuerpo">
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-responsable">
+        <h2><span class="tlz-priv-num">Apartado 01</span>Identidad del responsable</h2>
+        <p><strong>Telenzia</strong> es responsable del tratamiento de los datos personales que se recaban a través del sitio telenzia.com y de la plataforma asociada.</p>
+        <dl class="tlz-priv-dl">
+          <div><dt>Responsable</dt><dd>Telenzia</dd></div>
+          <div><dt>Contacto</dt><dd>A través de tu cuenta en la plataforma</dd></div>
+        </dl>
+        <p>Telenzia es una <strong>plataforma tecnológica</strong>. No presta servicios médicos ni emite diagnósticos, recetas u opiniones clínicas: pone en contacto a pacientes con médicos independientes, agenda las video-consultas, verifica la cédula profesional y procesa el cobro de la consulta.</p>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-datos">
+        <h2><span class="tlz-priv-num">Apartado 02</span>Datos personales que recabamos</h2>
+        <p>Recabamos datos de forma directa —cuando tú los proporcionas al registrarte, responder el cuestionario de síntomas o agendar una consulta— y de forma indirecta, a través de las herramientas técnicas del sitio y de nuestros proveedores.</p>
+        <h3>Datos de identificación</h3>
+        <ul>
+          <li>Nombre y apellidos.</li>
+          <li>Fecha de nacimiento, edad y sexo.</li>
+          <li>Los datos de identificación oficial que el médico requiera para integrar su expediente.</li>
+        </ul>
+        <h3>Datos de contacto</h3>
+        <ul>
+          <li>Correo electrónico y número de teléfono móvil.</li>
+          <li>Estado o entidad de residencia, cuando resulte relevante para la asignación de médico.</li>
+        </ul>
+        <h3>Datos de facturación y pago</h3>
+        <ul>
+          <li>Datos fiscales, si solicitas comprobante.</li>
+          <li>Datos de la operación de pago. <strong>Telenzia no almacena números completos de tarjeta ni códigos de seguridad</strong>: esa información la captura y resguarda directamente el procesador de pagos.</li>
+        </ul>
+        <h3>Datos técnicos y de navegación</h3>
+        <ul>
+          <li>Dirección IP, tipo de navegador y dispositivo, sistema operativo.</li>
+          <li>Páginas visitadas, origen de la visita y comportamiento de navegación.</li>
+        </ul>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-sensibles">
+        <h2><span class="tlz-priv-num">Apartado 03</span>Datos personales sensibles de salud</h2>
+        <p>Para que la plataforma funcione es necesario tratar <strong>datos personales sensibles</strong> en términos de la LFPDPPP: información relativa a tu estado de salud presente y pasado.</p>
+        <ul>
+          <li>Motivo de consulta, síntomas y objetivo de tratamiento declarados en el cuestionario.</li>
+          <li>Antecedentes médicos, padecimientos, alergias y medicamentos en uso.</li>
+          <li>Peso, talla y otras medidas antropométricas.</li>
+          <li>Resultados de estudios de laboratorio o gabinete que tú decidas cargar.</li>
+        </ul>
+        <p><strong>Estos datos requieren tu consentimiento expreso.</strong> Se te solicitará de forma separada y explícita antes de recabarlos, y podrás negarlo. Si lo niegas, no será posible asignarte un médico ni llevar a cabo la video-consulta, porque el tratamiento de esa información es indispensable para el servicio.</p>
+        <p>Los datos sensibles se tratan únicamente para las finalidades primarias del apartado 04. <strong>Nunca se usan con fines de mercadotecnia, no se venden y no se comparten con terceros con fines comerciales.</strong></p>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-primarias">
+        <h2><span class="tlz-priv-num">Apartado 04</span>Finalidades primarias</h2>
+        <p>Son las que dan origen y son necesarias para la relación contigo. Sin ellas el servicio no puede prestarse:</p>
+        <ul>
+          <li><strong>Agendar tu video-consulta</strong> y gestionar el calendario, los recordatorios y los reagendamientos.</li>
+          <li><strong>Asignar al médico tratante</strong> con cédula profesional verificada que corresponda a tu caso, y ponerle a disposición la información clínica que declaraste.</li>
+          <li><strong>Cobrar la consulta</strong> y administrar la retención y liberación del pago, así como las devoluciones que procedan.</li>
+          <li><strong>Habilitar la emisión de la receta médica</strong> por parte del médico y su entrega a ti a través de la plataforma.</li>
+          <li>Verificar tu identidad y prevenir usos fraudulentos o suplantaciones.</li>
+          <li>Atender tus dudas, aclaraciones y reportes sobre el funcionamiento de la plataforma.</li>
+          <li>Cumplir obligaciones fiscales, contables y legales aplicables.</li>
+        </ul>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-secundarias">
+        <h2><span class="tlz-priv-num">Apartado 05</span>Finalidades secundarias</h2>
+        <p>No son necesarias para prestarte el servicio. <strong>Puedes oponerte a ellas sin que eso afecte tu consulta ni tu relación con Telenzia:</strong></p>
+        <ul>
+          <li>Enviarte comunicaciones informativas y promocionales sobre la plataforma.</li>
+          <li>Elaborar encuestas de satisfacción y estudios de calidad del servicio.</li>
+          <li>Generar estadísticas y análisis <strong>agregados y disociados</strong> —sin identificarte— para mejorar la plataforma.</li>
+        </ul>
+        <p>Para manifestar tu negativa a estas finalidades, sigue el procedimiento del apartado 08. También puedes hacerlo desde el enlace de baja incluido en cada comunicación.</p>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-medico">
+        <h2><span class="tlz-priv-num">Apartado 06</span>El médico tratante es responsable independiente</h2>
+        <p>Este apartado es el más importante para entender quién responde por qué información.</p>
+        <p>Los médicos que atienden a través de la plataforma son <strong>profesionales independientes con cédula verificada</strong>, no empleados de Telenzia. Cada uno actúa como <strong>responsable autónomo</strong> respecto del <strong>expediente clínico</strong> que integra y conserva sobre ti, conforme a la normativa sanitaria mexicana aplicable a los expedientes clínicos y al secreto profesional.</p>
+        <ul>
+          <li><strong>Telenzia</strong> responde por los datos que trata como plataforma: registro, agenda, cobro y los datos que declaraste en el cuestionario previo.</li>
+          <li><strong>El médico tratante</strong> responde por su expediente clínico, sus notas de consulta, su valoración y la receta que emite.</li>
+        </ul>
+        <p>Por lo tanto, las solicitudes de acceso, rectificación, cancelación u oposición sobre el <strong>contenido del expediente clínico</strong> deben dirigirse al médico que te atendió, no a Telenzia. Si nos las presentas, te orientaremos sobre cómo canalizarlas, pero no podemos modificar por cuenta propia el expediente de un tercero responsable.</p>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-transferencias">
+        <h2><span class="tlz-priv-num">Apartado 07</span>Transferencias y encargados</h2>
+        <p>Distinguimos entre <strong>encargados</strong> —proveedores que tratan datos por cuenta e instrucción de Telenzia— y <strong>transferencias</strong> a terceros que los tratan bajo su propia responsabilidad.</p>
+        <h3>Encargados</h3>
+        <ul>
+          <li><strong>Procesador de pagos:</strong> capta y procesa los datos de la operación de cobro, retención y liberación del pago de la consulta. Los datos de tarjeta se tratan en su entorno, no en el nuestro.</li>
+          <li><strong>Proveedor de hosting e infraestructura:</strong> aloja el sitio y las bases de datos de la plataforma.</li>
+          <li><strong>Proveedor de la plataforma y del servicio de video-consulta:</strong> soporta el agendamiento, la sesión de video y el intercambio de mensajes dentro de la plataforma.</li>
+          <li>Proveedores de correo transaccional, analítica y soporte técnico.</li>
+        </ul>
+        <p>Con cada encargado se exige, por contrato, un tratamiento limitado a nuestras instrucciones y medidas de seguridad equivalentes a las nuestras.</p>
+        <h3>Transferencias</h3>
+        <ul>
+          <li><strong>Al médico tratante</strong> asignado a tu caso, que actúa como responsable independiente (apartado 06). Esta transferencia es necesaria para prestarte el servicio.</li>
+          <li>A autoridades competentes, cuando exista requerimiento fundado y motivado, o cuando la ley lo exija.</li>
+          <li>A asesores contables, fiscales o legales, sujetos a deber de confidencialidad.</li>
+        </ul>
+        <p>Fuera de estos supuestos y de los demás que la propia LFPDPPP prevé, <strong>no transferimos tus datos a ningún tercero sin tu consentimiento</strong>. Telenzia no vende ni renta bases de datos personales.</p>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-arco">
+        <h2><span class="tlz-priv-num">Apartado 08</span>Derechos ARCO y cómo ejercerlos</h2>
+        <p>Tienes derecho a <strong>Acceder</strong> a tus datos, <strong>Rectificarlos</strong> cuando sean inexactos o incompletos, <strong>Cancelarlos</strong> cuando consideres que no se requieren para las finalidades de este aviso, y <strong>Oponerte</strong> a su tratamiento para fines específicos.</p>
+        <p>Para ejercerlos, envía tu solicitud al responsable a través de la plataforma, desde tu cuenta. La solicitud debe contener:</p>
+        <ul>
+          <li>Tu nombre y un medio para comunicarte la respuesta.</li>
+          <li>Copia de una identificación oficial vigente que acredite tu identidad; si actúas por representante, el documento que acredite la representación y la identificación de ambos.</li>
+          <li>La descripción clara de los datos sobre los que ejerces el derecho y del derecho que ejerces.</li>
+          <li>Cualquier elemento o documento que facilite localizar los datos.</li>
+        </ul>
+        <p>Responderemos en un plazo máximo de <strong>20 días hábiles</strong> contados desde la recepción de la solicitud; de resultar procedente, se hará efectiva dentro de los <strong>15 días hábiles</strong> siguientes. Los plazos pueden ampliarse una sola vez por un periodo igual cuando las circunstancias lo justifiquen. El ejercicio de estos derechos es <strong>gratuito</strong>; solo podrán cobrarse los gastos justificados de reproducción o remisión de la información.</p>
+        <p>Si consideras que tu solicitud no fue atendida o que se vulneró tu derecho a la protección de datos personales, puedes acudir ante la autoridad competente. Desde el <strong>21 de marzo de 2025</strong> esa función corresponde a la <strong>Secretaría Anticorrupción y Buen Gobierno</strong>, que asumió las atribuciones en la materia respecto de particulares tras la extinción del INAI.</p>
+        <p>Recuerda que, tratándose del <strong>expediente clínico</strong>, la solicitud corresponde al médico tratante (apartado 06). Ten presente también que existen supuestos legales en los que la cancelación no procede, por ejemplo cuando la conservación es obligatoria por normativa sanitaria o fiscal.</p>
+        <p>Si consideras que tu derecho no fue atendido debidamente, puedes acudir ante la autoridad competente en materia de protección de datos personales.</p>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-revocacion">
+        <h2><span class="tlz-priv-num">Apartado 09</span>Revocación del consentimiento</h2>
+        <p>Puedes <strong>revocar en cualquier momento</strong> el consentimiento que otorgaste para el tratamiento de tus datos, incluido el consentimiento expreso para los datos sensibles de salud. La solicitud se presenta por la misma vía y con los mismos requisitos que una solicitud ARCO (apartado 08).</p>
+        <p>La revocación no tiene efectos retroactivos: no afecta la licitud del tratamiento realizado antes de recibirla. Además, <strong>revocar el consentimiento sobre los datos de salud impide continuar prestándote el servicio</strong>, porque sin esa información no es posible asignar médico ni sostener una consulta. Tampoco alcanza a la información que Telenzia o el médico deban conservar por obligación legal.</p>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-limitacion">
+        <h2><span class="tlz-priv-num">Apartado 10</span>Limitación de uso y divulgación</h2>
+        <p>Puedes solicitar que limitemos el uso o la divulgación de tus datos —por ejemplo, dejar de recibir comunicaciones promocionales— sin necesidad de ejercer un derecho ARCO completo. Basta con enviar tu petición desde tu cuenta en la plataforma, indicando qué uso deseas limitar.</p>
+        <p>De ser procedente, quedarás inscrito en un listado de exclusión interno, y te confirmaremos la inscripción.</p>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-cookies">
+        <h2><span class="tlz-priv-num">Apartado 11</span>Cookies y tecnologías de rastreo</h2>
+        <p>El sitio utiliza <strong>cookies</strong> y tecnologías similares —almacenamiento local, píxeles y etiquetas— que permiten recabar datos de navegación de forma automática.</p>
+        <ul>
+          <li><strong>Cookies necesarias:</strong> mantienen la sesión, la seguridad y el funcionamiento básico del sitio. Sin ellas la plataforma no opera.</li>
+          <li><strong>Cookies de rendimiento y analítica:</strong> nos dicen qué páginas se visitan y cómo se navega, para mejorar el sitio.</li>
+          <li><strong>Cookies de personalización y medición de campañas:</strong> permiten medir el origen de las visitas y adecuar los contenidos.</li>
+        </ul>
+        <p>Los datos que obtenemos por esta vía son de navegación y no se cruzan con tu información clínica. Puedes deshabilitar o eliminar las cookies desde la configuración de tu navegador; si deshabilitas las necesarias, algunas funciones dejarán de estar disponibles.</p>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-seguridad">
+        <h2><span class="tlz-priv-num">Apartado 12</span>Conservación y medidas de seguridad</h2>
+        <p>Conservamos tus datos <strong>durante el tiempo necesario</strong> para cumplir las finalidades primarias y, después, durante los plazos de conservación que exijan las obligaciones fiscales, contables y legales aplicables. Concluidos esos plazos, se bloquean y se suprimen o disocian.</p>
+        <p>Aplicamos medidas de seguridad administrativas, técnicas y físicas orientadas a proteger tus datos contra daño, pérdida, alteración, destrucción, uso, acceso o tratamiento no autorizados: cifrado en tránsito, control de accesos por perfil, registro de operaciones y acuerdos de confidencialidad con quienes tratan datos por nuestra cuenta.</p>
+        <p>Ninguna medida elimina por completo el riesgo. En caso de una vulneración de seguridad que afecte de forma significativa tus derechos patrimoniales o morales, te lo comunicaremos sin dilación para que puedas tomar medidas.</p>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-menores">
+        <h2><span class="tlz-priv-num">Apartado 13</span>Menores de edad</h2>
+        <p>La plataforma está dirigida <strong>exclusivamente a personas mayores de 18 años</strong>. No recabamos deliberadamente datos de menores. Si detectamos que se registraron datos de una persona menor de edad sin el consentimiento de quien ejerce la patria potestad o tutela, procederemos a suprimirlos.</p>
+      </article>
+
+      <article class="tlz-priv-art tlz-reveal" id="priv-cambios">
+        <h2><span class="tlz-priv-num">Apartado 14</span>Cambios al aviso de privacidad</h2>
+        <p>Este aviso puede modificarse por cambios en la legislación, en nuestras prácticas de privacidad, en el modelo de operación o en los proveedores que intervienen.</p>
+        <p>Cualquier modificación se publicará en esta misma página, con la fecha de actualización visible en el encabezado. Te recomendamos revisarla periódicamente. Cuando el cambio afecte de forma sustancial las finalidades del tratamiento, te lo haremos saber por el medio de contacto que hayas registrado.</p>
+        <dl class="tlz-priv-dl">
+          <div><dt>Vigente desde</dt><dd>4 de agosto de 2026</dd></div>
+        </dl>
+
+        <div class="tlz-priv-cierre">
+          <a class="tlz-btn tlz-btn-primary" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agenda tu consulta</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</div>
+
+<script id="tlz-reveal-js">
+(function(){
+  var nodes=[].slice.call(document.querySelectorAll(".tlz-page .tlz-reveal:not(.tlz-in)"));
+  if(!nodes.length)return;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var show=function(n){n.classList.add("tlz-in")};
+  if(reduce||!("IntersectionObserver" in window)){nodes.forEach(show);return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}});
+  },{rootMargin:"0px 0px -12% 0px",threshold:.08});
+  nodes.forEach(function(n){io.observe(n)});
+  setTimeout(function(){nodes.forEach(show)},2600);
+})();
+</script>
+<!-- /wp:html -->
+</section>
+<!-- /wp:group -->

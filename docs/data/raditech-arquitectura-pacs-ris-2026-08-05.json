@@ -1,0 +1,5011 @@
+{
+  "method": "anonymous public sitemap crawl",
+  "sitemaps_examined": 2,
+  "urls_examined": 34,
+  "failures": 0,
+  "target": "https://raditech.mx/sistema-pacs-ris/",
+  "current_inbound_source_pages": 30,
+  "inbound_sources": [
+    {
+      "url": "https://raditech.mx/",
+      "status": 200,
+      "final_url": "https://raditech.mx/",
+      "cache": "hit",
+      "title": "Raditech | Soluciones de radiología digital para hospitales",
+      "h1": [
+        "PACS Raditech solución integral en radiología"
+      ],
+      "visible_words": 535,
+      "terms": {
+        "PACS": 11,
+        "RIS": 6,
+        "DICOM": 0,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 2
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "Conocer PACS-RIS"
+      ],
+      "internal_links_unique": 10,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Ver soluciones"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Soluciones Explorar →"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Alta especialidad Ver servicios →"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Experiencia Resultados →"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacto Cotizar →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Conocer PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Ver teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Ver HIS"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Ver X-Card"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Ver monitores"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Ver servicio"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Ver servicio"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Ver servicio"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacto"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacto"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+      "cache": "miss",
+      "title": "¿Qué es DICOM y para qué sirve un visor? | Raditech",
+      "h1": [
+        "¿Qué es DICOM y para qué sirve un visor de imágenes médicas?"
+      ],
+      "visible_words": 1316,
+      "terms": {
+        "PACS": 7,
+        "RIS": 4,
+        "DICOM": 30,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 8
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "sistema PACS-RIS para radiología",
+        "Ver el sistema PACS-RIS"
+      ],
+      "internal_links_unique": 11,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Sistema PACS hospitalario completo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS para radiología"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología en México"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología diagnóstica en México"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Portal X-Card de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores médicos de grado diagnóstico DICOM"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS VIRA para teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacta a nuestro equipo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver el sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Anterior Teleradiología: Solución Estratégica para Hospitales y Clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Siguiente ¿Qué es un HIS? El sistema de información hospitalaria explicado"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-mexico/",
+      "cache": "miss",
+      "title": "DICOM Viewer: tipos y cómo elegirlo | Raditech",
+      "h1": [
+        "DICOM Viewer: tipos, criterios y cómo elegir un visor DICOM"
+      ],
+      "visible_words": 3354,
+      "terms": {
+        "PACS": 33,
+        "RIS": 2,
+        "DICOM": 65,
+        "HL7": 7,
+        "servidor": 0,
+        "radiología": 8
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "Ver el sistema PACS-RIS"
+      ],
+      "internal_links_unique": 12,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "guía completa de implementación de sistemas PACS para hospitales"
+        },
+        {
+          "url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+          "anchor": "guía completa de workstations de radiología para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": "guía completa de software médico para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "servicio de teleradiología 24/7"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "guía completa de radiología a distancia para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "guía sobre inteligencia artificial en radiología diagnóstica para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS Teleradiología VIRA"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Solicite una demostración personalizada"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver el sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "Anterior Implementar un sistema PACS en México: costos, ROI y NOM-004"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico-2/",
+          "anchor": "Siguiente Sistema de información hospitalaria en México: NOM-004, HL7 FHIR y PACS"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+      "status": 200,
+      "final_url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+      "cache": "hit",
+      "title": "Gestión Hospitalaria: 4 Beneficios de su Digitalización",
+      "h1": [
+        "Gestión Hospitalaria: 4 Beneficios de su Digitalización"
+      ],
+      "visible_words": 930,
+      "terms": {
+        "PACS": 3,
+        "RIS": 2,
+        "DICOM": 0,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 1
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS (Sistemas de Archivo y Comunicación de Imágenes), RIS (Sistemas de Información Radiológica) y la teleradiología"
+      ],
+      "internal_links_unique": 6,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS (Sistemas de Archivo y Comunicación de Imágenes), RIS (Sistemas de Información Radiológica) y la teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Ver el sistema HIS"
+        },
+        {
+          "url": "https://raditech.mx/beneficios-teleradiografia-de-torax-pacientes/",
+          "anchor": "Anterior Teleradiografía de Tórax: 10 Beneficios Clave para Pacientes"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Siguiente Inteligencia Artificial en Radiología Diagnóstica: Guía Completa para Hospitales en México 2026"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+      "status": 200,
+      "final_url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+      "cache": "miss",
+      "title": "NOM-004: la norma del expediente clínico | Raditech",
+      "h1": [
+        "NOM-004-SSA3-2012: qué exige la norma del expediente clínico"
+      ],
+      "visible_words": 3547,
+      "terms": {
+        "PACS": 12,
+        "RIS": 8,
+        "DICOM": 6,
+        "HL7": 15,
+        "servidor": 0,
+        "radiología": 5
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS para áreas de radiología de Raditech"
+      ],
+      "internal_links_unique": 9,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "gestión hospitalaria y los beneficios de su digitalización"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Sistema PACS para hospitales y la digitalización de imagenología médica en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS para áreas de radiología de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología para decisores hospitalarios en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacte a nuestro equipo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Ver el software hospitalario"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Anterior ¿Qué es un PACS y cómo funciona? Guía completa para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Siguiente Teleradiología: Solución Estratégica para Hospitales y Clínicas en México"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/faq/",
+      "status": 200,
+      "final_url": "https://raditech.mx/faq/",
+      "cache": "hit",
+      "title": "Preguntas Frecuentes sobre PACS y Teleradiología | Raditech",
+      "h1": [
+        "Preguntas frecuentes"
+      ],
+      "visible_words": 2159,
+      "terms": {
+        "PACS": 16,
+        "RIS": 6,
+        "DICOM": 1,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 2
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "solución PACS-RIS de Raditech"
+      ],
+      "internal_links_unique": 1,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "solución PACS-RIS de Raditech"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+      "cache": "miss",
+      "title": "Imágenes Médicas Digitales: Guía Completa de PACS, DICOM y Teleradiología para Hospitales en México 2026 -",
+      "h1": [
+        "Imágenes Médicas Digitales: Guía Completa de PACS, DICOM y Teleradiología para Hospitales en México 2026"
+      ],
+      "visible_words": 3353,
+      "terms": {
+        "PACS": 44,
+        "RIS": 10,
+        "DICOM": 24,
+        "HL7": 9,
+        "servidor": 0,
+        "radiología": 11
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "sistema PACS-RIS para áreas de radiología"
+      ],
+      "internal_links_unique": 13,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "los beneficios de la digitalización en la gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "visores DICOM para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Sistema de Información Hospitalaria (HIS)"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "sistemas PACS para hospitales"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "Sistema de Información Radiológica (RIS)"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Teleradiología de Alta Especialidad de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología Diagnóstica en México"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "Expediente Clínico Electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "VIRA PACS"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "contactar a nuestro equipo"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "Anterior RIS Radiología: Guía Completa del Sistema de Información Radiológica para Hospitales y Clínicas en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+          "anchor": "Siguiente Radiólogos en México: por qué la escasez impulsa la radiología a distancia"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+      "status": 200,
+      "final_url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+      "cache": "hit",
+      "title": "Inteligencia Artificial en Radiología Diagnóstica: Guía Completa para Hospitales en México 2026 -",
+      "h1": [
+        "Inteligencia Artificial en Radiología Diagnóstica: Guía Completa para Hospitales en México 2026"
+      ],
+      "visible_words": 4143,
+      "terms": {
+        "PACS": 19,
+        "RIS": 10,
+        "DICOM": 8,
+        "HL7": 5,
+        "servidor": 0,
+        "radiología": 27
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "PACS-RIS de Raditech",
+        "sistemas PACS y RIS"
+      ],
+      "internal_links_unique": 11,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistemas PACS y RIS"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "digitalización de la gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología en México para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "sistema de información hospitalaria (HIS)"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "guía completa de teleradiología en México para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "sistema de información hospitalaria (HIS) robusto"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Solicite una consultoría sin compromiso"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "VIRA PACS, la solución integral de imagenología digital de Raditech para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "Anterior Gestión Hospitalaria: 4 Beneficios de su Digitalización"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Siguiente ¿Qué es un PACS y cómo funciona? Guía completa para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Cancelar respuesta"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/monitores-medicos-radiologia/",
+      "status": 200,
+      "final_url": "https://raditech.mx/monitores-medicos-radiologia/",
+      "cache": "hit",
+      "title": "Monitores Médicos DICOM para Radiología | Raditech",
+      "h1": [
+        "Monitores Grado Médico para Diagnóstico Radiológico de Alta Precisión"
+      ],
+      "visible_words": 1546,
+      "terms": {
+        "PACS": 10,
+        "RIS": 9,
+        "DICOM": 15,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 6
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "Ver VIRA PACS-RIS",
+        "🖥️ Sistema PACS-RIS Almacenamiento y gestión de estudios con visor web avanzado y soporte 24/7."
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Solicitar Cotización"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "¿Qué son? Conocer →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Marcas Ver opciones →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Cómo elegir Guía rápida →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "La norma Valores exigidos →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Resolución Cómo comparar →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Cotizar WhatsApp →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver VIRA PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "📡 Teleradiología 24/7 Interpretación remota DICOM con radiólogos certificados. Urgencias en menos de 60 minutos."
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "🖥️ Sistema PACS-RIS Almacenamiento y gestión de estudios con visor web avanzado y soporte 24/7."
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "🪪 Portal X-Card Entrega digital de estudios al paciente vía código QR. Sin placas ni CDs."
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/nuestros-productos/",
+      "status": 200,
+      "final_url": "https://raditech.mx/nuestros-productos/",
+      "cache": "hit",
+      "title": "Productos de Software Médico para Radiología | Raditech",
+      "h1": [
+        "Nuestros productos"
+      ],
+      "visible_words": 267,
+      "terms": {
+        "PACS": 2,
+        "RIS": 1,
+        "DICOM": 0,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 1
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "Ver Más"
+      ],
+      "internal_links_unique": 5,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver Más"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Ver Más"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Ver Más"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Ver Más"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Portal X-Card"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/pacs-teleradiologia/",
+      "status": 200,
+      "final_url": "https://raditech.mx/pacs-teleradiologia/",
+      "cache": "hit",
+      "title": "PACS Teleradiología en México | VIRA Raditech",
+      "h1": [
+        "PACS Teleradiología para interpretación remota DICOM."
+      ],
+      "visible_words": 788,
+      "terms": {
+        "PACS": 14,
+        "RIS": 2,
+        "DICOM": 7,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 2
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "sistema PACS-RIS",
+        "Sistema PACS-RIS"
+      ],
+      "internal_links_unique": 7,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Ver características"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Software"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Conocer →"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Características"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Explorar →"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Beneficios"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Ver áreas →"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Ver innovación"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores de grado médico"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "HIS hospitalario"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Inicio"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "HIS Hospitalario"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Monitores Médicos"
+        },
+        {
+          "url": "https://raditech.mx/blog/",
+          "anchor": "Blog"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/portal-x-card/",
+      "status": 200,
+      "final_url": "https://raditech.mx/portal-x-card/",
+      "cache": "hit",
+      "title": "Portal X-Card | Entrega digital de estudios | Raditech",
+      "h1": [
+        "Portal X-Card: entrega digital de estudios al paciente."
+      ],
+      "visible_words": 604,
+      "terms": {
+        "PACS": 2,
+        "RIS": 1,
+        "DICOM": 2,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 0
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "🖥️ Sistema PACS-RIS Almacenamiento y gestión de estudios con visor web avanzado y soporte 24/7."
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Ver cómo funciona"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Cómo funciona Tres pasos →"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Qué resuelve Ver problemas →"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Para quién Cada perfil →"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Cotizar Contacto →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "🖥️ Sistema PACS-RIS Almacenamiento y gestión de estudios con visor web avanzado y soporte 24/7."
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "📡 Teleradiología 24/7 Interpretación remota DICOM con radiólogos certificados. Urgencias en menos de 60 minutos."
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "🩻 Monitores médicos Monitores grado diagnóstico calibrados a DICOM GSDF para lectura radiológica."
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+      "status": 200,
+      "final_url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+      "cache": "miss",
+      "title": "Publicamos un glosario abierto de PACS, RIS, DICOM y HL7 -",
+      "h1": [
+        "Publicamos un glosario abierto de PACS, RIS, DICOM y HL7"
+      ],
+      "visible_words": 224,
+      "terms": {
+        "PACS": 6,
+        "RIS": 5,
+        "DICOM": 3,
+        "HL7": 3,
+        "servidor": 0,
+        "radiología": 1
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "Ver el sistema PACS-RIS"
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver el sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+          "anchor": "Anterior Radiólogos en México: por qué la escasez impulsa la radiología a distancia"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "Siguiente VIRA PACS frente a otras opciones del mercado mexicano"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+      "cache": "hit",
+      "title": "Radiología a distancia: guía para hospitales | Raditech",
+      "h1": [
+        "Radiología a distancia: guía para hospitales y clínicas en México"
+      ],
+      "visible_words": 3698,
+      "terms": {
+        "PACS": 15,
+        "RIS": 3,
+        "DICOM": 16,
+        "HL7": 8,
+        "servidor": 2,
+        "radiología": 30
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "sistema PACS"
+      ],
+      "internal_links_unique": 13,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+          "anchor": "Radiología a Distancia: Transformando el Diagnóstico por Imagen en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Teleradiología de Alta Especialidad de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Servicio de Teleradiología 24/7 de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS Teleradiología VIRA de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología Diagnóstica para Hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Teleradiología de Tomografía Cardíaca y Angio-TAC Coronaria"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Teleradiología de Resonancia Magnética Cardiovascular (CMR)"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "Imágenes Médicas Digitales: PACS, DICOM y Teleradiología para Hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Teleradiología de Alta Especialidad de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Ver el servicio de teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "Anterior VIRA PACS frente a otras opciones del mercado mexicano"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": "Siguiente Software Médico para Hospitales en México: Guía Completa 2026 para Digitalizar tu Institución de Salud"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+      "cache": "miss",
+      "title": "Radiólogos en México: escasez y qué hacer | Raditech",
+      "h1": [
+        "Radiólogos en México: por qué la escasez impulsa la radiología a distancia"
+      ],
+      "visible_words": 3309,
+      "terms": {
+        "PACS": 14,
+        "RIS": 7,
+        "DICOM": 18,
+        "HL7": 9,
+        "servidor": 0,
+        "radiología": 29
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS"
+      ],
+      "internal_links_unique": 11,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "guía completa de imágenes médicas digitales, PACS, DICOM y teleradiología para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "servicio de teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "servicio de teleradiología 24/7 de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "guía completa de DICOM Viewer para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS Teleradiología VIRA"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "guía completa del Sistema de Información Radiológica (RIS) para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología diagnóstica para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacta al equipo de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "Anterior Imágenes Médicas Digitales: Guía Completa de PACS, DICOM y Teleradiología para Hospitales en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "Siguiente Publicamos un glosario abierto de PACS, RIS, DICOM y HL7"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+      "status": 200,
+      "final_url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+      "cache": "miss",
+      "title": "RIS Radiología: Guía Completa del Sistema de Información Radiológica para Hospitales y Clínicas en México 2026 -",
+      "h1": [
+        "RIS Radiología: Guía Completa del Sistema de Información Radiológica para Hospitales y Clínicas en México 2026"
+      ],
+      "visible_words": 3174,
+      "terms": {
+        "PACS": 25,
+        "RIS": 65,
+        "DICOM": 9,
+        "HL7": 11,
+        "servidor": 0,
+        "radiología": 25
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "sistema PACS-RIS integrado para áreas de radiología",
+        "Ver el sistema PACS-RIS"
+      ],
+      "internal_links_unique": 11,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Sistema de Información Hospitalaria (HIS)"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "Expediente Clínico Electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "guía completa sobre Sistema PACS Hospital"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS integrado para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología para decisores hospitalarios"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "Conoce VIRA PACS, la solución mexicana para gestión de imagenología digital"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "solicita una demostración personalizada"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver el sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+          "anchor": "Anterior Workstation de Radiología: Guía Completa para Hospitales y Clínicas en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "Siguiente Imágenes Médicas Digitales: Guía Completa de PACS, DICOM y Teleradiología para Hospitales en México 2026"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/servicio-teleradiologia/",
+      "status": 200,
+      "final_url": "https://raditech.mx/servicio-teleradiologia/",
+      "cache": "hit",
+      "title": "Servicio de Teleradiología 24/7 | Raditech México",
+      "h1": [
+        "Servicio de Teleradiología 24/7 para Hospitales y Clínicas en México"
+      ],
+      "visible_words": 559,
+      "terms": {
+        "PACS": 7,
+        "RIS": 4,
+        "DICOM": 9,
+        "HL7": 3,
+        "servidor": 0,
+        "radiología": 3
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "VIRA PACS-RIS",
+        "visor web VIRA PACS"
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Software"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Características"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Beneficios"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Cotizar"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "Ver VIRA PACS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "VIRA PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "visor web VIRA PACS"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-his-medsi/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-his-medsi/",
+      "cache": "hit",
+      "title": "Software hospitalario en México | Sistema HIS | Raditech",
+      "h1": [
+        "Sistema de Información Hospitalaria"
+      ],
+      "visible_words": 1018,
+      "terms": {
+        "PACS": 12,
+        "RIS": 11,
+        "DICOM": 11,
+        "HL7": 6,
+        "servidor": 0,
+        "radiología": 3
+      },
+      "links_to_target": 4,
+      "target_anchors": [
+        "PACS-RIS VIRA",
+        "sistema PACS-RIS VIRA",
+        "sistema PACS-RIS VIRA",
+        "Ver PACS-RIS VIRA →"
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Módulos Admisión, consulta, urgencias →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Integración PACS-RIS DICOM / HL7 nativo →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Perfiles de usuario Médicos, enfermería, TI →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Preguntas frecuentes Implementación y costos →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS VIRA"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS VIRA"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores médicos de diagnóstico"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS VIRA"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "teleradiología de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver PACS-RIS VIRA →"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Ver Teleradiología →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Ver Monitores →"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico-2/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico-2/",
+      "cache": "miss",
+      "title": "Sistema de información hospitalaria en México | Raditech",
+      "h1": [
+        "Sistema de información hospitalaria en México: NOM-004, HL7 FHIR y PACS"
+      ],
+      "visible_words": 3393,
+      "terms": {
+        "PACS": 13,
+        "RIS": 10,
+        "DICOM": 6,
+        "HL7": 16,
+        "servidor": 0,
+        "radiología": 3
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "sistema PACS-RIS integrado"
+      ],
+      "internal_links_unique": 14,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": "guía completa de software médico para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "los beneficios de la digitalización en la gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "expediente clínico electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "guía completa del Sistema de Información Radiológica (RIS)"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "implementación de sistemas PACS para hospitales"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS integrado"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología diagnóstica"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contáctenos"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-mexico/",
+          "anchor": "Anterior DICOM Viewer: tipos, criterios y cómo elegir un visor DICOM"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-mexico/",
+          "anchor": "Siguiente VIRA PACS: Sistema de Radiología Digital Optimizado para Hospitales en México"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+      "cache": "miss",
+      "title": "¿Qué es un HIS? Guía para hospitales | Raditech",
+      "h1": [
+        "¿Qué es un HIS? El sistema de información hospitalaria explicado"
+      ],
+      "visible_words": 3020,
+      "terms": {
+        "PACS": 8,
+        "RIS": 9,
+        "DICOM": 4,
+        "HL7": 8,
+        "servidor": 0,
+        "radiología": 4
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "PACS-RIS para áreas de radiología",
+        "PACS-RIS de Raditech"
+      ],
+      "internal_links_unique": 10,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "guía completa sobre el Expediente Clínico Electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "los beneficios de la digitalización en gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "guía de Inteligencia Artificial en Radiología Diagnóstica para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "contáctanos"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "Anterior ¿Qué es DICOM y para qué sirve un visor de imágenes médicas?"
+        },
+        {
+          "url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+          "anchor": "Siguiente Workstation de Radiología: Guía Completa para Hospitales y Clínicas en México 2026"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+      "cache": "miss",
+      "title": "¿Qué es un PACS y cómo funciona? Guía 2026 | Raditech",
+      "h1": [
+        "¿Qué es un PACS y cómo funciona? Guía completa para hospitales en México"
+      ],
+      "visible_words": 4937,
+      "terms": {
+        "PACS": 83,
+        "RIS": 15,
+        "DICOM": 18,
+        "HL7": 10,
+        "servidor": 4,
+        "radiología": 17
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS para áreas de radiología"
+      ],
+      "internal_links_unique": 12,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "gestión hospitalaria y los beneficios de su digitalización"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores médicos de grado diagnóstico DICOM"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "guía completa de teleradiología en México para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología diagnóstica en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "VIRA PACS para teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "guía completa sobre el Expediente Clínico Electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología en México para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacta a nuestro equipo"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Anterior Inteligencia Artificial en Radiología Diagnóstica: Guía Completa para Hospitales en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "Siguiente NOM-004-SSA3-2012: qué exige la norma del expediente clínico"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Cancelar respuesta"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+      "cache": "miss",
+      "title": "Implementar un PACS: costos, ROI y NOM-004 | Raditech",
+      "h1": [
+        "Implementar un sistema PACS en México: costos, ROI y NOM-004"
+      ],
+      "visible_words": 3800,
+      "terms": {
+        "PACS": 74,
+        "RIS": 15,
+        "DICOM": 20,
+        "HL7": 9,
+        "servidor": 1,
+        "radiología": 17
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS para áreas de radiología"
+      ],
+      "internal_links_unique": 14,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+          "anchor": "workstations de radiología para hospitales"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "radiología a distancia para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "guía completa sobre DICOM Viewer para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "sistema RIS para radiología"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Sistema de Información Hospitalaria (HIS)"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "expediente clínico electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS para teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología diagnóstica en México"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Solicite una demostración personalizada"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "VIRA PACS para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": "Anterior Software Médico para Hospitales en México: Guía Completa 2026 para Digitalizar tu Institución de Salud"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-mexico/",
+          "anchor": "Siguiente DICOM Viewer: tipos, criterios y cómo elegir un visor DICOM"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-pacs-ris/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-pacs-ris/",
+      "cache": "hit",
+      "title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "h1": [
+        "PACS-RIS para áreas de radiología."
+      ],
+      "visible_words": 1223,
+      "terms": {
+        "PACS": 15,
+        "RIS": 15,
+        "DICOM": 6,
+        "HL7": 4,
+        "servidor": 1,
+        "radiología": 5
+      },
+      "links_to_target": 8,
+      "target_anchors": [
+        "Ver características",
+        "Software Conocer →",
+        "PACS vs RIS Diferencias →",
+        "Características Explorar →",
+        "Beneficios Ver áreas →",
+        "Cotizar Contacto →",
+        "Ver innovación",
+        "Ver qué incluye"
+      ],
+      "internal_links_unique": 7,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver características"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Software Conocer →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS vs RIS Diferencias →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Características Explorar →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Beneficios Ver áreas →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Cotizar Contacto →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "qué es un sistema PACS y cómo funciona"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver innovación"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver qué incluye"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores de grado médico"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "X-Card digital"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "guía de implementación de un sistema PACS"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "📡 Teleradiología 24/7 Interpretación remota DICOM con radiólogos certificados. Urgencias en menos de 60 minutos."
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "🪪 Portal X-Card Entrega digital de estudios al paciente vía código QR. Sin placas ni CDs."
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "🧠 Alta Especialidad Subespecialistas en neuroradiología, cardiovascular y musculoesquelética disponibles 24/7."
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+      "status": 200,
+      "final_url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+      "cache": "miss",
+      "title": "Software Médico Hospital México: Guía HIS 2026 | NOM-024",
+      "h1": [
+        "Software Médico para Hospitales en México: Guía Completa 2026 para Digitalizar tu Institución de Salud"
+      ],
+      "visible_words": 4319,
+      "terms": {
+        "PACS": 12,
+        "RIS": 8,
+        "DICOM": 10,
+        "HL7": 10,
+        "servidor": 0,
+        "radiología": 7
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS para áreas de radiología"
+      ],
+      "internal_links_unique": 13,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Guía Completa del Sistema de Información Hospitalaria (HIS) para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "guía completa sobre el Expediente Clínico Electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "4 beneficios de la digitalización en gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "imágenes médicas digitales, PACS, DICOM y teleradiología para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología Diagnóstica para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "radiología a distancia para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacta al equipo de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/nuestros-productos/",
+          "anchor": "productos y soluciones"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "Anterior Radiología a distancia: guía para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "Siguiente Implementar un sistema PACS en México: costos, ROI y NOM-004"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "status": 200,
+      "final_url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "cache": "hit",
+      "title": "Teleradiología de alta especialidad 24/7 | Raditech",
+      "h1": [
+        "Subespecialistas en Imagen Médica disponibles 24/7 para tu Hospital"
+      ],
+      "visible_words": 658,
+      "terms": {
+        "PACS": 4,
+        "RIS": 3,
+        "DICOM": 5,
+        "HL7": 2,
+        "servidor": 0,
+        "radiología": 4
+      },
+      "links_to_target": 3,
+      "target_anchors": [
+        "VIRA PACS-RIS",
+        "VIRA PACS-RIS",
+        "🖥️ Sistema PACS-RIS Almacenamiento, gestión y distribución de estudios con visor web avanzado y soporte 24/7."
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Especialidades"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Diferencia"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Métricas"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Cotizar"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "VIRA PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "teleradiología general"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "VIRA PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores de grado médico certificados DICOM"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "📡 Teleradiología 24/7 Servicio general de teleradiología con radiólogos certificados. Resultados urgentes en menos de 60 minutos."
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "🖥️ Sistema PACS-RIS Almacenamiento, gestión y distribución de estudios con visor web avanzado y soporte 24/7."
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "🖱️ Monitores Médicos Monitores de grado médico certificados DICOM Part 14, marcas Barco, Eizo y NEC."
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+      "status": 200,
+      "final_url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+      "cache": "miss",
+      "title": "Teleradiología Resonancia Cardiovascular (CMR) | Raditech",
+      "h1": [
+        "Resonancia Magnética Cardiovascular"
+      ],
+      "visible_words": 993,
+      "terms": {
+        "PACS": 13,
+        "RIS": 6,
+        "DICOM": 11,
+        "HL7": 3,
+        "servidor": 2,
+        "radiología": 2
+      },
+      "links_to_target": 4,
+      "target_anchors": [
+        "PACS-RIS",
+        "PACS-RIS",
+        "PACS-RIS VIRA",
+        "Ver PACS-RIS →"
+      ],
+      "internal_links_unique": 5,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Indicaciones clínicas Miocardiopatías, cardiopatías →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Flujo de trabajo Envío DICOM y reporte →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "¿Para quién? Hospitales, cardiólogos →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Preguntas frecuentes Acreditaciones y SLA →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "teleradiología general"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS VIRA"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Ver Tomografía Cardiaca →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Ver Alta Especialidad →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver PACS-RIS →"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+      "cache": "hit",
+      "title": "Teleradiología: Solución Estratégica para Hospitales y Clínicas en México -",
+      "h1": [
+        "Teleradiología: Solución Estratégica para Hospitales y Clínicas en México"
+      ],
+      "visible_words": 3845,
+      "terms": {
+        "PACS": 10,
+        "RIS": 12,
+        "DICOM": 20,
+        "HL7": 13,
+        "servidor": 0,
+        "radiología": 21
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "el sistema PACS-RIS"
+      ],
+      "internal_links_unique": 11,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Guía Completa de Teleradiología en México para Hospitales y Clínicas 2026"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "servicio de Teleradiología de Alta Especialidad"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Servicio de Teleradiología 24/7 de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Guía Completa de Sistema PACS para Hospitales 2026"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "el sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "Guía Completa de Expediente Clínico Electrónico en México para Hospitales y Clínicas 2026"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología: Guía Completa para Decisores Hospitalarios en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "VIRA PACS"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Ver el servicio de teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "Anterior NOM-004-SSA3-2012: qué exige la norma del expediente clínico"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "Siguiente ¿Qué es DICOM y para qué sirve un visor de imágenes médicas?"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "10/07/2026 a las 9:24 pm"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Responder"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Cancelar respuesta"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+      "status": 200,
+      "final_url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+      "cache": "miss",
+      "title": "Teleradiología Tomografía Cardiaca | Angio-TAC | Raditech",
+      "h1": [
+        "Tomografía Cardiaca y Angio-TAC"
+      ],
+      "visible_words": 867,
+      "terms": {
+        "PACS": 8,
+        "RIS": 4,
+        "DICOM": 12,
+        "HL7": 0,
+        "servidor": 2,
+        "radiología": 1
+      },
+      "links_to_target": 3,
+      "target_anchors": [
+        "PACS-RIS",
+        "PACS-RIS",
+        "Ver PACS-RIS →"
+      ],
+      "internal_links_unique": 6,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "HIS hospitalario"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Indicaciones clínicas CAC, CCTA, TAVI, cardiopatías →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Flujo de trabajo DICOM desde su tomógrafo →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "¿Para quién? Hospitales, cardiólogos →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Preguntas frecuentes Equipos compatibles y SLA →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "y monitores DICOM"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "resonancia cardiovascular"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "CMR teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Ver Resonancia Cardiovascular →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Ver Alta Especialidad →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver PACS-RIS →"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+      "cache": "miss",
+      "title": "VIRA PACS vs. otras opciones del mercado | Raditech",
+      "h1": [
+        "VIRA PACS frente a otras opciones del mercado mexicano"
+      ],
+      "visible_words": 3844,
+      "terms": {
+        "PACS": 59,
+        "RIS": 5,
+        "DICOM": 14,
+        "HL7": 5,
+        "servidor": 0,
+        "radiología": 20
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "sistema PACS-RIS para áreas de radiología"
+      ],
+      "internal_links_unique": 18,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología como solución estratégica para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "guía completa de imágenes médicas digitales, PACS, DICOM y teleradiología para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "guía completa sobre visores DICOM para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "servicio de teleradiología 24/7"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Sistema de Información Hospitalaria (HIS) para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "expediente clínico electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "digitalización y beneficios en la gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "RIS (Sistema de Información Radiológica)"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "teleradiología de tomografía cardiaca y Angio-TAC coronaria"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "resonancia magnética cardiovascular (CMR)"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "guía completa sobre inteligencia artificial en radiología diagnóstica para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Teleradiología de Alta Especialidad de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Teleradiología: Solución Estratégica para Hospitales y Clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS con teleradiología VIRA"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Solicita una demostración sin compromiso de VIRA PACS"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Ver PACS con teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "Anterior Publicamos un glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "Siguiente Radiología a distancia: guía para hospitales y clínicas en México"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+      "cache": "miss",
+      "title": "Workstation de Radiología: Guía Completa para Hospitales y Clínicas en México 2026 -",
+      "h1": [
+        "Workstation de Radiología: Guía Completa para Hospitales y Clínicas en México 2026"
+      ],
+      "visible_words": 2863,
+      "terms": {
+        "PACS": 10,
+        "RIS": 11,
+        "DICOM": 26,
+        "HL7": 6,
+        "servidor": 0,
+        "radiología": 23
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS de Raditech"
+      ],
+      "internal_links_unique": 12,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "guía completa sobre DICOM Viewer para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores médicos para radiología con certificación DICOM"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "guía completa sobre sistema PACS para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "expediente clínico electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología en México"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología para decisores hospitalarios en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "VIRA PACS, nuestra solución mexicana para gestión de imagenología digital"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "contactar a nuestro equipo técnico"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Anterior ¿Qué es un HIS? El sistema de información hospitalaria explicado"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "Siguiente RIS Radiología: Guía Completa del Sistema de Información Radiológica para Hospitales y Clínicas en México 2026"
+        }
+      ]
+    }
+  ],
+  "missing_link_candidates": [
+    {
+      "url": "https://raditech.mx/blog/",
+      "status": 200,
+      "final_url": "https://raditech.mx/blog/",
+      "cache": "miss",
+      "title": "Blog de Teleradiología, PACS e Imagen Médica | Raditech",
+      "h1": [
+        "Blog de Teleradiología, PACS e Imagen Médica"
+      ],
+      "visible_words": 431,
+      "terms": {
+        "PACS": 13,
+        "RIS": 2,
+        "DICOM": 10,
+        "HL7": 3,
+        "servidor": 0,
+        "radiología": 6
+      },
+      "links_to_target": 0,
+      "target_anchors": [],
+      "internal_links_unique": 15,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-mexico/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/diagnostico-por-imagen/",
+          "anchor": "Diagnostico por Imagen"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-mexico/",
+          "anchor": "VIRA PACS: Sistema de Radiología Digital Optimizado para Hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico-2/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/gestion-hospitalaria/",
+          "anchor": "Gestion Hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico-2/",
+          "anchor": "Sistema de información hospitalaria en México: NOM-004, HL7 FHIR y PACS"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/category/diagnostico-por-imagen/",
+          "anchor": "Diagnostico por Imagen"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-mexico/",
+          "anchor": "DICOM Viewer: tipos, criterios y cómo elegir un visor DICOM"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/diagnostico-por-imagen/",
+          "anchor": "Diagnostico por Imagen"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "Implementar un sistema PACS en México: costos, ROI y NOM-004"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/gestion-hospitalaria/",
+          "anchor": "Gestion Hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": "Software Médico para Hospitales en México: Guía Completa 2026 para Digitalizar tu Institución de Salud"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/teleradiologia/",
+          "anchor": "Teleradiologia"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "Radiología a distancia: guía para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/diagnostico-por-imagen/",
+          "anchor": "Diagnostico por Imagen"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "VIRA PACS frente a otras opciones del mercado mexicano"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/category/uncategorized/",
+          "anchor": "Uncategorized"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "Publicamos un glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/teleradiologia/",
+          "anchor": "Teleradiologia"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+          "anchor": "Radiólogos en México: por qué la escasez impulsa la radiología a distancia"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/diagnostico-por-imagen/",
+          "anchor": "Diagnostico por Imagen"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "Imágenes Médicas Digitales: Guía Completa de PACS, DICOM y Teleradiología para Hospitales en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/contacto/",
+      "status": 200,
+      "final_url": "https://raditech.mx/contacto/",
+      "cache": "miss",
+      "title": "Contacto | Demo de PACS y Teleradiología | Raditech",
+      "h1": [
+        "Contacto"
+      ],
+      "visible_words": 349,
+      "terms": {
+        "PACS": 3,
+        "RIS": 3,
+        "DICOM": 0,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 0
+      },
+      "links_to_target": 0,
+      "target_anchors": [],
+      "internal_links_unique": 0,
+      "internal_links": []
+    },
+    {
+      "url": "https://raditech.mx/beneficios-teleradiografia-de-torax-pacientes/",
+      "status": 200,
+      "final_url": "https://raditech.mx/beneficios-teleradiografia-de-torax-pacientes/",
+      "cache": "miss",
+      "title": "Teleradiografía de Tórax: 10 Beneficios Clave para Pacientes",
+      "h1": [
+        "Teleradiografía de Tórax: 10 Beneficios Clave para Pacientes"
+      ],
+      "visible_words": 1422,
+      "terms": {
+        "PACS": 3,
+        "RIS": 1,
+        "DICOM": 0,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 1
+      },
+      "links_to_target": 0,
+      "target_anchors": [],
+      "internal_links_unique": 3,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Eleva la calidad de atención a tus pacientes"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "Siguiente Gestión Hospitalaria: 4 Beneficios de su Digitalización"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://raditech.mx/",
+      "status": 200,
+      "final_url": "https://raditech.mx/",
+      "cache": "hit",
+      "title": "Raditech | Soluciones de radiología digital para hospitales",
+      "h1": [
+        "PACS Raditech solución integral en radiología"
+      ],
+      "visible_words": 535,
+      "terms": {
+        "PACS": 11,
+        "RIS": 6,
+        "DICOM": 0,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 2
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "Conocer PACS-RIS"
+      ],
+      "internal_links_unique": 10,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Ver soluciones"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Soluciones Explorar →"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Alta especialidad Ver servicios →"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Experiencia Resultados →"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacto Cotizar →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Conocer PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Ver teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Ver HIS"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Ver X-Card"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Ver monitores"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Ver servicio"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Ver servicio"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Ver servicio"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacto"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacto"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/beneficios-teleradiografia-de-torax-pacientes/",
+      "status": 200,
+      "final_url": "https://raditech.mx/beneficios-teleradiografia-de-torax-pacientes/",
+      "cache": "miss",
+      "title": "Teleradiografía de Tórax: 10 Beneficios Clave para Pacientes",
+      "h1": [
+        "Teleradiografía de Tórax: 10 Beneficios Clave para Pacientes"
+      ],
+      "visible_words": 1422,
+      "terms": {
+        "PACS": 3,
+        "RIS": 1,
+        "DICOM": 0,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 1
+      },
+      "links_to_target": 0,
+      "target_anchors": [],
+      "internal_links_unique": 3,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Eleva la calidad de atención a tus pacientes"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "Siguiente Gestión Hospitalaria: 4 Beneficios de su Digitalización"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/blog/",
+      "status": 200,
+      "final_url": "https://raditech.mx/blog/",
+      "cache": "miss",
+      "title": "Blog de Teleradiología, PACS e Imagen Médica | Raditech",
+      "h1": [
+        "Blog de Teleradiología, PACS e Imagen Médica"
+      ],
+      "visible_words": 431,
+      "terms": {
+        "PACS": 13,
+        "RIS": 2,
+        "DICOM": 10,
+        "HL7": 3,
+        "servidor": 0,
+        "radiología": 6
+      },
+      "links_to_target": 0,
+      "target_anchors": [],
+      "internal_links_unique": 15,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-mexico/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/diagnostico-por-imagen/",
+          "anchor": "Diagnostico por Imagen"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-mexico/",
+          "anchor": "VIRA PACS: Sistema de Radiología Digital Optimizado para Hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico-2/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/gestion-hospitalaria/",
+          "anchor": "Gestion Hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico-2/",
+          "anchor": "Sistema de información hospitalaria en México: NOM-004, HL7 FHIR y PACS"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/category/diagnostico-por-imagen/",
+          "anchor": "Diagnostico por Imagen"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-mexico/",
+          "anchor": "DICOM Viewer: tipos, criterios y cómo elegir un visor DICOM"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/diagnostico-por-imagen/",
+          "anchor": "Diagnostico por Imagen"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "Implementar un sistema PACS en México: costos, ROI y NOM-004"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/gestion-hospitalaria/",
+          "anchor": "Gestion Hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": "Software Médico para Hospitales en México: Guía Completa 2026 para Digitalizar tu Institución de Salud"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/teleradiologia/",
+          "anchor": "Teleradiologia"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "Radiología a distancia: guía para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/diagnostico-por-imagen/",
+          "anchor": "Diagnostico por Imagen"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "VIRA PACS frente a otras opciones del mercado mexicano"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/category/uncategorized/",
+          "anchor": "Uncategorized"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "Publicamos un glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/teleradiologia/",
+          "anchor": "Teleradiologia"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+          "anchor": "Radiólogos en México: por qué la escasez impulsa la radiología a distancia"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": ""
+        },
+        {
+          "url": "https://raditech.mx/category/diagnostico-por-imagen/",
+          "anchor": "Diagnostico por Imagen"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "Imágenes Médicas Digitales: Guía Completa de PACS, DICOM y Teleradiología para Hospitales en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/contacto/",
+      "status": 200,
+      "final_url": "https://raditech.mx/contacto/",
+      "cache": "miss",
+      "title": "Contacto | Demo de PACS y Teleradiología | Raditech",
+      "h1": [
+        "Contacto"
+      ],
+      "visible_words": 349,
+      "terms": {
+        "PACS": 3,
+        "RIS": 3,
+        "DICOM": 0,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 0
+      },
+      "links_to_target": 0,
+      "target_anchors": [],
+      "internal_links_unique": 0,
+      "internal_links": []
+    },
+    {
+      "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+      "cache": "miss",
+      "title": "¿Qué es DICOM y para qué sirve un visor? | Raditech",
+      "h1": [
+        "¿Qué es DICOM y para qué sirve un visor de imágenes médicas?"
+      ],
+      "visible_words": 1316,
+      "terms": {
+        "PACS": 7,
+        "RIS": 4,
+        "DICOM": 30,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 8
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "sistema PACS-RIS para radiología",
+        "Ver el sistema PACS-RIS"
+      ],
+      "internal_links_unique": 11,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Sistema PACS hospitalario completo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS para radiología"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología en México"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología diagnóstica en México"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Portal X-Card de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores médicos de grado diagnóstico DICOM"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS VIRA para teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacta a nuestro equipo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver el sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Anterior Teleradiología: Solución Estratégica para Hospitales y Clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Siguiente ¿Qué es un HIS? El sistema de información hospitalaria explicado"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-mexico/",
+      "cache": "miss",
+      "title": "DICOM Viewer: tipos y cómo elegirlo | Raditech",
+      "h1": [
+        "DICOM Viewer: tipos, criterios y cómo elegir un visor DICOM"
+      ],
+      "visible_words": 3354,
+      "terms": {
+        "PACS": 33,
+        "RIS": 2,
+        "DICOM": 65,
+        "HL7": 7,
+        "servidor": 0,
+        "radiología": 8
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "Ver el sistema PACS-RIS"
+      ],
+      "internal_links_unique": 12,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "guía completa de implementación de sistemas PACS para hospitales"
+        },
+        {
+          "url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+          "anchor": "guía completa de workstations de radiología para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": "guía completa de software médico para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "servicio de teleradiología 24/7"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "guía completa de radiología a distancia para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "guía sobre inteligencia artificial en radiología diagnóstica para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS Teleradiología VIRA"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Solicite una demostración personalizada"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver el sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "Anterior Implementar un sistema PACS en México: costos, ROI y NOM-004"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico-2/",
+          "anchor": "Siguiente Sistema de información hospitalaria en México: NOM-004, HL7 FHIR y PACS"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+      "status": 200,
+      "final_url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+      "cache": "hit",
+      "title": "Gestión Hospitalaria: 4 Beneficios de su Digitalización",
+      "h1": [
+        "Gestión Hospitalaria: 4 Beneficios de su Digitalización"
+      ],
+      "visible_words": 930,
+      "terms": {
+        "PACS": 3,
+        "RIS": 2,
+        "DICOM": 0,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 1
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS (Sistemas de Archivo y Comunicación de Imágenes), RIS (Sistemas de Información Radiológica) y la teleradiología"
+      ],
+      "internal_links_unique": 6,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS (Sistemas de Archivo y Comunicación de Imágenes), RIS (Sistemas de Información Radiológica) y la teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Ver el sistema HIS"
+        },
+        {
+          "url": "https://raditech.mx/beneficios-teleradiografia-de-torax-pacientes/",
+          "anchor": "Anterior Teleradiografía de Tórax: 10 Beneficios Clave para Pacientes"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Siguiente Inteligencia Artificial en Radiología Diagnóstica: Guía Completa para Hospitales en México 2026"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+      "status": 200,
+      "final_url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+      "cache": "miss",
+      "title": "NOM-004: la norma del expediente clínico | Raditech",
+      "h1": [
+        "NOM-004-SSA3-2012: qué exige la norma del expediente clínico"
+      ],
+      "visible_words": 3547,
+      "terms": {
+        "PACS": 12,
+        "RIS": 8,
+        "DICOM": 6,
+        "HL7": 15,
+        "servidor": 0,
+        "radiología": 5
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS para áreas de radiología de Raditech"
+      ],
+      "internal_links_unique": 9,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "gestión hospitalaria y los beneficios de su digitalización"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Sistema PACS para hospitales y la digitalización de imagenología médica en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS para áreas de radiología de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología para decisores hospitalarios en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacte a nuestro equipo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Ver el software hospitalario"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Anterior ¿Qué es un PACS y cómo funciona? Guía completa para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Siguiente Teleradiología: Solución Estratégica para Hospitales y Clínicas en México"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/faq/",
+      "status": 200,
+      "final_url": "https://raditech.mx/faq/",
+      "cache": "hit",
+      "title": "Preguntas Frecuentes sobre PACS y Teleradiología | Raditech",
+      "h1": [
+        "Preguntas frecuentes"
+      ],
+      "visible_words": 2159,
+      "terms": {
+        "PACS": 16,
+        "RIS": 6,
+        "DICOM": 1,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 2
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "solución PACS-RIS de Raditech"
+      ],
+      "internal_links_unique": 1,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "solución PACS-RIS de Raditech"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+      "cache": "miss",
+      "title": "Imágenes Médicas Digitales: Guía Completa de PACS, DICOM y Teleradiología para Hospitales en México 2026 -",
+      "h1": [
+        "Imágenes Médicas Digitales: Guía Completa de PACS, DICOM y Teleradiología para Hospitales en México 2026"
+      ],
+      "visible_words": 3353,
+      "terms": {
+        "PACS": 44,
+        "RIS": 10,
+        "DICOM": 24,
+        "HL7": 9,
+        "servidor": 0,
+        "radiología": 11
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "sistema PACS-RIS para áreas de radiología"
+      ],
+      "internal_links_unique": 13,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "los beneficios de la digitalización en la gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "visores DICOM para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Sistema de Información Hospitalaria (HIS)"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "sistemas PACS para hospitales"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "Sistema de Información Radiológica (RIS)"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Teleradiología de Alta Especialidad de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología Diagnóstica en México"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "Expediente Clínico Electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "VIRA PACS"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "contactar a nuestro equipo"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "Anterior RIS Radiología: Guía Completa del Sistema de Información Radiológica para Hospitales y Clínicas en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+          "anchor": "Siguiente Radiólogos en México: por qué la escasez impulsa la radiología a distancia"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+      "status": 200,
+      "final_url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+      "cache": "hit",
+      "title": "Inteligencia Artificial en Radiología Diagnóstica: Guía Completa para Hospitales en México 2026 -",
+      "h1": [
+        "Inteligencia Artificial en Radiología Diagnóstica: Guía Completa para Hospitales en México 2026"
+      ],
+      "visible_words": 4143,
+      "terms": {
+        "PACS": 19,
+        "RIS": 10,
+        "DICOM": 8,
+        "HL7": 5,
+        "servidor": 0,
+        "radiología": 27
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "PACS-RIS de Raditech",
+        "sistemas PACS y RIS"
+      ],
+      "internal_links_unique": 11,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistemas PACS y RIS"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "digitalización de la gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología en México para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "sistema de información hospitalaria (HIS)"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "guía completa de teleradiología en México para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "sistema de información hospitalaria (HIS) robusto"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Solicite una consultoría sin compromiso"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "VIRA PACS, la solución integral de imagenología digital de Raditech para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "Anterior Gestión Hospitalaria: 4 Beneficios de su Digitalización"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Siguiente ¿Qué es un PACS y cómo funciona? Guía completa para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Cancelar respuesta"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/monitores-medicos-radiologia/",
+      "status": 200,
+      "final_url": "https://raditech.mx/monitores-medicos-radiologia/",
+      "cache": "hit",
+      "title": "Monitores Médicos DICOM para Radiología | Raditech",
+      "h1": [
+        "Monitores Grado Médico para Diagnóstico Radiológico de Alta Precisión"
+      ],
+      "visible_words": 1546,
+      "terms": {
+        "PACS": 10,
+        "RIS": 9,
+        "DICOM": 15,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 6
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "Ver VIRA PACS-RIS",
+        "🖥️ Sistema PACS-RIS Almacenamiento y gestión de estudios con visor web avanzado y soporte 24/7."
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Solicitar Cotización"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "¿Qué son? Conocer →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Marcas Ver opciones →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Cómo elegir Guía rápida →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "La norma Valores exigidos →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Resolución Cómo comparar →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Cotizar WhatsApp →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver VIRA PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "📡 Teleradiología 24/7 Interpretación remota DICOM con radiólogos certificados. Urgencias en menos de 60 minutos."
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "🖥️ Sistema PACS-RIS Almacenamiento y gestión de estudios con visor web avanzado y soporte 24/7."
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "🪪 Portal X-Card Entrega digital de estudios al paciente vía código QR. Sin placas ni CDs."
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/nuestros-productos/",
+      "status": 200,
+      "final_url": "https://raditech.mx/nuestros-productos/",
+      "cache": "hit",
+      "title": "Productos de Software Médico para Radiología | Raditech",
+      "h1": [
+        "Nuestros productos"
+      ],
+      "visible_words": 267,
+      "terms": {
+        "PACS": 2,
+        "RIS": 1,
+        "DICOM": 0,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 1
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "Ver Más"
+      ],
+      "internal_links_unique": 5,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver Más"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Ver Más"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Ver Más"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Ver Más"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Portal X-Card"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/pacs-teleradiologia/",
+      "status": 200,
+      "final_url": "https://raditech.mx/pacs-teleradiologia/",
+      "cache": "hit",
+      "title": "PACS Teleradiología en México | VIRA Raditech",
+      "h1": [
+        "PACS Teleradiología para interpretación remota DICOM."
+      ],
+      "visible_words": 788,
+      "terms": {
+        "PACS": 14,
+        "RIS": 2,
+        "DICOM": 7,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 2
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "sistema PACS-RIS",
+        "Sistema PACS-RIS"
+      ],
+      "internal_links_unique": 7,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Ver características"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Software"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Conocer →"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Características"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Explorar →"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Beneficios"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Ver áreas →"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Ver innovación"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores de grado médico"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "HIS hospitalario"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Inicio"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "HIS Hospitalario"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Monitores Médicos"
+        },
+        {
+          "url": "https://raditech.mx/blog/",
+          "anchor": "Blog"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/politicas-de-privacidad/",
+      "status": 200,
+      "final_url": "https://raditech.mx/politicas-de-privacidad/",
+      "cache": "miss",
+      "title": "Aviso de privacidad -",
+      "h1": [
+        "Aviso de privacidad"
+      ],
+      "visible_words": 1323,
+      "terms": {
+        "PACS": 0,
+        "RIS": 0,
+        "DICOM": 0,
+        "HL7": 0,
+        "servidor": 2,
+        "radiología": 0
+      },
+      "links_to_target": 0,
+      "target_anchors": [],
+      "internal_links_unique": 0,
+      "internal_links": []
+    },
+    {
+      "url": "https://raditech.mx/portal-x-card/",
+      "status": 200,
+      "final_url": "https://raditech.mx/portal-x-card/",
+      "cache": "hit",
+      "title": "Portal X-Card | Entrega digital de estudios | Raditech",
+      "h1": [
+        "Portal X-Card: entrega digital de estudios al paciente."
+      ],
+      "visible_words": 604,
+      "terms": {
+        "PACS": 2,
+        "RIS": 1,
+        "DICOM": 2,
+        "HL7": 0,
+        "servidor": 0,
+        "radiología": 0
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "🖥️ Sistema PACS-RIS Almacenamiento y gestión de estudios con visor web avanzado y soporte 24/7."
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Ver cómo funciona"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Cómo funciona Tres pasos →"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Qué resuelve Ver problemas →"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Para quién Cada perfil →"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "Cotizar Contacto →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "🖥️ Sistema PACS-RIS Almacenamiento y gestión de estudios con visor web avanzado y soporte 24/7."
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "📡 Teleradiología 24/7 Interpretación remota DICOM con radiólogos certificados. Urgencias en menos de 60 minutos."
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "🩻 Monitores médicos Monitores grado diagnóstico calibrados a DICOM GSDF para lectura radiológica."
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+      "status": 200,
+      "final_url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+      "cache": "miss",
+      "title": "Publicamos un glosario abierto de PACS, RIS, DICOM y HL7 -",
+      "h1": [
+        "Publicamos un glosario abierto de PACS, RIS, DICOM y HL7"
+      ],
+      "visible_words": 224,
+      "terms": {
+        "PACS": 6,
+        "RIS": 5,
+        "DICOM": 3,
+        "HL7": 3,
+        "servidor": 0,
+        "radiología": 1
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "Ver el sistema PACS-RIS"
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver el sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+          "anchor": "Anterior Radiólogos en México: por qué la escasez impulsa la radiología a distancia"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "Siguiente VIRA PACS frente a otras opciones del mercado mexicano"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+      "cache": "hit",
+      "title": "Radiología a distancia: guía para hospitales | Raditech",
+      "h1": [
+        "Radiología a distancia: guía para hospitales y clínicas en México"
+      ],
+      "visible_words": 3698,
+      "terms": {
+        "PACS": 15,
+        "RIS": 3,
+        "DICOM": 16,
+        "HL7": 8,
+        "servidor": 2,
+        "radiología": 30
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "sistema PACS"
+      ],
+      "internal_links_unique": 13,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+          "anchor": "Radiología a Distancia: Transformando el Diagnóstico por Imagen en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Teleradiología de Alta Especialidad de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Servicio de Teleradiología 24/7 de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS Teleradiología VIRA de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología Diagnóstica para Hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Teleradiología de Tomografía Cardíaca y Angio-TAC Coronaria"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Teleradiología de Resonancia Magnética Cardiovascular (CMR)"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "Imágenes Médicas Digitales: PACS, DICOM y Teleradiología para Hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Teleradiología de Alta Especialidad de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Ver el servicio de teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "Anterior VIRA PACS frente a otras opciones del mercado mexicano"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": "Siguiente Software Médico para Hospitales en México: Guía Completa 2026 para Digitalizar tu Institución de Salud"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/radiologia-a-distancia-transformando-diagnostico-imagen-mexico/",
+      "cache": "miss",
+      "title": "Radiólogos en México: escasez y qué hacer | Raditech",
+      "h1": [
+        "Radiólogos en México: por qué la escasez impulsa la radiología a distancia"
+      ],
+      "visible_words": 3309,
+      "terms": {
+        "PACS": 14,
+        "RIS": 7,
+        "DICOM": 18,
+        "HL7": 9,
+        "servidor": 0,
+        "radiología": 29
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS"
+      ],
+      "internal_links_unique": 11,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "guía completa de imágenes médicas digitales, PACS, DICOM y teleradiología para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "servicio de teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "servicio de teleradiología 24/7 de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "guía completa de DICOM Viewer para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS Teleradiología VIRA"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "guía completa del Sistema de Información Radiológica (RIS) para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología diagnóstica para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacta al equipo de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "Anterior Imágenes Médicas Digitales: Guía Completa de PACS, DICOM y Teleradiología para Hospitales en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "Siguiente Publicamos un glosario abierto de PACS, RIS, DICOM y HL7"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+      "status": 200,
+      "final_url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+      "cache": "miss",
+      "title": "RIS Radiología: Guía Completa del Sistema de Información Radiológica para Hospitales y Clínicas en México 2026 -",
+      "h1": [
+        "RIS Radiología: Guía Completa del Sistema de Información Radiológica para Hospitales y Clínicas en México 2026"
+      ],
+      "visible_words": 3174,
+      "terms": {
+        "PACS": 25,
+        "RIS": 65,
+        "DICOM": 9,
+        "HL7": 11,
+        "servidor": 0,
+        "radiología": 25
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "sistema PACS-RIS integrado para áreas de radiología",
+        "Ver el sistema PACS-RIS"
+      ],
+      "internal_links_unique": 11,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Sistema de Información Hospitalaria (HIS)"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "Expediente Clínico Electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "guía completa sobre Sistema PACS Hospital"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS integrado para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología para decisores hospitalarios"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "Conoce VIRA PACS, la solución mexicana para gestión de imagenología digital"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "solicita una demostración personalizada"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver el sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+          "anchor": "Anterior Workstation de Radiología: Guía Completa para Hospitales y Clínicas en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "Siguiente Imágenes Médicas Digitales: Guía Completa de PACS, DICOM y Teleradiología para Hospitales en México 2026"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/servicio-teleradiologia/",
+      "status": 200,
+      "final_url": "https://raditech.mx/servicio-teleradiologia/",
+      "cache": "hit",
+      "title": "Servicio de Teleradiología 24/7 | Raditech México",
+      "h1": [
+        "Servicio de Teleradiología 24/7 para Hospitales y Clínicas en México"
+      ],
+      "visible_words": 559,
+      "terms": {
+        "PACS": 7,
+        "RIS": 4,
+        "DICOM": 9,
+        "HL7": 3,
+        "servidor": 0,
+        "radiología": 3
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "VIRA PACS-RIS",
+        "visor web VIRA PACS"
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Software"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Características"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Beneficios"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Cotizar"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "Ver VIRA PACS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "VIRA PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "visor web VIRA PACS"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-his-medsi/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-his-medsi/",
+      "cache": "hit",
+      "title": "Software hospitalario en México | Sistema HIS | Raditech",
+      "h1": [
+        "Sistema de Información Hospitalaria"
+      ],
+      "visible_words": 1018,
+      "terms": {
+        "PACS": 12,
+        "RIS": 11,
+        "DICOM": 11,
+        "HL7": 6,
+        "servidor": 0,
+        "radiología": 3
+      },
+      "links_to_target": 4,
+      "target_anchors": [
+        "PACS-RIS VIRA",
+        "sistema PACS-RIS VIRA",
+        "sistema PACS-RIS VIRA",
+        "Ver PACS-RIS VIRA →"
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Módulos Admisión, consulta, urgencias →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Integración PACS-RIS DICOM / HL7 nativo →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Perfiles de usuario Médicos, enfermería, TI →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Preguntas frecuentes Implementación y costos →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS VIRA"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS VIRA"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores médicos de diagnóstico"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS VIRA"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "teleradiología de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver PACS-RIS VIRA →"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Ver Teleradiología →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "Ver Monitores →"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico-2/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico-2/",
+      "cache": "miss",
+      "title": "Sistema de información hospitalaria en México | Raditech",
+      "h1": [
+        "Sistema de información hospitalaria en México: NOM-004, HL7 FHIR y PACS"
+      ],
+      "visible_words": 3393,
+      "terms": {
+        "PACS": 13,
+        "RIS": 10,
+        "DICOM": 6,
+        "HL7": 16,
+        "servidor": 0,
+        "radiología": 3
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "sistema PACS-RIS integrado"
+      ],
+      "internal_links_unique": 14,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": "guía completa de software médico para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "los beneficios de la digitalización en la gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "expediente clínico electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "guía completa del Sistema de Información Radiológica (RIS)"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "implementación de sistemas PACS para hospitales"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS integrado"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología diagnóstica"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contáctenos"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-mexico/",
+          "anchor": "Anterior DICOM Viewer: tipos, criterios y cómo elegir un visor DICOM"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-mexico/",
+          "anchor": "Siguiente VIRA PACS: Sistema de Radiología Digital Optimizado para Hospitales en México"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+      "cache": "miss",
+      "title": "¿Qué es un HIS? Guía para hospitales | Raditech",
+      "h1": [
+        "¿Qué es un HIS? El sistema de información hospitalaria explicado"
+      ],
+      "visible_words": 3020,
+      "terms": {
+        "PACS": 8,
+        "RIS": 9,
+        "DICOM": 4,
+        "HL7": 8,
+        "servidor": 0,
+        "radiología": 4
+      },
+      "links_to_target": 2,
+      "target_anchors": [
+        "PACS-RIS para áreas de radiología",
+        "PACS-RIS de Raditech"
+      ],
+      "internal_links_unique": 10,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "guía completa sobre el Expediente Clínico Electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "los beneficios de la digitalización en gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "guía de Inteligencia Artificial en Radiología Diagnóstica para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "contáctanos"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "Anterior ¿Qué es DICOM y para qué sirve un visor de imágenes médicas?"
+        },
+        {
+          "url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+          "anchor": "Siguiente Workstation de Radiología: Guía Completa para Hospitales y Clínicas en México 2026"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+      "cache": "miss",
+      "title": "¿Qué es un PACS y cómo funciona? Guía 2026 | Raditech",
+      "h1": [
+        "¿Qué es un PACS y cómo funciona? Guía completa para hospitales en México"
+      ],
+      "visible_words": 4937,
+      "terms": {
+        "PACS": 83,
+        "RIS": 15,
+        "DICOM": 18,
+        "HL7": 10,
+        "servidor": 4,
+        "radiología": 17
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS para áreas de radiología"
+      ],
+      "internal_links_unique": 12,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "gestión hospitalaria y los beneficios de su digitalización"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores médicos de grado diagnóstico DICOM"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "guía completa de teleradiología en México para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología diagnóstica en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "VIRA PACS para teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "guía completa sobre el Expediente Clínico Electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología en México para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacta a nuestro equipo"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Anterior Inteligencia Artificial en Radiología Diagnóstica: Guía Completa para Hospitales en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "Siguiente NOM-004-SSA3-2012: qué exige la norma del expediente clínico"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Cancelar respuesta"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+      "cache": "miss",
+      "title": "Implementar un PACS: costos, ROI y NOM-004 | Raditech",
+      "h1": [
+        "Implementar un sistema PACS en México: costos, ROI y NOM-004"
+      ],
+      "visible_words": 3800,
+      "terms": {
+        "PACS": 74,
+        "RIS": 15,
+        "DICOM": 20,
+        "HL7": 9,
+        "servidor": 1,
+        "radiología": 17
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS para áreas de radiología"
+      ],
+      "internal_links_unique": 14,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+          "anchor": "workstations de radiología para hospitales"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "radiología a distancia para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "guía completa sobre DICOM Viewer para hospitales y clínicas"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "sistema RIS para radiología"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Sistema de Información Hospitalaria (HIS)"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "expediente clínico electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS para teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología diagnóstica en México"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Solicite una demostración personalizada"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "VIRA PACS para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+          "anchor": "Anterior Software Médico para Hospitales en México: Guía Completa 2026 para Digitalizar tu Institución de Salud"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-mexico/",
+          "anchor": "Siguiente DICOM Viewer: tipos, criterios y cómo elegir un visor DICOM"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/sistema-pacs-ris/",
+      "status": 200,
+      "final_url": "https://raditech.mx/sistema-pacs-ris/",
+      "cache": "hit",
+      "title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "h1": [
+        "PACS-RIS para áreas de radiología."
+      ],
+      "visible_words": 1223,
+      "terms": {
+        "PACS": 15,
+        "RIS": 15,
+        "DICOM": 6,
+        "HL7": 4,
+        "servidor": 1,
+        "radiología": 5
+      },
+      "links_to_target": 8,
+      "target_anchors": [
+        "Ver características",
+        "Software Conocer →",
+        "PACS vs RIS Diferencias →",
+        "Características Explorar →",
+        "Beneficios Ver áreas →",
+        "Cotizar Contacto →",
+        "Ver innovación",
+        "Ver qué incluye"
+      ],
+      "internal_links_unique": 7,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver características"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Software Conocer →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS vs RIS Diferencias →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Características Explorar →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Beneficios Ver áreas →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Cotizar Contacto →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "qué es un sistema PACS y cómo funciona"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver innovación"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver qué incluye"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores de grado médico"
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "X-Card digital"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "guía de implementación de un sistema PACS"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "📡 Teleradiología 24/7 Interpretación remota DICOM con radiólogos certificados. Urgencias en menos de 60 minutos."
+        },
+        {
+          "url": "https://raditech.mx/portal-x-card/",
+          "anchor": "🪪 Portal X-Card Entrega digital de estudios al paciente vía código QR. Sin placas ni CDs."
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "🧠 Alta Especialidad Subespecialistas en neuroradiología, cardiovascular y musculoesquelética disponibles 24/7."
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+      "status": 200,
+      "final_url": "https://raditech.mx/software-medico-hospital-mexico-guia-completa/",
+      "cache": "miss",
+      "title": "Software Médico Hospital México: Guía HIS 2026 | NOM-024",
+      "h1": [
+        "Software Médico para Hospitales en México: Guía Completa 2026 para Digitalizar tu Institución de Salud"
+      ],
+      "visible_words": 4319,
+      "terms": {
+        "PACS": 12,
+        "RIS": 8,
+        "DICOM": 10,
+        "HL7": 10,
+        "servidor": 0,
+        "radiología": 7
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS para áreas de radiología"
+      ],
+      "internal_links_unique": 13,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Guía Completa del Sistema de Información Hospitalaria (HIS) para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "guía completa sobre el Expediente Clínico Electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "4 beneficios de la digitalización en gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "imágenes médicas digitales, PACS, DICOM y teleradiología para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología Diagnóstica para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "radiología a distancia para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "Contacta al equipo de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/nuestros-productos/",
+          "anchor": "productos y soluciones"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "Anterior Radiología a distancia: guía para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-implementacion/",
+          "anchor": "Siguiente Implementar un sistema PACS en México: costos, ROI y NOM-004"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "status": 200,
+      "final_url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "cache": "hit",
+      "title": "Teleradiología de alta especialidad 24/7 | Raditech",
+      "h1": [
+        "Subespecialistas en Imagen Médica disponibles 24/7 para tu Hospital"
+      ],
+      "visible_words": 658,
+      "terms": {
+        "PACS": 4,
+        "RIS": 3,
+        "DICOM": 5,
+        "HL7": 2,
+        "servidor": 0,
+        "radiología": 4
+      },
+      "links_to_target": 3,
+      "target_anchors": [
+        "VIRA PACS-RIS",
+        "VIRA PACS-RIS",
+        "🖥️ Sistema PACS-RIS Almacenamiento, gestión y distribución de estudios con visor web avanzado y soporte 24/7."
+      ],
+      "internal_links_unique": 4,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Especialidades"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Diferencia"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Métricas"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Cotizar"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "VIRA PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "teleradiología general"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "VIRA PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores de grado médico certificados DICOM"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "📡 Teleradiología 24/7 Servicio general de teleradiología con radiólogos certificados. Resultados urgentes en menos de 60 minutos."
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "🖥️ Sistema PACS-RIS Almacenamiento, gestión y distribución de estudios con visor web avanzado y soporte 24/7."
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "🖱️ Monitores Médicos Monitores de grado médico certificados DICOM Part 14, marcas Barco, Eizo y NEC."
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+      "status": 200,
+      "final_url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+      "cache": "miss",
+      "title": "Teleradiología Resonancia Cardiovascular (CMR) | Raditech",
+      "h1": [
+        "Resonancia Magnética Cardiovascular"
+      ],
+      "visible_words": 993,
+      "terms": {
+        "PACS": 13,
+        "RIS": 6,
+        "DICOM": 11,
+        "HL7": 3,
+        "servidor": 2,
+        "radiología": 2
+      },
+      "links_to_target": 4,
+      "target_anchors": [
+        "PACS-RIS",
+        "PACS-RIS",
+        "PACS-RIS VIRA",
+        "Ver PACS-RIS →"
+      ],
+      "internal_links_unique": 5,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Indicaciones clínicas Miocardiopatías, cardiopatías →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Flujo de trabajo Envío DICOM y reporte →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "¿Para quién? Hospitales, cardiólogos →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Preguntas frecuentes Acreditaciones y SLA →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "teleradiología general"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS VIRA"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Ver Tomografía Cardiaca →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Ver Alta Especialidad →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver PACS-RIS →"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+      "cache": "hit",
+      "title": "Teleradiología: Solución Estratégica para Hospitales y Clínicas en México -",
+      "h1": [
+        "Teleradiología: Solución Estratégica para Hospitales y Clínicas en México"
+      ],
+      "visible_words": 3845,
+      "terms": {
+        "PACS": 10,
+        "RIS": 12,
+        "DICOM": 20,
+        "HL7": 13,
+        "servidor": 0,
+        "radiología": 21
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "el sistema PACS-RIS"
+      ],
+      "internal_links_unique": 11,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Guía Completa de Teleradiología en México para Hospitales y Clínicas 2026"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "servicio de Teleradiología de Alta Especialidad"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Servicio de Teleradiología 24/7 de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "Guía Completa de Sistema PACS para Hospitales 2026"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "el sistema PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "Guía Completa de Expediente Clínico Electrónico en México para Hospitales y Clínicas 2026"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "Inteligencia Artificial en Radiología: Guía Completa para Decisores Hospitalarios en México 2026"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "Sistema HIS Medsi de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "VIRA PACS"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "Ver el servicio de teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "Anterior NOM-004-SSA3-2012: qué exige la norma del expediente clínico"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "Siguiente ¿Qué es DICOM y para qué sirve un visor de imágenes médicas?"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "10/07/2026 a las 9:24 pm"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Responder"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Cancelar respuesta"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+      "status": 200,
+      "final_url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+      "cache": "miss",
+      "title": "Teleradiología Tomografía Cardiaca | Angio-TAC | Raditech",
+      "h1": [
+        "Tomografía Cardiaca y Angio-TAC"
+      ],
+      "visible_words": 867,
+      "terms": {
+        "PACS": 8,
+        "RIS": 4,
+        "DICOM": 12,
+        "HL7": 0,
+        "servidor": 2,
+        "radiología": 1
+      },
+      "links_to_target": 3,
+      "target_anchors": [
+        "PACS-RIS",
+        "PACS-RIS",
+        "Ver PACS-RIS →"
+      ],
+      "internal_links_unique": 6,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "anchor": "HIS hospitalario"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Indicaciones clínicas CAC, CCTA, TAVI, cardiopatías →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Flujo de trabajo DICOM desde su tomógrafo →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "¿Para quién? Hospitales, cardiólogos →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "Preguntas frecuentes Equipos compatibles y SLA →"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "y monitores DICOM"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "resonancia cardiovascular"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "CMR teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "Ver Resonancia Cardiovascular →"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Ver Alta Especialidad →"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "Ver PACS-RIS →"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+      "cache": "miss",
+      "title": "VIRA PACS vs. otras opciones del mercado | Raditech",
+      "h1": [
+        "VIRA PACS frente a otras opciones del mercado mexicano"
+      ],
+      "visible_words": 3844,
+      "terms": {
+        "PACS": 59,
+        "RIS": 5,
+        "DICOM": 14,
+        "HL7": 5,
+        "servidor": 0,
+        "radiología": 20
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "sistema PACS-RIS para áreas de radiología"
+      ],
+      "internal_links_unique": 18,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología como solución estratégica para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/imagenes-medicas-digitales-pacs-dicom-tellerradiologia-hospitales-mexico/",
+          "anchor": "guía completa de imágenes médicas digitales, PACS, DICOM y teleradiología para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "guía completa sobre visores DICOM para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/servicio-teleradiologia/",
+          "anchor": "servicio de teleradiología 24/7"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Sistema de Información Hospitalaria (HIS) para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "expediente clínico electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/digitalizacion-costos-gestion-hospitalaria/",
+          "anchor": "digitalización y beneficios en la gestión hospitalaria"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "sistema PACS-RIS para áreas de radiología"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "teleradiología de alta especialidad"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "RIS (Sistema de Información Radiológica)"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-tomografia-cardiaca/",
+          "anchor": "teleradiología de tomografía cardiaca y Angio-TAC coronaria"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-resonancia-cardiovascular/",
+          "anchor": "resonancia magnética cardiovascular (CMR)"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "guía completa sobre inteligencia artificial en radiología diagnóstica para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "anchor": "Teleradiología de Alta Especialidad de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "Teleradiología: Solución Estratégica para Hospitales y Clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "PACS con teleradiología VIRA"
+        },
+        {
+          "url": "https://raditech.mx/",
+          "anchor": "Solicita una demostración sin compromiso de VIRA PACS"
+        },
+        {
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "anchor": "Ver PACS con teleradiología"
+        },
+        {
+          "url": "https://raditech.mx/publicamos-un-glosario-abierto-de-pacs-ris-dicom-y-hl7/",
+          "anchor": "Anterior Publicamos un glosario abierto de PACS, RIS, DICOM y HL7"
+        },
+        {
+          "url": "https://raditech.mx/radiologia-a-distancia-hospitales-mexico/",
+          "anchor": "Siguiente Radiología a distancia: guía para hospitales y clínicas en México"
+        }
+      ]
+    },
+    {
+      "url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+      "status": 200,
+      "final_url": "https://raditech.mx/workstation-radiologia-guia-completa-hospitales-mexico/",
+      "cache": "miss",
+      "title": "Workstation de Radiología: Guía Completa para Hospitales y Clínicas en México 2026 -",
+      "h1": [
+        "Workstation de Radiología: Guía Completa para Hospitales y Clínicas en México 2026"
+      ],
+      "visible_words": 2863,
+      "terms": {
+        "PACS": 10,
+        "RIS": 11,
+        "DICOM": 26,
+        "HL7": 6,
+        "servidor": 0,
+        "radiología": 23
+      },
+      "links_to_target": 1,
+      "target_anchors": [
+        "PACS-RIS de Raditech"
+      ],
+      "internal_links_unique": 12,
+      "internal_links": [
+        {
+          "url": "https://raditech.mx/author/gavitoa/",
+          "anchor": "Dr. Antonio Gavito Hernández - Médico Radiólogo"
+        },
+        {
+          "url": "https://raditech.mx/dicom-viewer-guia-completa-hospitales-clinicas-mexico/",
+          "anchor": "guía completa sobre DICOM Viewer para hospitales y clínicas en México"
+        },
+        {
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "anchor": "monitores médicos para radiología con certificación DICOM"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-hospital-guia-completa-digitalizacion/",
+          "anchor": "guía completa sobre sistema PACS para hospitales en México"
+        },
+        {
+          "url": "https://raditech.mx/expediente-clinico-electronico-mexico-guia-completa/",
+          "anchor": "expediente clínico electrónico en México"
+        },
+        {
+          "url": "https://raditech.mx/teleradiologia-solucion-estrategica-hospitales-clinicas-mexico/",
+          "anchor": "teleradiología en México"
+        },
+        {
+          "url": "https://raditech.mx/inteligencia-artificial-radiologia-diagnostica-mexico-2026/",
+          "anchor": "inteligencia artificial en radiología para decisores hospitalarios en México"
+        },
+        {
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "anchor": "PACS-RIS de Raditech"
+        },
+        {
+          "url": "https://raditech.mx/vira-pacs-sistema-radiologia-digital-hospitales-mexico/",
+          "anchor": "VIRA PACS, nuestra solución mexicana para gestión de imagenología digital"
+        },
+        {
+          "url": "https://raditech.mx/contacto/",
+          "anchor": "contactar a nuestro equipo técnico"
+        },
+        {
+          "url": "https://raditech.mx/sistema-informacion-hospitalaria-his-guia-completa-mexico/",
+          "anchor": "Anterior ¿Qué es un HIS? El sistema de información hospitalaria explicado"
+        },
+        {
+          "url": "https://raditech.mx/ris-radiologia-sistema-informacion-radiologica/",
+          "anchor": "Siguiente RIS Radiología: Guía Completa del Sistema de Información Radiológica para Hospitales y Clínicas en México 2026"
+        }
+      ]
+    }
+  ]
+}

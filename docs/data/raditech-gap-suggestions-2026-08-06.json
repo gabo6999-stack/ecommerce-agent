@@ -1,0 +1,1692 @@
+[
+  {
+    "seed": "visor dicom",
+    "response": {
+      "version": "0.1.20260806",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1390 sec.",
+      "cost": 0.01368,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "08070414-2093-0399-0000-b6d95156dace",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0931 sec.",
+          "cost": 0.01368,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "keyword_suggestions",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "keyword_suggestions",
+            "se_type": "google",
+            "keyword": "visor dicom",
+            "location_code": 2484,
+            "language_code": "es",
+            "include_serp_info": true,
+            "filters": [
+              [
+                "keyword_info.search_volume",
+                ">",
+                0
+              ]
+            ],
+            "order_by": [
+              "keyword_info.search_volume,desc"
+            ],
+            "limit": 100
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "seed_keyword": "visor dicom",
+              "seed_keyword_data": null,
+              "location_code": 2484,
+              "language_code": "es",
+              "total_count": 14,
+              "items_count": 14,
+              "offset": 0,
+              "offset_token": "eyJDdXJyZW50T2Zmc2V0IjoxNCwiUmVxdWVzdERhdGEiOnsia2V5d29yZCI6InZpc29yIGRpY29tIiwiaW5jbHVkZV9zZWVkX2tleXdvcmQiOmZhbHNlLCJmdWxsX21hdGNoIjpmYWxzZSwibG9hZF9zZXJwX2luZm8iOnRydWUsInNlYXJjaF9hZnRlcl90b2tlbiI6bnVsbCwiaWdub3JlX3N5bm9ueW1zIjpmYWxzZSwibGFuZ3VhZ2UiOiJlcyIsInNlYXJjaF9lbmdpbmUiOiJnb29nbGUiLCJsb2NhdGlvbiI6MjQ4NCwidXNlX25ld19jYXRlZ29yaWVzIjp0cnVlLCJvcmRlcl9ieSI6eyJvcmRlcl9maWVsZCI6ImtleXdvcmRfaW5mby5zZWFyY2hfdm9sdW1lIiwib3JkZXJfdHlwZSI6IkRlc2MiLCJuZXh0IjpudWxsfSwibGltaXQiOjEwMCwib2Zmc2V0IjowLCJhaWQiOjIwOTM0OSwidXNlX2NhY2hlIjp0cnVlLCJ0YXNrX2lkIjoiMDgwNzA0MTQtMjA5My0wMzk5LTAwMDAtYjZkOTUxNTZkYWNlIiwiZmxhZ3MiOm51bGx9LCJSYXdRdWVyeSI6eyJmaWVsZCI6ImtleXdvcmRfaW5mby5zZWFyY2hfdm9sdW1lIiwidHlwZSI6Imd0IiwidmFsdWUiOjB9LCJJZCI6IjM1NmI0NTQ1LTJjNWItNGMzYS1hYjE1LTFlMjMwZDkxZmUxNSIsIlNlYXJjaEFmdGVyRGF0YSI6WzEwLCJmNjVmMDUxYS01MGRmLWEzMWQtOTlhMC0xNDc5MDJkNGU5NTEiXSwiRXhlY3V0b3IiOi05MTg0NDA1OTQwNDQ0NTE3NjMzfQ==",
+              "items": [
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-14 14:09:55 +00:00",
+                    "competition": 0.25,
+                    "competition_level": "LOW",
+                    "cpc": 2.48,
+                    "search_volume": 140,
+                    "low_top_of_page_bid": 0.54,
+                    "high_top_of_page_bid": 2.44,
+                    "categories": [
+                      10021,
+                      10178,
+                      10936
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 140
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 170
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 140
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 170
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 110
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 140
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 110
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 110
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 140
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 170
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 140
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 140
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": -18,
+                      "quarterly": 0,
+                      "yearly": 27
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": "keyword_metrics",
+                    "keyword_difficulty": 17,
+                    "detected_language": "en",
+                    "is_another_language": true,
+                    "words_count": 2
+                  },
+                  "serp_info": {
+                    "se_type": "google",
+                    "check_url": "https://www.google.com/search?q=visor%20dicom&hl=es&gl=MX&ie=UTF-8&uule=w+CAIQIFISCVNTaIg7OgSEERGYCWu-tGTt",
+                    "serp_item_types": [
+                      "organic",
+                      "people_also_ask",
+                      "related_searches",
+                      "images"
+                    ],
+                    "se_results_count": 405000,
+                    "last_updated_time": "2026-04-25 06:59:29 +00:00",
+                    "previous_updated_time": "2026-01-28 14:00:58 +00:00"
+                  },
+                  "avg_backlinks_info": {
+                    "se_type": "google",
+                    "backlinks": 266.5,
+                    "dofollow": 117.9,
+                    "referring_pages": 247,
+                    "referring_domains": 146.6,
+                    "referring_main_domains": 130.8,
+                    "rank": 120.8,
+                    "main_domain_rank": 471.9,
+                    "last_updated_time": "2026-04-25 06:59:29 +00:00"
+                  },
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "navigational",
+                    "foreign_intent": null,
+                    "last_updated_time": "2026-04-30 03:35:03 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom online",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-13 22:35:06 +00:00",
+                    "competition": 0.3,
+                    "competition_level": "LOW",
+                    "cpc": 1.22,
+                    "search_volume": 110,
+                    "low_top_of_page_bid": 0.86,
+                    "high_top_of_page_bid": 1.15,
+                    "categories": [
+                      10008
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 110
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 90
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 90
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 90
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 110
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 90
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 110
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 110
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 110
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 140
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 110
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 140
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": 22,
+                      "quarterly": 22,
+                      "yearly": -21
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": "keyword_metrics",
+                    "keyword_difficulty": null,
+                    "detected_language": "en",
+                    "is_another_language": true,
+                    "words_count": 3
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "navigational",
+                    "foreign_intent": null,
+                    "last_updated_time": "2026-04-29 23:09:34 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom gratuito",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-15 01:34:06 +00:00",
+                    "competition": 0.13,
+                    "competition_level": "LOW",
+                    "cpc": 0.52,
+                    "search_volume": 90,
+                    "low_top_of_page_bid": 0.14,
+                    "high_top_of_page_bid": 0.66,
+                    "categories": [
+                      10019,
+                      10168,
+                      10885,
+                      13816
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 70
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 90
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 70
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 140
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 70
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 90
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 90
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 70
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 110
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 70
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 90
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 90
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": -22,
+                      "quarterly": 0,
+                      "yearly": -22
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": "keyword_metrics",
+                    "keyword_difficulty": null,
+                    "detected_language": "it",
+                    "is_another_language": true,
+                    "words_count": 3
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "informational",
+                    "foreign_intent": null,
+                    "last_updated_time": "2026-04-30 01:59:19 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom gratis",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-12 01:15:31 +00:00",
+                    "competition": 0.09,
+                    "competition_level": "LOW",
+                    "cpc": 0.36,
+                    "search_volume": 30,
+                    "low_top_of_page_bid": null,
+                    "high_top_of_page_bid": null,
+                    "categories": [
+                      10019,
+                      10168,
+                      10885,
+                      13816
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 30
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 30
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 30
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 30
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 40
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": -33,
+                      "quarterly": -33,
+                      "yearly": 100
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": null,
+                    "keyword_difficulty": null,
+                    "detected_language": "es",
+                    "is_another_language": false,
+                    "words_count": 3
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "informational",
+                    "foreign_intent": [
+                      "transactional"
+                    ],
+                    "last_updated_time": "2026-04-29 23:58:49 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom mac",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-11 14:23:35 +00:00",
+                    "competition": 0.11,
+                    "competition_level": "LOW",
+                    "cpc": 0.97,
+                    "search_volume": 20,
+                    "low_top_of_page_bid": null,
+                    "high_top_of_page_bid": null,
+                    "categories": [
+                      10019,
+                      10168,
+                      10885,
+                      13112
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 30
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 40
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 10
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": 0,
+                      "quarterly": 100,
+                      "yearly": 0
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": "text_processing",
+                    "keyword_difficulty": null,
+                    "detected_language": "en",
+                    "is_another_language": true,
+                    "words_count": 3
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "transactional",
+                    "foreign_intent": null,
+                    "last_updated_time": "2026-04-29 23:09:34 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom free",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-12 19:50:17 +00:00",
+                    "competition": null,
+                    "competition_level": null,
+                    "cpc": null,
+                    "search_volume": 10,
+                    "low_top_of_page_bid": null,
+                    "high_top_of_page_bid": null,
+                    "categories": [
+                      10019,
+                      10168,
+                      10885,
+                      13816
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 0
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 0
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 10
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": -100,
+                      "quarterly": -100,
+                      "yearly": 0
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": null,
+                    "keyword_difficulty": null,
+                    "detected_language": "ceb",
+                    "is_another_language": true,
+                    "words_count": 3
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "informational",
+                    "foreign_intent": [
+                      "transactional"
+                    ],
+                    "last_updated_time": "2026-04-30 00:55:57 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom gratuito mac",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-12 00:16:51 +00:00",
+                    "competition": 0.05,
+                    "competition_level": "LOW",
+                    "cpc": null,
+                    "search_volume": 10,
+                    "low_top_of_page_bid": null,
+                    "high_top_of_page_bid": null,
+                    "categories": [
+                      10019,
+                      10168,
+                      10885,
+                      13816
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 0
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 0
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 0
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 10
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": 0,
+                      "quarterly": null,
+                      "yearly": 0
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": null,
+                    "keyword_difficulty": null,
+                    "detected_language": "it",
+                    "is_another_language": true,
+                    "words_count": 4
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "transactional",
+                    "foreign_intent": [
+                      "informational"
+                    ],
+                    "last_updated_time": "2026-04-29 23:38:45 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom portable",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-16 08:30:54 +00:00",
+                    "competition": 0,
+                    "competition_level": "LOW",
+                    "cpc": null,
+                    "search_volume": 10,
+                    "low_top_of_page_bid": null,
+                    "high_top_of_page_bid": null,
+                    "categories": [
+                      10019,
+                      10167,
+                      10872
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 0
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 10
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": 0,
+                      "quarterly": 0,
+                      "yearly": 0
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": null,
+                    "keyword_difficulty": null,
+                    "detected_language": "en",
+                    "is_another_language": true,
+                    "words_count": 3
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "transactional",
+                    "foreign_intent": null,
+                    "last_updated_time": "2026-04-29 23:32:52 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom windows",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-14 12:34:38 +00:00",
+                    "competition": 0.04,
+                    "competition_level": "LOW",
+                    "cpc": null,
+                    "search_volume": 10,
+                    "low_top_of_page_bid": null,
+                    "high_top_of_page_bid": null,
+                    "categories": [
+                      10004,
+                      10282,
+                      11299,
+                      12613,
+                      13797
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 30
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 10
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": 0,
+                      "quarterly": 0,
+                      "yearly": -50
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": null,
+                    "keyword_difficulty": null,
+                    "detected_language": "en",
+                    "is_another_language": true,
+                    "words_count": 3
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "transactional",
+                    "foreign_intent": [
+                      "navigational",
+                      "informational"
+                    ],
+                    "last_updated_time": "2026-04-29 23:35:49 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom online gratis",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-13 06:36:50 +00:00",
+                    "competition": 0,
+                    "competition_level": "LOW",
+                    "cpc": null,
+                    "search_volume": 10,
+                    "low_top_of_page_bid": null,
+                    "high_top_of_page_bid": null,
+                    "categories": [
+                      10019,
+                      10168,
+                      10885,
+                      13816
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 10
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": 0,
+                      "quarterly": 0,
+                      "yearly": 0
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": null,
+                    "keyword_difficulty": null,
+                    "detected_language": "en",
+                    "is_another_language": true,
+                    "words_count": 4
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "informational",
+                    "foreign_intent": [
+                      "transactional"
+                    ],
+                    "last_updated_time": "2026-04-30 02:16:18 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom para mac gratis",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-10 21:10:19 +00:00",
+                    "competition": null,
+                    "competition_level": null,
+                    "cpc": null,
+                    "search_volume": 10,
+                    "low_top_of_page_bid": null,
+                    "high_top_of_page_bid": null,
+                    "categories": [
+                      10019,
+                      10168,
+                      10885,
+                      13816
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 0
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 0
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 0
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 0
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 0
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 0
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": -100,
+                      "quarterly": -100,
+                      "yearly": -100
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": null,
+                    "keyword_difficulty": null,
+                    "detected_language": "es",
+                    "is_another_language": false,
+                    "words_count": 5
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "transactional",
+                    "foreign_intent": [
+                      "informational"
+                    ],
+                    "last_updated_time": "2026-04-30 03:29:53 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom descargar",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-15 04:26:49 +00:00",
+                    "competition": 0,
+                    "competition_level": "LOW",
+                    "cpc": null,
+                    "search_volume": 10,
+                    "low_top_of_page_bid": null,
+                    "high_top_of_page_bid": null,
+                    "categories": [
+                      10019,
+                      10168,
+                      10885,
+                      13816
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 20
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 20
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": 0,
+                      "quarterly": 0,
+                      "yearly": 0
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": null,
+                    "keyword_difficulty": null,
+                    "detected_language": "es",
+                    "is_another_language": false,
+                    "words_count": 3
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "transactional",
+                    "foreign_intent": null,
+                    "last_updated_time": "2026-04-29 23:42:49 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom android",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-10 02:46:03 +00:00",
+                    "competition": 0,
+                    "competition_level": "LOW",
+                    "cpc": null,
+                    "search_volume": 10,
+                    "low_top_of_page_bid": null,
+                    "high_top_of_page_bid": null,
+                    "categories": [
+                      10007,
+                      10878,
+                      12161,
+                      13054,
+                      13381
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 10
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": 0,
+                      "quarterly": 0,
+                      "yearly": 0
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": null,
+                    "synonym_clustering_algorithm": "text_processing",
+                    "keyword_difficulty": null,
+                    "detected_language": "en",
+                    "is_another_language": true,
+                    "words_count": 3
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "transactional",
+                    "foreign_intent": [
+                      "navigational",
+                      "informational"
+                    ],
+                    "last_updated_time": "2026-04-30 00:03:24 +00:00"
+                  }
+                },
+                {
+                  "se_type": "google",
+                  "keyword": "visor dicom para mac",
+                  "location_code": 2484,
+                  "language_code": "es",
+                  "keyword_info": {
+                    "se_type": "google",
+                    "last_updated_time": "2026-07-15 21:23:16 +00:00",
+                    "competition": 0.16,
+                    "competition_level": "LOW",
+                    "cpc": 1.51,
+                    "search_volume": 10,
+                    "low_top_of_page_bid": null,
+                    "high_top_of_page_bid": null,
+                    "categories": [
+                      10019,
+                      10168,
+                      10885,
+                      13112
+                    ],
+                    "monthly_searches": [
+                      {
+                        "year": 2026,
+                        "month": 6,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 5,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 4,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 3,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 2,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2026,
+                        "month": 1,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 12,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 11,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 10,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 9,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 8,
+                        "search_volume": 10
+                      },
+                      {
+                        "year": 2025,
+                        "month": 7,
+                        "search_volume": 10
+                      }
+                    ],
+                    "search_volume_trend": {
+                      "monthly": 0,
+                      "quarterly": 0,
+                      "yearly": 0
+                    }
+                  },
+                  "keyword_info_normalized_with_bing": null,
+                  "keyword_info_normalized_with_clickstream": null,
+                  "clickstream_keyword_info": null,
+                  "keyword_properties": {
+                    "se_type": "google",
+                    "core_keyword": "visor dicom mac",
+                    "synonym_clustering_algorithm": "text_processing",
+                    "keyword_difficulty": null,
+                    "detected_language": "pt",
+                    "is_another_language": true,
+                    "words_count": 4
+                  },
+                  "serp_info": null,
+                  "avg_backlinks_info": null,
+                  "search_intent_info": {
+                    "se_type": "google",
+                    "main_intent": "transactional",
+                    "foreign_intent": [
+                      "informational"
+                    ],
+                    "last_updated_time": "2026-04-29 23:27:27 +00:00"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "seed": "interpretacion de estudios radiologicos",
+    "response": {
+      "version": "0.1.20260806",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.2215 sec.",
+      "cost": 0.012,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "08070414-2093-0399-0000-c580ecbb467b",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.1753 sec.",
+          "cost": 0.012,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "keyword_suggestions",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "keyword_suggestions",
+            "se_type": "google",
+            "keyword": "interpretacion de estudios radiologicos",
+            "location_code": 2484,
+            "language_code": "es",
+            "include_serp_info": true,
+            "filters": [
+              [
+                "keyword_info.search_volume",
+                ">",
+                0
+              ]
+            ],
+            "order_by": [
+              "keyword_info.search_volume,desc"
+            ],
+            "limit": 100
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "seed_keyword": "interpretacion de estudios radiologicos",
+              "seed_keyword_data": null,
+              "location_code": 2484,
+              "language_code": "es",
+              "total_count": null,
+              "items_count": 0,
+              "offset": 0,
+              "offset_token": "eyJDdXJyZW50T2Zmc2V0IjowLCJSZXF1ZXN0RGF0YSI6eyJrZXl3b3JkIjoiaW50ZXJwcmV0YWNpb24gZGUgZXN0dWRpb3MgcmFkaW9sb2dpY29zIiwiaW5jbHVkZV9zZWVkX2tleXdvcmQiOmZhbHNlLCJmdWxsX21hdGNoIjpmYWxzZSwibG9hZF9zZXJwX2luZm8iOnRydWUsInNlYXJjaF9hZnRlcl90b2tlbiI6bnVsbCwiaWdub3JlX3N5bm9ueW1zIjpmYWxzZSwibGFuZ3VhZ2UiOiJlcyIsInNlYXJjaF9lbmdpbmUiOiJnb29nbGUiLCJsb2NhdGlvbiI6MjQ4NCwidXNlX25ld19jYXRlZ29yaWVzIjp0cnVlLCJvcmRlcl9ieSI6eyJvcmRlcl9maWVsZCI6ImtleXdvcmRfaW5mby5zZWFyY2hfdm9sdW1lIiwib3JkZXJfdHlwZSI6IkRlc2MiLCJuZXh0IjpudWxsfSwibGltaXQiOjEwMCwib2Zmc2V0IjowLCJhaWQiOjIwOTM0OSwidXNlX2NhY2hlIjp0cnVlLCJ0YXNrX2lkIjoiMDgwNzA0MTQtMjA5My0wMzk5LTAwMDAtYzU4MGVjYmI0NjdiIiwiZmxhZ3MiOm51bGx9LCJSYXdRdWVyeSI6eyJmaWVsZCI6ImtleXdvcmRfaW5mby5zZWFyY2hfdm9sdW1lIiwidHlwZSI6Imd0IiwidmFsdWUiOjB9LCJJZCI6ImJkZjc4MGM4LTc5YmMtNGQyNS1iZGYzLWY3MjZiYThjMjg4ZiIsIlNlYXJjaEFmdGVyRGF0YSI6bnVsbCwiRXhlY3V0b3IiOi05MTg0NDA1OTQwNDQ0NTE3NjMzfQ==",
+              "items": null
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

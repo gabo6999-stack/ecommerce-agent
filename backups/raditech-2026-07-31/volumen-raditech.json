@@ -1,0 +1,160 @@
+{
+ "volumen": {
+  "pacs": [
+   8100,
+   "LOW"
+  ],
+  "sistema pacs": [
+   90,
+   "MEDIUM"
+  ],
+  "sistema pacs ris": [
+   10,
+   "LOW"
+  ],
+  "pacs ris": [
+   260,
+   "MEDIUM"
+  ],
+  "que es pacs": [
+   480,
+   "LOW"
+  ],
+  "pacs mexico": [
+   210,
+   "LOW"
+  ],
+  "software pacs": [
+   10,
+   "MEDIUM"
+  ],
+  "visor dicom": [
+   140,
+   "LOW"
+  ],
+  "servidor pacs": [
+   10,
+   "LOW"
+  ],
+  "teleradiologia": [
+   110,
+   "LOW"
+  ],
+  "servicio de teleradiologia": [
+   0,
+   null
+  ],
+  "teleradiologia mexico": [
+   10,
+   "LOW"
+  ],
+  "empresas de teleradiologia": [
+   10,
+   null
+  ],
+  "interpretacion de estudios radiologicos": [
+   0,
+   null
+  ],
+  "monitores medicos": [
+   320,
+   "HIGH"
+  ],
+  "monitor grado medico": [
+   0,
+   null
+  ],
+  "monitores para radiologia": [
+   10,
+   "MEDIUM"
+  ],
+  "sistema his": [
+   40,
+   "LOW"
+  ],
+  "software hospitalario": [
+   30,
+   "MEDIUM"
+  ],
+  "sistema ris": [
+   30,
+   "MEDIUM"
+  ],
+  "expediente clinico electronico": [
+   880,
+   "MEDIUM"
+  ]
+ },
+ "dominios": [
+  [
+   "trm.com.mx",
+   9,
+   11.061000227928162,
+   0,
+   0
+  ],
+  [
+   "teleradiologia.com.mx",
+   null,
+   "'NoneType' object is not subscriptable",
+   0,
+   0
+  ],
+  [
+   "vtm.com.mx",
+   6,
+   18.252999633550644,
+   0,
+   0
+  ],
+  [
+   "pacs.com.mx",
+   5,
+   1152.3310060799122,
+   2,
+   1
+  ],
+  [
+   "diara.com.mx",
+   11,
+   20.534999817609787,
+   0,
+   0
+  ],
+  [
+   "expertosenteleradiologia.com",
+   3,
+   7.077000260353088,
+   0,
+   0
+  ],
+  [
+   "imed.mx",
+   36,
+   658.7810064554214,
+   1,
+   0
+  ],
+  [
+   "alma-medical.com",
+   16,
+   40.42400139756501,
+   0,
+   0
+  ],
+  [
+   "edenmed.com",
+   629,
+   26903.52125330642,
+   16,
+   20
+  ],
+  [
+   "raditech.mx",
+   19,
+   514.4000121355057,
+   1,
+   4
+  ]
+ ]
+}

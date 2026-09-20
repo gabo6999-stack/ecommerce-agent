@@ -119,7 +119,7 @@ REDIRECTS = [
     ("/aviso-de-privacidad/","/politicas-de-privacidad/"),
     ("/resonancia-magnetica-cardiovascular/","/teleradiologia-resonancia-cardiovascular/"),
     ("/tomografia-cardiaca-y-angiotomografia-coronaria/","/teleradiologia-tomografia-cardiaca/"),
-    ("/sistema-de-informacion-hospitalaria-his/","/sistema-his-medsi/"),
+    ("/sistema-de-informacion-hospitalaria-his/","/sistema-informacion-hospitalaria-his-guia-completa-mexico/"),
     ("/pacs-ris/","/sistema-pacs-ris/"),
     ("/monitores-grado-medico/","/monitores-medicos-radiologia/"),
     ("/x-card/","/portal-x-card/"),

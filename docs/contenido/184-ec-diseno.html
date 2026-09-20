@@ -1,0 +1,542 @@
+<!-- wp:html -->
+<style>
+/* ====== Nodarishub · Página DISEÑO WEB — sin header/footer · fuentes globales · GPU ====== */
+.nhx{--ink:#0E1726;--cobalt:#2F6BFF;--mint:#00E0A4;--fog:#F5F8FC;--slate:#5B6B82;--white:#fff;
+  --grad:linear-gradient(135deg,#2F6BFF,#00E0A4);--radius:10px;--radius-lg:20px;
+  --shadow:0 12px 34px rgba(14,23,38,.05);--shadow-lg:0 22px 50px rgba(14,23,38,.09);--shadow-xl:0 34px 70px rgba(14,23,38,.16);--maxw:1180px;
+  --fdisplay:'Space Grotesk','Space Grotesk Light',system-ui,sans-serif;--fbody:'Inter',system-ui,-apple-system,sans-serif}
+.nhx *{box-sizing:border-box}
+.nhx{font-family:var(--fbody);font-weight:400;color:var(--ink);font-size:1.0625rem;line-height:1.6;background:#fff;overflow-x:hidden;width:100%;-webkit-font-smoothing:antialiased}
+.nhx img{max-width:100%;height:auto;display:block}
+.nhx h1,.nhx h2,.nhx h3{font-family:var(--fdisplay);font-weight:600;line-height:1.12;letter-spacing:-.01em;margin:0;color:var(--ink)}
+.nhx a{color:var(--cobalt);text-decoration:none}
+.nhx-wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(1rem,4vw,2rem);width:100%}
+.nhx-sec{padding-block:clamp(3.25rem,7.5vw,5.75rem)}
+.nhx-secnum{display:flex;align-items:center;gap:clamp(.9rem,2vw,1.6rem);margin-bottom:clamp(1.6rem,3.2vw,2.4rem)}
+.nhx-secnum__n{font-family:var(--fdisplay);font-weight:700;font-size:clamp(2.4rem,5vw,3.4rem);line-height:.85;letter-spacing:-.03em;color:#E8EEF6;flex:0 0 auto}
+.nhx-secnum__line{flex:1 1 auto;height:1px;background:linear-gradient(90deg,#E1E9F2,rgba(225,233,242,0))}
+.nhx-secnum__label{font-family:var(--fdisplay);font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.72rem;color:var(--slate);flex:0 0 auto;white-space:nowrap}
+.nhx-eyebrow{font-family:var(--fdisplay);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;color:var(--cobalt);margin:0 0 .6rem}
+.nhx-eyebrow.is-mint{color:var(--mint)}
+.nhx-h2{font-size:clamp(1.7rem,3.6vw,2.45rem)}
+.nhx-head{max-width:62ch;margin-bottom:2.6rem}
+.nhx-head.center{margin-inline:auto;text-align:center}
+.nhx-h2.nodo{position:relative;display:inline-block;padding-bottom:.5rem}
+.nhx-h2.nodo::after{content:"";position:absolute;left:0;bottom:0;width:54px;height:4px;background:var(--grad);border-radius:4px}
+.nhx-head.center .nhx-h2.nodo::after{left:50%;transform:translateX(-50%)}
+.nhx-lead{color:var(--slate);max-width:64ch;margin:.7rem 0 0}
+.nhx p{margin:0 0 1.05rem}
+.nhx-prose{max-width:70ch}
+.nhx-prose h3{font-size:1.24rem;margin:2rem 0 .5rem}
+.nhx-prose p{color:#41506485 ;color:#3f4d63;margin:0 0 1.05rem}
+.nhx-prose a{font-weight:600;position:relative}
+.nhx-prose a::after{content:"";position:absolute;left:0;bottom:-1px;height:1.5px;width:100%;background:var(--mint);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.nhx-prose a:hover::after{transform:scaleX(1)}
+/* Botones */
+.nhx .nhx-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--fdisplay);font-weight:600;font-size:1rem;line-height:1.1;border-radius:var(--radius);padding:.85rem 1.6rem;min-height:48px;cursor:pointer;border:1.5px solid transparent;text-decoration:none;transition:transform .2s ease,background-color .2s,color .2s,box-shadow .2s,border-color .2s;will-change:transform}
+.nhx .nhx-btn svg{flex:0 0 auto}
+.nhx .nhx-btn--primary{background:var(--cobalt);color:#fff;box-shadow:0 6px 18px rgba(47,107,255,.4)}
+.nhx .nhx-btn--primary:hover{background:var(--mint);color:var(--ink);transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,224,164,.42)}
+.nhx .nhx-btn--outline{background:rgba(255,255,255,.06);color:#fff;border-color:var(--mint)}
+.nhx .nhx-btn--outline:hover{background:var(--mint);color:var(--ink);transform:translateY(-2px)}
+.nhx .nhx-btn--ghost{background:transparent;color:var(--cobalt);border-color:var(--cobalt)}
+.nhx .nhx-btn--ghost:hover{background:var(--cobalt);color:#fff;transform:translateY(-2px)}
+.nhx .nhx-btn--lg{font-size:1.08rem;padding:1rem 2rem;min-height:54px}
+/* HERO split */
+.nhx-hero{position:relative;background:radial-gradient(120% 105% at 70% 30%,#18305A 0%,#101D33 46%,#0B1220 100%);color:#fff;overflow:hidden;isolation:isolate}
+.nhx-hero__mesh{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.16;pointer-events:none}
+.nhx-hero .nhx-wrap{position:relative;z-index:1;padding-block:clamp(3.25rem,7vw,5rem)}
+.nhx-hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+.nhx-hero h1{color:#fff;font-size:clamp(2.1rem,4.6vw,3.35rem);line-height:1.06;letter-spacing:-.02em;max-width:16ch}
+.nhx-accent{color:#5b8bff}
+.nhx-hero__sub{color:#D7E0EC;font-size:clamp(1.02rem,1.5vw,1.2rem);max-width:52ch;margin:1.1rem 0 1.6rem}
+.nhx-hero__btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.nhx-hero__media img{border-radius:var(--radius-lg);box-shadow:0 30px 60px rgba(0,0,0,.4);max-height:400px;width:100%;object-fit:cover}
+/* Parte B — imagen del hero integrada al ink (máscara + glow + vida) */
+.nhx-hero__media{position:relative}
+.nhx-hero__media img{border-radius:16px;box-shadow:0 0 0 1.5px rgba(47,107,255,.5),0 24px 70px rgba(0,0,0,.55),0 0 90px rgba(47,107,255,.28),0 0 46px rgba(0,224,164,.12)}
+.nhx-hero__media::before{content:"";position:absolute;inset:-12%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 52% 44%,rgba(47,107,255,.34),rgba(0,224,164,.12) 46%,transparent 70%);animation:nhx-breathe 9s ease-in-out infinite}
+.nhx-hero__spark{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.nhx-hero__spark .nd{animation:nhx-pulse 3.2s ease-in-out infinite}
+.nhx-hero__spark .ln{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:nhx-draw 4.4s ease-in-out infinite alternate}
+/* HERO — escena SVG a codigo (reemplaza foto oscura) */
+.nhx-scenewrap{position:relative;margin-inline:auto;width:100%}
+.nhx-scene{width:100%;height:auto;display:block}
+.nhx-scene__glow{position:absolute;inset:-8% -4%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 50% 46%,rgba(47,107,255,.5),rgba(0,224,164,.2) 44%,transparent 72%);animation:nhx-breathe 9s ease-in-out infinite}
+.nhx-scene .ln{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:nhx-draw 5s ease-in-out infinite alternate}
+.nhx-scene .nd{animation:nhx-pulse 3.4s ease-in-out infinite}
+.nhx-scene .ln{stroke-width:1.7}
+.nhx-scene .l1{opacity:.42;animation:nhx-float 15s ease-in-out infinite}
+.nhx-scene .l2{opacity:.74;animation:nhx-float2 12s ease-in-out infinite}
+.nhx-scene .l3{opacity:1;animation:nhx-float 10s ease-in-out infinite}
+.nhx-scene .lit{animation:nhx-lit 3.6s ease-in-out infinite}
+.nhx-scene__wave{animation:nhx-swave 4.2s ease-out infinite}
+.nhx-scene__pulse{animation:nhx-travel 2.8s linear infinite}
+.nhx-scene__gear{animation:nhx-spin 14s linear infinite}
+@keyframes nhx-float2{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes nhx-lit{0%,100%{opacity:.12}50%{opacity:.4}}
+@keyframes nhx-swave{0%{transform:scale(.2);opacity:.75}80%{opacity:0}100%{transform:scale(1);opacity:0}}
+@keyframes nhx-travel{0%{transform:translateX(0);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:translateX(118px);opacity:0}}
+@keyframes nhx-spin{to{transform:rotate(360deg)}}
+/* Parte C3 — imágenes sobre claro: enmarcadas con intención (anillo cobalt + glow + sombra) */
+.nhx .nhx-split__img{box-shadow:0 0 0 1px rgba(47,107,255,.30),0 22px 50px rgba(14,23,38,.14),0 0 48px rgba(47,107,255,.10),0 0 30px rgba(0,224,164,.08)}
+/* Escena SVG en seccion BLANCA (transparente, integrada al blanco) */
+.nhx-ws{width:100%;height:auto;display:block;max-width:520px;margin-inline:auto}
+.nhx-ws .wl{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:nhx-draw 5s ease-in-out infinite alternate}
+.nhx-ws .wn{animation:nhx-pulse 3.4s ease-in-out infinite}
+.nhx-ws .wf{animation:nhx-float 13s ease-in-out infinite}
+.nhx-ws .wf2{animation:nhx-float2 16s ease-in-out infinite}
+.nhx-ws .wlit{animation:nhx-litw 4s ease-in-out infinite}
+.nhx-ws .wpulse{animation:nhx-travelw 3s linear infinite}
+.nhx-ws .wgear{animation:nhx-spin 16s linear infinite}
+@keyframes nhx-litw{0%,100%{opacity:.05}50%{opacity:.15}}
+@keyframes nhx-travelw{0%{transform:translateX(0);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:translateX(118px);opacity:0}}
+@keyframes nhx-spin{to{transform:rotate(360deg)}}
+@keyframes nhx-float2{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+@keyframes nhx-breathe{0%,100%{opacity:.55}50%{opacity:.95}}
+.nhx-trust{display:flex;flex-wrap:wrap;gap:.5rem 1.3rem;margin-top:1.6rem;color:#AEBBCD;font-size:.85rem}
+.nhx-trust span{display:inline-flex;align-items:center;gap:.4rem}
+@keyframes nhx-pulse{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes nhx-draw{0%{stroke-dashoffset:var(--len)}55%,100%{stroke-dashoffset:0}}
+@keyframes nhx-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.nhx-hero__mesh .nd{animation:nhx-pulse 3.4s ease-in-out infinite}
+.nhx-hero__mesh .ln{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:nhx-draw 4.6s ease-in-out infinite alternate}
+.nhx-hero__mesh .grp{animation:nhx-float 9s ease-in-out infinite}
+/* Grid tarjetas con profundidad */
+.nhx-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(3,1fr);perspective:1400px}
+.nhx-grid.cols4{grid-template-columns:repeat(4,1fr)}
+.nhx-card{position:relative;background:#fff;border:1px solid #EDF2F8;border-radius:var(--radius-lg);padding:1.9rem;transition:transform .38s cubic-bezier(.2,.7,.2,1),box-shadow .38s,border-color .38s;will-change:transform;height:100%;display:flex;flex-direction:column;transform-style:preserve-3d}
+.nhx-card:hover{transform:translateY(-8px) rotateX(3deg) rotateY(-3deg);box-shadow:var(--shadow-xl);border-color:rgba(47,107,255,.35)}
+.nhx-ico{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:1.1rem;background:linear-gradient(135deg,rgba(47,107,255,.1),rgba(0,224,164,.1));transition:transform .38s cubic-bezier(.2,.7,.2,1)}
+.nhx-card:hover .nhx-ico{transform:scale(1.1) translateZ(22px)}
+.nhx-card h3{font-size:1.14rem;margin-bottom:.45rem}
+.nhx-card p{color:var(--slate);font-size:.96rem;margin:0}
+/* Split imagen controlada */
+.nhx-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.2rem);align-items:center}
+.nhx-split__img{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);width:100%;max-height:420px;object-fit:cover}
+.nhx-flist{list-style:none;margin:1.1rem 0 1.4rem;padding:0;display:grid;gap:.55rem}
+.nhx-flist li{display:flex;gap:.6rem;align-items:flex-start;color:var(--slate)}
+.nhx-flist svg{margin-top:.15rem;flex:0 0 auto}
+/* PRECIOS */
+.nhx-price{display:grid;gap:1.4rem;grid-template-columns:repeat(4,1fr)}
+.nhx-price.cols3{grid-template-columns:repeat(3,1fr)}
+.nhx-plan{background:#fff;border:1px solid #E7EDF4;border-radius:var(--radius-lg);padding:1.7rem;display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;will-change:transform}
+.nhx-plan:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:rgba(47,107,255,.3)}
+.nhx-plan--feat{border-color:var(--cobalt);border-width:2px;box-shadow:var(--shadow)}
+.nhx-plan__name{font-family:var(--fdisplay);font-weight:600;font-size:1.1rem;color:var(--ink)}
+.nhx-plan__badge{display:inline-block;font-family:var(--fdisplay);font-weight:600;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--mint);border-radius:99px;padding:.2rem .6rem;margin-bottom:.5rem}
+.nhx-plan__price{margin:.7rem 0 .2rem;font-family:var(--fdisplay);font-weight:700;color:var(--ink);font-size:1.5rem;letter-spacing:-.02em;line-height:1.1}
+.nhx-plan__price small{display:block;font-size:.82rem;font-weight:500;color:var(--slate);letter-spacing:0;margin-top:.15rem}
+.nhx-plan__desc{color:var(--slate);font-size:.92rem;margin:.7rem 0 1.2rem}
+.nhx-plan .nhx-btn{margin-top:auto;width:100%}
+.nhx-note{color:var(--slate);font-size:.9rem;margin-top:1.4rem;text-align:center;max-width:70ch;margin-inline:auto}
+/* FAQ */
+.nhx-faq{display:grid;gap:.8rem;max-width:840px;margin-inline:auto}
+.nhx-faq details{background:#fff;border:1px solid #E4ECF5;border-radius:14px;padding:0 1.3rem;transition:box-shadow .2s,border-color .2s}
+.nhx-faq details[open]{border-color:var(--cobalt);box-shadow:var(--shadow)}
+.nhx-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.05rem 0;font-family:var(--fdisplay);font-weight:600;color:var(--ink);font-size:1.02rem}
+.nhx-faq summary::-webkit-details-marker{display:none}
+.nhx-faq summary .ic{flex:0 0 auto;width:24px;height:24px;display:grid;place-items:center;transition:transform .25s ease}
+.nhx-faq details[open] summary .ic{transform:rotate(45deg)}
+.nhx-faq .ans{padding:0 0 1.15rem;color:var(--slate)}
+/* CTA band */
+.nhx-cta{background:var(--ink);color:#fff;text-align:center}
+.nhx-cta .nhx-wrap{padding-block:clamp(3.75rem,8vw,5.75rem);max-width:720px}
+.nhx-cta h2{color:#fff;font-size:clamp(1.7rem,3.4vw,2.4rem)}
+.nhx-cta p{color:#AEBBCD;margin:1rem auto 1.9rem;max-width:46ch;font-size:1.08rem}
+/* WhatsApp flotante */
+.nhx-wa{position:fixed;right:18px;bottom:18px;z-index:95;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.28);transition:transform .2s,box-shadow .2s;will-change:transform}
+.nhx-wa:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 12px 30px rgba(37,211,102,.5)}
+.nhx-wa svg{width:32px;height:32px;display:block}
+/* Divider nodo */
+.nhx-divider{line-height:0;margin-top:clamp(1.5rem,4vw,2.5rem)}
+.nhx-divider svg{display:block;width:100%;height:auto;overflow:visible}
+.nhx-edge{position:relative}
+.nhx-edge::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--cobalt) 22%,var(--mint) 50%,var(--cobalt) 78%,transparent)}
+/* Reveal */
+.nhx-reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1);will-change:opacity,transform}
+.nhx-reveal--l{transform:translateX(-42px)}.nhx-reveal--r{transform:translateX(42px)}
+.nhx-reveal.is-in{opacity:1;transform:none}
+.nhx-d1{transition-delay:.06s}.nhx-d2{transition-delay:.14s}.nhx-d3{transition-delay:.22s}.nhx-d4{transition-delay:.3s}
+@media(max-width:1024px){.nhx-grid,.nhx-grid.cols4{grid-template-columns:repeat(2,1fr)}.nhx-price{grid-template-columns:repeat(2,1fr)}.nhx-price.cols3{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){
+  .nhx{font-size:1rem}
+  .nhx-hero__grid,.nhx-split{grid-template-columns:1fr}
+  .nhx-hero__media{order:-1}
+  .nhx-grid,.nhx-grid.cols4,.nhx-price,.nhx-price.cols3{grid-template-columns:1fr}
+  .nhx-hero__btns .nhx-btn{width:100%}
+  .nhx-split__img{max-height:300px}
+  .nhx-reveal,.nhx-reveal--l,.nhx-reveal--r{transform:translateY(16px)}
+  .nhx-card:hover{transform:translateY(-5px)}
+  .nhx-wa{right:14px;bottom:14px;width:54px;height:54px}
+}
+@media(prefers-reduced-motion:reduce){
+  .nhx *,.nhx-wa,.nhx-hero__mesh .nd,.nhx-hero__mesh .ln,.nhx-hero__mesh .grp{animation:none!important;transition:none!important}
+  .nhx-reveal{opacity:1!important;transform:none!important}
+  .nhx-hero__mesh .ln{stroke-dashoffset:0!important}
+}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:group {"align":"full","layout":{"type":"default"},"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
+<div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding:0">
+<!-- wp:html -->
+<div class="nhx">
+
+<section class="nhx-hero">
+  <svg class="nhx-hero__mesh" viewBox="0 0 700 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g class="grp">
+      <line class="ln" style="--len:170" x1="60" y1="70" x2="210" y2="130" stroke="#2F6BFF" stroke-width="1"/>
+      <line class="ln" style="--len:215" x1="210" y1="130" x2="420" y2="90" stroke="#2F6BFF" stroke-width="1"/>
+      <line class="ln" style="--len:165" x1="420" y1="90" x2="560" y2="180" stroke="#00E0A4" stroke-width="1"/>
+      <line class="ln" style="--len:225" x1="420" y1="90" x2="640" y2="60" stroke="#2F6BFF" stroke-width="1"/>
+      <circle class="nd" cx="60" cy="70" r="4" fill="#2F6BFF"/>
+      <circle class="nd" cx="210" cy="130" r="5" fill="#00E0A4" style="animation-delay:.4s"/>
+      <circle class="nd" cx="420" cy="90" r="4" fill="#2F6BFF" style="animation-delay:.8s"/>
+      <circle class="nd" cx="560" cy="180" r="4" fill="#00E0A4" style="animation-delay:1.2s"/>
+      <circle class="nd" cx="640" cy="60" r="4" fill="#00E0A4" style="animation-delay:1.6s"/>
+    </g>
+  </svg>
+  <div class="nhx-wrap">
+    <div class="nhx-hero__grid">
+      <div>
+        <p class="nhx-eyebrow is-mint">Diseño y desarrollo web</p>
+        <h1>Diseño de páginas web en Ecuador que construimos <span class="nhx-accent">a código</span>, sin plantillas</h1>
+        <p class="nhx-hero__sub">Como diseñador de websites, cada proyecto se programa a mano: sitios rápidos, responsive y pensados para convertir visitas en clientes. Nada de plantillas genéricas. Trabajamos desde Quito con empresas de todo Ecuador y cotizamos en dólares.</p>
+        <div class="nhx-hero__btns">
+          <a class="nhx-btn nhx-btn--primary" href="https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20un%20sitio%20web" target="_blank" rel="noopener">Cotiza tu proyecto</a>
+          <a class="nhx-btn nhx-btn--outline" href="#precios">Ver precios</a>
+        </div>
+        <div class="nhx-trust">
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00E0A4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 14.5 16 10"/></svg> Core Web Vitals 95+</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00E0A4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg> Código propio</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00E0A4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.2-3 7.4-7 8.6C8 18.4 5 15.2 5 11V6z"/></svg> Responsive y seguro</span>
+        </div>
+      </div>
+      <div class="nhx-hero__media nhx-reveal nhx-reveal--r"><div class="nhx-scenewrap"><div class="nhx-scene__glow" aria-hidden="true"></div><svg class="nhx-scene nhx-scene--dw" viewBox="0 0 520 410" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g class="l1"><circle class="nd" cx="70" cy="60" r="2.2" fill="#2F6BFF" style="animation-delay:0.0s"/><circle class="nd" cx="470" cy="70" r="2.2" fill="#00E0A4" style="animation-delay:0.3s"/><circle class="nd" cx="60" cy="350" r="2.2" fill="#2F6BFF" style="animation-delay:0.6s"/><circle class="nd" cx="480" cy="340" r="2.2" fill="#00E0A4" style="animation-delay:0.9s"/><circle class="nd" cx="430" cy="40" r="2.2" fill="#2F6BFF" style="animation-delay:1.2s"/></g><g class="l2"><rect class="ln" style="--len:1500" x="60" y="70" width="400" height="270" rx="16" fill="none" stroke="#2F6BFF" stroke-width="1.4"/><line class="ln" style="--len:402;animation-delay:0.3s" x1="60" y1="112" x2="460" y2="112" stroke="#2F6BFF" stroke-width="1.2"/><circle class="nd" cx="84" cy="91" r="2.6" fill="#2F6BFF" style="animation-delay:0.0s"/><circle class="nd" cx="104" cy="91" r="2.6" fill="#2F6BFF" style="animation-delay:0.3s"/><circle class="nd" cx="124" cy="91" r="2.6" fill="#00E0A4" style="animation-delay:0.6s"/></g><g class="l3"><rect x="82" y="132" width="96" height="188" rx="8" fill="#2F6BFF" opacity=".07"/><rect class="lit" x="200" y="132" width="240" height="56" rx="8" fill="#2F6BFF"/><rect class="ln" style="--len:600" x="200" y="132" width="240" height="56" rx="8" fill="none" stroke="#00E0A4" stroke-width="1.3"/><rect class="ln" style="--len:600" x="200" y="204" width="240" height="46" rx="8" fill="none" stroke="#2F6BFF" stroke-width="1.2"/><rect class="ln" style="--len:520" x="200" y="266" width="170" height="46" rx="8" fill="none" stroke="#2F6BFF" stroke-width="1.2"/><circle class="nd" cx="130" cy="132" r="3" fill="#2F6BFF" style="animation-delay:0.0s"/><circle class="nd" cx="130" cy="320" r="3" fill="#00E0A4" style="animation-delay:0.3s"/><circle class="nd" cx="200" cy="160" r="3" fill="#2F6BFF" style="animation-delay:0.6s"/><circle class="nd" cx="440" cy="160" r="3" fill="#00E0A4" style="animation-delay:0.9s"/><circle class="nd" cx="200" cy="289" r="3" fill="#2F6BFF" style="animation-delay:1.2s"/><circle class="nd" cx="370" cy="289" r="3" fill="#00E0A4" style="animation-delay:1.5s"/><line class="ln" style="--len:190;animation-delay:0.4s" x1="130" y1="132" x2="130" y2="320" stroke="#2F6BFF" stroke-width="0.9"/><line class="ln" style="--len:24;animation-delay:0.6s" x1="178" y1="160" x2="200" y2="160" stroke="#00E0A4" stroke-width="0.9"/><line class="ln" style="--len:24;animation-delay:0.8s" x1="178" y1="226" x2="200" y2="226" stroke="#2F6BFF" stroke-width="0.9"/></g></svg></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="nhx-sec nhx-edge" style="background:radial-gradient(circle at 8% -6%,rgba(47,107,255,.05),transparent 42%),#fff">
+  <div class="nhx-wrap">
+    <div class="nhx-secnum" aria-hidden="true"><span class="nhx-secnum__n">02</span><span class="nhx-secnum__line"></span><span class="nhx-secnum__label">Enfoque</span></div>
+    <div class="nhx-head center nhx-reveal">
+      <p class="nhx-eyebrow">Por qué a código</p>
+      <h2 class="nhx-h2 nodo">Un diseñador de websites que construye, no que rellena plantillas</h2>
+      <p class="nhx-lead">Elegir un diseñador de websites que programa a mano marca la diferencia entre una página bonita y una que realmente carga rápido, posiciona y vende.</p>
+    </div>
+    <div class="nhx-grid">
+      <div class="nhx-card nhx-reveal nhx-reveal--l nhx-d1">
+        <div class="nhx-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7 4 12l4 5" stroke="#2F6BFF"/><path d="m16 7 4 5-4 5" stroke="#2F6BFF"/><circle cx="12" cy="12" r="1.6" fill="#00E0A4"/></svg></div>
+        <h3>Código propio, no plantillas</h3>
+        <p>Cada línea escrita a mano: un sitio único, ligero y fácil de mantener en el tiempo.</p>
+      </div>
+      <div class="nhx-card nhx-reveal nhx-d2">
+        <div class="nhx-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 4 14h6l-1 7 9-11h-6z" stroke="#2F6BFF"/><circle cx="12" cy="12" r="1.1" fill="#00E0A4"/></svg></div>
+        <h3>Velocidad real (CWV 95+)</h3>
+        <p>Optimización de rendimiento para que Google y tus clientes no tengan que esperar.</p>
+      </div>
+      <div class="nhx-card nhx-reveal nhx-reveal--r nhx-d3">
+        <div class="nhx-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="10" height="18" rx="2" stroke="#2F6BFF"/><rect x="16" y="9" width="4" height="12" rx="1" stroke="#00E0A4"/></svg></div>
+        <h3>Responsive de verdad</h3>
+        <p>Se ve y funciona perfecto en escritorio, tablet y móvil, sin overflow ni saltos.</p>
+      </div>
+    </div>
+
+    <style>
+    /* ==== Panel ink con foto de sección (imagen de marca, no sticker) ==== */
+    .nhx-fig{position:relative;margin-top:clamp(2.4rem,5.5vw,3.8rem);padding:clamp(1.1rem,3.4vw,2.4rem);border-radius:28px;overflow:hidden;isolation:isolate;background:radial-gradient(120% 120% at 74% -8%,#18305A 0%,#101D33 50%,#0A1120 100%);box-shadow:0 34px 70px rgba(14,23,38,.20),inset 0 0 0 1px rgba(47,107,255,.18),0 0 60px rgba(47,107,255,.05)}
+    .nhx-fig__mesh{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none;z-index:0}
+    .nhx-fig__inner{position:relative;z-index:1;display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(1.3rem,3.2vw,2.6rem);align-items:center}
+    .nhx-fig__media{position:relative;isolation:isolate}
+    .nhx-fig__glow{position:absolute;inset:-10%;z-index:0;pointer-events:none;background:radial-gradient(circle at 50% 46%,rgba(47,107,255,.55),rgba(0,224,164,.18) 46%,transparent 72%);animation:nhx-breathe 9s ease-in-out infinite}
+    .nhx-fig__img{position:relative;z-index:1;width:100%;height:auto;display:block;border-radius:16px;max-height:460px;object-fit:contain;box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.06),0 0 46px rgba(47,107,255,.14);filter:brightness(1.18) contrast(1.04) saturate(1.05);-webkit-mask-image:radial-gradient(150% 155% at 50% 48%,#000 78%,rgba(0,0,0,.5) 93%,transparent 100%);mask-image:radial-gradient(150% 155% at 50% 48%,#000 78%,rgba(0,0,0,.5) 93%,transparent 100%)}
+    .nhx-fig__nodes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
+    .nhx-fig__nodes .fnd{animation:nhx-pulse 3.2s ease-in-out infinite}
+    .nhx-fig__nodes .fln{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:nhx-draw 4.8s ease-in-out infinite alternate}
+    .nhx-fig__ttl{font-family:var(--fdisplay);font-weight:600;color:#fff;font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.15;letter-spacing:-.01em;margin:.2rem 0 .6rem}
+    .nhx-fig__txt{color:#C4D0E0;font-size:.98rem;line-height:1.62;margin:0}
+    .nhx-fig__tag{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.1rem;font-family:var(--fdisplay);font-weight:600;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#8FA0B8}
+    .nhx-fig__tag i{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px rgba(0,224,164,.7);flex:0 0 auto}
+    @media(max-width:760px){.nhx-fig__inner{grid-template-columns:1fr}.nhx-fig__body{order:2}.nhx-fig__img{max-height:340px}}
+    </style>
+    <div class="nhx-fig nhx-reveal">
+      <svg class="nhx-fig__mesh" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <line class="fln" style="--len:260" x1="90" y1="90" x2="330" y2="150" stroke="#2F6BFF" stroke-width="1"/>
+        <line class="fln" style="--len:300;animation-delay:.5s" x1="330" y1="150" x2="640" y2="80" stroke="#00E0A4" stroke-width="1"/>
+        <line class="fln" style="--len:280;animation-delay:1s" x1="640" y1="80" x2="980" y2="180" stroke="#2F6BFF" stroke-width="1"/>
+        <line class="fln" style="--len:240;animation-delay:.3s" x1="230" y1="330" x2="540" y2="300" stroke="#00E0A4" stroke-width="1"/>
+        <line class="fln" style="--len:300;animation-delay:.8s" x1="700" y1="340" x2="1050" y2="300" stroke="#2F6BFF" stroke-width="1"/>
+        <circle class="fnd" cx="90" cy="90" r="3" fill="#2F6BFF"/><circle class="fnd" cx="330" cy="150" r="3.4" fill="#00E0A4" style="animation-delay:.4s"/>
+        <circle class="fnd" cx="640" cy="80" r="3" fill="#2F6BFF" style="animation-delay:.8s"/><circle class="fnd" cx="980" cy="180" r="3" fill="#00E0A4" style="animation-delay:1.2s"/>
+        <circle class="fnd" cx="540" cy="300" r="3" fill="#2F6BFF" style="animation-delay:.6s"/><circle class="fnd" cx="1050" cy="300" r="3" fill="#00E0A4" style="animation-delay:1s"/>
+      </svg>
+      <div class="nhx-fig__inner">
+        <div class="nhx-fig__media nhx-reveal nhx-reveal--l nhx-d1">
+          <div class="nhx-fig__glow" aria-hidden="true"></div>
+          <img class="nhx-fig__img" src="https://nodarishub.com/wp-content/uploads/2026/07/diseno-web-disenador-websites.webp" width="1400" height="933" loading="lazy" decoding="async" alt="diseñador de websites construyendo un sitio a código">
+          <svg class="nhx-fig__nodes" viewBox="0 0 600 400" preserveAspectRatio="none" aria-hidden="true">
+            <line class="fln" style="--len:120" x1="70" y1="60" x2="150" y2="120" stroke="#00E0A4" stroke-width="1.4"/>
+            <circle class="fnd" cx="70" cy="60" r="5" fill="#00E0A4"/>
+            <circle class="fnd" cx="150" cy="120" r="4" fill="#2F6BFF" style="animation-delay:.5s"/>
+            <line class="fln" style="--len:120;animation-delay:.6s" x1="540" y1="330" x2="450" y2="280" stroke="#2F6BFF" stroke-width="1.4"/>
+            <circle class="fnd" cx="540" cy="330" r="5" fill="#2F6BFF" style="animation-delay:.9s"/>
+          </svg>
+        </div>
+        <div class="nhx-fig__body nhx-reveal nhx-reveal--r nhx-d2">
+          <p class="nhx-eyebrow is-mint">En la práctica</p>
+          <p class="nhx-fig__ttl">Sitios construidos a código</p>
+          <p class="nhx-fig__txt">Nada de plantillas genéricas: un diseñador de websites escribe tu sitio a mano —del boceto al código— cuidando cada detalle de diseño, velocidad y experiencia.</p>
+          <span class="nhx-fig__tag"><i></i>Hecho a la medida</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nhx-sec" style="background:radial-gradient(circle at 92% -6%,rgba(0,224,164,.055),transparent 42%),var(--fog)">
+  <div class="nhx-wrap">
+    <div class="nhx-secnum" aria-hidden="true"><span class="nhx-secnum__n">03</span><span class="nhx-secnum__line"></span><span class="nhx-secnum__label">Alcance</span></div>
+    <div class="nhx-split">
+      <div class="nhx-reveal nhx-reveal--l nhx-d1">
+        <svg class="nhx-ws" viewBox="0 0 520 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g class="wf"><circle class="wn" cx="40" cy="60" r="3" fill="#2F6BFF" style="animation-delay:0.0s"/><circle class="wn" cx="486" cy="70" r="3" fill="#00E0A4" style="animation-delay:0.5s"/></g><g class="wf2"><circle class="wn" cx="50" cy="360" r="2.6" fill="#00E0A4" style="animation-delay:0.0s"/><circle class="wn" cx="470" cy="350" r="2.6" fill="#2F6BFF" style="animation-delay:0.6s"/></g><g><rect class="wl" style="--len:380;animation-delay:0.0s" x="90" y="90" width="120" height="70" rx="10" fill="none" stroke="#2F6BFF" stroke-width="1.5"/><circle class="wn" cx="90" cy="90" r="3.4" fill="#2F6BFF" style="animation-delay:0.0s"/><rect class="wlit" x="230" y="90" width="120" height="70" rx="10" fill="#2F6BFF"/><rect class="wl" style="--len:380;animation-delay:0.28s" x="230" y="90" width="120" height="70" rx="10" fill="none" stroke="#2F6BFF" stroke-width="1.5"/><circle class="wn" cx="230" cy="90" r="3.4" fill="#00E0A4" style="animation-delay:0.3s"/><rect class="wl" style="--len:380;animation-delay:0.56s" x="90" y="180" width="120" height="70" rx="10" fill="none" stroke="#2F6BFF" stroke-width="1.5"/><circle class="wn" cx="90" cy="180" r="3.4" fill="#2F6BFF" style="animation-delay:0.6s"/><rect class="wl" style="--len:380;animation-delay:0.84s" x="230" y="180" width="120" height="70" rx="10" fill="none" stroke="#00E0A4" stroke-width="1.5"/><circle class="wn" cx="230" cy="180" r="3.4" fill="#00E0A4" style="animation-delay:0.9s"/><rect class="wl" style="--len:660;animation-delay:1.12s" x="90" y="270" width="260" height="70" rx="10" fill="none" stroke="#2F6BFF" stroke-width="1.5"/><circle class="wn" cx="90" cy="270" r="3.4" fill="#2F6BFF" style="animation-delay:1.2s"/><line class="wl" style="--len:22;animation-delay:0.6s" x1="210" y1="125" x2="230" y2="125" stroke="#5B6B82" stroke-width="1.2"/><line class="wl" style="--len:22;animation-delay:0.7s" x1="150" y1="160" x2="150" y2="180" stroke="#5B6B82" stroke-width="1.2"/><line class="wl" style="--len:22;animation-delay:0.8s" x1="290" y1="160" x2="290" y2="180" stroke="#5B6B82" stroke-width="1.2"/><circle class="wn" cx="350" cy="305" r="4" fill="#00E0A4" style="animation-delay:0.9s"/></g></svg>
+      </div>
+      <div class="nhx-prose nhx-reveal nhx-reveal--r nhx-d2">
+        <p class="nhx-eyebrow">Qué incluye</p>
+        <h2 class="nhx-h2 nodo">Qué hace por ti un diseñador de websites profesional</h2>
+        <p>Contratar a un diseñador de websites profesional no es solo pedir un diseño: es conseguir una herramienta comercial que trabaja para tu negocio las 24 horas. Nuestro trabajo empieza entendiendo qué vendes, a quién y qué acción quieres que haga cada visitante. A partir de ahí, un diseñador de websites con enfoque a código estructura la página para guiar a esa persona hasta el contacto o la compra.</p>
+        <h3>Diseño a la medida de tu marca</h3>
+        <p>Definimos una identidad visual coherente —tipografía, color y ritmo— y la aplicamos a un diseño de páginas web limpio, premium y fácil de leer. Sin plantillas recicladas: la estructura nace de tu mensaje, no de un tema comprado.</p>
+        <h3>Rendimiento y SEO técnico desde el día uno</h3>
+        <p>Entregamos cada sitio con SEO técnico de base, datos estructurados, imágenes optimizadas y Core Web Vitals cuidados. Si además quieres crecer en buscadores, lo natural es sumar un plan de <a href="https://nodarishub.com/ec/seo/">posicionamiento web o SEO</a> que trabaje el contenido mes a mes.</p>
+        <h3>Preparado para vender y automatizar</h3>
+        <p>Conectamos formularios y botones directo a WhatsApp, y dejamos el sitio listo para integrar <a href="https://nodarishub.com/ec/software/">desarrollo de software para empresas</a> cuando necesites automatizar procesos. ¿Todavía no tienes página? Puedes empezar por <a href="https://nodarishub.com/ec/crear-pagina-web/">crear tu página web para negocio</a> con una base sólida y escalable.</p>
+        <h3>Cómo trabaja nuestro diseñador de websites, paso a paso</h3>
+        <p>Antes de escribir una sola línea de código, un buen diseñador de websites define el objetivo de cada página. Nuestro proceso es simple y transparente: primero, descubrimiento, donde entendemos tu negocio, tu cliente ideal y a tu competencia; segundo, arquitectura y wireframe, para ordenar el mensaje y los llamados a la acción; tercero, diseño visual a la medida de tu marca; cuarto, desarrollo a código, responsive y optimizado; y quinto, pruebas, publicación y medición con analítica. En cada etapa ves avances y das tu visto bueno, de modo que el resultado final es exactamente el que tu negocio necesita, sin sorpresas.</p>
+        <h3>Un sitio que se puede medir y mejorar</h3>
+        <p>Una página no termina el día que se publica. Dejamos configurados Google Analytics 4 y Search Console para que sepas cuántas personas te visitan, desde dónde llegan y qué hacen en tu sitio. Con esos datos podemos mejorar textos, botones y velocidad de forma continua, convirtiendo tu web en una herramienta que crece con tu negocio en lugar de quedarse estática.</p>
+        <p>Todo esto forma parte del ecosistema de <a href="https://nodarishub.com/ec/">Nodarishub, agencia de soluciones digitales</a>: diseño, posicionamiento y software conectados como una sola red que hace crecer tu negocio.</p>
+      </div>
+    </div>
+    <div class="nhx-divider" aria-hidden="true">
+      <svg viewBox="0 0 1180 44" fill="none" preserveAspectRatio="xMidYMid meet">
+        <defs><linearGradient id="nhxdg" x1="0" y1="0" x2="1180" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#2F6BFF" stop-opacity="0"/><stop offset=".18" stop-color="#2F6BFF" stop-opacity=".6"/>
+          <stop offset=".5" stop-color="#00E0A4"/><stop offset=".82" stop-color="#2F6BFF" stop-opacity=".6"/>
+          <stop offset="1" stop-color="#2F6BFF" stop-opacity="0"/></linearGradient></defs>
+        <path d="M0 22 C 240 6, 360 38, 590 22 S 940 6, 1180 22" stroke="url(#nhxdg)" stroke-width="1.5"/>
+        <circle cx="360" cy="30" r="3.5" fill="#2F6BFF"/><circle cx="590" cy="22" r="5" fill="#00E0A4"/><circle cx="820" cy="14" r="3.5" fill="#2F6BFF"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="nhx-sec" id="precios" style="background:radial-gradient(circle at 8% -6%,rgba(47,107,255,.05),transparent 42%),#fff">
+  <div class="nhx-wrap">
+    <div class="nhx-secnum" aria-hidden="true"><span class="nhx-secnum__n">04</span><span class="nhx-secnum__line"></span><span class="nhx-secnum__label">Precios</span></div>
+    <div class="nhx-head center nhx-reveal">
+      <p class="nhx-eyebrow">Inversión</p>
+      <h2 class="nhx-h2 nodo">Precios de diseño de páginas web</h2>
+      <p class="nhx-lead">Rangos orientativos para iniciar un proyecto profesional. Cada web se cotiza a la medida según alcance, número de páginas e integraciones.</p>
+    </div>
+    <div class="nhx-price">
+      <div class="nhx-plan nhx-reveal nhx-d1">
+        <span class="nhx-plan__name">Landing premium</span>
+        <div class="nhx-plan__price">desde $650 USD</div>
+        <p class="nhx-plan__desc">Página enfocada en captar clientes o lanzar una campaña: responsive, enfoque comercial, WhatsApp y SEO básico.</p>
+        <a class="nhx-btn nhx-btn--ghost" href="https://wa.me/593999856888?text=Hola%2C%20quiero%20una%20landing%20premium" target="_blank" rel="noopener">Cotizar</a>
+      </div>
+      <div class="nhx-plan nhx-plan--feat nhx-reveal nhx-d2">
+        <span class="nhx-plan__badge">Más elegido</span>
+        <span class="nhx-plan__name">Sitio web PyME</span>
+        <div class="nhx-plan__price">desde $1,200 USD</div>
+        <p class="nhx-plan__desc">Presencia digital seria: inicio, servicios, contacto, estructura clara, diseño responsive y SEO inicial.</p>
+        <a class="nhx-btn nhx-btn--primary" href="https://wa.me/593999856888?text=Hola%2C%20quiero%20un%20sitio%20web%20PyME" target="_blank" rel="noopener">Cotizar</a>
+      </div>
+      <div class="nhx-plan nhx-reveal nhx-d3">
+        <span class="nhx-plan__name">Sitio corporativo SEO</span>
+        <div class="nhx-plan__price">desde $2,200 USD</div>
+        <p class="nhx-plan__desc">Web completa con varias páginas optimizadas, arquitectura SEO, estructura de contenidos y blog preparado.</p>
+        <a class="nhx-btn nhx-btn--ghost" href="https://wa.me/593999856888?text=Hola%2C%20quiero%20un%20sitio%20corporativo" target="_blank" rel="noopener">Cotizar</a>
+      </div>
+      <div class="nhx-plan nhx-reveal nhx-d4">
+        <span class="nhx-plan__name">Página adicional</span>
+        <div class="nhx-plan__price">$180–$350 USD</div>
+        <p class="nhx-plan__desc">Ideal para agregar páginas por servicio, nicho, campaña o palabra clave a un sitio existente.</p>
+        <a class="nhx-btn nhx-btn--ghost" href="https://wa.me/593999856888?text=Hola%2C%20quiero%20una%20pagina%20adicional" target="_blank" rel="noopener">Cotizar</a>
+      </div>
+    </div>
+    
+    <p class="nhx-note" style="margin-top:.5rem">¿Quieres el panorama completo del mercado antes de decidir? Consulta nuestra guía sobre los <a href="https://nodarishub.com/precios-paginas-web-ecuador/">precios de páginas web en Ecuador</a>.</p>
+
+    <div class="nhx-head center nhx-reveal" style="margin-top:clamp(3rem,6vw,4.5rem)">
+      <p class="nhx-eyebrow">Después de publicar</p>
+      <h2 class="nhx-h2 nodo">Mantenimiento web</h2>
+      <p class="nhx-lead">Tu sitio se mantiene rápido, seguro y actualizado con un plan mensual de soporte.</p>
+    </div>
+    <div class="nhx-price cols3">
+      <div class="nhx-plan nhx-reveal nhx-d1">
+        <span class="nhx-plan__name">Esencial</span>
+        <div class="nhx-plan__price">desde $150 USD/mes</div>
+        <p class="nhx-plan__desc">Actualizaciones, copias de seguridad y seguridad básica.</p>
+        <a class="nhx-btn nhx-btn--ghost" href="https://wa.me/593999856888?text=Hola%2C%20quiero%20mantenimiento%20Esencial" target="_blank" rel="noopener">Cotizar</a>
+      </div>
+      <div class="nhx-plan nhx-reveal nhx-d2">
+        <span class="nhx-plan__name">Profesional</span>
+        <div class="nhx-plan__price">desde $220 USD/mes</div>
+        <p class="nhx-plan__desc">Soporte, cambios menores, monitoreo, optimización y acompañamiento técnico.</p>
+        <a class="nhx-btn nhx-btn--ghost" href="https://wa.me/593999856888?text=Hola%2C%20quiero%20mantenimiento%20Profesional" target="_blank" rel="noopener">Cotizar</a>
+      </div>
+      <div class="nhx-plan nhx-reveal nhx-d3">
+        <span class="nhx-plan__name">Crítico / E-commerce</span>
+        <div class="nhx-plan__price">$400–$800 USD/mes</div>
+        <p class="nhx-plan__desc">Para tiendas y sitios de alto tráfico: incidencias prioritarias, performance y soporte cercano.</p>
+        <a class="nhx-btn nhx-btn--ghost" href="https://wa.me/593999856888?text=Hola%2C%20quiero%20mantenimiento%20Critico" target="_blank" rel="noopener">Cotizar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nhx-sec" style="background:radial-gradient(circle at 92% -6%,rgba(0,224,164,.055),transparent 42%),var(--fog)">
+  <div class="nhx-wrap">
+    <div class="nhx-secnum" aria-hidden="true"><span class="nhx-secnum__n">05</span><span class="nhx-secnum__line"></span><span class="nhx-secnum__label">FAQ</span></div>
+    <div class="nhx-head center nhx-reveal">
+      <p class="nhx-eyebrow">Preguntas frecuentes</p>
+      <h2 class="nhx-h2 nodo">Sobre trabajar con un diseñador de websites</h2>
+    </div>
+    <div class="nhx-faq nhx-reveal">
+      <details>
+        <summary>¿Trabajan a código o con constructores?<span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="2" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></svg></span></summary>
+        <div class="ans">Como diseñador de websites trabajamos a código (HTML, CSS, JS y back-end propio) y también sobre WordPress cuando te conviene editar el contenido tú mismo. Lo que no usamos son plantillas genéricas: cada diseño se arma a la medida de tu negocio.</div>
+      </details>
+      <details>
+        <summary>¿Cuánto tarda un sitio web?<span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="2" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></svg></span></summary>
+        <div class="ans">Una landing premium suele tomar de 1 a 2 semanas; un sitio PyME, de 3 a 5 semanas; y un sitio corporativo, más según el número de páginas y contenidos. Te damos un cronograma claro al cotizar.</div>
+      </details>
+      <details>
+        <summary>¿El sitio incluye SEO?<span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="2" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></svg></span></summary>
+        <div class="ans">Sí, siempre entregamos SEO técnico de base. Para competir por palabras clave de forma continua, se recomienda un plan de posicionamiento web o SEO aparte, con seguimiento mensual.</div>
+      </details>
+      <details>
+        <summary>¿Puedo actualizar el contenido yo mismo?<span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="2" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></svg></span></summary>
+        <div class="ans">Sí. Dejamos el sitio preparado para que edites textos e imágenes fácilmente, y si prefieres delegarlo, lo cubre un plan de mantenimiento web.</div>
+      </details>
+      <details>
+        <summary>¿Atienden proyectos en Ecuador?<span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="2" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></svg></span></summary>
+        <div class="ans">Sí. Trabajamos de forma remota con PyMEs y particulares en Ecuador, con atención cercana y precios en USD.</div>
+      </details>
+      <details>
+        <summary>¿Trabajan con empresas fuera de Quito?<span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="2" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></svg></span></summary>
+        <div class="ans">Sí. Operamos desde Quito y atendemos empresas de todo Ecuador. El trabajo es remoto en su mayor parte, así que la ubicación no limita el servicio ni encarece el proyecto.</div>
+      </details>
+      <details>
+        <summary>¿Cuánto cuesta una página web en Ecuador?<span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="2" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></svg></span></summary>
+        <div class="ans">Depende del alcance, pero todos nuestros presupuestos se entregan en dólares y cerrados: sabes el total antes de empezar. Un sitio corporativo a código cuesta distinto que una tienda en línea con pasarela de pago, y lo cotizamos según lo que tu negocio realmente necesita.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="nhx-cta">
+  <div class="nhx-wrap nhx-reveal">
+    <p class="nhx-eyebrow is-mint" style="text-align:center">Empieza hoy</p>
+    <h2>¿Listo para tu nuevo sitio web?</h2>
+    <p>Cuéntanos tu idea y te preparamos una propuesta a la medida, sin compromiso. Respondemos por WhatsApp.</p>
+    <a class="nhx-btn nhx-btn--primary nhx-btn--lg" href="https://wa.me/593999856888?text=Hola%20Nodarishub%2C%20quiero%20cotizar%20mi%20sitio%20web" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 5a11 11 0 0 0-9.4 16.6L5 27l5.6-1.5A11 11 0 1 0 16 5zm0 2a9 9 0 1 1-4.6 16.7l-.3-.2-3 .8.8-2.9-.2-.3A9 9 0 0 1 16 7z"/></svg>
+      Escríbenos por WhatsApp
+    </a>
+  </div>
+</section>
+
+
+</div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:html -->
+<script>
+(function(){
+  var RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var r=[].slice.call(document.querySelectorAll('.nhx-reveal'));
+  if(RM||!('IntersectionObserver' in window)){r.forEach(function(e){e.classList.add('is-in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('is-in');io.unobserve(en.target);}});},{threshold:0.12,rootMargin:'0px 0px -6% 0px'});
+  r.forEach(function(el){io.observe(el);});
+})();
+</script>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<style id="nh-persona">
+/* ===== Capa de personalidad Nodarishub (solo paginas, NO snippets) ===== */
+::selection{background:#00E0A4;color:#0E1726}
+::-moz-selection{background:#00E0A4;color:#0E1726}
+.nh-cur,.nh-cur__ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9998;border-radius:50%;will-change:transform;opacity:0;transition:opacity .3s ease}
+.nh-cur{width:8px;height:8px;background:#2F6BFF;margin:-4px 0 0 -4px;box-shadow:0 0 10px rgba(47,107,255,.6)}
+.nh-cur__ring{width:34px;height:34px;border:1.5px solid rgba(0,224,164,.7);margin:-17px 0 0 -17px;transition:opacity .3s ease,width .25s ease,height .25s ease,margin .25s ease,border-color .25s ease,background-color .25s ease}
+.nh-cur.on,.nh-cur__ring.on{opacity:1}
+.nh-cur__ring.hot{width:52px;height:52px;margin:-26px 0 0 -26px;border-color:rgba(0,224,164,.95);background:rgba(0,224,164,.09)}
+.nh-clock{font-family:'Space Grotesk','Space Grotesk Light',system-ui,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#8FA0B8;margin-top:1.4rem;display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+.nh-clock .bl{width:6px;height:6px;border-radius:50%;background:#00E0A4;flex:0 0 auto;animation:nh-blink 2.4s ease-in-out infinite}
+@keyframes nh-blink{0%,100%{opacity:.3}50%{opacity:1}}
+.nh-sign{font-family:'Space Grotesk','Space Grotesk Light',system-ui,sans-serif;font-size:.74rem;letter-spacing:.06em;color:#7E8DA3;margin-top:.45rem;font-style:italic}
+.nhx-hero .nh-clock,.nhx-hero .nh-sign{justify-content:center;text-align:center}
+.nh-hero svg circle,.nhx-hero svg circle{transform-box:fill-box;transform-origin:center;transition:transform .2s ease}
+.nh-node-near{opacity:1 !important;transform:scale(1.9)}
+.nh-home .nh-card:hover .nh-ico,.nhx .nhx-card:hover .nhx-ico{filter:drop-shadow(0 4px 10px rgba(47,107,255,.28))}
+.nhx-prose a:hover{color:#2F6BFF}
+@media (prefers-reduced-motion:reduce){.nh-cur,.nh-cur__ring{display:none !important}.nh-clock .bl{animation:none}.nh-node-near{transform:none}}
+@media (hover:none),(pointer:coarse){.nh-cur,.nh-cur__ring{display:none !important}}
+</style>
+<script>
+(function(){
+  var mm=window.matchMedia;
+  var fine=mm?mm('(pointer:fine)').matches:false;
+  var RM=mm?mm('(prefers-reduced-motion:reduce)').matches:false;
+  try{
+    var host=document.querySelector('.nh-trust')||document.querySelector('.nhx-hero__btns')||document.querySelector('.nh-hero .nh-wrap')||document.querySelector('.nhx-hero .nhx-wrap');
+    if(host){
+      var c=document.createElement('div');c.className='nh-clock';
+      var bl=document.createElement('span');bl.className='bl';
+      var tx=document.createElement('span');
+      c.appendChild(bl);c.appendChild(tx);
+      host.parentNode.insertBefore(c,host.nextSibling);
+      var upd=function(){var d=new Date(),h=('0'+d.getHours()).slice(-2),m=('0'+d.getMinutes()).slice(-2);tx.textContent='Ecuador — '+h+':'+m+' hora local';};
+      upd();setInterval(upd,30000);
+      var sg=document.createElement('div');sg.className='nh-sign';sg.textContent='— Construido a mano, nodo por nodo.';
+      c.parentNode.insertBefore(sg,c.nextSibling);
+    }
+  }catch(e){}
+  if(!fine||RM){return;}
+  var dot=document.createElement('div');dot.className='nh-cur';
+  var ring=document.createElement('div');ring.className='nh-cur__ring';
+  document.body.appendChild(dot);document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,shown=false;
+  var SEL='a,button,summary,.nh-card,.nhx-card,.nh-aud__card,.nh-btn,.nhx-btn,.nh-link,.nhx-prose a';
+  addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;if(!shown){shown=true;dot.classList.add('on');ring.classList.add('on');}},{passive:true});
+  document.addEventListener('mouseover',function(e){if(e.target.closest(SEL)){ring.classList.add('hot');}},{passive:true});
+  document.addEventListener('mouseout',function(e){if(e.target.closest(SEL)){ring.classList.remove('hot');}},{passive:true});
+  var circles=[].slice.call(document.querySelectorAll('.nh-hero svg circle,.nhx-hero svg circle'));
+  var cen=[];
+  var recalc=function(){cen=circles.map(function(c){var r=c.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2,r.width];});};
+  recalc();addEventListener('scroll',recalc,{passive:true});addEventListener('resize',recalc,{passive:true});
+  var R=95;
+  function frame(){
+    rx+=(mx-rx)*0.2;ry+=(my-ry)*0.2;
+    dot.style.transform='translate('+mx+'px,'+my+'px)';
+    ring.style.transform='translate('+rx+'px,'+ry+'px)';
+    for(var i=0;i<circles.length;i++){
+      var c=cen[i];if(!c){continue;}if(c[2]===0){continue;}
+      var dx=mx-c[0],dy=my-c[1],hit=(dx*dx+dy*dy)<R*R;
+      if(hit){ if(!circles[i]._n){circles[i]._n=1;circles[i].classList.add('nh-node-near');} }
+      else { if(circles[i]._n){circles[i]._n=0;circles[i].classList.remove('nh-node-near');} }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+<!-- /wp:html -->

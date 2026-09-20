@@ -1,0 +1,1079 @@
+{
+ "fecha_captura": "2026-08-02",
+ "ventana_dias": 28,
+ "fecha_proxima_medicion": "2026-09-25",
+ "nota": "Linea base pre-Fase-4/5. purchase confirmado como cero REAL (revisor: ninguna venta ha nacido del sitio, todas 1-a-1 fuera de la pagina). No se persigue mas hasta la primera orden real.",
+ "baseline_por_ficha": {
+  "eventos_scroll_90pct": {
+   "dimensionHeaders": [
+    {
+     "name": "pagePath"
+    },
+    {
+     "name": "pageTitle"
+    }
+   ],
+   "kind": "analyticsData#runReport",
+   "metadata": {
+    "currencyCode": "USD",
+    "timeZone": "America/Mexico_City"
+   },
+   "metricHeaders": [
+    {
+     "name": "eventCount",
+     "type": "TYPE_INTEGER"
+    }
+   ],
+   "rowCount": 3,
+   "rows": [
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/bpc-157-tb-500-10-10mg/"
+      },
+      {
+       "value": "BPC-157 TB-500 5mg Precio México | Comprar | PYS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/retatrutida-30mg/"
+      },
+      {
+       "value": "Retatrutide Precio México | Retatrutida 30mg 99% | PYS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/tirzepatida-60-mg/"
+      },
+      {
+       "value": "Tirzepatida 60 mg: Precio en México | Comprar PyS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      }
+     ]
+    }
+   ]
+  },
+  "nota": "GA4 no tiene 'exit rate' nativo por página (a diferencia de Universal Analytics); no se aproxima con un cálculo inventado",
+  "sesiones_y_engagement": {
+   "dimensionHeaders": [
+    {
+     "name": "pagePath"
+    },
+    {
+     "name": "pageTitle"
+    }
+   ],
+   "kind": "analyticsData#runReport",
+   "metadata": {
+    "currencyCode": "USD",
+    "timeZone": "America/Mexico_City"
+   },
+   "metricHeaders": [
+    {
+     "name": "sessions",
+     "type": "TYPE_INTEGER"
+    },
+    {
+     "name": "screenPageViews",
+     "type": "TYPE_INTEGER"
+    },
+    {
+     "name": "engagementRate",
+     "type": "TYPE_FLOAT"
+    },
+    {
+     "name": "averageSessionDuration",
+     "type": "TYPE_SECONDS"
+    },
+    {
+     "name": "eventCount",
+     "type": "TYPE_INTEGER"
+    }
+   ],
+   "rowCount": 23,
+   "rows": [
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/retatrutida-30mg/"
+      },
+      {
+       "value": "Retatrutida 30 mg: Precio en México | Comprar en PyS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "15"
+      },
+      {
+       "value": "18"
+      },
+      {
+       "value": "0.6"
+      },
+      {
+       "value": "46.774949666666664"
+      },
+      {
+       "value": "64"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/retatrutida-30mg/"
+      },
+      {
+       "value": "Retatrutide Precio México | Retatrutida 30mg 99% | PYS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "7"
+      },
+      {
+       "value": "7"
+      },
+      {
+       "value": "0.42857142857142855"
+      },
+      {
+       "value": "16.60588542857143"
+      },
+      {
+       "value": "28"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/semaglutida-5-mg/"
+      },
+      {
+       "value": "Semaglutida 5mg | Comprar en México | PyS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "5"
+      },
+      {
+       "value": "5"
+      },
+      {
+       "value": "0.6"
+      },
+      {
+       "value": "24.5382664"
+      },
+      {
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/bpc-157-tb-500-10-10mg/"
+      },
+      {
+       "value": "BPC-157 Precio | Combo BPC-157 + TB-500 5mg México"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "4"
+      },
+      {
+       "value": "8"
+      },
+      {
+       "value": "0.75"
+      },
+      {
+       "value": "60.37065375"
+      },
+      {
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/igf-1-lr3-1mg/"
+      },
+      {
+       "value": "IGF-1 LR3 1mg | Comprar en México | PyS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "4"
+      },
+      {
+       "value": "5"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "192.3047045"
+      },
+      {
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/tirzepatida-30-mg/"
+      },
+      {
+       "value": "Tirzepatida Precio México | Comprar Tirzepatida 30mg"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "3"
+      },
+      {
+       "value": "4"
+      },
+      {
+       "value": "0.33333333333333331"
+      },
+      {
+       "value": "554.29400166666665"
+      },
+      {
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/bpc-157-tb-500-10-10mg/"
+      },
+      {
+       "value": "BPC-157 TB-500 10mg | Comprar Péptidos México"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "2"
+      },
+      {
+       "value": "2"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "12.7900135"
+      },
+      {
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/cagrilintida-10mg/"
+      },
+      {
+       "value": "Cagrilintida Cagrilintide 10mg Precio México | PYS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "2"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "0.5"
+      },
+      {
+       "value": "2.9594055"
+      },
+      {
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/retatrutida-30mg/"
+      },
+      {
+       "value": "Retatrutide Precio México | Comprar Retatrutida 30mg"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "2"
+      },
+      {
+       "value": "2"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "12.9436825"
+      },
+      {
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/selank-10-mg/"
+      },
+      {
+       "value": "Selank 10mg Precio México | Péptido Nootrópico | PYS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "2"
+      },
+      {
+       "value": "2"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "10.018731"
+      },
+      {
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/tirzepatida-30-mg/"
+      },
+      {
+       "value": "Tirzepatida 30 mg: Precio en México | Comprar PyS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "2"
+      },
+      {
+       "value": "2"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "199.6646385"
+      },
+      {
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/tirzepatida-60-mg/"
+      },
+      {
+       "value": "Tirzepatida 60 mg: Precio en México | Comprar PyS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "2"
+      },
+      {
+       "value": "2"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "304.1979335"
+      },
+      {
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/agua-bacteriostatica-3ml/"
+      },
+      {
+       "value": "Agua Bacteriostática 3ml | Péptidos México | PyS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "0"
+      },
+      {
+       "value": "4.956273"
+      },
+      {
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/bpc-157-tb-500-10-10mg/"
+      },
+      {
+       "value": "BPC-157 TB-500 5mg Precio México | Comprar | PYS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "81.938807"
+      },
+      {
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/cagrilintida-10mg/"
+      },
+      {
+       "value": "Cagrilintida 10mg | Análogo de Amilina | México"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "93.063398"
+      },
+      {
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/dim-nutricost-300mg/"
+      },
+      {
+       "value": "DIM 300mg Nutricost | Balance Hormonal México"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "79.702535"
+      },
+      {
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/igf-1-lr3-1mg/"
+      },
+      {
+       "value": "IGF-1 LR3 1mg | Precio y Disponibilidad en México"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "31.657229"
+      },
+      {
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/mots-c-40mg/"
+      },
+      {
+       "value": "MOTS-c 40mg Precio México | Péptido Mitocondrial | PYS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "0"
+      },
+      {
+       "value": "2.466091"
+      },
+      {
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/mots-c-40mg/"
+      },
+      {
+       "value": "MOTS-c 40mg | Alta Concentración | Péptidos México"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "34.089331"
+      },
+      {
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/nad-plus-500mg/"
+      },
+      {
+       "value": "NAD+ 500mg Nutricost | Energía Celular México"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "1.777917"
+      },
+      {
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/retatrutida-30mg/"
+      },
+      {
+       "value": "Comprar Retatrutida 30 mg | Triple Agonista GLP-1 | PyS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "2.105271"
+      },
+      {
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/semaglutida-20mg/"
+      },
+      {
+       "value": "Semaglutida 20mg | Comprar en México | PyS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "2.159808"
+      },
+      {
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "/product/tirzepatida-60-mg/"
+      },
+      {
+       "value": "Tirzepatida 60 mg Precio | Alta Dosis México | PYS"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "10.03754"
+      },
+      {
+       "value": "6"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "funnel": {
+  "funnelTable": {
+   "dimensionHeaders": [
+    {
+     "name": "funnelStepName"
+    }
+   ],
+   "metadata": {},
+   "metricHeaders": [
+    {
+     "name": "activeUsers",
+     "type": "TYPE_INTEGER"
+    },
+    {
+     "name": "funnelStepCompletionRate",
+     "type": "TYPE_INTEGER"
+    },
+    {
+     "name": "funnelStepAbandonments",
+     "type": "TYPE_INTEGER"
+    },
+    {
+     "name": "funnelStepAbandonmentRate",
+     "type": "TYPE_INTEGER"
+    },
+    {
+     "name": "activeUsers",
+     "type": "TYPE_INTEGER"
+    },
+    {
+     "name": "funnelStepCompletionRate",
+     "type": "TYPE_INTEGER"
+    },
+    {
+     "name": "funnelStepAbandonments",
+     "type": "TYPE_INTEGER"
+    },
+    {
+     "name": "funnelStepAbandonmentRate",
+     "type": "TYPE_INTEGER"
+    }
+   ],
+   "rows": [
+    {
+     "dimensionValues": [
+      {
+       "value": "1. view_item"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "24"
+      },
+      {
+       "value": "0.083333333333333329"
+      },
+      {
+       "value": "22"
+      },
+      {
+       "value": "0.91666666666666663"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "2. add_to_cart"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "2"
+      },
+      {
+       "value": "0.5"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "0.5"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "3. begin_checkout"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      },
+      {
+       "value": "0"
+      },
+      {
+       "value": "1"
+      },
+      {
+       "value": "1"
+      }
+     ]
+    }
+   ]
+  },
+  "funnelVisualization": {
+   "dimensionHeaders": [
+    {
+     "name": "funnelStepName"
+    }
+   ],
+   "metadata": {},
+   "metricHeaders": [
+    {
+     "name": "activeUsers",
+     "type": "TYPE_INTEGER"
+    },
+    {
+     "name": "activeUsers",
+     "type": "TYPE_INTEGER"
+    }
+   ],
+   "rows": [
+    {
+     "dimensionValues": [
+      {
+       "value": "1. view_item"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "2. add_to_cart"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "dimensionValues": [
+      {
+       "value": "3. begin_checkout"
+      }
+     ],
+     "metricValues": [
+      {
+       "value": "1"
+      }
+     ]
+    }
+   ]
+  },
+  "kind": "analyticsData#runFunnelReport"
+ },
+ "purchase_check_90d": {
+  "dimensionHeaders": [
+   {
+    "name": "eventName"
+   }
+  ],
+  "kind": "analyticsData#runReport",
+  "metadata": {
+   "currencyCode": "USD",
+   "schemaRestrictionResponse": {},
+   "timeZone": "America/Mexico_City"
+  },
+  "metricHeaders": [
+   {
+    "name": "eventCount",
+    "type": "TYPE_INTEGER"
+   },
+   {
+    "name": "eventValue",
+    "type": "TYPE_FLOAT"
+   }
+  ]
+ },
+ "resumen_por_ficha": [
+  {
+   "ficha": "/product/retatrutida-30mg/",
+   "sesiones": 25,
+   "pageviews": 28,
+   "eventos": 105,
+   "engagement_prom_pct": 60.0,
+   "duracion_prom_seg": 33.8
+  },
+  {
+   "ficha": "/product/bpc-157-tb-500-10-10mg/",
+   "sesiones": 7,
+   "pageviews": 11,
+   "eventos": 42,
+   "engagement_prom_pct": 85.7,
+   "duracion_prom_seg": 49.9
+  },
+  {
+   "ficha": "/product/semaglutida-5-mg/",
+   "sesiones": 5,
+   "pageviews": 5,
+   "eventos": 20,
+   "engagement_prom_pct": 60.0,
+   "duracion_prom_seg": 24.5
+  },
+  {
+   "ficha": "/product/igf-1-lr3-1mg/",
+   "sesiones": 5,
+   "pageviews": 6,
+   "eventos": 27,
+   "engagement_prom_pct": 100.0,
+   "duracion_prom_seg": 160.2
+  },
+  {
+   "ficha": "/product/tirzepatida-30-mg/",
+   "sesiones": 5,
+   "pageviews": 6,
+   "eventos": 28,
+   "engagement_prom_pct": 60.0,
+   "duracion_prom_seg": 412.4
+  },
+  {
+   "ficha": "/product/cagrilintida-10mg/",
+   "sesiones": 3,
+   "pageviews": 2,
+   "eventos": 10,
+   "engagement_prom_pct": 66.7,
+   "duracion_prom_seg": 33.0
+  },
+  {
+   "ficha": "/product/tirzepatida-60-mg/",
+   "sesiones": 3,
+   "pageviews": 3,
+   "eventos": 15,
+   "engagement_prom_pct": 100.0,
+   "duracion_prom_seg": 206.1
+  },
+  {
+   "ficha": "/product/selank-10-mg/",
+   "sesiones": 2,
+   "pageviews": 2,
+   "eventos": 9,
+   "engagement_prom_pct": 100.0,
+   "duracion_prom_seg": 10.0
+  },
+  {
+   "ficha": "/product/mots-c-40mg/",
+   "sesiones": 2,
+   "pageviews": 2,
+   "eventos": 12,
+   "engagement_prom_pct": 50.0,
+   "duracion_prom_seg": 18.3
+  },
+  {
+   "ficha": "/product/agua-bacteriostatica-3ml/",
+   "sesiones": 1,
+   "pageviews": 1,
+   "eventos": 4,
+   "engagement_prom_pct": 0.0,
+   "duracion_prom_seg": 5.0
+  },
+  {
+   "ficha": "/product/dim-nutricost-300mg/",
+   "sesiones": 1,
+   "pageviews": 1,
+   "eventos": 4,
+   "engagement_prom_pct": 100.0,
+   "duracion_prom_seg": 79.7
+  },
+  {
+   "ficha": "/product/nad-plus-500mg/",
+   "sesiones": 1,
+   "pageviews": 1,
+   "eventos": 4,
+   "engagement_prom_pct": 100.0,
+   "duracion_prom_seg": 1.8
+  },
+  {
+   "ficha": "/product/semaglutida-20mg/",
+   "sesiones": 1,
+   "pageviews": 1,
+   "eventos": 4,
+   "engagement_prom_pct": 100.0,
+   "duracion_prom_seg": 2.2
+  }
+ ],
+ "totales": {
+  "sesiones": 61,
+  "pageviews": 69,
+  "eventos": 284,
+  "fichas_con_al_menos_1_sesion": 13,
+  "fichas_totales_catalogo": 21
+ },
+ "funnel_resumen": [
+  {
+   "paso": "1. view_item",
+   "usuarios_activos": 24,
+   "tasa_finalizacion": 0.08333333333333333,
+   "abandonos": 22,
+   "tasa_abandono": 0.9166666666666666
+  },
+  {
+   "paso": "2. add_to_cart",
+   "usuarios_activos": 2,
+   "tasa_finalizacion": 0.5,
+   "abandonos": 1,
+   "tasa_abandono": 0.5
+  },
+  {
+   "paso": "3. begin_checkout",
+   "usuarios_activos": 1,
+   "tasa_finalizacion": 0.0,
+   "abandonos": 1,
+   "tasa_abandono": 1.0
+  }
+ ],
+ "experimentos_registrados": [
+  {
+   "nombre": "landing NAD+ (Fase 4b)",
+   "url": "https://peptidosysuplementos.mx/nad-que-es-y-para-que-sirve/",
+   "keyword_objetivo": "nad para que sirve",
+   "volumen_medido_mes": 8100,
+   "volumen_cluster_mes_aprox": 15000,
+   "ficha_enlazada": "https://peptidosysuplementos.mx/product/nad-plus-500mg/",
+   "estado_2026-08-02": "PUBLICADA (page_id 2418), verificada en vivo",
+   "fecha_borrador": "2026-08-02",
+   "fecha_publicacion_real": "2026-08-02",
+   "medir_en": "2026-09-25",
+   "nota": "único candidato que pasó las 4 compuertas + 2 filtros extra de la ronda 2 (rastreo por compuesto) de Fase 4b. Campo abierto: ni PYS ni exoma aparecían en ninguna SERP revisada para esta keyword antes de publicar."
+  }
+ ]
+}

@@ -1,0 +1,303 @@
+<!-- wp:group {"align":"full","tagName":"section","layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull">
+<!-- wp:html -->
+<!-- Telenzia — TÉRMINOS Y CONDICIONES · BORRADOR pendiente de revisión legal
+     LAYOUT PROPIO: SIN índice lateral. Columna única centrada con cláusulas numeradas
+     (01, 02, 03…) — el número grande, en tabular-nums y color de acento, alineado a la
+     izquierda del título de cada cláusula. Deliberadamente distinto del Aviso de
+     privacidad (dos columnas con índice sticky), del home, de Telemedicina y de Péptidos.
+     El lenguaje de componentes viene del header global.
+     Los datos de sociedad (domicilio fiscal, RFC) NO constan: el texto se redactó
+     sin ellos, por decisión de Gabo (2026-08-04). Sigue pendiente de revisión legal. -->
+<style id="tlz-tyc-css">
+.tlz-page .tlz-tyc-wrap{max-width:860px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+.tlz-page .tlz-tyc-hero{padding:clamp(40px,5vw,74px) 0 clamp(16px,2vw,26px);text-align:center}
+.tlz-page .tlz-tyc-hero .tlz-kicker{justify-content:center}
+.tlz-page .tlz-tyc-hero h1{font-size:clamp(28px,3.8vw,50px);line-height:1.07;letter-spacing:-.028em;margin:var(--tlz-s6) auto clamp(14px,1.8vw,22px);max-width:20ch}
+.tlz-page .tlz-tyc-hero p{font-size:clamp(15px,1.1vw,17px);line-height:1.6;color:var(--tlz-n400);max-width:60ch;margin:0 auto}
+.tlz-page .tlz-tyc-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:var(--tlz-s3);margin-top:var(--tlz-s8)}
+.tlz-page .tlz-tyc-note{margin-top:clamp(24px,3vw,38px)}
+.tlz-page .tlz-tyc-note .tlz-note p{font-size:14px;line-height:1.65;color:var(--tlz-n300)}
+.tlz-page .tlz-tyc-note .tlz-note p+p{margin-top:var(--tlz-s4)}
+
+/* — cláusulas numeradas: número grande a la izquierda del título — */
+.tlz-page .tlz-tyc-lista{counter-reset:tlztyc;display:grid;gap:clamp(28px,3.4vw,46px);padding:clamp(30px,4vw,58px) 0 clamp(20px,2.4vw,32px)}
+.tlz-page .tlz-cl{counter-increment:tlztyc;padding-top:clamp(22px,2.6vw,32px);border-top:1px solid var(--tlz-divider);scroll-margin-top:104px}
+.tlz-page .tlz-cl:first-child{border-top:0;padding-top:0}
+.tlz-page .tlz-cl-tit{
+  display:grid;grid-template-columns:auto minmax(0,1fr);
+  align-items:baseline;gap:clamp(14px,2vw,24px);
+  font-size:clamp(19px,2vw,25px);letter-spacing:-.02em;
+}
+.tlz-page .tlz-cl-tit::before{
+  content:counter(tlztyc,decimal-leading-zero);
+  font-size:clamp(30px,3.6vw,46px);line-height:.9;font-weight:500;
+  font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;
+  letter-spacing:-.03em;color:var(--tlz-accent);
+}
+.tlz-page .tlz-cl-cuerpo{padding-left:0;margin-top:var(--tlz-s6)}
+.tlz-page .tlz-cl-cuerpo p{font-size:14.5px;line-height:1.7;color:var(--tlz-n400);max-width:68ch}
+.tlz-page .tlz-cl-cuerpo p+p{margin-top:var(--tlz-s6)}
+.tlz-page .tlz-cl-cuerpo strong{color:var(--tlz-n200);font-weight:500}
+.tlz-page .tlz-cl-cuerpo ul{list-style:none;display:grid;gap:var(--tlz-s4);margin-top:var(--tlz-s6);max-width:68ch}
+.tlz-page .tlz-cl-cuerpo li{font-size:14px;line-height:1.6;color:var(--tlz-n400);padding-left:20px;position:relative}
+.tlz-page .tlz-cl-cuerpo li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:1px;background:var(--tlz-accent)}
+.tlz-page .tlz-cl-destacada{background:var(--tlz-surface);border-radius:var(--tlz-r-md);box-shadow:var(--tlz-sh-sm);padding:clamp(20px,2.4vw,30px);margin-top:var(--tlz-s6)}
+.tlz-page .tlz-cl-destacada p{color:var(--tlz-n300)}
+
+/* tabla de cargos, en la cláusula económica */
+.tlz-page .tlz-tyc-cargos{display:grid;gap:1px;background:var(--tlz-n900);border-radius:var(--tlz-r-md);overflow:hidden;margin-top:var(--tlz-s8);max-width:68ch}
+.tlz-page .tlz-tyc-cargos>div{background:var(--tlz-surface);padding:var(--tlz-s6);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--tlz-s6);align-items:baseline}
+.tlz-page .tlz-tyc-cargos dt{font-size:13.5px;line-height:1.5;color:var(--tlz-n300)}
+.tlz-page .tlz-tyc-cargos dd{margin:0;font-size:15px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--tlz-text);white-space:nowrap}
+
+.tlz-page .tlz-hueco{
+  display:inline-block;font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  color:var(--tlz-a300);background:color-mix(in srgb,var(--tlz-accent) 14%,transparent);
+  border-bottom:1px dashed var(--tlz-accent);border-radius:0;padding:0 5px;
+}
+.tlz-page .tlz-tyc-cierre{text-align:center;padding:clamp(30px,3.6vw,50px) 0 clamp(52px,6vw,92px);border-top:1px solid var(--tlz-divider)}
+.tlz-page .tlz-tyc-cierre p{font-size:14px;color:var(--tlz-n500);max-width:56ch;margin:0 auto var(--tlz-s8)}
+.tlz-page .tlz-tyc-cierre .tlz-btn{padding:17px 32px;font-size:16px}
+
+@media (max-width:640px){
+  .tlz-page .tlz-tyc-hero{padding:30px 0 16px}
+  .tlz-page .tlz-cl-tit{grid-template-columns:1fr;gap:6px}
+  .tlz-page .tlz-cl-tit::before{font-size:26px}
+  .tlz-page .tlz-tyc-cargos>div{grid-template-columns:1fr;gap:5px}
+}
+</style>
+
+<div class="tlz-page">
+  <div class="tlz-tyc-wrap">
+
+    <section class="tlz-tyc-hero">
+      <div class="tlz-kicker">Legales · Telenzia</div>
+      <h1>Términos y condiciones de uso</h1>
+      <p>Condiciones bajo las cuales Telenzia pone a disposición su plataforma tecnológica, y bajo las cuales tú la usas para agendar una video-consulta con un médico independiente.</p>
+      <div class="tlz-tyc-meta">
+        <span class="tlz-tag tlz-tag-neutral">México</span>
+        <span class="tlz-tag tlz-tag-neutral">Última actualización: 4 de agosto de 2026</span>
+      </div>
+    </section>
+
+
+    <div class="tlz-tyc-lista">
+
+      <section class="tlz-cl tlz-reveal" id="tyc-objeto">
+        <h2 class="tlz-cl-tit"><span>Objeto y aceptación</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Estos términos regulan el acceso y uso del sitio telenzia.com y de la plataforma tecnológica Telenzia.</p>
+          <p>Al registrarte, agendar una consulta o usar cualquier función de la plataforma, <strong>aceptas estos términos en su totalidad</strong>. Si no estás de acuerdo con alguno, la vía correcta es no usar la plataforma.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-que-es">
+        <h2 class="tlz-cl-tit"><span>Qué es Telenzia y qué no es</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p><strong>Telenzia es una plataforma tecnológica.</strong> Su función es poner en contacto a usuarios con médicos independientes, verificar que su cédula profesional esté vigente, agendar la video-consulta, sostener la sesión y procesar el cobro correspondiente.</p>
+          <div class="tlz-cl-destacada">
+            <p><strong>Telenzia no presta servicios médicos.</strong> No diagnostica, no valora, no prescribe, no supervisa ni revisa el criterio de ningún médico, y no es un establecimiento de atención médica. Tampoco vende, distribuye ni suministra medicamentos, péptidos, hormonas ni producto alguno, bajo ninguna modalidad.</p>
+          </div>
+          <p>Lo que contratas con Telenzia es <strong>el acceso a una consulta médica a distancia</strong> con un profesional independiente. Nada en el sitio constituye consejo médico ni sustituye una valoración profesional.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-partes">
+        <h2 class="tlz-cl-tit"><span>Relación entre las partes</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Los médicos que atienden a través de la plataforma son <strong>contratistas independientes con cédula profesional verificada</strong>. No son empleados, socios, representantes ni mandatarios de Telenzia, y entre ellos y Telenzia no existe relación laboral, de subordinación ni de sociedad.</p>
+          <ul>
+            <li>Cada médico es <strong>el único responsable de su acto médico</strong>: la valoración, el diagnóstico, la indicación terapéutica, la receta que emita y el seguimiento del caso.</li>
+            <li>Cada médico responde también de su propio expediente y del deber de secreto profesional, conforme a la normativa sanitaria aplicable.</li>
+            <li>Telenzia verifica la vigencia de la cédula profesional, pero <strong>no dirige ni condiciona la decisión terapéutica</strong> de ningún médico.</li>
+          </ul>
+          <p>La relación de atención se traba, por tanto, <strong>entre el usuario y el médico</strong>. Telenzia es el intermediario tecnológico que la hace posible.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-elegibilidad">
+        <h2 class="tlz-cl-tit"><span>Elegibilidad del usuario</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Para usar la plataforma debes ser <strong>mayor de 18 años</strong>, tener capacidad legal para obligarte y encontrarte en territorio mexicano al momento de la consulta. La plataforma no está dirigida a menores de edad.</p>
+          <p>Te obligas a proporcionar información <strong>veraz, completa y actualizada</strong>, en particular la relativa a tu estado de salud, antecedentes y medicamentos en uso. La calidad de la valoración depende de esa información: <strong>declarar datos falsos o incompletos es tu responsabilidad</strong> y puede derivar en la suspensión de tu cuenta.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-cuenta">
+        <h2 class="tlz-cl-tit"><span>Cuenta y credenciales</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Eres responsable de resguardar tus credenciales de acceso y de toda actividad que ocurra en tu cuenta. La cuenta es <strong>personal e intransferible</strong>: no puede usarse para agendar consultas a nombre de terceros.</p>
+          <p>Si detectas un uso no autorizado, debes reportarlo de inmediato por los canales de soporte de la plataforma.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-cobro">
+        <h2 class="tlz-cl-tit"><span>Qué se contrata y qué se cobra</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Al agendar, se te cobra el <strong>importe de la consulta: $1,500 MXN</strong>, que queda <strong>retenido</strong> por el procesador de pagos. El importe no se libera hasta que la video-consulta se lleva a cabo.</p>
+          <p>Realizada la consulta, el importe se libera como contraprestación por el acto médico.</p>
+          <dl class="tlz-tyc-cargos">
+            <div><dt>Consulta, retenida al agendar</dt><dd>$1,500 MXN</dd></div>
+            <div><dt>Se libera cuando la consulta se realiza</dt><dd>El importe íntegro</dd></div>
+          </dl>
+          <p>El importe de la consulta cubre <strong>únicamente el tiempo y el criterio profesional del médico</strong>. No incluye estudios de laboratorio ni gabinete, ni producto alguno. Cualquier tratamiento que el médico indique es ajeno a este cobro y corre por tu cuenta ante quien tú elijas.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-cancelaciones">
+        <h2 class="tlz-cl-tit"><span>Cancelaciones y reagendamiento</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <ul>
+            <li><strong>Si cancelas tú:</strong> el importe de la consulta <strong>se cobra</strong> y no es reembolsable. El espacio se reservó y el médico quedó comprometido a atenderlo.</li>
+            <li><strong>Si no te presentas:</strong> se trata como cancelación y aplica lo anterior.</li>
+            <li><strong>Si el médico no se presenta:</strong> la consulta <strong>se reagenda</strong> sin costo adicional y <strong>el pago sigue retenido</strong> hasta que la consulta se realice.</li>
+            <li><strong>Si una falla técnica atribuible a la plataforma</strong> impide sostener la sesión, se reagenda en los mismos términos.</li>
+          </ul>
+          <p>Cualquier devolución que llegue a proceder se realiza por el mismo medio de pago con el que se hizo el cargo, sujeta a los plazos del procesador.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-facturacion">
+        <h2 class="tlz-cl-tit"><span>Facturación</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Los comprobantes fiscales siguen la misma lógica que el cobro:</p>
+          <ul>
+            <li><strong>El médico factura al usuario su acto médico.</strong> Es el prestador del servicio de salud y quien emite el comprobante correspondiente si lo solicitas.</li>
+            <li><strong>Telenzia no emite comprobante al usuario por la consulta</strong>, porque no es quien presta el servicio médico.</li>
+          </ul>
+          <p>Si requieres comprobante fiscal, solicítalo al médico tratante por los canales de la plataforma y proporciona tus datos fiscales completos.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-receta">
+        <h2 class="tlz-cl-tit"><span>La receta médica</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Si el médico determina que procede un tratamiento, emite una receta bajo su cédula y su responsabilidad. <strong>La receta es tuya</strong>: se te entrega a través de la plataforma y dispones de ella libremente.</p>
+          <div class="tlz-cl-destacada">
+            <p><strong>Telenzia no participa en dónde ni cómo se surte la receta.</strong> No recomienda establecimientos, no canaliza al usuario hacia proveedor alguno, no interviene en esa operación y no obtiene beneficio de ella. La elección es exclusivamente tuya y ocurre por completo fuera de la plataforma.</p>
+          </div>
+          <p>Que un médico indique un tratamiento no implica que Telenzia respalde, avale o garantice ese tratamiento. El estatus regulatorio de algunas sustancias empleadas en estos rubros —incluidos diversos péptidos— <strong>está sujeto al criterio de la autoridad sanitaria y hay dictámenes pendientes</strong>; la valoración de riesgo y beneficio en tu caso corresponde al médico tratante, que debe explicártela antes de que decidas.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-urgencias">
+        <h2 class="tlz-cl-tit"><span>Exclusión de urgencias</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <div class="tlz-cl-destacada">
+            <p><strong>La plataforma no atiende urgencias ni emergencias médicas.</strong> No es un servicio de atención inmediata, no opera de forma continua y no sustituye a los servicios de urgencias.</p>
+          </div>
+          <p>Si presentas dolor torácico, dificultad para respirar, sangrado activo, pérdida del estado de alerta, ideación suicida o cualquier situación que ponga en riesgo la vida, <strong>acude de inmediato al servicio de urgencias más cercano o contacta a los servicios de emergencia</strong>. No uses la plataforma para eso: la consulta es agendada y diferida, y la demora puede ser determinante.</p>
+          <p>Tampoco es apta para casos que requieran exploración física, toma de muestras, estudios de imagen o procedimientos. Si tu caso lo requiere, el médico te lo indicará y deberás buscar atención presencial.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-uso">
+        <h2 class="tlz-cl-tit"><span>Uso permitido de la plataforma</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Te obligas a usar la plataforma conforme a la ley, la buena fe y estos términos. Queda prohibido, de forma enunciativa:</p>
+          <ul>
+            <li>Suplantar la identidad de otra persona o usar datos ajenos.</li>
+            <li>Grabar, difundir o publicar la video-consulta o la información del médico sin su consentimiento expreso.</li>
+            <li>Intentar vulnerar la seguridad de la plataforma, extraer datos de forma automatizada o interferir en su operación.</li>
+            <li>Usar la plataforma para obtener recetas con fines distintos al tratamiento propio, o para revender o transferir a terceros lo que se te indique.</li>
+          </ul>
+          <p>El incumplimiento faculta a Telenzia a <strong>suspender o cancelar tu cuenta</strong> sin responsabilidad, y a ejercer las acciones legales que correspondan.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-pi">
+        <h2 class="tlz-cl-tit"><span>Propiedad intelectual</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>La marca <strong>Telenzia</strong>, el logotipo, el nombre de dominio, el diseño del sitio y de la plataforma, el software, las bases de datos, los textos, los materiales gráficos y todo contenido asociado son propiedad de Telenzia o se usan bajo licencia, y están protegidos por la legislación de propiedad industrial y derechos de autor.</p>
+          <p>El acceso a la plataforma te otorga una <strong>licencia limitada, personal, revocable y no exclusiva</strong> para usarla conforme a estos términos. No transfiere derecho alguno de propiedad. Queda prohibida la reproducción, distribución, modificación, ingeniería inversa o explotación comercial de cualquier elemento sin autorización previa y por escrito.</p>
+          <p>El contenido que tú aportes —respuestas del cuestionario, documentos y estudios que cargues— sigue siendo tuyo. Nos concedes únicamente la licencia necesaria para alojarlo, transmitirlo al médico tratante y operar el servicio.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-datos">
+        <h2 class="tlz-cl-tit"><span>Datos personales</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>El tratamiento de tus datos, incluidos los <strong>datos sensibles de salud</strong>, se rige por el <a href="/aviso-de-privacidad/">Aviso de privacidad</a>, que forma parte integrante de estos términos.</p>
+          <p>Ahí se detallan las finalidades, las transferencias, los encargados que intervienen y el procedimiento para ejercer tus <strong>derechos ARCO</strong> y revocar tu consentimiento.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-disponibilidad">
+        <h2 class="tlz-cl-tit"><span>Disponibilidad del servicio</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Telenzia procura que la plataforma esté disponible de forma continua, pero <strong>no garantiza operación ininterrumpida ni libre de errores</strong>. El servicio puede suspenderse por mantenimiento, actualizaciones, fallas de terceros proveedores o causas de fuerza mayor.</p>
+          <p>Telenzia puede modificar, añadir o retirar funciones de la plataforma en cualquier momento. Si un cambio afecta una consulta ya agendada, se te ofrecerá reagendarla.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-responsabilidad">
+        <h2 class="tlz-cl-tit"><span>Limitación de responsabilidad</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>En la máxima medida permitida por la ley aplicable, Telenzia <strong>no responde</strong> por:</p>
+          <ul>
+            <li><strong>El acto médico</strong>: diagnóstico, indicación terapéutica, receta, seguimiento y sus resultados corresponden en exclusiva al médico tratante, como contratista independiente.</li>
+            <li>Los efectos, reacciones adversas o resultados de cualquier tratamiento indicado por un médico.</li>
+            <li>La calidad, origen, autenticidad o condiciones de cualquier producto que obtengas de un tercero fuera de la plataforma.</li>
+            <li>La información falsa, incompleta u omitida por el usuario, y sus consecuencias clínicas.</li>
+            <li>Interrupciones, fallas de conectividad o del equipo del usuario, o hechos imputables a terceros o de fuerza mayor.</li>
+            <li>Daños indirectos, incidentales, consecuenciales o lucro cesante.</li>
+          </ul>
+          <p>En todo caso, y salvo dolo o negligencia grave acreditados, <strong>la responsabilidad total de Telenzia frente al usuario se limita al importe efectivamente pagado por la consulta que originó la reclamación</strong>.</p>
+          <p>Nada en esta cláusula pretende limitar derechos que la legislación mexicana reconozca como irrenunciables al consumidor.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-terminacion">
+        <h2 class="tlz-cl-tit"><span>Vigencia y terminación</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Estos términos rigen mientras uses la plataforma. Puedes dejar de usarla y solicitar la baja de tu cuenta en cualquier momento; ello no afecta las consultas ya realizadas ni las obligaciones fiscales o de conservación de información que subsistan.</p>
+          <p>Telenzia puede suspender o terminar tu acceso si incumples estos términos, si detecta un uso fraudulento o si la operación deja de ser viable, notificándotelo por el medio de contacto que registraste.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-modificaciones">
+        <h2 class="tlz-cl-tit"><span>Modificaciones a estos términos</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Telenzia puede modificar estos términos por cambios legales, operativos o de modelo de negocio. La versión vigente se publica siempre en esta página, con su fecha de actualización visible.</p>
+          <p>Los cambios aplican a partir de su publicación. Si sigues usando la plataforma después de esa fecha, se entiende que los aceptas. Las consultas ya agendadas se rigen por los términos vigentes al momento de agendarlas.</p>
+        </div>
+      </section>
+
+      <section class="tlz-cl tlz-reveal" id="tyc-jurisdiccion">
+        <h2 class="tlz-cl-tit"><span>Legislación aplicable y jurisdicción</span></h2>
+        <div class="tlz-cl-cuerpo">
+          <p>Estos términos se rigen por las <strong>leyes de los Estados Unidos Mexicanos</strong>, en particular la legislación civil y mercantil aplicable, la Ley Federal de Protección al Consumidor, la Ley General de Salud y sus reglamentos, y la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.</p>
+          <p>Para la interpretación y cumplimiento de estos términos, las partes se someten expresamente a la <strong>jurisdicción de los tribunales competentes en México</strong> correspondientes al domicilio señalado en la cláusula 01, renunciando a cualquier otro fuero que pudiera corresponderles por razón de domicilio presente o futuro.</p>
+          <p>Si eres consumidor, esta sumisión no te priva de acudir ante la Procuraduría Federal del Consumidor ni de los foros que la ley te reconozca. Para asuntos de protección de datos, la vía es la señalada en el Aviso de privacidad.</p>
+          <p>Si alguna disposición de estos términos se declarara nula o inaplicable, las demás conservarán plena vigencia.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <section class="tlz-tyc-cierre tlz-reveal">
+      <p>Actualizado el 4 de agosto de 2026.</p>
+      <a class="tlz-btn tlz-btn-primary" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agenda tu consulta</a>
+    </section>
+
+  </div>
+</div>
+
+<script id="tlz-reveal-js">
+(function(){
+  var nodes=[].slice.call(document.querySelectorAll(".tlz-page .tlz-reveal:not(.tlz-in)"));
+  if(!nodes.length)return;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var show=function(n){n.classList.add("tlz-in")};
+  if(reduce||!("IntersectionObserver" in window)){nodes.forEach(show);return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}});
+  },{rootMargin:"0px 0px -12% 0px",threshold:.08});
+  nodes.forEach(function(n){io.observe(n)});
+  setTimeout(function(){nodes.forEach(show)},2600);
+})();
+</script>
+<!-- /wp:html -->
+</section>
+<!-- /wp:group -->

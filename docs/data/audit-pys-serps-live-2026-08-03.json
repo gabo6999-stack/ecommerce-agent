@@ -1,0 +1,1203 @@
+{
+  "fecha": "2026-08-03",
+  "market": {
+    "location_code": 2484,
+    "language_code": "es",
+    "device": "desktop"
+  },
+  "queries": [
+    {
+      "keyword": "bpc 157 precio",
+      "cost": 0.012,
+      "organic_examined": 54,
+      "top10_examined": 10,
+      "pys": null,
+      "exoma": {
+        "rank": 5,
+        "domain": "exomapeptides.mx",
+        "url": "https://exomapeptides.mx/producto/bpc-157",
+        "title": "Comprar BPC-157 en México | 5, 10 y 20 mg | COA por lote",
+        "type": "comercial"
+      },
+      "composition": {
+        "otro": 6,
+        "marketplace": 2,
+        "comercial": 2
+      },
+      "top10": [
+        {
+          "rank": 2,
+          "domain": "listado.mercadolibre.com.mx",
+          "url": "https://listado.mercadolibre.com.mx/bpc-157",
+          "title": "Bpc 157 | MercadoLibre",
+          "type": "otro"
+        },
+        {
+          "rank": 4,
+          "domain": "amazon.com.mx",
+          "url": "https://www.amazon.com.mx/bpc-157-peptide/s?k=bpc+157+peptide",
+          "title": "Amazon.com.mx: Bpc 157 Peptide",
+          "type": "marketplace"
+        },
+        {
+          "rank": 5,
+          "domain": "exomapeptides.mx",
+          "url": "https://exomapeptides.mx/producto/bpc-157",
+          "title": "Comprar BPC-157 en México | 5, 10 y 20 mg | COA por lote",
+          "type": "comercial"
+        },
+        {
+          "rank": 6,
+          "domain": "peptide.com.mx",
+          "url": "https://peptide.com.mx/bpc-157-hermosillo",
+          "title": "BPC-157 Hermosillo · Envío Mismo día / 24h con COA",
+          "type": "otro"
+        },
+        {
+          "rank": 7,
+          "domain": "walmart.com.mx",
+          "url": "https://www.walmart.com.mx/ip/capsulas-de-bpc-157-capsulas-de-peptidos-nuevo-compuesto-protector-suplemento-sin-gluten-60-capsulas/00902113799231",
+          "title": "Cápsulas de Bpc-157, cápsulas de péptidos, nuevo ...",
+          "type": "marketplace"
+        },
+        {
+          "rank": 8,
+          "domain": "peptide.com.mx",
+          "url": "https://peptide.com.mx/bpc-157-monterrey",
+          "title": "BPC-157 Monterrey · Envío 24-48 horas con COA",
+          "type": "otro"
+        },
+        {
+          "rank": 9,
+          "domain": "bodegaaurrera.com.mx",
+          "url": "https://www.bodegaaurrera.com.mx/ip/vitaminas-y-suplementos/capsulas-de-bpc-157-capsulas-de-peptidos-nuevo-compuesto-protector-suplemento-sin-gluten-60-capsulas/00902113799230",
+          "title": "Cápsulas de Bpc-157, cápsulas de péptidos, nuevo ...",
+          "type": "otro"
+        },
+        {
+          "rank": 10,
+          "domain": "mx.iherb.com",
+          "url": "https://mx.iherb.com/pr/prohealth-longevity-bpc-157-500-mcg-60-capsules/151727",
+          "title": "ProHealth Longevity, BPC-157, 500 mcg, 60 Capsules",
+          "type": "otro"
+        },
+        {
+          "rank": 11,
+          "domain": "sears.com.mx",
+          "url": "https://www.sears.com.mx/producto/3555665/bpc-157-xt-labs-10mg-x-2ml-regeneracion-y-recuperacion-celular-rapida",
+          "title": "BPC-157 XT Labs 10mg x 2ml Regeneración y ...",
+          "type": "comercial"
+        },
+        {
+          "rank": 13,
+          "domain": "peptide.com.mx",
+          "url": "https://peptide.com.mx/bpc-157-puebla",
+          "title": "BPC-157 Puebla · Envío 48-72 horas con COA",
+          "type": "otro"
+        }
+      ]
+    },
+    {
+      "keyword": "selank",
+      "cost": 0.018,
+      "organic_examined": 80,
+      "top10_examined": 10,
+      "pys": {
+        "rank": 59,
+        "domain": "peptidosysuplementos.mx",
+        "url": "https://peptidosysuplementos.mx/product/selank-10-mg/",
+        "title": "Selank 10mg Precio México | Péptido Nootrópico | PYS",
+        "type": "PYS"
+      },
+      "exoma": {
+        "rank": 4,
+        "domain": "exomapeptides.mx",
+        "url": "https://exomapeptides.mx/producto/selank",
+        "title": "Comprar Selank en México | Nootrópico Ansiolítico | 5-30 mg",
+        "type": "comercial"
+      },
+      "composition": {
+        "marketplace": 2,
+        "comercial": 2,
+        "editorial_medico": 1,
+        "otro": 3,
+        "editorial": 2
+      },
+      "top10": [
+        {
+          "rank": 2,
+          "domain": "amazon.com.mx",
+          "url": "https://www.amazon.com.mx/Selank-diacetato-soluci%C3%B3n-probado-terceros/dp/B0D6BSX5KP",
+          "title": "Selank diacetato 40 ml solución al 0,16%, alta pureza >99 ...",
+          "type": "marketplace"
+        },
+        {
+          "rank": 4,
+          "domain": "exomapeptides.mx",
+          "url": "https://exomapeptides.mx/producto/selank",
+          "title": "Comprar Selank en México | Nootrópico Ansiolítico | 5-30 mg",
+          "type": "comercial"
+        },
+        {
+          "rank": 5,
+          "domain": "es.wikipedia.org",
+          "url": "https://es.wikipedia.org/wiki/Selank",
+          "title": "Selank - Wikipedia, la enciclopedia libre",
+          "type": "editorial_medico"
+        },
+        {
+          "rank": 6,
+          "domain": "zelara.com.mx",
+          "url": "https://zelara.com.mx/productos/selank-5mg",
+          "title": "Selank 5 mg México | Neuropéptido con COA - ZELARA",
+          "type": "otro"
+        },
+        {
+          "rank": 7,
+          "domain": "dialnet.unirioja.es",
+          "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=5394217",
+          "title": "El Selank, más que un ansiolítico - Dialnet",
+          "type": "editorial"
+        },
+        {
+          "rank": 9,
+          "domain": "mercadolibre.com.mx",
+          "url": "https://www.mercadolibre.com.mx/selank-diacetato-solucion-alta-pureza-998/up/MLMU3777269801",
+          "title": "Selank Diacetato Solución Alta Pureza 99.8",
+          "type": "marketplace"
+        },
+        {
+          "rank": 10,
+          "domain": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Selank",
+          "title": "Selank",
+          "type": "editorial"
+        },
+        {
+          "rank": 11,
+          "domain": "sanborns.com.mx",
+          "url": "https://www.sanborns.com.mx/producto/873325/suplemento-alimenticio-deportivo-selank-supreme-peptides-enfoque-nootropico-y-antiestres-10-mg",
+          "title": "Suplemento Alimenticio Deportivo, Selank, Supreme ...",
+          "type": "comercial"
+        },
+        {
+          "rank": 13,
+          "domain": "etsy.com",
+          "url": "https://www.etsy.com/mx/market/selank_nasal_spray",
+          "title": "Selank nasal spray - Etsy México",
+          "type": "otro"
+        },
+        {
+          "rank": 14,
+          "domain": "semaxpolska.com",
+          "url": "https://semaxpolska.com/es/peptido-selank/",
+          "title": "Selank péptidos | SEMAX POLONIA",
+          "type": "otro"
+        }
+      ]
+    },
+    {
+      "keyword": "cagrilintida",
+      "cost": 0.018,
+      "organic_examined": 88,
+      "top10_examined": 10,
+      "pys": null,
+      "exoma": {
+        "rank": 18,
+        "domain": "exomapeptides.mx",
+        "url": "https://exomapeptides.mx/compendio/cagrilintide-semaglutide",
+        "title": "Cagrilintida + Semaglutida (CagriSema) para Investigación",
+        "type": "otro"
+      },
+      "composition": {
+        "otro": 9,
+        "editorial": 1
+      },
+      "top10": [
+        {
+          "rank": 2,
+          "domain": "espanol.medscape.com",
+          "url": "https://espanol.medscape.com/verarticulo/5914330",
+          "title": "Cagrilintida y semaglutida en el tratamiento de diabetes y ...",
+          "type": "otro"
+        },
+        {
+          "rank": 4,
+          "domain": "sochob.cl",
+          "url": "https://www.sochob.cl/web1/cagrilintida-para-la-perdida-de-peso-en-personas-obesas/",
+          "title": "Cagrilintida para la pérdida de peso en personas obesas",
+          "type": "otro"
+        },
+        {
+          "rank": 5,
+          "domain": "farmacosalud.com",
+          "url": "https://farmacosalud.com/semaglutida-cagrilintida-el-farmaco-multimetabolico-que-podria-lograr-perdidas-de-peso-de-hasta-el-25/",
+          "title": "Semaglutida + cagrilintida, el fármaco multimetabólico que ...",
+          "type": "otro"
+        },
+        {
+          "rank": 7,
+          "domain": "savalnet.ec",
+          "url": "https://www.savalnet.ec/cienciaymedicina/destacados/cagrilintida-y-semaglutida-combinacion-eficaz-contra-la-obesidad.html",
+          "title": "SAVALnet - Cagrilintida y semaglutida, combinación eficaz ...",
+          "type": "otro"
+        },
+        {
+          "rank": 8,
+          "domain": "instagram.com",
+          "url": "https://www.instagram.com/reel/DUlGZazkUw_/?hl=es",
+          "title": "Cagrisema Nuevo fármaco que esta por aprobarse para el ...",
+          "type": "otro"
+        },
+        {
+          "rank": 9,
+          "domain": "x.com",
+          "url": "https://x.com/doctormacias/status/1683348766907064320",
+          "title": "La cagrilintida, un análogo de la amilina, al combinarse ...",
+          "type": "otro"
+        },
+        {
+          "rank": 10,
+          "domain": "patlynk.com",
+          "url": "https://www.patlynk.com/es/trial/NCT07220759",
+          "title": "RENEW 2 | Cagrilintide para el manejo de peso en ...",
+          "type": "otro"
+        },
+        {
+          "rank": 11,
+          "domain": "revistapesquisa.fapesp.br",
+          "url": "https://revistapesquisa.fapesp.br/es/un-farmaco-contra-la-obesidad-decepciona/",
+          "title": "Un fármaco contra la obesidad decepciona",
+          "type": "otro"
+        },
+        {
+          "rank": 13,
+          "domain": "ensayosclinicos.es",
+          "url": "https://ensayosclinicos.es/medicamento/cagrilintide/",
+          "title": "Cagrilintide – Aplicación en terapia e investigaciones ...",
+          "type": "otro"
+        },
+        {
+          "rank": 14,
+          "domain": "facebook.com",
+          "url": "https://www.facebook.com/DraCitlalliValera/posts/-atenci%C3%B3n-un-nuevo-tratamiento-para-perder-peso-cagrisemahas-o%C3%ADdo-hablar-de-cagr/1323604505838772/",
+          "title": "La #semaglutida actúa imitando la hormona GLP-1, inhibe ...",
+          "type": "editorial"
+        }
+      ]
+    },
+    {
+      "keyword": "retatrutide precio",
+      "cost": 0.02,
+      "organic_examined": 95,
+      "top10_examined": 10,
+      "pys": {
+        "rank": 60,
+        "domain": "peptidosysuplementos.mx",
+        "url": "https://peptidosysuplementos.mx/retatrutide-precio-guia-completa-costos-beneficios/",
+        "title": "Retatrutida: cómo funciona, beneficios y dosis 2026",
+        "type": "PYS"
+      },
+      "exoma": {
+        "rank": 4,
+        "domain": "exomapeptides.mx",
+        "url": "https://exomapeptides.mx/producto/retatrutida",
+        "title": "Comprar Retatrutide en México | Triple Agonista | 5-100 mg",
+        "type": "comercial"
+      },
+      "composition": {
+        "otro": 6,
+        "comercial": 2,
+        "marketplace": 1,
+        "editorial": 1
+      },
+      "top10": [
+        {
+          "rank": 2,
+          "domain": "peptide.com.mx",
+          "url": "https://peptide.com.mx/productos/retatrutide-10mg",
+          "title": "Retatrutide 10mg México | Péptido Research Grade GLP-1",
+          "type": "otro"
+        },
+        {
+          "rank": 4,
+          "domain": "exomapeptides.mx",
+          "url": "https://exomapeptides.mx/producto/retatrutida",
+          "title": "Comprar Retatrutide en México | Triple Agonista | 5-100 mg",
+          "type": "comercial"
+        },
+        {
+          "rank": 5,
+          "domain": "mercadolibre.com.mx",
+          "url": "https://www.mercadolibre.com.mx/suplemento-retatrutide-pharma-12mg-dosis-multiples/p/MLM67950589",
+          "title": "Suplemento Retatrutide +pharma 12mg Dosis Multiples",
+          "type": "marketplace"
+        },
+        {
+          "rank": 7,
+          "domain": "zavamed.com",
+          "url": "https://www.zavamed.com/es/retatrutida.html?srsltid=AfmBOoqG0Yias_HreatZ0u7cDf6ZlcoIWD6Cx50bxEGAUNK0LzgIaSh0",
+          "title": "Retatrutida: qué es y para qué sirve",
+          "type": "editorial"
+        },
+        {
+          "rank": 8,
+          "domain": "instagram.com",
+          "url": "https://www.instagram.com/reel/DTggSYSAYZ2/?hl=es",
+          "title": "Retatrutide NO está disponible para uso médico ni comercial ...",
+          "type": "otro"
+        },
+        {
+          "rank": 9,
+          "domain": "peptide.com.mx",
+          "url": "https://peptide.com.mx/retatrutide-10mg-puebla",
+          "title": "Retatrutide 10mg en Puebla: Compra y Envío 48-72 horas",
+          "type": "otro"
+        },
+        {
+          "rank": 10,
+          "domain": "tiktok.com",
+          "url": "https://www.tiktok.com/@dr.angel.montesdeoca/video/7527765247478828295?lang=es",
+          "title": "Retatrutide como alternativa a tirzepatida en México",
+          "type": "otro"
+        },
+        {
+          "rank": 11,
+          "domain": "instagram.com",
+          "url": "https://www.instagram.com/reel/DYnIzyfRVRi/?hl=es",
+          "title": "Retatrutide produce +30% pérdida de peso en pacientes con ...",
+          "type": "otro"
+        },
+        {
+          "rank": 13,
+          "domain": "retatrutide.mx",
+          "url": "https://retatrutide.mx/",
+          "title": "Retatrutide – Transformación Integral de tu salud y bienestar",
+          "type": "otro"
+        },
+        {
+          "rank": 14,
+          "domain": "thefitweekend.com",
+          "url": "https://thefitweekend.com/etiqueta-producto/retatrutide-20-mg-precio-mexico/",
+          "title": "retatrutide 20 mg precio mexico",
+          "type": "comercial"
+        }
+      ]
+    },
+    {
+      "keyword": "agua bacteriostatica",
+      "cost": 0.018,
+      "organic_examined": 86,
+      "top10_examined": 10,
+      "pys": {
+        "rank": 66,
+        "domain": "peptidosysuplementos.mx",
+        "url": "https://peptidosysuplementos.mx/product/agua-bacteriostatica-3ml/",
+        "title": "Agua Bacteriostática 3ml | Reconstitución Péptidos México",
+        "type": "PYS"
+      },
+      "exoma": {
+        "rank": 5,
+        "domain": "exomapeptides.mx",
+        "url": "https://exomapeptides.mx/blog/agua-bacteriostatica-vs-agua-esteril",
+        "title": "Agua Bacteriostática vs Agua Estéril: Diferencias Técnicas",
+        "type": "editorial"
+      },
+      "composition": {
+        "otro": 7,
+        "editorial": 1,
+        "marketplace": 1,
+        "comercial": 1
+      },
+      "top10": [
+        {
+          "rank": 2,
+          "domain": "listado.mercadolibre.com.mx",
+          "url": "https://listado.mercadolibre.com.mx/agua-bacteriostatica-inyectable",
+          "title": "Agua Bacteriostatica Inyectable",
+          "type": "otro"
+        },
+        {
+          "rank": 3,
+          "domain": "peptide.com.mx",
+          "url": "https://peptide.com.mx/productos/agua-bacteriostatica-3ml",
+          "title": "Agua Bacteriostática 3 mL México - Peptide MX",
+          "type": "otro"
+        },
+        {
+          "rank": 5,
+          "domain": "exomapeptides.mx",
+          "url": "https://exomapeptides.mx/blog/agua-bacteriostatica-vs-agua-esteril",
+          "title": "Agua Bacteriostática vs Agua Estéril: Diferencias Técnicas",
+          "type": "editorial"
+        },
+        {
+          "rank": 6,
+          "domain": "reddit.com",
+          "url": "https://www.reddit.com/r/MexicoCity/comments/1kvojy1/bacteriostatic_water/?tl=es-419",
+          "title": "Agua bacteriostática : r/MexicoCity",
+          "type": "otro"
+        },
+        {
+          "rank": 7,
+          "domain": "amazon.com.mx",
+          "url": "https://www.amazon.com.mx/Med-Lab-bacteriost%C3%A1tica-m%C3%BAltiples-reconstituci%C3%B3n/dp/B0DL3C989Z",
+          "title": "Med Lab - Agua bacteriostática para múltiples dosis ...",
+          "type": "marketplace"
+        },
+        {
+          "rank": 9,
+          "domain": "farbefirma.org",
+          "url": "https://www.farbefirma.org/es/post/agua-bacteriost%C3%A1tica-para-inyecci%C3%B3n",
+          "title": "Fabricante de Agua Bacteriostática para Inyección - Farbe Firma",
+          "type": "otro"
+        },
+        {
+          "rank": 10,
+          "domain": "farmacopea.org.mx",
+          "url": "https://www.farmacopea.org.mx/Repositorio/Documentos/2027.pdf",
+          "title": "Agua bacteriostática estéril para uso inyectable",
+          "type": "otro"
+        },
+        {
+          "rank": 11,
+          "domain": "peptideregenesis.com",
+          "url": "https://peptideregenesis.com/es/bacteriostatic-water-20-ml/",
+          "title": "Agua bacteriostática | Solución de reconstitución para ...",
+          "type": "otro"
+        },
+        {
+          "rank": 13,
+          "domain": "peptide.com.mx",
+          "url": "https://peptide.com.mx/agua-bacteriostatica-mexico",
+          "title": "Comprar Agua Bacteriostática 30ml 30mg con COA",
+          "type": "comercial"
+        },
+        {
+          "rank": 14,
+          "domain": "doctoralia.com.mx",
+          "url": "https://www.doctoralia.com.mx/preguntas-respuestas/donde-se-consigue-el-agua-bacteriostatica-en-mexico-he-preguntado-por-todos-lados-y-no-se-si-tiene",
+          "title": "¿Dónde se consigue el agua bacteriostática en México? ...",
+          "type": "otro"
+        }
+      ]
+    },
+    {
+      "keyword": "mots-c",
+      "cost": 0.02,
+      "organic_examined": 96,
+      "top10_examined": 10,
+      "pys": {
+        "rank": 86,
+        "domain": "peptidosysuplementos.mx",
+        "url": "https://peptidosysuplementos.mx/product/mots-c-10mg/",
+        "title": "MOTS-c 10mg Precio México | Péptido Metabolismo | PYS",
+        "type": "PYS"
+      },
+      "exoma": {
+        "rank": 2,
+        "domain": "exomapeptides.mx",
+        "url": "https://exomapeptides.mx/producto/mots-c",
+        "title": "Comprar MOTS-c en México | Péptido Mitocondrial",
+        "type": "comercial"
+      },
+      "composition": {
+        "comercial": 2,
+        "entidad_publica": 1,
+        "otro": 5,
+        "editorial_medico": 1,
+        "editorial": 1
+      },
+      "top10": [
+        {
+          "rank": 2,
+          "domain": "exomapeptides.mx",
+          "url": "https://exomapeptides.mx/producto/mots-c",
+          "title": "Comprar MOTS-c en México | Péptido Mitocondrial",
+          "type": "comercial"
+        },
+        {
+          "rank": 4,
+          "domain": "pmc.ncbi.nlm.nih.gov",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9905433/",
+          "title": "MOTS-c: A promising mitochondrial-derived peptide for ... - PMC",
+          "type": "entidad_publica"
+        },
+        {
+          "rank": 5,
+          "domain": "zelara.com.mx",
+          "url": "https://zelara.com.mx/productos/mots-c-10mg",
+          "title": "MOTS-c 10 mg México | Mitochondrial Peptide con COA",
+          "type": "otro"
+        },
+        {
+          "rank": 6,
+          "domain": "es.wikipedia.org",
+          "url": "https://es.wikipedia.org/wiki/MOTS-c",
+          "title": "MOTS-c - Wikipedia, la enciclopedia libre",
+          "type": "editorial_medico"
+        },
+        {
+          "rank": 9,
+          "domain": "fit-peptides.com",
+          "url": "https://fit-peptides.com/es/mots-c/?srsltid=AfmBOopfoQn0EMFOtQ_6y4FL_pHrF42gKr0cFD5F78jEV1bOVp2ZFHUn",
+          "title": "Compre MOTS-C | Seguro y probado",
+          "type": "otro"
+        },
+        {
+          "rank": 10,
+          "domain": "usada.org",
+          "url": "https://www.usada.org/spirit-of-sport/what-is-mots-c-peptide/",
+          "title": "What is the MOTS-c peptide? | USADA",
+          "type": "otro"
+        },
+        {
+          "rank": 11,
+          "domain": "mocvital.com.ar",
+          "url": "https://mocvital.com.ar/contenido-dinamico-educativo/mots-c-que-cambios-reales-puede-generar-en-el-cuerpo-tras-3-meses-de-uso/",
+          "title": "MOTS-C: Qué cambios reales puede generar en el cuerpo ...",
+          "type": "otro"
+        },
+        {
+          "rank": 13,
+          "domain": "instagram.com",
+          "url": "https://www.instagram.com/reel/DY7c4hEuRIX/?hl=es",
+          "title": "El Mots-C te ayudará a hacker tu energía celular ...",
+          "type": "otro"
+        },
+        {
+          "rank": 14,
+          "domain": "my-peptides.co.uk",
+          "url": "https://my-peptides.co.uk/es/guides/what-is-mots-c?srsltid=AfmBOoqGKeod9vbMaE135FciklJDwHJwUqOhtFeKJq6QPUfyN5H8T356",
+          "title": "¿Qué es MOTS-c? Guía de investigación (Reino Unido)",
+          "type": "editorial"
+        },
+        {
+          "rank": 15,
+          "domain": "sanborns.com.mx",
+          "url": "https://www.sanborns.com.mx/producto/872796/suplemento-alimenticio-deportivo-mots-c-supreme-peptides-energia-mitocondrial-5-mg",
+          "title": "Suplemento Alimenticio Deportivo, MOTS-C, Supreme ...",
+          "type": "comercial"
+        }
+      ]
+    },
+    {
+      "keyword": "ipamorelina",
+      "cost": 0.02,
+      "organic_examined": 97,
+      "top10_examined": 10,
+      "pys": null,
+      "exoma": {
+        "rank": 2,
+        "domain": "exomapeptides.mx",
+        "url": "https://exomapeptides.mx/producto/ipamorelin",
+        "title": "Comprar Ipamorelin (Ipamorelina) en México | 2, 5 y 10 mg",
+        "type": "comercial"
+      },
+      "composition": {
+        "comercial": 3,
+        "otro": 6,
+        "editorial": 1
+      },
+      "top10": [
+        {
+          "rank": 2,
+          "domain": "exomapeptides.mx",
+          "url": "https://exomapeptides.mx/producto/ipamorelin",
+          "title": "Comprar Ipamorelin (Ipamorelina) en México | 2, 5 y 10 mg",
+          "type": "comercial"
+        },
+        {
+          "rank": 4,
+          "domain": "cymitquimica.com",
+          "url": "https://cymitquimica.com/es/cas/170851-70-4/?srsltid=AfmBOopkV3X_QWGmjsrhpOFIlRQVVP3jcSae8PSIQ6mVHD7KC2Iqu5J7",
+          "title": "CAS 170851-70-4: Ipamorelina",
+          "type": "otro"
+        },
+        {
+          "rank": 5,
+          "domain": "exomapeptides.mx",
+          "url": "https://exomapeptides.mx/producto/cjc-1295-sindac-ipamorelina",
+          "title": "Comprar CJC-1295 sin DAC + Ipamorelina en México | Blend",
+          "type": "comercial"
+        },
+        {
+          "rank": 6,
+          "domain": "onyxgenlabz.mx",
+          "url": "https://www.onyxgenlabz.mx/product-page/ipamorelin-ghrp",
+          "title": "IPAMORELIN (GHRP)",
+          "type": "otro"
+        },
+        {
+          "rank": 7,
+          "domain": "clinicamarcorived.com",
+          "url": "https://clinicamarcorived.com/ipamorelina/",
+          "title": "Ipamorelina",
+          "type": "otro"
+        },
+        {
+          "rank": 9,
+          "domain": "listado.mercadolibre.com.mx",
+          "url": "https://listado.mercadolibre.com.mx/ipamorelin-peptido-inyectable",
+          "title": "Ipamorelin Peptido Inyectable",
+          "type": "otro"
+        },
+        {
+          "rank": 11,
+          "domain": "facebook.com",
+          "url": "https://www.facebook.com/Novedadesqroo/posts/ipamorelina-se-convierte-m%C3%A1s-atractiva-en-la-investigaci%C3%B3n-en-p%C3%A9ptidos-selectivo/1336193101866615/",
+          "title": "Ipamorelina se convierte más atractiva en la investigación ...",
+          "type": "editorial"
+        },
+        {
+          "rank": 13,
+          "domain": "sears.com.mx",
+          "url": "https://www.sears.com.mx/producto/3559913/ipamorelin-xt-labs-10mg-x-2ml-estimula-gh-natural-sin-efectos-secundarios",
+          "title": "Ipamorelin XT Labs 10mg x 2ml Estimula GH Natural sin ...",
+          "type": "comercial"
+        },
+        {
+          "rank": 14,
+          "domain": "fit-peptides.com",
+          "url": "https://fit-peptides.com/es/ipamorelin/?srsltid=AfmBOoprMSKGWPaUScqpiXAKSmHwzHy7fXwn_yq10iSB_hSw3eCkKgWj",
+          "title": "Compre Ipamorelin | Seguro y probado | Sin análisis de ...",
+          "type": "otro"
+        },
+        {
+          "rank": 15,
+          "domain": "doctorgmed.com",
+          "url": "https://doctorgmed.com/sermorelin-vs-ipamorelin-cual-elegir-y-por-que/",
+          "title": "Sermorelin vs. Ipamorelin: ¿Cuál elegir y por qué?",
+          "type": "otro"
+        }
+      ]
+    },
+    {
+      "keyword": "igf-1 lr3",
+      "cost": 0.02,
+      "organic_examined": 97,
+      "top10_examined": 10,
+      "pys": {
+        "rank": 73,
+        "domain": "peptidosysuplementos.mx",
+        "url": "https://peptidosysuplementos.mx/product/igf-1-lr3-1mg/",
+        "title": "IGF-1 LR3 1mg | Precio y Disponibilidad en México",
+        "type": "PYS"
+      },
+      "exoma": {
+        "rank": 2,
+        "domain": "exomapeptides.mx",
+        "url": "https://exomapeptides.mx/producto/igf-1-lr3",
+        "title": "Comprar IGF-1 LR3 en México | Long R3, 83 aa | 0.1 y 1 mg",
+        "type": "comercial"
+      },
+      "composition": {
+        "comercial": 2,
+        "editorial": 2,
+        "otro": 5,
+        "marketplace": 1
+      },
+      "top10": [
+        {
+          "rank": 2,
+          "domain": "exomapeptides.mx",
+          "url": "https://exomapeptides.mx/producto/igf-1-lr3",
+          "title": "Comprar IGF-1 LR3 en México | Long R3, 83 aa | 0.1 y 1 mg",
+          "type": "comercial"
+        },
+        {
+          "rank": 4,
+          "domain": "sears.com.mx",
+          "url": "https://www.sears.com.mx/producto/3558548/igf-1-lr3-xt-labs-1mg-x-2ml-crecimiento-muscular-y-reparacion",
+          "title": "IGF-1 LR3 XT Labs 1mg x 2ml Crecimiento Muscular y ...",
+          "type": "comercial"
+        },
+        {
+          "rank": 6,
+          "domain": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/IGF-1_LR3",
+          "title": "IGF-1 LR3",
+          "type": "editorial"
+        },
+        {
+          "rank": 7,
+          "domain": "instagram.com",
+          "url": "https://www.instagram.com/p/DZ-HmdaxCjo/",
+          "title": "IGF-1 LR3 es uno de los factores de crecimiento ...",
+          "type": "otro"
+        },
+        {
+          "rank": 8,
+          "domain": "yeasenbio.com",
+          "url": "https://www.yeasenbio.com/es/products/92210",
+          "title": "Human LR3 IGF-1 Protein",
+          "type": "otro"
+        },
+        {
+          "rank": 9,
+          "domain": "exomapeptides.mx",
+          "url": "https://exomapeptides.mx/blog/igf1-lr3-factor-crecimiento-guia",
+          "title": "IGF-1 LR3 | Factor Crecimiento Guía",
+          "type": "editorial"
+        },
+        {
+          "rank": 10,
+          "domain": "veltispeptides.mx",
+          "url": "https://www.veltispeptides.mx/products/igf-1-lr3-1mg",
+          "title": "IGF-1 LR3 1mg - Veltis",
+          "type": "otro"
+        },
+        {
+          "rank": 11,
+          "domain": "mercadolibre.com.mx",
+          "url": "https://www.mercadolibre.com.mx/suplemento-igf-1-lr3-xt-labs-1mg/p/MLM67329240",
+          "title": "Suplemento Igf-1 Lr3 Xt Labs 1mg",
+          "type": "marketplace"
+        },
+        {
+          "rank": 12,
+          "domain": "reddit.com",
+          "url": "https://www.reddit.com/r/PeptideGuide/comments/1no44no/igf1_lr3_mechanism_benefits_dosing_side_effects/?tl=es-419",
+          "title": "IGF-1 LR3: Mecanismo, Beneficios, Dosis, Efectos ...",
+          "type": "otro"
+        },
+        {
+          "rank": 13,
+          "domain": "getfit.mx",
+          "url": "https://getfit.mx/products/igf-1-lr3-peptidos-xt-labs?srsltid=AfmBOorHhKL9Dgj3JB07TRQa4jMQGuTICOVMzyu3XWBlLFgX4dNo2HgH",
+          "title": "IGF-1 LR3 XT Labs 1mg/2ml – Péptido Factor de Crecimiento",
+          "type": "otro"
+        }
+      ]
+    },
+    {
+      "keyword": "sermorelin",
+      "cost": 0.02,
+      "organic_examined": 95,
+      "top10_examined": 10,
+      "pys": null,
+      "exoma": {
+        "rank": 4,
+        "domain": "exomapeptides.mx",
+        "url": "https://exomapeptides.mx/producto/acetato-de-sermorelina",
+        "title": "Comprar Sermorelina (Sermorelin) en México | GRF 1-29",
+        "type": "comercial"
+      },
+      "composition": {
+        "editorial_medico": 2,
+        "comercial": 2,
+        "otro": 4,
+        "entidad_publica": 1,
+        "editorial": 1
+      },
+      "top10": [
+        {
+          "rank": 2,
+          "domain": "cun.es",
+          "url": "https://www.cun.es/diccionario-medico/terminos/sermorelina",
+          "title": "Sermorelina: análogo de GHRH y su uso | Diccionario CUN",
+          "type": "editorial_medico"
+        },
+        {
+          "rank": 4,
+          "domain": "exomapeptides.mx",
+          "url": "https://exomapeptides.mx/producto/acetato-de-sermorelina",
+          "title": "Comprar Sermorelina (Sermorelin) en México | GRF 1-29",
+          "type": "comercial"
+        },
+        {
+          "rank": 5,
+          "domain": "mayoclinic.org",
+          "url": "https://www.mayoclinic.org/drugs-supplements/sermorelin-injection-route/description/drg-20065923",
+          "title": "Sermorelin (injection route) - Side effects & dosage",
+          "type": "editorial_medico"
+        },
+        {
+          "rank": 6,
+          "domain": "account.allinahealth.org",
+          "url": "https://account.allinahealth.org/library/content/51/4989",
+          "title": "Sermorelin (Por inyección)",
+          "type": "otro"
+        },
+        {
+          "rank": 7,
+          "domain": "pubchem.ncbi.nlm.nih.gov",
+          "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Sermorelin",
+          "title": "Sermorelin | C149H246N44O42S - PubChem - NIH",
+          "type": "entidad_publica"
+        },
+        {
+          "rank": 9,
+          "domain": "cymitquimica.com",
+          "url": "https://cymitquimica.com/es/cas/86168-78-7/?srsltid=AfmBOooKg26toRvywTO7hNlEoLOHUs4TuhBdcEQc0JM09BQMgaUpQxDY",
+          "title": "CAS 86168-78-7: sermorelina",
+          "type": "otro"
+        },
+        {
+          "rank": 10,
+          "domain": "youtube.com",
+          "url": "https://www.youtube.com/watch?v=CELUYjxRs9k&vl=es",
+          "title": "How This Peptide Stimulates Natural Growth Hormone",
+          "type": "otro"
+        },
+        {
+          "rank": 11,
+          "domain": "mynuceria.com",
+          "url": "https://mynuceria.com/miami-fl/sermorelin-therapy/es",
+          "title": "Terapia con sermorelin - Nuceria Health, Miami, FL",
+          "type": "otro"
+        },
+        {
+          "rank": 13,
+          "domain": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Sermorelin",
+          "title": "Sermorelin",
+          "type": "editorial"
+        },
+        {
+          "rank": 14,
+          "domain": "goutogo.mx",
+          "url": "https://www.goutogo.mx/producto/sermorelin-10mg/1628?srsltid=AfmBOop7Gyxvabp2kUeAeFn0sL1H9C9gfz5tSzgBK35nULd0sNQh5VHN",
+          "title": "SERMORELIN 10MG",
+          "type": "comercial"
+        }
+      ]
+    },
+    {
+      "keyword": "thymosin alpha 1",
+      "cost": 0.02,
+      "organic_examined": 95,
+      "top10_examined": 10,
+      "pys": null,
+      "exoma": {
+        "rank": 8,
+        "domain": "exomapeptides.mx",
+        "url": "https://exomapeptides.mx/producto/thymosin-alpha-1",
+        "title": "Comprar Timosina Alfa-1 (Tα1) en México | 5 y 10 mg",
+        "type": "comercial"
+      },
+      "composition": {
+        "entidad_publica": 1,
+        "otro": 6,
+        "editorial_medico": 1,
+        "comercial": 2
+      },
+      "top10": [
+        {
+          "rank": 2,
+          "domain": "pmc.ncbi.nlm.nih.gov",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7747025/",
+          "title": "Thymosin alpha 1: A comprehensive review of the literature",
+          "type": "entidad_publica"
+        },
+        {
+          "rank": 4,
+          "domain": "sciencedirect.com",
+          "url": "https://www.sciencedirect.com/topics/medicine-and-dentistry/thymosin-alpha1",
+          "title": "Thymosin Alpha1 - an overview",
+          "type": "otro"
+        },
+        {
+          "rank": 5,
+          "domain": "es.wikipedia.org",
+          "url": "https://es.wikipedia.org/wiki/Timosina_%CE%B11",
+          "title": "Timosina α1 - Wikipedia, la enciclopedia libre",
+          "type": "editorial_medico"
+        },
+        {
+          "rank": 6,
+          "domain": "innerbody.com",
+          "url": "https://www.innerbody.com/thymosin-alpha-1-peptide",
+          "title": "Thymosin Alpha-1 Peptide: Benefits and Safety",
+          "type": "otro"
+        },
+        {
+          "rank": 7,
+          "domain": "sears.com.mx",
+          "url": "https://www.sears.com.mx/producto/3918568/suplemento-alimenticio-deportivo-thymosin-alpha-1-supreme-peptides-refuerzo-del-sistema-inmune-10mg",
+          "title": "Suplemento Alimenticio Deportivo Thymosin Alpha 1 ...",
+          "type": "comercial"
+        },
+        {
+          "rank": 8,
+          "domain": "exomapeptides.mx",
+          "url": "https://exomapeptides.mx/producto/thymosin-alpha-1",
+          "title": "Comprar Timosina Alfa-1 (Tα1) en México | 5 y 10 mg",
+          "type": "comercial"
+        },
+        {
+          "rank": 9,
+          "domain": "youtube.com",
+          "url": "https://www.youtube.com/watch?v=HgcNS3pkeyE",
+          "title": "Thymosin Alpha-1: Transforming Immunotherapy for ...",
+          "type": "otro"
+        },
+        {
+          "rank": 10,
+          "domain": "krece.io",
+          "url": "https://krece.io/peptidos/thymosin-alpha-1/",
+          "title": "Thymosin Alpha 1: Guía Completa",
+          "type": "otro"
+        },
+        {
+          "rank": 11,
+          "domain": "gandhi.com.mx",
+          "url": "https://www.gandhi.com.mx/thymosin-alpha-1-uncovered---immune-modulation-for-optimal-health--a-comprehensive-guide-to-peptide-therapy--biohacking--and-faster-recovery-9798231610471/p?srsltid=AfmBOorf_pMsB9Ky5i8QkmdwM9Vi57gxAJV3tsr3xw6ZcnO4nPGnTm4x",
+          "title": "Thymosin Alpha-1 Uncovered - Immune Modulation for ...",
+          "type": "otro"
+        },
+        {
+          "rank": 13,
+          "domain": "zelara.com.mx",
+          "url": "https://zelara.com.mx/mayoreo/thymosin-alpha-1",
+          "title": "Thymosin Alpha 1 al Mayoreo México | Zelara",
+          "type": "otro"
+        }
+      ]
+    },
+    {
+      "keyword": "tirzepatida precio mexico",
+      "cost": 0.008,
+      "organic_examined": 34,
+      "top10_examined": 10,
+      "pys": null,
+      "exoma": null,
+      "composition": {
+        "otro": 6,
+        "comercial": 4
+      },
+      "top10": [
+        {
+          "rank": 2,
+          "domain": "fahorro.com",
+          "url": "https://www.fahorro.com/mounjaro-kwikpen-2-5mg-0-6ml-3-ml.html?srsltid=AfmBOoofgDJue4wFvIIxJ9adjVp3u-IQDo9DNNCUV_ridAMUfMdXo_vt",
+          "title": "Mounjaro Kwikpen 2.5 Mg/0.6 Ml 3 ml",
+          "type": "otro"
+        },
+        {
+          "rank": 4,
+          "domain": "farmaciasespecializadas.com",
+          "url": "https://www.farmaciasespecializadas.com/mounjaro-tirzepatida-5-mg-0-5-ml-caja-con-frasco-mpula-de-dosis-nica.html?srsltid=AfmBOopfqB-sjRo94XxZx_ydtGgmEIvkZKO9qFbCFRXQKWxP8x5sUNzB",
+          "title": "Comprar Mounjaro 5 mg/ 0.5 ml | Tirzepatida | Eli lilly",
+          "type": "comercial"
+        },
+        {
+          "rank": 5,
+          "domain": "pricinginfo.lilly.com",
+          "url": "https://pricinginfo.lilly.com/es/mounjaro",
+          "title": "Información de Costos de Mounjaro | Con o Sin Seguro",
+          "type": "otro"
+        },
+        {
+          "rank": 6,
+          "domain": "clivi.com.mx",
+          "url": "https://www.clivi.com.mx/blog/posts/mounjaro-precio-mexico-donde-comprarlo?srsltid=AfmBOoqiUWChZHhQO4evK61P-vnkfnQw_sdBWIUz9KUawq3S1U9sZT7k",
+          "title": "Mounjaro: precio en México 2026, dónde comprarlo y qué ...",
+          "type": "comercial"
+        },
+        {
+          "rank": 7,
+          "domain": "farmaciasguadalajara.com",
+          "url": "https://www.farmaciasguadalajara.com/programa-glp1-mounjaro.html",
+          "title": "Mounjaro® (tirzepatida): información esencial para pacientes",
+          "type": "otro"
+        },
+        {
+          "rank": 8,
+          "domain": "benavides.com.mx",
+          "url": "https://www.benavides.com.mx/promociones-eli-mounjaro?srsltid=AfmBOoosrqn9PrsPkx7p6lRZhI_HzDZrVYHtOkYHcF8fydncbf1iJbVH",
+          "title": "Mounjaro - Promociones",
+          "type": "otro"
+        },
+        {
+          "rank": 9,
+          "domain": "clivi.com.mx",
+          "url": "https://www.clivi.com.mx/blog/posts/mounjaro-precio-mexico-2025?srsltid=AfmBOorCyqoXmgZrInO2UMbeYL5pnCAY5Un4j6WGHoYo6Zbwj49G27gn",
+          "title": "Mounjaro Precio 2026 en México: Tabla Completa por mg",
+          "type": "comercial"
+        },
+        {
+          "rank": 10,
+          "domain": "farmaciasanpablo.com.mx",
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-5-0-mg-2-4-ml-solucion-caja/p/000000000070009209?srsltid=AfmBOorPZe6f6hzyf1jOLYvObO9aggbpy5BPUtjRcn3VjEc5sizwwFz5",
+          "title": "Mounjaro 5 mg",
+          "type": "otro"
+        },
+        {
+          "rank": 11,
+          "domain": "pacientes.sfe.com.mx",
+          "url": "https://pacientes.sfe.com.mx/eCommerce/item/4555/mounjaro-pluma-precargada-5-mg06-ml",
+          "title": "Mounjaro Pluma Precargada 5 Mg/0.6 Ml - SFE",
+          "type": "otro"
+        },
+        {
+          "rank": 13,
+          "domain": "tiktok.com",
+          "url": "https://www.tiktok.com/@fahorro/video/6994246468135668997",
+          "title": "Precio de tirzepatida en Farmacias del Ahorro",
+          "type": "comercial"
+        }
+      ]
+    },
+    {
+      "keyword": "nad iv",
+      "cost": 0.02,
+      "organic_examined": 94,
+      "top10_examined": 10,
+      "pys": null,
+      "exoma": null,
+      "composition": {
+        "otro": 6,
+        "editorial": 4
+      },
+      "top10": [
+        {
+          "rank": 4,
+          "domain": "quironsalud.com",
+          "url": "https://www.quironsalud.com/blogs/es/blogs-quironsalud/estetica-tres-sesenta/nad-intravenoso-tendencia-mundial-revoluciona-medicina-este",
+          "title": "NAD Intravenoso: la tendencia mundial que revoluciona ...",
+          "type": "otro"
+        },
+        {
+          "rank": 5,
+          "domain": "instagram.com",
+          "url": "https://www.instagram.com/reel/DS6GafTiaUV/?hl=es",
+          "title": "¿Qué es el NAD+ intravenoso? Aquí te cuento ⬇️ La ...",
+          "type": "editorial"
+        },
+        {
+          "rank": 6,
+          "domain": "gallusdetox.net",
+          "url": "https://gallusdetox.net/our-protocols/nad-iv-therapy/",
+          "title": "Goteo de terapia intravenosa NAD+ para la adicción",
+          "type": "otro"
+        },
+        {
+          "rank": 7,
+          "domain": "joywellnesspartners.com",
+          "url": "https://joywellnesspartners.com/es/services/iv-therapy/nad/",
+          "title": "Clínica de terapia intravenosa NAD para desintoxicación, ...",
+          "type": "otro"
+        },
+        {
+          "rank": 8,
+          "domain": "driphydration.com",
+          "url": "https://driphydration.com/what-is-nad-iv/?srsltid=AfmBOopK0jvtAa2grvat92cmXvKZU5tR6EDvkmnb6FniOD_i4Y-SYoIg",
+          "title": "What is NAD IV Therapy?",
+          "type": "otro"
+        },
+        {
+          "rank": 9,
+          "domain": "arvivaesthetics.com",
+          "url": "https://arvivaesthetics.com/es/tampa/terapia-nad/",
+          "title": "Terapia NAD y Bienestar IV en Tampa",
+          "type": "otro"
+        },
+        {
+          "rank": 10,
+          "domain": "aesthetemed.com",
+          "url": "https://aesthetemed.com/es/blog/terapia-nad%E2%81%BA-iv-vs-pluma-de-inyeccion-nad%E2%81%BA-cual-es-la-diferencia-y-que-opcion-es-mejor-para-ti/",
+          "title": "Terapia NAD⁺ IV vs. Pluma de Inyección NAD⁺: ¿Cuál es ...",
+          "type": "editorial"
+        },
+        {
+          "rank": 11,
+          "domain": "mynuceria.com",
+          "url": "https://mynuceria.com/blog/nad-iv-miami-boost-energy-enhance-vitality-1",
+          "title": "NAD+ IV Miami: Aumenta la energía y mejora la vitalidad",
+          "type": "editorial"
+        },
+        {
+          "rank": 13,
+          "domain": "institutovalencianodeozonoterapia.com",
+          "url": "https://www.institutovalencianodeozonoterapia.com/nad-intravenoso-beneficios/",
+          "title": "NAD+ intravenoso: para qué sirve, beneficios y dosis",
+          "type": "editorial"
+        },
+        {
+          "rank": 14,
+          "domain": "listado.mercadolibre.com.mx",
+          "url": "https://listado.mercadolibre.com.mx/suplemento-nad-iv",
+          "title": "Suplemento Nad Iv",
+          "type": "otro"
+        }
+      ]
+    }
+  ],
+  "total_cost": 0.214,
+  "domain_frequency_top10": {
+    "exomapeptides.mx": 11,
+    "peptide.com.mx": 7,
+    "instagram.com": 6,
+    "listado.mercadolibre.com.mx": 4,
+    "sears.com.mx": 4,
+    "amazon.com.mx": 3,
+    "es.wikipedia.org": 3,
+    "zelara.com.mx": 3,
+    "mercadolibre.com.mx": 3,
+    "en.wikipedia.org": 3,
+    "sanborns.com.mx": 2,
+    "facebook.com": 2,
+    "tiktok.com": 2,
+    "reddit.com": 2,
+    "pmc.ncbi.nlm.nih.gov": 2,
+    "fit-peptides.com": 2,
+    "cymitquimica.com": 2,
+    "youtube.com": 2,
+    "mynuceria.com": 2,
+    "clivi.com.mx": 2,
+    "walmart.com.mx": 1,
+    "bodegaaurrera.com.mx": 1,
+    "mx.iherb.com": 1,
+    "dialnet.unirioja.es": 1,
+    "etsy.com": 1,
+    "semaxpolska.com": 1,
+    "espanol.medscape.com": 1,
+    "sochob.cl": 1,
+    "farmacosalud.com": 1,
+    "savalnet.ec": 1,
+    "x.com": 1,
+    "patlynk.com": 1,
+    "revistapesquisa.fapesp.br": 1,
+    "ensayosclinicos.es": 1,
+    "zavamed.com": 1,
+    "retatrutide.mx": 1,
+    "thefitweekend.com": 1,
+    "farbefirma.org": 1,
+    "farmacopea.org.mx": 1,
+    "peptideregenesis.com": 1,
+    "doctoralia.com.mx": 1,
+    "usada.org": 1,
+    "mocvital.com.ar": 1,
+    "my-peptides.co.uk": 1,
+    "onyxgenlabz.mx": 1,
+    "clinicamarcorived.com": 1,
+    "doctorgmed.com": 1,
+    "yeasenbio.com": 1,
+    "veltispeptides.mx": 1,
+    "getfit.mx": 1,
+    "cun.es": 1,
+    "mayoclinic.org": 1,
+    "account.allinahealth.org": 1,
+    "pubchem.ncbi.nlm.nih.gov": 1,
+    "goutogo.mx": 1,
+    "sciencedirect.com": 1,
+    "innerbody.com": 1,
+    "krece.io": 1,
+    "gandhi.com.mx": 1,
+    "fahorro.com": 1,
+    "farmaciasespecializadas.com": 1,
+    "pricinginfo.lilly.com": 1,
+    "farmaciasguadalajara.com": 1,
+    "benavides.com.mx": 1,
+    "farmaciasanpablo.com.mx": 1,
+    "pacientes.sfe.com.mx": 1,
+    "quironsalud.com": 1,
+    "gallusdetox.net": 1,
+    "joywellnesspartners.com": 1,
+    "driphydration.com": 1,
+    "arvivaesthetics.com": 1,
+    "aesthetemed.com": 1,
+    "institutovalencianodeozonoterapia.com": 1
+  }
+}

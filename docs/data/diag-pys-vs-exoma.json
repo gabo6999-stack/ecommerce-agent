@@ -1,0 +1,257 @@
+{
+ "cjc-1295 / ipamorelina": {
+  "pys": {
+   "url": "https://peptidosysuplementos.mx/product/cjc-1295-ipamorelina-5mg/",
+   "http": 200,
+   "bytes_html": 48796,
+   "palabras_visibles": 702,
+   "titulo": "CJC-1295 Ipamorelina 5mg | Combo GHRH México",
+   "meta_desc_len": 157,
+   "canonical": "https://peptidosysuplementos.mx/product/cjc-1295-ipamorelina-5mg/",
+   "meta_robots": [
+    "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+   ],
+   "h1": [
+    "CJC-1295 no-DAC + Ipamorelina 5mg | Combo GH México"
+   ],
+   "n_h2": 11,
+   "h2_muestra": [
+    "Descripción",
+    "CJC-1295 no-DAC + Ipamorelina 5mg: Combo de Secretagogos de Hormona de Crecimiento para Investigación",
+    "¿Qué contiene?",
+    "Especificaciones técnicas",
+    "Productos relacionados",
+    "Preguntas Frecuentes"
+   ],
+   "enlaces_internos": 47,
+   "schema_tipos": [
+    "FAQPage",
+    "ImageObject",
+    "ItemPage",
+    "MedicalWebPage",
+    "Organization",
+    "Product",
+    "WebSite"
+   ]
+  },
+  "exoma": {
+   "url": "https://exomapeptides.mx/producto/cjc-1295-dac",
+   "http": 200,
+   "bytes_html": 69960,
+   "palabras_visibles": 3759,
+   "titulo": "Comprar CJC-1295 DAC en México | Vida media de 6-8 días",
+   "meta_desc_len": 159,
+   "canonical": "https://exomapeptides.mx/producto/cjc-1295-dac",
+   "meta_robots": [
+    "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+   ],
+   "h1": [
+    "CJC-1295 (DAC)"
+   ],
+   "n_h2": 16,
+   "h2_muestra": [
+    "Ficha técnica",
+    "Identidad y composición",
+    "Mecanismo de acción",
+    "Farmacocinética",
+    "Evidencia científica",
+    "Aplicaciones de investigación"
+   ],
+   "enlaces_internos": 41,
+   "schema_tipos": [
+    "BreadcrumbList",
+    "FAQPage",
+    "ImageObject",
+    "ItemPage",
+    "LocalBusiness",
+    "OnlineStore",
+    "Organization",
+    "Product",
+    "WebSite"
+   ]
+  }
+ },
+ "glutatión": {
+  "pys": {
+   "url": "https://peptidosysuplementos.mx/product/glutation-1500mg/",
+   "http": 200,
+   "bytes_html": 58373,
+   "palabras_visibles": 1216,
+   "titulo": "Glutation 1500mg | Antioxidante | Precio México",
+   "meta_desc_len": 150,
+   "canonical": "https://peptidosysuplementos.mx/product/glutation-1500mg/",
+   "meta_robots": [
+    "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+   ],
+   "h1": [
+    "Glutatión 1500mg | Antioxidante y Detox Celular México"
+   ],
+   "n_h2": 18,
+   "h2_muestra": [
+    "Descripción",
+    "Glutation 1500mg: el tripéptido antioxidante (GSH)",
+    "Glutation precio y disponibilidad en México",
+    "Ficha técnica",
+    "Funciones descritas en la literatura",
+    "Qué dice realmente la evidencia (y qué no)"
+   ],
+   "enlaces_internos": 53,
+   "schema_tipos": [
+    "FAQPage",
+    "ImageObject",
+    "ItemPage",
+    "MedicalWebPage",
+    "Organization",
+    "Product",
+    "WebSite"
+   ]
+  },
+  "exoma": {
+   "error": "sin URL"
+  }
+ },
+ "retatrutida": {
+  "pys": {
+   "url": "https://peptidosysuplementos.mx/product/retatrutida-30mg/",
+   "http": 200,
+   "bytes_html": 65546,
+   "palabras_visibles": 1757,
+   "titulo": "Retatrutide Precio México | Comprar Retatrutida 30mg",
+   "meta_desc_len": 157,
+   "canonical": "https://peptidosysuplementos.mx/product/retatrutida-30mg/",
+   "meta_robots": [
+    "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+   ],
+   "h1": [
+    "Retatrutida 30mg | Triple Agonista GLP-1 Control Peso"
+   ],
+   "n_h2": 21,
+   "h2_muestra": [
+    "Descripción",
+    "Retatrutide (retatrutida) 30mg: triple agonista GLP-1/GIP/GCG",
+    "Retatrutide precio y disponibilidad en México",
+    "Ficha técnica e identidad molecular",
+    "Mecanismo de acción: por qué se le llama triple agonista",
+    "Farmacocinética descrita en la literatura"
+   ],
+   "enlaces_internos": 67,
+   "schema_tipos": [
+    "FAQPage",
+    "ImageObject",
+    "ItemPage",
+    "MedicalWebPage",
+    "Organization",
+    "Product",
+    "WebSite"
+   ]
+  },
+  "exoma": {
+   "url": "https://exomapeptides.mx/producto/retatrutida",
+   "http": 200,
+   "bytes_html": 69652,
+   "palabras_visibles": 3164,
+   "titulo": "Comprar Retatrutide (Retatrutida) en México | Precio",
+   "meta_desc_len": 156,
+   "canonical": "https://exomapeptides.mx/producto/retatrutida",
+   "meta_robots": [
+    "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+   ],
+   "h1": [
+    "Retatrutida"
+   ],
+   "n_h2": 17,
+   "h2_muestra": [
+    "Ficha técnica",
+    "Identidad y composición",
+    "Mecanismo de acción",
+    "Farmacocinética",
+    "Evidencia científica",
+    "Aplicaciones de investigación"
+   ],
+   "enlaces_internos": 47,
+   "schema_tipos": [
+    "BreadcrumbList",
+    "FAQPage",
+    "ImageObject",
+    "ItemPage",
+    "LocalBusiness",
+    "OnlineStore",
+    "Organization",
+    "Product",
+    "WebSite"
+   ]
+  }
+ },
+ "mots-c": {
+  "pys": {
+   "url": "https://peptidosysuplementos.mx/product/mots-c-10mg/",
+   "http": 200,
+   "bytes_html": 57472,
+   "palabras_visibles": 1075,
+   "titulo": "MOTS-c 10mg México | Péptido Mitocondrial | Precio",
+   "meta_desc_len": 153,
+   "canonical": "https://peptidosysuplementos.mx/product/mots-c-10mg/",
+   "meta_robots": [
+    "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+   ],
+   "h1": [
+    "MOTS-c 10mg | Péptido Metabolismo y Longevidad México"
+   ],
+   "n_h2": 18,
+   "h2_muestra": [
+    "Descripción",
+    "MOTS-c 10mg: péptido codificado por el ADN mitocondrial",
+    "MOTS-c: presentación y precio en México",
+    "Por qué es distinto de otros péptidos",
+    "Evidencia científica publicada",
+    "Mecanismo propuesto en la literatura"
+   ],
+   "enlaces_internos": 55,
+   "schema_tipos": [
+    "FAQPage",
+    "ImageObject",
+    "ItemPage",
+    "MedicalWebPage",
+    "Organization",
+    "Product",
+    "WebSite"
+   ]
+  },
+  "exoma": {
+   "url": "https://exomapeptides.mx/producto/mots-c",
+   "http": 200,
+   "bytes_html": 57347,
+   "palabras_visibles": 2950,
+   "titulo": "Comprar MOTS-c en México | Péptido Mitocondrial | 10 y 40 mg",
+   "meta_desc_len": 156,
+   "canonical": "https://exomapeptides.mx/producto/mots-c",
+   "meta_robots": [
+    "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+   ],
+   "h1": [
+    "MOTS-c"
+   ],
+   "n_h2": 17,
+   "h2_muestra": [
+    "Ficha técnica",
+    "Identidad y composición",
+    "Mecanismo de acción",
+    "Farmacocinética",
+    "Evidencia científica",
+    "Aplicaciones de investigación"
+   ],
+   "enlaces_internos": 40,
+   "schema_tipos": [
+    "BreadcrumbList",
+    "FAQPage",
+    "ImageObject",
+    "ItemPage",
+    "LocalBusiness",
+    "OnlineStore",
+    "Organization",
+    "Product",
+    "WebSite"
+   ]
+  }
+ }
+}

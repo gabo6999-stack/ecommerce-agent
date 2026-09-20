@@ -1,0 +1,2576 @@
+{
+  "method": "DataForSEO SERP live advanced",
+  "market": {
+    "location_code": 2484,
+    "language_code": "es",
+    "device": "desktop",
+    "depth": 20
+  },
+  "measured_at_utc": "2026-08-06T05:23:40.627860+00:00",
+  "keywords_sent": 21,
+  "usable_results": 21,
+  "cost_usd": 0.084,
+  "ranked_any_returned": 16,
+  "ranked_top20": 15,
+  "outside_top20_returned": [
+    {
+      "keyword_requested": "servidor pacs",
+      "keyword_returned": "servidor pacs",
+      "raditech_position": 22,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/services/pacs",
+          "title": "Servidor PACS"
+        },
+        {
+          "position": 4,
+          "domain": "www.actualmed.com",
+          "url": "https://www.actualmed.com/blog/2010/10/20/servidor-pacs-dicom-server/",
+          "title": "¿Qué es un servidor PACS? ¿Por qué necesito uno?"
+        },
+        {
+          "position": 6,
+          "domain": "www.dtec.org.mx",
+          "url": "https://www.dtec.org.mx/ris-pacs/",
+          "title": "RIS / PACS - DTEC"
+        },
+        {
+          "position": 7,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/tecnologia-medica/que-es-un-pacs-y-como-funciona",
+          "title": "¿Qué es un PACS y cómo funciona?"
+        },
+        {
+          "position": 9,
+          "domain": "inobitec.com",
+          "url": "https://inobitec.com/esp/downloads/dicomserver/?srsltid=AfmBOop8xTMcHIqt1ZnvAp5GNiQqM3TKsMYk6bRtgP4l8CA5ikZ6rbmX",
+          "title": "DICOM Servidor (PACS) descargar"
+        },
+        {
+          "position": 10,
+          "domain": "www.grupo-lab.com",
+          "url": "https://www.grupo-lab.com/post/sistemas-pacs-optimizando-la-gesti%C3%B3n-de-im%C3%A1genes-m%C3%A9dicas-para-una-atenci%C3%B3n-eficiente?srsltid=AfmBOopnEjrcuHNClWeq3Y5DkUq22BKpHBqRbVhUSLkQorZE4jO0mGfU",
+          "title": "Sistemas PACS: Optimizando la Gestión de Imágenes ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/blog/dicom-and-pacs-differences",
+          "title": "Diferencias entre DICOM y PACS [Integración, Implicación ..."
+        },
+        {
+          "position": 13,
+          "domain": "es.slideshare.net",
+          "url": "https://es.slideshare.net/slideshow/servidor-pacs/69513652",
+          "title": "Servidor PACS | PPTX"
+        },
+        {
+          "position": 14,
+          "domain": "repositoriosdigitales.mincyt.gob.ar",
+          "url": "https://repositoriosdigitales.mincyt.gob.ar/vufind/Record/SEDICI_d43c6963f02885957293d6116b57ef6e",
+          "title": "Descripción: Servidor PACS usando el estándar DICOM"
+        },
+        {
+          "position": 15,
+          "domain": "blog.medicai.io",
+          "url": "https://blog.medicai.io/es/configuracion-del-servidor-pacs/",
+          "title": "5 Mejores Prácticas para la Configuración del Servidor PACS"
+        }
+      ]
+    }
+  ],
+  "top10": 8,
+  "best_position": 4,
+  "quickwins_4_20": [
+    {
+      "keyword_requested": "pacs",
+      "keyword_returned": "pacs",
+      "raditech_position": 20,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.pacs.com.mx",
+          "url": "https://www.pacs.com.mx/?srsltid=AfmBOorElZtKv1p-fxy2VxkYP1w9FX55nmli0FH8kSUgvu59EF25Sxcj",
+          "title": "PACS Computación"
+        },
+        {
+          "position": 4,
+          "domain": "www.cun.es",
+          "url": "https://www.cun.es/diccionario-medico/terminos/pacs",
+          "title": "Qué es PACS. Diccionario Médico. Clínica U. Navarra"
+        },
+        {
+          "position": 5,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/tecnologia-medica/que-es-un-pacs",
+          "title": "¿Qué es un PACS?"
+        },
+        {
+          "position": 6,
+          "domain": "alma-medical.com",
+          "url": "https://alma-medical.com/pacs-visores-dicom-imagen-medica-revolucion-digital-radiologia/",
+          "title": "PACS y Visores DICOM: la Revolución Digital en la ..."
+        },
+        {
+          "position": 8,
+          "domain": "imed.mx",
+          "url": "https://imed.mx/pacs/",
+          "title": "PACS - imed"
+        },
+        {
+          "position": 9,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/services/pacs",
+          "title": "Servidor PACS"
+        },
+        {
+          "position": 10,
+          "domain": "www.facebook.com",
+          "url": "https://www.facebook.com/pacscom/?locale=es_LA",
+          "title": "PACS Computación | Durango"
+        },
+        {
+          "position": 11,
+          "domain": "www.analesderadiologiamexico.com",
+          "url": "https://www.analesderadiologiamexico.com/previos/ARM%202003%20Vol.%202/ARM_03_2_4_Octubre-Diciembre/arm_03_2_4_219-224.pdf",
+          "title": "Sistema de Archivo y Comunicación de Imágenes (PACS)"
+        },
+        {
+          "position": 13,
+          "domain": "www.vmi.com.mx",
+          "url": "https://www.vmi.com.mx/pacs",
+          "title": "Pacs"
+        },
+        {
+          "position": 14,
+          "domain": "www.dtec.org.mx",
+          "url": "https://www.dtec.org.mx/ris-pacs/",
+          "title": "RIS / PACS - DTEC"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "sistema pacs",
+      "keyword_returned": "sistema pacs",
+      "raditech_position": 19,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "visualmedica.com",
+          "url": "https://visualmedica.com/que-es-pacs-y-como-funciona/",
+          "title": "Qué es un sistema PACS y cómo funciona"
+        },
+        {
+          "position": 4,
+          "domain": "www.analesderadiologiamexico.com",
+          "url": "https://www.analesderadiologiamexico.com/previos/ARM%202003%20Vol.%202/ARM_03_2_4_Octubre-Diciembre/arm_03_2_4_219-224.pdf",
+          "title": "Sistema de Archivo y Comunicación de Imágenes (PACS)"
+        },
+        {
+          "position": 6,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/tecnologia-medica/que-es-un-pacs",
+          "title": "¿Qué es un PACS?"
+        },
+        {
+          "position": 7,
+          "domain": "www.cun.es",
+          "url": "https://www.cun.es/diccionario-medico/terminos/pacs",
+          "title": "Qué es PACS. Diccionario Médico. Clínica U. Navarra"
+        },
+        {
+          "position": 8,
+          "domain": "rmib.com.mx",
+          "url": "https://rmib.com.mx/index.php/rmib/article/download/283/342",
+          "title": "Sistema PACS-CNR, una propuesta tecnológica"
+        },
+        {
+          "position": 9,
+          "domain": "www.grupo-lab.com",
+          "url": "https://www.grupo-lab.com/post/sistemas-pacs-optimizando-la-gesti%C3%B3n-de-im%C3%A1genes-m%C3%A9dicas-para-una-atenci%C3%B3n-eficiente?srsltid=AfmBOorEAeGadWRPZu6qCn4W15PhBgfjf8AH04dKiXWAmHOJpYbOhviy",
+          "title": "Sistemas PACS: Optimizando la Gestión de Imágenes ..."
+        },
+        {
+          "position": 10,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/blog/imagenologia-4/conceptos-basicos-de-imagenologia-ris-y-pacs-37",
+          "title": "Conceptos Básicos de Imagenología: RIS y PACS"
+        },
+        {
+          "position": 11,
+          "domain": "alma-medical.com",
+          "url": "https://alma-medical.com/pacs-visores-dicom-imagen-medica-revolucion-digital-radiologia/",
+          "title": "PACS y Visores DICOM: la Revolución Digital en la ..."
+        },
+        {
+          "position": 13,
+          "domain": "www.grupo-lab.com",
+          "url": "https://www.grupo-lab.com/post/sistemas-pacs-optimizando-la-gesti%C3%B3n-de-im%C3%A1genes-m%C3%A9dicas-para-una-atenci%C3%B3n-eficiente?srsltid=AfmBOopguFxIs49ncb2TDTRuy41Ionz32QRgK7hzE9QlxQ1sQvKZm-Fh",
+          "title": "Sistemas PACS: Optimizando la Gestión de Imágenes ..."
+        },
+        {
+          "position": 14,
+          "domain": "www.cun.es",
+          "url": "https://www.cun.es/diccionario-medico/terminos/pacs",
+          "title": "Qué es PACS. Diccionario Médico. Clínica U. Navarra"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "sistema pacs ris",
+      "keyword_returned": "sistema pacs ris",
+      "raditech_position": 10,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/blog/imagenologia-4/conceptos-basicos-de-imagenologia-ris-y-pacs-37",
+          "title": "Conceptos Básicos de Imagenología: RIS y PACS"
+        },
+        {
+          "position": 5,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/blog/3-razones-para-implementar-sistemas-pacs-y-ris-en-tu-hospital/",
+          "title": "3 razones para implementar sistemas PACS y RIS en tu ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.analesderadiologiamexico.com",
+          "url": "https://www.analesderadiologiamexico.com/previos/ARM%202003%20Vol.%202/ARM_03_2_4_Octubre-Diciembre/arm_03_2_4_219-224.pdf",
+          "title": "Sistema de Archivo y Comunicación de Imágenes (PACS)"
+        },
+        {
+          "position": 7,
+          "domain": "www.dtec.org.mx",
+          "url": "https://www.dtec.org.mx/ris-pacs/",
+          "title": "RIS / PACS - DTEC"
+        },
+        {
+          "position": 8,
+          "domain": "www.promedco.com",
+          "url": "https://www.promedco.com/rispacs",
+          "title": "Rispacs"
+        },
+        {
+          "position": 9,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/blog/how-pacs-integrates-with-ris-and-ehr-systems",
+          "title": "Cómo se integra un PACS con los sistemas RIS y EHR"
+        },
+        {
+          "position": 10,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "title": "Sistema PACS-RIS para Radiología | Raditech México"
+        },
+        {
+          "position": 11,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/tecnologia-medica/que-es-exactamente-un-sistema-de-informacion-radiologica-ris",
+          "title": "¿Qué es exactamente un sistema de información ..."
+        },
+        {
+          "position": 13,
+          "domain": "www.capterra.mx",
+          "url": "https://www.capterra.mx/software/79111/ris-pacs",
+          "title": "¿Qué es RIS PACS? - Reseñas, precios y funciones"
+        },
+        {
+          "position": 14,
+          "domain": "terx.com.mx",
+          "url": "https://terx.com.mx/que-es-un-sistema-pacs-ris-pacs/",
+          "title": "¿Qué es un sistema PACS (RIS/PACS)?"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "pacs ris",
+      "keyword_returned": "pacs ris",
+      "raditech_position": 8,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/blog/imagenologia-4/conceptos-basicos-de-imagenologia-ris-y-pacs-37",
+          "title": "Conceptos Básicos de Imagenología: RIS y PACS"
+        },
+        {
+          "position": 4,
+          "domain": "soe.com.mx",
+          "url": "https://soe.com.mx/sistemas-RIS-PACS.html",
+          "title": "Sistema RIS/PACS en México"
+        },
+        {
+          "position": 5,
+          "domain": "www.capterra.mx",
+          "url": "https://www.capterra.mx/software/79111/ris-pacs",
+          "title": "¿Qué es RIS PACS? - Reseñas, precios y funciones"
+        },
+        {
+          "position": 7,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/blog/3-razones-para-implementar-sistemas-pacs-y-ris-en-tu-hospital/",
+          "title": "3 razones para implementar sistemas PACS y RIS en tu ..."
+        },
+        {
+          "position": 8,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "title": "Sistema PACS-RIS para Radiología | Raditech México"
+        },
+        {
+          "position": 10,
+          "domain": "www.pacsrisglobal.com",
+          "url": "https://www.pacsrisglobal.com/",
+          "title": "Pacs Ris Global: Inicio"
+        },
+        {
+          "position": 11,
+          "domain": "www.promedco.com",
+          "url": "https://www.promedco.com/noticias/beneficios-ris-pacs-atencion-medica",
+          "title": "Beneficios de RIS y PACS en atención médica eficiente"
+        },
+        {
+          "position": 12,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/blog/how-pacs-integrates-with-ris-and-ehr-systems",
+          "title": "Cómo se integra un PACS con los sistemas RIS y EHR"
+        },
+        {
+          "position": 13,
+          "domain": "www.dtec.org.mx",
+          "url": "https://www.dtec.org.mx/ris-pacs/",
+          "title": "RIS / PACS - DTEC"
+        },
+        {
+          "position": 14,
+          "domain": "www.analesderadiologiamexico.com",
+          "url": "https://www.analesderadiologiamexico.com/previos/ARM%202003%20Vol.%202/ARM_03_2_4_Octubre-Diciembre/arm_03_2_4_219-224.pdf",
+          "title": "Sistema de Archivo y Comunicación de Imágenes (PACS)"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "pacs mexico",
+      "keyword_returned": "pacs mexico",
+      "raditech_position": 9,
+      "raditech_url": "https://raditech.mx/pacs-teleradiologia/",
+      "raditech_title": "PACS Teleradiología para interpretación remota DICOM.",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.sat.gob.mx",
+          "url": "https://www.sat.gob.mx/portal/public/tramites/lista-de-proveedores-autorizados-de-certificacion-de-cfdi",
+          "title": "Lista de Proveedores Autorizados de Certificación de CFDI"
+        },
+        {
+          "position": 4,
+          "domain": "facturama.mx",
+          "url": "https://facturama.mx/blog/que-significa/pac/",
+          "title": "¿Qué es un PAC de facturación?"
+        },
+        {
+          "position": 5,
+          "domain": "pacmexico.com",
+          "url": "https://pacmexico.com/",
+          "title": "PAC México - Líderes en Tecnología de Montaje Superficial"
+        },
+        {
+          "position": 6,
+          "domain": "sw.com.mx",
+          "url": "https://sw.com.mx/blog/gestion-de-cfdi/que-es-un-pac",
+          "title": "¿Qué es un PAC?"
+        },
+        {
+          "position": 7,
+          "domain": "amexipac.org",
+          "url": "https://amexipac.org/pacs-ecosistema-tributario-digital/",
+          "title": "Los PACs: El Corazón del Ecosistema Tributario Digital de ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.prodigia.com.mx",
+          "url": "https://www.prodigia.com.mx/blog/que-es-un-pac-y-por-que-es-clave-para-tu-facturacion-electronica",
+          "title": "¿Qué es un PAC y por qué es clave para tu facturación ..."
+        },
+        {
+          "position": 9,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "title": "PACS Teleradiología para interpretación remota DICOM."
+        },
+        {
+          "position": 10,
+          "domain": "www.pacs.com.mx",
+          "url": "https://www.pacs.com.mx/?srsltid=AfmBOooO2gHLcdorBxJlfZy3b35HFAXajPOY2GkiCGuzjYtRnOB5U_EW",
+          "title": "PACS Computación"
+        },
+        {
+          "position": 11,
+          "domain": "www.edifact.com.mx",
+          "url": "https://www.edifact.com.mx/blog/que-es-un-pac-en-mexico-y-por-que-es-importante-para-la-facturacion-electronica/",
+          "title": "¿Qué es un PAC en México y por qué es importante para ..."
+        },
+        {
+          "position": 13,
+          "domain": "www.zummafinancial.com",
+          "url": "https://www.zummafinancial.com/post/qu%C3%A9-son-los-pacs-proveedores-autorizados-de-certificaci%C3%B3n-en-m%C3%A9xico-1",
+          "title": "¿Qué son los PACs (Proveedores Autorizados de ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "software pacs",
+      "keyword_returned": "software pacs",
+      "raditech_position": 7,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "edenmed.com",
+          "url": "https://edenmed.com/",
+          "title": "Eden PACS Tab"
+        },
+        {
+          "position": 4,
+          "domain": "www.capterra.mx",
+          "url": "https://www.capterra.mx/directory/31021/pacs/software",
+          "title": "Sistemas PACS. Opciones, reseñas y precios"
+        },
+        {
+          "position": 5,
+          "domain": "visualmedica.com",
+          "url": "https://visualmedica.com/que-es-pacs-y-como-funciona/",
+          "title": "Qué es un sistema PACS y cómo funciona"
+        },
+        {
+          "position": 6,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/pacs",
+          "title": "PACS"
+        },
+        {
+          "position": 7,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "title": "Sistema PACS-RIS para Radiología | Raditech México"
+        },
+        {
+          "position": 8,
+          "domain": "blog.tecnoimagen.com.ar",
+          "url": "https://blog.tecnoimagen.com.ar/tecnoimagen/beneficios-de-implementar-software-pacs-debidamente-licenciado-vigente-y-actualizado",
+          "title": "Beneficios de utilizar software PACS licenciado, vigente y ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/blog/what-is-pacs-and-how-does-it-work",
+          "title": "¿Qué es un PACS? ¿Y cómo funciona?"
+        },
+        {
+          "position": 10,
+          "domain": "www.medicalexpo.es",
+          "url": "https://www.medicalexpo.es/fabricante-medical/software-pacs-16463.html",
+          "title": "Software para PACS - Todos los fabricantes de ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.medicai.io",
+          "url": "https://www.medicai.io/es",
+          "title": "Cloud PACS Software para imágenes médicas y radiología"
+        },
+        {
+          "position": 13,
+          "domain": "or-technology.com",
+          "url": "https://or-technology.com/es/productos/or4human/sistema-de-gestion-de-imagenes-pacs/",
+          "title": "Software PACS para la gestión de imágenes médicas"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "teleradiologia",
+      "keyword_returned": "teleradiologia",
+      "raditech_position": 18,
+      "raditech_url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "raditech_title": "Teleradiología de alta especialidad 24/7",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/teleradiologia/",
+          "title": "Teleradiología Radiocare | Diagnóstico remoto 24/7"
+        },
+        {
+          "position": 3,
+          "domain": "trm.com.mx",
+          "url": "https://trm.com.mx/",
+          "title": "Radiólogos Certificados TRM | Teleradiología TRM"
+        },
+        {
+          "position": 4,
+          "domain": "mx.indeed.com",
+          "url": "https://mx.indeed.com/q-teleradiologia,-m%C3%A9dico-radiologo-l-ciudad-de-m%C3%A9xico-empleos.html",
+          "title": "Empleos de Teleradiologia, Médico Radiologo en Ciudad ..."
+        },
+        {
+          "position": 5,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/radiologia/introduccion-a-la-teleradiologia-y-su-importancia-en-el-sistema-de-salud",
+          "title": "Introducción a la teleradiología y su importancia en el ..."
+        },
+        {
+          "position": 6,
+          "domain": "expertosenteleradiologia.com",
+          "url": "https://expertosenteleradiologia.com/",
+          "title": "Expertos en Teleradiologia: Inicio"
+        },
+        {
+          "position": 8,
+          "domain": "telerob.com.mx",
+          "url": "https://telerob.com.mx/",
+          "title": "Telerob – Teleradiología Occidente y Bajío"
+        },
+        {
+          "position": 10,
+          "domain": "www.elsevier.es",
+          "url": "https://www.elsevier.es/es-revista-radiologia-english-edition--419-articulo-telerradiologia-guia-buenas-practicas-S0033833822002545?newsletter=true",
+          "title": "Telerradiología: guía de buenas prácticas | Radiología"
+        },
+        {
+          "position": 11,
+          "domain": "teleradiologiaenmexico.com",
+          "url": "https://teleradiologiaenmexico.com/",
+          "title": "teleradiología en méxico: Inicio"
+        },
+        {
+          "position": 13,
+          "domain": "innovation.teleradweb.com.ar",
+          "url": "https://innovation.teleradweb.com.ar/blog/para-que-sirve-la-teleradiologia",
+          "title": "¿Para qué sirve la teleradiología?"
+        },
+        {
+          "position": 14,
+          "domain": "terx.com.mx",
+          "url": "https://terx.com.mx/",
+          "title": "Transforma el Diagnóstico con la Interpretación de Imágenes ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "servicio de teleradiologia",
+      "keyword_returned": "servicio de teleradiologia",
+      "raditech_position": 4,
+      "raditech_url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "raditech_title": "Teleradiología de alta especialidad 24/7",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/blog/teleradiologia-urgencias-medicas-aliada-para-hospital/",
+          "title": "Teleradiología en urgencias médicas: una aliada para tu ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.teleradiologia.com.mx",
+          "url": "https://www.teleradiologia.com.mx/",
+          "title": "Teleradiología en México | RX Telediagnostic – Servicios de ..."
+        },
+        {
+          "position": 4,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "title": "Teleradiología de alta especialidad 24/7"
+        },
+        {
+          "position": 5,
+          "domain": "medium.com",
+          "url": "https://medium.com/@Radiocare/cu%C3%A1ndo-es-necesario-un-servicio-de-teleradiolog%C3%ADa-en-mi-centro-de-salud-62d5eb969916",
+          "title": "¿Cuándo es necesario un servicio de Teleradiología en mi ..."
+        },
+        {
+          "position": 6,
+          "domain": "ganturi.com",
+          "url": "https://ganturi.com/teleradiologia-en-mexico/",
+          "title": "Teleradiología en México"
+        },
+        {
+          "position": 7,
+          "domain": "intedia.mx",
+          "url": "https://intedia.mx/services/radiologia-a-domicilio/",
+          "title": "Radiologia A Domicilio - Intedia"
+        },
+        {
+          "position": 8,
+          "domain": "www.facebook.com",
+          "url": "https://www.facebook.com/teleradiologiamedica.demexico/?locale=es_LA",
+          "title": "Teleradiología Médica de México | Mexico City"
+        },
+        {
+          "position": 9,
+          "domain": "www.tecsalud.mx",
+          "url": "https://www.tecsalud.mx/radiologia",
+          "title": "Radiología"
+        },
+        {
+          "position": 14,
+          "domain": "terx.com.mx",
+          "url": "https://terx.com.mx/",
+          "title": "Transforma el Diagnóstico con la Interpretación de Imágenes ..."
+        },
+        {
+          "position": 15,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/teleradiologia/",
+          "title": "Teleradiología Radiocare | Diagnóstico remoto 24/7"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "teleradiologia mexico",
+      "keyword_returned": "teleradiologia mexico",
+      "raditech_position": 4,
+      "raditech_url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "raditech_title": "Teleradiología de alta especialidad 24/7",
+      "top_organic": [
+        {
+          "position": 1,
+          "domain": "trm.com.mx",
+          "url": "https://trm.com.mx/",
+          "title": "Radiólogos Certificados TRM | Teleradiología TRM"
+        },
+        {
+          "position": 2,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/teleradiologia/",
+          "title": "Teleradiología Radiocare | Diagnóstico remoto 24/7"
+        },
+        {
+          "position": 3,
+          "domain": "mx.indeed.com",
+          "url": "https://mx.indeed.com/q-teleradiologia,-m%C3%A9dico-radiologo-l-ciudad-de-m%C3%A9xico-empleos.html",
+          "title": "Empleos de Teleradiologia, Médico Radiologo en Ciudad ..."
+        },
+        {
+          "position": 4,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "title": "Teleradiología de alta especialidad 24/7"
+        },
+        {
+          "position": 5,
+          "domain": "teleradiologiaenmexico.com",
+          "url": "https://teleradiologiaenmexico.com/",
+          "title": "teleradiología en méxico: Inicio"
+        },
+        {
+          "position": 6,
+          "domain": "www.facebook.com",
+          "url": "https://www.facebook.com/teleradiologiamedica.demexico/?locale=es_LA",
+          "title": "Teleradiología Médica de México | Mexico City"
+        },
+        {
+          "position": 7,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/radiologia/formacion-y-certificacion-en-teleradiologia",
+          "title": "Formación y certificación en teleradiología"
+        },
+        {
+          "position": 8,
+          "domain": "www.teleradiologia.com.mx",
+          "url": "https://www.teleradiologia.com.mx/servicios/",
+          "title": "Servicios – Teleradiología en México"
+        },
+        {
+          "position": 9,
+          "domain": "ganturi.com",
+          "url": "https://ganturi.com/teleradiologia-en-mexico/",
+          "title": "Teleradiología en México"
+        },
+        {
+          "position": 10,
+          "domain": "www.webcir.org",
+          "url": "https://www.webcir.org/Files/Teleradiologia",
+          "title": "CIR -. Documentos de TELERRADIOLOGIA Políticas, ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "empresas de teleradiologia",
+      "keyword_returned": "empresas de teleradiologia",
+      "raditech_position": 13,
+      "raditech_url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "raditech_title": "Teleradiología de alta especialidad 24/7",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "teleradiomed.com",
+          "url": "https://teleradiomed.com/",
+          "title": "Teleradiomed"
+        },
+        {
+          "position": 3,
+          "domain": "www.teleradiologia.com.mx",
+          "url": "https://www.teleradiologia.com.mx/",
+          "title": "Teleradiología en México | RX Telediagnostic – Servicios de ..."
+        },
+        {
+          "position": 4,
+          "domain": "trm.com.mx",
+          "url": "https://trm.com.mx/",
+          "title": "Radiólogos Certificados TRM | Teleradiología TRM"
+        },
+        {
+          "position": 5,
+          "domain": "mx.indeed.com",
+          "url": "https://mx.indeed.com/q-teleradiologia,-m%C3%A9dico-radiologo-l-ciudad-de-m%C3%A9xico-empleos.html",
+          "title": "Empleos de Teleradiologia, Médico Radiologo en Ciudad ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.atryshealth.com",
+          "url": "https://www.atryshealth.com/es/teleradiologia/",
+          "title": "Teleradiología"
+        },
+        {
+          "position": 7,
+          "domain": "medium.com",
+          "url": "https://medium.com/@Radiocare/la-teleradiolog%C3%ADa-una-fuente-de-soluciones-e70818d18f5c",
+          "title": "La Teleradiología: una fuente de soluciones | by Radiocare"
+        },
+        {
+          "position": 8,
+          "domain": "www.facebook.com",
+          "url": "https://www.facebook.com/teleradiologiamedica.demexico/?locale=es_LA",
+          "title": "Teleradiología Médica de México | Mexico City"
+        },
+        {
+          "position": 9,
+          "domain": "telerob.com.mx",
+          "url": "https://telerob.com.mx/",
+          "title": "Telerob – Teleradiología Occidente y Bajío"
+        },
+        {
+          "position": 10,
+          "domain": "integracare.mx",
+          "url": "https://integracare.mx/teleradiologia/",
+          "title": "Teleradiología - Integracare"
+        },
+        {
+          "position": 12,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/teleradiologia/",
+          "title": "Teleradiología Radiocare | Diagnóstico remoto 24/7"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "monitores medicos",
+      "keyword_returned": "monitores medicos",
+      "raditech_position": 6,
+      "raditech_url": "https://raditech.mx/monitores-medicos-radiologia/",
+      "raditech_title": "Monitores Médicos DICOM para Radiología",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.lg.com",
+          "url": "https://www.lg.com/mx/business/monitores-pcs/monitores-medicos/monitor-de-diagnostico/?srsltid=AfmBOoqjahrmsrCGcV62RGBOYKWuLMVhzLkVW-pO2Bz63SIezQbtqr_D",
+          "title": "Monitores De Diagnóstico: Calidad De Imagen"
+        },
+        {
+          "position": 3,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/monitores-de-diagnostico",
+          "title": "Monitores de Diagnóstico"
+        },
+        {
+          "position": 4,
+          "domain": "www.barco.com",
+          "url": "https://www.barco.com/es/products/medical-displays",
+          "title": "Pantallas médicas"
+        },
+        {
+          "position": 6,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "title": "Monitores Médicos DICOM para Radiología"
+        },
+        {
+          "position": 9,
+          "domain": "pro.sony",
+          "url": "https://pro.sony/ls_MX/products/medical-monitors",
+          "title": "Monitores de uso médico"
+        },
+        {
+          "position": 10,
+          "domain": "hergom-medical.com",
+          "url": "https://hergom-medical.com/collections/monitores-de-paciente?srsltid=AfmBOor5O0onHYd-4afdmT_L_Q--_R-7bKVSidEZUHd-iTcYTHp-zDnD",
+          "title": "Monitores de paciente"
+        },
+        {
+          "position": 11,
+          "domain": "www.medicagama.com.mx",
+          "url": "https://www.medicagama.com.mx/product-category/monitores-de-signos-vitales/?srsltid=AfmBOoqmwV7MNaRMFTgBVtJD42u1iu_RVkziFfoNtI-Sb-wbfa6idWyB",
+          "title": "Monitores de Signos Vitales"
+        },
+        {
+          "position": 12,
+          "domain": "vtm.com.mx",
+          "url": "https://vtm.com.mx/",
+          "title": "Monitores grado médico \"Viewtech\" Master distribuidor México"
+        },
+        {
+          "position": 14,
+          "domain": "www.monitors.com",
+          "url": "https://www.monitors.com/es?srsltid=AfmBOopa4iJOu2W_jeYSX3fz1PIIZXrwGvCrMjAYU1SamlBkZAeG9hcK",
+          "title": "Estaciones de trabajo PACS: Guía de monitores y accesorios"
+        },
+        {
+          "position": 15,
+          "domain": "www.lg.com",
+          "url": "https://www.lg.com/mx/business/monitores-pcs/monitores-medicos/?srsltid=AfmBOoqySBUIJutZNKhhcB_2Q5gngk8PZDaROYfzvEcugbqG7sLiIWR0",
+          "title": "Pantallas médicas | LG MX Business"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "monitor grado medico",
+      "keyword_returned": "monitor grado medico",
+      "raditech_position": 19,
+      "raditech_url": "https://raditech.mx/monitores-medicos-radiologia/",
+      "raditech_title": "Monitores Médicos DICOM para Radiología",
+      "top_organic": [
+        {
+          "position": 1,
+          "domain": "www.lg.com",
+          "url": "https://www.lg.com/mx/business/monitores-pcs/monitores-medicos/monitor-de-revision-clinica/?srsltid=AfmBOoq6ZJKdLdpaNRG3uALyi5ER1vczAdacDOcCrYZTWGR5AICCQbOy",
+          "title": "Monitores Médicos Para Revisión Clínica"
+        },
+        {
+          "position": 2,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/monitores-grado-mexco",
+          "title": "Monitores Grado Médico"
+        },
+        {
+          "position": 3,
+          "domain": "listado.mercadolibre.com.mx",
+          "url": "https://listado.mercadolibre.com.mx/monitor-grado-medico",
+          "title": "Monitor Grado Medico | MercadoLibre"
+        },
+        {
+          "position": 5,
+          "domain": "taq.com.mx",
+          "url": "https://taq.com.mx/imagenologia/monitores-diagnostico-medico/",
+          "title": "Monitores de diagnóstico médico"
+        },
+        {
+          "position": 8,
+          "domain": "www.aopen.com",
+          "url": "https://www.aopen.com/MX_es/product_list.html?l1=4&l2=42&l3=128",
+          "title": "Monitores de Grado Médico"
+        },
+        {
+          "position": 9,
+          "domain": "vtm.com.mx",
+          "url": "https://vtm.com.mx/",
+          "title": "Monitores grado médico \"Viewtech\" Master distribuidor México"
+        },
+        {
+          "position": 10,
+          "domain": "www.beracahmedica.mx",
+          "url": "https://www.beracahmedica.mx/shop/lgx-32hl512d-monitor-de-diagnostico-grado-medico-de-31-5-8mp-30294",
+          "title": "Monitor de diagnostico grado medico de 31.5\" 8MP"
+        },
+        {
+          "position": 11,
+          "domain": "www.lg.com",
+          "url": "https://www.lg.com/mx/business/monitores-pcs/monitores-medicos/monitor-de-diagnostico/?srsltid=AfmBOorJc9F_EdHfFlj8SezNjJM5Kmm_jn4iPm1ZHbqhfbMyNlDNq_Zd",
+          "title": "Monitores De Diagnóstico: Calidad De Imagen"
+        },
+        {
+          "position": 12,
+          "domain": "iotmart.advantech.com.mx",
+          "url": "https://iotmart.advantech.com.mx/Displays/Pantallas-de-Grado-M%C3%A9dico-LCD/AIMX_23283.products.htm",
+          "title": "Pantallas de Grado Médico LCD - Advantech"
+        },
+        {
+          "position": 13,
+          "domain": "blog.tecnoimagen.com.ar",
+          "url": "https://blog.tecnoimagen.com.ar/tecnoimagen/la-importancia-de-elegir-un-monitor-grado-m%C3%A9dico-o-uno-convencional",
+          "title": "La importancia de elegir un monitor grado médico o uno ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "monitores para radiologia",
+      "keyword_returned": "monitores para radiologia",
+      "raditech_position": 5,
+      "raditech_url": "https://raditech.mx/monitores-medicos-radiologia/",
+      "raditech_title": "Monitores Médicos DICOM para Radiología",
+      "top_organic": [
+        {
+          "position": 1,
+          "domain": "www.lg.com",
+          "url": "https://www.lg.com/mx/business/monitores-pcs/monitores-medicos/monitor-de-diagnostico/?srsltid=AfmBOorRauMvIYh7FV-EtxriiE6f9yCzqoKIwnjAlXi7TtTDuVEtHZFI",
+          "title": "Monitores De Diagnóstico: Calidad De Imagen"
+        },
+        {
+          "position": 2,
+          "domain": "www.barco.com",
+          "url": "https://www.barco.com/es/products/medical-displays/radiology-displays",
+          "title": "Monitor de radiología"
+        },
+        {
+          "position": 3,
+          "domain": "taq.com.mx",
+          "url": "https://taq.com.mx/imagenologia/monitores-diagnostico-medico/",
+          "title": "Monitores de diagnóstico médico"
+        },
+        {
+          "position": 4,
+          "domain": "www.eizo.es",
+          "url": "https://www.eizo.es/medizin-monitore/projektionsradiografie",
+          "title": "Monitores de diagnóstico para radiografía de proyección"
+        },
+        {
+          "position": 5,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "title": "Monitores Médicos DICOM para Radiología"
+        },
+        {
+          "position": 6,
+          "domain": "riacs.cl",
+          "url": "https://riacs.cl/monitores-de-diagnostico/",
+          "title": "Monitor de Diagnostico Radiológico - Alta Precisión"
+        },
+        {
+          "position": 7,
+          "domain": "reshinmonitors.com",
+          "url": "https://reshinmonitors.com/es/monitores-medicos/monitor-de-radiologia/",
+          "title": "Monitores de radiología para PACS, TC y RM"
+        },
+        {
+          "position": 8,
+          "domain": "www.monitors.com",
+          "url": "https://www.monitors.com/es/collections/eizo-pantallas-pacs-de-radiologia-diagnostica?srsltid=AfmBOoqZClx8-Yl8gdgPfpmAGfxRn-VkcPXbhyQ6pKeuRoe5o8sTsznH",
+          "title": "Ver todos Eizo Pantallas PACS de Radiología Diagnóstica"
+        },
+        {
+          "position": 9,
+          "domain": "vtm.com.mx",
+          "url": "https://vtm.com.mx/monitores-diagnosticos-grado-medico/",
+          "title": "Monitores Diagnósticos Grado Médico | Para Radiología"
+        },
+        {
+          "position": 10,
+          "domain": "www.irerayosx.com",
+          "url": "https://www.irerayosx.com/monitores-lg-innovacion-en-diagnostico-medico/",
+          "title": "Monitores LG para diagnóstico médico avanzado"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "sistema his",
+      "keyword_returned": "sistema his",
+      "raditech_position": 15,
+      "raditech_url": "https://raditech.mx/sistema-his-medsi/",
+      "raditech_title": "Sistema de Información Hospitalaria - Medsi HIS",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "isid.com",
+          "url": "https://isid.com/es/tecnologia/his-es/",
+          "title": "HIS: Sistema de información hospitalaria - ISID"
+        },
+        {
+          "position": 3,
+          "domain": "his-hdn.mspbs.gov.py",
+          "url": "https://his-hdn.mspbs.gov.py/ambulatoria",
+          "title": "PY HIS"
+        },
+        {
+          "position": 8,
+          "domain": "www.getcirrus.com",
+          "url": "https://www.getcirrus.com/page/la-importancia-de-los-sistemas-his-en-los-hospitales",
+          "title": "[Infografía] La importancia de los sistemas HIS en ... - Cirrus"
+        },
+        {
+          "position": 9,
+          "domain": "www.evaluandoerp.com",
+          "url": "https://www.evaluandoerp.com/sistema-de-gestion/industrias/sistema-de-informacion-hospitalario-his/",
+          "title": "¿Qué es HIS? Sistema de información hospitalario"
+        },
+        {
+          "position": 10,
+          "domain": "k2bhealth.com",
+          "url": "https://k2bhealth.com/blog/post/que-es-un-sistema-de-informacion-hospitalaria/",
+          "title": "¿Qué es un Sistema de Información Hospitalaria (HIS)?"
+        },
+        {
+          "position": 11,
+          "domain": "www.tca.com",
+          "url": "https://www.tca.com/es/tca-healthcare-assist-hospital-information-system/",
+          "title": "Assist Sistema de Información Hospitalario (HIS) español"
+        },
+        {
+          "position": 13,
+          "domain": "www.digitalware.com.co",
+          "url": "https://www.digitalware.com.co/blog/que-es-his/",
+          "title": "¿Qué es HIS y por qué implementarlo?"
+        },
+        {
+          "position": 14,
+          "domain": "torax.cl",
+          "url": "https://torax.cl/sistema-de-informacion-hospitalaria-his-una-mejora-en-la-atencion-de-pacientes/",
+          "title": "Sistema de Información Hospitalaria (HIS): una mejora en ..."
+        },
+        {
+          "position": 15,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "title": "Sistema de Información Hospitalaria - Medsi HIS"
+        },
+        {
+          "position": 16,
+          "domain": "www.arokago.com",
+          "url": "https://www.arokago.com/es/articles/what-is-the-his-system-an-in-depth-look-at-its-benefits",
+          "title": "¿Qué es el sistema HIS? Un análisis detallado de sus ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "software hospitalario",
+      "keyword_returned": "software hospitalario",
+      "raditech_position": 13,
+      "raditech_url": "https://raditech.mx/sistema-his-medsi/",
+      "raditech_title": "Sistema de Información Hospitalaria - Medsi HIS",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.sctelecom.com.mx",
+          "url": "https://www.sctelecom.com.mx/software-hospitalario",
+          "title": "Software para Hospitales | Solicita una Demo - SCtelecom"
+        },
+        {
+          "position": 3,
+          "domain": "www.capterra.mx",
+          "url": "https://www.capterra.mx/directory/30096/hospital-management/software",
+          "title": "Software de gestión hospitalaria"
+        },
+        {
+          "position": 4,
+          "domain": "www.softwaredoit.es",
+          "url": "https://www.softwaredoit.es/software-medico/software-hospitales.html",
+          "title": "Los 6 mejores software para Hospitales - HIS [2026]"
+        },
+        {
+          "position": 7,
+          "domain": "www.hulipractice.com",
+          "url": "https://www.hulipractice.com/mx/soluciones/hospitales",
+          "title": "Software de Gestión y Directorio para Hospitales - Huli"
+        },
+        {
+          "position": 8,
+          "domain": "www.logicbus.com.mx",
+          "url": "https://www.logicbus.com.mx/blog/software-para-gestion-hospitalaria/",
+          "title": "Software para gestión hospitalaria"
+        },
+        {
+          "position": 9,
+          "domain": "www.harmonimd.com",
+          "url": "https://www.harmonimd.com/",
+          "title": "HarmoniMD | Software de gestión hospitalaria con IA"
+        },
+        {
+          "position": 10,
+          "domain": "www.medesk.net",
+          "url": "https://www.medesk.net/es/blog/principales-softwares-para-hospitales/",
+          "title": "Top 6 Software de Gestión Hospitalaria en Latinoamérica ..."
+        },
+        {
+          "position": 11,
+          "domain": "listado.mercadolibre.com.mx",
+          "url": "https://listado.mercadolibre.com.mx/software-para-hospital",
+          "title": "Software Para Hospital"
+        },
+        {
+          "position": 13,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "title": "Sistema de Información Hospitalaria - Medsi HIS"
+        },
+        {
+          "position": 14,
+          "domain": "softwaresalus.com",
+          "url": "https://softwaresalus.com/",
+          "title": "El software de referencia para clínicas médicas | SALUS"
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "keyword_requested": "pacs",
+      "keyword_returned": "pacs",
+      "raditech_position": 20,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.pacs.com.mx",
+          "url": "https://www.pacs.com.mx/?srsltid=AfmBOorElZtKv1p-fxy2VxkYP1w9FX55nmli0FH8kSUgvu59EF25Sxcj",
+          "title": "PACS Computación"
+        },
+        {
+          "position": 4,
+          "domain": "www.cun.es",
+          "url": "https://www.cun.es/diccionario-medico/terminos/pacs",
+          "title": "Qué es PACS. Diccionario Médico. Clínica U. Navarra"
+        },
+        {
+          "position": 5,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/tecnologia-medica/que-es-un-pacs",
+          "title": "¿Qué es un PACS?"
+        },
+        {
+          "position": 6,
+          "domain": "alma-medical.com",
+          "url": "https://alma-medical.com/pacs-visores-dicom-imagen-medica-revolucion-digital-radiologia/",
+          "title": "PACS y Visores DICOM: la Revolución Digital en la ..."
+        },
+        {
+          "position": 8,
+          "domain": "imed.mx",
+          "url": "https://imed.mx/pacs/",
+          "title": "PACS - imed"
+        },
+        {
+          "position": 9,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/services/pacs",
+          "title": "Servidor PACS"
+        },
+        {
+          "position": 10,
+          "domain": "www.facebook.com",
+          "url": "https://www.facebook.com/pacscom/?locale=es_LA",
+          "title": "PACS Computación | Durango"
+        },
+        {
+          "position": 11,
+          "domain": "www.analesderadiologiamexico.com",
+          "url": "https://www.analesderadiologiamexico.com/previos/ARM%202003%20Vol.%202/ARM_03_2_4_Octubre-Diciembre/arm_03_2_4_219-224.pdf",
+          "title": "Sistema de Archivo y Comunicación de Imágenes (PACS)"
+        },
+        {
+          "position": 13,
+          "domain": "www.vmi.com.mx",
+          "url": "https://www.vmi.com.mx/pacs",
+          "title": "Pacs"
+        },
+        {
+          "position": 14,
+          "domain": "www.dtec.org.mx",
+          "url": "https://www.dtec.org.mx/ris-pacs/",
+          "title": "RIS / PACS - DTEC"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "sistema pacs",
+      "keyword_returned": "sistema pacs",
+      "raditech_position": 19,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "visualmedica.com",
+          "url": "https://visualmedica.com/que-es-pacs-y-como-funciona/",
+          "title": "Qué es un sistema PACS y cómo funciona"
+        },
+        {
+          "position": 4,
+          "domain": "www.analesderadiologiamexico.com",
+          "url": "https://www.analesderadiologiamexico.com/previos/ARM%202003%20Vol.%202/ARM_03_2_4_Octubre-Diciembre/arm_03_2_4_219-224.pdf",
+          "title": "Sistema de Archivo y Comunicación de Imágenes (PACS)"
+        },
+        {
+          "position": 6,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/tecnologia-medica/que-es-un-pacs",
+          "title": "¿Qué es un PACS?"
+        },
+        {
+          "position": 7,
+          "domain": "www.cun.es",
+          "url": "https://www.cun.es/diccionario-medico/terminos/pacs",
+          "title": "Qué es PACS. Diccionario Médico. Clínica U. Navarra"
+        },
+        {
+          "position": 8,
+          "domain": "rmib.com.mx",
+          "url": "https://rmib.com.mx/index.php/rmib/article/download/283/342",
+          "title": "Sistema PACS-CNR, una propuesta tecnológica"
+        },
+        {
+          "position": 9,
+          "domain": "www.grupo-lab.com",
+          "url": "https://www.grupo-lab.com/post/sistemas-pacs-optimizando-la-gesti%C3%B3n-de-im%C3%A1genes-m%C3%A9dicas-para-una-atenci%C3%B3n-eficiente?srsltid=AfmBOorEAeGadWRPZu6qCn4W15PhBgfjf8AH04dKiXWAmHOJpYbOhviy",
+          "title": "Sistemas PACS: Optimizando la Gestión de Imágenes ..."
+        },
+        {
+          "position": 10,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/blog/imagenologia-4/conceptos-basicos-de-imagenologia-ris-y-pacs-37",
+          "title": "Conceptos Básicos de Imagenología: RIS y PACS"
+        },
+        {
+          "position": 11,
+          "domain": "alma-medical.com",
+          "url": "https://alma-medical.com/pacs-visores-dicom-imagen-medica-revolucion-digital-radiologia/",
+          "title": "PACS y Visores DICOM: la Revolución Digital en la ..."
+        },
+        {
+          "position": 13,
+          "domain": "www.grupo-lab.com",
+          "url": "https://www.grupo-lab.com/post/sistemas-pacs-optimizando-la-gesti%C3%B3n-de-im%C3%A1genes-m%C3%A9dicas-para-una-atenci%C3%B3n-eficiente?srsltid=AfmBOopguFxIs49ncb2TDTRuy41Ionz32QRgK7hzE9QlxQ1sQvKZm-Fh",
+          "title": "Sistemas PACS: Optimizando la Gestión de Imágenes ..."
+        },
+        {
+          "position": 14,
+          "domain": "www.cun.es",
+          "url": "https://www.cun.es/diccionario-medico/terminos/pacs",
+          "title": "Qué es PACS. Diccionario Médico. Clínica U. Navarra"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "sistema pacs ris",
+      "keyword_returned": "sistema pacs ris",
+      "raditech_position": 10,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/blog/imagenologia-4/conceptos-basicos-de-imagenologia-ris-y-pacs-37",
+          "title": "Conceptos Básicos de Imagenología: RIS y PACS"
+        },
+        {
+          "position": 5,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/blog/3-razones-para-implementar-sistemas-pacs-y-ris-en-tu-hospital/",
+          "title": "3 razones para implementar sistemas PACS y RIS en tu ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.analesderadiologiamexico.com",
+          "url": "https://www.analesderadiologiamexico.com/previos/ARM%202003%20Vol.%202/ARM_03_2_4_Octubre-Diciembre/arm_03_2_4_219-224.pdf",
+          "title": "Sistema de Archivo y Comunicación de Imágenes (PACS)"
+        },
+        {
+          "position": 7,
+          "domain": "www.dtec.org.mx",
+          "url": "https://www.dtec.org.mx/ris-pacs/",
+          "title": "RIS / PACS - DTEC"
+        },
+        {
+          "position": 8,
+          "domain": "www.promedco.com",
+          "url": "https://www.promedco.com/rispacs",
+          "title": "Rispacs"
+        },
+        {
+          "position": 9,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/blog/how-pacs-integrates-with-ris-and-ehr-systems",
+          "title": "Cómo se integra un PACS con los sistemas RIS y EHR"
+        },
+        {
+          "position": 10,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "title": "Sistema PACS-RIS para Radiología | Raditech México"
+        },
+        {
+          "position": 11,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/tecnologia-medica/que-es-exactamente-un-sistema-de-informacion-radiologica-ris",
+          "title": "¿Qué es exactamente un sistema de información ..."
+        },
+        {
+          "position": 13,
+          "domain": "www.capterra.mx",
+          "url": "https://www.capterra.mx/software/79111/ris-pacs",
+          "title": "¿Qué es RIS PACS? - Reseñas, precios y funciones"
+        },
+        {
+          "position": 14,
+          "domain": "terx.com.mx",
+          "url": "https://terx.com.mx/que-es-un-sistema-pacs-ris-pacs/",
+          "title": "¿Qué es un sistema PACS (RIS/PACS)?"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "pacs ris",
+      "keyword_returned": "pacs ris",
+      "raditech_position": 8,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/blog/imagenologia-4/conceptos-basicos-de-imagenologia-ris-y-pacs-37",
+          "title": "Conceptos Básicos de Imagenología: RIS y PACS"
+        },
+        {
+          "position": 4,
+          "domain": "soe.com.mx",
+          "url": "https://soe.com.mx/sistemas-RIS-PACS.html",
+          "title": "Sistema RIS/PACS en México"
+        },
+        {
+          "position": 5,
+          "domain": "www.capterra.mx",
+          "url": "https://www.capterra.mx/software/79111/ris-pacs",
+          "title": "¿Qué es RIS PACS? - Reseñas, precios y funciones"
+        },
+        {
+          "position": 7,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/blog/3-razones-para-implementar-sistemas-pacs-y-ris-en-tu-hospital/",
+          "title": "3 razones para implementar sistemas PACS y RIS en tu ..."
+        },
+        {
+          "position": 8,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "title": "Sistema PACS-RIS para Radiología | Raditech México"
+        },
+        {
+          "position": 10,
+          "domain": "www.pacsrisglobal.com",
+          "url": "https://www.pacsrisglobal.com/",
+          "title": "Pacs Ris Global: Inicio"
+        },
+        {
+          "position": 11,
+          "domain": "www.promedco.com",
+          "url": "https://www.promedco.com/noticias/beneficios-ris-pacs-atencion-medica",
+          "title": "Beneficios de RIS y PACS en atención médica eficiente"
+        },
+        {
+          "position": 12,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/blog/how-pacs-integrates-with-ris-and-ehr-systems",
+          "title": "Cómo se integra un PACS con los sistemas RIS y EHR"
+        },
+        {
+          "position": 13,
+          "domain": "www.dtec.org.mx",
+          "url": "https://www.dtec.org.mx/ris-pacs/",
+          "title": "RIS / PACS - DTEC"
+        },
+        {
+          "position": 14,
+          "domain": "www.analesderadiologiamexico.com",
+          "url": "https://www.analesderadiologiamexico.com/previos/ARM%202003%20Vol.%202/ARM_03_2_4_Octubre-Diciembre/arm_03_2_4_219-224.pdf",
+          "title": "Sistema de Archivo y Comunicación de Imágenes (PACS)"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "que es pacs",
+      "keyword_returned": "que es pacs",
+      "raditech_position": null,
+      "raditech_url": null,
+      "raditech_title": null,
+      "top_organic": [
+        {
+          "position": 3,
+          "domain": "www.cun.es",
+          "url": "https://www.cun.es/diccionario-medico/terminos/pacs",
+          "title": "Qué es PACS. Diccionario Médico. Clínica U. Navarra"
+        },
+        {
+          "position": 4,
+          "domain": "visualmedica.com",
+          "url": "https://visualmedica.com/que-es-pacs-y-como-funciona/",
+          "title": "Qué es un sistema PACS y cómo funciona"
+        },
+        {
+          "position": 5,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/tecnologia-medica/que-es-un-pacs-y-como-funciona",
+          "title": "¿Qué es un PACS y cómo funciona?"
+        },
+        {
+          "position": 7,
+          "domain": "www.analesderadiologiamexico.com",
+          "url": "https://www.analesderadiologiamexico.com/previos/ARM%202003%20Vol.%202/ARM_03_2_4_Octubre-Diciembre/arm_03_2_4_219-224.pdf",
+          "title": "Sistema de Archivo y Comunicación de Imágenes (PACS)"
+        },
+        {
+          "position": 8,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/blog/pacs-por-que-esta-plataforma-y-no-otras/",
+          "title": "PACS: Ventajas Únicas en Gestión de Imágenes Médicas"
+        },
+        {
+          "position": 9,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/blog/what-is-pacs-and-how-does-it-work",
+          "title": "¿Qué es un PACS? ¿Y cómo funciona?"
+        },
+        {
+          "position": 10,
+          "domain": "www.grupo-lab.com",
+          "url": "https://www.grupo-lab.com/post/sistemas-pacs-optimizando-la-gesti%C3%B3n-de-im%C3%A1genes-m%C3%A9dicas-para-una-atenci%C3%B3n-eficiente?srsltid=AfmBOopWA8gUPr4GmAGyKdoyi7taooNGTtbEOahfsZSvWYDDjRrYtEZA",
+          "title": "Sistemas PACS: Optimizando la Gestión de Imágenes ..."
+        },
+        {
+          "position": 11,
+          "domain": "alma-medical.com",
+          "url": "https://alma-medical.com/pacs-visores-dicom-imagen-medica-revolucion-digital-radiologia/",
+          "title": "PACS y Visores DICOM: la Revolución Digital en la ..."
+        },
+        {
+          "position": 13,
+          "domain": "debrain.m3meuropa.com",
+          "url": "https://debrain.m3meuropa.com/por-que-importa-tener-un-sistema-pacs/",
+          "title": "¿Por qué importa tener un sistema PACS?"
+        },
+        {
+          "position": 14,
+          "domain": "davix.ai",
+          "url": "https://davix.ai/es/blog/que-es-pacs-y-por-que-es-esencial/",
+          "title": "¿Qué es un PACS y por qué es esencial para tu centro de ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "pacs mexico",
+      "keyword_returned": "pacs mexico",
+      "raditech_position": 9,
+      "raditech_url": "https://raditech.mx/pacs-teleradiologia/",
+      "raditech_title": "PACS Teleradiología para interpretación remota DICOM.",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.sat.gob.mx",
+          "url": "https://www.sat.gob.mx/portal/public/tramites/lista-de-proveedores-autorizados-de-certificacion-de-cfdi",
+          "title": "Lista de Proveedores Autorizados de Certificación de CFDI"
+        },
+        {
+          "position": 4,
+          "domain": "facturama.mx",
+          "url": "https://facturama.mx/blog/que-significa/pac/",
+          "title": "¿Qué es un PAC de facturación?"
+        },
+        {
+          "position": 5,
+          "domain": "pacmexico.com",
+          "url": "https://pacmexico.com/",
+          "title": "PAC México - Líderes en Tecnología de Montaje Superficial"
+        },
+        {
+          "position": 6,
+          "domain": "sw.com.mx",
+          "url": "https://sw.com.mx/blog/gestion-de-cfdi/que-es-un-pac",
+          "title": "¿Qué es un PAC?"
+        },
+        {
+          "position": 7,
+          "domain": "amexipac.org",
+          "url": "https://amexipac.org/pacs-ecosistema-tributario-digital/",
+          "title": "Los PACs: El Corazón del Ecosistema Tributario Digital de ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.prodigia.com.mx",
+          "url": "https://www.prodigia.com.mx/blog/que-es-un-pac-y-por-que-es-clave-para-tu-facturacion-electronica",
+          "title": "¿Qué es un PAC y por qué es clave para tu facturación ..."
+        },
+        {
+          "position": 9,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/pacs-teleradiologia/",
+          "title": "PACS Teleradiología para interpretación remota DICOM."
+        },
+        {
+          "position": 10,
+          "domain": "www.pacs.com.mx",
+          "url": "https://www.pacs.com.mx/?srsltid=AfmBOooO2gHLcdorBxJlfZy3b35HFAXajPOY2GkiCGuzjYtRnOB5U_EW",
+          "title": "PACS Computación"
+        },
+        {
+          "position": 11,
+          "domain": "www.edifact.com.mx",
+          "url": "https://www.edifact.com.mx/blog/que-es-un-pac-en-mexico-y-por-que-es-importante-para-la-facturacion-electronica/",
+          "title": "¿Qué es un PAC en México y por qué es importante para ..."
+        },
+        {
+          "position": 13,
+          "domain": "www.zummafinancial.com",
+          "url": "https://www.zummafinancial.com/post/qu%C3%A9-son-los-pacs-proveedores-autorizados-de-certificaci%C3%B3n-en-m%C3%A9xico-1",
+          "title": "¿Qué son los PACs (Proveedores Autorizados de ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "software pacs",
+      "keyword_returned": "software pacs",
+      "raditech_position": 7,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "edenmed.com",
+          "url": "https://edenmed.com/",
+          "title": "Eden PACS Tab"
+        },
+        {
+          "position": 4,
+          "domain": "www.capterra.mx",
+          "url": "https://www.capterra.mx/directory/31021/pacs/software",
+          "title": "Sistemas PACS. Opciones, reseñas y precios"
+        },
+        {
+          "position": 5,
+          "domain": "visualmedica.com",
+          "url": "https://visualmedica.com/que-es-pacs-y-como-funciona/",
+          "title": "Qué es un sistema PACS y cómo funciona"
+        },
+        {
+          "position": 6,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/pacs",
+          "title": "PACS"
+        },
+        {
+          "position": 7,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/sistema-pacs-ris/",
+          "title": "Sistema PACS-RIS para Radiología | Raditech México"
+        },
+        {
+          "position": 8,
+          "domain": "blog.tecnoimagen.com.ar",
+          "url": "https://blog.tecnoimagen.com.ar/tecnoimagen/beneficios-de-implementar-software-pacs-debidamente-licenciado-vigente-y-actualizado",
+          "title": "Beneficios de utilizar software PACS licenciado, vigente y ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/blog/what-is-pacs-and-how-does-it-work",
+          "title": "¿Qué es un PACS? ¿Y cómo funciona?"
+        },
+        {
+          "position": 10,
+          "domain": "www.medicalexpo.es",
+          "url": "https://www.medicalexpo.es/fabricante-medical/software-pacs-16463.html",
+          "title": "Software para PACS - Todos los fabricantes de ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.medicai.io",
+          "url": "https://www.medicai.io/es",
+          "title": "Cloud PACS Software para imágenes médicas y radiología"
+        },
+        {
+          "position": 13,
+          "domain": "or-technology.com",
+          "url": "https://or-technology.com/es/productos/or4human/sistema-de-gestion-de-imagenes-pacs/",
+          "title": "Software PACS para la gestión de imágenes médicas"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "visor dicom",
+      "keyword_returned": "visor dicom",
+      "raditech_position": null,
+      "raditech_url": null,
+      "raditech_title": null,
+      "top_organic": [
+        {
+          "position": 1,
+          "domain": "www.imaios.com",
+          "url": "https://www.imaios.com/es/imaios-dicom-viewer",
+          "title": "Visor de imágenes Dicom en línea gratuito"
+        },
+        {
+          "position": 2,
+          "domain": "www.radiantviewer.com",
+          "url": "https://www.radiantviewer.com/es/",
+          "title": "RadiAnt DICOM Viewer | ES"
+        },
+        {
+          "position": 3,
+          "domain": "www.microsoft.com",
+          "url": "https://www.microsoft.com/es-es/p/dicom-viewer-essential/9njqshnqgm42",
+          "title": "DICOM Viewer Essential: descarga e instalación gratuitas ..."
+        },
+        {
+          "position": 4,
+          "domain": "play.google.com",
+          "url": "https://play.google.com/store/apps/details/IDV_IMAIOS_DICOM_Viewer?id=com.imaios.imaiosdicomviewer&hl=es_MX",
+          "title": "IDV - IMAIOS DICOM Viewer - Apps en Google Play"
+        },
+        {
+          "position": 5,
+          "domain": "apps.apple.com",
+          "url": "https://apps.apple.com/es/app/idv-imaios-dicom-viewer/id1444841062",
+          "title": "IDV - IMAIOS DICOM Viewer - App Store - Apple"
+        },
+        {
+          "position": 6,
+          "domain": "ctread.com",
+          "url": "https://ctread.com/es/tools/dicom-viewer",
+          "title": "Visor DICOM en línea gratuito"
+        },
+        {
+          "position": 8,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/general/visor-dicom-web-que-es-y-como-elegir-el-mejor",
+          "title": "Visor DICOM Web: qué es, cómo funciona y cómo elegirlo"
+        },
+        {
+          "position": 9,
+          "domain": "www.medicai.io",
+          "url": "https://www.medicai.io/es/herramientas-gratuitas/visor-dicom-para-imagenes-medicas-online-gratuito",
+          "title": "Visor DICOM para imágenes médicas online gratuito"
+        },
+        {
+          "position": 10,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/blog/top-25-free-dicom-viewers",
+          "title": "Los 25 mejores visores DICOM gratuitos para médicos, ..."
+        },
+        {
+          "position": 11,
+          "domain": "play.google.com",
+          "url": "https://play.google.com/store/apps/details?id=com.app.dicom_viewer&hl=es_MX",
+          "title": "DICOM Viewer - Apps en Google Play"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "servidor pacs",
+      "keyword_returned": "servidor pacs",
+      "raditech_position": 22,
+      "raditech_url": "https://raditech.mx/sistema-pacs-ris/",
+      "raditech_title": "Sistema PACS-RIS para Radiología | Raditech México",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/services/pacs",
+          "title": "Servidor PACS"
+        },
+        {
+          "position": 4,
+          "domain": "www.actualmed.com",
+          "url": "https://www.actualmed.com/blog/2010/10/20/servidor-pacs-dicom-server/",
+          "title": "¿Qué es un servidor PACS? ¿Por qué necesito uno?"
+        },
+        {
+          "position": 6,
+          "domain": "www.dtec.org.mx",
+          "url": "https://www.dtec.org.mx/ris-pacs/",
+          "title": "RIS / PACS - DTEC"
+        },
+        {
+          "position": 7,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/tecnologia-medica/que-es-un-pacs-y-como-funciona",
+          "title": "¿Qué es un PACS y cómo funciona?"
+        },
+        {
+          "position": 9,
+          "domain": "inobitec.com",
+          "url": "https://inobitec.com/esp/downloads/dicomserver/?srsltid=AfmBOop8xTMcHIqt1ZnvAp5GNiQqM3TKsMYk6bRtgP4l8CA5ikZ6rbmX",
+          "title": "DICOM Servidor (PACS) descargar"
+        },
+        {
+          "position": 10,
+          "domain": "www.grupo-lab.com",
+          "url": "https://www.grupo-lab.com/post/sistemas-pacs-optimizando-la-gesti%C3%B3n-de-im%C3%A1genes-m%C3%A9dicas-para-una-atenci%C3%B3n-eficiente?srsltid=AfmBOopnEjrcuHNClWeq3Y5DkUq22BKpHBqRbVhUSLkQorZE4jO0mGfU",
+          "title": "Sistemas PACS: Optimizando la Gestión de Imágenes ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/blog/dicom-and-pacs-differences",
+          "title": "Diferencias entre DICOM y PACS [Integración, Implicación ..."
+        },
+        {
+          "position": 13,
+          "domain": "es.slideshare.net",
+          "url": "https://es.slideshare.net/slideshow/servidor-pacs/69513652",
+          "title": "Servidor PACS | PPTX"
+        },
+        {
+          "position": 14,
+          "domain": "repositoriosdigitales.mincyt.gob.ar",
+          "url": "https://repositoriosdigitales.mincyt.gob.ar/vufind/Record/SEDICI_d43c6963f02885957293d6116b57ef6e",
+          "title": "Descripción: Servidor PACS usando el estándar DICOM"
+        },
+        {
+          "position": 15,
+          "domain": "blog.medicai.io",
+          "url": "https://blog.medicai.io/es/configuracion-del-servidor-pacs/",
+          "title": "5 Mejores Prácticas para la Configuración del Servidor PACS"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "teleradiologia",
+      "keyword_returned": "teleradiologia",
+      "raditech_position": 18,
+      "raditech_url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "raditech_title": "Teleradiología de alta especialidad 24/7",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/teleradiologia/",
+          "title": "Teleradiología Radiocare | Diagnóstico remoto 24/7"
+        },
+        {
+          "position": 3,
+          "domain": "trm.com.mx",
+          "url": "https://trm.com.mx/",
+          "title": "Radiólogos Certificados TRM | Teleradiología TRM"
+        },
+        {
+          "position": 4,
+          "domain": "mx.indeed.com",
+          "url": "https://mx.indeed.com/q-teleradiologia,-m%C3%A9dico-radiologo-l-ciudad-de-m%C3%A9xico-empleos.html",
+          "title": "Empleos de Teleradiologia, Médico Radiologo en Ciudad ..."
+        },
+        {
+          "position": 5,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/radiologia/introduccion-a-la-teleradiologia-y-su-importancia-en-el-sistema-de-salud",
+          "title": "Introducción a la teleradiología y su importancia en el ..."
+        },
+        {
+          "position": 6,
+          "domain": "expertosenteleradiologia.com",
+          "url": "https://expertosenteleradiologia.com/",
+          "title": "Expertos en Teleradiologia: Inicio"
+        },
+        {
+          "position": 8,
+          "domain": "telerob.com.mx",
+          "url": "https://telerob.com.mx/",
+          "title": "Telerob – Teleradiología Occidente y Bajío"
+        },
+        {
+          "position": 10,
+          "domain": "www.elsevier.es",
+          "url": "https://www.elsevier.es/es-revista-radiologia-english-edition--419-articulo-telerradiologia-guia-buenas-practicas-S0033833822002545?newsletter=true",
+          "title": "Telerradiología: guía de buenas prácticas | Radiología"
+        },
+        {
+          "position": 11,
+          "domain": "teleradiologiaenmexico.com",
+          "url": "https://teleradiologiaenmexico.com/",
+          "title": "teleradiología en méxico: Inicio"
+        },
+        {
+          "position": 13,
+          "domain": "innovation.teleradweb.com.ar",
+          "url": "https://innovation.teleradweb.com.ar/blog/para-que-sirve-la-teleradiologia",
+          "title": "¿Para qué sirve la teleradiología?"
+        },
+        {
+          "position": 14,
+          "domain": "terx.com.mx",
+          "url": "https://terx.com.mx/",
+          "title": "Transforma el Diagnóstico con la Interpretación de Imágenes ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "servicio de teleradiologia",
+      "keyword_returned": "servicio de teleradiologia",
+      "raditech_position": 4,
+      "raditech_url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "raditech_title": "Teleradiología de alta especialidad 24/7",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/blog/teleradiologia-urgencias-medicas-aliada-para-hospital/",
+          "title": "Teleradiología en urgencias médicas: una aliada para tu ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.teleradiologia.com.mx",
+          "url": "https://www.teleradiologia.com.mx/",
+          "title": "Teleradiología en México | RX Telediagnostic – Servicios de ..."
+        },
+        {
+          "position": 4,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "title": "Teleradiología de alta especialidad 24/7"
+        },
+        {
+          "position": 5,
+          "domain": "medium.com",
+          "url": "https://medium.com/@Radiocare/cu%C3%A1ndo-es-necesario-un-servicio-de-teleradiolog%C3%ADa-en-mi-centro-de-salud-62d5eb969916",
+          "title": "¿Cuándo es necesario un servicio de Teleradiología en mi ..."
+        },
+        {
+          "position": 6,
+          "domain": "ganturi.com",
+          "url": "https://ganturi.com/teleradiologia-en-mexico/",
+          "title": "Teleradiología en México"
+        },
+        {
+          "position": 7,
+          "domain": "intedia.mx",
+          "url": "https://intedia.mx/services/radiologia-a-domicilio/",
+          "title": "Radiologia A Domicilio - Intedia"
+        },
+        {
+          "position": 8,
+          "domain": "www.facebook.com",
+          "url": "https://www.facebook.com/teleradiologiamedica.demexico/?locale=es_LA",
+          "title": "Teleradiología Médica de México | Mexico City"
+        },
+        {
+          "position": 9,
+          "domain": "www.tecsalud.mx",
+          "url": "https://www.tecsalud.mx/radiologia",
+          "title": "Radiología"
+        },
+        {
+          "position": 14,
+          "domain": "terx.com.mx",
+          "url": "https://terx.com.mx/",
+          "title": "Transforma el Diagnóstico con la Interpretación de Imágenes ..."
+        },
+        {
+          "position": 15,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/teleradiologia/",
+          "title": "Teleradiología Radiocare | Diagnóstico remoto 24/7"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "teleradiologia mexico",
+      "keyword_returned": "teleradiologia mexico",
+      "raditech_position": 4,
+      "raditech_url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "raditech_title": "Teleradiología de alta especialidad 24/7",
+      "top_organic": [
+        {
+          "position": 1,
+          "domain": "trm.com.mx",
+          "url": "https://trm.com.mx/",
+          "title": "Radiólogos Certificados TRM | Teleradiología TRM"
+        },
+        {
+          "position": 2,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/teleradiologia/",
+          "title": "Teleradiología Radiocare | Diagnóstico remoto 24/7"
+        },
+        {
+          "position": 3,
+          "domain": "mx.indeed.com",
+          "url": "https://mx.indeed.com/q-teleradiologia,-m%C3%A9dico-radiologo-l-ciudad-de-m%C3%A9xico-empleos.html",
+          "title": "Empleos de Teleradiologia, Médico Radiologo en Ciudad ..."
+        },
+        {
+          "position": 4,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+          "title": "Teleradiología de alta especialidad 24/7"
+        },
+        {
+          "position": 5,
+          "domain": "teleradiologiaenmexico.com",
+          "url": "https://teleradiologiaenmexico.com/",
+          "title": "teleradiología en méxico: Inicio"
+        },
+        {
+          "position": 6,
+          "domain": "www.facebook.com",
+          "url": "https://www.facebook.com/teleradiologiamedica.demexico/?locale=es_LA",
+          "title": "Teleradiología Médica de México | Mexico City"
+        },
+        {
+          "position": 7,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/radiologia/formacion-y-certificacion-en-teleradiologia",
+          "title": "Formación y certificación en teleradiología"
+        },
+        {
+          "position": 8,
+          "domain": "www.teleradiologia.com.mx",
+          "url": "https://www.teleradiologia.com.mx/servicios/",
+          "title": "Servicios – Teleradiología en México"
+        },
+        {
+          "position": 9,
+          "domain": "ganturi.com",
+          "url": "https://ganturi.com/teleradiologia-en-mexico/",
+          "title": "Teleradiología en México"
+        },
+        {
+          "position": 10,
+          "domain": "www.webcir.org",
+          "url": "https://www.webcir.org/Files/Teleradiologia",
+          "title": "CIR -. Documentos de TELERRADIOLOGIA Políticas, ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "empresas de teleradiologia",
+      "keyword_returned": "empresas de teleradiologia",
+      "raditech_position": 13,
+      "raditech_url": "https://raditech.mx/teleradiologia-alta-especialidad/",
+      "raditech_title": "Teleradiología de alta especialidad 24/7",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "teleradiomed.com",
+          "url": "https://teleradiomed.com/",
+          "title": "Teleradiomed"
+        },
+        {
+          "position": 3,
+          "domain": "www.teleradiologia.com.mx",
+          "url": "https://www.teleradiologia.com.mx/",
+          "title": "Teleradiología en México | RX Telediagnostic – Servicios de ..."
+        },
+        {
+          "position": 4,
+          "domain": "trm.com.mx",
+          "url": "https://trm.com.mx/",
+          "title": "Radiólogos Certificados TRM | Teleradiología TRM"
+        },
+        {
+          "position": 5,
+          "domain": "mx.indeed.com",
+          "url": "https://mx.indeed.com/q-teleradiologia,-m%C3%A9dico-radiologo-l-ciudad-de-m%C3%A9xico-empleos.html",
+          "title": "Empleos de Teleradiologia, Médico Radiologo en Ciudad ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.atryshealth.com",
+          "url": "https://www.atryshealth.com/es/teleradiologia/",
+          "title": "Teleradiología"
+        },
+        {
+          "position": 7,
+          "domain": "medium.com",
+          "url": "https://medium.com/@Radiocare/la-teleradiolog%C3%ADa-una-fuente-de-soluciones-e70818d18f5c",
+          "title": "La Teleradiología: una fuente de soluciones | by Radiocare"
+        },
+        {
+          "position": 8,
+          "domain": "www.facebook.com",
+          "url": "https://www.facebook.com/teleradiologiamedica.demexico/?locale=es_LA",
+          "title": "Teleradiología Médica de México | Mexico City"
+        },
+        {
+          "position": 9,
+          "domain": "telerob.com.mx",
+          "url": "https://telerob.com.mx/",
+          "title": "Telerob – Teleradiología Occidente y Bajío"
+        },
+        {
+          "position": 10,
+          "domain": "integracare.mx",
+          "url": "https://integracare.mx/teleradiologia/",
+          "title": "Teleradiología - Integracare"
+        },
+        {
+          "position": 12,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/teleradiologia/",
+          "title": "Teleradiología Radiocare | Diagnóstico remoto 24/7"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "interpretacion de estudios radiologicos",
+      "keyword_returned": "interpretacion de estudios radiologicos",
+      "raditech_position": null,
+      "raditech_url": null,
+      "raditech_title": null,
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.chopo.com.mx",
+          "url": "https://www.chopo.com.mx/estudios/radiologia?srsltid=AfmBOoo7kfaZka9e5QWwxrzf0Ps-eX8AEmDCQ5-YcvJsE_T1g2KE8hFD",
+          "title": "Radiologia | Laboratorios Chopo"
+        },
+        {
+          "position": 3,
+          "domain": "ctread.com",
+          "url": "https://ctread.com/es/x-ray",
+          "title": "Interpretación de Radiografías en Línea | Análisis con IA"
+        },
+        {
+          "position": 4,
+          "domain": "medlineplus.gov",
+          "url": "https://medlineplus.gov/spanish/ency/article/007451.htm",
+          "title": "Imagenología y radiología: MedlinePlus enciclopedia médica"
+        },
+        {
+          "position": 5,
+          "domain": "www.dicorsa.com.mx",
+          "url": "https://www.dicorsa.com.mx/errores-comunes-al-interpretar-estudios-radiologicos-dentales-y-como-evitarlos-recomendaciones-para-doctores/",
+          "title": "Errores comunes al interpretar estudios radiológicos ..."
+        },
+        {
+          "position": 6,
+          "domain": "es.slideshare.net",
+          "url": "https://es.slideshare.net/slideshow/1-interpretacion-radiografica-35052843/35052843",
+          "title": "1. interpretacion radiografica | PPTX"
+        },
+        {
+          "position": 7,
+          "domain": "draldoceniceros.com",
+          "url": "https://draldoceniceros.com/interpretaciones-de-estudios-radiologicos/",
+          "title": "Interpretaciones de Estudios Radiológicos"
+        },
+        {
+          "position": 8,
+          "domain": "imaxess.com",
+          "url": "https://imaxess.com/blog/guia/que-son-estudios-radiologicos-cuando-realizarlos/",
+          "title": "Estudios radiológicos: qué son y cuándo realizarlos"
+        },
+        {
+          "position": 10,
+          "domain": "www.mayoclinic.org",
+          "url": "https://www.mayoclinic.org/es/tests-procedures/x-ray/about/pac-20395303",
+          "title": "Radiografía: prueba por imágenes que ayuda ..."
+        },
+        {
+          "position": 12,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/teleradiologia/",
+          "title": "Teleradiología Radiocare | Diagnóstico remoto 24/7"
+        },
+        {
+          "position": 13,
+          "domain": "grupoctscanner.com",
+          "url": "https://grupoctscanner.com/radiologia-general/",
+          "title": "Radiología General"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "monitores medicos",
+      "keyword_returned": "monitores medicos",
+      "raditech_position": 6,
+      "raditech_url": "https://raditech.mx/monitores-medicos-radiologia/",
+      "raditech_title": "Monitores Médicos DICOM para Radiología",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.lg.com",
+          "url": "https://www.lg.com/mx/business/monitores-pcs/monitores-medicos/monitor-de-diagnostico/?srsltid=AfmBOoqjahrmsrCGcV62RGBOYKWuLMVhzLkVW-pO2Bz63SIezQbtqr_D",
+          "title": "Monitores De Diagnóstico: Calidad De Imagen"
+        },
+        {
+          "position": 3,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/monitores-de-diagnostico",
+          "title": "Monitores de Diagnóstico"
+        },
+        {
+          "position": 4,
+          "domain": "www.barco.com",
+          "url": "https://www.barco.com/es/products/medical-displays",
+          "title": "Pantallas médicas"
+        },
+        {
+          "position": 6,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "title": "Monitores Médicos DICOM para Radiología"
+        },
+        {
+          "position": 9,
+          "domain": "pro.sony",
+          "url": "https://pro.sony/ls_MX/products/medical-monitors",
+          "title": "Monitores de uso médico"
+        },
+        {
+          "position": 10,
+          "domain": "hergom-medical.com",
+          "url": "https://hergom-medical.com/collections/monitores-de-paciente?srsltid=AfmBOor5O0onHYd-4afdmT_L_Q--_R-7bKVSidEZUHd-iTcYTHp-zDnD",
+          "title": "Monitores de paciente"
+        },
+        {
+          "position": 11,
+          "domain": "www.medicagama.com.mx",
+          "url": "https://www.medicagama.com.mx/product-category/monitores-de-signos-vitales/?srsltid=AfmBOoqmwV7MNaRMFTgBVtJD42u1iu_RVkziFfoNtI-Sb-wbfa6idWyB",
+          "title": "Monitores de Signos Vitales"
+        },
+        {
+          "position": 12,
+          "domain": "vtm.com.mx",
+          "url": "https://vtm.com.mx/",
+          "title": "Monitores grado médico \"Viewtech\" Master distribuidor México"
+        },
+        {
+          "position": 14,
+          "domain": "www.monitors.com",
+          "url": "https://www.monitors.com/es?srsltid=AfmBOopa4iJOu2W_jeYSX3fz1PIIZXrwGvCrMjAYU1SamlBkZAeG9hcK",
+          "title": "Estaciones de trabajo PACS: Guía de monitores y accesorios"
+        },
+        {
+          "position": 15,
+          "domain": "www.lg.com",
+          "url": "https://www.lg.com/mx/business/monitores-pcs/monitores-medicos/?srsltid=AfmBOoqySBUIJutZNKhhcB_2Q5gngk8PZDaROYfzvEcugbqG7sLiIWR0",
+          "title": "Pantallas médicas | LG MX Business"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "monitor grado medico",
+      "keyword_returned": "monitor grado medico",
+      "raditech_position": 19,
+      "raditech_url": "https://raditech.mx/monitores-medicos-radiologia/",
+      "raditech_title": "Monitores Médicos DICOM para Radiología",
+      "top_organic": [
+        {
+          "position": 1,
+          "domain": "www.lg.com",
+          "url": "https://www.lg.com/mx/business/monitores-pcs/monitores-medicos/monitor-de-revision-clinica/?srsltid=AfmBOoq6ZJKdLdpaNRG3uALyi5ER1vczAdacDOcCrYZTWGR5AICCQbOy",
+          "title": "Monitores Médicos Para Revisión Clínica"
+        },
+        {
+          "position": 2,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/monitores-grado-mexco",
+          "title": "Monitores Grado Médico"
+        },
+        {
+          "position": 3,
+          "domain": "listado.mercadolibre.com.mx",
+          "url": "https://listado.mercadolibre.com.mx/monitor-grado-medico",
+          "title": "Monitor Grado Medico | MercadoLibre"
+        },
+        {
+          "position": 5,
+          "domain": "taq.com.mx",
+          "url": "https://taq.com.mx/imagenologia/monitores-diagnostico-medico/",
+          "title": "Monitores de diagnóstico médico"
+        },
+        {
+          "position": 8,
+          "domain": "www.aopen.com",
+          "url": "https://www.aopen.com/MX_es/product_list.html?l1=4&l2=42&l3=128",
+          "title": "Monitores de Grado Médico"
+        },
+        {
+          "position": 9,
+          "domain": "vtm.com.mx",
+          "url": "https://vtm.com.mx/",
+          "title": "Monitores grado médico \"Viewtech\" Master distribuidor México"
+        },
+        {
+          "position": 10,
+          "domain": "www.beracahmedica.mx",
+          "url": "https://www.beracahmedica.mx/shop/lgx-32hl512d-monitor-de-diagnostico-grado-medico-de-31-5-8mp-30294",
+          "title": "Monitor de diagnostico grado medico de 31.5\" 8MP"
+        },
+        {
+          "position": 11,
+          "domain": "www.lg.com",
+          "url": "https://www.lg.com/mx/business/monitores-pcs/monitores-medicos/monitor-de-diagnostico/?srsltid=AfmBOorJc9F_EdHfFlj8SezNjJM5Kmm_jn4iPm1ZHbqhfbMyNlDNq_Zd",
+          "title": "Monitores De Diagnóstico: Calidad De Imagen"
+        },
+        {
+          "position": 12,
+          "domain": "iotmart.advantech.com.mx",
+          "url": "https://iotmart.advantech.com.mx/Displays/Pantallas-de-Grado-M%C3%A9dico-LCD/AIMX_23283.products.htm",
+          "title": "Pantallas de Grado Médico LCD - Advantech"
+        },
+        {
+          "position": 13,
+          "domain": "blog.tecnoimagen.com.ar",
+          "url": "https://blog.tecnoimagen.com.ar/tecnoimagen/la-importancia-de-elegir-un-monitor-grado-m%C3%A9dico-o-uno-convencional",
+          "title": "La importancia de elegir un monitor grado médico o uno ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "monitores para radiologia",
+      "keyword_returned": "monitores para radiologia",
+      "raditech_position": 5,
+      "raditech_url": "https://raditech.mx/monitores-medicos-radiologia/",
+      "raditech_title": "Monitores Médicos DICOM para Radiología",
+      "top_organic": [
+        {
+          "position": 1,
+          "domain": "www.lg.com",
+          "url": "https://www.lg.com/mx/business/monitores-pcs/monitores-medicos/monitor-de-diagnostico/?srsltid=AfmBOorRauMvIYh7FV-EtxriiE6f9yCzqoKIwnjAlXi7TtTDuVEtHZFI",
+          "title": "Monitores De Diagnóstico: Calidad De Imagen"
+        },
+        {
+          "position": 2,
+          "domain": "www.barco.com",
+          "url": "https://www.barco.com/es/products/medical-displays/radiology-displays",
+          "title": "Monitor de radiología"
+        },
+        {
+          "position": 3,
+          "domain": "taq.com.mx",
+          "url": "https://taq.com.mx/imagenologia/monitores-diagnostico-medico/",
+          "title": "Monitores de diagnóstico médico"
+        },
+        {
+          "position": 4,
+          "domain": "www.eizo.es",
+          "url": "https://www.eizo.es/medizin-monitore/projektionsradiografie",
+          "title": "Monitores de diagnóstico para radiografía de proyección"
+        },
+        {
+          "position": 5,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/monitores-medicos-radiologia/",
+          "title": "Monitores Médicos DICOM para Radiología"
+        },
+        {
+          "position": 6,
+          "domain": "riacs.cl",
+          "url": "https://riacs.cl/monitores-de-diagnostico/",
+          "title": "Monitor de Diagnostico Radiológico - Alta Precisión"
+        },
+        {
+          "position": 7,
+          "domain": "reshinmonitors.com",
+          "url": "https://reshinmonitors.com/es/monitores-medicos/monitor-de-radiologia/",
+          "title": "Monitores de radiología para PACS, TC y RM"
+        },
+        {
+          "position": 8,
+          "domain": "www.monitors.com",
+          "url": "https://www.monitors.com/es/collections/eizo-pantallas-pacs-de-radiologia-diagnostica?srsltid=AfmBOoqZClx8-Yl8gdgPfpmAGfxRn-VkcPXbhyQ6pKeuRoe5o8sTsznH",
+          "title": "Ver todos Eizo Pantallas PACS de Radiología Diagnóstica"
+        },
+        {
+          "position": 9,
+          "domain": "vtm.com.mx",
+          "url": "https://vtm.com.mx/monitores-diagnosticos-grado-medico/",
+          "title": "Monitores Diagnósticos Grado Médico | Para Radiología"
+        },
+        {
+          "position": 10,
+          "domain": "www.irerayosx.com",
+          "url": "https://www.irerayosx.com/monitores-lg-innovacion-en-diagnostico-medico/",
+          "title": "Monitores LG para diagnóstico médico avanzado"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "sistema his",
+      "keyword_returned": "sistema his",
+      "raditech_position": 15,
+      "raditech_url": "https://raditech.mx/sistema-his-medsi/",
+      "raditech_title": "Sistema de Información Hospitalaria - Medsi HIS",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "isid.com",
+          "url": "https://isid.com/es/tecnologia/his-es/",
+          "title": "HIS: Sistema de información hospitalaria - ISID"
+        },
+        {
+          "position": 3,
+          "domain": "his-hdn.mspbs.gov.py",
+          "url": "https://his-hdn.mspbs.gov.py/ambulatoria",
+          "title": "PY HIS"
+        },
+        {
+          "position": 8,
+          "domain": "www.getcirrus.com",
+          "url": "https://www.getcirrus.com/page/la-importancia-de-los-sistemas-his-en-los-hospitales",
+          "title": "[Infografía] La importancia de los sistemas HIS en ... - Cirrus"
+        },
+        {
+          "position": 9,
+          "domain": "www.evaluandoerp.com",
+          "url": "https://www.evaluandoerp.com/sistema-de-gestion/industrias/sistema-de-informacion-hospitalario-his/",
+          "title": "¿Qué es HIS? Sistema de información hospitalario"
+        },
+        {
+          "position": 10,
+          "domain": "k2bhealth.com",
+          "url": "https://k2bhealth.com/blog/post/que-es-un-sistema-de-informacion-hospitalaria/",
+          "title": "¿Qué es un Sistema de Información Hospitalaria (HIS)?"
+        },
+        {
+          "position": 11,
+          "domain": "www.tca.com",
+          "url": "https://www.tca.com/es/tca-healthcare-assist-hospital-information-system/",
+          "title": "Assist Sistema de Información Hospitalario (HIS) español"
+        },
+        {
+          "position": 13,
+          "domain": "www.digitalware.com.co",
+          "url": "https://www.digitalware.com.co/blog/que-es-his/",
+          "title": "¿Qué es HIS y por qué implementarlo?"
+        },
+        {
+          "position": 14,
+          "domain": "torax.cl",
+          "url": "https://torax.cl/sistema-de-informacion-hospitalaria-his-una-mejora-en-la-atencion-de-pacientes/",
+          "title": "Sistema de Información Hospitalaria (HIS): una mejora en ..."
+        },
+        {
+          "position": 15,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "title": "Sistema de Información Hospitalaria - Medsi HIS"
+        },
+        {
+          "position": 16,
+          "domain": "www.arokago.com",
+          "url": "https://www.arokago.com/es/articles/what-is-the-his-system-an-in-depth-look-at-its-benefits",
+          "title": "¿Qué es el sistema HIS? Un análisis detallado de sus ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "software hospitalario",
+      "keyword_returned": "software hospitalario",
+      "raditech_position": 13,
+      "raditech_url": "https://raditech.mx/sistema-his-medsi/",
+      "raditech_title": "Sistema de Información Hospitalaria - Medsi HIS",
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.sctelecom.com.mx",
+          "url": "https://www.sctelecom.com.mx/software-hospitalario",
+          "title": "Software para Hospitales | Solicita una Demo - SCtelecom"
+        },
+        {
+          "position": 3,
+          "domain": "www.capterra.mx",
+          "url": "https://www.capterra.mx/directory/30096/hospital-management/software",
+          "title": "Software de gestión hospitalaria"
+        },
+        {
+          "position": 4,
+          "domain": "www.softwaredoit.es",
+          "url": "https://www.softwaredoit.es/software-medico/software-hospitales.html",
+          "title": "Los 6 mejores software para Hospitales - HIS [2026]"
+        },
+        {
+          "position": 7,
+          "domain": "www.hulipractice.com",
+          "url": "https://www.hulipractice.com/mx/soluciones/hospitales",
+          "title": "Software de Gestión y Directorio para Hospitales - Huli"
+        },
+        {
+          "position": 8,
+          "domain": "www.logicbus.com.mx",
+          "url": "https://www.logicbus.com.mx/blog/software-para-gestion-hospitalaria/",
+          "title": "Software para gestión hospitalaria"
+        },
+        {
+          "position": 9,
+          "domain": "www.harmonimd.com",
+          "url": "https://www.harmonimd.com/",
+          "title": "HarmoniMD | Software de gestión hospitalaria con IA"
+        },
+        {
+          "position": 10,
+          "domain": "www.medesk.net",
+          "url": "https://www.medesk.net/es/blog/principales-softwares-para-hospitales/",
+          "title": "Top 6 Software de Gestión Hospitalaria en Latinoamérica ..."
+        },
+        {
+          "position": 11,
+          "domain": "listado.mercadolibre.com.mx",
+          "url": "https://listado.mercadolibre.com.mx/software-para-hospital",
+          "title": "Software Para Hospital"
+        },
+        {
+          "position": 13,
+          "domain": "raditech.mx",
+          "url": "https://raditech.mx/sistema-his-medsi/",
+          "title": "Sistema de Información Hospitalaria - Medsi HIS"
+        },
+        {
+          "position": 14,
+          "domain": "softwaresalus.com",
+          "url": "https://softwaresalus.com/",
+          "title": "El software de referencia para clínicas médicas | SALUS"
+        }
+      ]
+    },
+    {
+      "keyword_requested": "sistema ris",
+      "keyword_returned": "sistema ris",
+      "raditech_position": null,
+      "raditech_url": null,
+      "raditech_title": null,
+      "top_organic": [
+        {
+          "position": 2,
+          "domain": "www.postdicom.com",
+          "url": "https://www.postdicom.com/es/services/ris",
+          "title": "Sistema de Información Radiológica (RIS)"
+        },
+        {
+          "position": 4,
+          "domain": "visualmedica.com",
+          "url": "https://visualmedica.com/que-es-ris/",
+          "title": "Qué es RIS y cómo funciona"
+        },
+        {
+          "position": 5,
+          "domain": "www.youtube.com",
+          "url": "https://www.youtube.com/watch?v=5-yEBGABRm4",
+          "title": "RIS, PACS, DICOM and HL7: Topic Review."
+        },
+        {
+          "position": 6,
+          "domain": "nubix.cloud",
+          "url": "https://nubix.cloud/tecnologia-medica/que-es-exactamente-un-sistema-de-informacion-radiologica-ris",
+          "title": "¿Qué es exactamente un sistema de información ... - NUBIX"
+        },
+        {
+          "position": 8,
+          "domain": "technodomus.com",
+          "url": "https://technodomus.com/blog/imagenologia-4/conceptos-basicos-de-imagenologia-ris-y-pacs-37",
+          "title": "Conceptos Básicos de Imagenología: RIS y PACS"
+        },
+        {
+          "position": 9,
+          "domain": "radiocare.mx",
+          "url": "https://radiocare.mx/blog/3-razones-para-implementar-sistemas-pacs-y-ris-en-tu-hospital/",
+          "title": "3 razones para implementar sistemas PACS y RIS en tu ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.actualpacs.com",
+          "url": "https://www.actualpacs.com/mx/actualris",
+          "title": "Software RIS en la Nube para Gestión de Radiología"
+        },
+        {
+          "position": 11,
+          "domain": "eymsolutions.mx",
+          "url": "https://eymsolutions.mx/sistema-de-ris-synapse/",
+          "title": "Sistema de RIS Synapse"
+        },
+        {
+          "position": 13,
+          "domain": "imexhs.com",
+          "url": "https://imexhs.com/blog/el-papel-de-los-ris-en-el-sistema-sanitario",
+          "title": "¿Qué son los RIS y cuál es su papel en el sistema sanitario?"
+        },
+        {
+          "position": 14,
+          "domain": "4dmedica.ai",
+          "url": "https://4dmedica.ai/es/que-es-el-sistema-de-gestion-ris-para-diagnostico-por-imagenes/",
+          "title": "¿Qué es el sistema de gestión RIS para diagnóstico por ..."
+        }
+      ]
+    },
+    {
+      "keyword_requested": "expediente clinico electronico",
+      "keyword_returned": "expediente clinico electronico",
+      "raditech_position": null,
+      "raditech_url": null,
+      "raditech_title": null,
+      "top_organic": [
+        {
+          "position": 1,
+          "domain": "dgmoss.salud.gob.mx",
+          "url": "https://dgmoss.salud.gob.mx/dgmoss/documentos/5.%20Direcci%C3%B3n%20Salud%20Digital/Documentos%20en%20Salud%20Digital/Expediente%20clinico%20electronico%202025.pdf",
+          "title": "PROPUESTA DE UN EXPEDIENTE CLÍNICO ELECTRÓNICO ..."
+        },
+        {
+          "position": 2,
+          "domain": "www.softwaremedilink.com",
+          "url": "https://www.softwaremedilink.com/blog/expediente-clinico-electronico",
+          "title": "Expediente clínico electrónico: qué es y cómo implementarlo"
+        },
+        {
+          "position": 3,
+          "domain": "www.hulipractice.com",
+          "url": "https://www.hulipractice.com/mx/productos/expediente-electronico",
+          "title": "Expediente Clínico Electrónico - Huli"
+        },
+        {
+          "position": 4,
+          "domain": "www.imss.gob.mx",
+          "url": "http://www.imss.gob.mx/prensa/archivo/202411/067",
+          "title": "Expediente Clínico Electrónico del IMSS será el origen ..."
+        },
+        {
+          "position": 5,
+          "domain": "www.youtube.com",
+          "url": "https://www.youtube.com/watch?v=HY7nBrYxiV0",
+          "title": "Cómo escoger tu expediente clínico electrónico"
+        },
+        {
+          "position": 7,
+          "domain": "www.uv.mx",
+          "url": "https://www.uv.mx/dgti/notasdeti-dgti/los-expedientes-clinicos-electronicos-ece/",
+          "title": "Los Expedientes Clínicos Electrónicos (ECE)"
+        },
+        {
+          "position": 8,
+          "domain": "telmex.com",
+          "url": "https://telmex.com/web/negocios/expediente-electronico-medicos?srsltid=AfmBOop29jDQhcnH32BHlGnIEb4uZXq5isa4D-bM9nLMHa-7HujDjUc5",
+          "title": "Expediente Electrónico Médicos - Negocios"
+        },
+        {
+          "position": 9,
+          "domain": "expedienteclinico.mx",
+          "url": "https://expedienteclinico.mx/",
+          "title": "MediSel, Expediente Clínico Electrónico"
+        },
+        {
+          "position": 10,
+          "domain": "www.compuexpediente.com",
+          "url": "https://www.compuexpediente.com/",
+          "title": "COMPUEXPEDIENTE: Expediente Clínico Electrónico"
+        },
+        {
+          "position": 11,
+          "domain": "www.facebook.com",
+          "url": "https://www.facebook.com/SSIMSSBIENESTAR/posts/-el-expediente-cl%C3%ADnico-electr%C3%B3nico-ha-llegado-a-sonoraahora-el-personal-m%C3%A9dico-p/122281023596035234/",
+          "title": "🩺💻 El expediente clínico electrónico ha llegado a #Sonora. ..."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "verdict": "PUBLIC_HTML_PASS",
+  "url": "https://nodarishub.com/mx/diseno-web/",
+  "summary": {
+    "failures": 0,
+    "checks_examined": 15,
+    "markers_examined_per_response": 1,
+    "responses_examined": 2
+  },
+  "failures": [],
+  "responses": {
+    "normal": {
+      "title": "Diseño de Páginas Web en México — a Código sin Plantillas",
+      "h1": [
+        "Diseño de páginas web en México construidas a código , sin plantillas"
+      ],
+      "canonical": "https://nodarishub.com/mx/diseno-web/",
+      "description": "Diseño de páginas web a la medida en México: sitios a código, sin plantillas, rápidos y hechos para vender. Para PyMEs en CDMX, Guadalajara y Monterrey.",
+      "json_ld_count": 1,
+      "json_ld_invalid": 0,
+      "elementor_detected": false,
+      "requested_url": "https://nodarishub.com/mx/diseno-web/",
+      "final_url": "https://nodarishub.com/mx/diseno-web/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "cache_headers": {
+        "Cache-Control": "public, max-age=604800",
+        "X-LiteSpeed-Cache": "hit"
+      },
+      "html_bytes": 102819,
+      "visible_text_chars": 7681,
+      "visible_text_sha256": "7703021e257a3cf95ee7daf6209245917c23706c447bb44a03fe9e2972511783"
+    },
+    "cache_bust": {
+      "title": "Diseño de Páginas Web en México — a Código sin Plantillas",
+      "h1": [
+        "Diseño de páginas web en México construidas a código , sin plantillas"
+      ],
+      "canonical": "https://nodarishub.com/mx/diseno-web/",
+      "description": "Diseño de páginas web a la medida en México: sitios a código, sin plantillas, rápidos y hechos para vender. Para PyMEs en CDMX, Guadalajara y Monterrey.",
+      "json_ld_count": 1,
+      "json_ld_invalid": 0,
+      "elementor_detected": false,
+      "requested_url": "https://nodarishub.com/mx/diseno-web/?_hermes_verify=1786149211618149300",
+      "final_url": "https://nodarishub.com/mx/diseno-web/?_hermes_verify=1786149211618149300",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "cache_headers": {
+        "Cache-Control": "public, max-age=604800",
+        "X-Litespeed-Cache": "miss"
+      },
+      "html_bytes": 102819,
+      "visible_text_chars": 7681,
+      "visible_text_sha256": "7703021e257a3cf95ee7daf6209245917c23706c447bb44a03fe9e2972511783"
+    }
+  },
+  "screenshot_required": true,
+  "note": "PASS covers public HTML checks only; API read-back and anonymous screenshot remain required."
+}

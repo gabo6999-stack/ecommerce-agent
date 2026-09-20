@@ -1,0 +1,97 @@
+{
+ "agua bacteriostatica": {
+  "volume": 1600,
+  "cpc": 0.46,
+  "competition": "MEDIUM"
+ },
+ "bpc 157": {
+  "volume": 0,
+  "cpc": null,
+  "competition": null
+ },
+ "cagrilintida": {
+  "volume": 590,
+  "cpc": 0.16,
+  "competition": "LOW"
+ },
+ "cjc-1295": {
+  "volume": 1000,
+  "cpc": 0.62,
+  "competition": "LOW"
+ },
+ "como reconstituir peptidos": {
+  "volume": 0,
+  "cpc": null,
+  "competition": null
+ },
+ "comprar péptidos": {
+  "volume": 0,
+  "cpc": null,
+  "competition": null
+ },
+ "glutation liofilizado": {
+  "volume": 0,
+  "cpc": null,
+  "competition": null
+ },
+ "igf-1 lr3": {
+  "volume": 390,
+  "cpc": 0.93,
+  "competition": "LOW"
+ },
+ "ipamorelina": {
+  "volume": 1900,
+  "cpc": 0.84,
+  "competition": "LOW"
+ },
+ "mots-c": {
+  "volume": 880,
+  "cpc": 2.14,
+  "competition": "LOW"
+ },
+ "nad+ inyectable": {
+  "volume": 0,
+  "cpc": null,
+  "competition": null
+ },
+ "péptidos antienvejecimiento": {
+  "volume": 0,
+  "cpc": null,
+  "competition": null
+ },
+ "péptidos vs esteroides": {
+  "volume": 0,
+  "cpc": null,
+  "competition": null
+ },
+ "retatrutida": {
+  "volume": 1600,
+  "cpc": 0.74,
+  "competition": "LOW"
+ },
+ "retatrutida precio": {
+  "volume": 110,
+  "cpc": 0.78,
+  "competition": "LOW"
+ },
+ "selank": {
+  "volume": 480,
+  "cpc": 0.58,
+  "competition": "LOW"
+ },
+ "sermorelina": {
+  "volume": 210,
+  "cpc": 0.1,
+  "competition": "LOW"
+ },
+ "tb-500": {
+  "volume": 880,
+  "cpc": 0.45,
+  "competition": "LOW"
+ },
+ "thymosin alpha 1": {
+  "volume": 170,
+  "cpc": 2.3,
+  "competition": "LOW"
+ }
+}

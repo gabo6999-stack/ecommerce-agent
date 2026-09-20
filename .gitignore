@@ -33,3 +33,15 @@ vivexa_seo_surface.py
 vivexa_check_standalone.py
 vivexa_rebrand_audit.py
 vivexa_audit.json
+# Contienen credenciales EN CLARO (claves WooCommerce, API key de Anthropic,
+# contraseña de WordPress). Detectados al preparar el commit del rediseño del
+# home, 2026-09-19. Antes de versionar cualquiera de estos hay que sacarles los
+# secretos a variables de entorno — y conviene rotar las claves, porque llevan
+# tiempo en claro en el disco.
+TELENZIA_AUTH_STATUS.md
+docs/export-sesion/conversacion-completa.md
+docs/export-sesion/conversacion-completa-REDACTADA.md
+scripts/consolida_motsc.py
+scripts/plan_pys_stock_actual.py
+scripts/publica_ficha.py
+scripts/publica_ficha_795.py

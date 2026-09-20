@@ -1,0 +1,782 @@
+<!-- Telenzia — HEADER GLOBAL (template part `header` del tema)
+     REVISIÓN B — identidad "Consultorio". Reemplaza el sistema Nocturne.
+     Trae además el LENGUAJE DE COMPONENTES compartido (.tlz-page): tokens, botones,
+     tarjetas, kickers, secciones y reveal. Las páginas de sección solo añaden el CSS
+     propio de su layout. El home (.tlz-root) es independiente y no se toca.
+     Prefijo tlz- · sistema Consultorio. -->
+<style id="tlz-chrome-css">
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ============ TOKENS + COMPONENTES COMPARTIDOS ============ */
+/* .tlz-blog-lista va en la lista: el shortcode la imprime en su PROPIO bloque,
+   fuera del contenedor .tlz-page, así que sin esto no hereda ni un token y
+   todos los var(--tlz-*) quedan indefinidos — la tarjeta salía sin fondo y
+   sin borde, y solo se veían los hexes literales. */
+.tlz-chrome,.tlz-chrome-f,.tlz-page,.tlz-blog-lista{
+  /* — sistema base — */
+  --tlz-bg:#E9E4D8;          /* Papel   — fondo de todo el sitio */
+  --tlz-surface:#FCFBF9;     /* Ficha   — tarjetas y tablas */
+  --tlz-filete:#CEC7B5;      /* Filete  — bordes y rejilla */
+  --tlz-text:#14181A;        /* Tinta   — texto principal */
+  --tlz-text2:#59615E;       /* Tinta secundaria — cuerpo */
+  --tlz-divider:var(--tlz-filete);
+  /* — marca y señal — */
+  --tlz-accent:#0B4F4A;      /* Verde petróleo — wordmark, bandas, títulos */
+  --tlz-link:#12706A;        /* Verde petróleo enlace — enlaces, hover, foco */
+  --tlz-senal:#C7431F;       /* Naranja de señal — SOLO CTA (ver nota AA abajo) */
+  --tlz-senal-h:#A93818;     /* hover del CTA */
+  --tlz-senal-txt:#FFF7F3;
+  /* — los cuatro rubros — */
+  --tlz-rubro1:#1F6F5C;      /* jade       · pérdida de peso */
+  --tlz-rubro2:#2B4C7E;      /* azul tinta · péptidos */
+  --tlz-rubro3:#8A5A1E;      /* tabaco     · salud para hombres */
+  --tlz-rubro4:#8C2F52;      /* vino       · salud para mujeres */
+  /* — rampa neutra, invertida respecto a Nocturne: n100 tinta → n900 filete — */
+  --tlz-n100:#14181A; --tlz-n200:#252C2E; --tlz-n300:#3B4442; --tlz-n400:#59615E;
+  --tlz-n500:#575F5C; --tlz-n600:#5F6764; --tlz-n700:#5D6562; --tlz-n800:#BCB3A0;
+  --tlz-n900:#CEC7B5;
+  /* tintes de marca (antes lilas): ahora verdes */
+  --tlz-a300:#0B4F4A; --tlz-a400:#12706A; --tlz-a600:#12706A; --tlz-a900:#E4EDEB;
+  --tlz-section:#0E5A54;     /* celdas de la banda verde */
+  /* — tipografía — */
+  --tlz-font:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --tlz-serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --tlz-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --tlz-s3:8.4px; --tlz-s4:11.2px; --tlz-s6:16.8px; --tlz-s8:22.4px;
+  /* — esquinas rectas en todo el sistema — */
+  --tlz-r-md:0; --tlz-r-lg:0;
+  /* — sombras sustituidas por filete hairline — */
+  --tlz-sh-sm:0 0 0 1px var(--tlz-filete);
+  --tlz-sh-md:0 0 0 1px #BCB3A0;
+  --tlz-ease:cubic-bezier(.16,1,.3,1);
+  font-family:var(--tlz-font);
+  color:var(--tlz-text);
+}
+.tlz-chrome *,.tlz-chrome-f *,.tlz-page *,
+.tlz-chrome *::before,.tlz-page *::before,.tlz-page *::after{box-sizing:border-box}
+
+@keyframes tlz-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes tlz-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes tlz-fade{from{opacity:0}to{opacity:1}}
+@keyframes tlz-pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+
+/* — botones —
+   El naranja es el ÚNICO color de señal y aparece solo aquí, relleno, en el CTA.
+   Nota AA: la tabla del documento pide #E4572E de fondo con texto #FFF7F3, que da
+   3.48:1 — pasa AA solo como texto grande. Se usa su propio hover (#C7431F, 4.67:1)
+   como color de reposo para que TODO CTA pase AA a cualquier tamaño. Para volver al
+   hex literal del documento basta cambiar --tlz-senal a #E4572E. */
+.tlz-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  cursor:pointer;text-decoration:none;font-family:var(--tlz-font);font-weight:500;
+  font-size:16px;line-height:1.2;color:var(--tlz-text);
+  background:transparent;border:1px solid transparent;padding:15px 30px;border-radius:0;
+  transition:background .25s var(--tlz-ease),color .25s var(--tlz-ease),border-color .25s var(--tlz-ease),
+    transform .25s var(--tlz-ease),box-shadow .25s var(--tlz-ease);
+}
+/* tamaño base subido (era 5.6px 10px / 14px) para que todo CTA "Agenda tu
+   consulta" suelto en el cuerpo de una página se vea grande y con peso —
+   .tlz-nav/.tlz-cta-fija siguen ganando por especificidad, no les afecta */
+.tlz-btn-primary{background:var(--tlz-senal);color:var(--tlz-senal-txt);border-color:var(--tlz-senal);font-weight:600;letter-spacing:.01em}
+.tlz-btn-primary:hover{background:var(--tlz-senal-h);border-color:var(--tlz-senal-h);color:var(--tlz-senal-txt);
+  transform:translateY(-2px);box-shadow:0 10px 22px rgba(20,24,26,.16)}
+.tlz-btn-primary:active{background:var(--tlz-senal-h);transform:translateY(0);box-shadow:none}
+@media (prefers-reduced-motion:reduce){.tlz-btn-primary:hover{transform:none}}
+/* enlace secundario: verde petróleo, nunca naranja */
+.tlz-btn-ghost{color:var(--tlz-link);padding-inline:2.8px;background:transparent;font-weight:500}
+.tlz-btn-ghost:hover{color:var(--tlz-accent);background:var(--tlz-a900)}
+.tlz-btn:focus-visible{outline:2px solid var(--tlz-link);outline-offset:3px}
+
+/* — página: base tipográfica — */
+.tlz-page{background:var(--tlz-bg);min-height:1px;font-weight:400;font-size:15px;line-height:1.55;width:100%;max-width:none;margin:0;overflow-x:hidden;-webkit-font-smoothing:antialiased;color:var(--tlz-text)}
+.tlz-page p{margin:0}
+/* titulares en serif: Newsreader 500 */
+.tlz-page h1,.tlz-page h2,.tlz-page h3,.tlz-page h4{font-family:var(--tlz-serif);font-weight:500;line-height:1.14;margin:0;color:var(--tlz-text)}
+/* los botones traen color propio: si `a` heredase, el CTA saldría en tinta
+   sobre el naranja (esta regla gana en especificidad a .tlz-btn-primary) */
+.tlz-page a:not(.tlz-btn){color:inherit}
+.tlz-page img{max-width:100%;height:auto;display:block}
+.tlz-page ul,.tlz-page ol{margin:0;padding:0}
+
+/* columnas que no deben desbordar (grid/flex): evita overflow horizontal */
+.tlz-page .tlz-heroc-in>*,.tlz-page .tlz-enc-c>*{min-width:0}
+
+/* — piezas comunes — */
+/* kickers, badges y numerales: monoespaciado, mayúsculas, tracking amplio */
+.tlz-kicker{display:flex;align-items:center;gap:9px;font-family:var(--tlz-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tlz-n500)}
+.tlz-kicker::before{content:"";width:20px;height:1px;background:var(--tlz-accent);flex-shrink:0}
+.tlz-section{padding:clamp(44px,5.5vw,84px) clamp(20px,4vw,56px);max-width:1320px;margin:0 auto}
+.tlz-h2{font-family:var(--tlz-serif);font-size:clamp(26px,3.2vw,42px);letter-spacing:-.012em;margin:var(--tlz-s6) 0 0;max-width:26ch;color:var(--tlz-accent)}
+.tlz-lead{font-size:15px;line-height:1.6;color:var(--tlz-text2);max-width:62ch;margin-top:clamp(14px,1.6vw,22px)}
+/* Aquí el revelado lo dispara un snippet externo (tlz-reveal-js), así que no
+   se puede condicionar a una clase propia. La red de seguridad es una
+   animación que fuerza la visibilidad a los 1.2 s pase lo que pase: si el JS
+   no llega, el contenido aparece igual. */
+.tlz-reveal{opacity:0;transform:translateY(16px);transition:opacity .8s var(--tlz-ease),transform .8s var(--tlz-ease);animation:tlz-failsafe 0s linear 1.2s forwards}
+.tlz-reveal.tlz-in{opacity:1;transform:none;animation:none}
+@keyframes tlz-failsafe{to{opacity:1;transform:none}}
+.tlz-card{display:flex;flex-direction:column;gap:11px;padding:20px;border-radius:0;background:var(--tlz-surface);border:1px solid var(--tlz-filete);transition:border-color .3s var(--tlz-ease),transform .3s var(--tlz-ease)}
+.tlz-card:hover{transform:translateY(-2px);border-color:#BCB3A0}
+.tlz-card-kicker{font-family:var(--tlz-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--tlz-accent);font-variant-numeric:tabular-nums}
+.tlz-card h3{font-family:var(--tlz-serif);font-size:20px;line-height:1.2;letter-spacing:-.008em}
+.tlz-card p{font-size:14px;color:var(--tlz-text2);flex:1}
+.tlz-tag{display:inline-flex;align-items:center;font-family:var(--tlz-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:0}
+.tlz-tag-outline{border:1px solid var(--tlz-accent);color:var(--tlz-accent)}
+.tlz-tag-neutral{border:1px solid var(--tlz-filete);color:var(--tlz-text2);background:transparent}
+.tlz-figure{margin:clamp(26px,3.4vw,46px) auto 0;max-width:820px;background:var(--tlz-surface);border-radius:0;border:1px solid var(--tlz-filete);padding:clamp(14px,1.6vw,20px)}
+.tlz-figure img{border-radius:0;width:100%}
+
+/* Marco de las ilustraciones: el relleno de respaldo va en Ficha, igual que el
+   fondo del propio dibujo, para que no asome una banda gris alrededor. El
+   contorno es un filete limpio, no una sombra. */
+.tlz-page .tlz-img,.tlz-page .tlz-figure{background:var(--tlz-surface)}
+.tlz-page .tlz-figure{padding:10px}
+.tlz-page .tlz-img::after{display:none}
+.tlz-page .tlz-img::before{box-shadow:inset 0 0 0 1px var(--tlz-filete)}
+.tlz-figure figcaption{margin-top:var(--tlz-s4);font-size:12px;line-height:1.6;color:var(--tlz-n600);text-align:center}
+/* banda: verde petróleo plano, sin degradado de neón */
+/* Dentro de la banda el fondo es oscuro: en vez de pelear por especificidad
+   con el CSS de cada página, se REDEFINEN aquí los tokens. Todo descendiente
+   que lea var(--tlz-*) recibe la versión clara, venga de donde venga. */
+.tlz-band,
+/* .tlz-reg (Péptidos) y .tlz-dato (Telemedicina) usan --tlz-section como
+   fondo: son tan oscuras como la banda y necesitan la misma inversión. Sin
+   esto quedaban con tinta oscura sobre verde, a 1.17:1 — ilegibles. */
+.tlz-page .tlz-reg,.tlz-page .tlz-dato{
+  --tlz-text:#FCFBF9; --tlz-text2:#D6E3E0;
+  --tlz-n100:#FCFBF9; --tlz-n200:#EDF3F1; --tlz-n300:#D6E3E0; --tlz-n400:#D6E3E0;
+  --tlz-n500:#BFD4D0; --tlz-n600:#A9C3BE; --tlz-n700:#8FB3AD;
+  --tlz-n800:#3E736C; --tlz-n900:#0E5A54;
+  --tlz-filete:rgba(252,251,249,.26); --tlz-divider:rgba(252,251,249,.26);
+  --tlz-surface:#0E5A54; --tlz-section:#0E5A54;
+  --tlz-accent:#FCFBF9; --tlz-link:#BFD4D0;
+  --tlz-a300:#BFD4D0; --tlz-a400:#FCFBF9; --tlz-a600:#BFD4D0; --tlz-a900:#12706A;
+  --tlz-sh-sm:0 0 0 1px rgba(252,251,249,.24);
+  --tlz-sh-md:0 0 0 1px rgba(252,251,249,.34);
+  color:#FCFBF9;
+}
+.tlz-band{background:#0B4F4A;position:relative;overflow:hidden;color:#FCFBF9}
+.tlz-band h1,.tlz-band h2,.tlz-band h3{color:#FCFBF9}
+.tlz-band p{color:#D6E3E0}
+
+/* marco de las ilustraciones: sobre la banda verde el filete va claro y a la
+   vista; el relleno de respaldo es Ficha, que es el fondo real del dibujo. */
+.tlz-band .tlz-img,.tlz-band .tlz-img img{background:#FCFBF9}
+.tlz-band .tlz-img::before{box-shadow:inset 0 0 0 1px rgba(252,251,249,.55)}
+.tlz-band .tlz-img::after{display:none}
+.tlz-band a{color:#FCFBF9}
+.tlz-note{border-left:2px solid var(--tlz-accent);padding:var(--tlz-s6) 0 var(--tlz-s6) var(--tlz-s8);background:var(--tlz-a900);border-radius:0}
+.tlz-note strong{color:var(--tlz-accent);font-weight:500}
+.tlz-page-hero{padding:clamp(40px,5vw,74px) clamp(20px,4vw,56px) clamp(20px,2.4vw,34px);max-width:1320px;margin:0 auto}
+.tlz-page-hero h1{font-family:var(--tlz-serif);font-size:clamp(30px,4.1vw,54px);line-height:1.08;letter-spacing:-.014em;margin:var(--tlz-s6) 0 clamp(16px,2vw,26px);max-width:20ch;color:var(--tlz-accent)}
+.tlz-page-hero p{font-size:clamp(15px,1.15vw,18px);line-height:1.6;color:var(--tlz-text2);max-width:56ch}
+
+/* encabezado de sección centrado (reutilizable) */
+.tlz-page .tlz-enc-c{text-align:center}
+.tlz-page .tlz-enc-c .tlz-kicker{justify-content:center}
+.tlz-page .tlz-enc-c .tlz-h2{margin-inline:auto;text-align:center;max-width:24ch}
+.tlz-page .tlz-enc-c .tlz-lead{margin-inline:auto;text-align:center;max-width:58ch}
+
+/* ===== HERO DE SECCIÓN: centrado, con ilustración de fondo (todas las páginas) ===== */
+.tlz-page .tlz-heroc{position:relative;overflow:hidden;isolation:isolate;
+  padding:clamp(46px,5.6vw,92px) clamp(20px,4vw,56px) clamp(24px,2.8vw,42px)}
+.tlz-page .tlz-heroc-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(1180px,132%);height:auto;z-index:0;pointer-events:none;opacity:.28}
+.tlz-page .tlz-heroc-in{position:relative;z-index:1;max-width:900px;margin:0 auto;text-align:center}
+.tlz-page .tlz-heroc-in .tlz-kicker{justify-content:center}
+.tlz-page .tlz-heroc-in h1{font-family:var(--tlz-serif);font-size:clamp(29px,3.9vw,52px);line-height:1.09;letter-spacing:-.014em;
+  margin:var(--tlz-s6) auto clamp(15px,1.9vw,25px);max-width:21ch;color:var(--tlz-accent)}
+.tlz-page .tlz-heroc-in>p{font-size:clamp(15px,1.15vw,18px);line-height:1.62;color:var(--tlz-text2);
+  max-width:58ch;margin:0 auto}
+.tlz-page .tlz-heroc-cta{display:flex;justify-content:center;gap:var(--tlz-s4);margin-top:var(--tlz-s8);flex-wrap:wrap}
+.tlz-page .tlz-heroc-cta .tlz-btn{padding:15px 30px;font-size:15.5px;border-width:1px;border-radius:0}
+.tlz-page .tlz-heroc-facts{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(14px,2.2vw,32px);
+  margin-top:var(--tlz-s8);font-family:var(--tlz-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tlz-n600)}
+/* panel auxiliar (precio, aviso): baja del lateral al centro, bajo el hero */
+.tlz-page .tlz-heroc-panel{position:relative;z-index:1;max-width:620px;margin:clamp(26px,3vw,42px) auto 0;
+  background:var(--tlz-surface);border-radius:0;padding:var(--tlz-s8);border:1px solid var(--tlz-filete);text-align:left}
+@media (max-width:640px){.tlz-page .tlz-heroc{padding:32px 20px 18px}}
+
+/* ============ BLOG: listado (shortcode) ============ */
+/* auto-fit + minmax: con 1 artículo la tarjeta no se queda en un tercio suelto
+   ni deja dos huecos; con varios, rellena de 2 en 2 o de 3 en 3. */
+.tlz-blog-lista>*{min-width:0}
+.tlz-blog-lista{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),380px));
+  justify-content:center;gap:clamp(14px,1.8vw,24px);
+  max-width:1320px;margin:clamp(20px,2.4vw,34px) auto 0;padding:0 clamp(20px,4vw,56px) clamp(46px,5vw,80px);
+}
+.tlz-blog-lista .tlz-post{
+  background:var(--tlz-surface);border-radius:0;overflow:hidden;min-width:0;
+  border:1px solid var(--tlz-filete);
+  transition:transform .35s var(--tlz-ease),border-color .35s var(--tlz-ease);
+}
+.tlz-blog-lista .tlz-post{border-top:3px solid var(--tlz-accent)}
+.tlz-blog-lista .tlz-post:hover{transform:translateY(-4px);border-color:#BCB3A0;border-top-color:var(--tlz-accent)}
+.tlz-blog-lista .tlz-post-link{display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit}
+/* la imagen LLENA su marco: cover, sin bandas ni blob centrado */
+/* el marco de la destacada: Ficha de respaldo (el mismo fondo que traen las
+   imágenes en duotono) y un filete que la separa del cuerpo de la tarjeta */
+.tlz-blog-lista .tlz-post-img{aspect-ratio:16/9;overflow:hidden;background:var(--tlz-surface);position:relative;width:100%;border-bottom:1px solid var(--tlz-filete)}
+.tlz-blog-lista .tlz-post-img img{
+  width:100%;height:100%;object-fit:cover;object-position:center;display:block;
+  transition:transform .7s var(--tlz-ease);
+}
+.tlz-blog-lista .tlz-post:hover .tlz-post-img img{transform:scale(1.04)}
+.tlz-blog-lista .tlz-post-img-vacia{display:grid;place-items:center;color:var(--tlz-accent)}
+.tlz-blog-lista .tlz-post-img-vacia svg{width:46px;height:46px}
+.tlz-blog-lista .tlz-post-cuerpo{padding:var(--tlz-s8) var(--tlz-s6) calc(var(--tlz-s8) + 2px);
+  display:flex;flex-direction:column;flex:1;min-width:0}
+.tlz-blog-lista .tlz-post-meta{display:flex;align-items:center;gap:10px;font-family:var(--tlz-mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--tlz-n600);margin-bottom:var(--tlz-s4)}
+.tlz-blog-lista .tlz-post-cat{color:var(--tlz-accent)}
+/* el tema pinta los h3 apagados: se fuerza la tipografía del sistema */
+.tlz-blog-lista .tlz-post-tit,
+.tlz-blog-lista h3.tlz-post-tit{
+  font-family:"Newsreader",Georgia,serif!important;
+  font-weight:500;font-size:19px;line-height:1.26;letter-spacing:-.008em;
+  color:var(--tlz-text);margin:0 0 var(--tlz-s4);opacity:1;
+  transition:color .35s var(--tlz-ease);
+}
+.tlz-blog-lista .tlz-post:hover .tlz-post-tit{color:var(--tlz-accent)}
+.tlz-blog-lista .tlz-post-ex{font-size:13.5px;line-height:1.6;color:var(--tlz-text2);flex:1;margin-bottom:var(--tlz-s6)}
+.tlz-blog-lista .tlz-post-mas{font-family:var(--tlz-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--tlz-link);
+  display:inline-flex;align-items:center;gap:7px}
+.tlz-blog-lista .tlz-post-mas::after{content:"";width:14px;height:1px;background:currentColor;
+  transition:width .35s var(--tlz-ease)}
+.tlz-blog-lista .tlz-post:hover .tlz-post-mas::after{width:24px}
+.tlz-blog-lista .tlz-post-ex,.tlz-blog-lista .tlz-post-meta{
+  font-family:var(--tlz-font)!important;opacity:1}
+.tlz-blog-lista .tlz-post-meta{font-family:var(--tlz-mono)!important}
+.tlz-blog-lista .tlz-post-link,.tlz-blog-lista .tlz-post-link:hover{text-decoration:none}
+.tlz-blog-vacio{max-width:820px;margin:clamp(20px,2.4vw,34px) auto clamp(46px,5vw,80px);
+  padding:var(--tlz-s8) clamp(20px,4vw,56px);text-align:center;color:var(--tlz-n500);font-size:14.5px}
+@media (max-width:760px){.tlz-blog-lista{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){.tlz-blog-lista .tlz-post:hover{transform:none}}
+
+/* ============ ENTRADA INDIVIDUAL (plantilla `single`) ============ */
+/* Engancha por las clases tlz-* que declara la propia plantilla, no por .entry-content
+   —que este tema no emite— ni por body.single-post, al que el tema le gana en
+   especificidad. Así hereda CUALQUIER artículo, sin tocar nada por entrada. */
+.tlz-single{background:#E9E4D8;color:#14181A;
+  font-family:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif}
+.tlz-single *{box-sizing:border-box}
+
+/* cabecera del artículo */
+.tlz-single-head{max-width:820px;margin:0 auto;text-align:center;
+  padding:clamp(38px,4.6vw,72px) clamp(20px,4vw,56px) clamp(18px,2vw,28px)}
+.tlz-single-head>*{text-align:center!important}
+.tlz-single .tlz-single-cat,
+.tlz-single .tlz-single-cat a{
+  font-family:"IBM Plex Mono",ui-monospace,monospace!important;font-size:10.5px!important;font-weight:500!important;
+  letter-spacing:.15em!important;text-transform:uppercase!important;
+  color:#0B4F4A!important;text-decoration:none!important;
+}
+.tlz-single .tlz-single-tit,
+.tlz-single h1.tlz-single-tit,
+.tlz-single .wp-block-post-title{
+  font-family:"Newsreader",Georgia,serif!important;font-weight:500!important;
+  font-size:clamp(28px,3.7vw,48px)!important;line-height:1.12!important;
+  letter-spacing:-.014em!important;color:#0B4F4A!important;
+  max-width:20ch;margin:14px auto 12px!important;
+}
+.tlz-single .tlz-single-fecha,
+.tlz-single .tlz-single-fecha a{
+  font-family:"IBM Plex Mono",ui-monospace,monospace!important;font-size:10.5px!important;letter-spacing:.12em!important;
+  text-transform:uppercase!important;color:#5F6764!important;text-decoration:none!important;
+}
+
+/* imagen destacada: proporción fija y encuadre por cover, en cualquier artículo */
+/* HOJA DE LECTURA: media + cuerpo + pie forman un bloque con fondo propio,
+   separado del fondo de la página. Mismo ancho para que se lea como una sola pieza. */
+.tlz-single-media{max-width:880px;margin:0 auto;background:#FCFBF9;
+  border-radius:0;padding:clamp(18px,2.2vw,30px) clamp(18px,2.6vw,38px) 0;
+  box-shadow:inset 1px 0 0 #CEC7B5,inset -1px 0 0 #CEC7B5,inset 0 1px 0 #CEC7B5}
+.tlz-single .tlz-single-img{margin:0 auto;width:100%;display:block}
+.tlz-single .tlz-single-img img,
+.tlz-single .wp-block-post-featured-image img{
+  width:100%!important;aspect-ratio:16/9;object-fit:cover!important;object-position:center!important;
+  border-radius:0!important;display:block;box-shadow:0 0 0 1px #CEC7B5;
+}
+
+/* cuerpo: medida de lectura y tipografía del sistema */
+.tlz-single-wrap{max-width:880px;margin:0 auto;background:#FCFBF9;
+  padding:clamp(26px,3.2vw,44px) clamp(22px,3.4vw,56px) 0;
+  box-shadow:inset 1px 0 0 #CEC7B5,inset -1px 0 0 #CEC7B5}
+.tlz-single .tlz-single-body,
+.tlz-single .wp-block-post-content{
+  font-family:"Barlow",system-ui,sans-serif!important;
+  font-size:16.5px!important;line-height:1.75!important;color:#59615E!important;
+  max-width:68ch;margin-inline:auto!important;
+}
+.tlz-single .tlz-single-body p,
+.tlz-single .wp-block-post-content p{margin:0 0 1.15em!important;color:#59615E!important;
+  font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+.tlz-single .tlz-single-body h2,
+.tlz-single .wp-block-post-content h2{
+  font-family:"Newsreader",Georgia,serif!important;font-weight:500!important;
+  font-size:clamp(21px,2.4vw,30px)!important;line-height:1.22!important;letter-spacing:-.01em!important;
+  color:#0B4F4A!important;margin:2em 0 .55em!important;
+}
+.tlz-single .tlz-single-body h3,
+.tlz-single .wp-block-post-content h3{
+  font-family:"Newsreader",Georgia,serif!important;font-weight:500!important;
+  font-size:20px!important;line-height:1.28!important;letter-spacing:-.008em!important;
+  color:#14181A!important;margin:1.6em 0 .45em!important;
+}
+.tlz-single .tlz-single-body a,
+.tlz-single .wp-block-post-content a{
+  color:#12706A!important;text-decoration:underline!important;text-underline-offset:3px;
+  transition:color .25s cubic-bezier(.16,1,.3,1);
+}
+.tlz-single .tlz-single-body a:hover,
+.tlz-single .wp-block-post-content a:hover{color:#0B4F4A!important}
+.tlz-single .tlz-single-body strong,
+.tlz-single .wp-block-post-content strong{color:#14181A!important;font-weight:600!important}
+.tlz-single .tlz-single-body em,
+.tlz-single .wp-block-post-content em{color:#3B4442!important}
+.tlz-single .tlz-single-body ul,.tlz-single .tlz-single-body ol,
+.tlz-single .wp-block-post-content ul,.tlz-single .wp-block-post-content ol{
+  margin:0 0 1.15em 1.25em!important;color:#59615E!important}
+.tlz-single .tlz-single-body li,
+.tlz-single .wp-block-post-content li{margin-bottom:.5em!important;line-height:1.7!important;
+  font-family:inherit!important;font-size:inherit!important}
+.tlz-single .tlz-single-body li::marker,
+.tlz-single .wp-block-post-content li::marker{color:#0B4F4A}
+.tlz-single .tlz-single-body img,
+.tlz-single .wp-block-post-content img{border-radius:0!important;margin:1.5em 0!important}
+.tlz-single .tlz-single-body blockquote,
+.tlz-single .wp-block-post-content blockquote{
+  border-left:2px solid #0B4F4A!important;padding:.15em 0 .15em 1.15em!important;
+  margin:1.6em 0!important;color:#3B4442!important;font-style:normal!important}
+
+/* cierre del artículo */
+.tlz-single-pie{max-width:880px;margin:0 auto clamp(56px,6.5vw,96px);text-align:center;
+  background:#FCFBF9;border-radius:0;
+  padding:clamp(28px,3.4vw,46px) clamp(22px,3.4vw,56px) clamp(34px,4vw,56px);
+  box-shadow:inset 1px 0 0 #CEC7B5,inset -1px 0 0 #CEC7B5,inset 0 -1px 0 #CEC7B5}
+.tlz-single-pie::before{content:"";display:block;height:1px;
+  background:#CEC7B5;margin:0 0 clamp(22px,2.6vw,34px)}
+.tlz-single .tlz-single-cta-txt{font-family:inherit!important;font-size:15px!important;
+  color:#59615E!important;margin-bottom:28px!important}
+.tlz-single .tlz-single-cta .wp-block-button__link,
+.tlz-single .wp-block-button__link{
+  background:#C7431F!important;color:#FFF7F3!important;
+  border:1px solid #C7431F!important;border-radius:0!important;
+  font-family:"Barlow",system-ui,sans-serif!important;font-weight:600!important;font-size:17px!important;
+  padding:18px 36px!important;
+  transition:background .25s,border-color .25s,transform .25s,box-shadow .25s;
+}
+.tlz-single .wp-block-button__link:hover{
+  background:#A93818!important;border-color:#A93818!important;
+  transform:translateY(-2px);box-shadow:0 10px 22px rgba(20,24,26,.16);
+}
+@media (prefers-reduced-motion:reduce){.tlz-single .wp-block-button__link:hover{transform:none}}
+/* el tema mete su franja de título también aquí: fuera */
+.tlz-single .hostinger-ai-page-title{display:none!important}
+
+/* ===== Banda de verificación (Nosotros) — rehecha en Dirección B =====
+   La foto de fondo trae el viraje violeta horneado en el archivo, así que no
+   hay overlay que la salve: se retira. En su lugar, verde petróleo con la
+   misma rejilla de expediente del footer.
+   Las reglas de la página tienen 3 clases y van DESPUÉS en la cascada, así que
+   aquí hace falta igualar especificidad y forzar. */
+.tlz-page .tlz-verif-band .tlz-verif-bg{display:none!important}
+/* fondo del artefacto más profundo que la banda normal: es lo que permite
+   que la escala de gráficos pase contraste. Ver _paleta-graficos.md */
+.tlz-page .tlz-verif-band{background:#221F1A!important}
+.tlz-page .tlz-verif-band::before{
+  background:
+    repeating-linear-gradient(90deg,rgba(252,251,249,.05) 0 1px,transparent 1px 104px),
+    repeating-linear-gradient(0deg,rgba(252,251,249,.04) 0 1px,transparent 1px 104px)!important;
+}
+/* el artefacto: cada paso pasa a ser una ficha, no un punto en una línea */
+.tlz-page .tlz-verif-band .tlz-pasos::before{
+  background:rgba(252,251,249,.24)!important;
+}
+.tlz-page .tlz-verif-band .tlz-paso{
+  background:rgba(252,251,249,.055);
+  border:1px solid rgba(252,251,249,.18);
+  border-top:3px solid var(--c,rgba(252,251,249,.5));
+  padding:16px 16px 18px!important;
+  transition:background .3s var(--tlz-ease),border-top-color .3s var(--tlz-ease);
+}
+.tlz-page .tlz-verif-band .tlz-paso:hover{
+  background:color-mix(in srgb,var(--c,#FCFBF9) 14%,transparent);
+  border-top-color:var(--c,#FCFBF9);
+}
+/* los hitos, cuadrados: el sistema no tiene esquinas redondeadas */
+.tlz-page .tlz-verif-band .tlz-paso::before,
+.tlz-page .tlz-verif-band .tlz-paso::after{border-radius:0!important}
+.tlz-page .tlz-verif-band .tlz-paso::before{
+  border-color:var(--c,rgba(252,251,249,.55))!important;background:#221F1A!important}
+.tlz-page .tlz-verif-band .tlz-paso::after{background:var(--c,#FCFBF9)!important}
+.tlz-page .tlz-verif-band .tlz-paso:hover::before{border-color:var(--c,#FCFBF9)!important}
+.tlz-page .tlz-verif-band .tlz-paso:hover::after{background:var(--c,#FCFBF9)!important}
+/* tipografía del sistema dentro del artefacto */
+.tlz-page .tlz-verif-band .tlz-paso-n{
+  font-family:var(--tlz-mono)!important;font-size:10px!important;letter-spacing:.16em!important;
+  color:var(--c,#A9C3BE)!important}
+.tlz-page .tlz-verif-band .tlz-paso h3{
+  font-family:var(--tlz-serif)!important;font-size:18px!important;letter-spacing:-.008em!important;
+  color:#FCFBF9!important;margin:8px 0 7px!important}
+.tlz-page .tlz-verif-band .tlz-paso p{color:#D6E3E0!important;font-size:14px!important}
+.tlz-page .tlz-verif-band .tlz-paso a{color:#FCFBF9!important;text-underline-offset:3px}
+.tlz-page .tlz-verif-band .tlz-verif-pie{color:#B8B2A6!important}
+
+/* las dos secciones oscuras, con su texto ya claro */
+.tlz-page .tlz-reg{color:#FCFBF9}
+.tlz-page .tlz-reg h2,.tlz-page .tlz-reg h3{color:#FCFBF9}
+.tlz-page .tlz-reg p{color:#D6E3E0}
+.tlz-page .tlz-reg .tlz-reg-kicker{color:#A9C3BE;font-family:var(--tlz-mono)}
+.tlz-page .tlz-dato{color:#FCFBF9}
+.tlz-page .tlz-dato b,.tlz-page .tlz-dato strong{color:#FCFBF9}
+.tlz-page .tlz-dato span,.tlz-page .tlz-dato small{color:#A9C3BE}
+
+/* ===== Lista de garantías regulatorias (Péptidos), interactiva =====
+   Eran cuatro frases planas. Pasan a ser fichas que responden al puntero y al
+   teclado, cada una con su color de la escala de artefactos y su forma de hito
+   —codificación secundaria, no solo color— igual que el resto del sistema. */
+.tlz-page .tlz-reg-lista{gap:0!important}
+.tlz-page .tlz-reg-lista li{
+  padding:13px 14px 13px 34px!important;
+  border-left:3px solid var(--s);
+  border-bottom:1px solid rgba(252,251,249,.10);
+  color:#D6E3E0!important;
+  transition:background .28s var(--tlz-ease),padding-left .28s var(--tlz-ease);
+  cursor:default;
+}
+.tlz-page .tlz-reg-lista li:last-child{border-bottom:0}
+.tlz-page .tlz-reg-lista li:hover,
+.tlz-page .tlz-reg-lista li:focus-visible{
+  background:color-mix(in srgb,var(--s) 16%,transparent);
+  padding-left:40px!important;
+  color:#FCFBF9!important;
+  outline:none;
+}
+/* el hito: forma distinta por punto, visible sin color */
+.tlz-page .tlz-reg-lista li::before{
+  left:14px!important;top:19px!important;
+  width:9px!important;height:9px!important;background:var(--s)!important;
+  transition:transform .28s var(--tlz-ease);
+}
+.tlz-page .tlz-reg-lista li:nth-child(1){--s:#5B95E0}
+.tlz-page .tlz-reg-lista li:nth-child(2){--s:#DA6B45}
+.tlz-page .tlz-reg-lista li:nth-child(2)::before{border-radius:50%!important}
+.tlz-page .tlz-reg-lista li:nth-child(3){--s:#2AA87C}
+.tlz-page .tlz-reg-lista li:nth-child(3)::before{transform:rotate(45deg)}
+.tlz-page .tlz-reg-lista li:nth-child(4){--s:#A87BD0}
+.tlz-page .tlz-reg-lista li:nth-child(4)::before{
+  background:transparent!important;box-shadow:inset 0 0 0 2.5px var(--s)}
+.tlz-page .tlz-reg-lista li:nth-child(5){--s:#B98C28}
+.tlz-page .tlz-reg-lista li:nth-child(5)::before{height:4px!important;width:13px!important}
+.tlz-page .tlz-reg-lista li:hover::before{transform:scale(1.25)}
+.tlz-page .tlz-reg-lista li:nth-child(3):hover::before{transform:rotate(45deg) scale(1.25)}
+
+/* ===== Nota con figura de apoyo (Nosotros) =====
+   El bloque original era una nota CENTRADA sin imagen. Al meterle la figura al
+   lado, el texto centrado la dejaba "pegada": nada alineaba con nada. Se
+   rehace como ficha de expediente —todo a la izquierda, imagen y texto
+   compartiendo la misma línea base de arranque— y la regla de acento pasa de
+   estar centrada arriba a ser el filete superior de la ficha. */
+.tlz-page .tlz-nota-centro{
+  display:grid!important;grid-template-columns:minmax(0,208px) minmax(0,1fr);
+  gap:clamp(22px,2.8vw,38px);align-items:start;
+  text-align:left!important;
+  max-width:860px!important;margin:clamp(30px,3.6vw,52px) auto 0!important;
+  padding:clamp(22px,2.6vw,32px)!important;
+  background:var(--tlz-surface)!important;
+  border:1px solid var(--tlz-filete)!important;
+  border-top:3px solid var(--tlz-accent)!important;
+  border-radius:0!important;
+}
+/* la regla flotante de antes ya no hace falta: el filete superior la sustituye */
+.tlz-page .tlz-nota-centro::before{display:none!important}
+
+.tlz-page .tlz-nota-fig{margin:0}
+.tlz-page .tlz-nota-fig .tlz-img{aspect-ratio:4/3;background:var(--tlz-surface)}
+.tlz-page .tlz-nota-fig figcaption{
+  margin-top:10px;font-family:var(--tlz-mono);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--tlz-n600);line-height:1.6;text-align:left}
+
+/* el rótulo se convierte en kicker del sistema, con su filete de arranque */
+.tlz-page .tlz-nota-centro .tlz-nota-tit{
+  display:flex!important;align-items:center;gap:9px;
+  font-family:var(--tlz-mono);font-size:10px!important;letter-spacing:.14em!important;
+  text-transform:uppercase;color:var(--tlz-n500)!important;margin-bottom:12px!important;
+}
+.tlz-page .tlz-nota-centro .tlz-nota-tit::before{
+  content:"";width:18px;height:1px;background:var(--tlz-accent);flex-shrink:0}
+.tlz-page .tlz-nota-centro p{
+  font-size:14.5px!important;line-height:1.68!important;color:var(--tlz-text2)!important;
+  max-width:52ch!important;margin:0!important;text-align:left!important}
+
+@media (max-width:640px){
+  .tlz-page .tlz-nota-centro{grid-template-columns:minmax(0,1fr)}
+  .tlz-page .tlz-nota-fig{max-width:208px}
+}
+
+/* ===== Pares "sí / no": cada lado con identidad propia =====
+   Los contrastes ya pasaban AA, pero el bloque leía como una sola superficie
+   pálida: dos paneles casi blancos sobre papel, con los dos títulos en la misma
+   tinta. Se le da color semántico —jade a lo que sí, vino a lo que no— usando
+   los colores tabulados de rubro, y viñetas distintas por lado, que es
+   codificación secundaria: se distingue sin depender del color. */
+.tlz-page .tlz-duo>div{position:relative;border:1px solid var(--tlz-filete);box-shadow:none!important}
+.tlz-page .tlz-duo>div:nth-child(1){--lado:#1F6F5C;border-top:4px solid var(--lado)}
+.tlz-page .tlz-duo>div:nth-child(2){--lado:#8C2F52;border-top:4px solid var(--lado)}
+.tlz-page .tlz-duo h3{font-family:var(--tlz-serif)!important;font-size:20px!important;color:var(--lado)!important}
+.tlz-page .tlz-duo li{color:var(--tlz-text2)!important;padding-left:24px!important}
+/* viñeta con forma propia: barra para el sí, aspa para el no */
+.tlz-page .tlz-duo>div:nth-child(1) li::before{
+  background:var(--lado)!important;width:11px!important;height:2px!important;top:9px!important}
+/* La viñeta de "no" NO usa ningún carácter: es la misma barra dibujada con CSS
+   que la de "sí", girada 45°, que lee como negación. Un glifo aquí fue un byte
+   NUL en el archivo; con formas CSS el problema no puede volver. */
+.tlz-page .tlz-duo>div:nth-child(2) li::before{
+  background:var(--lado)!important;width:11px!important;height:2px!important;
+  top:10px!important;transform:rotate(-45deg)}
+.tlz-page .tlz-duo>div:nth-child(2) li::after{
+  content:"";position:absolute;left:0;top:10px;width:11px;height:2px;
+  background:var(--lado);transform:rotate(45deg)}
+/* el pie legal deja de ser un recuadro pálido más */
+.tlz-page .tlz-note{background:transparent!important;border-left:3px solid var(--tlz-accent)!important}
+
+/* ===== Indicador secundario por serie (no solo color) =====
+   La escala oscura de artefactos tiene ΔE 8.0 entre verde y naranja en
+   deuteranopía: está en el suelo de lo aceptable, así que el color NO puede ser
+   el único distintivo. Cada paso lleva además:
+     · una FORMA de hito distinta (cuadrado, círculo, rombo, anillo, barra)
+     · un ESTILO de filete distinto (macizo, discontinuo, punteado, doble, fino)
+   Ambos sobreviven a cualquier daltonismo y al blanco y negro. Se suman al
+   numeral monoespaciado y al título, que ya estaban. */
+.tlz-page .tlz-verif-band .tlz-paso::after{
+  width:9px!important;height:9px!important;transition:transform .3s var(--tlz-ease)}
+/* 01 cuadrado + filete macizo (por defecto) */
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(1){border-top-style:solid!important}
+/* 02 círculo + discontinuo */
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(2){border-top-style:dashed!important}
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(2)::after{border-radius:50%!important}
+/* 03 rombo + punteado */
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(3){border-top-style:dotted!important;border-top-width:4px!important}
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(3)::after{transform:rotate(45deg)}
+/* 04 anillo + doble */
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(4){border-top-style:double!important;border-top-width:5px!important}
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(4)::after{
+  background:transparent!important;box-shadow:inset 0 0 0 2.5px var(--c)}
+/* 05 barra + filete fino */
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(5){border-top-width:1px!important}
+.tlz-page .tlz-verif-band .tlz-paso:nth-child(5)::after{width:12px!important;height:4px!important}
+
+/* ===== Ritmo de secciones: papel y ficha alternos =====
+   .tlz-section tiene ancho máximo, así que un `background` pintaría un panel
+   centrado en vez de una banda. El fondo va en un ::before a sangre, dentro de
+   un contexto de apilado propio (z-index:0 en la sección) para que quede detrás
+   del contenido pero por delante del fondo de la página.
+   Se excluyen las secciones que ya traen fondo propio: bandas y cierre. */
+.tlz-page > section:not(.tlz-band):not(.tlz-cierre):not(.tlz-verif-band):nth-of-type(even),
+.tlz-root > section:not(.tlz-band):not(.tlz-final):nth-of-type(even){
+  position:relative;z-index:0;
+}
+.tlz-page > section:not(.tlz-band):not(.tlz-cierre):not(.tlz-verif-band):nth-of-type(even)::before,
+.tlz-root > section:not(.tlz-band):not(.tlz-final):nth-of-type(even)::before{
+  content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);
+  width:100vw;background:var(--tlz-surface);z-index:-1;
+  border-top:1px solid var(--tlz-filete);border-bottom:1px solid var(--tlz-filete);
+}
+
+/* ===== Cierre de página: mismo tratamiento que el del home =====
+   Era ficha pálida y no pesaba. Va en verde petróleo con la franja de los
+   cuatro rubros, igual que .tlz-final-box del home, para que el último punto
+   de conversión sea el mismo en todo el sitio. */
+.tlz-page .tlz-cierre-box{
+  position:relative;background:#0B4F4A!important;border:0!important;border-radius:0!important;
+  color:#FCFBF9;
+  padding:clamp(44px,5.6vw,80px) clamp(20px,4vw,48px) clamp(40px,5vw,72px)!important;
+  /* tokens invertidos: lo que herede sale claro */
+  --tlz-text:#FCFBF9; --tlz-text2:#D6E3E0; --tlz-n300:#D6E3E0; --tlz-n400:#D6E3E0;
+  --tlz-n500:#BFD4D0; --tlz-n600:#A9C3BE; --tlz-accent:#FCFBF9;
+  --tlz-filete:rgba(252,251,249,.26);
+}
+.tlz-page .tlz-cierre-box::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--tlz-rubro1) 0 25%,var(--tlz-rubro2) 25% 50%,
+    var(--tlz-rubro3) 50% 75%,var(--tlz-rubro4) 75% 100%)}
+.tlz-page .tlz-cierre-box h2,.tlz-page .tlz-cierre-box h3{color:#FCFBF9!important}
+.tlz-page .tlz-cierre-box p{color:#D6E3E0!important}
+/* el naranja sobre verde se empasta: filete claro para recortar la silueta */
+.tlz-page .tlz-cierre-box .tlz-btn-primary{border-color:#A9C3BE}
+.tlz-page .tlz-cierre-box .tlz-btn-primary:hover{border-color:#FCFBF9;transform:translateY(-2px)}
+.tlz-page .tlz-cierre-box .tlz-btn-ghost{color:#BFD4D0}
+.tlz-page .tlz-cierre-box .tlz-btn-ghost:hover{color:#FCFBF9;background:rgba(252,251,249,.1)}
+
+/* ============ HEADER ============
+   El cromo (header + footer + barra fija) va en verde petróleo, no en papel:
+   así enmarca la página en vez de fundirse con ella. No introduce ningún tono
+   nuevo — es el mismo color de marca de la banda y los titulares. */
+.tlz-chrome{--tlz-cromo:#0B4F4A;--tlz-cromo-2:#0E5A54;
+  --tlz-cromo-txt:#FCFBF9;--tlz-cromo-txt2:#BFD4D0;--tlz-cromo-txt3:#A9C3BE}
+/* franja de los cuatro rubros: firma de la casa, en el borde superior del
+   header y en el inferior del footer, de modo que el cromo enmarca la página
+   por arriba y por abajo con los mismos cuatro colores. Sin tonos nuevos. */
+.tlz-franja{
+  height:3px;flex:none;
+  background:linear-gradient(90deg,
+    var(--tlz-rubro1) 0 25%,var(--tlz-rubro2) 25% 50%,
+    var(--tlz-rubro3) 50% 75%,var(--tlz-rubro4) 75% 100%);
+}
+.tlz-header{
+  position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+  gap:16.8px;padding:15px clamp(20px,4vw,56px);
+  background:color-mix(in srgb,var(--tlz-cromo) 94%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--tlz-cromo-2);animation:tlz-fade .5s ease both;
+}
+.tlz-header::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,
+    var(--tlz-rubro1) 0 25%,var(--tlz-rubro2) 25% 50%,
+    var(--tlz-rubro3) 50% 75%,var(--tlz-rubro4) 75% 100%);
+}
+/* el isotipo va dentro de una casilla de filete: lo asienta y lo hace pieza */
+.tlz-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--tlz-cromo-txt);flex-shrink:0}
+.tlz-brand svg{border:1px solid rgba(252,251,249,.26);padding:4px;flex:none;
+  transition:border-color .3s var(--tlz-ease),background .3s var(--tlz-ease)}
+.tlz-brand:hover svg{border-color:var(--tlz-cromo-txt);background:rgba(252,251,249,.07)}
+.tlz-brand span{font-family:var(--tlz-serif);font-weight:500;font-size:22px;letter-spacing:-.012em;line-height:1}
+.tlz-nav{display:flex;align-items:center;gap:clamp(10px,1.6vw,20px);font-size:13.5px;flex-wrap:wrap;justify-content:flex-end}
+/* hover del nav: sube de color, crece un punto y apaga a sus hermanos.
+   La escala va por transform, así que no empuja el layout ni mueve el resto. */
+.tlz-nav a:not(.tlz-btn){position:relative;padding:5px 0;color:var(--tlz-cromo-txt2);text-decoration:none;
+  transform-origin:center bottom;
+  transition:color .22s var(--tlz-ease),transform .28s var(--tlz-ease),opacity .22s var(--tlz-ease)}
+.tlz-nav:hover a:not(.tlz-btn):not(:hover){opacity:.55}
+.tlz-nav a:not(.tlz-btn):hover{transform:scale(1.12)}
+/* subrayado que se dibuja al pasar: el filete del sistema, en movimiento */
+.tlz-nav a:not(.tlz-btn)::after{
+  content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;
+  background:var(--tlz-cromo-txt);transition:right .32s var(--tlz-ease);
+}
+.tlz-nav a:not(.tlz-btn):hover::after,.tlz-nav a[aria-current="page"]::after{right:0}
+.tlz-nav a:not(.tlz-btn):hover,.tlz-nav a[aria-current="page"]{color:var(--tlz-cromo-txt)}
+/* filete vertical que separa la navegación del CTA */
+.tlz-nav .tlz-btn{margin-left:8px}
+.tlz-nav .tlz-btn::before{
+  content:"";position:absolute;left:-16px;top:50%;transform:translateY(-50%);
+  width:1px;height:20px;background:rgba(252,251,249,.24);
+}
+.tlz-nav .tlz-btn{position:relative}
+.tlz-nav .tlz-btn{font-size:12.5px;padding:8px 14px;font-family:var(--tlz-mono);letter-spacing:.08em;text-transform:uppercase}
+/* Sobre el cromo verde el naranja queda en 1.91:1 y el botón se empasta: un
+   filete claro le devuelve la silueta (7.42:1) sin tocar el relleno de señal
+   ni la etiqueta, que sigue en 4.67:1. */
+.tlz-chrome .tlz-btn-primary{border-color:var(--tlz-cromo-txt3)}
+.tlz-chrome .tlz-btn-primary{transition:background .25s var(--tlz-ease),border-color .25s var(--tlz-ease),transform .25s var(--tlz-ease)}
+.tlz-chrome .tlz-btn-primary:hover{border-color:var(--tlz-cromo-txt);transform:translateY(-2px)}
+
+/* ============ FOOTER ============ */
+.tlz-footer{border-top:1px solid var(--tlz-cromo-2);padding:clamp(32px,4vw,56px) clamp(20px,4vw,56px);background:var(--tlz-cromo);color:var(--tlz-cromo-txt)}
+.tlz-footer-grid{max-width:1320px;margin:0 auto;display:flex;flex-wrap:wrap;gap:22.4px;justify-content:space-between;align-items:flex-start}
+.tlz-footer-brand{display:flex;align-items:center;gap:10px}
+.tlz-footer-brand span{font-family:var(--tlz-serif);font-size:17px;font-weight:500;letter-spacing:-.012em;color:var(--tlz-cromo-txt)}
+.tlz-legal{margin:16.8px 0 0;font-size:12px;line-height:1.6;color:var(--tlz-cromo-txt3);max-width:52ch}
+.tlz-footer-cols{display:flex;gap:clamp(24px,4vw,64px);flex-wrap:wrap;font-size:13.5px}
+.tlz-footer-cols>div{display:grid;gap:8px;align-content:start}
+.tlz-footer-cols strong{font-family:var(--tlz-mono);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--tlz-cromo-txt3)}
+.tlz-footer-cols a{color:var(--tlz-cromo-txt2);text-decoration:none;transition:color .22s var(--tlz-ease)}
+.tlz-footer-cols a:hover{color:var(--tlz-cromo-txt)}
+
+/* ============ CTA FIJA (siempre presente) ============ */
+.tlz-cta-fija{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;
+  align-items:center;justify-content:space-between;gap:12px;
+  padding:10px clamp(14px,4vw,20px);
+  background:color-mix(in srgb,var(--tlz-cromo) 96%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--tlz-cromo-2);
+}
+.tlz-cta-fija span{font-size:12px;line-height:1.3;color:var(--tlz-cromo-txt2)}
+.tlz-cta-fija b{display:block;color:var(--tlz-cromo-txt);font-weight:600;font-size:13px}
+.tlz-cta-fija .tlz-btn{padding:10px 16px;font-size:12.5px;flex-shrink:0;font-family:var(--tlz-mono);letter-spacing:.08em;text-transform:uppercase}
+
+@media (max-width:1000px){
+  .tlz-header{flex-wrap:wrap;gap:10px;padding:11px clamp(16px,4vw,24px)}
+  .tlz-nav{width:100%;justify-content:flex-start;gap:14px;font-size:13px}
+  .tlz-nav .tlz-btn{margin-left:auto}
+  .tlz-cta-fija{display:flex}
+  /* el hueco que deja la CTA fija debe ser del color del sitio, no del tema */
+  html,body{background:#E9E4D8}
+  body{padding-bottom:66px}
+}
+@media (max-width:640px){
+  .tlz-nav{font-size:12.5px;gap:12px;row-gap:8px}
+  .tlz-nav .tlz-btn{margin-left:0;width:100%;margin-top:4px}
+  /* el CTA pasa a ancho completo: el filete separador ya no separa nada */
+  .tlz-nav .tlz-btn::before{display:none}
+  .tlz-footer-grid{gap:26px}
+  .tlz-section{padding:38px 20px}
+  .tlz-page-hero{padding:30px 20px 18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tlz-chrome *,.tlz-page *,.tlz-chrome *::before,.tlz-page *::before,.tlz-page *::after{
+    animation-duration:.01ms!important;animation-delay:0ms!important;transition-duration:.01ms!important;
+  }
+  .tlz-reveal{opacity:1;transform:none}
+}
+html,body{background:#E9E4D8}
+
+/* =========================================================================
+   2026-08-05 · Composición home (revC) — utilidad COMPARTIDA nueva
+   Nace de "Telenzia Home - composición v2" (Claude Design). Columna de
+   numeración editorial: filete vertical + numeral en el margen izquierdo,
+   para que el scroll de una página lea como capítulos. Vive aquí (no en
+   home.html) porque es un patrón pensado para reutilizarse si Gabo decide
+   propagar la composición a otras páginas — no se duplica CSS compartido.
+   Va al final del archivo a propósito: aquí es donde debe ganar. */
+.tlz-ed{display:grid;grid-template-columns:clamp(30px,7vw,120px) minmax(0,1fr);max-width:1320px;margin:0 auto}
+.tlz-ed-num{padding-top:.2em;font-family:var(--tlz-mono);font-size:11px;letter-spacing:.14em;color:var(--tlz-n600,#5F6764)}
+.tlz-ed-num-claro{color:#A8A093}
+.tlz-ed-body{border-left:1px solid var(--tlz-filete,#CEC7B5);padding-left:clamp(16px,3vw,40px);min-width:0}
+.tlz-ed-body-claro{border-left-color:rgba(252,251,249,.2)}
+@media (max-width:640px){
+  .tlz-ed{grid-template-columns:1fr}
+  .tlz-ed-num{display:none}
+  .tlz-ed-body{border-left:0;padding-left:0}
+}
+/* numeral suelto: mismo lenguaje, para secciones que conservan su propio
+   grid y no adoptan la rejilla completa (hero, banda de confianza, cierre) */
+.tlz-numeral{display:block;font-family:var(--tlz-mono);font-size:11px;letter-spacing:.14em;color:var(--tlz-n600,#5F6764);margin-bottom:9px}
+.tlz-numeral-claro{color:#A9C3BE}
+</style>
+
+<div class="tlz-chrome">
+  <header class="tlz-header">
+    <a class="tlz-brand" href="/">
+      <!-- viewBox recortado a los límites reales del dibujo (6..26): en 0 0 32 32
+           el isotipo dejaba ~44% de margen muerto y se veía enano junto al wordmark -->
+      <svg width="32" height="32" viewBox="6 6 20 20" fill="none" role="img" aria-label="Telenzia">
+        <path d="M16 8.52 A 9 9 0 0 1 16 23.48 A 9 9 0 0 1 16 8.52 Z" fill="#083D39"></path>
+        <path d="M16 8.52 A 9 9 0 0 1 16 23.48" fill="none" stroke="#E9E4D8" stroke-width="1.6" stroke-linecap="round" pathLength="1" stroke-dasharray="1" style="animation:tlz-draw .55s cubic-bezier(.16,1,.3,1) .1s both"></path>
+        <path d="M16 23.48 A 9 9 0 0 1 16 8.52" fill="none" stroke="#E9E4D8" stroke-width="1.6" stroke-linecap="round" pathLength="1" stroke-dasharray="1" style="animation:tlz-draw .55s cubic-bezier(.16,1,.3,1) .1s both"></path>
+        <line x1="12.7" y1="13.1" x2="19.3" y2="13.1" stroke="#E9E4D8" stroke-width="1.7" stroke-linecap="round" pathLength="1" stroke-dasharray="1" style="animation:tlz-draw .4s cubic-bezier(.16,1,.3,1) .6s both"></line>
+        <line x1="16" y1="13.1" x2="16" y2="19.6" stroke="#E9E4D8" stroke-width="1.7" stroke-linecap="round" pathLength="1" stroke-dasharray="1" style="animation:tlz-draw .35s cubic-bezier(.16,1,.3,1) .9s both"></line>
+        <circle cx="16" cy="19.6" r="2.2" fill="#7FBDB4" style="animation:tlz-pop .4s cubic-bezier(.16,1,.3,1) 1.15s both"></circle>
+      </svg>
+      <span>Telenzia</span>
+    </a>
+    <nav class="tlz-nav" aria-label="Navegación principal">
+      <a href="/">Home</a>
+      <a href="/telemedicina/">Telemedicina</a>
+      <a href="/peptidos/">Péptidos</a>
+      <a href="/nosotros/">Nosotros</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contacto/">Contacto</a>
+      <a class="tlz-btn tlz-btn-primary" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agenda tu consulta</a>
+    </nav>
+  </header>
+
+  <!-- CTA persistente en móvil/tablet: el destino de conversión siempre a la vista -->
+  <div class="tlz-cta-fija">
+    <span><b>Consulta $1,500 MXN</b>Médico de cédula verificada</span>
+    <a class="tlz-btn tlz-btn-primary" href="https://ptm-novo-production.up.railway.app" target="_blank" rel="noopener">Agenda tu consulta</a>
+  </div>
+</div>

@@ -1,0 +1,375 @@
+{
+ "abiertos": [
+  {
+   "nombre": "ipamorelina",
+   "keywords": [
+    "ipamorelina"
+   ],
+   "n": 1,
+   "volumen": 1900,
+   "pct_bloqueado": 12,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.84,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "retatrutida",
+   "keywords": [
+    "retatrutida",
+    "retatrutida precio"
+   ],
+   "n": 2,
+   "volumen": 1710,
+   "pct_bloqueado": 20,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.76,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "agua bacteriostatica",
+   "keywords": [
+    "agua bacteriostatica"
+   ],
+   "n": 1,
+   "volumen": 1600,
+   "pct_bloqueado": 0,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.46,
+   "competidor_top": "peptide.com.mx"
+  },
+  {
+   "nombre": "péptidos para bajar de peso",
+   "keywords": [
+    "péptidos para bajar de peso"
+   ],
+   "n": 1,
+   "volumen": 1600,
+   "pct_bloqueado": 11,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.4,
+   "competidor_top": "—"
+  },
+  {
+   "nombre": "cjc-1295",
+   "keywords": [
+    "cjc-1295"
+   ],
+   "n": 1,
+   "volumen": 1000,
+   "pct_bloqueado": 25,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.62,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "péptidos gym",
+   "keywords": [
+    "péptidos gym",
+    "péptidos para masa muscular"
+   ],
+   "n": 2,
+   "volumen": 910,
+   "pct_bloqueado": 0,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.34,
+   "competidor_top": "—"
+  },
+  {
+   "nombre": "tb-500",
+   "keywords": [
+    "tb-500"
+   ],
+   "n": 1,
+   "volumen": 880,
+   "pct_bloqueado": 28,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.45,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "mots-c",
+   "keywords": [
+    "mots-c"
+   ],
+   "n": 1,
+   "volumen": 880,
+   "pct_bloqueado": 28,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 2.14,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "péptidos inyectables",
+   "keywords": [
+    "péptidos inyectables"
+   ],
+   "n": 1,
+   "volumen": 880,
+   "pct_bloqueado": 11,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.5,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "péptidos mexico",
+   "keywords": [
+    "péptidos mexico",
+    "péptidos precio",
+    "donde comprar péptidos en méxico",
+    "comprar péptidos"
+   ],
+   "n": 4,
+   "volumen": 780,
+   "pct_bloqueado": 5,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.59,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "cagrilintida",
+   "keywords": [
+    "cagrilintida"
+   ],
+   "n": 1,
+   "volumen": 590,
+   "pct_bloqueado": 12,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.16,
+   "competidor_top": "—"
+  },
+  {
+   "nombre": "selank",
+   "keywords": [
+    "selank"
+   ],
+   "n": 1,
+   "volumen": 480,
+   "pct_bloqueado": 12,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.58,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "bpc 157 precio",
+   "keywords": [
+    "bpc 157 precio"
+   ],
+   "n": 1,
+   "volumen": 210,
+   "pct_bloqueado": 22,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.45,
+   "competidor_top": "peptide.com.mx"
+  },
+  {
+   "nombre": "sermorelina",
+   "keywords": [
+    "sermorelina"
+   ],
+   "n": 1,
+   "volumen": 210,
+   "pct_bloqueado": 14,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 0.1,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "bpc-157 y tb-500",
+   "keywords": [
+    "bpc-157 y tb-500"
+   ],
+   "n": 1,
+   "volumen": 140,
+   "pct_bloqueado": 12,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": 1.35,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "péptidos efectos secundarios",
+   "keywords": [
+    "péptidos efectos secundarios"
+   ],
+   "n": 1,
+   "volumen": 70,
+   "pct_bloqueado": 11,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": null,
+   "competidor_top": "—"
+  },
+  {
+   "nombre": "bpc 157",
+   "keywords": [
+    "bpc 157"
+   ],
+   "n": 1,
+   "volumen": 0,
+   "pct_bloqueado": 22,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": null,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "glutation liofilizado",
+   "keywords": [
+    "glutation liofilizado"
+   ],
+   "n": 1,
+   "volumen": 0,
+   "pct_bloqueado": 11,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": null,
+   "competidor_top": "—"
+  },
+  {
+   "nombre": "nad+ inyectable",
+   "keywords": [
+    "nad+ inyectable"
+   ],
+   "n": 1,
+   "volumen": 0,
+   "pct_bloqueado": 14,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": null,
+   "competidor_top": "—"
+  },
+  {
+   "nombre": "como reconstituir peptidos",
+   "keywords": [
+    "como reconstituir peptidos"
+   ],
+   "n": 1,
+   "volumen": 0,
+   "pct_bloqueado": 0,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": null,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "péptidos vs esteroides",
+   "keywords": [
+    "péptidos vs esteroides"
+   ],
+   "n": 1,
+   "volumen": 0,
+   "pct_bloqueado": 0,
+   "etiqueta": "ABIERTO",
+   "cpc_medio": null,
+   "competidor_top": "—"
+  }
+ ],
+ "descartados": [
+  {
+   "nombre": "semaglutida",
+   "keywords": [
+    "semaglutida",
+    "semaglutida para que sirve"
+   ],
+   "n": 2,
+   "volumen": 157200,
+   "pct_bloqueado": 53,
+   "etiqueta": "MIXTO",
+   "cpc_medio": 0.94,
+   "competidor_top": "—"
+  },
+  {
+   "nombre": "tirzepatida",
+   "keywords": [
+    "tirzepatida",
+    "tirzepatida plm"
+   ],
+   "n": 2,
+   "volumen": 94100,
+   "pct_bloqueado": 82,
+   "etiqueta": "BLOQUEADO",
+   "cpc_medio": 0.51,
+   "competidor_top": "—"
+  },
+  {
+   "nombre": "péptidos",
+   "keywords": [
+    "péptidos",
+    "que son los péptidos",
+    "para qué sirven los péptidos"
+   ],
+   "n": 3,
+   "volumen": 33090,
+   "pct_bloqueado": 63,
+   "etiqueta": "BLOQUEADO",
+   "cpc_medio": 0.39,
+   "competidor_top": "peptide.com.mx"
+  },
+  {
+   "nombre": "semaglutida precio",
+   "keywords": [
+    "semaglutida precio"
+   ],
+   "n": 1,
+   "volumen": 27100,
+   "pct_bloqueado": 55,
+   "etiqueta": "MIXTO",
+   "cpc_medio": 0.22,
+   "competidor_top": "—"
+  },
+  {
+   "nombre": "tirzepatida precio",
+   "keywords": [
+    "tirzepatida precio"
+   ],
+   "n": 1,
+   "volumen": 27100,
+   "pct_bloqueado": 50,
+   "etiqueta": "MIXTO",
+   "cpc_medio": 0.19,
+   "competidor_top": "—"
+  },
+  {
+   "nombre": "semaglutida similares",
+   "keywords": [
+    "semaglutida similares"
+   ],
+   "n": 1,
+   "volumen": 5400,
+   "pct_bloqueado": 50,
+   "etiqueta": "MIXTO",
+   "cpc_medio": 0.34,
+   "competidor_top": "—"
+  },
+  {
+   "nombre": "igf-1 lr3",
+   "keywords": [
+    "igf-1 lr3"
+   ],
+   "n": 1,
+   "volumen": 390,
+   "pct_bloqueado": 33,
+   "etiqueta": "MIXTO",
+   "cpc_medio": 0.93,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "thymosin alpha 1",
+   "keywords": [
+    "thymosin alpha 1"
+   ],
+   "n": 1,
+   "volumen": 170,
+   "pct_bloqueado": 33,
+   "etiqueta": "MIXTO",
+   "cpc_medio": 2.3,
+   "competidor_top": "exomapeptides.mx"
+  },
+  {
+   "nombre": "péptidos antienvejecimiento",
+   "keywords": [
+    "péptidos antienvejecimiento"
+   ],
+   "n": 1,
+   "volumen": 0,
+   "pct_bloqueado": 42,
+   "etiqueta": "MIXTO",
+   "cpc_medio": null,
+   "competidor_top": "—"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+  "created_at_utc": "2026-08-08T00:30:27.040571+00:00",
+  "scope": "lote1_seguro_nodarishub",
+  "pages": [
+    {
+      "id": 183,
+      "url": "https://nodarishub.com/mx/diseno-web/",
+      "title_unchanged": "Diseño web profesional en México",
+      "source_backup": "C:\\Users\\gabom\\Proyectos\\ecommerce-agent\\auditorias\\nodarishub\\2026-08-08\\backups-pre-publicacion-lote1\\page-183-diseno-web.json",
+      "output": "C:\\Users\\gabom\\Proyectos\\ecommerce-agent\\auditorias\\nodarishub\\2026-08-08\\lote1-preparado\\page-183.html",
+      "before_sha256": "6f5ccdf88563164de8dd7e40076765ef825db16055a43ae3a7369457a3013dc6",
+      "after_sha256": "1e151eb3de8425110180b8965fef609bde612e132fce020b205ee2b4a0f681e7",
+      "before_chars": 50847,
+      "after_chars": 50813,
+      "changes": [
+        {
+          "label": "referencia_y_enlace_mx",
+          "old": "<p class=\"nhx-note\" style=\"margin-top:.5rem\">¿Quieres el panorama completo del mercado antes de decidir? Consulta nuestra guía sobre los <a href=\"https://nodarishub.com/precios-paginas-web-ecuador/\">precios de páginas web en Ecuador</a>.</p>",
+          "new": "<p class=\"nhx-note\" style=\"margin-top:.5rem\">¿Quieres conocer los costos antes de decidir? Consulta <a href=\"https://nodarishub.com/mx/crear-pagina-web/\">cuánto cuesta crear una página web en México</a>.</p>",
+          "matches": 1
+        }
+      ]
+    },
+    {
+      "id": 195,
+      "url": "https://nodarishub.com/mx/seo/",
+      "title_unchanged": "SEO y posicionamiento web para PyMEs en México",
+      "source_backup": "C:\\Users\\gabom\\Proyectos\\ecommerce-agent\\auditorias\\nodarishub\\2026-08-08\\backups-pre-publicacion-lote1\\page-195-seo.json",
+      "output": "C:\\Users\\gabom\\Proyectos\\ecommerce-agent\\auditorias\\nodarishub\\2026-08-08\\lote1-preparado\\page-195.html",
+      "before_sha256": "628fb31136a55ff493735eb2e9ff169ab154c3fa9418a6eda2108f3fd55206d1",
+      "after_sha256": "f6dd8faa66e78a513c9b3caf6f23024b20c8dd0ba1eb0427955338362cf81ed0",
+      "before_chars": 51354,
+      "after_chars": 51353,
+      "changes": [
+        {
+          "label": "h1_seo_mx_no_garantista",
+          "old": "<h1 style=\"margin-inline:auto\">Agencia SEO en México: llevamos tu negocio a la <span class=\"nhx-accent\">primera página de Google</span></h1>",
+          "new": "<h1 style=\"margin-inline:auto\">Posicionamiento SEO para PyMEs en México: <span class=\"nhx-accent\">técnica, contenido y medición</span></h1>",
+          "matches": 1
+        }
+      ]
+    },
+    {
+      "id": 196,
+      "url": "https://nodarishub.com/ec/seo/",
+      "title_unchanged": "SEO y posicionamiento web para PyMEs en Ecuador",
+      "source_backup": "C:\\Users\\gabom\\Proyectos\\ecommerce-agent\\auditorias\\nodarishub\\2026-08-08\\backups-pre-publicacion-lote1\\page-196-seo.json",
+      "output": "C:\\Users\\gabom\\Proyectos\\ecommerce-agent\\auditorias\\nodarishub\\2026-08-08\\lote1-preparado\\page-196.html",
+      "before_sha256": "dc486531bee6c60b87ce559a2e17979d928cf489e0e30a52bf293eb31bd2c22b",
+      "after_sha256": "dcf488eff19d8b1ee91a4b7a2b81c80ca02557e8c12d38875f654e1ea08ae00b",
+      "before_chars": 51585,
+      "after_chars": 51579,
+      "changes": [
+        {
+          "label": "h1_seo_ec_no_garantista",
+          "old": "<h1 style=\"margin-inline:auto\">Agencia SEO en Ecuador: llevamos tu negocio a la <span class=\"nhx-accent\">primera página de Google</span></h1>",
+          "new": "<h1 style=\"margin-inline:auto\">Agencia SEO en Ecuador para mejorar <span class=\"nhx-accent\">visibilidad, tráfico y medición</span></h1>",
+          "matches": 1
+        }
+      ]
+    }
+  ]
+}

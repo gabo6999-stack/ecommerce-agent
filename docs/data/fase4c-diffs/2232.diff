@@ -1,0 +1,27 @@
+--- 2232-antes
++++ 2232-despues
+@@ -38,3 +38,3 @@
+ <p>Es el punto donde más información errónea circula, y determina qué evidencia aplica a qué.</p>
+-<p><strong>CJC-1295 con DAC</strong> incorpora un <em>Drug Affinity Complex</em> que hace que la molécula <strong>se una de forma permanente a la albúmina endógena tras la inyección</strong>. Esa unión es lo que le da una vida media larga: los estudios en humanos la sitúan en torno a <strong>8 días</strong> (J Clin Endocrinol Metab, 2007 · PMID 17018654) y entre <strong>5.8 y 8.1 días</strong> en la caracterización farmacocinética original (J Clin Endocrinol Metab, 2006 · PMID 16352683).</p>
++<p><strong>CJC-1295 con DAC</strong> incorpora un <em>Drug Affinity Complex</em> que hace que la molécula <strong>se una de forma permanente a la albúmina endógena tras la inyección</strong>. Esa unión es lo que le da una vida media larga: los estudios en humanos la sitúan en torno a <strong>8 días</strong> (J Clin Endocrinol Metab, 2006 · PMID 17018654) y entre <strong>5.8 y 8.1 días</strong> en la caracterización farmacocinética original (J Clin Endocrinol Metab, 2006 · PMID 16352683).</p>
+ <p><strong>CJC-1295 sin DAC</strong> —que es el de este vial, también llamado Mod GRF (1-29)— <strong>carece de esa modificación</strong>. Sin el complejo de afinidad no hay unión permanente a albúmina y, por tanto, no existe el mecanismo que prolonga la vida media. Su duración de acción es sustancialmente más corta.</p>
+@@ -73,6 +73,6 @@
+ <ul>
+-<li><strong>Formación ósea bajo glucocorticoides.</strong> En ratas hembra de 8 meses inyectadas durante 3 meses con metilprednisolona 9 mg/kg/día, con ipamorelina 100 µg/kg tres veces al día, o ambas: la <strong>tasa de formación ósea perióstica aumentó cuatro veces</strong> en el grupo combinado frente al de glucocorticoide solo, y la tensión tetánica máxima del músculo aumentó significativamente (Growth Horm IGF Res, 2002 · PMID 11735244).</li>
+-<li><strong>Respuesta somatotropa.</strong> Tratamiento crónico en ratas hembra jóvenes (Histol Histopathol, 2003 · PMID 12168778).</li>
++<li><strong>Formación ósea bajo glucocorticoides.</strong> En ratas hembra de 8 meses inyectadas durante 3 meses con metilprednisolona 9 mg/kg/día, con ipamorelina 100 µg/kg tres veces al día, o ambas: la <strong>tasa de formación ósea perióstica aumentó cuatro veces</strong> en el grupo combinado frente al de glucocorticoide solo, y la tensión tetánica máxima del músculo aumentó significativamente (Growth Horm IGF Res, 2001 · PMID 11735244).</li>
++<li><strong>Respuesta somatotropa.</strong> Tratamiento crónico en ratas hembra jóvenes (Histol Histopathol, 2002 · PMID 12168778).</li>
+ <li><strong>Pérdida de peso inducida por cisplatino.</strong> Anamorelina e ipamorelina, agonistas del receptor 1a de secretagogos de GH, la inhibieron en modelo animal (Physiol Behav, 2024 · PMID 39043357).</li>
+-<li><strong>Balance nitrogenado.</strong> Efectos de GH y secretagogos sobre balance de nitrógeno y síntesis de urea en ratas tratadas con esteroides (Growth Horm IGF Res, 2010 · PMID 19231263).</li>
++<li><strong>Balance nitrogenado.</strong> Efectos de GH y secretagogos sobre balance de nitrógeno y síntesis de urea en ratas tratadas con esteroides (Growth Horm IGF Res, 2009 · PMID 19231263).</li>
+ </ul>
+@@ -85,3 +85,3 @@
+ <li><strong>Catabolismo inducido por glucocorticoides.</strong> Modelos de pérdida de masa ósea y muscular (PMID 11735244).</li>
+-<li><strong>Métodos analíticos.</strong> Desarrollo de técnicas de detección de análogos sintéticos de GHRH (Drug Test Anal, 2019 · PMID 30489688; Drug Test Anal, 2022 · PMID 34665524).</li>
++<li><strong>Métodos analíticos.</strong> Desarrollo de técnicas de detección de análogos sintéticos de GHRH (Drug Test Anal, 2019 · PMID 30489688; Drug Test Anal, 2021 · PMID 34665524).</li>
+ </ul>
+@@ -229,3 +229,3 @@
+ <p>Ni CJC-1295 ni la ipamorelina están aprobados como medicamento en México, ni por la FDA estadounidense ni por la EMA europea. En México se comercializan exclusivamente como <strong>material de referencia para investigación</strong>.</p>
+-<p>Punto específico de esta clase: los análogos sintéticos de GHRH son <strong>objeto activo de desarrollo de métodos de detección antidopaje</strong>. Existe literatura dedicada a ello —un cribado por reacción en cadena de la polimerasa inmuno para detectar CJC-1295 y otros análogos de GHRH (Drug Test Anal, 2019 · PMID 30489688) y una revisión de avances en su detección (Drug Test Anal, 2022 · PMID 34665524)—, además del caso documentado de identificación de CJC-1295 en una preparación farmacéutica desconocida (Drug Test Anal, 2011 · PMID 21204297). Quien participe en deporte sujeto a control debe consultar la lista vigente de la agencia correspondiente.</p>
++<p>Punto específico de esta clase: los análogos sintéticos de GHRH son <strong>objeto activo de desarrollo de métodos de detección antidopaje</strong>. Existe literatura dedicada a ello —un cribado por reacción en cadena de la polimerasa inmuno para detectar CJC-1295 y otros análogos de GHRH (Drug Test Anal, 2019 · PMID 30489688) y una revisión de avances en su detección (Drug Test Anal, 2021 · PMID 34665524)—, además del caso documentado de identificación de CJC-1295 en una preparación farmacéutica desconocida (Drug Test Anal, 2010 · PMID 21204297). Quien participe en deporte sujeto a control debe consultar la lista vigente de la agencia correspondiente.</p>
+ <h2>Historia y desarrollo</h2>

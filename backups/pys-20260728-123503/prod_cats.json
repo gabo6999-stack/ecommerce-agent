@@ -1,0 +1,263 @@
+[
+ {
+  "id": 73,
+  "name": "Péptidos Bienestar General",
+  "slug": "bienestar-general",
+  "parent": 72,
+  "description": "Péptidos y suplementos para bienestar general y salud integral. Mejora tu calidad de vida con productos premium de máxima calidad y pureza.",
+  "display": "default",
+  "image": null,
+  "menu_order": 0,
+  "count": 5,
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories/73",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories"
+    }
+   ],
+   "up": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories/72"
+    }
+   ]
+  }
+ },
+ {
+  "id": 16,
+  "name": "Péptidos para Metabolismo y Pérdida de Peso",
+  "slug": "metabolismo-activo",
+  "parent": 0,
+  "description": "Péptidos para metabolismo activo y pérdida de peso efectiva. Acelera tu quema de grasa de forma natural. Resultados visibles con calidad premium.",
+  "display": "default",
+  "image": null,
+  "menu_order": 0,
+  "count": 9,
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories/16",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories"
+    }
+   ]
+  }
+ },
+ {
+  "id": 159,
+  "name": "Péptidos para Rendimiento Cognitivo",
+  "slug": "peptidos-para-rendimiento-cognitivo",
+  "parent": 0,
+  "description": "Péptidos nootrópicos para rendimiento cognitivo, memoria y concentración. Mejora tu enfoque mental y claridad. Investigación neuroquímica avanzada.",
+  "display": "default",
+  "image": null,
+  "menu_order": 0,
+  "count": 1,
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories/159",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories"
+    }
+   ]
+  }
+ },
+ {
+  "id": 18,
+  "name": "Péptidos para Rendimiento Deportivo",
+  "slug": "performance-top",
+  "parent": 0,
+  "description": "Péptidos para rendimiento deportivo y performance elite. Maximiza tu fuerza, resistencia y resultados. Calidad farmacéutica con envío rápido.",
+  "display": "default",
+  "image": null,
+  "menu_order": 0,
+  "count": 1,
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories/18",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories"
+    }
+   ]
+  }
+ },
+ {
+  "id": 17,
+  "name": "Péptidos Recuperación y Crecimiento Muscular",
+  "slug": "recuperacion-rapida",
+  "parent": 0,
+  "description": "Péptidos para recuperación muscular rápida y crecimiento. Reduce tiempos de descanso y acelera reparación de tejidos. Ideal para atletas.",
+  "display": "default",
+  "image": null,
+  "menu_order": 0,
+  "count": 2,
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories/17",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories"
+    }
+   ]
+  }
+ },
+ {
+  "id": 47,
+  "name": "Péptidos Reparación Celular Anti-Aging",
+  "slug": "reparacion-celular",
+  "parent": 0,
+  "description": "Péptidos para reparación celular y rejuvenecimiento facial. Regenera tejidos a nivel molecular con tecnología anti-envejecimiento avanzada.",
+  "display": "default",
+  "image": null,
+  "menu_order": 0,
+  "count": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories/47",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories"
+    }
+   ]
+  }
+ },
+ {
+  "id": 72,
+  "name": "Suplementos Deportivos Premium",
+  "slug": "suplementos",
+  "parent": 0,
+  "description": "Suplementos deportivos alta calidad y certificación premium. Complementa tu nutrición deportiva con productos efectivos. Envío rápido México.",
+  "display": "default",
+  "image": null,
+  "menu_order": 0,
+  "count": 6,
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories/72",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories"
+    }
+   ]
+  }
+ },
+ {
+  "id": 15,
+  "name": "Uncategorized",
+  "slug": "uncategorized",
+  "parent": 0,
+  "description": "",
+  "display": "default",
+  "image": null,
+  "menu_order": 0,
+  "count": 0,
+  "_links": {
+   "self": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories/15",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://peptidosysuplementos.mx/wp-json/wc/v3/products/categories"
+    }
+   ]
+  }
+ }
+]

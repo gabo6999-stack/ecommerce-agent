@@ -1,0 +1,45 @@
+{
+  "status": "PUBLISHED_PASS",
+  "id": 2464,
+  "url": "https://peptidosysuplementos.mx/product/bpc-157/",
+  "checks": {
+    "api_status_publish": true,
+    "api_stock_zero": true,
+    "api_backorders_off": true,
+    "rank_math_title_readback": true,
+    "rank_math_description_readback": true,
+    "normal_http": true,
+    "cachebust_http": true,
+    "normal_title": true,
+    "cachebust_title": true,
+    "h1_both": true,
+    "canonical_both": true,
+    "outofstock_visible_both": true,
+    "safety_markers_both": true,
+    "interlinks_both": true,
+    "no_add_to_cart": true
+  },
+  "api": {
+    "status": "publish",
+    "stock_status": "outofstock",
+    "stock_quantity": 0,
+    "price": "",
+    "purchasable": false
+  },
+  "normal": {
+    "status": 200,
+    "final_url": "https://peptidosysuplementos.mx/product/bpc-157/",
+    "title": "BPC-157 Precio México | Presentación Individual | PYS",
+    "h1": "BPC-157",
+    "canonical": "https://peptidosysuplementos.mx/product/bpc-157/",
+    "cache": "miss"
+  },
+  "cachebust": {
+    "status": 200,
+    "final_url": "https://peptidosysuplementos.mx/product/bpc-157/?hermes_verify=1785852400",
+    "title": "BPC-157 Precio México | Presentación Individual | PYS",
+    "h1": "BPC-157",
+    "canonical": "https://peptidosysuplementos.mx/product/bpc-157/",
+    "cache": "miss"
+  }
+}

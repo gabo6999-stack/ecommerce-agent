@@ -1,0 +1,9 @@
+{
+ "gates_ok": false,
+ "duros": [
+  "COMPUERTA ROTA (tema): no marcó NO_RELACIONADO el caso de las sinagogas (PMID 12374163): dio 'ERROR' — llamada al modelo falló: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}"
+ ],
+ "blandos": [],
+ "palabras": 0,
+ "referencias": []
+}

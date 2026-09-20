@@ -1,0 +1,96 @@
+=== eventos_scroll_90pct ===
+{
+ "dimensionHeaders": [
+  {
+   "name": "pagePath"
+  },
+  {
+   "name": "pageTitle"
+  }
+ ],
+ "kind": "analyticsData#runReport",
+ "metadata": {
+  "currencyCode": "USD",
+  "timeZone": "America/Mexico_City"
+ },
+ "metricHeaders": [
+  {
+   "name": "eventCount",
+   "type": "TYPE_INTEGER"
+  }
+ ],
+ "rowCount": 3,
+ "rows": [
+  {
+   "dimensionValues": [
+    {
+     "value": "/product/bpc-157-tb-500-10-10mg/"
+    },
+    {
+     "value": "BPC-157 TB-500 5mg Precio México | Comprar | PYS"
+    }
+   ],
+   "metricValues": [
+    {
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "dimensionValues": [
+    {
+     "value": "/product/retatrutida-30mg/"
+    },
+    {
+     "value": "Retatrutide Precio México | Retatrutida 30mg 99% | PYS"
+    }
+   ],
+   "metricValues": [
+    {
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "dimensionValues": [
+    {
+     "value": "/product/tirzepatida-60-mg/"
+    },
+    {
+     "value": "Tirzepatida 60 mg: Precio en México | Comprar PyS"
+    }
+   ],
+   "metricValues": [
+    {
+     "value": "1"
+    }
+   ]
+  }
+ ]
+}
+
+=== sesiones_y_engagement: filas ===
+total filas: 23
+/product/retatrutida-30mg/                       ses= 17 pv= 20 eng=53% dur=41s ev=69
+/product/retatrutida-30mg/                       ses=  7 pv=  7 eng=43% dur=17s ev=28
+/product/semaglutida-5-mg/                       ses=  5 pv=  5 eng=60% dur=25s ev=20
+/product/bpc-157-tb-500-10-10mg/                 ses=  4 pv=  8 eng=75% dur=60s ev=30
+/product/igf-1-lr3-1mg/                          ses=  4 pv=  5 eng=100% dur=192s ev=20
+/product/tirzepatida-30-mg/                      ses=  3 pv=  4 eng=33% dur=554s ev=20
+/product/bpc-157-tb-500-10-10mg/                 ses=  2 pv=  2 eng=100% dur=13s ev=7
+/product/cagrilintida-10mg/                      ses=  2 pv=  1 eng=50% dur=3s ev=5
+/product/mots-c-40mg/                            ses=  2 pv=  2 eng=100% dur=25s ev=10
+/product/retatrutida-30mg/                       ses=  2 pv=  2 eng=100% dur=13s ev=10
+/product/selank-10-mg/                           ses=  2 pv=  2 eng=100% dur=10s ev=9
+/product/tirzepatida-30-mg/                      ses=  2 pv=  2 eng=100% dur=200s ev=8
+/product/tirzepatida-60-mg/                      ses=  2 pv=  2 eng=100% dur=304s ev=9
+/product/agua-bacteriostatica-3ml/               ses=  1 pv=  1 eng=0% dur=5s ev=4
+/product/bpc-157-tb-500-10-10mg/                 ses=  1 pv=  1 eng=100% dur=82s ev=5
+/product/cagrilintida-10mg/                      ses=  1 pv=  1 eng=100% dur=93s ev=5
+/product/dim-nutricost-300mg/                    ses=  1 pv=  1 eng=100% dur=80s ev=4
+/product/igf-1-lr3-1mg/                          ses=  1 pv=  1 eng=100% dur=32s ev=7
+/product/mots-c-40mg/                            ses=  1 pv=  1 eng=0% dur=2s ev=6
+/product/nad-plus-500mg/                         ses=  1 pv=  1 eng=100% dur=2s ev=4
+/product/retatrutida-30mg/                       ses=  1 pv=  1 eng=100% dur=2s ev=3
+/product/semaglutida-20mg/                       ses=  1 pv=  1 eng=100% dur=2s ev=4
+/product/tirzepatida-60-mg/                      ses=  1 pv=  1 eng=100% dur=10s ev=6

@@ -1,0 +1,474 @@
+[
+ {
+  "cluster": "semaglutida",
+  "keywords": [
+   "semaglutida",
+   "semaglutida para que sirve"
+  ],
+  "volumen": 157200,
+  "pct_bloqueado": 73,
+  "etiqueta": "BLOQUEADO",
+  "composicion": {
+   "autoridad_medica": 10,
+   "otro": 2,
+   "telemedicina_glp1": 2,
+   "farmacia_retail": 1
+  }
+ },
+ {
+  "cluster": "tirzepatida",
+  "keywords": [
+   "tirzepatida",
+   "tirzepatida plm"
+  ],
+  "volumen": 94100,
+  "pct_bloqueado": 88,
+  "etiqueta": "BLOQUEADO",
+  "composicion": {
+   "autoridad_medica": 9,
+   "farmacia_retail": 3,
+   "marca_pharma": 3,
+   "ugc_foro": 1,
+   "otro": 1
+  }
+ },
+ {
+  "cluster": "péptidos",
+  "keywords": [
+   "péptidos",
+   "que son los péptidos",
+   "para qué sirven los péptidos"
+  ],
+  "volumen": 33090,
+  "pct_bloqueado": 63,
+  "etiqueta": "BLOQUEADO",
+  "composicion": {
+   "cosmetica": 11,
+   "otro": 6,
+   "autoridad_medica": 3,
+   "marketplace": 1,
+   "ecommerce_peptidos": 1
+  }
+ },
+ {
+  "cluster": "semaglutida precio",
+  "keywords": [
+   "semaglutida precio"
+  ],
+  "volumen": 27100,
+  "pct_bloqueado": 55,
+  "etiqueta": "MIXTO",
+  "composicion": {
+   "farmacia_retail": 4,
+   "telemedicina_glp1": 2,
+   "marketplace": 1,
+   "autoridad_medica": 1,
+   "otro": 1
+  }
+ },
+ {
+  "cluster": "tirzepatida precio",
+  "keywords": [
+   "tirzepatida precio"
+  ],
+  "volumen": 27100,
+  "pct_bloqueado": 50,
+  "etiqueta": "MIXTO",
+  "composicion": {
+   "farmacia_retail": 3,
+   "telemedicina_glp1": 2,
+   "otro": 2,
+   "marca_pharma": 1
+  }
+ },
+ {
+  "cluster": "semaglutida similares",
+  "keywords": [
+   "semaglutida similares"
+  ],
+  "volumen": 5400,
+  "pct_bloqueado": 50,
+  "etiqueta": "MIXTO",
+  "composicion": {
+   "farmacia_retail": 3,
+   "ugc_foro": 3,
+   "otro": 1,
+   "autoridad_medica": 1
+  }
+ },
+ {
+  "cluster": "péptidos para bajar de peso",
+  "keywords": [
+   "péptidos para bajar de peso"
+  ],
+  "volumen": 1600,
+  "pct_bloqueado": 11,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "otro": 4,
+   "ugc_foro": 3,
+   "autoridad_medica": 1,
+   "telemedicina_glp1": 1
+  }
+ },
+ {
+  "cluster": "péptidos gym",
+  "keywords": [
+   "péptidos gym",
+   "péptidos para masa muscular"
+  ],
+  "volumen": 910,
+  "pct_bloqueado": 0,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "otro": 5,
+   "marketplace": 4,
+   "telemedicina_glp1": 2,
+   "ugc_foro": 1
+  }
+ },
+ {
+  "cluster": "péptidos inyectables",
+  "keywords": [
+   "péptidos inyectables"
+  ],
+  "volumen": 880,
+  "pct_bloqueado": 11,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "ugc_foro": 3,
+   "otro": 3,
+   "marketplace": 1,
+   "autoridad_medica": 1,
+   "ecommerce_peptidos": 1
+  }
+ },
+ {
+  "cluster": "péptidos mexico",
+  "keywords": [
+   "péptidos mexico",
+   "péptidos precio",
+   "donde comprar péptidos en méxico",
+   "comprar péptidos"
+  ],
+  "volumen": 780,
+  "pct_bloqueado": 5,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "ecommerce_peptidos": 12,
+   "marketplace": 8,
+   "ugc_foro": 5,
+   "otro": 5,
+   "telemedicina_glp1": 3,
+   "farmacia_retail": 2
+  }
+ },
+ {
+  "cluster": "bpc 157 precio",
+  "keywords": [
+   "bpc 157 precio"
+  ],
+  "volumen": 210,
+  "pct_bloqueado": 22,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "marketplace": 3,
+   "ecommerce_peptidos": 3,
+   "farmacia_retail": 2,
+   "otro": 1
+  }
+ },
+ {
+  "cluster": "bpc-157 y tb-500",
+  "keywords": [
+   "bpc-157 y tb-500"
+  ],
+  "volumen": 140,
+  "pct_bloqueado": 12,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "telemedicina_glp1": 3,
+   "ecommerce_peptidos": 2,
+   "marketplace": 1,
+   "ugc_foro": 1,
+   "farmacia_retail": 1
+  }
+ },
+ {
+  "cluster": "péptidos efectos secundarios",
+  "keywords": [
+   "péptidos efectos secundarios"
+  ],
+  "volumen": 70,
+  "pct_bloqueado": 11,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "otro": 5,
+   "ugc_foro": 3,
+   "autoridad_medica": 1
+  }
+ },
+ {
+  "cluster": "retatrutida",
+  "keywords": [
+   "retatrutida",
+   "retatrutida precio"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 20,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "telemedicina_glp1": 4,
+   "ecommerce_peptidos": 4,
+   "marketplace": 2,
+   "marca_pharma": 1,
+   "autoridad_medica": 1,
+   "otro": 1,
+   "ugc_foro": 1,
+   "farmacia_retail": 1
+  }
+ },
+ {
+  "cluster": "cagrilintida",
+  "keywords": [
+   "cagrilintida"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 12,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "otro": 5,
+   "ugc_foro": 2,
+   "autoridad_medica": 1
+  }
+ },
+ {
+  "cluster": "bpc 157",
+  "keywords": [
+   "bpc 157"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 22,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "marketplace": 3,
+   "otro": 2,
+   "telemedicina_glp1": 1,
+   "autoridad_medica": 1,
+   "ecommerce_peptidos": 1,
+   "farmacia_retail": 1
+  }
+ },
+ {
+  "cluster": "tb-500",
+  "keywords": [
+   "tb-500"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 28,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "ecommerce_peptidos": 2,
+   "autoridad_medica": 2,
+   "telemedicina_glp1": 1,
+   "marketplace": 1,
+   "ugc_foro": 1
+  }
+ },
+ {
+  "cluster": "ipamorelina",
+  "keywords": [
+   "ipamorelina"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 12,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "ecommerce_peptidos": 4,
+   "ugc_foro": 2,
+   "marketplace": 1,
+   "autoridad_medica": 1
+  }
+ },
+ {
+  "cluster": "sermorelina",
+  "keywords": [
+   "sermorelina"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 28,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "autoridad_medica": 2,
+   "otro": 2,
+   "ecommerce_peptidos": 2,
+   "ugc_foro": 1
+  }
+ },
+ {
+  "cluster": "cjc-1295",
+  "keywords": [
+   "cjc-1295"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 25,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "ecommerce_peptidos": 3,
+   "ugc_foro": 2,
+   "autoridad_medica": 1,
+   "otro": 1,
+   "farmacia_retail": 1
+  }
+ },
+ {
+  "cluster": "mots-c",
+  "keywords": [
+   "mots-c"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 28,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "ecommerce_peptidos": 3,
+   "autoridad_medica": 2,
+   "telemedicina_glp1": 1,
+   "otro": 1
+  }
+ },
+ {
+  "cluster": "igf-1 lr3",
+  "keywords": [
+   "igf-1 lr3"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 33,
+  "etiqueta": "MIXTO",
+  "composicion": {
+   "ecommerce_peptidos": 2,
+   "otro": 2,
+   "farmacia_retail": 1,
+   "autoridad_medica": 1
+  }
+ },
+ {
+  "cluster": "selank",
+  "keywords": [
+   "selank"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 12,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "marketplace": 2,
+   "otro": 2,
+   "ecommerce_peptidos": 1,
+   "autoridad_medica": 1,
+   "telemedicina_glp1": 1,
+   "ugc_foro": 1
+  }
+ },
+ {
+  "cluster": "thymosin alpha 1",
+  "keywords": [
+   "thymosin alpha 1"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 33,
+  "etiqueta": "MIXTO",
+  "composicion": {
+   "otro": 3,
+   "autoridad_medica": 2,
+   "ecommerce_peptidos": 1,
+   "ugc_foro": 1,
+   "farmacia_retail": 1,
+   "telemedicina_glp1": 1
+  }
+ },
+ {
+  "cluster": "glutation liofilizado",
+  "keywords": [
+   "glutation liofilizado"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 22,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "otro": 6,
+   "autoridad_medica": 1,
+   "cosmetica": 1,
+   "marketplace": 1
+  }
+ },
+ {
+  "cluster": "nad+ inyectable",
+  "keywords": [
+   "nad+ inyectable"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 14,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "otro": 4,
+   "marketplace": 2,
+   "farmacia_retail": 1
+  }
+ },
+ {
+  "cluster": "agua bacteriostatica",
+  "keywords": [
+   "agua bacteriostatica"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 0,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "otro": 3,
+   "marketplace": 2,
+   "ecommerce_peptidos": 2,
+   "ugc_foro": 1
+  }
+ },
+ {
+  "cluster": "péptidos antienvejecimiento",
+  "keywords": [
+   "péptidos antienvejecimiento"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 42,
+  "etiqueta": "MIXTO",
+  "composicion": {
+   "otro": 4,
+   "cosmetica": 3
+  }
+ },
+ {
+  "cluster": "como reconstituir peptidos",
+  "keywords": [
+   "como reconstituir peptidos"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 0,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "otro": 4,
+   "ugc_foro": 2,
+   "telemedicina_glp1": 1,
+   "ecommerce_peptidos": 1
+  }
+ },
+ {
+  "cluster": "péptidos vs esteroides",
+  "keywords": [
+   "péptidos vs esteroides"
+  ],
+  "volumen": 0,
+  "pct_bloqueado": 0,
+  "etiqueta": "ABIERTO",
+  "composicion": {
+   "ugc_foro": 6,
+   "otro": 2,
+   "telemedicina_glp1": 1
+  }
+ }
+]

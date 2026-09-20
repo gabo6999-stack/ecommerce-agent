@@ -1,0 +1,17 @@
+--- 790-antes
++++ 790-despues
+@@ -49,3 +49,3 @@
+ <h3>El hallazgo mayor: viaja al núcleo</h3>
+-<p>En 2019 se describió algo que reordenó el campo: <strong>MOTS-c se transloca al núcleo celular y regula la expresión de genes nucleares</strong> tras un estrés metabólico, de forma dependiente de AMPK (Cell Metab, 2019 · PMID 29983246).</p>
++<p>En 2019 se describió algo que reordenó el campo: <strong>MOTS-c se transloca al núcleo celular y regula la expresión de genes nucleares</strong> tras un estrés metabólico, de forma dependiente de AMPK (Cell Metab, 2018 · PMID 29983246).</p>
+ <p>Una vez en el núcleo, en respuesta a restricción de glucosa, regula un rango amplio de genes —incluidos los que portan <strong>elementos de respuesta antioxidante (ARE)</strong>— e interactúa con factores de transcripción de respuesta a estrés como <strong>NRF2 (NFE2L2)</strong>.</p>
+@@ -72,3 +72,3 @@
+ <ul>
+-<li><strong>Respuesta a lípidos e insulina.</strong> En sujetos con síndrome de ovario poliquístico y en controles sanos sometidos a infusión de intralipid durante 5 horas con clamp hiperinsulinémico-euglucémico en las últimas 2 horas, la infusión lipídica <strong>elevó el MOTS-c plasmático al 232 ± 124% del basal en controles (P&lt;0.01) y al 349 ± 206% en el grupo con SOP</strong>. La infusión de insulina atenuó esa respuesta. El protocolo se repitió tras ocho semanas de intervención con ejercicio (Clin Endocrinol, 2020 · PMID 31066084).</li>
++<li><strong>Respuesta a lípidos e insulina.</strong> En sujetos con síndrome de ovario poliquístico y en controles sanos sometidos a infusión de intralipid durante 5 horas con clamp hiperinsulinémico-euglucémico en las últimas 2 horas, la infusión lipídica <strong>elevó el MOTS-c plasmático al 232 ± 124% del basal en controles (P&lt;0.01) y al 349 ± 206% en el grupo con SOP</strong>. La infusión de insulina atenuó esa respuesta. El protocolo se repitió tras ocho semanas de intervención con ejercicio (Clin Endocrinol, 2019 · PMID 31066084).</li>
+ <li><strong>Obesidad e inflamación.</strong> Niveles de MOTS-c en personas con y sin obesidad y su asociación con marcadores inflamatorios y de resistencia a la insulina (Arch Endocrinol Metab, 2025 · PMID 41004666).</li>
+@@ -80,3 +80,3 @@
+ <h3>El polimorfismo m.1382A&gt;C</h3>
+-<p>Existe un polimorfismo, <strong>m.1382A&gt;C</strong>, localizado en la región del ADN mitocondrial que codifica MOTS-c y <strong>específico de la población del noreste asiático</strong>. Los autores que lo describieron plantearon que <em>podría</em> figurar entre los mecanismos biológicos que explican la alta longevidad de la población japonesa — formulándolo explícitamente como hipótesis y señalando que <strong>hace falta más investigación</strong> (Aging Cell, 2016 · PMID 26289118).</p>
++<p>Existe un polimorfismo, <strong>m.1382A&gt;C</strong>, localizado en la región del ADN mitocondrial que codifica MOTS-c y <strong>específico de la población del noreste asiático</strong>. Los autores que lo describieron plantearon que <em>podría</em> figurar entre los mecanismos biológicos que explican la alta longevidad de la población japonesa — formulándolo explícitamente como hipótesis y señalando que <strong>hace falta más investigación</strong> (Aging Cell, 2015 · PMID 26289118).</p>
+ <p>Conviene leerlo tal como lo escribieron: es una asociación poblacional propuesta, no una relación causal establecida, y no dice nada sobre el efecto de administrar el péptido.</p>

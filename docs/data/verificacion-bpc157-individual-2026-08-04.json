@@ -1,0 +1,59 @@
+{
+  "verdict": "PUBLIC_HTML_PASS",
+  "url": "https://peptidosysuplementos.mx/product/bpc-157/",
+  "summary": {
+    "failures": 0,
+    "checks_examined": 17,
+    "markers_examined_per_response": 2,
+    "responses_examined": 2
+  },
+  "failures": [],
+  "responses": {
+    "normal": {
+      "title": "BPC-157 Precio México | Presentación Individual | PYS",
+      "h1": [
+        "BPC-157"
+      ],
+      "canonical": "https://peptidosysuplementos.mx/product/bpc-157/",
+      "description": "BPC-157 individual, actualmente sin existencias. Consulta disponibilidad futura o revisa la presentación combinada BPC-157 + TB-500.",
+      "json_ld_count": 2,
+      "json_ld_invalid": 0,
+      "elementor_detected": true,
+      "requested_url": "https://peptidosysuplementos.mx/product/bpc-157/",
+      "final_url": "https://peptidosysuplementos.mx/product/bpc-157/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "cache_headers": {
+        "Cache-Control": "public, max-age=300, stale-while-revalidate=600",
+        "x-litespeed-cache": "hit"
+      },
+      "html_bytes": 43995,
+      "visible_text_chars": 5703,
+      "visible_text_sha256": "0410ba1225409da9b4d75a4ed401d47177d421b6578c1c725b03be7871467be4"
+    },
+    "cache_bust": {
+      "title": "BPC-157 Precio México | Presentación Individual | PYS",
+      "h1": [
+        "BPC-157"
+      ],
+      "canonical": "https://peptidosysuplementos.mx/product/bpc-157/",
+      "description": "BPC-157 individual, actualmente sin existencias. Consulta disponibilidad futura o revisa la presentación combinada BPC-157 + TB-500.",
+      "json_ld_count": 2,
+      "json_ld_invalid": 0,
+      "elementor_detected": true,
+      "requested_url": "https://peptidosysuplementos.mx/product/bpc-157/?_hermes_verify=1785852429712330200",
+      "final_url": "https://peptidosysuplementos.mx/product/bpc-157/?_hermes_verify=1785852429712330200",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "cache_headers": {
+        "Cache-Control": "public, max-age=300, stale-while-revalidate=600",
+        "x-litespeed-cache": "miss"
+      },
+      "html_bytes": 44110,
+      "visible_text_chars": 5703,
+      "visible_text_sha256": "0410ba1225409da9b4d75a4ed401d47177d421b6578c1c725b03be7871467be4"
+    }
+  },
+  "screenshot_required": true,
+  "note": "PASS covers public HTML checks only; API read-back and anonymous screenshot remain required."
+}

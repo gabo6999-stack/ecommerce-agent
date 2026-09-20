@@ -1,0 +1,91 @@
+{
+  "date": "2026-08-05",
+  "market": "Mexico",
+  "ranking_baseline": {
+    "source": "DataForSEO SERP live advanced",
+    "location_code": 2484,
+    "language_code": "es",
+    "device": "desktop",
+    "keywords_tracked": 21,
+    "keywords_top20": 15,
+    "keywords_top10": 8,
+    "best_position": 4,
+    "position_21_100_returned": [
+      {
+        "keyword": "servidor pacs",
+        "position": 22
+      }
+    ],
+    "comparison_2026_07_31": {
+      "keywords_top20": 13,
+      "keywords_top10": 5,
+      "best_position": 5
+    },
+    "competitor_visibility_same_sample": {
+      "raditech.mx": {
+        "top20": 15,
+        "top10": 8,
+        "best": 4
+      },
+      "radiocare.mx": {
+        "top20": 11,
+        "top10": 7,
+        "best": 2
+      },
+      "nubix.cloud": {
+        "top20": 11,
+        "top10": 8,
+        "best": 5
+      },
+      "technodomus.com": {
+        "top20": 10,
+        "top10": 7,
+        "best": 2
+      }
+    }
+  },
+  "analytics_baseline": {
+    "ga4_tag_detected": "G-B3DKMWLLJ5",
+    "site_kit_modules_connected": [
+      "search-console",
+      "analytics-4"
+    ],
+    "site_kit_report_access": "BLOCKED_MISSING_REQUIRED_SCOPES",
+    "required_scopes": [
+      "https://www.googleapis.com/auth/webmasters",
+      "https://www.googleapis.com/auth/analytics.readonly"
+    ],
+    "home_whatsapp_links_detected": 6,
+    "custom_events_detected": {
+      "whatsapp_click": false,
+      "generate_lead": false,
+      "form_submit": false
+    },
+    "hubspot_form_detected": true
+  },
+  "commercial_baseline": {
+    "organic_qualified_leads_last_28_days": null,
+    "organic_quotes_last_28_days": null,
+    "organic_contracts_last_28_days": null,
+    "status": "NOT_MEASURABLE_WITH_CURRENT_ACCESS_AND_EVENT_INSTRUMENTATION",
+    "reason": "No se obtuvieron reportes agregados por falta de permisos OAuth y no hay eventos personalizados visibles para WhatsApp o formularios. No se inventa un cero."
+  },
+  "metric_definitions": {
+    "organic_qualified_lead": "Contacto atribuido a organic search que identifica institución, línea de servicio y necesidad evaluable por ventas.",
+    "organic_quote": "Lead orgánico para el que se genera una cotización formal.",
+    "organic_contract": "Cotización orgánica convertida en contrato.",
+    "events_to_instrument": [
+      "whatsapp_click",
+      "lead_form_submit",
+      "demo_request",
+      "quote_request"
+    ],
+    "event_privacy": "No enviar nombres, correos, teléfonos, mensajes ni identificadores de clientes a GA4."
+  },
+  "next_measurement": {
+    "rankings": "weekly_same_market_device_keywords",
+    "gsc_and_ga4": "weekly_after_scope_reauthorization",
+    "leads_quotes_contracts": "monthly",
+    "first_clean_commercial_baseline": "28 days after event instrumentation"
+  }
+}

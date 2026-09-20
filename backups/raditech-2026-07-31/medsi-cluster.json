@@ -1,0 +1,542 @@
+{
+ "vol": {
+  "nom-004": 18100,
+  "nom 004 expediente clinico": 3600,
+  "expediente clinico electronico": 880,
+  "sistema his": 40,
+  "software hospitalario": 30,
+  "que es his": 170,
+  "sistema de informacion hospitalaria": 70,
+  "expediente clinico": 9900,
+  "software para hospitales": 40,
+  "software para clinicas": 70,
+  "expediente medico electronico": 260,
+  "software de expediente clinico": 10
+ },
+ "serps": {
+  "nom-004": [
+   [
+    2,
+    "dof.gob.mx",
+    "NOM-004-SSA3-2012, Del expediente clínico"
+   ],
+   [
+    3,
+    "platiica.economia.gob.mx",
+    "NOM-004-SSA3-2012 – Normalización"
+   ],
+   [
+    5,
+    "www.conamed.gob.mx",
+    "NOM-004-SSA3-2012, Del expediente clínico"
+   ],
+   [
+    6,
+    "www.softwaremedilink.com",
+    "NOM Expediente Clínico: guía sobre la NOM-004-"
+   ],
+   [
+    7,
+    "blog.hulipractice.com",
+    "Resumen de NOM 004 y 024 para Expediente Clíni"
+   ],
+   [
+    8,
+    "www.youtube.com",
+    "🩺 [Summary] NOM-004-SSA3-2012 on Medical Recor"
+   ],
+   [
+    9,
+    "saludtotal.mx",
+    "NOM-004-SSA3-2012 Explicada en Simple - SaludT"
+   ],
+   [
+    10,
+    "www.nimbo-x.com",
+    "Software NOM 004 sobre el Expediente Clínico"
+   ],
+   [
+    11,
+    "www.alephoo.com",
+    "NOM-004 y expediente clínico electrónico Méxic"
+   ]
+  ],
+  "nom 004 expediente clinico": [
+   [
+    2,
+    "dof.gob.mx",
+    "NOM-004-SSA3-2012, Del expediente clínico"
+   ],
+   [
+    3,
+    "www.conamed.gob.mx",
+    "NOM-004-SSA3-2012, Del expediente clínico"
+   ],
+   [
+    4,
+    "platiica.economia.gob.mx",
+    "NOM-004-SSA3-2012 – Normalización"
+   ],
+   [
+    6,
+    "www.softwaremedilink.com",
+    "NOM Expediente Clínico: guía sobre la NOM-004-"
+   ],
+   [
+    7,
+    "blog.hulipractice.com",
+    "Resumen de NOM 004 y 024 para Expediente Clíni"
+   ],
+   [
+    8,
+    "www.nimbo-x.com",
+    "Software NOM 004 sobre el Expediente Clínico"
+   ],
+   [
+    9,
+    "www.youtube.com",
+    "🩺 [Summary] NOM-004-SSA3-2012 on Medical Recor"
+   ],
+   [
+    10,
+    "saludtotal.mx",
+    "Expediente Clínico: los 14 Documentos Obligato"
+   ],
+   [
+    11,
+    "www.anmm.org.mx",
+    "Expediente Clínico"
+   ]
+  ],
+  "expediente clinico electronico": [
+   [
+    1,
+    "www.softwaremedilink.com",
+    "Expediente clínico electrónico: qué es y cómo "
+   ],
+   [
+    2,
+    "dgmoss.salud.gob.mx",
+    "PROPUESTA DE UN EXPEDIENTE CLÍNICO ELECTRÓNICO"
+   ],
+   [
+    3,
+    "www.hulipractice.com",
+    "Expediente Clínico Electrónico - Huli"
+   ],
+   [
+    4,
+    "www.imss.gob.mx",
+    "Expediente Clínico Electrónico del IMSS será e"
+   ],
+   [
+    5,
+    "www.youtube.com",
+    "Cómo escoger tu expediente clínico electrónico"
+   ],
+   [
+    6,
+    "www.dof.gob.mx",
+    "NORMA Oficial Mexicana NOM-024-SSA3-2010, Que "
+   ],
+   [
+    7,
+    "www.uv.mx",
+    "Los Expedientes Clínicos Electrónicos (ECE)"
+   ],
+   [
+    8,
+    "www.compuexpediente.com",
+    "COMPUEXPEDIENTE: Expediente Clínico Electrónic"
+   ],
+   [
+    9,
+    "telmex.com",
+    "Expediente Electrónico Médicos - Negocios"
+   ],
+   [
+    12,
+    "expedienteclinico.mx",
+    "MediSel, Expediente Clínico Electrónico"
+   ]
+  ],
+  "sistema his": [
+   [
+    2,
+    "isid.com",
+    "HIS: Sistema de información hospitalaria - ISI"
+   ],
+   [
+    3,
+    "his-hdmra.mspbs.gov.py",
+    "PY HIS"
+   ],
+   [
+    8,
+    "www.getcirrus.com",
+    "[Infografía] La importancia de los sistemas HI"
+   ],
+   [
+    9,
+    "www.evaluandoerp.com",
+    "¿Qué es HIS? Sistema de información hospitalar"
+   ],
+   [
+    10,
+    "k2bhealth.com",
+    "¿Qué es un Sistema de Información Hospitalaria"
+   ],
+   [
+    11,
+    "www.tca.com",
+    "Assist Sistema de Información Hospitalario (HI"
+   ]
+  ],
+  "software hospitalario": [
+   [
+    2,
+    "www.sctelecom.com.mx",
+    "Software para Hospitales | Solicita una Demo -"
+   ],
+   [
+    3,
+    "www.capterra.mx",
+    "Software de gestión hospitalaria"
+   ],
+   [
+    4,
+    "www.softwaredoit.es",
+    "Los 6 mejores software para Hospitales - HIS ["
+   ],
+   [
+    7,
+    "www.hulipractice.com",
+    "Software de Gestión y Directorio para Hospital"
+   ],
+   [
+    8,
+    "www.harmonimd.com",
+    "HarmoniMD | Software de gestión hospitalaria c"
+   ],
+   [
+    9,
+    "www.logicbus.com.mx",
+    "Software para gestión hospitalaria"
+   ],
+   [
+    10,
+    "www.medesk.net",
+    "Top 6 Software de Gestión Hospitalaria en Lati"
+   ],
+   [
+    11,
+    "listado.mercadolibre.com.mx",
+    "Software Para Hospital"
+   ]
+  ],
+  "que es his": [
+   [
+    3,
+    "gesnovasalud.com",
+    "¿Qué es HIS y por qué es importante?"
+   ],
+   [
+    4,
+    "www.evaluandoerp.com",
+    "¿Qué es HIS? Sistema de información hospitalar"
+   ],
+   [
+    5,
+    "isid.com",
+    "HIS: Sistema de información hospitalaria - ISI"
+   ],
+   [
+    8,
+    "torax.cl",
+    "Sistema de Información Hospitalaria (HIS): una"
+   ],
+   [
+    9,
+    "k2bhealth.com",
+    "¿Qué es un Sistema de Información Hospitalaria"
+   ],
+   [
+    10,
+    "www.digitalware.com.co",
+    "¿Qué es HIS y por qué implementarlo?"
+   ],
+   [
+    11,
+    "www.instagram.com",
+    "Un Sistema de Información Hospitalaria (HIS) e"
+   ]
+  ],
+  "sistema de informacion hospitalaria": [
+   [
+    2,
+    "gc.scalahed.com",
+    "Sistema de Información Hospitalaria"
+   ],
+   [
+    4,
+    "www.getcirrus.com",
+    "[Infografía] La importancia de los sistemas HI"
+   ],
+   [
+    5,
+    "sih.hgdz.gob.ec",
+    "Sistema de Información Hospitalaria"
+   ],
+   [
+    6,
+    "www.evaluandoerp.com",
+    "¿Qué es HIS? Sistema de información hospitalar"
+   ],
+   [
+    7,
+    "revmedmilitar.sld.cu",
+    "Gestión del sistema de información en la atenc"
+   ],
+   [
+    8,
+    "www.paho.org",
+    "Sistemas de información para la salud - OPS/OM"
+   ],
+   [
+    9,
+    "es.wikipedia.org",
+    "Sistemas de información hospitalaria"
+   ],
+   [
+    10,
+    "hraez.edomex.gob.mx",
+    "Sistema Integral Hospitalario | Hospital Regio"
+   ]
+  ],
+  "expediente clinico": [
+   [
+    2,
+    "dof.gob.mx",
+    "NOM-004-SSA3-2012, Del expediente clínico"
+   ],
+   [
+    3,
+    "www.gob.mx",
+    "Información del Expediente Clínico"
+   ],
+   [
+    5,
+    "www.conamed.gob.mx",
+    "Expediente Clínico"
+   ],
+   [
+    6,
+    "www.youtube.com",
+    "El Expediente clínico"
+   ],
+   [
+    7,
+    "www.scielo.org.mx",
+    "¿El expediente clínico debe ser clasificado co"
+   ],
+   [
+    8,
+    "www.nimbo-x.com",
+    "Qué es un Expediente Clínico Electrónico o ECE"
+   ],
+   [
+    9,
+    "saludtotal.mx",
+    "Qué Debe Contener un Expediente Clínico: Check"
+   ],
+   [
+    10,
+    "saludpublica.mx",
+    "EL EXPEDIENTE CLINICO"
+   ],
+   [
+    11,
+    "mexico.unir.net",
+    "Cómo gestionar el expediente clínico de un pac"
+   ]
+  ],
+  "software para hospitales": [
+   [
+    1,
+    "www.sctelecom.com.mx",
+    "Software para Hospitales | Solicita una Demo -"
+   ],
+   [
+    2,
+    "www.softwaredoit.es",
+    "Los 6 mejores software para Hospitales - HIS ["
+   ],
+   [
+    4,
+    "www.harmonimd.com",
+    "HarmoniMD | Software de gestión hospitalaria c"
+   ],
+   [
+    5,
+    "www.capterra.mx",
+    "Software de gestión hospitalaria"
+   ],
+   [
+    6,
+    "www.medesk.net",
+    "Top 6 Software de Gestión Hospitalaria en Lati"
+   ],
+   [
+    8,
+    "www.hulipractice.com",
+    "Software de Gestión y Directorio para Hospital"
+   ],
+   [
+    9,
+    "www.logicbus.com.mx",
+    "Software para gestión hospitalaria"
+   ],
+   [
+    10,
+    "www.arbentia.com",
+    "Software para clínicas y hospitales"
+   ]
+  ],
+  "software para clinicas": [
+   [
+    2,
+    "www.nimbo-x.com",
+    "Nimbo: Software para clínicas y consultorios m"
+   ],
+   [
+    3,
+    "www.hulipractice.com",
+    "Huli: Software médico con IA para Consultorio "
+   ],
+   [
+    4,
+    "www.softwaredoit.es",
+    "Los 5 mejores Software Médico y para Clínicas "
+   ],
+   [
+    5,
+    "dricloud.com",
+    "Software Médico con IA Avanzada | Gestión de C"
+   ],
+   [
+    6,
+    "www.medesk.net",
+    "Software Médico para Clínicas, Consultorios e "
+   ],
+   [
+    7,
+    "www.softwaremedilink.com",
+    "Mejor software para clínicas: cómo elegir la m"
+   ],
+   [
+    8,
+    "clinic-cloud.com",
+    "Software médico | Programa de gestión de clíni"
+   ],
+   [
+    10,
+    "medis365.com.mx",
+    "Medis365"
+   ]
+  ],
+  "expediente medico electronico": [
+   [
+    1,
+    "www.softwaremedilink.com",
+    "Expediente clínico electrónico: qué es y cómo "
+   ],
+   [
+    2,
+    "www.hulipractice.com",
+    "Expediente Clínico Electrónico - Huli"
+   ],
+   [
+    3,
+    "dgmoss.salud.gob.mx",
+    "PROPUESTA DE UN EXPEDIENTE CLÍNICO ELECTRÓNICO"
+   ],
+   [
+    4,
+    "telmex.com",
+    "Expediente Electrónico Médicos - Negocios"
+   ],
+   [
+    5,
+    "www.youtube.com",
+    "Cómo escoger tu expediente clínico electrónico"
+   ],
+   [
+    6,
+    "expedienteclinico.mx",
+    "MediSel, Expediente Clínico Electrónico"
+   ],
+   [
+    7,
+    "www.uv.mx",
+    "Los Expedientes Clínicos Electrónicos (ECE)"
+   ],
+   [
+    9,
+    "dar.care",
+    "DAR Expediente Clínico Electrónico Gratuito"
+   ],
+   [
+    10,
+    "www.nimbo-x.com",
+    "Expediente Clínico Electrónico México"
+   ],
+   [
+    11,
+    "www.tiktok.com",
+    "Guía de Expediente Clínico Electrónico en Méxi"
+   ]
+  ],
+  "software de expediente clinico": [
+   [
+    2,
+    "www.nimbo-x.com",
+    "Nimbo: Software para clínicas y consultorios m"
+   ],
+   [
+    3,
+    "expedienteclinico.mx",
+    "MediSel, Expediente Clínico Electrónico"
+   ],
+   [
+    4,
+    "www.hulipractice.com",
+    "Huli: Software médico con IA para Consultorio "
+   ],
+   [
+    5,
+    "medis365.com.mx",
+    "Medis365"
+   ],
+   [
+    6,
+    "dar.care",
+    "DAR Expediente Clínico Electrónico Gratuito"
+   ],
+   [
+    7,
+    "listado.mercadolibre.com.mx",
+    "Software Expediente Medico"
+   ],
+   [
+    8,
+    "www.dsoft.mx",
+    "eExpediente - Sistema para la administración d"
+   ],
+   [
+    9,
+    "telmex.com",
+    "Expediente Electrónico Médicos - Negocios"
+   ]
+  ]
+ }
+}

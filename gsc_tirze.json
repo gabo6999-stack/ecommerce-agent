@@ -1,0 +1,78 @@
+{
+ "landing  /tirzepatida-en-mexico/": [
+  {
+   "keys": [
+    "glp-1"
+   ],
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 5.2
+  },
+  {
+   "keys": [
+    "tirzepatida"
+   ],
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 1.4
+  }
+ ],
+ "ficha    /product/tirzepatida/": [
+  {
+   "keys": [
+    "comprar tirzepatida liofilizada"
+   ],
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 68
+  },
+  {
+   "keys": [
+    "tirzepatida 30 mg precio"
+   ],
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 5.5
+  },
+  {
+   "keys": [
+    "tirzepatida 60 mg"
+   ],
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 54
+  },
+  {
+   "keys": [
+    "tirzepatida 60mg"
+   ],
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 74
+  },
+  {
+   "keys": [
+    "tirzepatida de 60mg"
+   ],
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 31
+  },
+  {
+   "keys": [
+    "tirzepatide 30mg"
+   ],
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 90
+  }
+ ]
+}
