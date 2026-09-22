@@ -89,12 +89,16 @@ SONDA = r"""
   document.querySelectorAll('img').forEach(im => {
     if (!visible(im) || im.closest(CROMO)) return;
     let a = im.parentElement;
+    let desplazable = false;
     while (a && a !== document.body) {
       const s = getComputedStyle(a);
+      // una tabla que se desplaza de lado NO corta: lo que no cabe se alcanza
+      // deslizando (los emoji de las tablas del blog en móvil daban falso aviso)
+      if (/(auto|scroll)/.test(s.overflowX + s.overflowY)) { desplazable = true; break; }
       if (s.overflow === 'hidden' || s.overflowY === 'hidden' || s.overflowX === 'hidden') break;
       a = a.parentElement;
     }
-    if (!a || a === document.body) return;
+    if (desplazable || !a || a === document.body) return;
     const ri = im.getBoundingClientRect(), ra = a.getBoundingClientRect();
     const sobra = Math.max(ra.top - ri.top, ri.bottom - ra.bottom, ra.left - ri.left, ri.right - ra.right);
     // Lo que importa es si la CAJA de la imagen se sale de su contenedor, no su
