@@ -1,0 +1,146 @@
+[
+ {
+  "slug": "agua-bacteriostatica-3ml",
+  "label": "Reconstitución",
+  "name": "Agua Bacteriostática 3 ml",
+  "price": "$350.00 MXN",
+  "img": "Agua-Bacteriostatica-3ml-v4.png",
+  "alt": "Agua Bacteriostática 3 ml"
+ },
+ {
+  "slug": "bpc-157-tb-500",
+  "label": "Recuperación",
+  "name": "BPC-157 / TB-500 5/5 mg",
+  "price": "$1,800.00 MXN",
+  "img": "BPC-157-TB-500-5mg-v4.png",
+  "alt": "BPC-157 / TB-500 5/5 mg"
+ },
+ {
+  "slug": "bpc-157",
+  "label": "Recuperación",
+  "name": "BPC-157",
+  "price": "Desde $800.00 MXN",
+  "img": "BPC-157-v4.png",
+  "alt": "BPC-157 presentación individual"
+ },
+ {
+  "slug": "cagrilintida-10mg",
+  "label": "Metabolismo",
+  "name": "Cagrilintida 10 mg",
+  "price": "$2,300.00 MXN",
+  "img": "Cagrilintida-10mg-v4.png",
+  "alt": "Cagrilintida 10 mg"
+ },
+ {
+  "slug": "cjc-1295-ipamorelina-5mg",
+  "label": "Hormona de crecimiento",
+  "name": "CJC-1295 / Ipamorelina 5/5 mg",
+  "price": "$1,200.00 MXN",
+  "img": "CJC-1295-Ipamorelina-5mg-v4.png",
+  "alt": "CJC-1295 / Ipamorelina 5/5 mg"
+ },
+ {
+  "slug": "ghk-cu",
+  "label": "Regeneración",
+  "name": "GHK-Cu 100 mg",
+  "price": "$1,800.00 MXN",
+  "img": "",
+  "alt": "GHK-Cu 100 mg"
+ },
+ {
+  "slug": "glutation-1500mg",
+  "label": "Antioxidante",
+  "name": "Glutatión 1500 mg",
+  "price": "$1,500.00 MXN",
+  "img": "Glutation-1500mg-v4.png",
+  "alt": "Glutatión 1500 mg"
+ },
+ {
+  "slug": "igf-1-lr3-1mg",
+  "label": "Investigación",
+  "name": "IGF-1 LR3 1 mg",
+  "price": "$1,800.00 MXN",
+  "img": "IGF-1-LR3-1mg-v4.png",
+  "alt": "IGF-1 LR3 1 mg"
+ },
+ {
+  "slug": "mots-c-10mg",
+  "label": "Energía celular",
+  "name": "MOTS-c 10 mg",
+  "price": "$1,200.00 MXN",
+  "img": "MOTS-c-10mg-v4.png",
+  "alt": "MOTS-c 10 mg"
+ },
+ {
+  "slug": "mots-c-40mg",
+  "label": "Metabolismo",
+  "name": "MOTS-c 40 mg",
+  "price": "$3,200.00 MXN",
+  "img": "MOTS-c-40mg-v4.png",
+  "alt": "MOTS-c 40 mg"
+ },
+ {
+  "slug": "nad-suplemento",
+  "label": "Energía celular",
+  "name": "NAD+ 500 mg",
+  "price": "$1,400.00 MXN",
+  "img": "NAD-500mg-v4.png",
+  "alt": "NAD+ 500 mg"
+ },
+ {
+  "slug": "retatrutida",
+  "label": "Metabolismo",
+  "name": "Retatrutida 30 mg",
+  "price": "$4,000.00 MXN",
+  "img": "Retatrutida-30mg-v4.png",
+  "alt": "Retatrutida 30 mg"
+ },
+ {
+  "slug": "selank-10-mg",
+  "label": "Cognitivo",
+  "name": "Selank 10 mg",
+  "price": "$1,100.00 MXN",
+  "img": "Selank-10mg-v4.png",
+  "alt": "Selank 10 mg"
+ },
+ {
+  "slug": "semaglutida-20mg",
+  "label": "Metabolismo",
+  "name": "Semaglutida 20 mg",
+  "price": "$1,400.00 MXN",
+  "img": "Semaglutida-20mg-v4.png",
+  "alt": "Semaglutida 20 mg"
+ },
+ {
+  "slug": "semaglutida-5-mg",
+  "label": "Metabolismo",
+  "name": "Semaglutida 5 mg",
+  "price": "$800.00 MXN",
+  "img": "Semaglutida-5mg-v4.png",
+  "alt": "Semaglutida 5 mg"
+ },
+ {
+  "slug": "sermorelina-10mg",
+  "label": "Hormona de crecimiento",
+  "name": "Sermorelina 10 mg",
+  "price": "$1,900.00 MXN",
+  "img": "Sermorelina-10mg-v4.png",
+  "alt": "Sermorelina 10 mg"
+ },
+ {
+  "slug": "thymosin-alpha-1-10mg",
+  "label": "Sistema inmune",
+  "name": "Thymosin Alpha-1 10 mg",
+  "price": "$2,800.00 MXN",
+  "img": "Thymosin-Alpha-1-10mg-v4.png",
+  "alt": "Thymosin Alpha-1 10 mg"
+ },
+ {
+  "slug": "tirzepatida",
+  "label": "Wellness metabólico",
+  "name": "Tirzepatida",
+  "price": "Desde $1,900.00 MXN",
+  "img": "Tirzepatida-v4.png",
+  "alt": "Tirzepatida vial liofilizado, etiqueta de producto PYS"
+ }
+]

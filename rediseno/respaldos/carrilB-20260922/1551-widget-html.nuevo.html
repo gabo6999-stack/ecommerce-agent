@@ -1,0 +1,525 @@
+<p><strong>Péptidos México</strong>: catálogo completo con precios, dosis y disponibilidad de cada producto.</p><section class="pys-section-root pys-peptidos-page" id="peptidos-en-mexico">
+
+  <style>
+
+    .pys-peptidos-page{
+
+      position:relative;overflow:hidden;padding:0;
+
+      font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+
+      color:#f5f5f2;
+
+      background:
+
+        radial-gradient(circle at 10% 18%,rgba(0,229,196,.14),transparent 28%),
+
+        radial-gradient(circle at 88% 14%,rgba(247,0,122,.14),transparent 26%),
+
+        linear-gradient(135deg,#090a0b 0%,#111214 48%,#1a1117 100%);
+
+    }
+
+    .pys-peptidos-page *{box-sizing:border-box}
+
+    .pys-wrap{width:min(100% - 32px,1180px);margin:auto;position:relative;z-index:2}
+
+
+
+    .pys-bg-grid{
+
+      position:absolute;inset:0;pointer-events:none;opacity:.26;
+
+      background-image:
+
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+
+      background-size:38px 38px;
+
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 74%);
+
+    }
+
+
+
+    .pys-hero{padding:110px 0 80px}
+
+    .pys-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+
+
+
+    .pys-badge,.pys-tag{
+
+      display:inline-flex;align-items:center;gap:10px;border-radius:999px;
+
+      text-transform:uppercase;font-weight:900;letter-spacing:.12em;
+
+    }
+
+    .pys-badge{
+
+      padding:12px 18px;margin-bottom:28px;
+
+      border:1px solid rgba(255,255,255,.12);
+
+      background:rgba(255,255,255,.06);color:#fff;font-size:.76rem;
+
+    }
+
+    .pys-badge:before,.pys-tag:before{
+
+      content:"";width:9px;height:9px;border-radius:50%;
+
+      background:linear-gradient(135deg,#00e5c4,#f7007a);
+
+      box-shadow:0 0 14px rgba(0,229,196,.55);
+
+    }
+
+
+
+    .pys-title{
+
+      margin:0;font-family:"Optima","Optima LT Std","Candara","Segoe UI",Arial,sans-serif;
+
+      font-size:clamp(3.2rem,7vw,7rem);line-height:.9;font-weight:400;
+
+      letter-spacing:-.06em;color:#fff;max-width:780px;
+
+    }
+
+    .pys-title span{
+
+      background:linear-gradient(135deg,#00e5c4,#f7007a);
+
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+
+    }
+
+    .pys-copy,.pys-section-copy{
+
+      color:#cfd5d2;line-height:1.9;font-size:1.02rem;
+
+    }
+
+    .pys-copy{margin:30px 0 0;max-width:700px}
+
+
+
+    .pys-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+    .pys-btn{
+
+      min-height:54px;padding:16px 28px;border-radius:999px;text-decoration:none!important;
+
+      display:inline-flex;align-items:center;justify-content:center;text-transform:uppercase;
+
+      letter-spacing:.11em;font-size:.75rem;font-weight:900;transition:.28s ease;
+
+    }
+
+    .pys-btn-primary{background:#00e5c4;color:#111!important;box-shadow:0 18px 44px rgba(0,229,196,.24)}
+
+    .pys-btn-secondary{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#fff!important}
+
+    .pys-btn:hover{transform:translateY(-4px)}
+
+
+
+    .pys-visual{
+
+      position:relative;min-height:680px;border-radius:38px;overflow:hidden;
+
+      background:
+
+        radial-gradient(circle at top left,rgba(0,229,196,.18),transparent 30%),
+
+        radial-gradient(circle at bottom right,rgba(247,0,122,.18),transparent 28%),
+
+        linear-gradient(145deg,#131517,#1b1d20);
+
+      border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 70px rgba(0,0,0,.34);
+
+    }
+
+    .pys-visual:before{
+
+      content:"";position:absolute;inset:18px;border-radius:28px;border:1px solid rgba(255,255,255,.08);
+
+      background:
+
+        linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+
+        linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+
+      background-size:34px 34px;
+
+    }
+
+    .pys-watermark{
+
+      position:absolute;top:34px;right:34px;font-size:5.6rem;line-height:.9;
+
+      font-family:"Optima","Optima LT Std","Candara","Segoe UI",Arial,sans-serif;
+
+      color:rgba(255,255,255,.05);letter-spacing:-.08em;z-index:2;
+
+    }
+
+    .pys-featured-image{
+
+      position:absolute;inset:auto 50% 28px auto;transform:translateX(50%);
+
+      width:92%;max-width:760px;z-index:3;object-fit:contain;
+
+      filter:drop-shadow(0 30px 50px rgba(0,0,0,.4));
+
+    }
+
+    .pys-floating{
+
+      position:absolute;top:28px;left:28px;width:250px;border-radius:26px;padding:22px;
+
+      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+
+      backdrop-filter:blur(16px);z-index:4;box-shadow:0 18px 44px rgba(0,0,0,.24);
+
+    }
+
+    .pys-floating h3{margin:0 0 12px;color:#00e5c4;font-size:.88rem;letter-spacing:.12em;text-transform:uppercase}
+
+    .pys-floating p{margin:0;color:#d9dcd9;line-height:1.7;font-size:.92rem}
+
+    .pys-pill{
+
+      position:absolute;right:24px;bottom:24px;padding:14px 18px;border-radius:999px;
+
+      background:#f7007a;color:#fff;text-transform:uppercase;letter-spacing:.12em;
+
+      font-size:.7rem;font-weight:900;z-index:5;
+
+    }
+
+
+
+    .pys-section{padding:88px 0}
+
+    .pys-head{max-width:800px;margin-bottom:48px}
+
+    .pys-tag{color:#00e5c4;font-size:.74rem;margin-bottom:18px}
+
+    .pys-section-title{
+
+      margin:0;font-family:"Optima","Optima LT Std","Candara","Segoe UI",Arial,sans-serif;
+
+      font-size:clamp(2rem,4vw,4rem);line-height:1;font-weight:400;
+
+      letter-spacing:-.05em;color:#fff;
+
+    }
+
+    .pys-section-copy{margin:24px 0 0}
+
+
+
+    .pys-grid-cards{display:grid;gap:24px;grid-template-columns:repeat(3,1fr)}
+
+    .pys-card{
+
+      border-radius:30px;padding:34px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+
+      border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 48px rgba(0,0,0,.24);
+
+    }
+
+    .pys-card h3{margin:0 0 16px;color:#fff;font-size:1.3rem}
+
+    .pys-card p{margin:0;color:#d4d8d6;line-height:1.8;font-size:.96rem}
+
+    .pys-number{
+
+      width:54px;height:54px;border-radius:18px;display:flex;align-items:center;justify-content:center;
+
+      background:linear-gradient(135deg,#00e5c4,#f7007a);color:#111;font-weight:900;margin-bottom:22px;
+
+    }
+
+
+
+    .pys-editorial{
+
+      border-radius:38px;padding:70px;background:
+
+        radial-gradient(circle at top left,rgba(0,229,196,.16),transparent 28%),
+
+        radial-gradient(circle at bottom right,rgba(247,0,122,.14),transparent 26%),
+
+        linear-gradient(135deg,#141516,#1b1117);
+
+      border:1px solid rgba(255,255,255,.12);box-shadow:0 28px 70px rgba(0,0,0,.3);
+
+    }
+
+    .pys-editorial h2{
+
+      margin:0;font-family:"Optima","Optima LT Std","Candara","Segoe UI",Arial,sans-serif;
+
+      font-size:clamp(2.3rem,5vw,5rem);line-height:.96;font-weight:400;letter-spacing:-.05em;color:#fff;
+
+    }
+
+    .pys-editorial p{max-width:780px;margin:26px 0 0;color:#d4d9d7;line-height:1.9}
+
+
+
+    @media(max-width:1100px){
+
+      .pys-hero-grid,.pys-grid-cards{grid-template-columns:1fr}
+
+      .pys-visual{min-height:620px}
+
+    }
+
+
+
+    @media(max-width:640px){
+
+      .pys-wrap{width:min(100% - 28px,1180px)}
+
+      .pys-hero{padding:70px 0 50px}
+
+      .pys-title{font-size:clamp(2.4rem,13vw,4.3rem);line-height:.95}
+
+      .pys-actions{flex-direction:column}
+
+      .pys-btn{width:100%}
+
+      .pys-section{padding:58px 0}
+
+      .pys-card,.pys-editorial{padding:30px 24px}
+
+      .pys-visual{min-height:520px}
+
+      .pys-floating{position:relative;width:calc(100% - 36px);left:auto;top:auto;margin:18px}
+
+      .pys-pill{left:18px;right:18px;text-align:center}
+
+      .pys-watermark{font-size:4rem}
+
+    }
+
+  </style>
+
+
+
+  <div class="pys-bg-grid"></div>
+
+
+
+  <section class="pys-hero">
+
+    <div class="pys-wrap">
+
+      <div class="pys-hero-grid">
+
+        <div>
+
+          <div class="pys-badge">Péptidos y Suplementos MX</div>
+
+
+
+          <h1 class="pys-title">
+
+            Péptidos en México para <span>investigación, metabolismo y recuperación</span>
+
+          </h1>
+
+
+
+          <p class="pys-copy">
+
+            Explora una selección especializada de péptidos en México, con enfoque en investigación, pureza, disponibilidad, bienestar avanzado, recuperación física y optimización metabólica.
+
+          </p>
+
+
+
+          <div class="pys-actions">
+
+            <a class="pys-btn pys-btn-primary" href="#catalogo-peptidos">Ver péptidos</a>
+
+            <a class="pys-btn pys-btn-secondary" href="https://wa.me/5215534449236?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20p%C3%A9ptidos%20en%20M%C3%A9xico.">Solicitar información</a>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="pys-visual">
+
+          <div class="pys-watermark">P&S</div>
+
+
+
+          <div class="pys-floating">
+
+            <h3>Péptidos de investigación</h3>
+
+            <p>Compuestos seleccionados para investigación, metabolismo, recuperación física y bienestar avanzado.</p>
+
+          </div>
+
+
+
+          <img class="pys-featured-image" src="http://peptidosysuplementos.mx/wp-content/uploads/2026/05/peptidos.png" alt="Péptidos en México">
+
+
+
+          <div class="pys-pill">Catálogo especializado</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="pys-section">
+
+    <div class="pys-wrap">
+
+      <div class="pys-head">
+
+        <div class="pys-tag">Péptidos</div>
+
+        <h2 class="pys-section-title">Péptidos para investigación y wellness avanzado</h2>
+
+        <p class="pys-section-copy">
+
+          Los péptidos son cadenas de aminoácidos estudiadas por su relación con procesos biológicos como metabolismo, recuperación física, reparación tisular, señalización celular y composición corporal.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="pys-grid-cards">
+
+        <article class="pys-card">
+
+          <div class="pys-number">01</div>
+
+          <h3>Metabolismo</h3>
+
+          <p>Péptidos vinculados a líneas de investigación sobre metabolismo, composición corporal y bienestar avanzado.</p>
+
+        </article>
+
+
+
+        <article class="pys-card">
+
+          <div class="pys-number">02</div>
+
+          <h3>Recuperación</h3>
+
+          <p>Compuestos relacionados con investigación sobre recuperación física, tejidos y rendimiento funcional.</p>
+
+        </article>
+
+
+
+        <article class="pys-card">
+
+          <div class="pys-number">03</div>
+
+          <h3>Biohacking</h3>
+
+          <p>Productos integrados al ecosistema de investigación, suplementación avanzada y optimización humana.</p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="pys-section" id="catalogo-peptidos">
+
+    <div class="pys-wrap">
+
+      <div class="pys-head">
+
+        <div class="pys-tag">Catálogo</div>
+
+        <h2 class="pys-section-title">Péptidos disponibles</h2>
+
+        <p class="pys-section-copy">
+
+          Catálogo completo de la línea de péptidos de Péptidos y Suplementos MX (18 productos).
+
+        </p>
+
+      </div>
+
+
+
+      [pys_catalogo tipo="peptidos"]
+
+    </div>
+
+  </section><section class="pys-section">
+
+    <div class="pys-wrap">
+
+      <div class="pys-editorial">
+
+        <div class="pys-tag">Información clara</div>
+
+
+
+        <h2>Péptidos en México con enfoque responsable</h2>
+
+
+
+        <p>
+
+          Consulta productos, presentaciones y disponibilidad dentro del catálogo de Péptidos y Suplementos MX. Esta página está orientada a información comercial y descriptiva sobre péptidos.
+
+        </p>
+
+
+
+        <div class="pys-actions">
+
+          <a class="pys-btn pys-btn-primary" href="https://peptidosysuplementos.mx/comprar-peptidos-en-mexico/">Explorar catálogo</a>
+
+          <a class="pys-btn pys-btn-secondary" href="https://wa.me/5215534449236?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20p%C3%A9ptidos%20y%20suplementos.">WhatsApp</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
+<h2>Guías por necesidad</h2>
+<ul>
+
+<li><a href="https://peptidosysuplementos.mx/peptidos-inyectables/">Péptidos inyectables</a></li>
+<li><a href="https://peptidosysuplementos.mx/peptidos-para-masa-muscular/">Péptidos para masa muscular</a></li>
+</ul>
+<p>El catálogo de <strong>péptidos México</strong> de PyS reúne compuestos de investigación con pureza ≥99% verificada por HPLC y certificado de análisis por lote. Cada ficha indica gramaje, precio y disponibilidad real.</p><h2>Cómo elegir entre los péptidos México disponibles</h2>
+<p>Al comparar <strong>péptidos México</strong> conviene revisar tres cosas antes del precio: que exista certificado de análisis por lote, que el gramaje esté declarado con claridad y que el proveedor indique cómo reconstituir el vial. Un catálogo de <strong>péptidos México</strong> sin esos datos obliga a confiar a ciegas.</p>

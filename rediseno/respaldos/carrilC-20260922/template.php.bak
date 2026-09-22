@@ -21,14 +21,9 @@ if ( function_exists( 'WC' ) ) {
 	wp_enqueue_script( 'wc-cart-fragments' ); // contador del carrito en vivo
 }
 
-/* ─── enlaces reales del sitio ─────────────────────────────────────────
-   La cabecera, el menú de teléfono y el pie de la portada tienen que ser
-   IDÉNTICOS a los del resto del sitio. Para que no puedan separarse, el mapa
-   bueno es el de `pys-diseno/partes.php` y este de aquí solo queda de
-   respaldo por si esa capa no estuviera cargada. */
+/* ─── enlaces reales del sitio ───────────────────────────────────────── */
 $pys_url = array(
 	'inicio'      => home_url( '/' ),
-	'coa'         => home_url( '/certificados-de-analisis/' ),
 	'peptidos'    => home_url( '/peptidos-mexico/' ),
 	'glp1'        => home_url( '/glp-1/' ),
 	'suplementos' => home_url( '/suplementos-deportivos/' ),
@@ -46,9 +41,6 @@ $pys_url = array(
 	'carrito'     => function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/carrito/' ),
 	'cuenta'      => function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'myaccount' ) : home_url( '/mi-cuenta/' ),
 );
-if ( function_exists( 'pys_dis_enlaces' ) ) {
-	$pys_url = array_merge( $pys_url, pys_dis_enlaces() );
-}
 
 /* ─── catálogo en vivo ───────────────────────────────────────────────── */
 $pys_cortos = pys_dis_cats_cortas();
@@ -369,9 +361,6 @@ header.top .wrap{display:flex;align-items:center;gap:clamp(12px,2vw,26px);paddin
   box-shadow:0 26px 54px -26px rgba(0,0,0,.95);opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .2s,transform .2s,visibility .2s}
 .desp[data-abierto="1"] ul{opacity:1;visibility:visible;transform:translateY(0)}
-/* el último desplegable («Aprender») cae pegado al borde derecho del menú:
-   si se abriera hacia la derecha se saldría de la ventana a 1100-1280 px */
-.menu .desp:last-of-type ul{left:auto;right:-14px}
 .desp li a{display:block;padding:9px 12px;border-radius:2px;font-size:15px;color:var(--tinta-2)}
 .desp li a:hover{background:var(--panel);color:var(--tinta)}
 .iconos{display:flex;gap:8px;flex:none;margin-left:4px}
@@ -847,31 +836,25 @@ $pys_avisos[] = '<span>Transferencia · tarjeta · Mercado Pago · <b>depósito 
     </a>
 
     <nav class="menu" aria-label="Principal">
+      <a href="<?php echo esc_url( $pys_url['peptidos'] ); ?>">Péptidos</a>
+      <a href="<?php echo esc_url( $pys_url['glp1'] ); ?>">GLP-1</a>
+      <a href="<?php echo esc_url( $pys_url['suplementos'] ); ?>">Suplementos</a>
+      <a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Productos</a>
       <div class="desp" data-abierto="0">
-        <button type="button" aria-expanded="false" aria-controls="desp-pep">Péptidos
+        <button type="button" aria-expanded="false" aria-controls="desp-obj">Por objetivo
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                stroke-width="2.4" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg>
         </button>
-        <ul id="desp-pep">
-          <?php foreach ( pys_dis_menu_peptidos() as $pys_et => $pys_href ) : ?>
-            <li><a href="<?php echo esc_url( $pys_href ); ?>"><?php echo esc_html( $pys_et ); ?></a></li>
-          <?php endforeach; ?>
+        <ul id="desp-obj">
+          <li><a href="<?php echo esc_url( $pys_url['metabolismo'] ); ?>">Metabolismo</a></li>
+          <li><a href="<?php echo esc_url( $pys_url['reparacion'] ); ?>">Reparación celular</a></li>
+          <li><a href="<?php echo esc_url( $pys_url['longevidad'] ); ?>">Longevidad</a></li>
+          <li><a href="<?php echo esc_url( $pys_url['performance'] ); ?>">Performance</a></li>
         </ul>
       </div>
-      <a href="<?php echo esc_url( $pys_url['cat_suplementos'] ); ?>">Suplementos</a>
-      <a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Tienda</a>
-      <div class="desp" data-abierto="0">
-        <button type="button" aria-expanded="false" aria-controls="desp-apr">Aprender
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="2.4" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg>
-        </button>
-        <ul id="desp-apr">
-          <?php foreach ( pys_dis_menu_aprender() as $pys_et => $pys_href ) : ?>
-            <li><a href="<?php echo esc_url( $pys_href ); ?>"><?php echo esc_html( $pys_et ); ?></a></li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
-      <a href="<?php echo esc_url( $pys_url['coa'] ); ?>">COA</a>
+      <a href="#coa">COA</a>
+      <a href="<?php echo esc_url( $pys_url['calculadora'] ); ?>">Calculadora</a>
+      <a href="<?php echo esc_url( $pys_url['blog'] ); ?>">Blog</a>
     </nav>
 
     <div class="iconos">
@@ -916,21 +899,21 @@ $pys_avisos[] = '<span>Transferencia · tarjeta · Mercado Pago · <b>depósito 
   </div>
 
   <div id="mnav" hidden><div class="wrap">
-    <span class="et">Péptidos</span>
-    <?php foreach ( pys_dis_menu_peptidos() as $pys_et => $pys_href ) : ?>
-      <a href="<?php echo esc_url( $pys_href ); ?>"><?php echo esc_html( $pys_et ); ?></a>
-    <?php endforeach; ?>
     <span class="et">Catálogo</span>
-    <a href="<?php echo esc_url( $pys_url['cat_suplementos'] ); ?>">Suplementos</a>
-    <a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Tienda<span class="k"><?php echo count( $pys_productos ); ?> REF.</span></a>
+    <a href="<?php echo esc_url( $pys_url['peptidos'] ); ?>">Péptidos</a>
+    <a href="<?php echo esc_url( $pys_url['glp1'] ); ?>">GLP-1</a>
+    <a href="<?php echo esc_url( $pys_url['suplementos'] ); ?>">Suplementos</a>
+    <a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Productos<span class="k"><?php echo count( $pys_productos ); ?> REF.</span></a>
+    <span class="et">Por objetivo</span>
+    <a href="<?php echo esc_url( $pys_url['metabolismo'] ); ?>">Metabolismo</a>
+    <a href="<?php echo esc_url( $pys_url['reparacion'] ); ?>">Reparación celular</a>
+    <a href="<?php echo esc_url( $pys_url['longevidad'] ); ?>">Longevidad</a>
+    <a href="<?php echo esc_url( $pys_url['performance'] ); ?>">Performance</a>
     <span class="et">Calidad</span>
-    <a href="<?php echo esc_url( $pys_url['coa'] ); ?>">Certificados de análisis</a>
-    <span class="et">Aprender</span>
-    <?php foreach ( pys_dis_menu_aprender() as $pys_et => $pys_href ) : ?>
-      <a href="<?php echo esc_url( $pys_href ); ?>"><?php echo esc_html( $pys_et ); ?><?php
-        echo 'Blog' === $pys_et ? '<span class="k">' . (int) $pys_total_guias . '</span>' : '';
-      ?></a>
-    <?php endforeach; ?>
+    <a href="#coa">Certificados de análisis</a>
+    <span class="et">Recursos</span>
+    <a href="<?php echo esc_url( $pys_url['calculadora'] ); ?>">Calculadora de dosis</a>
+    <a href="<?php echo esc_url( $pys_url['blog'] ); ?>">Blog<span class="k"><?php echo (int) $pys_total_guias; ?></span></a>
     <a href="<?php echo esc_url( $pys_url['contacto'] ); ?>">Contacto</a>
     <span class="et">Cuenta</span>
     <a href="<?php echo esc_url( $pys_url['cuenta'] ); ?>">Mi cuenta</a>
@@ -1408,30 +1391,23 @@ for ( $x = 0; $x <= 1200; $x += 2 ) {
           longevidad.</p>
       </div>
       <div><h4>Principales</h4><ul>
-        <li><a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Tienda</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['peptidos'] ); ?>">Péptidos en México</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['suplementos'] ); ?>">Suplementos deportivos</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['peptidos'] ); ?>">Péptidos</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['suplementos'] ); ?>">Suplementos</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Productos</a></li>
         <li><a href="<?php echo esc_url( $pys_reta_url ); ?>">Retatrutida</a></li>
         <li><a href="<?php echo esc_url( home_url( '/tirzepatida-en-mexico/' ) ); ?>">Tirzepatida</a></li>
         <li><a href="<?php echo esc_url( home_url( '/semaglutida-en-mexico/' ) ); ?>">Semaglutida</a></li>
       </ul></div>
-      <?php
-      /* Mismo pie que el resto del sitio (pys-diseno/partes.php): las cuatro
-         landings por objetivo ya no están en el menú, pero siguen enlazadas
-         aquí con el nombre de la guía que son, para no repetir los rótulos de
-         las categorías. */
-      ?>
-      <div><h4>Guías</h4><ul>
-        <li><a href="<?php echo esc_url( $pys_url['metabolismo'] ); ?>">Cómo acelerar el metabolismo</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['reparacion'] ); ?>">Recuperación muscular</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['longevidad'] ); ?>">Envejecimiento saludable</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['performance'] ); ?>">Rendimiento deportivo</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['comparativas'] ); ?>">Comparativas de péptidos</a></li>
+      <div><h4>Explorar</h4><ul>
+        <li><a href="<?php echo esc_url( $pys_url['metabolismo'] ); ?>">Metabolismo</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['reparacion'] ); ?>">Reparación celular</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['longevidad'] ); ?>">Longevidad</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['performance'] ); ?>">Performance</a></li>
         <li><a href="<?php echo esc_url( $pys_url['calculadora'] ); ?>">Calculadora de dosis</a></li>
         <li><a href="<?php echo esc_url( $pys_url['blog'] ); ?>">Blog</a></li>
       </ul></div>
       <div><h4>Compra</h4><ul>
-        <li><a href="<?php echo esc_url( $pys_url['coa'] ); ?>">Certificados de análisis</a></li>
+        <li><a href="#coa">Certificados de análisis</a></li>
         <li><a href="<?php echo esc_url( $pys_url['envios'] ); ?>">Envíos y devoluciones</a></li>
         <li><a href="<?php echo esc_url( $pys_url['privacidad'] ); ?>">Política de privacidad</a></li>
         <li><a href="<?php echo esc_url( $pys_url['terminos'] ); ?>">Términos y condiciones</a></li>
@@ -1520,18 +1496,11 @@ foreach ( $pys_productos as $i => $p ) {
     if (abre) busca.querySelector("input[type=search]").focus();
   });
 
-  /* ── desplegables del menú («Péptidos», «Aprender») ─────────────────
-     Son dos, así que se recorren todos: con querySelector solo respondía el
-     primero y el segundo se quedaba muerto. Abrir uno cierra el otro. */
-  var desps = [].slice.call(document.querySelectorAll(".desp"));
-  desps.forEach(function(desp){
+  /* ── «Por objetivo» ─────────────────────────────────────────────── */
+  var desp = document.querySelector(".desp");
+  if (desp){
     var bot = desp.querySelector("button");
-    if (!bot) return;
     function abrirDesp(v){
-      if (v) desps.forEach(function(o){
-        if (o !== desp){ o.dataset.abierto = "0";
-          var b = o.querySelector("button"); if (b) b.setAttribute("aria-expanded","false"); }
-      });
       desp.dataset.abierto = v ? "1" : "0";
       bot.setAttribute("aria-expanded", v ? "true" : "false");
     }
@@ -1544,16 +1513,13 @@ foreach ( $pys_productos as $i => $p ) {
     document.addEventListener("click", function(e){
       if (!desp.contains(e.target)) abrirDesp(false);
     });
-  });
+  }
 
   addEventListener("keydown", function(e){
     if (e.key !== "Escape") return;
     if (!mnav.hidden){ abrirNav(false); burger.focus(); }
     if (!busca.hidden){ busca.hidden = true; lupa.setAttribute("aria-expanded","false"); lupa.focus(); }
-    desps.forEach(function(o){
-      o.dataset.abierto = "0";
-      var b = o.querySelector("button"); if (b) b.setAttribute("aria-expanded","false");
-    });
+    if (desp) desp.dataset.abierto = "0";
   });
 
   /* ── el resplandor y el panal siguen al cursor ──────────────────────

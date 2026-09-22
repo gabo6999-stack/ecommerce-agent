@@ -14,98 +14,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * URL de una categoría de producto por su slug.
- *
- * Se resuelve con `get_term_link()` y no a mano, porque la ruta de una
- * categoría depende de si cuelga de otra: `bienestar-general` estuvo bajo
- * `suplementos` y su URL llevaba las dos. Si el término no existe, se devuelve
- * la ruta canónica para que el enlace no acabe en `home_url('')`.
- */
-function pys_dis_cat_url( $slug ) {
-	if ( taxonomy_exists( 'product_cat' ) ) {
-		$termino = get_term_by( 'slug', $slug, 'product_cat' );
-		if ( $termino && ! is_wp_error( $termino ) ) {
-			$url = get_term_link( $termino );
-			if ( ! is_wp_error( $url ) ) {
-				return $url;
-			}
-		}
-	}
-	return home_url( '/product-category/' . $slug . '/' );
-}
-
-/**
- * Mapa de enlaces reales del sitio.
- *
- * Las claves `cat_*` son las SIETE categorías de producto de WooCommerce, que
- * es donde vive el catálogo de verdad; las landings por objetivo
- * (`metabolismo`, `reparacion`, `longevidad`, `performance`) siguen aquí
- * porque el pie las enlaza y son guías, pero ya no son la navegación del
- * catálogo: entre las cuatro solo enseñaban 5 productos distintos.
- */
+/** Mapa de enlaces reales del sitio. */
 function pys_dis_enlaces() {
 	static $u = null;
 	if ( null !== $u ) {
 		return $u;
 	}
 	$u = array(
-		'inicio'       => home_url( '/' ),
-		'coa'          => home_url( '/certificados-de-analisis/' ),
-		'peptidos'     => home_url( '/peptidos-mexico/' ),
-		'glp1'         => home_url( '/glp-1/' ),
-		'comparativas' => home_url( '/comparativas-de-peptidos/' ),
-		'suplementos'  => home_url( '/suplementos-deportivos/' ),
-		'productos'    => function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/comprar-peptidos-en-mexico/' ),
-		'metabolismo'  => home_url( '/como-acelerar-el-metabolismo/' ),
-		'reparacion'   => home_url( '/recuperacion-muscular/' ),
-		'longevidad'   => home_url( '/envejecimiento-saludable/' ),
-		'performance'  => home_url( '/rendimiento-deportivo/' ),
-		'calculadora'  => home_url( '/calculadora-de-dosis-de-peptidos/' ),
-		'blog'         => home_url( '/blog/' ),
-		'contacto'     => home_url( '/contacto/' ),
-		'envios'       => home_url( '/politica-de-envios-y-devoluciones/' ),
-		'privacidad'   => home_url( '/politica-de-privacidad/' ),
-		'terminos'     => home_url( '/terminos-y-condiciones/' ),
-		'carrito'      => function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/carrito/' ),
-		'cuenta'       => function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'myaccount' ) : home_url( '/mi-cuenta/' ),
-
-		/* categorías reales de WooCommerce */
-		'cat_metabolico'  => pys_dis_cat_url( 'metabolismo-activo' ),
-		'cat_reparacion'  => pys_dis_cat_url( 'recuperacion-rapida' ),
-		'cat_crecimiento' => pys_dis_cat_url( 'reparacion-celular' ),
-		'cat_longevidad'  => pys_dis_cat_url( 'bienestar-general' ),
-		'cat_cognitivo'   => pys_dis_cat_url( 'peptidos-para-rendimiento-cognitivo' ),
-		'cat_suplementos' => pys_dis_cat_url( 'suplementos' ),
+		'inicio'      => home_url( '/' ),
+		'coa'         => home_url( '/#coa' ),
+		'peptidos'    => home_url( '/peptidos-mexico/' ),
+		'glp1'        => home_url( '/glp-1/' ),
+		'suplementos' => home_url( '/suplementos-deportivos/' ),
+		'productos'   => function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/comprar-peptidos-en-mexico/' ),
+		'metabolismo' => home_url( '/como-acelerar-el-metabolismo/' ),
+		'reparacion'  => home_url( '/recuperacion-muscular/' ),
+		'longevidad'  => home_url( '/envejecimiento-saludable/' ),
+		'performance' => home_url( '/rendimiento-deportivo/' ),
+		'calculadora' => home_url( '/calculadora-de-dosis-de-peptidos/' ),
+		'blog'        => home_url( '/blog/' ),
+		'contacto'    => home_url( '/contacto/' ),
+		'envios'      => home_url( '/politica-de-envios-y-devoluciones/' ),
+		'privacidad'  => home_url( '/politica-de-privacidad/' ),
+		'terminos'    => home_url( '/terminos-y-condiciones/' ),
+		'carrito'     => function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/carrito/' ),
+		'cuenta'      => function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'myaccount' ) : home_url( '/mi-cuenta/' ),
 	);
 	return $u;
-}
-
-/**
- * Las cinco familias de péptidos del menú, en el orden en que se enseñan.
- * Una sola lista para la cabecera, el menú de teléfono y la portada, para que
- * no puedan acabar distintas.
- */
-function pys_dis_menu_peptidos() {
-	$u = pys_dis_enlaces();
-	return array(
-		'Metabólico y GLP-1' => $u['cat_metabolico'],
-		'Reparación'         => $u['cat_reparacion'],
-		'Crecimiento'        => $u['cat_crecimiento'],
-		'Longevidad'         => $u['cat_longevidad'],
-		'Cognitivo'          => $u['cat_cognitivo'],
-	);
-}
-
-/** Lo que hay que leer antes de comprar: guías, comparativas y herramientas. */
-function pys_dis_menu_aprender() {
-	$u = pys_dis_enlaces();
-	return array(
-		'Blog'                 => $u['blog'],
-		'Comparativas'         => $u['comparativas'],
-		'GLP-1'                => $u['glp1'],
-		'Calculadora de dosis' => $u['calculadora'],
-	);
 }
 
 /** Condiciones de envío, leídas de la configuración real de WooCommerce. */
@@ -301,9 +236,6 @@ header.top .wrap{display:flex;align-items:center;gap:clamp(12px,2vw,26px);paddin
   box-shadow:0 26px 54px -26px rgba(0,0,0,.95);opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .2s,transform .2s,visibility .2s}
 .desp[data-abierto="1"] ul{opacity:1;visibility:visible;transform:translateY(0)}
-/* el último desplegable («Aprender») cae pegado al borde derecho del menú:
-   si se abriera hacia la derecha se saldría de la ventana a 1100-1280 px */
-.menu .desp:last-of-type ul{left:auto;right:-14px}
 .desp li a{display:block;padding:9px 12px;border-radius:2px;font-size:15px;color:var(--tinta-2)}
 .desp li a:hover{background:var(--panel);color:var(--tinta)}
 .iconos{display:flex;gap:8px;flex:none;margin-left:4px}
@@ -555,31 +487,25 @@ $pys_avisos[] = '<span>Transferencia · tarjeta · Mercado Pago · <b>depósito 
     </a>
 
     <nav class="menu" aria-label="Principal">
+      <a href="<?php echo esc_url( $pys_url['peptidos'] ); ?>">Péptidos</a>
+      <a href="<?php echo esc_url( $pys_url['glp1'] ); ?>">GLP-1</a>
+      <a href="<?php echo esc_url( $pys_url['suplementos'] ); ?>">Suplementos</a>
+      <a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Productos</a>
       <div class="desp" data-abierto="0">
-        <button type="button" aria-expanded="false" aria-controls="desp-pep">Péptidos
+        <button type="button" aria-expanded="false" aria-controls="desp-obj">Por objetivo
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                stroke-width="2.4" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg>
         </button>
-        <ul id="desp-pep">
-          <?php foreach ( pys_dis_menu_peptidos() as $pys_et => $pys_href ) : ?>
-            <li><a href="<?php echo esc_url( $pys_href ); ?>"><?php echo esc_html( $pys_et ); ?></a></li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
-      <a href="<?php echo esc_url( $pys_url['cat_suplementos'] ); ?>">Suplementos</a>
-      <a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Tienda</a>
-      <div class="desp" data-abierto="0">
-        <button type="button" aria-expanded="false" aria-controls="desp-apr">Aprender
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="2.4" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg>
-        </button>
-        <ul id="desp-apr">
-          <?php foreach ( pys_dis_menu_aprender() as $pys_et => $pys_href ) : ?>
-            <li><a href="<?php echo esc_url( $pys_href ); ?>"><?php echo esc_html( $pys_et ); ?></a></li>
-          <?php endforeach; ?>
+        <ul id="desp-obj">
+          <li><a href="<?php echo esc_url( $pys_url['metabolismo'] ); ?>">Metabolismo</a></li>
+          <li><a href="<?php echo esc_url( $pys_url['reparacion'] ); ?>">Reparación celular</a></li>
+          <li><a href="<?php echo esc_url( $pys_url['longevidad'] ); ?>">Longevidad</a></li>
+          <li><a href="<?php echo esc_url( $pys_url['performance'] ); ?>">Performance</a></li>
         </ul>
       </div>
       <a href="<?php echo esc_url( $pys_url['coa'] ); ?>">COA</a>
+      <a href="<?php echo esc_url( $pys_url['calculadora'] ); ?>">Calculadora</a>
+      <a href="<?php echo esc_url( $pys_url['blog'] ); ?>">Blog</a>
     </nav>
 
     <div class="iconos">
@@ -624,21 +550,21 @@ $pys_avisos[] = '<span>Transferencia · tarjeta · Mercado Pago · <b>depósito 
   </div>
 
   <div id="mnav" hidden><div class="wrap">
-    <span class="et">Péptidos</span>
-    <?php foreach ( pys_dis_menu_peptidos() as $pys_et => $pys_href ) : ?>
-      <a href="<?php echo esc_url( $pys_href ); ?>"><?php echo esc_html( $pys_et ); ?></a>
-    <?php endforeach; ?>
     <span class="et">Catálogo</span>
-    <a href="<?php echo esc_url( $pys_url['cat_suplementos'] ); ?>">Suplementos</a>
-    <a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Tienda<span class="k"><?php echo (int) $n_ref; ?> REF.</span></a>
+    <a href="<?php echo esc_url( $pys_url['peptidos'] ); ?>">Péptidos</a>
+    <a href="<?php echo esc_url( $pys_url['glp1'] ); ?>">GLP-1</a>
+    <a href="<?php echo esc_url( $pys_url['suplementos'] ); ?>">Suplementos</a>
+    <a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Productos<span class="k"><?php echo (int) $n_ref; ?> REF.</span></a>
+    <span class="et">Por objetivo</span>
+    <a href="<?php echo esc_url( $pys_url['metabolismo'] ); ?>">Metabolismo</a>
+    <a href="<?php echo esc_url( $pys_url['reparacion'] ); ?>">Reparación celular</a>
+    <a href="<?php echo esc_url( $pys_url['longevidad'] ); ?>">Longevidad</a>
+    <a href="<?php echo esc_url( $pys_url['performance'] ); ?>">Performance</a>
     <span class="et">Calidad</span>
     <a href="<?php echo esc_url( $pys_url['coa'] ); ?>">Certificados de análisis</a>
-    <span class="et">Aprender</span>
-    <?php foreach ( pys_dis_menu_aprender() as $pys_et => $pys_href ) : ?>
-      <a href="<?php echo esc_url( $pys_href ); ?>"><?php echo esc_html( $pys_et ); ?><?php
-        echo 'Blog' === $pys_et ? '<span class="k">' . (int) $n_guias . '</span>' : '';
-      ?></a>
-    <?php endforeach; ?>
+    <span class="et">Recursos</span>
+    <a href="<?php echo esc_url( $pys_url['calculadora'] ); ?>">Calculadora de dosis</a>
+    <a href="<?php echo esc_url( $pys_url['blog'] ); ?>">Blog<span class="k"><?php echo (int) $n_guias; ?></span></a>
     <a href="<?php echo esc_url( $pys_url['contacto'] ); ?>">Contacto</a>
     <span class="et">Cuenta</span>
     <a href="<?php echo esc_url( $pys_url['cuenta'] ); ?>">Mi cuenta</a>
@@ -669,27 +595,18 @@ function pys_dis_pie() {
           longevidad.</p>
       </div>
       <div><h4>Principales</h4><ul>
-        <li><a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Tienda</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['peptidos'] ); ?>">Péptidos en México</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['suplementos'] ); ?>">Suplementos deportivos</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['peptidos'] ); ?>">Péptidos</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['suplementos'] ); ?>">Suplementos</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['productos'] ); ?>">Productos</a></li>
         <li><a href="<?php echo esc_url( $pys_reta_url ); ?>">Retatrutida</a></li>
         <li><a href="<?php echo esc_url( home_url( '/tirzepatida-en-mexico/' ) ); ?>">Tirzepatida</a></li>
         <li><a href="<?php echo esc_url( home_url( '/semaglutida-en-mexico/' ) ); ?>">Semaglutida</a></li>
       </ul></div>
-      <?php
-      /* Las cuatro landings por objetivo salieron del menú —entre las cuatro
-         solo enseñaban 5 productos distintos— pero siguen enlazadas aquí, con
-         el nombre de la guía que son. Antes se llamaban «Metabolismo»,
-         «Reparación celular», «Longevidad» y «Performance», que es como se
-         llaman ahora las CATEGORÍAS del menú: el mismo rótulo llevaba a dos
-         sitios distintos. */
-      ?>
-      <div><h4>Guías</h4><ul>
-        <li><a href="<?php echo esc_url( $pys_url['metabolismo'] ); ?>">Cómo acelerar el metabolismo</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['reparacion'] ); ?>">Recuperación muscular</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['longevidad'] ); ?>">Envejecimiento saludable</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['performance'] ); ?>">Rendimiento deportivo</a></li>
-        <li><a href="<?php echo esc_url( $pys_url['comparativas'] ); ?>">Comparativas de péptidos</a></li>
+      <div><h4>Explorar</h4><ul>
+        <li><a href="<?php echo esc_url( $pys_url['metabolismo'] ); ?>">Metabolismo</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['reparacion'] ); ?>">Reparación celular</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['longevidad'] ); ?>">Longevidad</a></li>
+        <li><a href="<?php echo esc_url( $pys_url['performance'] ); ?>">Performance</a></li>
         <li><a href="<?php echo esc_url( $pys_url['calculadora'] ); ?>">Calculadora de dosis</a></li>
         <li><a href="<?php echo esc_url( $pys_url['blog'] ); ?>">Blog</a></li>
       </ul></div>
@@ -750,18 +667,11 @@ function pys_dis_js() {
     if (abre) busca.querySelector("input[type=search]").focus();
   });
 
-  /* ── desplegables del menú («Péptidos», «Aprender») ─────────────────
-     Son dos, así que se recorren todos: con querySelector solo respondía el
-     primero y el segundo se quedaba muerto. Abrir uno cierra el otro. */
-  var desps = [].slice.call(document.querySelectorAll(".desp"));
-  desps.forEach(function(desp){
+  /* ── «Por objetivo» ─────────────────────────────────────────────── */
+  var desp = document.querySelector(".desp");
+  if (desp){
     var bot = desp.querySelector("button");
-    if (!bot) return;
     function abrirDesp(v){
-      if (v) desps.forEach(function(o){
-        if (o !== desp){ o.dataset.abierto = "0";
-          var b = o.querySelector("button"); if (b) b.setAttribute("aria-expanded","false"); }
-      });
       desp.dataset.abierto = v ? "1" : "0";
       bot.setAttribute("aria-expanded", v ? "true" : "false");
     }
@@ -774,16 +684,13 @@ function pys_dis_js() {
     document.addEventListener("click", function(e){
       if (!desp.contains(e.target)) abrirDesp(false);
     });
-  });
+  }
 
   addEventListener("keydown", function(e){
     if (e.key !== "Escape") return;
     if (!mnav.hidden){ abrirNav(false); burger.focus(); }
     if (!busca.hidden){ busca.hidden = true; lupa.setAttribute("aria-expanded","false"); lupa.focus(); }
-    desps.forEach(function(o){
-      o.dataset.abierto = "0";
-      var b = o.querySelector("button"); if (b) b.setAttribute("aria-expanded","false");
-    });
+    if (desp) desp.dataset.abierto = "0";
   });
 
   /* ── el resplandor y el panal siguen al cursor ──────────────────────
@@ -867,21 +774,17 @@ function pys_dis_vial( $post_id ) {
 
 /**
  * Nombre corto de cada categoría, para las etiquetas de las tarjetas y los
- * filtros. El nombre largo de WooCommerce no cabe en una tarjeta.
- *
- * Son los MISMOS rótulos que el menú «Péptidos», a propósito: antes la tarjeta
- * decía «Reparación» para `reparacion-celular` y el menú llamaba «Reparación»
- * a otra cosa. Cada valor tiene que seguir siendo único: la portada arma con
- * ellos los filtros del catálogo.
+ * filtros. El nombre largo de WooCommerce («Péptidos para Metabolismo y
+ * Pérdida de Peso») no cabe en una tarjeta.
  */
 function pys_dis_cats_cortas() {
 	static $c = array(
-	'metabolismo-activo'                  => 'Metabólico',
-	'bienestar-general'                   => 'Longevidad',
-	'reparacion-celular'                  => 'Crecimiento',
+	'metabolismo-activo'                  => 'Metabolismo',
+	'bienestar-general'                   => 'Bienestar',
+	'reparacion-celular'                  => 'Reparación',
 	'peptidos-para-rendimiento-cognitivo' => 'Cognitivo',
 	'suplementos'                         => 'Suplementos',
-	'recuperacion-rapida'                 => 'Reparación',
+	'recuperacion-rapida'                 => 'Muscular',
 	'performance-top'                     => 'Deportivo',
 	);
 	return $c;
@@ -901,104 +804,3 @@ function pys_dis_cat_corta( $post_id ) {
 	}
 	return '';
 }
-
-/* ─── listado de certificados de análisis ─────────────────────────────
-   Alimenta la página /certificados-de-analisis/. El contenido sale del meta
-   `_pys_coa` de cada producto (mu-plugin pys-coa.php), NO de la página: para
-   publicar el certificado de un lote nuevo se rellena la caja «Certificado de
-   análisis (COA)» en el editor de ese producto y se sube el PDF a Medios. La
-   página se actualiza sola; aquí no hay nada que tocar.
-   Se escribe con etiquetas normales (h3, table, p) para que herede el diseño
-   de las páginas planas sin CSS propio. */
-
-/** Una fila de la tabla del lote, solo si el dato existe. */
-function pys_dis_coa_fila( $etiqueta, $valor ) {
-	if ( '' === trim( (string) $valor ) ) {
-		return '';
-	}
-	return '<tr><th scope="row">' . esc_html( $etiqueta ) . '</th><td>' . wp_kses_post( $valor ) . '</td></tr>';
-}
-
-/** [pys_coa_lotes] — los lotes con certificado publicado, uno por bloque. */
-function pys_dis_coa_lotes() {
-	if ( ! function_exists( 'pys_coa_productos' ) ) {
-		return '';
-	}
-	$coas = pys_coa_productos();
-	$n    = count( $coas );
-
-	$total = function_exists( 'wp_count_posts' ) ? (int) wp_count_posts( 'product' )->publish : 0;
-
-	if ( ! $n ) {
-		return '<p>Todavía no hay ningún certificado publicado en esta página. Si necesitas el de un '
-			. 'lote concreto, pídelo por <a href="' . esc_url( home_url( '/contacto/' ) ) . '">contacto</a> '
-			. 'con el número impreso en la etiqueta de tu vial.</p>';
-	}
-
-	$fecha = static function ( $iso ) {
-		$t = $iso ? strtotime( $iso ) : false;
-		return $t ? date_i18n( 'j \d\e F \d\e Y', $t ) : '';
-	};
-
-	$out = '<p>Hay <strong>' . (int) $n . '</strong> ';
-	$out .= ( 1 === $n ? 'certificado publicado' : 'certificados publicados' );
-	if ( $total ) {
-		$out .= ' de ' . (int) $total . ' referencias del catálogo';
-	}
-	$out .= '. Los demás se publican conforme el laboratorio nos los entrega; mientras tanto, se '
-		. 'piden por <a href="' . esc_url( home_url( '/contacto/' ) ) . '">contacto</a> indicando el '
-		. 'lote impreso en la etiqueta del vial.</p>';
-
-	foreach ( $coas as $id => $coa ) {
-		$lote = $coa['lote'];
-		/* el ancla conserva el lote TAL CUAL va impreso en la etiqueta —los
-		   identificadores HTML distinguen mayúsculas—, solo se le quita lo que
-		   no sirva en un id: así /certificados-de-analisis/#lote-AA54YCH se
-		   escribe leyendo el vial y no hay que adivinar la forma del ancla. */
-		$ancla = 'lote-' . preg_replace( '/[^A-Za-z0-9_-]/', '', $lote );
-
-		$out .= '<h3 id="' . esc_attr( $ancla ) . '">' . esc_html( get_the_title( $id ) )
-			. ' &mdash; lote ' . esc_html( $lote ) . '</h3>';
-		$out .= '<table><tbody>';
-		$out .= pys_dis_coa_fila(
-			'Producto',
-			'<a href="' . esc_url( get_permalink( $id ) ) . '">' . esc_html( get_the_title( $id ) ) . '</a>'
-		);
-		$out .= pys_dis_coa_fila( 'Número de lote', esc_html( $lote ) );
-		if ( ! empty( $coa['pureza'] ) ) {
-			$out .= pys_dis_coa_fila( 'Pureza cromatográfica', esc_html( $coa['pureza'] ) . ' %' );
-		}
-		if ( ! empty( $coa['masa'] ) ) {
-			$masa = esc_html( $coa['masa'] ) . ' mg';
-			if ( ! empty( $coa['pct_etiqueta'] ) ) {
-				$masa .= ' (' . esc_html( $coa['pct_etiqueta'] ) . ' % de la cantidad declarada)';
-			}
-			$out .= pys_dis_coa_fila( 'Masa total de péptido', $masa );
-		}
-		if ( ! empty( $coa['identidad'] ) ) {
-			$out .= pys_dis_coa_fila( 'Identidad por espectrometría', esc_html( $coa['identidad'] ) );
-		}
-		if ( ! empty( $coa['metodo'] ) ) {
-			$out .= pys_dis_coa_fila( 'Método', esc_html( $coa['metodo'] ) );
-		}
-		if ( ! empty( $coa['laboratorio'] ) ) {
-			$out .= pys_dis_coa_fila( 'Laboratorio', esc_html( $coa['laboratorio'] ) );
-		}
-		if ( ! empty( $coa['lab_num'] ) ) {
-			$out .= pys_dis_coa_fila( 'Referencia del laboratorio', esc_html( $coa['lab_num'] ) );
-		}
-		if ( ! empty( $coa['fecha_analisis'] ) ) {
-			$out .= pys_dis_coa_fila( 'Fecha de análisis', esc_html( $fecha( $coa['fecha_analisis'] ) ) );
-		}
-		if ( ! empty( $coa['fecha_emision'] ) ) {
-			$out .= pys_dis_coa_fila( 'Fecha de emisión', esc_html( $fecha( $coa['fecha_emision'] ) ) );
-		}
-		$out .= '</tbody></table>';
-		$out .= '<p><a href="' . esc_url( $coa['pdf_url'] ) . '" target="_blank" rel="noopener">'
-			. 'Ver el certificado completo del lote ' . esc_html( $lote ) . ' (PDF)</a> &middot; '
-			. '<a href="' . esc_url( get_permalink( $id ) ) . '#pys-coa">ver en la ficha del producto</a></p>';
-	}
-
-	return $out;
-}
-add_shortcode( 'pys_coa_lotes', 'pys_dis_coa_lotes' );

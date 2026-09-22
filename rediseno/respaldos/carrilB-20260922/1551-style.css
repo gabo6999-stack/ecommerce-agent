@@ -1,0 +1,293 @@
+
+    .pys-peptidos-page{
+      position:relative;overflow:hidden;padding:0;
+      font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+      color:#f5f5f2;
+      background:
+        radial-gradient(circle at 10% 18%,rgba(0,229,196,.14),transparent 28%),
+        radial-gradient(circle at 88% 14%,rgba(247,0,122,.14),transparent 26%),
+        linear-gradient(135deg,#090a0b 0%,#111214 48%,#1a1117 100%);
+    }
+    .pys-peptidos-page *{box-sizing:border-box}
+    .pys-wrap{width:min(100% - 32px,1180px);margin:auto;position:relative;z-index:2}
+    .pys-bg-grid{
+      position:absolute;inset:0;pointer-events:none;opacity:.26;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+      background-size:38px 38px;
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 74%);
+    }
+    .pys-hero{padding:110px 0 80px}
+    .pys-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+    .pys-badge,.pys-tag{
+      display:inline-flex;align-items:center;gap:10px;border-radius:999px;
+      text-transform:uppercase;font-weight:900;letter-spacing:.12em;
+    }
+    .pys-badge{
+      padding:12px 18px;margin-bottom:28px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);color:#fff;font-size:.76rem;
+    }
+    .pys-badge:before,.pys-tag:before{
+      content:"";width:9px;height:9px;border-radius:50%;
+      background:linear-gradient(135deg,#00e5c4,#f7007a);
+      box-shadow:0 0 14px rgba(0,229,196,.55);
+    }
+    .pys-title{
+      margin:0;font-family:"Optima","Optima LT Std","Candara","Segoe UI",Arial,sans-serif;
+      font-size:clamp(3.2rem,7vw,7rem);line-height:.9;font-weight:400;
+      letter-spacing:-.06em;color:#fff;max-width:780px;
+    }
+    .pys-title span{
+      background:linear-gradient(135deg,#00e5c4,#f7007a);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .pys-copy,.pys-section-copy{
+      color:#cfd5d2;line-height:1.9;font-size:1.02rem;
+    }
+    .pys-copy{margin:30px 0 0;max-width:700px}
+    .pys-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+    .pys-btn{
+      min-height:54px;padding:16px 28px;border-radius:999px;text-decoration:none!important;
+      display:inline-flex;align-items:center;justify-content:center;text-transform:uppercase;
+      letter-spacing:.11em;font-size:.75rem;font-weight:900;transition:.28s ease;
+    }
+    .pys-btn-primary{background:#00e5c4;color:#111!important;box-shadow:0 18px 44px rgba(0,229,196,.24)}
+    .pys-btn-secondary{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#fff!important}
+    .pys-btn:hover{transform:translateY(-4px)}
+    .pys-visual{
+      position:relative;min-height:680px;border-radius:38px;overflow:hidden;
+      background:
+        radial-gradient(circle at top left,rgba(0,229,196,.18),transparent 30%),
+        radial-gradient(circle at bottom right,rgba(247,0,122,.18),transparent 28%),
+        linear-gradient(145deg,#131517,#1b1d20);
+      border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 70px rgba(0,0,0,.34);
+    }
+    .pys-visual:before{
+      content:"";position:absolute;inset:18px;border-radius:28px;border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+      background-size:34px 34px;
+    }
+    .pys-watermark{
+      position:absolute;top:34px;right:34px;font-size:5.6rem;line-height:.9;
+      font-family:"Optima","Optima LT Std","Candara","Segoe UI",Arial,sans-serif;
+      color:rgba(255,255,255,.05);letter-spacing:-.08em;z-index:2;
+    }
+    .pys-featured-image{
+      position:absolute;inset:auto 50% 28px auto;transform:translateX(50%);
+      width:92%;max-width:760px;z-index:3;object-fit:contain;
+      filter:drop-shadow(0 30px 50px rgba(0,0,0,.4));
+    }
+    .pys-floating{
+      position:absolute;top:28px;left:28px;width:250px;border-radius:26px;padding:22px;
+      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(16px);z-index:4;box-shadow:0 18px 44px rgba(0,0,0,.24);
+    }
+    .pys-floating h3{margin:0 0 12px;color:#00e5c4;font-size:.88rem;letter-spacing:.12em;text-transform:uppercase}
+    .pys-floating p{margin:0;color:#d9dcd9;line-height:1.7;font-size:.92rem}
+    .pys-pill{
+      position:absolute;right:24px;bottom:24px;padding:14px 18px;border-radius:999px;
+      background:#f7007a;color:#fff;text-transform:uppercase;letter-spacing:.12em;
+      font-size:.7rem;font-weight:900;z-index:5;
+    }
+    .pys-section{padding:88px 0}
+    .pys-head{max-width:800px;margin-bottom:48px}
+    .pys-tag{color:#00e5c4;font-size:.74rem;margin-bottom:18px}
+    .pys-section-title{
+      margin:0;font-family:"Optima","Optima LT Std","Candara","Segoe UI",Arial,sans-serif;
+      font-size:clamp(2rem,4vw,4rem);line-height:1;font-weight:400;
+      letter-spacing:-.05em;color:#fff;
+    }
+    .pys-section-copy{margin:24px 0 0}
+    .pys-grid-cards{display:grid;gap:24px;grid-template-columns:repeat(3,1fr)}
+    .pys-card{
+      border-radius:30px;padding:34px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 48px rgba(0,0,0,.24);
+    }
+    .pys-card h3{margin:0 0 16px;color:#fff;font-size:1.3rem}
+    .pys-card p{margin:0;color:#d4d8d6;line-height:1.8;font-size:.96rem}
+    .pys-number{
+      width:54px;height:54px;border-radius:18px;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,#00e5c4,#f7007a);color:#111;font-weight:900;margin-bottom:22px;
+    }
+    /* CATÁLOGO REDISEÑADO - MÁS COMPACTO */
+    .pys-products-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+      align-items:stretch;
+    }
+    .pys-product-card{
+      overflow:hidden;
+      border-radius:24px;
+      background:#f7f7f5;
+      color:#111;
+      text-decoration:none!important;
+      box-shadow:0 18px 42px rgba(0,0,0,.22);
+      transition:.28s ease;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      border:1px solid rgba(255,255,255,.1);
+    }
+    .pys-product-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 24px 52px rgba(0,0,0,.3);
+    }
+    .pys-product-image{
+      min-height:260px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px;
+      background:
+        radial-gradient(circle at top left,rgba(0,229,196,.22),transparent 34%),
+        radial-gradient(circle at bottom right,rgba(247,0,122,.16),transparent 32%),
+        linear-gradient(145deg,#fff,#ecece8);
+    }
+    .pys-product-image img{
+      width:100%;
+      max-width:230px;
+      max-height:230px;
+      object-fit:contain;
+      filter:drop-shadow(0 14px 18px rgba(0,0,0,.16));
+      transition:.28s ease;
+    }
+    .pys-product-card:hover .pys-product-image img{
+      transform:scale(1.04);
+    }
+    .pys-product-body{
+      padding:19px 18px 20px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+    .pys-product-label{
+      display:inline-flex;
+      width:max-content;
+      max-width:100%;
+      padding:7px 11px;
+      border-radius:999px;
+      background:rgba(17,17,17,.08);
+      font-size:.58rem;
+      font-weight:900;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+      color:#171717;
+    }
+    .pys-product-card h3{
+      margin:0 0 10px;
+      color:#111;
+      font-size:1.02rem;
+      line-height:1.15;
+      letter-spacing:-.02em;
+    }
+    .pys-product-card p{
+      margin:0 0 16px;
+      color:#555;
+      line-height:1.55;
+      font-size:.82rem;
+      flex:1;
+    }
+    .pys-product-link{
+      margin-top:auto;
+      font-size:.68rem;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      font-weight:900;
+      color:#111;
+    }
+    .pys-product-link:after{content:" →";color:#f7007a}
+    .pys-product-price{
+      margin-top:auto;
+      font-size:1.05rem;
+      font-weight:900;
+      color:#f7007a;
+    }
+    .pys-product-price.is-out{
+      color:#8b8b86;
+      font-weight:800;
+      font-size:.95rem;
+    }
+    .pys-editorial{
+      border-radius:38px;padding:70px;background:
+        radial-gradient(circle at top left,rgba(0,229,196,.16),transparent 28%),
+        radial-gradient(circle at bottom right,rgba(247,0,122,.14),transparent 26%),
+        linear-gradient(135deg,#141516,#1b1117);
+      border:1px solid rgba(255,255,255,.12);box-shadow:0 28px 70px rgba(0,0,0,.3);
+    }
+    .pys-editorial h2{
+      margin:0;font-family:"Optima","Optima LT Std","Candara","Segoe UI",Arial,sans-serif;
+      font-size:clamp(2.3rem,5vw,5rem);line-height:.96;font-weight:400;letter-spacing:-.05em;color:#fff;
+    }
+    .pys-editorial p{max-width:780px;margin:26px 0 0;color:#d4d9d7;line-height:1.9}
+    @media(max-width:1180px){
+      .pys-products-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+    @media(max-width:1100px){
+      .pys-hero-grid,.pys-grid-cards{grid-template-columns:1fr}
+      .pys-visual{min-height:620px}
+    }
+    @media(max-width:760px){
+      .pys-products-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+      .pys-product-image{min-height:165px;padding:16px}
+      .pys-product-image img{max-width:145px;max-height:145px}
+      .pys-product-body{padding:17px 15px 18px}
+      .pys-product-card h3{font-size:.96rem}
+      .pys-product-card p{font-size:.78rem}
+    }
+    @media(max-width:640px){
+      .pys-wrap{width:min(100% - 28px,1180px)}
+      .pys-hero{padding:70px 0 50px}
+      .pys-title{font-size:clamp(2.4rem,13vw,4.3rem);line-height:.95}
+      .pys-actions{flex-direction:column}
+      .pys-btn{width:100%}
+      .pys-section{padding:58px 0}
+      .pys-card,.pys-editorial{padding:30px 24px}
+      .pys-visual{min-height:520px}
+      .pys-floating{position:relative;width:calc(100% - 36px);left:auto;top:auto;margin:18px}
+      .pys-pill{left:18px;right:18px;text-align:center}
+      .pys-watermark{font-size:4rem}
+    }
+    @media(max-width:480px){
+      .pys-products-grid{grid-template-columns:1fr}
+      .pys-product-card{
+        display:grid;
+        grid-template-columns:118px 1fr;
+        border-radius:22px;
+      }
+      .pys-product-image{
+        min-height:auto;
+        height:100%;
+        padding:12px;
+      }
+      .pys-product-image img{
+        max-width:96px;
+        max-height:96px;
+      }
+      .pys-product-body{
+        padding:15px 15px 15px 4px;
+      }
+      .pys-product-label{
+        font-size:.54rem;
+        padding:6px 9px;
+        margin-bottom:9px;
+      }
+      .pys-product-card h3{
+        font-size:.94rem;
+        margin-bottom:7px;
+      }
+      .pys-product-card p{
+        font-size:.76rem;
+        line-height:1.45;
+        margin-bottom:10px;
+      }
+      .pys-product-link{
+        font-size:.62rem;
+      }
+    }
+  
