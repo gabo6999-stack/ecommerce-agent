@@ -43,53 +43,8 @@ $pys_url = array(
 );
 
 /* ─── catálogo en vivo ───────────────────────────────────────────────── */
-$pys_cortos = array(
-	'metabolismo-activo'                  => 'Metabolismo',
-	'bienestar-general'                   => 'Bienestar',
-	'reparacion-celular'                  => 'Reparación',
-	'peptidos-para-rendimiento-cognitivo' => 'Cognitivo',
-	'suplementos'                         => 'Suplementos',
-	'recuperacion-rapida'                 => 'Muscular',
-	'performance-top'                     => 'Deportivo',
-);
+$pys_cortos = pys_dis_cats_cortas();
 
-/**
- * Renders 3D del vial por producto, indexados por slug.
- *
- * Son los del prototipo: misma etiqueta que la imagen oficial del producto
- * (nombre, gramaje, «99% HPLC», leyenda de investigación) pero sobre el vial
- * en tres dimensiones en vez de la tarjeta tipográfica plana.
- *
- * Los cuatro últimos no venían en el prototipo: se generaron con
- * `herramientas/generar-vial.py`, que desenvuelve la etiqueta de un render
- * existente, le cambia nombre y gramaje, y la vuelve a envolver. El frasco,
- * la luz y el bloque legal son por tanto los mismos bits que en los demás.
- *
- * Los cuatro suplementos Nutricost (cápsulas y softgels) NO están en la lista
- * a propósito: su foto real de bote es correcta y un vial sería mentira.
- * Un slug que no esté aquí se queda con su imagen de WooCommerce.
- */
-$pys_viales = array(
-	'retatrutida'              => 'vial-retatrutida-30-mg.jpg',
-	'mots-c-10mg'              => 'vial-mots-c-10-mg.jpg',
-	'mots-c-40mg'              => 'vial-mots-c-40-mg.jpg',
-	'bpc-157-tb-500'           => 'vial-bpc-157-tb500-5-5mg.jpg',
-	'agua-bacteriostatica-3ml' => 'vial-agua-bacteriostatica-0-9-alcohol-bencilico.jpg',
-	'igf-1-lr3-1mg'            => 'vial-igf-1-lr3-1-mg.jpg',
-	'nad-suplemento'           => 'vial-nad-500-mg.jpg',
-	'semaglutida-20mg'         => 'vial-semaglutida-20-mg.jpg',
-	'semaglutida-5-mg'         => 'vial-semaglutida-5-mg.jpg',
-	'tirzepatida'              => 'vial-tirzepatida-30-mg.jpg',
-	'selank-10-mg'             => 'vial-selank-10-mg.jpg',
-	'sermorelina-10mg'         => 'vial-sermorelin-10-mg.jpg',
-	'cjc-1295-ipamorelina-5mg' => 'vial-cjc-1295-ipamorelin-no-dac-5-5mg.jpg',
-	'ghk-cu'                   => 'vial-ghk-cu-100-mg.jpg',
-	/* generados a partir de los anteriores */
-	'thymosin-alpha-1-10mg'    => 'vial-thymosin-alpha-1-10-mg.jpg',
-	'cagrilintida-10mg'        => 'vial-cagrilintida-10-mg.jpg',
-	'bpc-157'                  => 'vial-bpc-157.jpg',
-	'glutation-1500mg'         => 'vial-glutation-1500-mg.jpg',
-);
 
 /** Los nombres de algunos productos llevan la cola del título SEO tras «|». */
 function pys_h26_nombre( $nombre ) {
@@ -149,7 +104,7 @@ foreach ( $pys_q->posts as $pys_post ) {
 			break;
 		}
 	}
-	$vial = isset( $pys_viales[ $pys_post->post_name ] ) ? $pys_viales[ $pys_post->post_name ] : '';
+	$vial = pys_dis_vial( $pys_post->ID );
 	if ( $vial ) {
 		$medio = '<img src="' . esc_url( pys_h26_uri( 'img/' . $vial ) ) . '" width="540" height="1043"'
 			. ' loading="lazy" decoding="async" alt="' . esc_attr( 'Vial de ' . pys_h26_nombre( $pr->get_name() ) ) . '">';
@@ -440,6 +395,27 @@ header.top .wrap{display:flex;align-items:center;gap:clamp(12px,2vw,26px);paddin
 #mnav a .k{font-family:var(--mono);font-size:10.5px;color:var(--tinta-3)}
 @media (min-width:1101px){ #mnav{display:none!important} }
 @media (max-width:1100px){ .menu > a,.desp{display:none} .burger{display:grid} }
+/* En teléfono no cabían en una fila la marca (≈245 px) y los cuatro iconos (176 px):
+   el navegador ensanchaba la página a 461 px y la enseñaba alejada, con el carrito
+   cortado. La marca pasa a dos líneas y los iconos se compactan. Es el mismo arreglo
+   que lleva la cabecera compartida (pys-diseno/partes.php): si se cambia uno, el otro. */
+@media (max-width:540px){
+  header.top .wrap{gap:10px}
+  header.top .menu{display:none}
+  header.top .marca{gap:9px;min-width:0}
+  header.top .marca .nom{white-space:normal;font-size:14.5px;line-height:1.1;max-width:8.4em}
+  header.top .iconos{gap:6px;margin-left:auto}
+  header.top .icob{width:36px;height:36px}
+}
+@media (max-width:380px){
+  header.top .iconos{gap:4px}
+  header.top .icob{width:34px;height:34px}
+}
+/* En los teléfonos más angostos se va el icono de la cuenta: sigue en el menú. */
+@media (max-width:340px){
+  header.top .marca .nom{font-size:13.5px}
+  header.top .iconos a[aria-label="Mi cuenta"]{display:none}
+}
 
 /* ── hero ──────────────────────────────────────────────────────────── */
 .hero{position:relative;z-index:1}
@@ -487,6 +463,10 @@ header.top .wrap{display:flex;align-items:center;gap:clamp(12px,2vw,26px);paddin
 .pie-vitrina{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   margin-top:11px;font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;
   color:var(--tinta-3);max-width:410px;margin-inline:auto}
+/* es un párrafo: `.pys-h26 p{margin:0}` le ganaba al `margin-inline:auto` y el
+   pie quedaba 62 px a la izquierda del vial, descentrado respecto a la caja y
+   a los puntos del carrusel */
+.hero .pie-vitrina{margin-inline:auto}
 .pie-vitrina a{color:var(--magenta)}
 .pie-vitrina a:hover{text-decoration:underline}
 
@@ -571,7 +551,13 @@ header.top .wrap{display:flex;align-items:center;gap:clamp(12px,2vw,26px);paddin
   .cat .n{margin-top:2px}
 }
 
-/* ── catálogo ──────────────────────────────────────────────────────── */
+/* ── catálogo ────────────────────────────────────────────────────────
+   La tarjeta de producto se define DOS veces a propósito: aquí y en las piezas
+   compartidas (pys-diseno/partes.php), que es la que usa el archivo de la
+   tienda. La portada NO carga la hoja base del sitio —pys_dis_ajena() la
+   salta—, así que cuando esta copia se quitó, el catálogo del home se quedó sin
+   estilos: imágenes a tamaño natural, texto suelto y el «Agregar» sin botón.
+   Las dos copias tienen que ser idénticas: si se cambia una, la otra. */
 .filtros{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
 .filtro{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;padding:8px 13px;
   border:1px solid var(--linea-2);background:transparent;color:var(--tinta-2);
@@ -637,6 +623,7 @@ header.top .wrap{display:flex;align-items:center;gap:clamp(12px,2vw,26px);paddin
 .tarjeta .add.added{background:var(--aqua);border-color:var(--aqua);color:var(--negro)}
 .tarjeta .add.agotado-b{border-color:var(--linea-2);color:var(--tinta-3);cursor:not-allowed}
 .tarjeta .added_to_cart{display:none}
+
 
 /* ── enfoque (visor + notas al desplazar) ──────────────────────────── */
 .detalle .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);
@@ -1277,7 +1264,7 @@ for ( $x = 0; $x <= 1200; $x += 2 ) {
           <span>PRODUCTO DESTACADO</span>
           <span><?php echo $pys_d->is_in_stock() ? '<b>EN EXISTENCIA</b>' : 'AGOTADO'; ?></span>
         </div>
-        <?php $pys_vd = isset( $pys_viales[ $pys_reta->post_name ] ) ? $pys_viales[ $pys_reta->post_name ] : ''; ?>
+        <?php $pys_vd = pys_dis_vial( $pys_reta->ID ); ?>
         <a class="imgd<?php echo $pys_vd ? ' vial' : ''; ?>" href="<?php echo esc_url( get_permalink( $pys_reta ) ); ?>">
           <?php if ( $pys_vd ) : ?>
             <img src="<?php echo esc_url( pys_h26_uri( 'img/' . $pys_vd ) ); ?>" width="540" height="1043"

@@ -15,6 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once __DIR__ . '/pys-diseno/partes.php';   // la plantilla usa sus piezas
+
 define( 'PYS_H26_SLUG', 'pys-home-2026' );
 define( 'PYS_H26_DIR', __DIR__ . '/pys-home-2026' );
 define( 'PYS_H26_VER', '1.0.0' );

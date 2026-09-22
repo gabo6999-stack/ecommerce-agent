@@ -45,3 +45,6 @@ scripts/consolida_motsc.py
 scripts/plan_pys_stock_actual.py
 scripts/publica_ficha.py
 scripts/publica_ficha_795.py
+
+# Capturas de verificar.py / revisar.py (≈1 GB, se regeneran con la herramienta)
+rediseno/verificacion/
