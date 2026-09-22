@@ -1,0 +1,236 @@
+{
+ "slug": "retatrutida",
+ "nombre": "Retatrutida",
+ "producto": {
+  "id": 19,
+  "nombre": "Retatrutida",
+  "url": "https://peptidosysuplementos.mx/product/retatrutida/",
+  "presentacion": "30 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Agonista único de los receptores del polipéptido insulinotrópico dependiente de glucosa (GIP), del GLP-1 y del glucagón",
+  "inn": "retatrutide",
+  "sinonimos": [
+   "Retatrutida",
+   "LY3437943"
+  ],
+  "cas": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+  "formula_molecular": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+  "peso_molecular_da": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+  "secuencia_aminoacidos": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+  "pubchem_cid": null,
+  "fuente_identidad": "PubChem NO devuelve un registro de la molécula madre por los nombres «retatrutide» ni «LY3437943» (consultado el 2026-09-22). Una búsqueda en la base pccompound devuelve 10 aciertos, pero todos son registros de IMPUREZAS («Retatrutide Impurity 6, 7, 8»), no del principio activo. La identidad funcional (agonista triple GIP/GLP-1/glucagón) la declara literalmente el resumen del PMID 37366315."
+ },
+ "estado_evidencia": {
+  "escalon": "fase 2 completada y fase 3 en curso, sin aprobación",
+  "texto": "Retatrutida está en desarrollo clínico avanzado y no está aprobada. En PubMed, la consulta «retatrutide OR LY3437943» devuelve 192 registros, de los que 8 están tipificados como ensayo clínico y 7 como ensayo aleatorizado (consulta del 22-sep-2026). El ensayo de fase 2 en obesidad y el de fase 3 en diabetes tipo 2 ya están publicados.",
+  "consultas_pubmed": [
+   {
+    "consulta": "retatrutide OR LY3437943",
+    "resultados": 192,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "(lo anterior) AND clinical trial[pt]",
+    "resultados": 8,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "SIN aprobación en ninguna jurisdicción. Está en desarrollo clínico.",
+  "wada": "PROHIBIDA por la cláusula S0: está en desarrollo clínico sin aprobación sanitaria, así que cae aunque no esté nombrada en la lista. Es el contraste exacto con semaglutida y tirzepatida, que sí están aprobadas y no lo están.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "37366315",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+   "titulo": "Triple-Hormone-Receptor Agonist Retatrutide for Obesity - A Phase 2 Trial.",
+   "autores": [
+    "Jastreboff AM",
+    "Kaplan LM",
+    "Frías JP",
+    "Wu Q",
+    "Du Y",
+    "Gurbuz S"
+   ],
+   "revista": "The New England journal of medicine",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Clinical Trial, Phase II",
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Humanos; 338 adultos con IMC ≥ 30, o de 27 a menos de 30 con al menos una enfermedad relacionada con el peso; 51,8 % varones; doble ciego, controlado con placebo, aleatorización 2:1:1:1:1:2:2",
+   "que_midieron": "Cambio porcentual del peso a 24 semanas (variable principal) y a 48 semanas. A 48 semanas: −8,7 % con 1 mg, −17,1 % con 4 mg, −22,8 % con 8 mg y −24,2 % con 12 mg, frente a −2,1 % con placebo. Eventos adversos gastrointestinales dependientes de la dosis; aumento de la frecuencia cardiaca dependiente de la dosis con pico a las 24 semanas",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42250575",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42250575/",
+   "titulo": "Efficacy and safety of retatrutide, a GIP, GLP-1, and glucagon receptor agonist, in people with type 2 diabetes and inadequate glycaemic control with diet and exercise (TRANSCEND-T2D-1): a double-blind, randomised, phase 3 trial.",
+   "autores": [
+    "Bajaj HS",
+    "Welch M",
+    "Shah P",
+    "Luna E",
+    "Jaouimaa FZ",
+    "Liu B"
+   ],
+   "revista": "Lancet (London, England)",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Clinical Trial, Phase III",
+    "Multicenter Study"
+   ],
+   "especie_o_modelo": "Humanos; 537 participantes aleatorizados de 930 cribados (296 mujeres y 241 varones), entre abril de 2024 y abril de 2025: 134 a 4 mg, 133 a 9 mg, 136 a 12 mg y 134 a placebo",
+   "que_midieron": "Cambio medio de HbA1c desde el inicio: −1,69 % (EE 0,11) con 4 mg, −1,86 % (0,10) con 9 mg y −1,94 % (0,08) con 12 mg, frente a −0,81 % (0,12) con placebo; diferencia frente a placebo de −0,88 puntos porcentuales (IC 95 % −1,18 a −0,59) con 4 mg",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "40609566",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40609566/",
+   "titulo": "Effects of retatrutide on body composition in people with type 2 diabetes: a substudy of a phase 2, double-blind, parallel-group, placebo-controlled, randomised trial.",
+   "autores": [
+    "Coskun T",
+    "Wu Q",
+    "Schloot NC",
+    "Haupt A",
+    "Milicevic Z",
+    "Khouli C"
+   ],
+   "revista": "The lancet. Diabetes & endocrinology",
+   "anio": "2025",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Clinical Trial, Phase II",
+    "Multicenter Study"
+   ],
+   "especie_o_modelo": "Humanos; 189 participantes del subestudio de composición corporal, dentro de un ensayo de fase 2 con aleatorización 2:2:2:1:1:1:1:2",
+   "que_midieron": "Reducción porcentual de la masa grasa total desde el inicio: 4,9 % (EE 1,4) con 0,5 mg; 15,2 % (3,2) con 4 mg agrupado; 26,1 % (2,5) con 8 mg agrupado; 23,2 % (3,0) con 12 mg; 2,6 % (1,6) con dulaglutida y 4,5 % (1,2) con placebo",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42608321",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42608321/",
+   "titulo": "Retatrutide-Associated Improvements in Cardiovascular Risk Biomarkers in Adults With Obesity With or Without Type 2 Diabetes.",
+   "autores": [
+    "Ruotolo G",
+    "Harris C",
+    "Lin Y",
+    "Wilson JM",
+    "Pirro V",
+    "Duffin KL"
+   ],
+   "revista": "Diabetes, obesity & metabolism",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Humanos; estudio 1 en adultos con obesidad o sobrepeso y diabetes tipo 2; estudio 2 en adultos con obesidad clínica sin diabetes tipo 2",
+   "que_midieron": "Biomarcadores de riesgo cardiovascular",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "41160422",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41160422/",
+   "titulo": "Rationale, design and baseline characteristics of the TRANSCEND-CKD trial of retatrutide in patients with chronic kidney disease.",
+   "autores": [
+    "Heerspink HJL",
+    "van Raalte DH",
+    "Bjornstad P",
+    "Bunck MC",
+    "Wu P",
+    "Tunali I"
+   ],
+   "revista": "Nephrology, dialysis, transplantation : official publication of the European Dialysis and Transplant Association - European Renal Association",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Clinical Trial Protocol"
+   ],
+   "especie_o_modelo": "Humanos; participantes con enfermedad renal crónica, con mediana basal del cociente albúmina/creatinina en orina de 14,0 mg/g (rango intercuartílico 6,0 a 69,0)",
+   "que_midieron": "Publicación de diseño y características basales; los desenlaces renales se reportarán al terminar el ensayo",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Retatrutida para la obesidad (fase 2)",
+    "pmid": "37366315",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+    "modelo": "Humanos; 338 adultos con IMC ≥ 30, o de 27 a menos de 30 con al menos una enfermedad relacionada con el peso; 51,8 % varones; doble ciego, controlado con placebo, aleatorización 2:1:1:1:1:2:2",
+    "via": "Subcutánea",
+    "pauta_reportada": "1 mg; 4 mg con dosis inicial de 2 mg; 4 mg con dosis inicial de 4 mg; 8 mg con dosis inicial de 2 mg; 8 mg con dosis inicial de 4 mg; o 12 mg con dosis inicial de 2 mg, una vez por semana durante 48 semanas",
+    "desenlace_medido": "Cambio porcentual del peso a 24 semanas (variable principal) y a 48 semanas. A 48 semanas: −8,7 % con 1 mg, −17,1 % con 4 mg, −22,8 % con 8 mg y −24,2 % con 12 mg, frente a −2,1 % con placebo. Eventos adversos gastrointestinales dependientes de la dosis; aumento de la frecuencia cardiaca dependiente de la dosis con pico a las 24 semanas"
+   },
+   {
+    "estudio": "Retatrutida en diabetes tipo 2 (fase 3)",
+    "pmid": "42250575",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42250575/",
+    "modelo": "Humanos; 537 participantes aleatorizados de 930 cribados (296 mujeres y 241 varones), entre abril de 2024 y abril de 2025: 134 a 4 mg, 133 a 9 mg, 136 a 12 mg y 134 a placebo",
+    "via": "Subcutánea",
+    "pauta_reportada": "4 mg, 9 mg o 12 mg una vez por semana, frente a placebo; aleatorización 1:1:1:1",
+    "desenlace_medido": "Cambio medio de HbA1c desde el inicio: −1,69 % (EE 0,11) con 4 mg, −1,86 % (0,10) con 9 mg y −1,94 % (0,08) con 12 mg, frente a −0,81 % (0,12) con placebo; diferencia frente a placebo de −0,88 puntos porcentuales (IC 95 % −1,18 a −0,59) con 4 mg"
+   },
+   {
+    "estudio": "Composición corporal en diabetes tipo 2 (subestudio de fase 2)",
+    "pmid": "40609566",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/40609566/",
+    "modelo": "Humanos; 189 participantes del subestudio de composición corporal, dentro de un ensayo de fase 2 con aleatorización 2:2:2:1:1:1:1:2",
+    "via": "Subcutánea",
+    "pauta_reportada": "Una vez por semana: placebo, dulaglutida 1,5 mg, o retatrutida 0,5 mg, 4 mg (con dosis inicial de 2 mg), 4 mg (con dosis inicial de 4 mg), 8 mg (con dosis inicial de 2 mg), 8 mg (con dosis inicial de 4 mg) o 12 mg",
+    "desenlace_medido": "Reducción porcentual de la masa grasa total desde el inicio: 4,9 % (EE 1,4) con 0,5 mg; 15,2 % (3,2) con 4 mg agrupado; 26,1 % (2,5) con 8 mg agrupado; 23,2 % (3,0) con 12 mg; 2,6 % (1,6) con dulaglutida y 4,5 % (1,2) con placebo"
+   },
+   {
+    "estudio": "Biomarcadores de riesgo cardiovascular en dos ensayos",
+    "pmid": "42608321",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42608321/",
+    "modelo": "Humanos; estudio 1 en adultos con obesidad o sobrepeso y diabetes tipo 2; estudio 2 en adultos con obesidad clínica sin diabetes tipo 2",
+    "via": "Subcutánea",
+    "pauta_reportada": "Estudio 1: retatrutida 0,5 / 4 / 8 / 12 mg una vez por semana, dulaglutida 1,5 mg o placebo, durante 36 semanas. Estudio 2: retatrutida 1 / 4 / 8 / 12 mg o placebo durante 48 semanas",
+    "desenlace_medido": "Biomarcadores de riesgo cardiovascular"
+   },
+   {
+    "estudio": "Ensayo TRANSCEND-CKD en enfermedad renal crónica (diseño y basal)",
+    "pmid": "41160422",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41160422/",
+    "modelo": "Humanos; participantes con enfermedad renal crónica, con mediana basal del cociente albúmina/creatinina en orina de 14,0 mg/g (rango intercuartílico 6,0 a 69,0)",
+    "via": "Subcutánea",
+    "pauta_reportada": "Una vez por semana, a la dosis máxima tolerada hasta 12 mg, frente a placebo equiparado; aleatorización 1:1",
+    "desenlace_medido": "Publicación de diseño y características basales; los desenlaces renales se reportarán al terminar el ensayo"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "Retatrutida NO está aprobada. Es la diferencia que explica por qué está prohibida en competición y semaglutida no: el criterio de la WADA es regulatorio, no farmacológico."
+ ],
+ "pendientes": [
+  "No hay CAS, fórmula molecular ni peso molecular verificables: PubChem solo tiene registros de impurezas. Si se quieren publicar, hay que citar otra fuente citable (por ejemplo la propuesta de DCI de la OMS). No inventarlos."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

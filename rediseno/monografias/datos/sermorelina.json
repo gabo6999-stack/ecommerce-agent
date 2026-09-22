@@ -1,0 +1,230 @@
+{
+ "slug": "sermorelina",
+ "nombre": "Sermorelina",
+ "producto": {
+  "id": 2231,
+  "nombre": "Sermorelina",
+  "url": "https://peptidosysuplementos.mx/product/sermorelina-10mg/",
+  "presentacion": "10 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Amida de los 29 primeros aminoácidos de la hormona liberadora de hormona de crecimiento humana, GHRH(1-29)NH2",
+  "inn": "sermorelin",
+  "sinonimos": [
+   "Sermorelina",
+   "Sermoreline",
+   "Sermorelinum",
+   "Geref",
+   "Groliberin",
+   "hGHRH(1-29)NH2",
+   "GHRH(1-29)NH2"
+  ],
+  "cas": "86168-78-7",
+  "formula_molecular": "C149H246N44O42S",
+  "peso_molecular_da": "3357.9",
+  "secuencia_aminoacidos": "Tyr-Ala-Asp-Ala-Ile-Phe-Thr-Asn-Ser-Tyr-Arg-Lys-Val-Leu-Gly-Gln-Leu-Ser-Ala-Arg-Lys-Leu-Leu-Gln-Asp-Ile-Met-Ser-Arg-NH2 (29 aminoácidos, C-terminal amidado)",
+  "pubchem_cid": 16132413,
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22"
+ },
+ "estado_evidencia": {
+  "escalon": "ensayos clínicos en personas, incluidos estudios multicéntricos; fue un medicamento comercializado",
+  "texto": "Sermorelina es la molécula con historia regulatoria más sólida de este grupo: se comercializó como Geref para el diagnóstico y el tratamiento del déficit de hormona de crecimiento en la infancia, y ya no está disponible en varios mercados. En PubMed, la consulta «sermorelin OR \"GHRH(1-29)\"» devuelve 449 registros, de los que 65 están tipificados como ensayo clínico y 38 como ensayo aleatorizado (consulta del 22-sep-2026).",
+  "consultas_pubmed": [
+   {
+    "consulta": "sermorelin OR \"GHRH(1-29)\"",
+    "resultados": 449,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "(lo anterior) AND clinical trial[pt]",
+    "resultados": 65,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Tuvo aprobación como medicamento (Geref) para diagnóstico y tratamiento del déficit de hormona de crecimiento; su comercialización se descontinuó en varios mercados. Comprobar el estatus vigente en el país antes de afirmar nada.",
+  "wada": "PROHIBIDA. Sección S2.2.4 (factores liberadores de hormona de crecimiento), citada por nombre.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "8772599",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/8772599/",
+   "titulo": "Once daily subcutaneous growth hormone-releasing hormone therapy accelerates growth in growth hormone-deficient children during the first year of therapy. Geref International Study Group.",
+   "autores": [
+    "Thorner M",
+    "Rochiccioli P",
+    "Colle M",
+    "Lanes R",
+    "Grunt J",
+    "Galazka A"
+   ],
+   "revista": "The Journal of clinical endocrinology and metabolism",
+   "anio": "1996",
+   "tipos_publicacion": [
+    "Clinical Trial",
+    "Journal Article",
+    "Multicenter Study",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 110 niños prepuberales con déficit de hormona de crecimiento no tratados previamente, de los que 86 fueron evaluables; estudio multicéntrico abierto",
+   "que_midieron": "Velocidad de crecimiento (de 4,1 ± 0,9 cm/año al inicio a 8,0 ± 1,5 a los 6 meses y 7,2 ± 1,3 a los 12 meses); progresión de la edad ósea frente a la edad-talla; bioquímica clínica, glucosa en ayunas e IGF-I",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "10905389",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/10905389/",
+   "titulo": "Growth during and after a trial of growth hormone releasing hormone 1-29 in children with idiopathic short stature or growth hormone neurosecretory dysfunction.",
+   "autores": [
+    "Schwartz ID",
+    "Grunt JA",
+    "Berg S",
+    "Jacobson JD",
+    "Moore WV",
+    "Howard CP"
+   ],
+   "revista": "Journal of pediatric endocrinology & metabolism : JPEM",
+   "anio": "2000",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 16 niños prepuberales con talla baja idiopática y 8 con disfunción neurosecretora de hormona de crecimiento, de crecimiento lento",
+   "que_midieron": "Tasa de crecimiento durante y después del tratamiento. Ambos grupos respondieron de forma similar; al suspender, las tasas volvieron a no diferir de las previas al tratamiento",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "9005976",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/9005976/",
+   "titulo": "Effects of single nightly injections of growth hormone-releasing hormone (GHRH 1-29) in healthy elderly men.",
+   "autores": [
+    "Vittone J",
+    "Blackman MR",
+    "Busby-Whitehead J",
+    "Tsiao C",
+    "Stewart KJ",
+    "Tobin J"
+   ],
+   "revista": "Metabolism: clinical and experimental",
+   "anio": "1997",
+   "tipos_publicacion": [
+    "Clinical Trial",
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "especie_o_modelo": "Humanos; 11 varones sanos, ambulatorios y no obesos, de 64 a 76 años, con valores basales bajos de IGF-I",
+   "que_midieron": "Consultar el resumen para la lista completa de desenlaces medidos",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "10594518",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/10594518/",
+   "titulo": "The relative roles of continuous growth hormone-releasing hormone (GHRH(1-29)NH2) and intermittent somatostatin(1-14)(SS) in growth hormone (GH) pulse generation: studies in normal and post cranial irradiated individuals.",
+   "autores": [
+    "Achermann JC",
+    "Hindmarsh PC",
+    "Robinson IC",
+    "Matthews DR",
+    "Brook CG"
+   ],
+   "revista": "Clinical endocrinology",
+   "anio": "1999",
+   "tipos_publicacion": [
+    "Clinical Trial",
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; individuos normales y post-irradiación craneal de más de 30 Gy (2,5 años de mediana tras la radioterapia), con 6 controles pareados",
+   "que_midieron": "Concentraciones séricas de hormona de crecimiento en perfiles espontáneos de 24 h y durante tres estudios de pinzamiento, para separar el papel de la GHRH continua del de la somatostatina(1-14) intermitente en la generación de pulsos de GH",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "18031173",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/18031173/",
+   "titulo": "Sermorelin: a review of its use in the diagnosis and treatment of children with idiopathic growth hormone deficiency.",
+   "autores": [
+    "Prakash A",
+    "Goa KL"
+   ],
+   "revista": "BioDrugs : clinical immunotherapeutics, biopharmaceuticals and gene therapy",
+   "anio": "1999",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "n/a",
+   "que_midieron": "Revisión sobre el uso de sermorelina en el diagnóstico y tratamiento del déficit idiopático de hormona de crecimiento en la infancia. Describe la prueba diagnóstica intravenosa de 1 µg/kg y sitúa el tratamiento subcutáneo en 30 µg/kg/día; también señala que el aumento de velocidad de crecimiento fue menor que con somatropina a la misma cifra por kilo.",
+   "solo_seccion_evidencia": true,
+   "motivo_fuera_de_tabla": "Es una revisión, no un estudio primario: no aporta fila ni dosis (regla 9). Sus cifras coinciden con las de los estudios primarios ya citados.",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Tratamiento de un año en niños con déficit de hormona de crecimiento (multicéntrico)",
+    "pmid": "8772599",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/8772599/",
+    "modelo": "Humanos; 110 niños prepuberales con déficit de hormona de crecimiento no tratados previamente, de los que 86 fueron evaluables; estudio multicéntrico abierto",
+    "via": "Subcutánea",
+    "pauta_reportada": "30 µg/kg/día de GHRH-(1-29), al acostarse, hasta 1 año; seguimiento cada 3 a 6 meses",
+    "desenlace_medido": "Velocidad de crecimiento (de 4,1 ± 0,9 cm/año al inicio a 8,0 ± 1,5 a los 6 meses y 7,2 ± 1,3 a los 12 meses); progresión de la edad ósea frente a la edad-talla; bioquímica clínica, glucosa en ayunas e IGF-I"
+   },
+   {
+    "estudio": "Talla baja idiopática y disfunción neurosecretora",
+    "pmid": "10905389",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/10905389/",
+    "modelo": "Humanos; 16 niños prepuberales con talla baja idiopática y 8 con disfunción neurosecretora de hormona de crecimiento, de crecimiento lento",
+    "via": "Subcutánea",
+    "pauta_reportada": "30 µg/kg de GHRH 1-29, en una inyección nocturna, durante 6 meses, con seguimiento trimestral hasta el año",
+    "desenlace_medido": "Tasa de crecimiento durante y después del tratamiento. Ambos grupos respondieron de forma similar; al suspender, las tasas volvieron a no diferir de las previas al tratamiento"
+   },
+   {
+    "estudio": "Inyecciones nocturnas en varones mayores sanos",
+    "pmid": "9005976",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/9005976/",
+    "modelo": "Humanos; 11 varones sanos, ambulatorios y no obesos, de 64 a 76 años, con valores basales bajos de IGF-I",
+    "via": "Subcutánea (autoinyección domiciliaria)",
+    "pauta_reportada": "2 mg de GHRH(1-29) por la noche, durante 6 semanas",
+    "desenlace_medido": "Consultar el resumen para la lista completa de desenlaces medidos"
+   },
+   {
+    "estudio": "GHRH continua frente a somatostatina intermitente en la generación de pulsos de GH",
+    "pmid": "10594518",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/10594518/",
+    "modelo": "Humanos; individuos normales y post-irradiación craneal de más de 30 Gy (2,5 años de mediana tras la radioterapia), con 6 controles pareados",
+    "via": "Subcutánea (infusión continua)",
+    "pauta_reportada": "GHRH(1-29)NH2 en infusión subcutánea continua de 60 ng/kg/minuto durante 24 h",
+    "desenlace_medido": "Concentraciones séricas de hormona de crecimiento en perfiles espontáneos de 24 h y durante tres estudios de pinzamiento, para separar el papel de la GHRH continua del de la somatostatina(1-14) intermitente en la generación de pulsos de GH"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "Ojo con la comparación implícita: la propia revisión señala que, a igual cifra por kilo, la velocidad de crecimiento aumentó MENOS con sermorelina que con somatropina."
+ ],
+ "pendientes": [
+  "El resumen del PMID 9005976 no se leyó entero: falta anotar sus desenlaces exactos."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

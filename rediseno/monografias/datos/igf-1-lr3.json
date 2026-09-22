@@ -1,0 +1,225 @@
+{
+ "slug": "igf-1-lr3",
+ "nombre": "IGF-1 LR3",
+ "producto": {
+  "id": 1128,
+  "nombre": "IGF-1 LR3",
+  "url": "https://peptidosysuplementos.mx/product/igf-1-lr3-1mg/",
+  "presentacion": "1 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Análogo del factor de crecimiento similar a la insulina tipo 1 con baja afinidad por las proteínas de unión a IGF y alta afinidad por el receptor de IGF-1",
+  "inn": "No tiene DCI",
+  "sinonimos": [
+   "Long R3 IGF-I",
+   "LR3 IGF-I",
+   "IGF-1 LR3"
+  ],
+  "cas": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+  "formula_molecular": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+  "peso_molecular_da": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+  "secuencia_aminoacidos": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+  "pubchem_cid": null,
+  "fuente_identidad": "PubChem NO devuelve ningún registro para «IGF-1 LR3», «long R3 IGF-I» ni «mecasermin» por nombre (consultado el 2026-09-22). La descripción funcional del análogo sí la dan literalmente los resúmenes de los PMID 39679943 y 33938236."
+ },
+ "estado_evidencia": {
+  "escalon": "preclínica; sin ensayos clínicos indexados con esa denominación. La serie principal es en feto ovino y su resultado más reciente es negativo",
+  "texto": "En PubMed, la consulta «\"long R3 IGF-I\" OR \"LR3 IGF-I\" OR \"IGF-1 LR3\"» devuelve 79 registros y NINGUNO tipificado como ensayo clínico ni como ensayo aleatorizado (consulta del 22-sep-2026). La serie experimental más consistente es de infusión en feto ovino de gestación tardía, y su publicación más reciente concluye que el tratamiento NO mejoró el crecimiento en fetos con restricción del crecimiento.",
+  "consultas_pubmed": [
+   {
+    "consulta": "\"long R3 IGF-I\" OR \"LR3 IGF-I\" OR \"IGF-1 LR3\"",
+    "resultados": 79,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "(lo anterior) AND clinical trial[pt]",
+    "resultados": 0,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Sin aprobación. Se produce y se vende como reactivo de investigación bioquímica y como suplemento de medios de cultivo celular.",
+  "wada": "PROHIBIDO. Sección S2.3 (factores de crecimiento): el IGF-1 y sus análogos están nombrados.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "39679943",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/39679943/",
+   "titulo": "IGF-1 LR3 does not promote growth in late-gestation growth-restricted fetal sheep.",
+   "autores": [
+    "White A",
+    "Stremming J",
+    "Wesolowski SR",
+    "Al-Juboori SI",
+    "Dobrinskikh E",
+    "Limesand SW"
+   ],
+   "revista": "American journal of physiology. Endocrinology and metabolism",
+   "anio": "2025",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Feto ovino de gestación tardía con restricción del crecimiento por insuficiencia placentaria; 7 con tratamiento y 7 con vehículo",
+   "que_midieron": "Peso corporal fetal, insulina, glucosa, oxígeno y aminoácidos plasmáticos antes y al final; secreción de insulina estimulada por glucosa el último día. No hubo diferencias en peso, insulina, glucosa, oxígeno ni en la secreción de insulina; los aminoácidos circulantes descendieron (p = 0,0232)",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "33938236",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/33938236/",
+   "titulo": "Reduced glucose-stimulated insulin secretion following a 1-wk IGF-1 infusion in late gestation fetal sheep is due to an intrinsic islet defect.",
+   "autores": [
+    "White A",
+    "Stremming J",
+    "Boehmer BH",
+    "Chang EI",
+    "Jonker SS",
+    "Wesolowski SR"
+   ],
+   "revista": "American journal of physiology. Endocrinology and metabolism",
+   "anio": "2021",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "especie_o_modelo": "Feto ovino de gestación tardía normal; 8 con IGF-1 LR3 y 9 control",
+   "que_midieron": "Insulina y glucosa plasmáticas (p = 0,0135 y p = 0,0012); secreción de insulina estimulada por glucosa con pinzamiento hiperglucémico (p = 0,0453); secreción de insulina en islotes fetales aislados en incubación estática (p = 0,0447), sin diferencias en el contenido pancreático de insulina",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "33427051",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/33427051/",
+   "titulo": "IGF-1 infusion to fetal sheep increases organ growth but not by stimulating nutrient transfer to the fetus.",
+   "autores": [
+    "Stremming J",
+    "Heard S",
+    "White A",
+    "Chang EI",
+    "Shaw SC",
+    "Wesolowski SR"
+   ],
+   "revista": "American journal of physiology. Endocrinology and metabolism",
+   "anio": "2021",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "especie_o_modelo": "Feto ovino de gestación tardía cateterizado; 8 con LR3 IGF-1 y 8 con salino",
+   "que_midieron": "Peso fetal (3,260 ± 0,211 kg frente a 3,682 ± 0,183; p = 0,15); peso de corazón, glándula suprarrenal y bazo (p < 0,05); flujo uterino y umbilical; captación umbilical de glucosa, lactato, oxígeno y aminoácidos; cinética de proteínas fetales; proliferación de mioblastos en músculo esquelético",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "37114757",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37114757/",
+   "titulo": "Attenuated glucose-stimulated insulin secretion during an acute IGF-1 LR3 infusion into fetal sheep does not persist in isolated islets.",
+   "autores": [
+    "White A",
+    "Stremming J",
+    "Brown LD",
+    "Rozance PJ"
+   ],
+   "revista": "Journal of developmental origins of health and disease",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "especie_o_modelo": "Feto ovino de gestación tardía; 10 animales en la fase in vivo y 6 más 6 en la de islotes aislados",
+   "que_midieron": "Insulina plasmática fetal (p < 0,05) y secreción de insulina durante pinzamiento hiperglucémico (66 % menor que el control, p < 0,0001); secreción de insulina en islotes aislados tras la infusión, que no difirió",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "20675162",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/20675162/",
+   "titulo": "Detection of His-tagged Long-R³-IGF-I in a black market product.",
+   "autores": [
+    "Kohler M",
+    "Thomas A",
+    "Walpurgis K",
+    "Terlouw K",
+    "Schänzer W",
+    "Thevis M"
+   ],
+   "revista": "Growth hormone & IGF research : official journal of the Growth Hormone Research Society and the International IGF Research Society",
+   "anio": "2010",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Análisis de un vial de producto incautado",
+   "que_midieron": "Caracterización por espectrometría de masas de alta resolución de un vial de mercado negro: contenía Long-R³-IGF-I con una etiqueta de seis histidinas unida al extremo C-terminal mediante los aminoácidos enlazadores Leu-Glu. Los autores señalan que ese material se produce para estudios bioquímicos y que los efectos de la forma con etiqueta de histidinas en personas no se han descrito.",
+   "solo_seccion_evidencia": true,
+   "motivo_fuera_de_tabla": "Es un informe analítico de un producto, no un estudio con pauta: va en la sección de evidencia, con su valor de calidad y trazabilidad.",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Infusión de una semana en feto ovino con restricción del crecimiento (resultado negativo)",
+    "pmid": "39679943",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/39679943/",
+    "modelo": "Feto ovino de gestación tardía con restricción del crecimiento por insuficiencia placentaria; 7 con tratamiento y 7 con vehículo",
+    "via": "Infusión directa en la circulación fetal",
+    "pauta_reportada": "1,17 ± 0,12 µg·kg⁻¹·h⁻¹ durante 1 semana",
+    "desenlace_medido": "Peso corporal fetal, insulina, glucosa, oxígeno y aminoácidos plasmáticos antes y al final; secreción de insulina estimulada por glucosa el último día. No hubo diferencias en peso, insulina, glucosa, oxígeno ni en la secreción de insulina; los aminoácidos circulantes descendieron (p = 0,0232)"
+   },
+   {
+    "estudio": "Infusión de una semana en feto ovino normal: efecto sobre el islote",
+    "pmid": "33938236",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/33938236/",
+    "modelo": "Feto ovino de gestación tardía normal; 8 con IGF-1 LR3 y 9 control",
+    "via": "Infusión directa en la circulación fetal",
+    "pauta_reportada": "Infusión durante 1 semana; valor numérico de la dosis no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Insulina y glucosa plasmáticas (p = 0,0135 y p = 0,0012); secreción de insulina estimulada por glucosa con pinzamiento hiperglucémico (p = 0,0453); secreción de insulina en islotes fetales aislados en incubación estática (p = 0,0447), sin diferencias en el contenido pancreático de insulina"
+   },
+   {
+    "estudio": "Crecimiento de órganos y transferencia de nutrientes",
+    "pmid": "33427051",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/33427051/",
+    "modelo": "Feto ovino de gestación tardía cateterizado; 8 con LR3 IGF-1 y 8 con salino",
+    "via": "Intravenosa (infusión)",
+    "pauta_reportada": "Infusión intravenosa durante 1 semana; valor numérico de la dosis no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Peso fetal (3,260 ± 0,211 kg frente a 3,682 ± 0,183; p = 0,15); peso de corazón, glándula suprarrenal y bazo (p < 0,05); flujo uterino y umbilical; captación umbilical de glucosa, lactato, oxígeno y aminoácidos; cinética de proteínas fetales; proliferación de mioblastos en músculo esquelético"
+   },
+   {
+    "estudio": "Infusión aguda de 90 minutos",
+    "pmid": "37114757",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/37114757/",
+    "modelo": "Feto ovino de gestación tardía; 10 animales en la fase in vivo y 6 más 6 en la de islotes aislados",
+    "via": "Infusión directa en la circulación fetal",
+    "pauta_reportada": "Infusión de 90 minutos; valor numérico de la dosis no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Insulina plasmática fetal (p < 0,05) y secreción de insulina durante pinzamiento hiperglucémico (66 % menor que el control, p < 0,0001); secreción de insulina en islotes aislados tras la infusión, que no difirió"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "El resultado más reciente de la serie es NEGATIVO. Una monografía que solo cite los trabajos de 2021 y omita el de 2025 estaría seleccionando la evidencia.",
+  "Esta molécula cierra el punto pendiente de la Fase 4: la ficha 1128 tiene una fila con «6,6 µg·kg⁻¹·h⁻¹, 1 semana, fetos ovinos normales» SIN PMID. Ver «pendientes»."
+ ],
+ "pendientes": [
+  "LA FILA SIN CITA DE LA FICHA 1128: la cifra de 6,6 µg·kg⁻¹·h⁻¹ en feto ovino normal durante 1 semana aparece literalmente en el resumen del PMID 39679943, donde los autores describen SU PROPIO trabajo anterior, que es el PMID 33938236. Es decir: la fuente de la fila es 33938236, pero el número no está en el resumen de 33938236 sino en el del artículo posterior. Antes de publicarla hay que confirmarlo en el texto completo de 33938236. Mientras tanto, la fila de 33938236 lleva la fórmula literal de «no reportado». NO se debe atribuir el número a 39679943, cuya dosis propia es 1,17 µg·kg⁻¹·h⁻¹.",
+  "No hay CAS, fórmula ni peso molecular verificables en PubChem. No inventarlos."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

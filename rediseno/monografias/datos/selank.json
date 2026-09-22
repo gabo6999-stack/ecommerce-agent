@@ -1,0 +1,251 @@
+{
+ "slug": "selank",
+ "nombre": "Selank",
+ "producto": {
+  "id": 1699,
+  "nombre": "Selank",
+  "url": "https://peptidosysuplementos.mx/product/selank-10-mg/",
+  "presentacion": "10 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Heptapéptido sintético: análogo del fragmento tuftsina con una extensión Pro-Gly-Pro",
+  "inn": "No tiene DCI",
+  "sinonimos": [
+   "Selank",
+   "Selanc",
+   "TP-7",
+   "Thr-Lys-Pro-Arg-Pro-Gly-Pro"
+  ],
+  "cas": "129954-34-3",
+  "formula_molecular": "C33H57N11O9",
+  "peso_molecular_da": "751.9",
+  "secuencia_aminoacidos": "Thr-Lys-Pro-Arg-Pro-Gly-Pro (heptapéptido)",
+  "pubchem_cid": 11765600,
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22"
+ },
+ "estado_evidencia": {
+  "escalon": "preclínica en roedores, más ensayos clínicos rusos pequeños de los que el resumen no declara la pauta",
+  "texto": "La bibliografía de Selank es mayoritariamente rusa y preclínica en roedores. En PubMed, «selank» devuelve 136 registros, de los que 6 están tipificados como ensayo clínico y 3 como aleatorizado (consulta del 22-sep-2026). Los dos ensayos comparativos localizados se publicaron en revistas rusas y sus resúmenes no declaran la dosis empleada, lo que impide construir una fila completa a partir de ellos.",
+  "consultas_pubmed": [
+   {
+    "consulta": "selank",
+    "resultados": 136,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "selank AND clinical trial[pt]",
+    "resultados": 6,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Registrado en Rusia como ansiolítico peptídico. Sin aprobación en Estados Unidos ni en la Unión Europea.",
+  "wada": "No está nombrado en la Lista de Prohibiciones. Queda sujeto a la cláusula S0 si no cuenta con aprobación sanitaria vigente aplicable: verificar caso a caso.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "31625062",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31625062/",
+   "titulo": "Selank, Peptide Analogue of Tuftsin, Protects Against Ethanol-Induced Memory Impairment by Regulating of BDNF Content in the Hippocampus and Prefrontal Cortex in Rats.",
+   "autores": [
+    "Kolik LG",
+    "Nadorova AV",
+    "Antipova TA",
+    "Kruglov SV",
+    "Kudrin VS",
+    "Durnev AD"
+   ],
+   "revista": "Bulletin of experimental biology and medicine",
+   "anio": "2019",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Rata no consanguínea que recibió etanol al 10 % como única fuente de líquido durante 30 semanas, evaluada a los 9 meses",
+   "que_midieron": "Prueba de reconocimiento de objetos (efecto cognitivo-estimulante, p < 0,05; prevención de las alteraciones inducidas por etanol, p < 0,01); contenido de BDNF en hipocampo y corteza frontal ex vivo (p < 0,05)",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "36322304",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36322304/",
+   "titulo": "Selank, a Peptide Analog of Tuftsin, Attenuates Aversive Signs of Morphine Withdrawal in Rats.",
+   "autores": [
+    "Konstantinopolsky MA",
+    "Chernyakova IV",
+    "Kolik LG"
+   ],
+   "revista": "Bulletin of experimental biology and medicine",
+   "anio": "2022",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Rata no consanguínea dependiente de morfina, modelo de abstinencia precipitada con naloxona",
+   "que_midieron": "Índice total del síndrome de abstinencia (reducción del 39,6 % con Selank y del 49,3 % con diazepam); reacciones convulsivas, ptosis y alteraciones posturales (p < 0,0001); umbral de sensibilidad táctil (aumento de 9 veces con Selank y de 13 con diazepam)",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "29787664",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/29787664/",
+   "titulo": "[COMPARISON OF PHARMACOLOGICAL EFFECTS OF HEPTAPEPTIDE SELANK AFTER INTRANASAL AND INTRAPERITONEAL ADMINISTRATION TO BALB/c AND C57BL/6 MICE.].",
+   "autores": [
+    "Vasil'eva EV",
+    "Kondrakhin EA",
+    "Salimov RM",
+    "Kovalev GI"
+   ],
+   "revista": "Eksperimental'naia i klinicheskaia farmakologiia",
+   "anio": "2016",
+   "tipos_publicacion": [
+    "Comparative Study",
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Ratón consanguíneo BALB/c y C57BL/6",
+   "que_midieron": "Conducta en laberinto elevado en cruz; unión de marcadores a receptores NMDA y GABA cerebrales. El efecto solo se observó en BALB/c. Por vía intraperitoneal aumentó un 38 % la unión a receptores GABA en corteza frontal; por vía intranasal aumentó un 23 % la unión a receptores NMDA en hipocampo",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "18454096",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/18454096/",
+   "titulo": "[Efficacy and possible mechanisms of action of a new peptide anxiolytic selank in the therapy of generalized anxiety disorders and neurasthenia].",
+   "autores": [
+    "Zozulia AA",
+    "Neznamov GG",
+    "Siuniakov TS",
+    "Kost NV",
+    "Gabaeva MV",
+    "Sokolov OIu"
+   ],
+   "revista": "Zhurnal nevrologii i psikhiatrii imeni S.S. Korsakova",
+   "anio": "2008",
+   "tipos_publicacion": [
+    "Comparative Study",
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; 62 pacientes con trastorno de ansiedad generalizada y neurastenia: 30 con Selank y 32 con medazepam",
+   "que_midieron": "Escalas psicométricas de Hamilton, Zung y CGI; actividad de encefalinas en suero y semivida de la leu-encefalina",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "25176261",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/25176261/",
+   "titulo": "[A comparison of the anxiolytic effect and tolerability of selank and phenazepam in the treatment of anxiety disorders].",
+   "autores": [
+    "Medvedev VE",
+    "Tereshchenko ON",
+    "Israelian AIu",
+    "Chobanu IK",
+    "Kost NV",
+    "Sokolov OIu"
+   ],
+   "revista": "Zhurnal nevrologii i psikhiatrii imeni S.S. Korsakova",
+   "anio": "2014",
+   "tipos_publicacion": [
+    "Clinical Trial",
+    "Comparative Study",
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Humanos; 60 pacientes con trastornos fóbico-ansiosos y somatomorfos (F40.2-9, F41.1-9, F45.0-1 de la CIE-10)",
+   "que_midieron": "Efecto ansiolítico y tolerabilidad frente a fenazepam; persistencia del efecto una semana después de la última toma; calidad de vida",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "30255741",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/30255741/",
+   "titulo": "Peptide-based Anxiolytics: The Molecular Aspects of Heptapeptide Selank Biological Activity.",
+   "autores": [
+    "Vyunova TV",
+    "Andreeva L",
+    "Shevchenko K",
+    "Myasoedov N"
+   ],
+   "revista": "Protein and peptide letters",
+   "anio": "2018",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "In vitro; membranas plasmáticas de células cerebrales",
+   "que_midieron": "Estudio de unión de radioligando que sitúa a Selank como modulador alostérico positivo de la unión de [3H]GABA, con interacción no aditiva frente a benzodiacepinas.",
+   "solo_seccion_evidencia": true,
+   "motivo_fuera_de_tabla": "El resumen no declara las concentraciones ensayadas: sin ese dato la fila quedaría con la celda de pauta vacía y sin valor.",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Deterioro de memoria inducido por etanol",
+    "pmid": "31625062",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/31625062/",
+    "modelo": "Rata no consanguínea que recibió etanol al 10 % como única fuente de líquido durante 30 semanas, evaluada a los 9 meses",
+    "via": "Intraperitoneal",
+    "pauta_reportada": "0,3 mg/kg al día durante 7 días",
+    "desenlace_medido": "Prueba de reconocimiento de objetos (efecto cognitivo-estimulante, p < 0,05; prevención de las alteraciones inducidas por etanol, p < 0,01); contenido de BDNF en hipocampo y corteza frontal ex vivo (p < 0,05)"
+   },
+   {
+    "estudio": "Signos aversivos de la abstinencia de morfina",
+    "pmid": "36322304",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36322304/",
+    "modelo": "Rata no consanguínea dependiente de morfina, modelo de abstinencia precipitada con naloxona",
+    "via": "Intraperitoneal",
+    "pauta_reportada": "Inyección intraperitoneal única de 0,3 mg/kg. Comparador: diazepam 2 mg/kg",
+    "desenlace_medido": "Índice total del síndrome de abstinencia (reducción del 39,6 % con Selank y del 49,3 % con diazepam); reacciones convulsivas, ptosis y alteraciones posturales (p < 0,0001); umbral de sensibilidad táctil (aumento de 9 veces con Selank y de 13 con diazepam)"
+   },
+   {
+    "estudio": "Comparación de la vía intranasal y la intraperitoneal en dos cepas de ratón",
+    "pmid": "29787664",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/29787664/",
+    "modelo": "Ratón consanguíneo BALB/c y C57BL/6",
+    "via": "Intraperitoneal e intranasal",
+    "pauta_reportada": "300 µg/kg/día durante 5 días, por cada una de las dos vías",
+    "desenlace_medido": "Conducta en laberinto elevado en cruz; unión de marcadores a receptores NMDA y GABA cerebrales. El efecto solo se observó en BALB/c. Por vía intraperitoneal aumentó un 38 % la unión a receptores GABA en corteza frontal; por vía intranasal aumentó un 23 % la unión a receptores NMDA en hipocampo"
+   },
+   {
+    "estudio": "Trastorno de ansiedad generalizada y neurastenia (aleatorizado)",
+    "pmid": "18454096",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/18454096/",
+    "modelo": "Humanos; 62 pacientes con trastorno de ansiedad generalizada y neurastenia: 30 con Selank y 32 con medazepam",
+    "via": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "pauta_reportada": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Escalas psicométricas de Hamilton, Zung y CGI; actividad de encefalinas en suero y semivida de la leu-encefalina"
+   },
+   {
+    "estudio": "Comparación con fenazepam en trastornos de ansiedad",
+    "pmid": "25176261",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/25176261/",
+    "modelo": "Humanos; 60 pacientes con trastornos fóbico-ansiosos y somatomorfos (F40.2-9, F41.1-9, F45.0-1 de la CIE-10)",
+    "via": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "pauta_reportada": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Efecto ansiolítico y tolerabilidad frente a fenazepam; persistencia del efecto una semana después de la última toma; calidad de vida"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "Los dos ensayos en personas no declaran la dosis en el resumen. Si la monografía los cita, tiene que decir eso mismo, no rellenar el hueco con la dosis de los estudios en rata: son especies distintas y vías distintas."
+ ],
+ "pendientes": [
+  "Conseguir el texto completo de 18454096 y 25176261 (revistas rusas) para rellenar vía y pauta, o dejar las celdas con la fórmula literal de «no reportado»."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

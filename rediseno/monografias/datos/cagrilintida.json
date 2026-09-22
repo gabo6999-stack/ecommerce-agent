@@ -1,0 +1,248 @@
+{
+ "slug": "cagrilintida",
+ "nombre": "Cagrilintida",
+ "producto": {
+  "id": 2240,
+  "nombre": "Cagrilintida",
+  "url": "https://peptidosysuplementos.mx/product/cagrilintida-10mg/",
+  "presentacion": "10 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Análogo de amilina de acción prolongada, acilado",
+  "inn": "cagrilintide",
+  "sinonimos": [
+   "Cagrilintide",
+   "AM833",
+   "NNC0174-0833"
+  ],
+  "cas": "ver cas_candidatos en la consulta de PubChem; no se fijó uno solo",
+  "formula_molecular": "C194H312N54O59S2",
+  "peso_molecular_da": "4409",
+  "secuencia_aminoacidos": "no reportado en el resumen — pendiente de comprobar en el texto completo (PubChem da el nombre IUPAC completo, no la secuencia en código de tres letras)",
+  "pubchem_cid": 171397054,
+  "inchikey": "LDERDVMBIYGIOI-IZVMHKDJSA-N",
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22"
+ },
+ "estado_evidencia": {
+  "escalon": "ensayos de fase 2 y fase 3 en personas, casi siempre coadministrada con semaglutida",
+  "texto": "Cagrilintida se ha estudiado en personas hasta fase 3. En PubMed, la consulta «cagrilintide» devuelve 100 registros, de los que 15 están tipificados como ensayo clínico y 15 como ensayo aleatorizado (consulta del 22-sep-2026). La mayor parte del programa clínico la estudia junto a semaglutida, no sola: al leer cualquier resultado hay que mirar primero si el brazo era cagrilintida en monoterapia o la combinación.",
+  "consultas_pubmed": [
+   {
+    "consulta": "cagrilintide",
+    "resultados": 100,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "cagrilintide AND clinical trial[pt]",
+    "resultados": 15,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Sin aprobación vigente como producto independiente en el momento de esta revisión. Está en desarrollo clínico avanzado.",
+  "wada": "PROHIBIDA por la cláusula S0: está en fase 3 sin aprobación sanitaria, así que cae aunque no esté nombrada en la lista.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "37364590",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37364590/",
+   "titulo": "Efficacy and safety of co-administered once-weekly cagrilintide 2·4 mg with once-weekly semaglutide 2·4 mg in type 2 diabetes: a multicentre, randomised, double-blind, active-controlled, phase 2 trial.",
+   "autores": [
+    "Frias JP",
+    "Deenadayalan S",
+    "Erichsen L",
+    "Knop FK",
+    "Lingvay I",
+    "Macura S"
+   ],
+   "revista": "Lancet (London, England)",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Multicenter Study",
+    "Clinical Trial, Phase II",
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 92 adultos con diabetes tipo 2 e IMC ≥ 27 kg/m² en tratamiento con metformina, con o sin inhibidor de SGLT2, en 17 centros de Estados Unidos",
+   "que_midieron": "Cambio de HbA1c desde el inicio (cagrilintida sola: −0,9 puntos porcentuales; combinación: −2,2; semaglutida: −1,8); peso corporal (cagrilintida sola: −8,1 %; combinación: −15,6 %; semaglutida: −5,1 %); glucosa plasmática en ayunas y tiempo en rango por monitorización continua",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "34798060",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+   "titulo": "Once-weekly cagrilintide for weight management in people with overweight and obesity: a multicentre, randomised, double-blind, placebo-controlled and active-controlled, dose-finding phase 2 trial.",
+   "autores": [
+    "Lau DCW",
+    "Erichsen L",
+    "Francisco AM",
+    "Satylganova A",
+    "le Roux CW",
+    "McGowan B"
+   ],
+   "revista": "Lancet (London, England)",
+   "anio": "2021",
+   "tipos_publicacion": [
+    "Clinical Trial, Phase II",
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; adultos con sobrepeso y obesidad, estudio multicéntrico aleatorizado",
+   "que_midieron": "Control del peso corporal; consultar el resumen completo para los desenlaces exactos",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42251859",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42251859/",
+   "titulo": "Cagrilintide-semaglutide (CagriSema) versus semaglutide or cagrilintide in people with type 2 diabetes (REIMAGINE 2): a double-blind, randomised, controlled, phase 3 study.",
+   "autores": [
+    "Buse JB",
+    "Bajaj HS",
+    "Dalskov SM",
+    "Donaldson L",
+    "Hansen Duus HH",
+    "Fabricius TW"
+   ],
+   "revista": "The lancet. Diabetes & endocrinology",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Clinical Trial, Phase III",
+    "Multicenter Study",
+    "Comparative Study"
+   ],
+   "especie_o_modelo": "Humanos; 2713 adultos con diabetes tipo 2 mal controlada (HbA1c 7,0 %–10,5 %) en tratamiento con metformina, con o sin inhibidor de SGLT2, e IMC ≥ 25 kg/m²",
+   "que_midieron": "Cambio de HbA1c desde el inicio hasta la semana 68 de la combinación (2,4 mg cada uno) frente a semaglutida 2,4 mg",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42251856",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42251856/",
+   "titulo": "Cagrilintide-semaglutide (CagriSema) as an add-on to basal insulin in adults with type 2 diabetes (REIMAGINE 3): a randomised, double-blind, placebo-controlled, multicentre, phase 3 study.",
+   "autores": [
+    "Rosenstock J",
+    "Billings LK",
+    "Gajria R",
+    "Giorgino F",
+    "Johansen NB",
+    "Klein KR"
+   ],
+   "revista": "Lancet (London, England)",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Multicenter Study",
+    "Clinical Trial, Phase III"
+   ],
+   "especie_o_modelo": "Humanos; 274 adultos con diabetes tipo 2 (HbA1c 7,0 %–10,5 %) con insulina basal estable una vez al día, con o sin metformina",
+   "que_midieron": "Control glucémico y seguridad como añadido a insulina basal",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42228334",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42228334/",
+   "titulo": "Renal or Hepatic Impairment Does Not Affect Pharmacokinetics, Safety, or Tolerability of Subcutaneous Cagrilintide.",
+   "autores": [
+    "Nielsen MJF",
+    "Becker NP",
+    "Duus HHH",
+    "Kirkeby K",
+    "Kupčová V",
+    "Lauenborg BW"
+   ],
+   "revista": "Clinical pharmacokinetics",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Clinical Trial, Phase I",
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; participantes adultos clasificados en cuatro grupos según función renal o hepática (normal, leve, moderada, grave), en dos estudios",
+   "que_midieron": "Farmacocinética, seguridad y tolerabilidad. La insuficiencia renal o hepática no afectó a la farmacocinética",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Cagrilintida sola, semaglutida sola y la combinación en diabetes tipo 2 (fase 2)",
+    "pmid": "37364590",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/37364590/",
+    "modelo": "Humanos; 92 adultos con diabetes tipo 2 e IMC ≥ 27 kg/m² en tratamiento con metformina, con o sin inhibidor de SGLT2, en 17 centros de Estados Unidos",
+    "via": "Subcutánea",
+    "pauta_reportada": "Una vez por semana durante 32 semanas, con escalada hasta 2,4 mg, en tres brazos: cagrilintida + semaglutida (n = 31), semaglutida (n = 31) o cagrilintida sola (n = 30)",
+    "desenlace_medido": "Cambio de HbA1c desde el inicio (cagrilintida sola: −0,9 puntos porcentuales; combinación: −2,2; semaglutida: −1,8); peso corporal (cagrilintida sola: −8,1 %; combinación: −15,6 %; semaglutida: −5,1 %); glucosa plasmática en ayunas y tiempo en rango por monitorización continua"
+   },
+   {
+    "estudio": "Cagrilintida para el control de peso (fase 2)",
+    "pmid": "34798060",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+    "modelo": "Humanos; adultos con sobrepeso y obesidad, estudio multicéntrico aleatorizado",
+    "via": "Subcutánea",
+    "pauta_reportada": "Una vez por semana; niveles de dosis concretos no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Control del peso corporal; consultar el resumen completo para los desenlaces exactos"
+   },
+   {
+    "estudio": "Cagrilintida-semaglutida frente a cada componente en diabetes tipo 2 (fase 3, REIMAGINE 2)",
+    "pmid": "42251859",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42251859/",
+    "modelo": "Humanos; 2713 adultos con diabetes tipo 2 mal controlada (HbA1c 7,0 %–10,5 %) en tratamiento con metformina, con o sin inhibidor de SGLT2, e IMC ≥ 25 kg/m²",
+    "via": "Subcutánea",
+    "pauta_reportada": "Una vez por semana durante 68 semanas: cagrilintida 2,4 mg + semaglutida 2,4 mg, frente a semaglutida 2,4 mg y frente a cagrilintida, con aleatorización 8:8:2:8:8:1:1",
+    "desenlace_medido": "Cambio de HbA1c desde el inicio hasta la semana 68 de la combinación (2,4 mg cada uno) frente a semaglutida 2,4 mg"
+   },
+   {
+    "estudio": "Cagrilintida-semaglutida añadida a insulina basal (fase 3, REIMAGINE 3)",
+    "pmid": "42251856",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42251856/",
+    "modelo": "Humanos; 274 adultos con diabetes tipo 2 (HbA1c 7,0 %–10,5 %) con insulina basal estable una vez al día, con o sin metformina",
+    "via": "Subcutánea",
+    "pauta_reportada": "Una vez por semana: cagrilintida 2,4 mg + semaglutida 2,4 mg, o cagrilintida 1,0 mg + semaglutida 1,0 mg, con aleatorización 2:2:1:1",
+    "desenlace_medido": "Control glucémico y seguridad como añadido a insulina basal"
+   },
+   {
+    "estudio": "Farmacocinética en insuficiencia renal o hepática",
+    "pmid": "42228334",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42228334/",
+    "modelo": "Humanos; participantes adultos clasificados en cuatro grupos según función renal o hepática (normal, leve, moderada, grave), en dos estudios",
+    "via": "Subcutánea",
+    "pauta_reportada": "Dosis únicas de cagrilintida; valores concretos no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Farmacocinética, seguridad y tolerabilidad. La insuficiencia renal o hepática no afectó a la farmacocinética"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "Casi todos los resultados de peso que circulan como «de cagrilintida» son en realidad de la combinación con semaglutida. En la tabla, el brazo tiene que ir dentro de la celda, como aquí."
+ ],
+ "pendientes": [
+  "El resumen del PMID 34798060 (fase 2 en monoterapia) no se leyó entero: hay que sacar de él los niveles de dosis y el desenlace exacto antes de publicar esa fila.",
+  "PubChem no fija un CAS único para cagrilintida en su lista de sinónimos.",
+  "La secuencia de aminoácidos no se obtuvo en formato citable."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

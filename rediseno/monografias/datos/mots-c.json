@@ -1,0 +1,257 @@
+{
+ "slug": "mots-c",
+ "nombre": "MOTS-c",
+ "producto": {
+  "id": [
+   790,
+   793
+  ],
+  "nombre": "MOTS-c 10 mg y 40 mg",
+  "url": "https://peptidosysuplementos.mx/product/mots-c-10mg/",
+  "presentacion": "10 mg y 40 mg",
+  "nota": "La ficha de 40 mg canoniza a la de 10 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Péptido de 16 aminoácidos codificado por un marco de lectura abierto corto del ARN ribosómico 12S mitocondrial",
+  "inn": "No tiene DCI",
+  "sinonimos": [
+   "MOTS-c",
+   "Mitochondrial open reading frame of the 12S rRNA-c",
+   "Péptido mitocondrial MOTS-c"
+  ],
+  "cas": "1627580-64-6",
+  "formula_molecular": "C101H152N28O22S2",
+  "peso_molecular_da": "2174.6",
+  "secuencia_aminoacidos": "Met-Arg-Trp-Gln-Glu-Met-Gly-Tyr-Ile-Phe-Tyr-Pro-Arg-Lys-Leu-Arg (MRWQEMGYIFYPRKLR, 16 aminoácidos)",
+  "pubchem_cid": 146675088,
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22"
+ },
+ "estado_evidencia": {
+  "escalon": "preclínica abundante en roedores; en personas, casi toda la literatura mide MOTS-c como BIOMARCADOR en sangre, no lo administra",
+  "texto": "Hay que distinguir dos literaturas. La preclínica administra MOTS-c a roedores y mide desenlaces. La humana, mucho más numerosa, mide la concentración de MOTS-c circulante en distintas enfermedades: son estudios de asociación, no de administración. En PubMed, «MOTS-c» devuelve 258 registros, de los que 5 están tipificados como ensayo clínico (consulta del 22-sep-2026); al revisarlos, los que involucran personas miden el péptido endógeno.",
+  "consultas_pubmed": [
+   {
+    "consulta": "\"MOTS-c\"",
+    "resultados": 258,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "\"MOTS-c\" AND clinical trial[pt]",
+    "resultados": 5,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Sin aprobación en ninguna jurisdicción.",
+  "wada": "No está nombrado en la Lista de Prohibiciones. Queda sujeto a la cláusula S0 (sustancia sin aprobación sanitaria vigente para uso humano).",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "41706383",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41706383/",
+   "titulo": "Therapeutic Effects of MOTS-c in the Valproic Acid-Induced Autism Model in Rats: Role of Tetrahydrobiopterin and Brain-Derived Neurotrophic Factor.",
+   "autores": [
+    "Güvenir Seven S",
+    "Sahin H",
+    "Erkanlı Şentürk G",
+    "Uysal N",
+    "Uzun H",
+    "Ekici O"
+   ],
+   "revista": "Molecular neurobiology",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Cría de rata Sprague-Dawley, hembra y macho, de madres que recibieron 500 mg/kg de ácido valproico por vía intraperitoneal en el día embrionario 12",
+   "que_midieron": "Efectos terapéuticos conductuales y papel de la tetrahidrobiopterina; consultar el resumen completo para la lista exacta",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "41593376",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41593376/",
+   "titulo": "Exogenous MOTS-c mitigates myocardial ischemia-reperfusion injury: experimental and in silico evidence from rat heart models.",
+   "autores": [
+    "Santhanam SS",
+    "Jayaraman S",
+    "Kurian GA"
+   ],
+   "revista": "Naunyn-Schmiedeberg's archives of pharmacology",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Corazón de rata aislado y perfundido en montaje de Langendorff, sometido a 30 min de isquemia global y 60 min de reperfusión",
+   "que_midieron": "Tamaño del infarto (reducción del 73 % con 0,5 mg/kg frente a isquemia-reperfusión sola); frecuencia cardiaca, presión desarrollada del ventrículo izquierdo, producto presión-frecuencia y presión telediastólica",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "41811086",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41811086/",
+   "titulo": "MOTS-c primes adrenal cortex metabolism without directly driving steroidogenesis.",
+   "autores": [
+    "Blatkiewicz M",
+    "Kaminski K",
+    "Sobalska-Kwapis M",
+    "Szyszka M",
+    "Olechnowicz A",
+    "Jopek K"
+   ],
+   "revista": "Folia histochemica et cytobiologica",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Rata Wistar macho adulta; 16 animales",
+   "que_midieron": "Vías metabólicas de la corteza suprarrenal y esteroidogénesis",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "40753494",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40753494/",
+   "titulo": "A mitochondrial-derived peptide MOTS-c contributes to the protective effect against brain injury associated with LPS-induced sepsis by strengthening the blood-brain barrier's ultrastructure.",
+   "autores": [
+    "Bai Y",
+    "Wu H",
+    "Wang X",
+    "Guo Y",
+    "Gong B",
+    "Dong B"
+   ],
+   "revista": "The International journal of neuroscience",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Ratón",
+   "que_midieron": "Efecto protector frente a la lesión cerebral; consultar el resumen completo para la lista exacta de desenlaces",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42142418",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42142418/",
+   "titulo": "LAT1-mediated delivery of engineered R13A-MOTS-c attenuates radiation-induced lung injury via Nrf2 activation and mitochondrial protection.",
+   "autores": [
+    "Zhang YL",
+    "Huang G",
+    "Li SP",
+    "Zhang WL",
+    "Chen D",
+    "Jin LG"
+   ],
+   "revista": "Redox biology",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Ratón C57BL/6 expuesto a 20 Gy de irradiación torácica. ATENCIÓN: el compuesto ensayado es el ANÁLOGO MODIFICADO R13A-MOTS-c, no MOTS-c",
+   "que_midieron": "Inflamación pulmonar, estrés oxidativo y disfunción mitocondrial inducidos por radiación; activación de Nrf2 y transporte mediado por LAT1",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "25738459",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/25738459/",
+   "titulo": "The mitochondrial-derived peptide MOTS-c promotes metabolic homeostasis and reduces obesity and insulin resistance.",
+   "autores": [
+    "Lee C",
+    "Zeng J",
+    "Drew BG",
+    "Sallam T",
+    "Martin-Montalvo A",
+    "Wan J"
+   ],
+   "revista": "Cell metabolism",
+   "anio": "2015",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Ratón",
+   "que_midieron": "Artículo fundacional que describe el marco de lectura abierto corto del ARNr 12S que codifica MOTS-c, identifica el músculo esquelético como su órgano diana principal y describe la inhibición del ciclo del folato y la activación de AMPK. Informa que el tratamiento en ratón previno la resistencia a la insulina dependiente de la edad y la inducida por dieta alta en grasa, y la obesidad inducida por dieta.",
+   "solo_seccion_evidencia": true,
+   "motivo_fuera_de_tabla": "El resumen no declara ni la vía ni la pauta: sin esos dos datos la fila quedaría con dos celdas vacías. Va en la sección de evidencia.",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Modelo de autismo inducido por ácido valproico",
+    "pmid": "41706383",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41706383/",
+    "modelo": "Cría de rata Sprague-Dawley, hembra y macho, de madres que recibieron 500 mg/kg de ácido valproico por vía intraperitoneal en el día embrionario 12",
+    "via": "Intraperitoneal",
+    "pauta_reportada": "0,5 mg/kg/día desde el día posnatal 21 hasta el 46, frente a salino",
+    "desenlace_medido": "Efectos terapéuticos conductuales y papel de la tetrahidrobiopterina; consultar el resumen completo para la lista exacta"
+   },
+   {
+    "estudio": "Lesión por isquemia-reperfusión miocárdica en corazón aislado",
+    "pmid": "41593376",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41593376/",
+    "modelo": "Corazón de rata aislado y perfundido en montaje de Langendorff, sometido a 30 min de isquemia global y 60 min de reperfusión",
+    "via": "Perfusión en tampón de Krebs-Henseleit",
+    "pauta_reportada": "0,25 a 0,7 mg/kg administrados durante los primeros 10 min de reperfusión",
+    "desenlace_medido": "Tamaño del infarto (reducción del 73 % con 0,5 mg/kg frente a isquemia-reperfusión sola); frecuencia cardiaca, presión desarrollada del ventrículo izquierdo, producto presión-frecuencia y presión telediastólica"
+   },
+   {
+    "estudio": "Cebado metabólico de la corteza suprarrenal",
+    "pmid": "41811086",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41811086/",
+    "modelo": "Rata Wistar macho adulta; 16 animales",
+    "via": "Subcutánea, con bombas microosmóticas",
+    "pauta_reportada": "0,1 µmol cada 24 h en infusión continua durante 24 horas, frente a salino",
+    "desenlace_medido": "Vías metabólicas de la corteza suprarrenal y esteroidogénesis"
+   },
+   {
+    "estudio": "Lesión cerebral asociada a un modelo experimental",
+    "pmid": "40753494",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/40753494/",
+    "modelo": "Ratón",
+    "via": "no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "pauta_reportada": "20 mg/kg administrados cuatro horas antes de establecer el modelo",
+    "desenlace_medido": "Efecto protector frente a la lesión cerebral; consultar el resumen completo para la lista exacta de desenlaces"
+   },
+   {
+    "estudio": "Análogo modificado R13A-MOTS-c en lesión pulmonar por radiación",
+    "pmid": "42142418",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42142418/",
+    "modelo": "Ratón C57BL/6 expuesto a 20 Gy de irradiación torácica. ATENCIÓN: el compuesto ensayado es el ANÁLOGO MODIFICADO R13A-MOTS-c, no MOTS-c",
+    "via": "Intraperitoneal",
+    "pauta_reportada": "R13A-MOTS-c 5 mg/kg al día durante 2 semanas",
+    "desenlace_medido": "Inflamación pulmonar, estrés oxidativo y disfunción mitocondrial inducidos por radiación; activación de Nrf2 y transporte mediado por LAT1"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "La distinción entre administrar MOTS-c y medirlo como biomarcador es la más importante de esta molécula. Un estudio que encuentra MOTS-c bajo en una enfermedad no dice nada sobre administrarlo.",
+  "La fila de 42142418 es de un ANÁLOGO MODIFICADO (R13A), no de MOTS-c. Va etiquetado dentro de la propia celda."
+ ],
+ "pendientes": [
+  "Verificar la especie y la vía del PMID 41268602 (5 mg/kg en restricción del crecimiento intrauterino por hipoxia) antes de añadirlo como fila.",
+  "Los desenlaces exactos de 41706383 y 40753494 hay que anotarlos del resumen completo."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

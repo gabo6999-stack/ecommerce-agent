@@ -1,0 +1,351 @@
+{
+ "slug": "bpc-157",
+ "nombre": "BPC-157",
+ "producto": {
+  "id": 2464,
+  "nombre": "BPC-157",
+  "url": "https://peptidosysuplementos.mx/product/bpc-157/",
+  "presentacion": "5 mg y 10 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Pentadecapéptido derivado de una proteína del jugo gástrico humano",
+  "inn": "No tiene DCI",
+  "sinonimos": [
+   "BPC 157",
+   "Pentadecapeptide BPC 157",
+   "Bepecin",
+   "BPC 15",
+   "PL-10",
+   "PLD-116",
+   "PL-14736",
+   "Body protection compound 157"
+  ],
+  "cas": "137525-51-0",
+  "formula_molecular": "C62H98N16O22",
+  "peso_molecular_da": "1419.5",
+  "secuencia_aminoacidos": "Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val (GEPPPGKPADDAGLV)",
+  "pubchem_cid": 9941957,
+  "inchikey": "HEEWEZGQMLZMFE-RKGINYAYSA-N",
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22; la secuencia y el peso molecular (1419) los repite literalmente el resumen del PMID 14554208"
+ },
+ "estado_evidencia": {
+  "escalon": "solo preclínica; sin ningún ensayo clínico indexado",
+  "texto": "La investigación de BPC-157 es preclínica. Una búsqueda en PubMed del término «BPC 157» restringida a ensayos clínicos no devuelve ningún registro (0 de 230, consulta del 22-sep-2026). Una revisión de 2026 sobre su desarrollo farmacéutico lo resume así: pese a más de tres décadas de investigación preclínica, no hay formulación aprobada, ni régimen de dosificación validado, ni un ensayo de fase II completado; los datos en personas proceden de menos de 30 sujetos repartidos en tres estudios piloto no controlados.",
+  "consultas_pubmed": [
+   {
+    "consulta": "\"BPC 157\"",
+    "resultados": 230,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "\"BPC 157\" AND clinical trial[pt]",
+    "resultados": 0,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "\"BPC 157\" AND randomized controlled trial[pt]",
+    "resultados": 0,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Sin aprobación en ninguna jurisdicción. No hay formulación farmacéutica validada (PMID 42198317).",
+  "wada": "PROHIBIDO. Sección S0 (sustancias no aprobadas), citado por nombre. No es agente anabólico ni factor de crecimiento, un error muy extendido.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026, sección S0; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "14554208",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/14554208/",
+   "titulo": "Gastric pentadecapeptide BPC 157 accelerates healing of transected rat Achilles tendon and in vitro stimulates tendocytes growth.",
+   "autores": [
+    "Staresinic M",
+    "Sebecic B",
+    "Patrlj L",
+    "Jadrijevic S",
+    "Suknaic S",
+    "Perovic D"
+   ],
+   "revista": "Journal of orthopaedic research : official publication of the Orthopaedic Research Society",
+   "anio": "2003",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Rata; tendón de Aquiles derecho seccionado 5 mm proximal a su inserción calcánea, con defecto entre los extremos",
+   "que_midieron": "Carga de falla, carga de falla por área y módulo de Young; índice funcional de Aquiles; histología y tamaño del defecto. Comparador: salino 5,0 mL/kg",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "15052688",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/15052688/",
+   "titulo": "Protective effects of pentadecapeptide BPC 157 on gastric ulcer in rats.",
+   "autores": [
+    "Xue XC",
+    "Wu YJ",
+    "Gao MT",
+    "Li WG",
+    "Zhao N",
+    "Wang ZL"
+   ],
+   "revista": "World journal of gastroenterology",
+   "anio": "2004",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Rata; modelos de úlcera inducida, incluidos ligadura de píloro y úlcera crónica por acetato",
+   "que_midieron": "Área de la úlcera y tasa de inhibición de su formación (45,7 %–65,6 %); reconstrucción del epitelio glandular y tejido de granulación. Comparador: famotidina (60,8 %, 57,2 % y 34,3 % en los tres modelos)",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "36588717",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36588717/",
+   "titulo": "Pharmacokinetics, distribution, metabolism, and excretion of body-protective compound 157, a potential drug for treating various wounds, in rats and dogs.",
+   "autores": [
+    "He L",
+    "Feng D",
+    "Guo H",
+    "Zhou Y",
+    "Li Z",
+    "Zhang K"
+   ],
+   "revista": "Frontiers in pharmacology",
+   "anio": "2022",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Rata y perro beagle",
+   "que_midieron": "Semivida de eliminación del BPC157 inalterado inferior a 30 min y cinética lineal en ambas especies; biodisponibilidad absoluta media por vía intramuscular de 14 %–19 % en rata y 45 %–51 % en beagle; excreción urinaria y biliar verificada con BPC157 marcado con tritio",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42542926",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42542926/",
+   "titulo": "Effects of BPC-157 and TB-500 on Achilles tendon healing in rats: A histopathological and biomechanical study.",
+   "autores": [
+    "Biçer O",
+    "Adanir O",
+    "Güleryüz Y",
+    "Balci EC",
+    "Dinçel YM",
+    "Yenigün MY"
+   ],
+   "revista": "Joint diseases and related surgery",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Rata Sprague-Dawley macho; 32 animales de 12 semanas y unos 330 g, con sección y reparación estandarizada del tendón de Aquiles, repartidos en 4 grupos de 8 (control, BPC-157, TB-500, combinación)",
+   "que_midieron": "Carga máxima hasta la falla; puntuaciones histopatológicas de Bonar y Movin; birrefringencia con rojo sirio; expresión inmunohistoquímica de colágeno I y III. El grupo BPC-157 mostró puntuaciones numéricamente menores sin alcanzar significación en las totales",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "15531385",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/15531385/",
+   "titulo": "Effects of pentadecapeptide BPC157 on regional serotonin synthesis in the rat brain: alpha-methyl-L-tryptophan autoradiographic measurements.",
+   "autores": [
+    "Tohyama Y",
+    "Sikirić P",
+    "Diksic M"
+   ],
+   "revista": "Life sciences",
+   "anio": "2004",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "especie_o_modelo": "Rata; medición por autorradiografía con α-[14C]metil-L-triptófano",
+   "que_midieron": "Tasa regional de síntesis de serotonina en tálamo dorsal, hipocampo, cuerpo geniculado lateral, hipotálamo, sustancia negra, núcleos del rafe y otras regiones",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "21030672",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/21030672/",
+   "titulo": "The promoting effect of pentadecapeptide BPC 157 on tendon healing involves tendon outgrowth, cell survival, and cell migration.",
+   "autores": [
+    "Chang CH",
+    "Tsai WC",
+    "Lin MS",
+    "Hsu YH",
+    "Pang JH"
+   ],
+   "revista": "Journal of applied physiology (Bethesda, Md. : 1985)",
+   "anio": "2011",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "In vitro y ex vivo; explantes de tendón y fibroblastos tendinosos derivados de tendón de Aquiles de rata",
+   "que_midieron": "Crecimiento desde el explante; supervivencia celular bajo estrés con H₂O₂; migración en cámara de filtro; formación de F-actina; fosforilación de FAK y paxilina por Western blot. La proliferación directa no se modificó",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "25415472",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/25415472/",
+   "titulo": "Pentadecapeptide BPC 157 enhances the growth hormone receptor expression in tendon fibroblasts.",
+   "autores": [
+    "Chang CH",
+    "Tsai WC",
+    "Hsu YH",
+    "Pang JH"
+   ],
+   "revista": "Molecules (Basel, Switzerland)",
+   "anio": "2014",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "In vitro; fibroblastos tendinosos aislados de tendón de Aquiles de rata Sprague-Dawley macho",
+   "que_midieron": "Expresión del receptor de hormona de crecimiento (ARNm y proteína) por RT-PCR en tiempo real y Western blot; proliferación por MTT y PCNA al añadir hormona de crecimiento; activación de JAK2",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42198317",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42198317/",
+   "titulo": "BPC-157 as an Investigational Peptide Therapeutic: Biopharmaceutical Challenges, Formulation Strategies, and Translational Development Barriers.",
+   "autores": [
+    "Mateescu DM",
+    "Gavrilescu DM",
+    "Constantinescu FE",
+    "Oancea C",
+    "Ilie AC",
+    "Folescu R"
+   ],
+   "revista": "Pharmaceutics",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Review"
+   ],
+   "especie_o_modelo": "n/a",
+   "que_midieron": "Revisión narrativa de 2026 sobre el desarrollo farmacéutico de BPC-157. Es la fuente del aviso de estado de la evidencia: sin formulación aprobada, sin régimen de dosificación validado y sin ensayo de fase II completado; datos clínicos de menos de 30 sujetos en tres pilotos no controlados, ninguno con preparación farmacéutica estandarizada.",
+   "solo_seccion_evidencia": true,
+   "motivo_fuera_de_tabla": "Es una revisión, no un estudio primario: no aporta fila ni dosis (regla 9).",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "40789979",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40789979/",
+   "titulo": "Regeneration or Risk? A Narrative Review of BPC-157 for Musculoskeletal Healing.",
+   "autores": [
+    "McGuire FP",
+    "Martinez R",
+    "Lenz A",
+    "Skinner L",
+    "Cushman DM"
+   ],
+   "revista": "Current reviews in musculoskeletal medicine",
+   "anio": "2025",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Review"
+   ],
+   "especie_o_modelo": "n/a",
+   "que_midieron": "Revisión narrativa de 2025 en medicina musculoesquelética. Confirma que solo tres estudios piloto han examinado BPC-157 en personas (dolor intraarticular de rodilla, cistitis intersticial y seguridad/farmacocinética intravenosa) y concluye que debe considerarse investigacional.",
+   "solo_seccion_evidencia": true,
+   "motivo_fuera_de_tabla": "Es una revisión, no un estudio primario.",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Tendón de Aquiles seccionado",
+    "pmid": "14554208",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/14554208/",
+    "modelo": "Rata; tendón de Aquiles derecho seccionado 5 mm proximal a su inserción calcánea, con defecto entre los extremos",
+    "via": "Intraperitoneal",
+    "pauta_reportada": "10 µg, 10 ng o 10 pg por kg de peso corporal, una vez al día; primera aplicación 30 min después de la cirugía, última 24 h antes de la autopsia; evaluación en los días 1, 4, 7, 10 y 14",
+    "desenlace_medido": "Carga de falla, carga de falla por área y módulo de Young; índice funcional de Aquiles; histología y tamaño del defecto. Comparador: salino 5,0 mL/kg"
+   },
+   {
+    "estudio": "Úlcera gástrica aguda y crónica",
+    "pmid": "15052688",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/15052688/",
+    "modelo": "Rata; modelos de úlcera inducida, incluidos ligadura de píloro y úlcera crónica por acetato",
+    "via": "Intramuscular e intragástrica",
+    "pauta_reportada": "200, 400 y 800 ng/kg; administración inicial única o continua, antes del inductor en el modelo agudo y después en el crónico",
+    "desenlace_medido": "Área de la úlcera y tasa de inhibición de su formación (45,7 %–65,6 %); reconstrucción del epitelio glandular y tejido de granulación. Comparador: famotidina (60,8 %, 57,2 % y 34,3 % en los tres modelos)"
+   },
+   {
+    "estudio": "Farmacocinética, distribución, metabolismo y excreción",
+    "pmid": "36588717",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36588717/",
+    "modelo": "Rata y perro beagle",
+    "via": "Intravenosa e intramuscular",
+    "pauta_reportada": "Una administración intravenosa única; administraciones intramusculares únicas a tres dosis crecientes; y administración intramuscular repetida. Valores numéricos de cada nivel de dosis no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Semivida de eliminación del BPC157 inalterado inferior a 30 min y cinética lineal en ambas especies; biodisponibilidad absoluta media por vía intramuscular de 14 %–19 % en rata y 45 %–51 % en beagle; excreción urinaria y biliar verificada con BPC157 marcado con tritio"
+   },
+   {
+    "estudio": "Reparación de tendón de Aquiles, comparado con TB-500",
+    "pmid": "42542926",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42542926/",
+    "modelo": "Rata Sprague-Dawley macho; 32 animales de 12 semanas y unos 330 g, con sección y reparación estandarizada del tendón de Aquiles, repartidos en 4 grupos de 8 (control, BPC-157, TB-500, combinación)",
+    "via": "Intraperitoneal",
+    "pauta_reportada": "BPC-157 10 µg/kg/día durante 4 semanas tras la cirugía",
+    "desenlace_medido": "Carga máxima hasta la falla; puntuaciones histopatológicas de Bonar y Movin; birrefringencia con rojo sirio; expresión inmunohistoquímica de colágeno I y III. El grupo BPC-157 mostró puntuaciones numéricamente menores sin alcanzar significación en las totales"
+   },
+   {
+    "estudio": "Síntesis regional de serotonina en el cerebro",
+    "pmid": "15531385",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/15531385/",
+    "modelo": "Rata; medición por autorradiografía con α-[14C]metil-L-triptófano",
+    "via": "Intraperitoneal (dosis única) y subcutánea (tratamiento repetido)",
+    "pauta_reportada": "Dosis única de 10 µg/kg por vía intraperitoneal 40 min antes del trazador; en la segunda serie, 10 µg/kg por vía subcutánea durante 7 días",
+    "desenlace_medido": "Tasa regional de síntesis de serotonina en tálamo dorsal, hipocampo, cuerpo geniculado lateral, hipotálamo, sustancia negra, núcleos del rafe y otras regiones"
+   },
+   {
+    "estudio": "Fibroblastos tendinosos: migración y supervivencia",
+    "pmid": "21030672",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/21030672/",
+    "modelo": "In vitro y ex vivo; explantes de tendón y fibroblastos tendinosos derivados de tendón de Aquiles de rata",
+    "via": "In vitro",
+    "pauta_reportada": "Efecto dependiente de la dosis en migración y extensión celular; concentraciones ensayadas no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Crecimiento desde el explante; supervivencia celular bajo estrés con H₂O₂; migración en cámara de filtro; formación de F-actina; fosforilación de FAK y paxilina por Western blot. La proliferación directa no se modificó"
+   },
+   {
+    "estudio": "Receptor de hormona de crecimiento en fibroblastos tendinosos",
+    "pmid": "25415472",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/25415472/",
+    "modelo": "In vitro; fibroblastos tendinosos aislados de tendón de Aquiles de rata Sprague-Dawley macho",
+    "via": "In vitro",
+    "pauta_reportada": "Efecto dependiente de dosis y de tiempo; concentraciones ensayadas no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Expresión del receptor de hormona de crecimiento (ARNm y proteína) por RT-PCR en tiempo real y Western blot; proliferación por MTT y PCNA al añadir hormona de crecimiento; activación de JAK2"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "Cero ensayos clínicos indexados es el dato que debe encabezar la monografía. El vacío también es un dato y se publica con la consulta que lo demuestra.",
+  "La afirmación de terceros de «sin toxicidad significativa hasta 1000× la dosis efectiva» NO se pudo verificar contra ningún PMID. No se publica."
+ ],
+ "pendientes": [
+  "PMID 34324435 (revisión retrospectiva de expedientes de 17 pacientes con inyección intraarticular) no se incluyó en este archivo: si se quiere en la sección de evidencia, hay que verificarlo y describirlo con sus limitaciones (sin instrumentos validados, seguimiento telefónico). Nunca en la tabla.",
+  "Los niveles de dosis concretos del estudio de farmacocinética (36588717) no constan en el resumen; están en el texto completo."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

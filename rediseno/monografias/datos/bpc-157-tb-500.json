@@ -1,0 +1,185 @@
+{
+ "slug": "bpc-157-tb-500",
+ "nombre": "BPC-157 + TB-500",
+ "producto": {
+  "id": 795,
+  "nombre": "BPC-157 + TB-500",
+  "url": "https://peptidosysuplementos.mx/product/bpc-157-tb-500/",
+  "presentacion": "5 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Mezcla de dos péptidos distintos: el pentadecapéptido BPC-157 y el heptapéptido acetilado TB-500 (Ac-LKKTETQ)",
+  "inn": "Ninguno de los dos tiene DCI",
+  "sinonimos": [
+   "BPC-157 + TB-500",
+   "TB500",
+   "TB 500",
+   "N-acetil-L-leucil-L-lisil-L-lisil-L-treonil-L-glutamil-L-treonil-L-glutamina"
+  ],
+  "cas": {
+   "BPC-157": "137525-51-0",
+   "TB-500": "885340-08-9",
+   "timosina_beta-4_completa": "no consta en la lista de sinónimos de PubChem"
+  },
+  "formula_molecular": {
+   "BPC-157": "C62H98N16O22",
+   "TB-500": "C38H68N10O14",
+   "timosina_beta-4_completa": "C212H350N56O78S"
+  },
+  "peso_molecular_da": {
+   "BPC-157": "1419.5",
+   "TB-500": "889.0",
+   "timosina_beta-4_completa": "4963"
+  },
+  "secuencia_aminoacidos": {
+   "BPC-157": "GEPPPGKPADDAGLV (15 aminoácidos)",
+   "TB-500": "Ac-Leu-Lys-Lys-Thr-Glu-Thr-Gln-OH (7 aminoácidos, N-acetilado)"
+  },
+  "pubchem_cid": {
+   "BPC-157": 9941957,
+   "TB-500": 62707662,
+   "timosina_beta-4_completa": 45382195
+  },
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22"
+ },
+ "estado_evidencia": {
+  "escalon": "preclínica para BPC-157; para TB-500, la mayor parte de la literatura es sobre la timosina beta-4 COMPLETA, no sobre el fragmento; la combinación apenas se ha estudiado y el único estudio que la probó no encontró beneficio adicional",
+  "texto": "Hay que separar tres cosas que se confunden constantemente. Primero, BPC-157: preclínico, cero ensayos clínicos indexados. Segundo, TB-500: es el heptapéptido acetilado Ac-LKKTETQ (889 Da), no la timosina beta-4 completa (43 aminoácidos, 4963 Da); casi toda la bibliografía que se le atribuye se hizo con la proteína completa. Tercero, la combinación: en el único estudio publicado que la comparó de frente, combinar los dos péptidos no aportó beneficio adicional frente a cualquiera de ellos por separado (PMID 42542926).",
+  "consultas_pubmed": [
+   {
+    "consulta": "\"BPC 157\" AND clinical trial[pt]",
+    "resultados": 0,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "\"TB-500\" OR \"thymosin beta 4\"",
+    "resultados": 1203,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Ninguno de los dos componentes está aprobado.",
+  "wada": "BPC-157: prohibido por S0, citado por nombre. TB-500 y timosina beta-4: prohibidos por S2.3 (factores de crecimiento), citados por nombre.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "42542926",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42542926/",
+   "titulo": "Effects of BPC-157 and TB-500 on Achilles tendon healing in rats: A histopathological and biomechanical study.",
+   "autores": [
+    "Biçer O",
+    "Adanir O",
+    "Güleryüz Y",
+    "Balci EC",
+    "Dinçel YM",
+    "Yenigün MY"
+   ],
+   "revista": "Joint diseases and related surgery",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Rata Sprague-Dawley macho; 32 animales de 12 semanas y unos 330 g, con sección y reparación estandarizada del tendón de Aquiles, repartidos en 4 grupos de 8: control, BPC-157, TB-500 y combinación",
+   "que_midieron": "Carga máxima hasta la falla; puntuaciones de Bonar y Movin; birrefringencia con rojo sirio; colágeno I y III por inmunohistoquímica. La carga máxima alcanzó significación solo en el grupo TB-500 (p < 0,05); la combinación no aportó beneficio adicional frente a cualquiera de los dos por separado",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "36878045",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36878045/",
+   "titulo": "Thymosin beta 4 prevents systemic lipopolysaccharide-induced plaque load in middle-age APP/PS1 mice.",
+   "autores": [
+    "Othman O",
+    "Marshall H",
+    "Masterson M",
+    "Winlow P",
+    "Gibson G",
+    "Ding Y"
+   ],
+   "revista": "International immunopharmacology",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Ratón APP/PS1 macho de 12,5 meses (n = 30) y sus compañeros de camada silvestres (n = 29), retados con lipopolisacárido 100 µg/kg por vía intravenosa",
+   "que_midieron": "Carga de placa amiloide; rendimiento en enterramiento de comida, memoria de trabajo espacial y campo abierto",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "38409346",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/38409346/",
+   "titulo": "In Vitro Study of Thymosin Beta 4 Promoting Transplanted Fat Survival by Regulating Adipose-Derived Stem Cells.",
+   "autores": [
+    "Li W",
+    "Yang Y",
+    "Lin Y",
+    "Mu D"
+   ],
+   "revista": "Aesthetic plastic surgery",
+   "anio": "2024",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "In vitro; células madre humanas derivadas de tejido adiposo",
+   "que_midieron": "Proliferación celular desde el día 1 (p = 0,0171 a 100 ng/mL; p = 0,0054 a 1000 ng/mL); capacidad antiapoptótica; ARNm de genes de angiogénesis y de la vía Hippo",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Reparación de tendón de Aquiles: BPC-157, TB-500 y su combinación",
+    "pmid": "42542926",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42542926/",
+    "modelo": "Rata Sprague-Dawley macho; 32 animales de 12 semanas y unos 330 g, con sección y reparación estandarizada del tendón de Aquiles, repartidos en 4 grupos de 8: control, BPC-157, TB-500 y combinación",
+    "via": "Intraperitoneal",
+    "pauta_reportada": "BPC-157 10 µg/kg/día y TB-500 60 µg/kg/día, solos o combinados, durante 4 semanas tras la cirugía",
+    "desenlace_medido": "Carga máxima hasta la falla; puntuaciones de Bonar y Movin; birrefringencia con rojo sirio; colágeno I y III por inmunohistoquímica. La carga máxima alcanzó significación solo en el grupo TB-500 (p < 0,05); la combinación no aportó beneficio adicional frente a cualquiera de los dos por separado"
+   },
+   {
+    "estudio": "Timosina beta-4 completa en un modelo de inflamación cerebral",
+    "pmid": "36878045",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36878045/",
+    "modelo": "Ratón APP/PS1 macho de 12,5 meses (n = 30) y sus compañeros de camada silvestres (n = 29), retados con lipopolisacárido 100 µg/kg por vía intravenosa",
+    "via": "Intravenosa",
+    "pauta_reportada": "Timosina beta-4 COMPLETA (no TB-500) 5 mg/kg por vía intravenosa, inmediatamente después del reto y a las 2 y 4 h, y luego una vez al día durante 6 días (n = 7–8 por grupo)",
+    "desenlace_medido": "Carga de placa amiloide; rendimiento en enterramiento de comida, memoria de trabajo espacial y campo abierto"
+   },
+   {
+    "estudio": "Timosina beta-4 en células madre derivadas de tejido adiposo",
+    "pmid": "38409346",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/38409346/",
+    "modelo": "In vitro; células madre humanas derivadas de tejido adiposo",
+    "via": "In vitro",
+    "pauta_reportada": "Timosina beta-4 COMPLETA a 100 ng/mL y 1000 ng/mL frente a control de 0 ng/mL",
+    "desenlace_medido": "Proliferación celular desde el día 1 (p = 0,0171 a 100 ng/mL; p = 0,0054 a 1000 ng/mL); capacidad antiapoptótica; ARNm de genes de angiogénesis y de la vía Hippo"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "La distinción TB-500 (7 aminoácidos, 889 Da) frente a timosina beta-4 completa (43 aminoácidos, 4963 Da) es la que decide si una cita vale o no. Toda fila que use la proteína completa debe decirlo dentro de la propia celda, como aquí.",
+  "El único estudio que comparó la combinación de frente concluyó que NO hubo efecto aditivo. Un producto combinado cuya monografía calle ese dato es un problema."
+ ],
+ "pendientes": [
+  "Faltan filas de TB-500 propiamente dicho (el heptapéptido). Solo se localizó una (42542926). Hay que buscar específicamente «Ac-SDKP» y «LKKTETQ» en el texto completo, no por el nombre comercial."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

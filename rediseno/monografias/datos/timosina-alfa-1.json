@@ -1,0 +1,248 @@
+{
+ "slug": "timosina-alfa-1",
+ "nombre": "Timosina Alfa-1",
+ "producto": {
+  "id": 2230,
+  "nombre": "Timosina Alfa-1",
+  "url": "https://peptidosysuplementos.mx/product/thymosin-alpha-1-10mg/",
+  "presentacion": "10 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Péptido de 28 aminoácidos con el extremo N-terminal acetilado, derivado de la protimosina alfa",
+  "inn": "thymalfasin",
+  "sinonimos": [
+   "Timalfasina",
+   "Thymalfasin",
+   "Thymosin alpha 1",
+   "Tα1",
+   "Zadaxin",
+   "alpha1-Thymosin"
+  ],
+  "cas": "62304-98-7",
+  "formula_molecular": "C129H215N33O55",
+  "peso_molecular_da": "3108.3",
+  "secuencia_aminoacidos": "28 aminoácidos, N-terminal acetilado. Secuencia literal no reportado en el resumen — pendiente de comprobar en el texto completo",
+  "pubchem_cid": 16130571,
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22"
+ },
+ "estado_evidencia": {
+  "escalon": "ensayos aleatorizados en personas, incluidos multicéntricos de varios cientos de pacientes; es un medicamento aprobado en varios países",
+  "texto": "Es, con diferencia, el péptido con más respaldo clínico de este catálogo. En PubMed, la consulta «\"thymosin alpha 1\" OR thymalfasin» devuelve 868 registros, de los que 94 están tipificados como ensayo clínico y 64 como ensayo aleatorizado (consulta del 22-sep-2026). La pauta que se repite en casi todos ellos es 1,6 mg por vía subcutánea dos veces por semana.",
+  "consultas_pubmed": [
+   {
+    "consulta": "\"thymosin alpha 1\" OR thymalfasin",
+    "resultados": 868,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "(lo anterior) AND clinical trial[pt]",
+    "resultados": 94,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "(lo anterior) AND randomized controlled trial[pt]",
+    "resultados": 64,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Aprobada y comercializada como Zadaxin en varios países para hepatitis B y C crónicas y como adyuvante inmunológico. No cuenta con aprobación de la FDA de Estados Unidos. Comprobar el estatus vigente en México antes de afirmar nada.",
+  "wada": "NO está nombrada en la Lista de Prohibiciones. Es una molécula distinta de la timosina beta-4, con la que se confunde a menudo. Su situación depende de si existe aprobación sanitaria vigente aplicable (cláusula S0): verificar caso a caso.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "22233415",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/22233415/",
+   "titulo": "Thymosin alpha-1 with peginterferon alfa-2a/ribavirin for chronic hepatitis C not responsive to IFN/ribavirin: an adjuvant role?",
+   "autores": [
+    "Ciancio A",
+    "Andreone P",
+    "Kaiser S",
+    "Mangia A",
+    "Milella M",
+    "Solà R"
+   ],
+   "revista": "Journal of viral hepatitis",
+   "anio": "2012",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; 552 pacientes con hepatitis C que no respondieron a peginterferón alfa-2a o 2b con ribavirina, aleatorizados a timosina alfa-1 (n = 275) o placebo (n = 277)",
+   "que_midieron": "Respuesta virológica en pacientes no respondedores",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "35713670",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/35713670/",
+   "titulo": "Immune enhancement in patients with predicted severe acute necrotising pancreatitis: a multicentre double-blind randomised controlled trial.",
+   "autores": [
+    "Ke L",
+    "Zhou J",
+    "Mao W",
+    "Chen T",
+    "Zhu Y",
+    "Pan X"
+   ],
+   "revista": "Intensive care medicine",
+   "anio": "2022",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; pacientes con predicción de pancreatitis aguda necrosante grave, estudio multicéntrico",
+   "que_midieron": "Refuerzo inmunitario y desenlaces clínicos en pancreatitis grave",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "36881981",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36881981/",
+   "titulo": "A pilot trial of Thymalfasin (Ta1) to prevent covid-19 infection and morbidities in renal dialysis patients: Preliminary report.",
+   "autores": [
+    "Tuthill CW",
+    "Awad A",
+    "Parrigon M",
+    "Ershler WB"
+   ],
+   "revista": "International immunopharmacology",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Humanos; 194 pacientes en diálisis renal aleatorizados 1:1",
+   "que_midieron": "Infección por covid-19 y morbilidad asociada",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "22726105",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/22726105/",
+   "titulo": "Efficacy of thymosin α-1 plus peginterferon α-2a combination therapy compared with peginterferon α-2a monotherapy in HBeAg-positive chronic hepatitis B: a prospective, multicenter, randomized, open-label study.",
+   "autores": [
+    "Kim BH",
+    "Lee YJ",
+    "Kim W",
+    "Yoon JH",
+    "Jung EU",
+    "Park SJ"
+   ],
+   "revista": "Scandinavian journal of gastroenterology",
+   "anio": "2012",
+   "tipos_publicacion": [
+    "Comparative Study",
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 51 pacientes repartidos en combinación (n = 26) y monoterapia (n = 25)",
+   "que_midieron": "Respuesta combinada definida como seroconversión de HBeAg, supresión del ADN del VHB y normalización de la ALT: 15,4 % frente a 12,0 % al final del tratamiento (p = 0,725)",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "21227010",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/21227010/",
+   "titulo": "Effect of thymosin-α(1) on T-helper 1 cell and T-helper 2 cell cytokine synthesis in patients with hepatitis B virus e antigen-positive chronic hepatitis B.",
+   "autores": [
+    "Jiang YF",
+    "Ma ZH",
+    "Zhao PW",
+    "Pan Y",
+    "Liu YY",
+    "Feng JY"
+   ],
+   "revista": "The Journal of international medical research",
+   "anio": "2010",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 25 pacientes con hepatitis B y antígeno e positivo, aleatorizados a tres grupos",
+   "que_midieron": "Síntesis de citocinas por linfocitos T colaboradores de tipo 1 y de tipo 2",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Hepatitis C que no respondió al tratamiento previo (aleatorizado, multicéntrico)",
+    "pmid": "22233415",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/22233415/",
+    "modelo": "Humanos; 552 pacientes con hepatitis C que no respondieron a peginterferón alfa-2a o 2b con ribavirina, aleatorizados a timosina alfa-1 (n = 275) o placebo (n = 277)",
+    "via": "Subcutánea",
+    "pauta_reportada": "Timosina alfa-1 1,6 mg dos veces por semana durante 48 semanas, sobre una base de peginterferón alfa-2a 180 µg/semana con ribavirina 800–1200 mg/día",
+    "desenlace_medido": "Respuesta virológica en pacientes no respondedores"
+   },
+   {
+    "estudio": "Pancreatitis aguda necrosante grave prevista (multicéntrico)",
+    "pmid": "35713670",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/35713670/",
+    "modelo": "Humanos; pacientes con predicción de pancreatitis aguda necrosante grave, estudio multicéntrico",
+    "via": "Subcutánea",
+    "pauta_reportada": "Tα1 1,6 mg cada 12 h durante los primeros 7 días y 1,6 mg una vez al día los 7 días siguientes, frente a placebo de salino",
+    "desenlace_medido": "Refuerzo inmunitario y desenlaces clínicos en pancreatitis grave"
+   },
+   {
+    "estudio": "Prevención de covid-19 en pacientes en diálisis renal (piloto aleatorizado)",
+    "pmid": "36881981",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36881981/",
+    "modelo": "Humanos; 194 pacientes en diálisis renal aleatorizados 1:1",
+    "via": "Subcutánea",
+    "pauta_reportada": "Grupo A: Tα1 1,6 mg dos veces por semana durante 8 semanas. Grupo B: control sin Tα1",
+    "desenlace_medido": "Infección por covid-19 y morbilidad asociada"
+   },
+   {
+    "estudio": "Combinación con peginterferón en hepatitis B con HBeAg positivo",
+    "pmid": "22726105",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/22726105/",
+    "modelo": "Humanos; 51 pacientes repartidos en combinación (n = 26) y monoterapia (n = 25)",
+    "via": "Subcutánea",
+    "pauta_reportada": "Timosina alfa-1 1,6 mg dos veces por semana durante las primeras 12 semanas, sobre peginterferón alfa-2a 180 µg semanales durante 48 semanas",
+    "desenlace_medido": "Respuesta combinada definida como seroconversión de HBeAg, supresión del ADN del VHB y normalización de la ALT: 15,4 % frente a 12,0 % al final del tratamiento (p = 0,725)"
+   },
+   {
+    "estudio": "Monoterapia a dos niveles de dosis en hepatitis B",
+    "pmid": "21227010",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/21227010/",
+    "modelo": "Humanos; 25 pacientes con hepatitis B y antígeno e positivo, aleatorizados a tres grupos",
+    "via": "No especificada en el resumen",
+    "pauta_reportada": "Monoterapia durante 52 semanas: 1,6 mg de Tα1 activa (grupo A), 1,6 mg de Tα1 recombinante (grupo B) o 3,2 mg de Tα1 recombinante (grupo C)",
+    "desenlace_medido": "Síntesis de citocinas por linfocitos T colaboradores de tipo 1 y de tipo 2"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "No confundir timosina ALFA-1 con timosina BETA-4 (TB-500). Son moléculas distintas, con literatura distinta y con estatus distinto en la lista de la WADA.",
+  "La pauta de 1,6 mg dos veces por semana se repite en casi todo el programa clínico. Eso NO la convierte en una recomendación: es el diseño de esos ensayos y así debe leerse."
+ ],
+ "pendientes": [
+  "La secuencia literal de los 28 aminoácidos no se obtuvo de PubChem en formato citable. Conviene sacarla de UniProt antes de publicarla.",
+  "Confirmar el estatus regulatorio vigente en México (COFEPRIS) antes de decir nada sobre aprobación en la monografía."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

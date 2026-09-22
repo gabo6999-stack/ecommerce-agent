@@ -1,0 +1,224 @@
+{
+ "slug": "cjc-1295-ipamorelina",
+ "nombre": "CJC-1295 (no-DAC) + Ipamorelina",
+ "producto": {
+  "id": 2232,
+  "nombre": "CJC-1295 (no-DAC) + Ipamorelina",
+  "url": "https://peptidosysuplementos.mx/product/cjc-1295-ipamorelina-5mg/",
+  "presentacion": "5 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Mezcla de un análogo de GHRH (CJC-1295) y un pentapéptido secretagogo de hormona de crecimiento (ipamorelina)",
+  "inn": "ipamorelin (DCI). CJC-1295 no tiene DCI.",
+  "sinonimos": [
+   "CJC 1295",
+   "GRF 1-29 (CJC1295)",
+   "Ipamorelin",
+   "NNC-26-0161"
+  ],
+  "cas": {
+   "CJC-1295_con_DAC": "446262-90-4",
+   "ipamorelina": "170851-70-4",
+   "CJC-1295_sin_DAC": "no localizado en PubChem por ese nombre"
+  },
+  "formula_molecular": {
+   "CJC-1295_con_DAC": "C165H269N47O46",
+   "ipamorelina": "C38H49N9O5"
+  },
+  "peso_molecular_da": {
+   "CJC-1295_con_DAC": "3647.2",
+   "ipamorelina": "711.9"
+  },
+  "secuencia_aminoacidos": {
+   "ipamorelina": "Aib-His-D-2-Nal-D-Phe-Lys-NH2 (pentapéptido)",
+   "CJC-1295": "Análogo de 30 residuos de GHRH(1-29) con sustituciones D-Ala², Gln⁸, Ala¹⁵ y Leu²⁷ y una lisina terminal"
+  },
+  "pubchem_cid": {
+   "CJC-1295_con_DAC": 91971820,
+   "ipamorelina": 9831659
+  },
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22. El nombre IUPAC del CID 91971820 contiene el grupo 2,5-dioxopirrol (maleimida): ese registro es la forma CON DAC."
+ },
+ "estado_evidencia": {
+  "escalon": "ensayos de fase temprana en personas para la forma CON DAC; el producto que se vende es la forma SIN DAC, para la que no existe un ensayo equivalente",
+  "texto": "Este es el punto que más se confunde de todo el catálogo. Los dos ensayos en personas que se citan habitualmente para «CJC-1295» (PMID 16352683 y 17018654) se hicieron con la forma unida a albúmina mediante el enlazador maleimida, cuya semivida estimada es de 5,8 a 8,1 días. El producto que aquí se describe es la forma SIN ese enlazador. No es la misma molécula y no le corresponde esa farmacocinética. La literatura de ipamorelina, en cambio, es mayoritariamente preclínica: 50 registros, 2 tipificados como ensayo clínico (consulta del 22-sep-2026).",
+  "consultas_pubmed": [
+   {
+    "consulta": "\"CJC-1295\"",
+    "resultados": 33,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "\"CJC-1295\" AND clinical trial[pt]",
+    "resultados": 2,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "ipamorelin",
+    "resultados": 50,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "ipamorelin AND clinical trial[pt]",
+    "resultados": 2,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Ninguno de los dos componentes está aprobado como medicamento.",
+  "wada": "PROHIBIDOS. Sección S2.2.4 (factores liberadores de hormona de crecimiento y secretagogos), ambos citados por nombre.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "16352683",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/16352683/",
+   "titulo": "Prolonged stimulation of growth hormone (GH) and insulin-like growth factor I secretion by CJC-1295, a long-acting analog of GH-releasing hormone, in healthy adults.",
+   "autores": [
+    "Teichman SL",
+    "Neale A",
+    "Lawrence B",
+    "Gagnon C",
+    "Castaigne JP",
+    "Frohman LA"
+   ],
+   "revista": "The Journal of clinical endocrinology and metabolism",
+   "anio": "2006",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; sujetos sanos de 21 a 61 años, en dos ensayos aleatorizados, doble ciego y controlados con placebo, de 28 y 49 días, en dos centros. FORMA CON ENLAZADOR (DAC), no la que se vende aquí",
+   "que_midieron": "Concentración máxima y área bajo la curva de hormona de crecimiento e IGF-I; semivida estimada del compuesto de 5,8 a 8,1 días; IGF-I por encima del valor basal hasta 28 días tras dosis múltiples",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "17018654",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/17018654/",
+   "titulo": "Pulsatile secretion of growth hormone (GH) persists during continuous stimulation by CJC-1295, a long-acting GH-releasing hormone analog.",
+   "autores": [
+    "Ionescu M",
+    "Frohman LA"
+   ],
+   "revista": "The Journal of clinical endocrinology and metabolism",
+   "anio": "2006",
+   "tipos_publicacion": [
+    "Clinical Trial",
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; varones sanos de 20 a 40 años. FORMA CON ENLAZADOR (DAC)",
+   "que_midieron": "Frecuencia y magnitud de los pulsos de hormona de crecimiento (sin cambios); concentración basal o valle (aumento de 7,5 veces, p < 0,0001); media de hormona de crecimiento (+46 %, p < 0,01) e IGF-I (+45 %, p < 0,001)",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "9849822",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/9849822/",
+   "titulo": "Ipamorelin, the first selective growth hormone secretagogue.",
+   "autores": [
+    "Raun K",
+    "Hansen BS",
+    "Johansen NL",
+    "Thøgersen H",
+    "Madsen K",
+    "Ankersen M"
+   ],
+   "revista": "European journal of endocrinology",
+   "anio": "1998",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Células hipofisarias primarias de rata in vitro; ratas anestesiadas con pentobarbital; y cerdos conscientes",
+   "que_midieron": "Liberación de hormona de crecimiento y eficacia máxima frente a GHRP-6 y GHRP-2; concentraciones plasmáticas de FSH, LH, prolactina, TSH, ACTH y cortisol en cerdo. Ipamorelina no elevó ACTH ni cortisol por encima de lo observado con GHRH",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "19289567",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/19289567/",
+   "titulo": "Efficacy of ipamorelin, a novel ghrelin mimetic, in a rodent model of postoperative ileus.",
+   "autores": [
+    "Venkova K",
+    "Mann W",
+    "Nelson R",
+    "Greenwood-Van Meerveld B"
+   ],
+   "revista": "The Journal of pharmacology and experimental therapeutics",
+   "anio": "2009",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Rata macho en ayunas, sometida a laparotomía y manipulación intestinal",
+   "que_midieron": "Tiempo hasta la primera deposición; producción acumulada de pellets fecales; ingesta de alimento y ganancia de peso corporal medidos durante 48 h tras la cirugía",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "CJC-1295 unido a albúmina en adultos sanos (dosis ascendentes)",
+    "pmid": "16352683",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/16352683/",
+    "modelo": "Humanos; sujetos sanos de 21 a 61 años, en dos ensayos aleatorizados, doble ciego y controlados con placebo, de 28 y 49 días, en dos centros. FORMA CON ENLAZADOR (DAC), no la que se vende aquí",
+    "via": "Subcutánea",
+    "pauta_reportada": "Cuatro dosis únicas ascendentes en el primer estudio; dos o tres dosis semanales o quincenales en el segundo. Los autores destacan en sus conclusiones las dosis de 30 y 60 µg/kg",
+    "desenlace_medido": "Concentración máxima y área bajo la curva de hormona de crecimiento e IGF-I; semivida estimada del compuesto de 5,8 a 8,1 días; IGF-I por encima del valor basal hasta 28 días tras dosis múltiples"
+   },
+   {
+    "estudio": "Pulsatilidad de la hormona de crecimiento bajo estímulo continuo",
+    "pmid": "17018654",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/17018654/",
+    "modelo": "Humanos; varones sanos de 20 a 40 años. FORMA CON ENLAZADOR (DAC)",
+    "via": "Subcutánea",
+    "pauta_reportada": "Inyección única de 60 o 90 µg/kg; muestreo sanguíneo cada 20 min durante 12 h nocturnas, antes y una semana después de la inyección",
+    "desenlace_medido": "Frecuencia y magnitud de los pulsos de hormona de crecimiento (sin cambios); concentración basal o valle (aumento de 7,5 veces, p < 0,0001); media de hormona de crecimiento (+46 %, p < 0,01) e IGF-I (+45 %, p < 0,001)"
+   },
+   {
+    "estudio": "Caracterización de ipamorelina como secretagogo selectivo",
+    "pmid": "9849822",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/9849822/",
+    "modelo": "Células hipofisarias primarias de rata in vitro; ratas anestesiadas con pentobarbital; y cerdos conscientes",
+    "via": "In vitro y parenteral en animales",
+    "pauta_reportada": "In vitro, CE50 de 1,3 ± 0,4 nmol/L; en rata anestesiada, DE50 de 80 ± 42 nmol/kg; en cerdo consciente, DE50 de 2,3 ± 0,03 nmol/kg. Se ensayaron dosis hasta más de 200 veces la DE50 para la prueba de especificidad",
+    "desenlace_medido": "Liberación de hormona de crecimiento y eficacia máxima frente a GHRP-6 y GHRP-2; concentraciones plasmáticas de FSH, LH, prolactina, TSH, ACTH y cortisol en cerdo. Ipamorelina no elevó ACTH ni cortisol por encima de lo observado con GHRH"
+   },
+   {
+    "estudio": "Ipamorelina en un modelo de íleo posoperatorio",
+    "pmid": "19289567",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/19289567/",
+    "modelo": "Rata macho en ayunas, sometida a laparotomía y manipulación intestinal",
+    "via": "Intravenosa (bolo)",
+    "pauta_reportada": "Ipamorelina de 0,01 a 1 mg/kg, en dosis única o en pauta repetida de 2 días (cuatro dosis al día a intervalos de 3 h). Comparador: GHRP-6 20 µg/kg o salino",
+    "desenlace_medido": "Tiempo hasta la primera deposición; producción acumulada de pellets fecales; ingesta de alimento y ganancia de peso corporal medidos durante 48 h tras la cirugía"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "AVISO CENTRAL DE ESTA MOLÉCULA: los dos ensayos humanos son de la forma CON enlazador de albúmina. El producto es la forma SIN enlazador. La semivida de 5,8–8,1 días NO le corresponde. Si la monografía copia ese dato sin la distinción, publica un error de hecho."
+ ],
+ "pendientes": [
+  "Falta el CAS, la fórmula y el peso molecular de la forma SIN enlazador (modified GRF 1-29). PubChem no la devuelve por ese nombre."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

@@ -1,0 +1,432 @@
+{
+ "generado": "2026-09-22",
+ "carril": "D — datos duros de las 16 monografias",
+ "regla_aplicada": "La fila cita o la fila no existe. Ningun numero sin PMID verificado en la misma fila; ninguna conversion a persona.",
+ "totales": {
+  "moleculas": 16,
+  "filas_de_protocolo": 72,
+  "filas_completas": 57,
+  "filas_con_hueco_declarado": 15,
+  "pmids_distintos_verificados": 78,
+  "moleculas_con_3_o_mas_filas_completas": 14
+ },
+ "verificacion": {
+  "metodo": "NCBI E-utilities efetch. construir.py aborta si un PMID no devuelve titulo. Los campos titulo/autores/revista/anio se copian de PubMed, no se escriben a mano.",
+  "comprobacion_2_manual": "Se contrasto el descriptor de cada fila contra el titulo real devuelto por PubMed. Encontro 2 errores de hecho (ver correcciones_aplicadas) y 2 imprecisiones.",
+  "correcciones_aplicadas": [
+   "PMID 42251859 estaba etiquetado como ensayo REDEFINE: es REIMAGINE 2.",
+   "PMID 10594518 estaba descrito como comparacion con «somatropina»: el comparador real es SOMATOSTATINA(1-14). Molecula distinta.",
+   "PMID 42009009: poblacion precisada a ataxia de Friedreich.",
+   "PMID 42048163: poblacion precisada a psoriasis.",
+   "Bug del extractor: html entity &#xb5; (micro) se perdia y convertia 10 ug/kg en 10 g/kg. Corregido con html.unescape antes de curar ningun dato."
+  ]
+ },
+ "moleculas": [
+  {
+   "slug": "agua-bacteriostatica",
+   "nombre": "Agua bacteriostática",
+   "plantilla": "corta",
+   "producto_id": 799,
+   "filas_totales": 2,
+   "filas_completas": 0,
+   "filas_con_hueco_declarado": [
+    {
+     "pmid": "2783624",
+     "estudio": "Alcohol bencílico, kernicterus, hemorragia intraventricular y mortalidad",
+     "falta": "pauta"
+    },
+    {
+     "pmid": "3229281",
+     "estudio": "Metabolismo y eliminación del alcohol bencílico en recién nacidos",
+     "falta": "pauta"
+    }
+   ],
+   "estudios_verificados": 3,
+   "identidad_incompleta": [],
+   "suficiente_para_escribir": false,
+   "pendientes": [
+    "Confirmar la concentración exacta de alcohol bencílico del producto que se vende y que coincida con la especificación declarada en la ficha."
+   ],
+   "avisos_para_el_redactor": [
+    "La plantilla corta es la correcta aquí: forzar una tabla de «protocolos de investigación» sobre un diluyente sería inventar una categoría que no existe.",
+    "El dato accionable de esta página es la contraindicación en recién nacidos, con sus dos referencias. Es información de seguridad real y verificable."
+   ]
+  },
+  {
+   "slug": "bpc-157-tb-500",
+   "nombre": "BPC-157 + TB-500",
+   "plantilla": "completa",
+   "producto_id": 795,
+   "filas_totales": 3,
+   "filas_completas": 3,
+   "filas_con_hueco_declarado": [],
+   "estudios_verificados": 3,
+   "identidad_incompleta": [],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "Faltan filas de TB-500 propiamente dicho (el heptapéptido). Solo se localizó una (42542926). Hay que buscar específicamente «Ac-SDKP» y «LKKTETQ» en el texto completo, no por el nombre comercial."
+   ],
+   "avisos_para_el_redactor": [
+    "La distinción TB-500 (7 aminoácidos, 889 Da) frente a timosina beta-4 completa (43 aminoácidos, 4963 Da) es la que decide si una cita vale o no. Toda fila que use la proteína completa debe decirlo dentro de la propia celda, como aquí.",
+    "El único estudio que comparó la combinación de frente concluyó que NO hubo efecto aditivo. Un producto combinado cuya monografía calle ese dato es un problema."
+   ]
+  },
+  {
+   "slug": "bpc-157",
+   "nombre": "BPC-157",
+   "plantilla": "completa",
+   "producto_id": 2464,
+   "filas_totales": 7,
+   "filas_completas": 4,
+   "filas_con_hueco_declarado": [
+    {
+     "pmid": "36588717",
+     "estudio": "Farmacocinética, distribución, metabolismo y excreción",
+     "falta": "pauta"
+    },
+    {
+     "pmid": "21030672",
+     "estudio": "Fibroblastos tendinosos: migración y supervivencia",
+     "falta": "pauta"
+    },
+    {
+     "pmid": "25415472",
+     "estudio": "Receptor de hormona de crecimiento en fibroblastos tendinosos",
+     "falta": "pauta"
+    }
+   ],
+   "estudios_verificados": 9,
+   "identidad_incompleta": [],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "PMID 34324435 (revisión retrospectiva de expedientes de 17 pacientes con inyección intraarticular) no se incluyó en este archivo: si se quiere en la sección de evidencia, hay que verificarlo y describirlo con sus limitaciones (sin instrumentos validados, seguimiento telefónico). Nunca en la tabla.",
+    "Los niveles de dosis concretos del estudio de farmacocinética (36588717) no constan en el resumen; están en el texto completo."
+   ],
+   "avisos_para_el_redactor": [
+    "Cero ensayos clínicos indexados es el dato que debe encabezar la monografía. El vacío también es un dato y se publica con la consulta que lo demuestra.",
+    "La afirmación de terceros de «sin toxicidad significativa hasta 1000× la dosis efectiva» NO se pudo verificar contra ningún PMID. No se publica."
+   ]
+  },
+  {
+   "slug": "cagrilintida",
+   "nombre": "Cagrilintida",
+   "plantilla": "completa",
+   "producto_id": 2240,
+   "filas_totales": 5,
+   "filas_completas": 3,
+   "filas_con_hueco_declarado": [
+    {
+     "pmid": "34798060",
+     "estudio": "Cagrilintida para el control de peso (fase 2)",
+     "falta": "pauta"
+    },
+    {
+     "pmid": "42228334",
+     "estudio": "Farmacocinética en insuficiencia renal o hepática",
+     "falta": "pauta"
+    }
+   ],
+   "estudios_verificados": 5,
+   "identidad_incompleta": [
+    "secuencia_aminoacidos"
+   ],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "El resumen del PMID 34798060 (fase 2 en monoterapia) no se leyó entero: hay que sacar de él los niveles de dosis y el desenlace exacto antes de publicar esa fila.",
+    "PubChem no fija un CAS único para cagrilintida en su lista de sinónimos.",
+    "La secuencia de aminoácidos no se obtuvo en formato citable."
+   ],
+   "avisos_para_el_redactor": [
+    "Casi todos los resultados de peso que circulan como «de cagrilintida» son en realidad de la combinación con semaglutida. En la tabla, el brazo tiene que ir dentro de la celda, como aquí."
+   ]
+  },
+  {
+   "slug": "cjc-1295-ipamorelina",
+   "nombre": "CJC-1295 (no-DAC) + Ipamorelina",
+   "plantilla": "completa",
+   "producto_id": 2232,
+   "filas_totales": 4,
+   "filas_completas": 4,
+   "filas_con_hueco_declarado": [],
+   "estudios_verificados": 4,
+   "identidad_incompleta": [],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "Falta el CAS, la fórmula y el peso molecular de la forma SIN enlazador (modified GRF 1-29). PubChem no la devuelve por ese nombre."
+   ],
+   "avisos_para_el_redactor": [
+    "AVISO CENTRAL DE ESTA MOLÉCULA: los dos ensayos humanos son de la forma CON enlazador de albúmina. El producto es la forma SIN enlazador. La semivida de 5,8–8,1 días NO le corresponde. Si la monografía copia ese dato sin la distinción, publica un error de hecho."
+   ]
+  },
+  {
+   "slug": "ghk-cu",
+   "nombre": "GHK-Cu",
+   "plantilla": "completa",
+   "producto_id": 2823,
+   "filas_totales": 6,
+   "filas_completas": 4,
+   "filas_con_hueco_declarado": [
+    {
+     "pmid": "23744835",
+     "estudio": "Colgajo dorsal irradiado (resultado negativo)",
+     "falta": "pauta"
+    },
+    {
+     "pmid": "16847171",
+     "estudio": "Piel tras resurfacing con láser de CO2 (ensayo aleatorizado)",
+     "falta": "pauta"
+    }
+   ],
+   "estudios_verificados": 6,
+   "identidad_incompleta": [],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "El número CAS del COMPLEJO GHK-Cu no aparece en la lista de sinónimos de PubChem (CID 139035031). El 49557-75-7 corresponde al péptido libre GHK. No publicar un CAS para el complejo hasta confirmarlo en una fuente citable.",
+    "Las concentraciones de los estudios tópicos (23744835, 16847171) no constan en el resumen. Si se quieren en la tabla, hay que sacarlas del texto completo."
+   ],
+   "avisos_para_el_redactor": [
+    "Los dos ensayos en personas de esta lista (PMID 16847171 y 1495150) NO encontraron diferencia frente al comparador en los desenlaces objetivos. La monografía debe decirlo con esas palabras: es el dato que distingue una página honesta de un folleto.",
+    "La mayoría de la literatura de GHK-Cu es tópica o de vehículos (hidrogeles, liposomas, microagujas). No confundir una formulación con la molécula."
+   ]
+  },
+  {
+   "slug": "glutation",
+   "nombre": "Glutatión",
+   "plantilla": "completa",
+   "producto_id": 2234,
+   "filas_totales": 4,
+   "filas_completas": 4,
+   "filas_con_hueco_declarado": [],
+   "estudios_verificados": 4,
+   "identidad_incompleta": [],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "Falta al menos una fila por vía intravenosa o liposomal, que es como se promociona habitualmente.",
+    "Ninguna de las filas usa la dosis de 1500 mg de la presentación que se vende. Conviene localizar un ensayo a esa dosis o decir explícitamente que no se localizó."
+   ],
+   "avisos_para_el_redactor": [
+    "HALLAZGO DE CATÁLOGO: el glutatión es químicamente un TRIPÉPTIDO (γ-glutamil-cisteinil-glicina). El plan de construcción lo había agrupado con los suplementos Nutricost y lo dejaba fuera de las monografías. Por composición pertenece al grupo peptídico, y además su ficha ya está categorizada en la tienda como «Péptidos Bienestar General». Es la molécula número 16.",
+    "Distinguir siempre entre administrar glutatión y medirlo como desenlace de otra cosa. Varios de los ensayos que aparecen al buscar «glutatión» dan astaxantina, aronia o juçara y miden el glutatión que sube."
+   ]
+  },
+  {
+   "slug": "igf-1-lr3",
+   "nombre": "IGF-1 LR3",
+   "plantilla": "completa",
+   "producto_id": 1128,
+   "filas_totales": 4,
+   "filas_completas": 1,
+   "filas_con_hueco_declarado": [
+    {
+     "pmid": "33938236",
+     "estudio": "Infusión de una semana en feto ovino normal: efecto sobre el islote",
+     "falta": "pauta"
+    },
+    {
+     "pmid": "33427051",
+     "estudio": "Crecimiento de órganos y transferencia de nutrientes",
+     "falta": "pauta"
+    },
+    {
+     "pmid": "37114757",
+     "estudio": "Infusión aguda de 90 minutos",
+     "falta": "pauta"
+    }
+   ],
+   "estudios_verificados": 5,
+   "identidad_incompleta": [
+    "cas",
+    "formula_molecular",
+    "peso_molecular_da",
+    "secuencia_aminoacidos"
+   ],
+   "suficiente_para_escribir": false,
+   "pendientes": [
+    "LA FILA SIN CITA DE LA FICHA 1128: la cifra de 6,6 µg·kg⁻¹·h⁻¹ en feto ovino normal durante 1 semana aparece literalmente en el resumen del PMID 39679943, donde los autores describen SU PROPIO trabajo anterior, que es el PMID 33938236. Es decir: la fuente de la fila es 33938236, pero el número no está en el resumen de 33938236 sino en el del artículo posterior. Antes de publicarla hay que confirmarlo en el texto completo de 33938236. Mientras tanto, la fila de 33938236 lleva la fórmula literal de «no reportado». NO se debe atribuir el número a 39679943, cuya dosis propia es 1,17 µg·kg⁻¹·h⁻¹.",
+    "No hay CAS, fórmula ni peso molecular verificables en PubChem. No inventarlos."
+   ],
+   "avisos_para_el_redactor": [
+    "El resultado más reciente de la serie es NEGATIVO. Una monografía que solo cite los trabajos de 2021 y omita el de 2025 estaría seleccionando la evidencia.",
+    "Esta molécula cierra el punto pendiente de la Fase 4: la ficha 1128 tiene una fila con «6,6 µg·kg⁻¹·h⁻¹, 1 semana, fetos ovinos normales» SIN PMID. Ver «pendientes»."
+   ]
+  },
+  {
+   "slug": "mots-c",
+   "nombre": "MOTS-c",
+   "plantilla": "completa",
+   "producto_id": [
+    790,
+    793
+   ],
+   "filas_totales": 5,
+   "filas_completas": 4,
+   "filas_con_hueco_declarado": [
+    {
+     "pmid": "40753494",
+     "estudio": "Lesión cerebral asociada a un modelo experimental",
+     "falta": "/via"
+    }
+   ],
+   "estudios_verificados": 6,
+   "identidad_incompleta": [],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "Verificar la especie y la vía del PMID 41268602 (5 mg/kg en restricción del crecimiento intrauterino por hipoxia) antes de añadirlo como fila.",
+    "Los desenlaces exactos de 41706383 y 40753494 hay que anotarlos del resumen completo."
+   ],
+   "avisos_para_el_redactor": [
+    "La distinción entre administrar MOTS-c y medirlo como biomarcador es la más importante de esta molécula. Un estudio que encuentra MOTS-c bajo en una enfermedad no dice nada sobre administrarlo.",
+    "La fila de 42142418 es de un ANÁLOGO MODIFICADO (R13A), no de MOTS-c. Va etiquetado dentro de la propia celda."
+   ]
+  },
+  {
+   "slug": "nad",
+   "nombre": "NAD+",
+   "plantilla": "corta",
+   "producto_id": 1131,
+   "filas_totales": 6,
+   "filas_completas": 6,
+   "filas_con_hueco_declarado": [],
+   "estudios_verificados": 6,
+   "identidad_incompleta": [],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "Buscar específicamente ensayos que administren NAD+ intacto (oral o intravenoso). Si no existen, eso mismo es el aviso de estado de la evidencia y hay que publicarlo con la consulta que lo demuestre."
+   ],
+   "avisos_para_el_redactor": [
+    "NINGUNA de estas filas administró NAD+ como tal: todas usaron un precursor. La monografía tiene que decirlo antes de la tabla, no en una nota al pie.",
+    "NAD+ no es un péptido. Si la monografía va en un grupo titulado «péptidos», hay que decir qué es: un dinucleótido."
+   ]
+  },
+  {
+   "slug": "retatrutida",
+   "nombre": "Retatrutida",
+   "plantilla": "completa",
+   "producto_id": 19,
+   "filas_totales": 5,
+   "filas_completas": 5,
+   "filas_con_hueco_declarado": [],
+   "estudios_verificados": 5,
+   "identidad_incompleta": [
+    "cas",
+    "formula_molecular",
+    "peso_molecular_da",
+    "secuencia_aminoacidos"
+   ],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "No hay CAS, fórmula molecular ni peso molecular verificables: PubChem solo tiene registros de impurezas. Si se quieren publicar, hay que citar otra fuente citable (por ejemplo la propuesta de DCI de la OMS). No inventarlos."
+   ],
+   "avisos_para_el_redactor": [
+    "Retatrutida NO está aprobada. Es la diferencia que explica por qué está prohibida en competición y semaglutida no: el criterio de la WADA es regulatorio, no farmacológico."
+   ]
+  },
+  {
+   "slug": "selank",
+   "nombre": "Selank",
+   "plantilla": "completa",
+   "producto_id": 1699,
+   "filas_totales": 5,
+   "filas_completas": 3,
+   "filas_con_hueco_declarado": [
+    {
+     "pmid": "18454096",
+     "estudio": "Trastorno de ansiedad generalizada y neurastenia (aleatorizado)",
+     "falta": "pauta/via"
+    },
+    {
+     "pmid": "25176261",
+     "estudio": "Comparación con fenazepam en trastornos de ansiedad",
+     "falta": "pauta/via"
+    }
+   ],
+   "estudios_verificados": 6,
+   "identidad_incompleta": [],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "Conseguir el texto completo de 18454096 y 25176261 (revistas rusas) para rellenar vía y pauta, o dejar las celdas con la fórmula literal de «no reportado»."
+   ],
+   "avisos_para_el_redactor": [
+    "Los dos ensayos en personas no declaran la dosis en el resumen. Si la monografía los cita, tiene que decir eso mismo, no rellenar el hueco con la dosis de los estudios en rata: son especies distintas y vías distintas."
+   ]
+  },
+  {
+   "slug": "semaglutida",
+   "nombre": "Semaglutida",
+   "plantilla": "completa",
+   "producto_id": [
+    1689,
+    1518
+   ],
+   "filas_totales": 4,
+   "filas_completas": 4,
+   "filas_con_hueco_declarado": [],
+   "estudios_verificados": 4,
+   "identidad_incompleta": [],
+   "suficiente_para_escribir": true,
+   "pendientes": [],
+   "avisos_para_el_redactor": [
+    "Los estudios en personas SÍ entran, con su n y su diseño: lo que no entra nunca es convertir esas cifras a una pauta para el lector."
+   ]
+  },
+  {
+   "slug": "sermorelina",
+   "nombre": "Sermorelina",
+   "plantilla": "completa",
+   "producto_id": 2231,
+   "filas_totales": 4,
+   "filas_completas": 4,
+   "filas_con_hueco_declarado": [],
+   "estudios_verificados": 5,
+   "identidad_incompleta": [],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "El resumen del PMID 9005976 no se leyó entero: falta anotar sus desenlaces exactos."
+   ],
+   "avisos_para_el_redactor": [
+    "Ojo con la comparación implícita: la propia revisión señala que, a igual cifra por kilo, la velocidad de crecimiento aumentó MENOS con sermorelina que con somatropina."
+   ]
+  },
+  {
+   "slug": "timosina-alfa-1",
+   "nombre": "Timosina Alfa-1",
+   "plantilla": "completa",
+   "producto_id": 2230,
+   "filas_totales": 5,
+   "filas_completas": 5,
+   "filas_con_hueco_declarado": [],
+   "estudios_verificados": 5,
+   "identidad_incompleta": [
+    "secuencia_aminoacidos"
+   ],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "La secuencia literal de los 28 aminoácidos no se obtuvo de PubChem en formato citable. Conviene sacarla de UniProt antes de publicarla.",
+    "Confirmar el estatus regulatorio vigente en México (COFEPRIS) antes de decir nada sobre aprobación en la monografía."
+   ],
+   "avisos_para_el_redactor": [
+    "No confundir timosina ALFA-1 con timosina BETA-4 (TB-500). Son moléculas distintas, con literatura distinta y con estatus distinto en la lista de la WADA.",
+    "La pauta de 1,6 mg dos veces por semana se repite en casi todo el programa clínico. Eso NO la convierte en una recomendación: es el diseño de esos ensayos y así debe leerse."
+   ]
+  },
+  {
+   "slug": "tirzepatida",
+   "nombre": "Tirzepatida",
+   "plantilla": "completa",
+   "producto_id": 1525,
+   "filas_totales": 3,
+   "filas_completas": 3,
+   "filas_con_hueco_declarado": [],
+   "estudios_verificados": 4,
+   "identidad_incompleta": [
+    "secuencia_aminoacidos"
+   ],
+   "suficiente_para_escribir": true,
+   "pendientes": [
+    "Añadir al menos una fila de SURPASS-CVOT o SURMOUNT-2 para cubrir desenlaces cardiovasculares y población con diabetes.",
+    "La secuencia literal de los 39 residuos no se obtuvo en formato citable."
+   ],
+   "avisos_para_el_redactor": []
+  }
+ ]
+}

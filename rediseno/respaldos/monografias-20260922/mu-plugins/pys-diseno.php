@@ -24,7 +24,7 @@ require_once __DIR__ . '/pys-diseno/tienda.php';
    función, pys_dis_css_<familia>(). Los ámbitos (qué página es de qué
    familia) se deciden AQUÍ y no en los archivos de los agentes, para que dos
    familias no puedan pisarse. Si un archivo todavía no existe, no pasa nada. */
-foreach ( array( 'paginas-elementor', 'landings', 'paginas-planas', 'cuenta', 'utilitarias', 'monografias' ) as $pys_dis_f ) {
+foreach ( array( 'paginas-elementor', 'landings', 'paginas-planas', 'cuenta', 'utilitarias' ) as $pys_dis_f ) {
 	if ( file_exists( __DIR__ . "/pys-diseno/{$pys_dis_f}.php" ) ) {
 		require_once __DIR__ . "/pys-diseno/{$pys_dis_f}.php";
 	}
@@ -33,12 +33,6 @@ foreach ( array( 'paginas-elementor', 'landings', 'paginas-planas', 'cuenta', 'u
 /** Páginas que ya tienen su propia familia y NO son landings. */
 function pys_dis_pagina_especial() {
 	if ( is_front_page() || is_home() ) {
-		return true;
-	}
-	/* El hub /monografia/ es una página normal, pero su familia es la de las
-	   monografías: sin esto recibiría además la hoja de `paginas-planas` y las
-	   dos se pisarían. */
-	if ( is_page( 'monografia' ) ) {
 		return true;
 	}
 	return function_exists( 'is_cart' ) && ( is_shop() || is_cart() || is_checkout() || is_account_page() );
@@ -67,14 +61,6 @@ function pys_dis_es_cuenta() {
 /** Búsqueda y 404. */
 function pys_dis_es_utilitaria() {
 	return is_search() || is_404();
-}
-
-/**
- * Monografías científicas: el singular del tipo de contenido «monografia»
- * (lo registra pys-monografias.php) y su página hub /monografia/.
- */
-function pys_dis_es_monografia() {
-	return is_singular( 'monografia' ) || is_page( 'monografia' );
 }
 
 /**
@@ -122,7 +108,6 @@ add_action(
 			'pys_dis_css_paginas_planas'    => pys_dis_es_pagina_plana(),
 			'pys_dis_css_cuenta'            => pys_dis_es_cuenta(),
 			'pys_dis_css_utilitarias'       => pys_dis_es_utilitaria(),
-			'pys_dis_css_monografias'       => pys_dis_es_monografia(),
 		);
 		foreach ( $familias as $funcion => $aplica ) {
 			if ( $aplica && function_exists( $funcion ) ) {

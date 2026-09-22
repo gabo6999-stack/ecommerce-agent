@@ -1,0 +1,203 @@
+{
+ "slug": "tirzepatida",
+ "nombre": "Tirzepatida",
+ "producto": {
+  "id": 1525,
+  "nombre": "Tirzepatida",
+  "url": "https://peptidosysuplementos.mx/product/tirzepatida/",
+  "presentacion": "30 mg y 60 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Agonista dual de los receptores del polipéptido insulinotrópico dependiente de glucosa (GIP) y del GLP-1, acilado",
+  "inn": "tirzepatide",
+  "sinonimos": [
+   "Tirzepatida",
+   "Mounjaro",
+   "Zepbound",
+   "LY3298176"
+  ],
+  "cas": "2023788-19-2",
+  "formula_molecular": "C225H348N48O68",
+  "peso_molecular_da": "4813",
+  "secuencia_aminoacidos": "39 residuos derivados de la secuencia del GIP, con un ácido graso C20 diácido unido a Lys20. Secuencia literal no reportado en el resumen — pendiente de comprobar en el texto completo",
+  "pubchem_cid": 166567236,
+  "inchikey": "BTSOGEDATSQOAF-MCNPHUAVSA-N",
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22"
+ },
+ "estado_evidencia": {
+  "escalon": "medicamento aprobado, con programa de fase 3 (SURPASS y SURMOUNT) de miles de participantes",
+  "texto": "Tirzepatida es un medicamento aprobado. En PubMed, «tirzepatide» devuelve 2538 registros, de los que 146 están tipificados como ensayo clínico y 135 como ensayo aleatorizado (consulta del 22-sep-2026).",
+  "consultas_pubmed": [
+   {
+    "consulta": "tirzepatide",
+    "resultados": 2538,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "tirzepatide AND clinical trial[pt]",
+    "resultados": 146,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Aprobada por agencias reguladoras para diabetes tipo 2 y para el manejo crónico del peso, con distintas marcas.",
+  "wada": "NO prohibida: tiene aprobación regulatoria y no figura en la sección S2. Está en el Programa de Monitoreo y no requiere autorización de uso terapéutico.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "35658024",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+   "titulo": "Tirzepatide Once Weekly for the Treatment of Obesity.",
+   "autores": [
+    "Jastreboff AM",
+    "Aronne LJ",
+    "Ahmad NN",
+    "Wharton S",
+    "Connery L",
+    "Alves B"
+   ],
+   "revista": "The New England journal of medicine",
+   "anio": "2022",
+   "tipos_publicacion": [
+    "Clinical Trial, Phase III",
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; 2539 adultos con IMC ≥ 30, o ≥ 27 con al menos una complicación relacionada con el peso, excluida la diabetes; peso medio basal 104,8 kg e IMC medio 38,0",
+   "que_midieron": "Cambio porcentual del peso a la semana 72: −15,0 % con 5 mg, −19,5 % con 10 mg, −20,9 % con 15 mg y −3,1 % con placebo (p < 0,001 en todas las comparaciones). Reducción de peso ≥ 20 %: 50 % y 57 % en los grupos de 10 y 15 mg frente al 3 % con placebo",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "34170647",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/34170647/",
+   "titulo": "Tirzepatide versus Semaglutide Once Weekly in Patients with Type 2 Diabetes.",
+   "autores": [
+    "Frías JP",
+    "Davies MJ",
+    "Rosenstock J",
+    "Pérez Manghi FC",
+    "Fernández Landó L",
+    "Bergman BK"
+   ],
+   "revista": "The New England journal of medicine",
+   "anio": "2021",
+   "tipos_publicacion": [
+    "Clinical Trial, Phase III",
+    "Comparative Study",
+    "Equivalence Trial",
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 1879 pacientes con diabetes tipo 2, HbA1c media basal 8,28 %; ensayo abierto de fase 3",
+   "que_midieron": "Cambio de HbA1c a la semana 40: −2,01, −2,24 y −2,30 puntos porcentuales con 5, 10 y 15 mg frente a −1,86 con semaglutida. Diferencias de peso frente a semaglutida: −1,9 kg, −3,6 kg y −5,5 kg (p < 0,001). Hipoglucemia (< 54 mg/dL) en 0,6 %, 0,2 % y 1,7 %",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42296968",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42296968/",
+   "titulo": "Tirzepatide monotherapy in Chinese patients with early type 2 diabetes: A randomized, double-blind, placebo-controlled phase 3 trial (SURPASS-CN-MONO).",
+   "autores": [
+    "Yin Y",
+    "Ma J",
+    "Liu D",
+    "Duan W",
+    "Cheng Z",
+    "Jiang H"
+   ],
+   "revista": "Med (New York, N.Y.)",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Multicenter Study",
+    "Clinical Trial, Phase III"
+   ],
+   "especie_o_modelo": "Humanos; adultos chinos con diabetes tipo 2 que no habían recibido antidiabéticos en los 90 días previos; aleatorización 1:1:1:1",
+   "que_midieron": "Reducción de HbA1c desde el inicio hasta la semana 40 (−2,17 %, −2,06 % y −2,15 % con 5, 10 y 15 mg) y reducción de peso corporal, ambas mayores que con placebo",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42594122",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42594122/",
+   "titulo": "Achieving the triple endpoint of body weight reduction thresholds, systolic blood pressure reduction ≥5 mmHg and non-HDL cholesterol <130 mg/dL with tirzepatide in people with obesity: A post hoc analysis from the SURMOUNT trials.",
+   "autores": [
+    "Sattar N",
+    "Srinath R",
+    "García-Pérez LE",
+    "Lee CJ",
+    "Karanikas CA",
+    "Chen X"
+   ],
+   "revista": "PloS one",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; análisis post hoc del programa SURMOUNT (SURMOUNT-1 a 4)",
+   "que_midieron": "Análisis post hoc de la proporción de participantes que alcanzaron a la vez reducción de peso, reducción de presión arterial sistólica ≥ 5 mmHg y colesterol no-HDL < 130 mg/dL: 32 %–38 % con tirzepatida frente a 2 %–8 % con placebo.",
+   "solo_seccion_evidencia": true,
+   "motivo_fuera_de_tabla": "Es un análisis post hoc de ensayos ya citados, no un estudio primario con pauta propia.",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Tirzepatida semanal para el tratamiento de la obesidad (SURMOUNT-1)",
+    "pmid": "35658024",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+    "modelo": "Humanos; 2539 adultos con IMC ≥ 30, o ≥ 27 con al menos una complicación relacionada con el peso, excluida la diabetes; peso medio basal 104,8 kg e IMC medio 38,0",
+    "via": "Subcutánea",
+    "pauta_reportada": "5 mg, 10 mg o 15 mg una vez por semana durante 72 semanas, con un periodo de escalada de dosis de 20 semanas; aleatorización 1:1:1:1 frente a placebo",
+    "desenlace_medido": "Cambio porcentual del peso a la semana 72: −15,0 % con 5 mg, −19,5 % con 10 mg, −20,9 % con 15 mg y −3,1 % con placebo (p < 0,001 en todas las comparaciones). Reducción de peso ≥ 20 %: 50 % y 57 % en los grupos de 10 y 15 mg frente al 3 % con placebo"
+   },
+   {
+    "estudio": "Tirzepatida frente a semaglutida en diabetes tipo 2 (SURPASS-2)",
+    "pmid": "34170647",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/34170647/",
+    "modelo": "Humanos; 1879 pacientes con diabetes tipo 2, HbA1c media basal 8,28 %; ensayo abierto de fase 3",
+    "via": "Subcutánea",
+    "pauta_reportada": "5 mg, 10 mg o 15 mg una vez por semana durante 40 semanas, frente a semaglutida 1 mg; aleatorización 1:1:1:1",
+    "desenlace_medido": "Cambio de HbA1c a la semana 40: −2,01, −2,24 y −2,30 puntos porcentuales con 5, 10 y 15 mg frente a −1,86 con semaglutida. Diferencias de peso frente a semaglutida: −1,9 kg, −3,6 kg y −5,5 kg (p < 0,001). Hipoglucemia (< 54 mg/dL) en 0,6 %, 0,2 % y 1,7 %"
+   },
+   {
+    "estudio": "Monoterapia en pacientes chinos con diabetes tipo 2 temprana",
+    "pmid": "42296968",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42296968/",
+    "modelo": "Humanos; adultos chinos con diabetes tipo 2 que no habían recibido antidiabéticos en los 90 días previos; aleatorización 1:1:1:1",
+    "via": "Subcutánea",
+    "pauta_reportada": "5, 10 o 15 mg una vez por semana durante 40 semanas, frente a placebo",
+    "desenlace_medido": "Reducción de HbA1c desde el inicio hasta la semana 40 (−2,17 %, −2,06 % y −2,15 % con 5, 10 y 15 mg) y reducción de peso corporal, ambas mayores que con placebo"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [],
+ "pendientes": [
+  "Añadir al menos una fila de SURPASS-CVOT o SURMOUNT-2 para cubrir desenlaces cardiovasculares y población con diabetes.",
+  "La secuencia literal de los 39 residuos no se obtuvo en formato citable."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

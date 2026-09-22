@@ -1,0 +1,209 @@
+{
+ "slug": "glutation",
+ "nombre": "Glutatión",
+ "producto": {
+  "id": 2234,
+  "nombre": "Glutatión 1500 mg",
+  "url": "https://peptidosysuplementos.mx/product/glutation-1500mg/",
+  "presentacion": "1500 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "γ-L-glutamil-L-cisteinil-glicina (glutatión reducido, GSH)",
+  "inn": "glutathione",
+  "sinonimos": [
+   "Glutatión",
+   "Glutatión reducido",
+   "GSH",
+   "L-Glutathione reduced",
+   "Glutathion",
+   "Tathion"
+  ],
+  "cas": "70-18-8",
+  "formula_molecular": "C10H17N3O6S",
+  "peso_molecular_da": "307.33",
+  "secuencia_aminoacidos": "Glu-Cys-Gly, con enlace peptídico gamma entre el glutamato y la cisteína (TRIPÉPTIDO)",
+  "pubchem_cid": 124886,
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22",
+  "es_peptido": true
+ },
+ "estado_evidencia": {
+  "escalon": "ensayos aleatorizados en personas, mayoritariamente pequeños y con desenlaces intermedios; la biodisponibilidad oral sigue siendo discutida",
+  "texto": "El glutatión tiene bastante literatura clínica, pero con dos salvedades que la monografía debe declarar. La primera es que su disponibilidad sistémica tras la administración oral sigue siendo discutida y depende de la formulación. La segunda es que muchos ensayos lo miden como desenlace (cuánto glutatión sube en sangre tras dar otra cosa) en vez de administrarlo. En PubMed, la consulta «glutathione AND (intravenous OR oral supplementation)» devuelve 3120 registros, de los que 342 están tipificados como ensayo clínico (consulta del 22-sep-2026).",
+  "consultas_pubmed": [
+   {
+    "consulta": "glutathione AND (intravenous OR oral supplementation)",
+    "resultados": 3120,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "(lo anterior) AND clinical trial[pt]",
+    "resultados": 342,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Se comercializa como suplemento alimenticio. Comprobar el estatus en México antes de afirmar nada.",
+  "wada": "No está en la Lista de Prohibiciones.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "42392376",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42392376/",
+   "titulo": "Formulation-dependent differences in systemic glutathione availability: Comparative pharmacokinetics of orally dissolving film and tablet formulations in healthy adults.",
+   "autores": [
+    "Jung ES",
+    "Jang HY",
+    "Jung SJ",
+    "Kim BH",
+    "Kim YJ",
+    "Moon JH"
+   ],
+   "revista": "European journal of pharmaceutics and biopharmaceutics : official journal of Arbeitsgemeinschaft fur Pharmazeutische Verfahrenstechnik e.V",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Comparative Study"
+   ],
+   "especie_o_modelo": "Humanos; participantes de un estudio comparativo entre una película bucodispersable y un comprimido convencional",
+   "que_midieron": "Concentración plasmática de glutatión, con diferencias significativas a las 4 y 6 horas a favor de la película",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "41014073",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41014073/",
+   "titulo": "Effectiveness of oral glutathione in reducing nitric oxide and IL-1α concentrations for clinical improvement in mild to moderate acne vulgaris: a randomized controlled trial.",
+   "autores": [
+    "Mawu FO",
+    "Anwar AI",
+    "Djawad K",
+    "Bukhari A",
+    "Kapantow MG",
+    "Christopher PM"
+   ],
+   "revista": "Acta dermatovenerologica Alpina, Pannonica, et Adriatica",
+   "anio": "2025",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; 40 participantes aleatorizados, 22 a glutatión y 18 a placebo",
+   "que_midieron": "Concentraciones de óxido nítrico e interleucina-1α",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "37935462",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37935462/",
+   "titulo": "Effect of long-term oral glutathione supplementation on gut microbiome of type 2 diabetic individuals.",
+   "autores": [
+    "Gaike AH",
+    "Kalamkar SD",
+    "Gajjar V",
+    "Divate U",
+    "Karandikar-Iyer S",
+    "Goel P"
+   ],
+   "revista": "FEMS microbiology letters",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; personas con diabetes tipo 2 incluidas en un ensayo clínico aleatorizado",
+   "que_midieron": "Composición de la microbiota intestinal por secuenciación metagenómica del ARNr 16S en muestra fecal matutina",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "37049398",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37049398/",
+   "titulo": "Combined Citrulline and Glutathione Supplementation Improves Endothelial Function and Blood Pressure Reactivity in Postmenopausal Women.",
+   "autores": [
+    "Figueroa A",
+    "Maharaj A",
+    "Kang Y",
+    "Dillon KN",
+    "Martinez MA",
+    "Morita M"
+   ],
+   "revista": "Nutrients",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Humanos; 44 mujeres posmenopáusicas sanas aleatorizadas a tres brazos",
+   "que_midieron": "Función endotelial y presión arterial",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Farmacocinética comparada de dos formulaciones orales",
+    "pmid": "42392376",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42392376/",
+    "modelo": "Humanos; participantes de un estudio comparativo entre una película bucodispersable y un comprimido convencional",
+    "via": "Oral",
+    "pauta_reportada": "Estudio II: 100 mg/día durante 4 semanas, en película bucodispersable o en comprimido",
+    "desenlace_medido": "Concentración plasmática de glutatión, con diferencias significativas a las 4 y 6 horas a favor de la película"
+   },
+   {
+    "estudio": "Glutatión oral, óxido nítrico e IL-1α",
+    "pmid": "41014073",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41014073/",
+    "modelo": "Humanos; 40 participantes aleatorizados, 22 a glutatión y 18 a placebo",
+    "via": "Oral",
+    "pauta_reportada": "500 mg una vez al día durante 4 semanas, frente a placebo",
+    "desenlace_medido": "Concentraciones de óxido nítrico e interleucina-1α"
+   },
+   {
+    "estudio": "Suplementación oral prolongada y microbiota intestinal en diabetes tipo 2",
+    "pmid": "37935462",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/37935462/",
+    "modelo": "Humanos; personas con diabetes tipo 2 incluidas en un ensayo clínico aleatorizado",
+    "via": "Oral",
+    "pauta_reportada": "500 mg una vez al día durante 6 meses",
+    "desenlace_medido": "Composición de la microbiota intestinal por secuenciación metagenómica del ARNr 16S en muestra fecal matutina"
+   },
+   {
+    "estudio": "Citrulina con glutatión y función endotelial en mujeres posmenopáusicas",
+    "pmid": "37049398",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/37049398/",
+    "modelo": "Humanos; 44 mujeres posmenopáusicas sanas aleatorizadas a tres brazos",
+    "via": "Oral",
+    "pauta_reportada": "Citrulina 6 g; citrulina 2 g más glutatión 200 mg; o placebo, durante 4 semanas",
+    "desenlace_medido": "Función endotelial y presión arterial"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "HALLAZGO DE CATÁLOGO: el glutatión es químicamente un TRIPÉPTIDO (γ-glutamil-cisteinil-glicina). El plan de construcción lo había agrupado con los suplementos Nutricost y lo dejaba fuera de las monografías. Por composición pertenece al grupo peptídico, y además su ficha ya está categorizada en la tienda como «Péptidos Bienestar General». Es la molécula número 16.",
+  "Distinguir siempre entre administrar glutatión y medirlo como desenlace de otra cosa. Varios de los ensayos que aparecen al buscar «glutatión» dan astaxantina, aronia o juçara y miden el glutatión que sube."
+ ],
+ "pendientes": [
+  "Falta al menos una fila por vía intravenosa o liposomal, que es como se promociona habitualmente.",
+  "Ninguna de las filas usa la dosis de 1500 mg de la presentación que se vende. Conviene localizar un ensayo a esa dosis o decir explícitamente que no se localizó."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

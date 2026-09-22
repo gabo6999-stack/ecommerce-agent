@@ -1,0 +1,164 @@
+{
+ "slug": "agua-bacteriostatica",
+ "nombre": "Agua bacteriostática",
+ "producto": {
+  "id": 799,
+  "nombre": "Agua Bacteriostática",
+  "url": "https://peptidosysuplementos.mx/product/agua-bacteriostatica-3ml/",
+  "presentacion": "3 mL"
+ },
+ "plantilla": "corta",
+ "identidad": {
+  "nombre_quimico": "Agua estéril para inyección que contiene uno o más agentes antimicrobianos para suprimir el crecimiento de contaminantes microbianos. El conservante habitual es alcohol bencílico",
+  "inn": "No aplica: es un diluyente, no un principio activo",
+  "sinonimos": [
+   "Agua bacteriostática para inyección",
+   "bWFI",
+   "Bacteriostatic Water for Injection"
+  ],
+  "cas": {
+   "agua": "7732-18-5",
+   "alcohol_bencilico": "100-51-6"
+  },
+  "formula_molecular": {
+   "agua": "H2O",
+   "alcohol_bencilico": "C7H8O"
+  },
+  "peso_molecular_da": {
+   "alcohol_bencilico": "108.14"
+  },
+  "secuencia_aminoacidos": "No aplica: no es un péptido",
+  "pubchem_cid": {
+   "alcohol_bencilico": 244
+  },
+  "especificacion": "La monografía de la Farmacopea de Estados Unidos (USP) describe el agua bacteriostática para inyección con un pH de 4,5 a 7,0 (PMID 36870668)",
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22",
+  "es_peptido": false
+ },
+ "estado_evidencia": {
+  "escalon": "no procede: es un excipiente farmacéutico con monografía de farmacopea, no una molécula en investigación. Lo que sí tiene literatura es la seguridad de su conservante",
+  "texto": "El agua bacteriostática no es una molécula de investigación y no tiene una tabla de protocolos que construir: es un diluyente con monografía de farmacopea. Lo que sí está documentado, y es lo que la monografía debe recoger, es la toxicidad del alcohol bencílico en recién nacidos, sobre todo prematuros, por inmadurez de la vía de detoxificación del ácido benzoico.",
+  "consultas_pubmed": [
+   {
+    "consulta": "\"bacteriostatic water\"",
+    "resultados": 33,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Producto farmacéutico con monografía en la Farmacopea de Estados Unidos. No está indicado para recién nacidos por su contenido de alcohol bencílico.",
+  "wada": "No aplica: es un diluyente, no una sustancia con efecto buscado.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "2783624",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/2783624/",
+   "titulo": "Relationship of benzyl alcohol to kernicterus, intraventricular hemorrhage, and mortality in preterm infants.",
+   "autores": [
+    "Jardine DS",
+    "Rogers K"
+   ],
+   "revista": "Pediatrics",
+   "anio": "1989",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Humanos; recién nacidos prematuros. 218 ingresados durante los últimos 18 meses de uso de alcohol bencílico, comparados con 232 ingresados en los primeros 18 meses tras su retirada",
+   "que_midieron": "Kernicterus (asociación significativa, p < 0,005) y hemorragia intraventricular (p < 0,0000005). Tras la retirada del alcohol bencílico no apareció kernicterus en ningún paciente. La retirada no tuvo efecto demostrable sobre la mortalidad",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "3229281",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/3229281/",
+   "titulo": "Benzyl alcohol metabolism and elimination in neonates.",
+   "autores": [
+    "LeBel M",
+    "Ferron L",
+    "Masson M",
+    "Pichette J",
+    "Carrier C"
+   ],
+   "revista": "Developmental pharmacology and therapeutics",
+   "anio": "1988",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 14 recién nacidos a término y 9 prematuros que recibían dosis de carga de fenobarbital con alcohol bencílico",
+   "que_midieron": "Ácido benzoico y ácido hipúrico en orina y suero por cromatografía de gases y HPLC. Mayor acumulación de ácido benzoico en prematuros (pico normalizado 2130,6 frente a 237,8; p < 0,001) y área bajo la curva mayor (1253,2 frente a 483,0; p < 0,01), con menor formación de ácido hipúrico",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "36870668",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36870668/",
+   "titulo": "Critical Aspects of pH Measurement for Bacteriostatic Water for Injection.",
+   "autores": [
+    "Hu J",
+    "Kyad A",
+    "Burke K",
+    "Sakiyama L",
+    "Moraes De Souza C",
+    "Pope S"
+   ],
+   "revista": "Journal of pharmaceutical sciences",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Caracterización analítica, sin sujetos",
+   "que_midieron": "Describe el agua bacteriostática para inyección como diluyente parenteral habitual, recoge el intervalo de pH de 4,5 a 7,0 de la monografía de la USP y explica por qué su baja fuerza iónica y su falta de capacidad tampón dificultan medir el pH de forma reproducible.",
+   "solo_seccion_evidencia": true,
+   "motivo_fuera_de_tabla": "Es un trabajo analítico de control de calidad, no un estudio con pauta en un modelo: aporta la especificación de farmacopea, no una fila.",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Alcohol bencílico, kernicterus, hemorragia intraventricular y mortalidad",
+    "pmid": "2783624",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/2783624/",
+    "modelo": "Humanos; recién nacidos prematuros. 218 ingresados durante los últimos 18 meses de uso de alcohol bencílico, comparados con 232 ingresados en los primeros 18 meses tras su retirada",
+    "via": "Intravenosa (solución de lavado de catéteres intravasculares)",
+    "pauta_reportada": "Volumen de solución de lavado con alcohol bencílico estimado para cada paciente; los autores señalan que muchos de los casos recibieron volúmenes diarios pequeños. Cantidad en mg/kg no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Kernicterus (asociación significativa, p < 0,005) y hemorragia intraventricular (p < 0,0000005). Tras la retirada del alcohol bencílico no apareció kernicterus en ningún paciente. La retirada no tuvo efecto demostrable sobre la mortalidad"
+   },
+   {
+    "estudio": "Metabolismo y eliminación del alcohol bencílico en recién nacidos",
+    "pmid": "3229281",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/3229281/",
+    "modelo": "Humanos; 14 recién nacidos a término y 9 prematuros que recibían dosis de carga de fenobarbital con alcohol bencílico",
+    "via": "Intravenosa (como excipiente del fenobarbital)",
+    "pauta_reportada": "Dosis de carga de fenobarbital que contenían alcohol bencílico; cantidad concreta no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Ácido benzoico y ácido hipúrico en orina y suero por cromatografía de gases y HPLC. Mayor acumulación de ácido benzoico en prematuros (pico normalizado 2130,6 frente a 237,8; p < 0,001) y área bajo la curva mayor (1253,2 frente a 483,0; p < 0,01), con menor formación de ácido hipúrico"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "La plantilla corta es la correcta aquí: forzar una tabla de «protocolos de investigación» sobre un diluyente sería inventar una categoría que no existe.",
+  "El dato accionable de esta página es la contraindicación en recién nacidos, con sus dos referencias. Es información de seguridad real y verificable."
+ ],
+ "pendientes": [
+  "Confirmar la concentración exacta de alcohol bencílico del producto que se vende y que coincida con la especificación declarada en la ficha."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

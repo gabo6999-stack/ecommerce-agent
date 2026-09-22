@@ -1,0 +1,224 @@
+{
+ "slug": "semaglutida",
+ "nombre": "Semaglutida",
+ "producto": {
+  "id": [
+   1689,
+   1518
+  ],
+  "nombre": "Semaglutida 5 mg y 20 mg",
+  "url": "https://peptidosysuplementos.mx/product/semaglutida-5-mg/",
+  "presentacion": "5 mg y 20 mg",
+  "nota": "El plan de rediseño contempla fusionar estas dos fichas"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Análogo acilado del péptido similar al glucagón tipo 1 (GLP-1)",
+  "inn": "semaglutide",
+  "sinonimos": [
+   "Semaglutida",
+   "Semaglutidum",
+   "Ozempic",
+   "Wegovy",
+   "Rybelsus",
+   "NN9535",
+   "NNC 0113-0217"
+  ],
+  "cas": "910463-68-2",
+  "formula_molecular": "C187H291N45O59",
+  "peso_molecular_da": "4114",
+  "secuencia_aminoacidos": "31 residuos con sustituciones Aib8 y Arg34 sobre GLP-1(7-37), y una cadena de ácido graso C18 diácido unida a Lys26 mediante un espaciador de ácido gamma-glutámico y dos unidades de AEEA",
+  "pubchem_cid": 56843331,
+  "inchikey": "DLSWIYLPEUIQAV-CCUURXOWSA-N",
+  "atc": "A10BJ06",
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22"
+ },
+ "estado_evidencia": {
+  "escalon": "medicamento aprobado, con ensayos de fase 3 y de desenlaces cardiovasculares de decenas de miles de participantes",
+  "texto": "Semaglutida es un medicamento aprobado y uno de los fármacos más estudiados de su clase. En PubMed, «semaglutide» devuelve 5705 registros, de los que 349 están tipificados como ensayo clínico y 318 como ensayo aleatorizado (consulta del 22-sep-2026). Las dosis que aparecen en la tabla son las de los ensayos y se reportan tal cual, con su población y su duración.",
+  "consultas_pubmed": [
+   {
+    "consulta": "semaglutide",
+    "resultados": 5705,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "semaglutide AND clinical trial[pt]",
+    "resultados": 349,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "semaglutide AND randomized controlled trial[pt]",
+    "resultados": 318,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Aprobada por agencias reguladoras para diabetes tipo 2 y para el manejo crónico del peso, con distintas marcas y presentaciones. Código ATC A10BJ06.",
+  "wada": "NO prohibida: tiene aprobación regulatoria y no figura en la sección S2. Está en el Programa de Monitoreo y no requiere autorización de uso terapéutico. El criterio de la WADA aquí es regulatorio, no farmacológico.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "33567185",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/33567185/",
+   "titulo": "Once-Weekly Semaglutide in Adults with Overweight or Obesity.",
+   "autores": [
+    "Wilding JPH",
+    "Batterham RL",
+    "Calanna S",
+    "Davies M",
+    "Van Gaal LF",
+    "Lingvay I"
+   ],
+   "revista": "The New England journal of medicine",
+   "anio": "2021",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 1961 adultos sin diabetes con IMC ≥ 30, o ≥ 27 con al menos una enfermedad concomitante relacionada con el peso; doble ciego, aleatorización 2:1",
+   "que_midieron": "Cambio porcentual del peso corporal y reducción de al menos el 5 %. Cambio medio a la semana 68: −14,9 % con semaglutida frente a −2,4 % con placebo (diferencia −12,4 puntos porcentuales; IC 95 % −13,4 a −11,5). Náuseas y diarrea fueron los eventos adversos más frecuentes",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "27633186",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/27633186/",
+   "titulo": "Semaglutide and Cardiovascular Outcomes in Patients with Type 2 Diabetes.",
+   "autores": [
+    "Marso SP",
+    "Bain SC",
+    "Consoli A",
+    "Eliaschewitz FG",
+    "Jódar E",
+    "Leiter LA"
+   ],
+   "revista": "The New England journal of medicine",
+   "anio": "2016",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; 3297 pacientes con diabetes tipo 2 en tratamiento estándar",
+   "que_midieron": "Primer episodio de muerte cardiovascular, infarto de miocardio no mortal o ictus no mortal (variable compuesta); hipótesis de no inferioridad con margen de 1,8 para el límite superior del IC 95 % del cociente de riesgos",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "37952131",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37952131/",
+   "titulo": "Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes.",
+   "autores": [
+    "Lincoff AM",
+    "Brown-Frandsen K",
+    "Colhoun HM",
+    "Deanfield J",
+    "Emerson SS",
+    "Esbjerg S"
+   ],
+   "revista": "The New England journal of medicine",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Equivalence Trial",
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; 17 604 pacientes de 45 años o más con enfermedad cardiovascular previa e IMC ≥ 27, sin antecedentes de diabetes; 8803 a semaglutida y 8801 a placebo",
+   "que_midieron": "Compuesto de muerte cardiovascular, infarto de miocardio no mortal o ictus no mortal: 6,5 % frente a 8,0 % (cociente de riesgos 0,80; IC 95 % 0,72 a 0,90; p < 0,001). Suspensión permanente por eventos adversos: 16,6 % frente a 8,2 %",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "34170647",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/34170647/",
+   "titulo": "Tirzepatide versus Semaglutide Once Weekly in Patients with Type 2 Diabetes.",
+   "autores": [
+    "Frías JP",
+    "Davies MJ",
+    "Rosenstock J",
+    "Pérez Manghi FC",
+    "Fernández Landó L",
+    "Bergman BK"
+   ],
+   "revista": "The New England journal of medicine",
+   "anio": "2021",
+   "tipos_publicacion": [
+    "Clinical Trial, Phase III",
+    "Comparative Study",
+    "Equivalence Trial",
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 1879 pacientes con diabetes tipo 2, HbA1c media basal 8,28 %, edad media 56,6 años, peso medio 93,7 kg; ensayo abierto de fase 3",
+   "que_midieron": "Cambio de HbA1c desde el inicio hasta la semana 40: −1,86 puntos porcentuales con semaglutida. Reducción de peso corporal y eventos adversos gastrointestinales (náuseas 18 %, diarrea 12 %, vómitos 8 %)",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Semaglutida semanal en adultos con sobrepeso u obesidad (STEP 1)",
+    "pmid": "33567185",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/33567185/",
+    "modelo": "Humanos; 1961 adultos sin diabetes con IMC ≥ 30, o ≥ 27 con al menos una enfermedad concomitante relacionada con el peso; doble ciego, aleatorización 2:1",
+    "via": "Subcutánea",
+    "pauta_reportada": "2,4 mg una vez por semana durante 68 semanas, junto con intervención sobre el estilo de vida, frente a placebo",
+    "desenlace_medido": "Cambio porcentual del peso corporal y reducción de al menos el 5 %. Cambio medio a la semana 68: −14,9 % con semaglutida frente a −2,4 % con placebo (diferencia −12,4 puntos porcentuales; IC 95 % −13,4 a −11,5). Náuseas y diarrea fueron los eventos adversos más frecuentes"
+   },
+   {
+    "estudio": "Desenlaces cardiovasculares en diabetes tipo 2 (SUSTAIN-6)",
+    "pmid": "27633186",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/27633186/",
+    "modelo": "Humanos; 3297 pacientes con diabetes tipo 2 en tratamiento estándar",
+    "via": "Subcutánea",
+    "pauta_reportada": "0,5 mg o 1,0 mg una vez por semana durante 104 semanas, frente a placebo",
+    "desenlace_medido": "Primer episodio de muerte cardiovascular, infarto de miocardio no mortal o ictus no mortal (variable compuesta); hipótesis de no inferioridad con margen de 1,8 para el límite superior del IC 95 % del cociente de riesgos"
+   },
+   {
+    "estudio": "Desenlaces cardiovasculares en obesidad sin diabetes (SELECT)",
+    "pmid": "37952131",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/37952131/",
+    "modelo": "Humanos; 17 604 pacientes de 45 años o más con enfermedad cardiovascular previa e IMC ≥ 27, sin antecedentes de diabetes; 8803 a semaglutida y 8801 a placebo",
+    "via": "Subcutánea",
+    "pauta_reportada": "2,4 mg una vez por semana; exposición media de 34,2 ± 13,7 meses y seguimiento medio de 39,8 ± 9,4 meses",
+    "desenlace_medido": "Compuesto de muerte cardiovascular, infarto de miocardio no mortal o ictus no mortal: 6,5 % frente a 8,0 % (cociente de riesgos 0,80; IC 95 % 0,72 a 0,90; p < 0,001). Suspensión permanente por eventos adversos: 16,6 % frente a 8,2 %"
+   },
+   {
+    "estudio": "Semaglutida como comparador activo frente a tirzepatida (SURPASS-2)",
+    "pmid": "34170647",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/34170647/",
+    "modelo": "Humanos; 1879 pacientes con diabetes tipo 2, HbA1c media basal 8,28 %, edad media 56,6 años, peso medio 93,7 kg; ensayo abierto de fase 3",
+    "via": "Subcutánea",
+    "pauta_reportada": "Semaglutida 1 mg una vez por semana durante 40 semanas, frente a tirzepatida 5, 10 o 15 mg, con aleatorización 1:1:1:1",
+    "desenlace_medido": "Cambio de HbA1c desde el inicio hasta la semana 40: −1,86 puntos porcentuales con semaglutida. Reducción de peso corporal y eventos adversos gastrointestinales (náuseas 18 %, diarrea 12 %, vómitos 8 %)"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "Los estudios en personas SÍ entran, con su n y su diseño: lo que no entra nunca es convertir esas cifras a una pauta para el lector."
+ ],
+ "pendientes": [],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

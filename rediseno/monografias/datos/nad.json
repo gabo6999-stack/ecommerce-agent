@@ -1,0 +1,273 @@
+{
+ "slug": "nad",
+ "nombre": "NAD+",
+ "producto": {
+  "id": 1131,
+  "nombre": "NAD+",
+  "url": "https://peptidosysuplementos.mx/product/nad-suplemento/",
+  "presentacion": "500 mg"
+ },
+ "plantilla": "corta",
+ "identidad": {
+  "nombre_quimico": "Dinucleótido de nicotinamida y adenina (forma oxidada)",
+  "inn": "nadide",
+  "sinonimos": [
+   "NAD+",
+   "beta-NAD",
+   "Nadide",
+   "Coenzima I",
+   "Nucleótido de difosfopiridina",
+   "Cozimasa I"
+  ],
+  "cas": "53-84-9",
+  "formula_molecular": "C21H27N7O14P2",
+  "peso_molecular_da": "663.4",
+  "secuencia_aminoacidos": "No aplica: no es un péptido, es un dinucleótido",
+  "pubchem_cid": 5892,
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22",
+  "es_peptido": false
+ },
+ "estado_evidencia": {
+  "escalon": "ensayos aleatorizados en personas, pero sobre los PRECURSORES (ribósido de nicotinamida y mononucleótido de nicotinamida), no sobre NAD+ administrado como tal",
+  "texto": "Este es el punto que decide cómo se lee toda la bibliografía de este producto. Los ensayos aleatorizados en personas se hicieron con precursores: ribósido de nicotinamida (NR) y mononucleótido de nicotinamida (NMN). No son ensayos de NAD+ administrado directamente. Cada fila de la tabla nombra la molécula que se administró de verdad. En PubMed, la consulta «\"nicotinamide adenine dinucleotide\" AND (supplement* OR \"NAD+ precursor\")» devuelve 1095 registros, de los que 46 están tipificados como ensayo clínico (consulta del 22-sep-2026).",
+  "consultas_pubmed": [
+   {
+    "consulta": "\"nicotinamide adenine dinucleotide\" AND (supplement* OR \"NAD+ precursor\")",
+    "resultados": 1095,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "(lo anterior) AND clinical trial[pt]",
+    "resultados": 46,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "NAD+ y sus precursores se comercializan como suplementos alimenticios en varios mercados, no como medicamentos. Comprobar el estatus en México antes de afirmar nada.",
+  "wada": "No está en la Lista de Prohibiciones.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+ },
+ "estudios": [
+  {
+   "pmid": "42082179",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42082179/",
+   "titulo": "Effect of Nicotinamide Mononucleotide on Retinal Thickness of Older Patients With Diabetes Mellitus: A Placebo-Controlled, Double-Blind Study.",
+   "autores": [
+    "Shiraki A",
+    "Hara C",
+    "Akasaka H",
+    "Nakagami H",
+    "Sugimoto K",
+    "Yasunobe Y"
+   ],
+   "revista": "Geriatrics & gerontology international",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; pacientes mayores con diabetes mellitus",
+   "que_midieron": "Grosor retiniano",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42048163",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42048163/",
+   "titulo": "NAD+ augmentation by nicotinamide riboside engages SLIT2/ROBO1 signaling to attenuate Th17 inflammation in psoriasis.",
+   "autores": [
+    "Han K",
+    "Klein RJ",
+    "Recupero TC",
+    "Russo AC",
+    "Sharma R",
+    "Gupta AK"
+   ],
+   "revista": "JCI insight",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "especie_o_modelo": "Humanos; participantes con psoriasis, con muestras de sangre al inicio y tras la suplementación",
+   "que_midieron": "Señalización SLIT2/ROBO1 y atenuación de la inflamación mediada por Th17",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "42009009",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42009009/",
+   "titulo": "Safety and efficacy of individualised exercise and NAD + precursor supplementation in patients with Friedreich's ataxia in the USA: a single-centre, 2 × 2 factorial, randomised controlled trial.",
+   "autores": [
+    "Lin KY",
+    "Bucha A",
+    "McSweeney K",
+    "Wade KL",
+    "Karaj A",
+    "Tamaroff J"
+   ],
+   "revista": "The Lancet. Neurology",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Clinical Trial, Phase II"
+   ],
+   "especie_o_modelo": "Humanos; pacientes con ataxia de Friedreich, en un ensayo aleatorizado factorial 2 × 2 de un solo centro en Estados Unidos",
+   "que_midieron": "Seguridad y eficacia; consultar el resumen completo para las variables exactas",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "41162813",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41162813/",
+   "titulo": "Association between blood nicotinamide adenine dinucleotide levels and blood laboratory parameters at baseline and after nicotinamide mononucleotide supplementation in middle-aged healthy individuals: post hoc analysis of a randomized, double-blinded, placebo-controlled clinical trial.",
+   "autores": [
+    "Kuerec AH",
+    "Wang W",
+    "Fokke KDM",
+    "Yi L",
+    "Lin Z",
+    "Vaidya A"
+   ],
+   "revista": "GeroScience",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; participantes sanos de mediana edad; análisis post hoc de un ensayo aleatorizado y doble ciego",
+   "que_midieron": "Concentración sanguínea de dinucleótido de nicotinamida y adenina y su asociación con parámetros de laboratorio",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "40770531",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40770531/",
+   "titulo": "Nicotinamide riboside combined with exercise to treat hypertension in middle-aged and older adults: a pilot randomized clinical trial.",
+   "autores": [
+    "Lin Y",
+    "Zeidan RS",
+    "Lapierre-Nguyen S",
+    "Costello HM",
+    "Anton SD",
+    "Buford TW"
+   ],
+   "revista": "GeroScience",
+   "anio": "2025",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "especie_o_modelo": "Humanos; 54 adultos sedentarios de 55 años o más con presión arterial sistólica diurna media ≥ 130 mmHg",
+   "que_midieron": "Presión arterial sistólica diurna media",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "40459998",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40459998/",
+   "titulo": "Nicotinamide Riboside Supplementation Benefits in Patients With Werner Syndrome: A Double-Blind Randomized Crossover Placebo-Controlled Trial.",
+   "autores": [
+    "Shoji M",
+    "Kato H",
+    "Koshizaka M",
+    "Kaneko H",
+    "Baba Y",
+    "Ishikawa T"
+   ],
+   "revista": "Aging cell",
+   "anio": "2025",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; pacientes con síndrome de Werner",
+   "que_midieron": "Consultar el resumen completo para las variables exactas",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Mononucleótido de nicotinamida y grosor retiniano en diabetes",
+    "pmid": "42082179",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42082179/",
+    "modelo": "Humanos; pacientes mayores con diabetes mellitus",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: 250 mg/día durante 24 semanas, frente a placebo",
+    "desenlace_medido": "Grosor retiniano"
+   },
+   {
+    "estudio": "Ribósido de nicotinamida e inflamación Th17",
+    "pmid": "42048163",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42048163/",
+    "modelo": "Humanos; participantes con psoriasis, con muestras de sangre al inicio y tras la suplementación",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 500 mg dos veces al día durante 4 semanas, frente a placebo equiparado",
+    "desenlace_medido": "Señalización SLIT2/ROBO1 y atenuación de la inflamación mediada por Th17"
+   },
+   {
+    "estudio": "Ejercicio individualizado y precursor de NAD+ en ataxia de Friedreich",
+    "pmid": "42009009",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42009009/",
+    "modelo": "Humanos; pacientes con ataxia de Friedreich, en un ensayo aleatorizado factorial 2 × 2 de un solo centro en Estados Unidos",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+, con dosis según el peso: 300 mg (1 cápsula) de 24 a menos de 48 kg; 600 mg (2 cápsulas) de 48 a menos de 72 kg; y 900 mg (3 cápsulas) por encima de 72 kg. Frente a placebo",
+    "desenlace_medido": "Seguridad y eficacia; consultar el resumen completo para las variables exactas"
+   },
+   {
+    "estudio": "Concentraciones sanguíneas de NAD tras NMN a tres dosis",
+    "pmid": "41162813",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41162813/",
+    "modelo": "Humanos; participantes sanos de mediana edad; análisis post hoc de un ensayo aleatorizado y doble ciego",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: 300, 600 o 900 mg al día, frente a placebo",
+    "desenlace_medido": "Concentración sanguínea de dinucleótido de nicotinamida y adenina y su asociación con parámetros de laboratorio"
+   },
+   {
+    "estudio": "Ribósido de nicotinamida y ejercicio en hipertensión",
+    "pmid": "40770531",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/40770531/",
+    "modelo": "Humanos; 54 adultos sedentarios de 55 años o más con presión arterial sistólica diurna media ≥ 130 mmHg",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1000 mg/día durante 6 semanas, combinado con 3 sesiones semanales de 30 min de marcha supervisada; frente a placebo con el mismo ejercicio y frente a NR solo",
+    "desenlace_medido": "Presión arterial sistólica diurna media"
+   },
+   {
+    "estudio": "Ribósido de nicotinamida en síndrome de Werner (cruzado, doble ciego)",
+    "pmid": "40459998",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/40459998/",
+    "modelo": "Humanos; pacientes con síndrome de Werner",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1000 mg en cápsulas, una vez al día durante 26 semanas, seguido de cruce al brazo opuesto otras 26 semanas",
+    "desenlace_medido": "Consultar el resumen completo para las variables exactas"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "NINGUNA de estas filas administró NAD+ como tal: todas usaron un precursor. La monografía tiene que decirlo antes de la tabla, no en una nota al pie.",
+  "NAD+ no es un péptido. Si la monografía va en un grupo titulado «péptidos», hay que decir qué es: un dinucleótido."
+ ],
+ "pendientes": [
+  "Buscar específicamente ensayos que administren NAD+ intacto (oral o intravenoso). Si no existen, eso mismo es el aviso de estado de la evidencia y hay que publicarlo con la consulta que lo demuestre."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}

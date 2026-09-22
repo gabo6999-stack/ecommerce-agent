@@ -1,0 +1,278 @@
+{
+ "slug": "ghk-cu",
+ "nombre": "GHK-Cu",
+ "producto": {
+  "id": 2823,
+  "nombre": "GHK-Cu",
+  "url": "https://peptidosysuplementos.mx/product/ghk-cu/",
+  "presentacion": "100 mg"
+ },
+ "plantilla": "completa",
+ "identidad": {
+  "nombre_quimico": "Complejo de cobre(II) con el tripéptido glicil-L-histidil-L-lisina",
+  "inn": "No tiene DCI. El péptido libre GHK aparece en registros como «prezatide»; la sal de cobre, como «prezatide acetato de cobre»",
+  "sinonimos": [
+   "GHK-Cu",
+   "Copper tripeptide-1",
+   "Copper peptide",
+   "Gly-His-Lys-Cu(II)",
+   "[N2-(N-glicil-L-histidil)-L-lisinato(2-)]cobre"
+  ],
+  "cas": {
+   "peptido_libre_GHK": "49557-75-7",
+   "complejo_de_cobre": "no reportado en el resumen — pendiente de comprobar en el texto completo"
+  },
+  "formula_molecular": {
+   "complejo_GHK-Cu": "C14H21CuN6O4-",
+   "peptido_libre_GHK": "C14H24N6O4"
+  },
+  "peso_molecular_da": {
+   "complejo_GHK-Cu": "400.90",
+   "peptido_libre_GHK": "340.38"
+  },
+  "secuencia_aminoacidos": "Gly-His-Lys (tripéptido)",
+  "pubchem_cid": {
+   "complejo": 139035031,
+   "peptido_libre": 73587
+  },
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22"
+ },
+ "estado_evidencia": {
+  "escalon": "preclínica amplia + ensayos clínicos tópicos pequeños, con resultados negativos en los desenlaces objetivos",
+  "texto": "La investigación de GHK-Cu es sobre todo preclínica y tópica. En PubMed, la consulta «\"GHK-Cu\" OR \"glycyl-histidyl-lysine\" OR \"copper tripeptide\"» devuelve 198 registros, de los que solo 3 están tipificados como ensayo clínico (consulta del 22-sep-2026). De esos ensayos, los dos hechos en personas midieron desenlaces objetivos y no encontraron diferencia frente al comparador.",
+  "consultas_pubmed": [
+   {
+    "consulta": "\"GHK-Cu\" OR \"glycyl-histidyl-lysine\" OR \"copper tripeptide\"",
+    "resultados": 198,
+    "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "(lo anterior) AND clinical trial[pt]",
+    "resultados": 3,
+    "fecha": "2026-09-22"
+   }
+  ]
+ },
+ "regulatorio": {
+  "aprobacion": "Sin aprobación como medicamento. Se usa como ingrediente cosmético tópico.",
+  "wada": "No nombrado en la Lista de Prohibiciones. Queda sujeto a la cláusula S0 (sustancia sin aprobación sanitaria vigente para uso humano) si se administra por vía sistémica. Verificar caso por caso.",
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026, secciones S0 y S2; lectura interna del PDF contrastada con USADA (2026-08-29). La lista cambia cada 1 de enero: revalidar antes de publicar."
+ },
+ "estudios": [
+  {
+   "pmid": "31809714",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31809714/",
+   "titulo": "Protective effects of GHK-Cu in bleomycin-induced pulmonary fibrosis via anti-oxidative stress and anti-inflammation pathways.",
+   "autores": [
+    "Ma WH",
+    "Li M",
+    "Ma HF",
+    "Li W",
+    "Liu L",
+    "Yin Y"
+   ],
+   "revista": "Life sciences",
+   "anio": "2020",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Ratón C57BL/6j; fibrosis pulmonar inducida con bleomicina 3 mg/kg por instilación traqueal",
+   "que_midieron": "Histología pulmonar; TNF-α, IL-6 y actividad de MPO en lavado broncoalveolar; depósito de colágeno; marcadores de transición epitelio-mesénquima (α-SMA, fibronectina); vías NF-κB p65, Nrf2 y TGFβ1/Smad2/3",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "25731775",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/25731775/",
+   "titulo": "Tripeptide-copper complex GHK-Cu (II) transiently improved healing outcome in a rat model of ACL reconstruction.",
+   "autores": [
+    "Fu SC",
+    "Cheuk YC",
+    "Chiu WY",
+    "Yung SH",
+    "Rolf CG",
+    "Chan KM"
+   ],
+   "revista": "Journal of orthopaedic research : official publication of the Orthopaedic Research Society",
+   "anio": "2015",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Rata; 72 animales con reconstrucción unilateral de LCA, aleatorizados a salino, 0,3 mg/mL o 3 mg/mL (n = 24 por grupo)",
+   "que_midieron": "Diferencia lado a lado en laxitud de rodilla, rigidez y carga última del complejo del injerto en prueba de arrancamiento, análisis de marcha e histología. Comparador: salino",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "23744835",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/23744835/",
+   "titulo": "Effects of topical copper tripeptide complex on wound healing in an irradiated rat model.",
+   "autores": [
+    "Parker NP",
+    "Ardeshirpour F",
+    "Schmechel SC",
+    "Lassig AA"
+   ],
+   "revista": "Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery",
+   "anio": "2013",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Rata Sprague-Dawley; colgajo dorsal de 2 × 8 cm de base craneal, tras irradiación dorsal y 28 días de recuperación; 13 tratadas y 10 control",
+   "que_midieron": "Área isquémica por análisis digital de imagen; vasos teñidos con caveolina-1 y área luminal media; expresión de VEGF en fibroblastos. Comparador: pomada aquafílica. Sin diferencias significativas en ningún desenlace",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "16847171",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/16847171/",
+   "titulo": "Effects of topical copper tripeptide complex on CO2 laser-resurfaced skin.",
+   "autores": [
+    "Miller TR",
+    "Wagner JD",
+    "Baack BR",
+    "Eisbach KJ"
+   ],
+   "revista": "Archives of facial plastic surgery",
+   "anio": "2006",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 13 pacientes que completaron el estudio, aleatorizados con o sin GHK-Cu tras resurfacing periorbicular con láser de CO2",
+   "que_midieron": "Eritema medido por software y por evaluadores cegados; mejoría de arrugas y calidad global de la piel a 12 semanas; cuestionario validado. Sin diferencias objetivas entre grupos; la satisfacción declarada por el paciente sí difirió (p = 0,04)",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "1495150",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/1495150/",
+   "titulo": "A prospective randomized evaluator-blinded trial of two potential wound healing agents for the treatment of venous stasis ulcers.",
+   "autores": [
+    "Bishop JB",
+    "Phillips LG",
+    "Mustoe TA",
+    "VanderZee AJ",
+    "Wiersema L",
+    "Roach DE"
+   ],
+   "revista": "Journal of vascular surgery",
+   "anio": "1992",
+   "tipos_publicacion": [
+    "Clinical Trial",
+    "Comparative Study",
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 86 pacientes evaluables con úlceras de estasis venosa crónicas",
+   "que_midieron": "Reducción del tamaño de la úlcera. La sulfadiazina de plata redujo el tamaño de forma estadísticamente significativa frente a las otras dos; no hubo diferencia entre el complejo de cobre y el placebo",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
+   "pmid": "15655171",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/15655171/",
+   "titulo": "Effects of copper tripeptide on the growth and expression of growth factors by normal and irradiated fibroblasts.",
+   "autores": [
+    "Pollard JD",
+    "Quan S",
+    "Kang T",
+    "Koch RJ"
+   ],
+   "revista": "Archives of facial plastic surgery",
+   "anio": "2005",
+   "tipos_publicacion": [
+    "Comparative Study",
+    "Journal Article"
+   ],
+   "especie_o_modelo": "In vitro; líneas primarias de fibroblastos dérmicos humanos obtenidos de pacientes irradiados por cáncer de cabeza y cuello, y de controles normales, en medio sin suero ni factores de crecimiento",
+   "que_midieron": "Recuento celular y tiempo de duplicación poblacional; producción autocrina de bFGF, TGF-β1 y VEGF",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  }
+ ],
+ "protocolos_investigacion_publicados": {
+  "encabezado": "Protocolos de investigación publicados",
+  "columnas": [
+   "Estudio",
+   "Modelo",
+   "Vía",
+   "Pauta reportada",
+   "Desenlace medido"
+  ],
+  "filas": [
+   {
+    "estudio": "Fibrosis pulmonar inducida por bleomicina",
+    "pmid": "31809714",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/31809714/",
+    "modelo": "Ratón C57BL/6j; fibrosis pulmonar inducida con bleomicina 3 mg/kg por instilación traqueal",
+    "via": "Intraperitoneal",
+    "pauta_reportada": "0,2, 2 y 20 µg/g/día en 0,5 mL de PBS, en días alternos; evaluación a los 21 días del reto con bleomicina",
+    "desenlace_medido": "Histología pulmonar; TNF-α, IL-6 y actividad de MPO en lavado broncoalveolar; depósito de colágeno; marcadores de transición epitelio-mesénquima (α-SMA, fibronectina); vías NF-κB p65, Nrf2 y TGFβ1/Smad2/3"
+   },
+   {
+    "estudio": "Reconstrucción de ligamento cruzado anterior",
+    "pmid": "25731775",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/25731775/",
+    "modelo": "Rata; 72 animales con reconstrucción unilateral de LCA, aleatorizados a salino, 0,3 mg/mL o 3 mg/mL (n = 24 por grupo)",
+    "via": "Intraarticular",
+    "pauta_reportada": "0,3 o 3 mg/mL, una vez por semana durante 4 semanas, empezando en la semana 2 tras la cirugía; extracción a las 6 o 12 semanas",
+    "desenlace_medido": "Diferencia lado a lado en laxitud de rodilla, rigidez y carga última del complejo del injerto en prueba de arrancamiento, análisis de marcha e histología. Comparador: salino"
+   },
+   {
+    "estudio": "Colgajo dorsal irradiado (resultado negativo)",
+    "pmid": "23744835",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/23744835/",
+    "modelo": "Rata Sprague-Dawley; colgajo dorsal de 2 × 8 cm de base craneal, tras irradiación dorsal y 28 días de recuperación; 13 tratadas y 10 control",
+    "via": "Tópica (gel)",
+    "pauta_reportada": "Gel de GHK-Cu dos veces al día durante 10 días; concentración no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Área isquémica por análisis digital de imagen; vasos teñidos con caveolina-1 y área luminal media; expresión de VEGF en fibroblastos. Comparador: pomada aquafílica. Sin diferencias significativas en ningún desenlace"
+   },
+   {
+    "estudio": "Piel tras resurfacing con láser de CO2 (ensayo aleatorizado)",
+    "pmid": "16847171",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/16847171/",
+    "modelo": "Humanos; 13 pacientes que completaron el estudio, aleatorizados con o sin GHK-Cu tras resurfacing periorbicular con láser de CO2",
+    "via": "Tópica (productos de cuidado de la piel)",
+    "pauta_reportada": "Régimen postratamiento con o sin GHK-Cu; evaluación a 12 semanas. Concentración y frecuencia no reportado en el resumen — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Eritema medido por software y por evaluadores cegados; mejoría de arrugas y calidad global de la piel a 12 semanas; cuestionario validado. Sin diferencias objetivas entre grupos; la satisfacción declarada por el paciente sí difirió (p = 0,04)"
+   },
+   {
+    "estudio": "Úlceras de estasis venosa (ensayo aleatorizado con evaluador cegado)",
+    "pmid": "1495150",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/1495150/",
+    "modelo": "Humanos; 86 pacientes evaluables con úlceras de estasis venosa crónicas",
+    "via": "Tópica (crema)",
+    "pauta_reportada": "Crema con complejo tripéptido-cobre al 0,4 %, frente a sulfadiazina de plata al 1 % y frente a vehículo inerte",
+    "desenlace_medido": "Reducción del tamaño de la úlcera. La sulfadiazina de plata redujo el tamaño de forma estadísticamente significativa frente a las otras dos; no hubo diferencia entre el complejo de cobre y el placebo"
+   },
+   {
+    "estudio": "Fibroblastos dérmicos humanos normales e irradiados",
+    "pmid": "15655171",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/15655171/",
+    "modelo": "In vitro; líneas primarias de fibroblastos dérmicos humanos obtenidos de pacientes irradiados por cáncer de cabeza y cuello, y de controles normales, en medio sin suero ni factores de crecimiento",
+    "via": "In vitro",
+    "pauta_reportada": "GHK-Cu 1 × 10⁻⁹ mol/L",
+    "desenlace_medido": "Recuento celular y tiempo de duplicación poblacional; producción autocrina de bFGF, TGF-β1 y VEGF"
+   }
+  ],
+  "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
+ },
+ "avisos": [
+  "Los dos ensayos en personas de esta lista (PMID 16847171 y 1495150) NO encontraron diferencia frente al comparador en los desenlaces objetivos. La monografía debe decirlo con esas palabras: es el dato que distingue una página honesta de un folleto.",
+  "La mayoría de la literatura de GHK-Cu es tópica o de vehículos (hidrogeles, liposomas, microagujas). No confundir una formulación con la molécula."
+ ],
+ "pendientes": [
+  "El número CAS del COMPLEJO GHK-Cu no aparece en la lista de sinónimos de PubChem (CID 139035031). El 49557-75-7 corresponde al péptido libre GHK. No publicar un CAS para el complejo hasta confirmarlo en una fuente citable.",
+  "Las concentraciones de los estudios tópicos (23744835, 16847171) no constan en el resumen. Si se quieren en la tabla, hay que sacarlas del texto completo."
+ ],
+ "generado": "2026-09-22",
+ "fuentes": [
+  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
+  "PubChem PUG REST, NCBI, 2026-09-22"
+ ]
+}
