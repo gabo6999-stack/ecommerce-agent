@@ -22,3 +22,26 @@ ANTHROPIC_API_KEY=sk-ant-xxx
 - `get_orders` — por estado (pending, processing, completed)
 - `get_customers` — clientes
 - Reportes PDF con fpdf2
+
+## Regla absoluta del sitio: la ficha vende, la monografía informa
+
+Cada molécula tiene dos páginas — `/product/<slug>/` y `/monografia/<slug>/` — y **un tema vive
+en una sola de las dos**. Nunca se reparten un tema a medias: si las dos explican el mecanismo,
+compiten entre ellas y Google elige una, que puede ser la que no tiene botón de compra.
+
+- **La monografía posee** mecanismo de acción, historia y desarrollo, narrativa de la evidencia,
+  tabla de protocolos con PMID, identidad química y estatus regulatorio. Eso **sale de la ficha**:
+  ni duplicado ni resumido.
+- **La ficha se queda** con lo que decide una compra: presentación y gramaje, precio, existencias,
+  pureza y COA, envío, reconstitución práctica, seguridad operativa, reseñas y CTA. Al adelgazarla
+  hay que reorganizar lo que queda para que venda mejor — **no puede quedar anémica**.
+- **Keywords separadas por diseño:** la ficha reclama el nombre comercial en español más país,
+  gramaje o precio; la monografía, el nombre científico, el código de laboratorio o la grafía
+  inglesa. Ninguna usa la palabra clave de la otra, ni siquiera como texto de anclaje.
+- **Enlazado:** un enlace contextual en cada sentido, por debajo del 80% de la página y nunca
+  junto al botón de compra. En schema, `Product.subjectOf` → monografía; la monografía no devuelve
+  el puntero, porque su entidad es la sustancia y no el producto.
+- Una monografía por **molécula**, no por SKU: las mezclas y los formatos heredan la de su
+  componente principal.
+- **Nunca se publica la fecha de análisis ni de emisión de un COA** (sí el lote, la pureza, la
+  masa, el método, el laboratorio y la referencia).
