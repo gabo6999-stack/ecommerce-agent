@@ -846,7 +846,7 @@ function pys_dis_vial( $post_id ) {
 	'bpc-157-tb-500'           => 'vial-bpc-157-tb500-5-5mg.jpg',
 	'agua-bacteriostatica-3ml' => 'vial-agua-bacteriostatica-0-9-alcohol-bencilico.jpg',
 	'igf-1-lr3-1mg'            => 'vial-igf-1-lr3-1-mg.jpg',
-	'nad-suplemento'           => 'vial-nad-500-mg.jpg',
+	'nad'                      => 'vial-nad-500-mg.jpg',
 	'semaglutida-20mg'         => 'vial-semaglutida-20-mg.jpg',
 	'semaglutida-5-mg'         => 'vial-semaglutida-5-mg.jpg',
 	'tirzepatida'              => 'vial-tirzepatida-30-mg.jpg',
