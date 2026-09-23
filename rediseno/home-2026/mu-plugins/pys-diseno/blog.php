@@ -293,11 +293,6 @@ html body.blog[class][class]:has(.pg-grid) .elementor-widget-archive-posts{displ
 ' . $p . ' .single-posts-content-card ul li::marker{color:var(--magenta)}
 ' . $p . ' .single-posts-content-card ol li::marker{color:var(--magenta);font-family:var(--mono);
   font-size:.85em}
-/* BPC-157 (#2128): tres li sueltos, fuera de cualquier lista, que repiten
-   palabra por palabra la lista de prohibiciones que va justo encima (WADA,
-   NCAA, agencias). Es un duplicado real del contenido; se ocultan solo en esa
-   entrada. Siguen en el HTML: el arreglo de fondo es quitarlos del post. */
-html body.postid-2128[class][class] .single-posts-content-card > li{display:none!important}
 /* tablas: cabecera en monoespaciada y solo líneas horizontales */
 ' . $p . ' .single-posts-content-card table{width:100%;max-width:68ch;border-collapse:collapse;
   margin:1.4em auto 1.6em!important;font-size:15.5px;background:none!important;border:0!important}
