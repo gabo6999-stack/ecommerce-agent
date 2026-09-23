@@ -471,3 +471,53 @@ add_action(
 	},
 	21
 );
+
+/* ─────────────────────────────────────────────────────────────────────
+   6. EL ÍNDICE DEL HUB
+   ─────────────────────────────────────────────────────────────────────
+   El hub /monografia/ no lleva su listado escrito a mano: lo pinta este
+   shortcode leyendo las monografías publicadas. Así no puede quedarse
+   mintiendo cuando entre o salga una, que es justo lo que le pasó al
+   catálogo antes de convertirlo en consulta. */
+
+/**
+ * `[pys_monografias]` — índice de las monografías publicadas.
+ *
+ * Cada entrada enlaza a su monografía y, si la tiene, a su ficha de venta:
+ * son dos intenciones distintas y conviene no mezclarlas en un solo enlace.
+ */
+add_shortcode(
+	'pys_monografias',
+	function () {
+		$monografias = get_posts(
+			array(
+				'post_type'              => 'monografia',
+				'post_status'            => 'publish',
+				'posts_per_page'         => -1,
+				'orderby'                => 'title',
+				'order'                  => 'ASC',
+				'ignore_sticky_posts'    => true,
+				'no_found_rows'          => true,
+				'update_post_term_cache' => false,
+			)
+		);
+		if ( ! $monografias ) {
+			return '<p class="pys-mono-vacio">Todavía no hay monografías publicadas.</p>';
+		}
+		$filas = '';
+		foreach ( $monografias as $m ) {
+			$molecula = pys_mono_molecula( $m->ID );
+			$producto = pys_mono_producto( $m->ID );
+			$cas      = trim( (string) get_post_meta( $m->ID, '_pys_cas', true ) );
+			$filas   .= '<li class="pys-mono-item">'
+				. '<a class="pys-mono-item-tit" href="' . esc_url( get_permalink( $m ) ) . '">'
+				. esc_html( $molecula ) . '</a>'
+				. ( '' !== $cas ? '<span class="pys-mono-item-cas">CAS ' . esc_html( $cas ) . '</span>' : '' )
+				. ( $producto
+					? '<a class="pys-mono-item-ficha" href="' . esc_url( get_permalink( $producto ) ) . '">Ver la ficha</a>'
+					: '' )
+				. '</li>';
+		}
+		return '<ul class="pys-mono-indice">' . $filas . '</ul>';
+	}
+);
