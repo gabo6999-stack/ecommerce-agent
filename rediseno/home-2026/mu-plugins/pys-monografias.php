@@ -321,8 +321,22 @@ add_action(
 		if ( ! is_singular( 'product' ) ) {
 			return;
 		}
-		$mono = pys_mono_de_producto( get_queried_object_id() );
+		$producto_id = get_queried_object_id();
+		$mono        = pys_mono_de_producto( $producto_id );
 		if ( ! $mono ) {
+			return;
+		}
+		/* Si el cuerpo de la ficha YA enlaza a su monografía, aquí no se pinta
+		   nada. Este párrafo cae dentro del bloque de compra, y el contrato de
+		   la pareja —derivado de las cuatro de exomapeptides.mx— pide un solo
+		   enlace por sentido, por debajo del 80% de la página y nunca junto al
+		   botón. El enlace escrito en el cuerpo, al final y con un anclaje que
+		   no contiene la palabra clave de la monografía, es mejor que este; y
+		   mientras una ficha no lo tenga, este sigue siendo mejor que ninguno. */
+		$url_mono = get_permalink( $mono );
+		$cuerpo   = get_post_field( 'post_content', $producto_id )
+			. (string) get_post_meta( $producto_id, '_elementor_data', true );
+		if ( false !== strpos( $cuerpo, $url_mono ) || false !== strpos( $cuerpo, str_replace( '/', '\/', $url_mono ) ) ) {
 			return;
 		}
 		$molecula = pys_mono_molecula( $mono->ID );
