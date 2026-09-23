@@ -1,0 +1,44 @@
+{
+ "siteEntry": [
+  {
+   "siteUrl": "sc-domain:nodarishub.com",
+   "permissionLevel": "siteUnverifiedUser"
+  },
+  {
+   "siteUrl": "https://arcademotorsmx.com/",
+   "permissionLevel": "siteOwner"
+  },
+  {
+   "siteUrl": "https://nodarishub.com/",
+   "permissionLevel": "siteOwner"
+  },
+  {
+   "siteUrl": "sc-domain:peptidosysuplementos.mx",
+   "permissionLevel": "siteUnverifiedUser"
+  },
+  {
+   "siteUrl": "https://peptidosysuplementos.mx/",
+   "permissionLevel": "siteOwner"
+  },
+  {
+   "siteUrl": "https://centromedicolasconchas.com/",
+   "permissionLevel": "siteOwner"
+  },
+  {
+   "siteUrl": "https://propertyledger.us/",
+   "permissionLevel": "siteOwner"
+  },
+  {
+   "siteUrl": "https://raditech.mx/",
+   "permissionLevel": "siteUnverifiedUser"
+  },
+  {
+   "siteUrl": "sc-domain:raditech.mx",
+   "permissionLevel": "siteFullUser"
+  },
+  {
+   "siteUrl": "sc-domain:tlaollinwaldorfcholula.com",
+   "permissionLevel": "siteFullUser"
+  }
+ ]
+}

@@ -1,0 +1,122 @@
+{
+ "resumen": "Sí se puede consolidar cada molécula en una sola ficha con selector de gramaje: el sitio ya lo hace en BPC-157 y Tirzepatida, y esa Tirzepatida fusionada es hoy la URL de producto mejor posicionada de PYS (pos 15.6 con 214 impresiones en 28 días), y sigue captando \"tirzepatida 60mg\" (29 impr, pos 18.3) sin tener URL dedicada a 60 mg. Sólo quedan DOS moléculas partidas de verdad: MOTS-c (790 de 10 mg + 793 de 40 mg) y Semaglutida (1689 de 5 mg + 1518 de 20 mg); las otras 19 fichas son una presentación única. La fusión de MOTS-c es casi gratis porque la ficha de 40 mg ya lleva canónica cruzada a la de 10 mg y su propio texto dice que es la misma molécula. El sitio tiene CERO reseñas (el competidor tiene 628 en 80 productos), así que conviene fusionar ANTES de pedir calificaciones: después, repartir reseñas entre fichas sería irreversible. NO toqué nada: es sólo estudio.",
+ "hallazgos": [
+  {
+   "hecho": "Hay 23 productos (22 publicados + 1 borrador archivado), no 22. Dos ya son variables con pa_gramaje: BPC-157 (2464, 5/10 mg) y Tirzepatida (1525, 30/60 mg). El borrador 1531 'Tirzepatida 60 mg' quedó archivado con slug tirzepatida-60-mg-archivado",
+   "evidencia": "wp post list --post_type=product --post_status=any (23 filas) + wc_get_product()->get_type() por ID"
+  },
+  {
+   "hecho": "Sólo DOS moléculas están partidas hoy: MOTS-c (790 'MOTS-c' 10 mg, $1200, SKU MOTSC-10MG / 793 'MOTS-c 40 mg', $2800, SKU MOTSC-40MG) y Semaglutida (1689 'Semaglutida 5mg', $800, SKU SEMA-5MG / 1518 'Semaglutida 20mg', $1400, SKU SEMA-20MG). No hay más casos: el resto son presentación única, y 'BPC-157 + TB-500' (795) es un combo distinto, no un gramaje de BPC-157",
+   "evidencia": "Volcado completo por producto: tipo, SKU, precio, stock, atributos y variaciones vía wp eval + wc_get_product()"
+  },
+  {
+   "hecho": "La fusión de Tirzepatida ya ocurrió y funcionó: /product/tirzepatida/ tiene 214 impresiones y posición 15.6 (la mejor posición de todas las URLs de producto de PYS), y las consultas 'tirzepatida 60mg' (29 impr, pos 18.3, 1 clic) y 'tirzepatida 60 mg' (6 impr, pos 19.3) siguen trayendo tráfico sin que exista URL dedicada a 60 mg. Sus dos 301 acumulan 78 y 49 impactos",
+   "evidencia": "GET /search-console/data (28 d) + reglas 16 y 17 de wp_redirection_items con last_count 78 y 49; curl confirma 301 de /product/tirzepatida-30-mg/ y /-60-mg/ a /product/tirzepatida/"
+  },
+  {
+   "hecho": "La ficha de MOTS-c 40 mg ya está canonicalizada a la de 10 mg en producción, y su propio cuerpo declara que es el mismo compuesto. Google ya la trata como duplicado: fusionarla no cede nada que hoy se tenga",
+   "evidencia": "curl anónimo a /product/mots-c-40mg/ devuelve <link rel=\"canonical\" href=\".../product/mots-c-10mg/\">; meta rank_math_canonical_url del post 793; texto: 'Es el mismo compuesto que el vial de 10 mg. Idéntica molécula, idéntica pureza'"
+  },
+  {
+   "hecho": "Semaglutida 20 mg (1518) NO está canonicalizada: es auto-canónica, tiene sus propias focus keywords ('semaglutida 20mg, semaglutida alta dosis, semaglutida vial 20mg') y compite con la de 5 mg. Es el caso caro",
+   "evidencia": "curl a /product/semaglutida-20mg/ da canonical a sí misma; rank_math_focus_keyword del post 1518; /product/semaglutida-5-mg/ tiene 158 impresiones, 1 clic, pos 44.6 en 28 d"
+  },
+  {
+   "hecho": "Faltan los términos de atributo: pa_gramaje sólo tiene 5 mg (249), 10 mg (250), 30 mg (251) y 60 mg (252). Para fusionar hay que crear '40 mg' y '20 mg'",
+   "evidencia": "get_terms('pa_gramaje') → 4 términos, count=1 cada uno"
+  },
+  {
+   "hecho": "RIESGO ALTO: la tabla wp_woocommerce_attribute_taxonomies tiene DOS filas duplicadas con attribute_name 'gramaje' (attribute_id 1 y 2). Ya hay antecedente registrado de que el id 2 se borró solo una vez. Tocar atributos con ese duplicado presente es el mayor peligro técnico de todo el encargo",
+   "evidencia": "SELECT * FROM wp_woocommerce_attribute_taxonomies → {attribute_id:1, gramaje} y {attribute_id:2, gramaje}; wc_get_attribute_taxonomies() devuelve las dos"
+  },
+  {
+   "hecho": "La fusión anterior dejó un defecto de datos vivo: el SKU del padre Tirzepatida es TIRZ-30MG y alimenta el mpn del schema, pero ninguna variación usa ese SKU (son TIRZE-30MG y TIRZE-60MG). En BPC-157 el SKU del padre está vacío, así que el mpn sale vacío",
+   "evidencia": "JSON-LD en vivo de /product/tirzepatida/: \"sku\":\"TIRZ-30MG\",\"mpn\":\"TIRZ-30MG\"; variaciones 2496/2497 con SKU TIRZE-*; get_post_meta(2464,'_sku') vacío; pys-merchant-schema.php fija mpn = SKU"
+  },
+  {
+   "hecho": "Al fusionar, el schema Product pasa de Offer con precio único a AggregateOffer con lowPrice/highPrice y offerCount: se pierde el precio y el identificador por gramaje en rich results y Merchant Center",
+   "evidencia": "JSON-LD de /product/tirzepatida/: AggregateOffer lowPrice 1900 highPrice 3200 offerCount 2, sin offers individuales; /product/mots-c-40mg/ sí emite Offer con price 2800"
+  },
+  {
+   "hecho": "La regla de imágenes ya está aplicada en los fusionados y NO en los partidos: BPC-157 y Tirzepatida tienen destacada genérica sin gramaje (BPC-157-v4.png, Tirzepatida-v4.png) más una imagen por variación; MOTS-c y Semaglutida usan como destacada la imagen CON gramaje (MOTS-c-10mg-v4.png, Semaglutida-5mg-v4.png). Hay que producir dos destacadas genéricas nuevas",
+   "evidencia": "Títulos y nombres de archivo de los adjuntos 2553/2471/2484, 2549/2281/2282, 2272/2273, 2277/2278"
+  },
+  {
+   "hecho": "El COA es UNO por producto, no por variación: el meta _pys_coa cuelga del post del producto y la caja del editor se registra sólo para el post type 'product'. Al fusionar, dos gramajes con lotes distintos no se pueden representar. Hoy sólo Retatrutida (19) tiene COA cargado (lote AA54YCH, pureza 99.76)",
+   "evidencia": "wp-content/mu-plugins/pys-coa.php: add_meta_box(..., 'product', ...) y pys_coa_get(get_the_ID()); volcado de _pys_coa en los 23 productos"
+  },
+  {
+   "hecho": "Fusionar hoy no cuesta ni una reseña: el sitio tiene CERO reseñas de producto (la tabla de comentarios sólo contiene 31 order_note). El competidor exomapeptides.mx tiene 628 reseñas repartidas en 80 productos, rating medio 4.77",
+   "evidencia": "SELECT comment_type, COUNT(*) FROM wp_comments → sólo order_note=31; get_review_count()=0 en los 23 productos; rediseno/exoma/exoma-productos.json"
+  },
+  {
+   "hecho": "El modelo del competidor es exactamente el propuesto: 112 productos con una URL por molécula y las dosis como query string sobre la MISMA canónica (?dose=5mg, ?dose=10mg, ?dose=20mg); 45 de esos 112 (40%) llevan más de una dosis en la misma URL, con 1.8 dosis de media. Además tiene 132 compendios (el equivalente de la monografía)",
+   "evidencia": "rediseno/exoma/exoma-productos.json (offers[] por producto) y sitemap-products.xml (112 <loc>) / sitemap-compendium.xml (132 <loc>)"
+  },
+  {
+   "hecho": "El equivalente en PYS ya está resuelto sin riesgo de duplicado: /product/tirzepatida/?attribute_pa_gramaje=60-mg devuelve 200 con canónica a la URL limpia",
+   "evidencia": "curl anónimo con query string: canonical = https://peptidosysuplementos.mx/product/tirzepatida/"
+  },
+  {
+   "hecho": "Radio de impacto de enlaces internos si se orfanan las URLs: /product/mots-c-40mg/ aparece en 8 post_content y 4 _elementor_data (páginas 24, 26, 643, 1551 y posts 1675, 1926, 2096, 2256, 2462); /product/semaglutida-20mg/ en 5 y 2 (incluida la landing 1750 'Semaglutida en Mexico 2026'); /product/semaglutida-5-mg/ en 15 y 1. El catálogo 1551 enlaza a las 17 fichas, una vez cada una",
+   "evidencia": "Búsqueda LIKE en wp_posts.post_content y en wp_postmeta._elementor_data (con barras escapadas \\/ ) por cada slug"
+  },
+  {
+   "hecho": "La capa de diseño ya soporta fichas variables y reseñas: ficha.php estila .variations, el select de gramaje, .woocommerce-variation-price y todo el bloque #reviews. No hace falta CSS nuevo para la fusión ni para activar reseñas",
+   "evidencia": "grep en wp-content/mu-plugins/pys-diseno/ficha.php: líneas 109-124, 302-318 (variaciones) y 475-500 (#reviews)"
+  },
+  {
+   "hecho": "El namespace /monografia/ NO está libre: el adivinador de 404 de WordPress hace 301 de /monografia/bpc-157/ a /product/bpc-157/, de /monografia/mots-c/ a /product/mots-c-10mg/ y de /monografia/semaglutida/ a /product/semaglutida-20mg/. Una ruta inexistente sí da 404 limpio",
+   "evidencia": "curl: 301 a producto en los tres slugs reales, 404 en /monografia/xyz-inexistente/"
+  },
+  {
+   "hecho": "La medición de Search Console disponible es limitada: el endpoint no acepta parámetros, está fijado a 28 días, rowLimit 10 y orden por clics descendente. Por eso /product/mots-c-40mg/ y /product/semaglutida-20mg/ no aparecen y NO puedo darles cifra de impresiones",
+   "evidencia": "C:\\Users\\gabom\\Proyectos\\ecommerce-agent\\web.py líneas 7353-7360 (ruta) y 6784-6798 (fetch_gsc_data: days=28, limit=10); probé ?days=90, ?rowLimit=200, ?limit=200 y devuelven idéntico JSON"
+  },
+  {
+   "hecho": "Ventas históricas casi nulas, así que el riesgo comercial de la fusión es despreciable: 2 pedidos completados y 4 cancelados en total. Sólo se han vendido Retatrutida 30 mg (4 uds), MOTS-c 10mg (1) y Tirzepatida 30 mg (1)",
+   "evidencia": "GROUP BY en wp_woocommerce_order_items + wp_wc_orders (HPOS): wc-completed 2, wc-cancelled 4"
+  },
+  {
+   "hecho": "Diferencial que la fusión rompe: el agua bacteriostática incluida sólo la llevan tres fichas (GHK-Cu 2823, Semaglutida 5 mg 1689 y Retatrutida 19). Si se fusiona Semaglutida, el regalo queda colgando de una variación, y hoy las variaciones existentes (2482, 2483, 2496, 2497) tienen la descripción vacía",
+   "evidencia": "Barrido de post_excerpt + post_content + _elementor_data por 'incluye ... agua bacteriost'; get_description() vacío en las 4 variaciones"
+  },
+  {
+   "hecho": "Redirection 5.7.5 está activo con 55 reglas (las 301 de producto se hacen sin regex y funcionan); la opción expire_redirect es 7 días, así que los registros caducan pero last_count es acumulativo",
+   "evidencia": "wp plugin list (redirection 5.7.5 active) + volcado de wp_redirection_items y get_option('redirection_options')"
+  }
+ ],
+ "recomendacion": "Hacer la fusión, pero en tres ventanas separadas y en este orden, no de una vez. (1) MOTS-c primero, CONSERVANDO el slug /product/mots-c-10mg/: convertir 790 en variable con 10 mg y 40 mg, y dejar 793 en 301. Es la más segura porque la de 40 mg ya está canonicalizada a la de 10 mg desde hace tiempo, su propio texto dice que es la misma molécula, no tiene COA, no tiene reseñas y nunca se ha vendido: Google ya la ignora, así que no se cede nada. (2) Semaglutida después, con al menos dos semanas de distancia, para poder atribuir cualquier caída. (3) El renombrado de slugs a /product/mots-c/ y /product/semaglutida/ como paso aparte y posterior, nunca en la misma ventana que la fusión: es lo único que orfana una URL que HOY recibe impresiones (semaglutida-5-mg: 158 impr) y hay que poder distinguir si un bajón viene de la fusión o del cambio de URL. Frente a la alternativa de dejarlo como está: el precedente de Tirzepatida en este mismo sitio es la mejor prueba disponible de que el modelo funciona — es la URL de producto mejor posicionada de PYS y sigue captando la consulta del gramaje alto sin tener URL propia para él. Frente a la alternativa de fusionar todo de golpe: con el atributo pa_gramaje duplicado en la base de datos y cero reseñas que perder, la prisa no compra nada y el escalonado cuesta sólo tiempo. Lo que NO recomiendo es normalizar los slugs con gramaje de las 9 fichas de presentación única (cagrilintida-10mg, sermorelina-10mg, thymosin-alpha-1-10mg, selank-10-mg, cjc-1295-ipamorelina-5mg, igf-1-lr3-1mg, glutation-1500mg, agua-bacteriostatica-3ml): serían 9 URLs huérfanas a cambio de cero ganancia medible; eso se hace el día que entre el segundo gramaje de cada molécula. Y un punto de secuencia que conviene respetar: fusionar ANTES de pedir calificaciones a los clientes. Hoy hay cero reseñas y fusionar es gratis; una vez que las reseñas estén repartidas entre la ficha de 10 mg y la de 40 mg, juntarlas es un trasvase manual de comentarios, no un 301.",
+ "riesgos": [
+  "El atributo pa_gramaje está duplicado en wp_woocommerce_attribute_taxonomies (attribute_id 1 y 2, mismo nombre) y ya hay antecedente de que la fila 2 desapareció sola. Crear términos o convertir productos a variable con ese duplicado presente puede dejar variaciones huérfanas de su atributo. Mitigación: fotografiar la tabla antes, decidir con qué attribute_id se trabaja y verificar después de cada paso.",
+  "Convertir un producto simple en variable por wp-cli no actualiza solo las tablas de búsqueda de WooCommerce (wc_product_meta_lookup y wc_product_attributes_lookup). Si no se regeneran, el producto puede desaparecer del catálogo, de los filtros o mostrar precio equivocado aunque la ficha individual se vea bien.",
+  "El cuerpo de la ficha sale de _elementor_data, y el texto actual de MOTS-c dice literalmente 'esta ficha corresponde al vial de 10 mg'. Ese texto hay que reescribirlo desde el editor de Elementor, no por API: es trabajo manual y es el cuello de botella real de la fusión, no la parte técnica.",
+  "Semaglutida 20 mg es auto-canónica y tiene sus propias keywords: es la única de las dos fusiones donde sí se cede algo que Google hoy considera una página distinta. No hay cifra de sus impresiones porque el endpoint de Search Console está fijado a 10 filas por clics; conviene sacar el dato por URL antes de ejecutar.",
+  "El regalo del vial de agua bacteriostática sólo existe en la presentación de 5 mg de semaglutida. Al fusionar, o se cuelga de la variación (las descripciones de variación están hoy todas vacías), o se extiende a los 20 mg, o se retira. Si nadie decide, se pierde en silencio al fusionar.",
+  "El COA es uno por producto: pys-coa.php no contempla lote por variación. En cuanto haya dos gramajes con lotes distintos bajo la misma ficha, el panel de certificado quedará mintiendo. Hay que ampliar el mu-plugin o asumir un solo lote visible por molécula.",
+  "Al pasar a variable, el schema cambia de Offer a AggregateOffer y desaparecen el precio y el identificador por gramaje. Además el mpn queda tomado del SKU del padre, que en Tirzepatida no coincide con ninguna variación y en BPC-157 está vacío: si se replica el patrón, MOTS-c y Semaglutida heredarán el mismo defecto.",
+  "Hay 12 enlaces internos apuntando a /product/mots-c-40mg/ y 7 a /product/semaglutida-20mg/, cuatro de ellos dentro de _elementor_data, donde las barras van escapadas (\\/). Un buscar-y-reemplazar ingenuo no los encuentra y quedan saltos 301 encadenados por todo el blog.",
+  "El namespace /monografia/ no está libre mientras no exista el tipo de contenido: el adivinador de 404 de WordPress hace 301 de /monografia/<slug>/ hacia la ficha de producto. Durante el despliegue de las monografías, cada URL aún no creada mandará al usuario y al robot a la ficha equivocada (/monografia/semaglutida/ hoy apunta a la de 20 mg).",
+  "Verificación: LiteSpeed y el CDN de Hostinger son dos cachés distintas y hcdn no se purga desde LiteSpeed. Ninguna fusión puede darse por buena sin comprobarla en modo anónimo, y el CDN se refresca por edge (hay que pedir la URL exacta varias veces y agrupar por x-hcdn-request-id).",
+  "El histórico comercial es tan pequeño (2 pedidos completados) que cualquier medición posterior a la fusión será de SEO, no de conversión: no habrá forma de demostrar con ventas que la fusión ayudó o perjudicó en los primeros meses."
+ ],
+ "pasos": [
+  "Antes de tocar nada: sacar de Search Console las impresiones y clics por URL de /product/mots-c-40mg/, /product/mots-c-10mg/, /product/semaglutida-20mg/ y /product/semaglutida-5-mg/ con más de 10 filas y una ventana de 90 días. El endpoint actual (web.py:7353) está fijado a 28 días y 10 filas por clics, así que hay que ampliarlo o consultar desde la interfaz.",
+  "Respaldo previo: exportar los posts 790, 793, 1689, 1518 completos (post_content, _elementor_data, todos los metas de Rank Math, _sku, _price, _stock) y fotografiar la tabla wp_woocommerce_attribute_taxonomies con sus dos filas 'gramaje'.",
+  "Decidir con el dueño el punto (1) de las preguntas: si el slug superviviente conserva el gramaje o se renombra. Todo lo que sigue asume conservarlo en la primera ventana.",
+  "Producir las dos imágenes destacadas genéricas que hoy no existen, sin gramaje en la etiqueta: MOTS-c-v4.png y Semaglutida-v4.png, al estilo de BPC-157-v4.png y Tirzepatida-v4.png ya publicadas.",
+  "VENTANA 1 — MOTS-c. Crear el término '40 mg' en pa_gramaje (hoy sólo existen 5, 10, 30 y 60 mg), verificando contra qué attribute_id se está creando.",
+  "Convertir el producto 790 en variable, asignarle pa_gramaje con 10 mg y 40 mg marcado 'usado para variaciones', y crear las dos variaciones: 10 mg a $1200 con SKU MOTSC-10MG e imagen 2272; 40 mg a $2800 con SKU MOTSC-40MG e imagen 2273. Dejar el SKU del padre VACÍO o con un código propio de molécula: no repetir el de una variación, que es el defecto que arrastra Tirzepatida.",
+  "Poner la destacada genérica nueva en 790 y la galería con 2272 y 2273; regenerar las tablas de búsqueda de producto de WooCommerce y limpiar _elementor_element_cache.",
+  "Reescribir desde el editor de Elementor el cuerpo de 790 para que hable de la molécula y no del vial de 10 mg, y borrar la frase que remite al 'formato de alta concentración' como si fuera otra ficha. Sin dosis, ciclos ni vías de administración: encuadre de investigación.",
+  "Pasar el producto 793 a borrador (no borrarlo) y crear en Redirection la regla 301 de /product/mots-c-40mg/ a /product/mots-c-10mg/, sin regex y sin anclar con $, igual que las reglas 16 y 17 que ya funcionan para Tirzepatida.",
+  "Actualizar los 12 enlaces internos a /product/mots-c-40mg/: los 8 de post_content (páginas 24, 26, 1551 y posts 1675, 1926, 2096, 2256, 2462) y los 4 de _elementor_data (24, 26, 643 y el propio 790), recordando que ahí las barras van escapadas.",
+  "Verificar: purgar LiteSpeed 'Vaciar todo' y el CDN de Hostinger, y comprobar en modo anónimo que /product/mots-c-10mg/ muestra el selector de gramaje con los dos precios, que /product/mots-c-40mg/ devuelve 301 y que el JSON-LD sale como AggregateOffer con un mpn que sí existe. Captura de la ficha a 1440 y a 390 px.",
+  "Esperar dos semanas y volver a medir esas URLs en Search Console antes de continuar.",
+  "VENTANA 2 — Semaglutida, idéntico procedimiento: crear el término '20 mg', convertir 1689 a variable (5 mg $800 imagen 2278; 20 mg $1400 imagen 2277, que hoy está agotada), destacada genérica nueva, pasar 1518 a borrador, 301 de /product/semaglutida-20mg/ a /product/semaglutida-5-mg/, y repuntar los 7 enlaces internos, incluida la landing 1750.",
+  "En esa misma ventana, resolver el agua bacteriostática incluida: dejarla como texto de la variación de 5 mg, extenderla a los 20 mg o retirarla. Es una decisión del dueño, no técnica.",
+  "VENTANA 3 — Limpieza de la fusión anterior, que es independiente y se puede hacer cuando se quiera: corregir el SKU del padre de Tirzepatida (1525, hoy TIRZ-30MG, que no coincide con TIRZE-30MG ni TIRZE-60MG), poner SKU al padre de BPC-157 (2464, vacío) y a GHK-Cu (2823, sin SKU), y borrar el borrador 1531 cuya canónica apunta a una URL que ya no existe.",
+  "VENTANA 4 — Sólo si se decide el renombrado: mover el slug a /product/mots-c/ y /product/semaglutida/, añadir las 301 de las dos URLs viejas y revisar que el adivinador de 404 de WordPress no cambie el destino de /monografia/<slug>/ antes de que existan las monografías.",
+  "Antes de pedir calificaciones a los clientes: extender pys-merchant-schema.php para emitir un Offer por variación con su precio y su SKU, de forma que el AggregateOffer no se coma el dato por gramaje, y comprobar que el bloque de reseñas se pinta bien con la hoja de estilo que ya existe en ficha.php."
+ ]
+}

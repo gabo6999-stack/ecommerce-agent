@@ -1,0 +1,49 @@
+{
+ "ultimos_7d": {
+  "dias": 7,
+  "clics": 2,
+  "impresiones": 361,
+  "ctr_pct": 0.55,
+  "posicion": 40.5,
+  "rango": [
+   "2026-09-13",
+   "2026-09-19"
+  ]
+ },
+ "ultimos_14d": {
+  "dias": 14,
+  "clics": 7,
+  "impresiones": 854,
+  "ctr_pct": 0.82,
+  "posicion": 42.1,
+  "rango": [
+   "2026-09-06",
+   "2026-09-19"
+  ]
+ },
+ "ultimos_28d": {
+  "dias": 28,
+  "clics": 15,
+  "impresiones": 1686,
+  "ctr_pct": 0.89,
+  "posicion": 46.2,
+  "rango": [
+   "2026-08-23",
+   "2026-09-19"
+  ]
+ },
+ "ultimos_90d": {
+  "dias": 90,
+  "clics": 72,
+  "impresiones": 5597,
+  "ctr_pct": 1.29,
+  "posicion": 36.5,
+  "rango": [
+   "2026-06-22",
+   "2026-09-19"
+  ]
+ },
+ "nota": "Linea base pre-rediseno. Rediseno 2026-09-19..22. Volver a correr pull_gsc.py el 2026-10-22 y comparar los mismos tramos.",
+ "impresiones_a_urls_301_pct": 56.9,
+ "impresiones_pos_21mas_pct": 85.3
+}

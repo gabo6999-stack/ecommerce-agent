@@ -1,0 +1,1242 @@
+[
+ {
+  "keys": [
+   "mex",
+   "MOBILE"
+  ],
+  "clicks": 47,
+  "impressions": 1974,
+  "ctr": 0.023809523809523808,
+  "position": 18.27304964539007
+ },
+ {
+  "keys": [
+   "mex",
+   "DESKTOP"
+  ],
+  "clicks": 21,
+  "impressions": 2850,
+  "ctr": 0.007368421052631579,
+  "position": 48.80175438596491
+ },
+ {
+  "keys": [
+   "usa",
+   "DESKTOP"
+  ],
+  "clicks": 3,
+  "impressions": 103,
+  "ctr": 0.02912621359223301,
+  "position": 21.54368932038835
+ },
+ {
+  "keys": [
+   "usa",
+   "MOBILE"
+  ],
+  "clicks": 1,
+  "impressions": 66,
+  "ctr": 0.015151515151515152,
+  "position": 11.378787878787879
+ },
+ {
+  "keys": [
+   "alb",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 60
+ },
+ {
+  "keys": [
+   "are",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 15.666666666666666
+ },
+ {
+  "keys": [
+   "arg",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 11,
+  "ctr": 0,
+  "position": 45.63636363636363
+ },
+ {
+  "keys": [
+   "arg",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 6.5
+ },
+ {
+  "keys": [
+   "aus",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 52
+ },
+ {
+  "keys": [
+   "aus",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 45
+ },
+ {
+  "keys": [
+   "aze",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 29
+ },
+ {
+  "keys": [
+   "bgd",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 14,
+  "ctr": 0,
+  "position": 56.42857142857143
+ },
+ {
+  "keys": [
+   "bgr",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 64.5
+ },
+ {
+  "keys": [
+   "bgr",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 97
+ },
+ {
+  "keys": [
+   "blr",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 46
+ },
+ {
+  "keys": [
+   "bol",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 48
+ },
+ {
+  "keys": [
+   "bol",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 6,
+  "ctr": 0,
+  "position": 7.166666666666667
+ },
+ {
+  "keys": [
+   "bra",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 24,
+  "ctr": 0,
+  "position": 61.791666666666664
+ },
+ {
+  "keys": [
+   "bra",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 5,
+  "ctr": 0,
+  "position": 43
+ },
+ {
+  "keys": [
+   "can",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 17,
+  "ctr": 0,
+  "position": 60.64705882352941
+ },
+ {
+  "keys": [
+   "can",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 11
+ },
+ {
+  "keys": [
+   "chl",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 9,
+  "ctr": 0,
+  "position": 32.888888888888886
+ },
+ {
+  "keys": [
+   "chl",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 10
+ },
+ {
+  "keys": [
+   "chn",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 6,
+  "ctr": 0,
+  "position": 13.5
+ },
+ {
+  "keys": [
+   "cod",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 62
+ },
+ {
+  "keys": [
+   "col",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 7,
+  "ctr": 0,
+  "position": 42
+ },
+ {
+  "keys": [
+   "col",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 27.333333333333332
+ },
+ {
+  "keys": [
+   "cri",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 30
+ },
+ {
+  "keys": [
+   "cyp",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 31
+ },
+ {
+  "keys": [
+   "cze",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 59
+ },
+ {
+  "keys": [
+   "deu",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 7,
+  "ctr": 0,
+  "position": 62
+ },
+ {
+  "keys": [
+   "dnk",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 64
+ },
+ {
+  "keys": [
+   "dom",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 45.5
+ },
+ {
+  "keys": [
+   "dom",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 17.5
+ },
+ {
+  "keys": [
+   "dza",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 51.5
+ },
+ {
+  "keys": [
+   "ecu",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 5,
+  "ctr": 0,
+  "position": 15.4
+ },
+ {
+  "keys": [
+   "ecu",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 7,
+  "ctr": 0,
+  "position": 3.857142857142857
+ },
+ {
+  "keys": [
+   "egy",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 10,
+  "ctr": 0,
+  "position": 50.4
+ },
+ {
+  "keys": [
+   "egy",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 58
+ },
+ {
+  "keys": [
+   "esp",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 34,
+  "ctr": 0,
+  "position": 57.088235294117645
+ },
+ {
+  "keys": [
+   "esp",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 20,
+  "ctr": 0,
+  "position": 18
+ },
+ {
+  "keys": [
+   "esp",
+   "TABLET"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 7
+ },
+ {
+  "keys": [
+   "eth",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 39
+ },
+ {
+  "keys": [
+   "fin",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 35
+ },
+ {
+  "keys": [
+   "fra",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 13,
+  "ctr": 0,
+  "position": 40.38461538461539
+ },
+ {
+  "keys": [
+   "gbr",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 9,
+  "ctr": 0,
+  "position": 42.888888888888886
+ },
+ {
+  "keys": [
+   "gbr",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 6
+ },
+ {
+  "keys": [
+   "gha",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 44.333333333333336
+ },
+ {
+  "keys": [
+   "gha",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 25
+ },
+ {
+  "keys": [
+   "grc",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 63
+ },
+ {
+  "keys": [
+   "grc",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 7
+ },
+ {
+  "keys": [
+   "gtm",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 11
+ },
+ {
+  "keys": [
+   "gtm",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 10
+ },
+ {
+  "keys": [
+   "hnd",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 49.5
+ },
+ {
+  "keys": [
+   "hnd",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 7
+ },
+ {
+  "keys": [
+   "hun",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 41.333333333333336
+ },
+ {
+  "keys": [
+   "idn",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 14,
+  "ctr": 0,
+  "position": 59.42857142857143
+ },
+ {
+  "keys": [
+   "idn",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 33.5
+ },
+ {
+  "keys": [
+   "ind",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 42,
+  "ctr": 0,
+  "position": 50.142857142857146
+ },
+ {
+  "keys": [
+   "ind",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 6,
+  "ctr": 0,
+  "position": 49.833333333333336
+ },
+ {
+  "keys": [
+   "irn",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 15
+ },
+ {
+  "keys": [
+   "isr",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 13
+ },
+ {
+  "keys": [
+   "ita",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 6,
+  "ctr": 0,
+  "position": 55.5
+ },
+ {
+  "keys": [
+   "ita",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 3
+ },
+ {
+  "keys": [
+   "jpn",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 4
+ },
+ {
+  "keys": [
+   "kaz",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 59
+ },
+ {
+  "keys": [
+   "ken",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 9
+ },
+ {
+  "keys": [
+   "khm",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 62
+ },
+ {
+  "keys": [
+   "lbn",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 64
+ },
+ {
+  "keys": [
+   "lby",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 28
+ },
+ {
+  "keys": [
+   "lby",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 78
+ },
+ {
+  "keys": [
+   "lka",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 44.5
+ },
+ {
+  "keys": [
+   "lso",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 28
+ },
+ {
+  "keys": [
+   "mar",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 64
+ },
+ {
+  "keys": [
+   "mda",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 48
+ },
+ {
+  "keys": [
+   "mex",
+   "TABLET"
+  ],
+  "clicks": 0,
+  "impressions": 7,
+  "ctr": 0,
+  "position": 8.285714285714285
+ },
+ {
+  "keys": [
+   "mlt",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 47
+ },
+ {
+  "keys": [
+   "mmr",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 74
+ },
+ {
+  "keys": [
+   "mys",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 55.666666666666664
+ },
+ {
+  "keys": [
+   "nga",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 49.25
+ },
+ {
+  "keys": [
+   "nld",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 84.33333333333333
+ },
+ {
+  "keys": [
+   "nld",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 6
+ },
+ {
+  "keys": [
+   "nor",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 76
+ },
+ {
+  "keys": [
+   "npl",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 30
+ },
+ {
+  "keys": [
+   "nzl",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 66
+ },
+ {
+  "keys": [
+   "nzl",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 48
+ },
+ {
+  "keys": [
+   "pak",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 11,
+  "ctr": 0,
+  "position": 53.54545454545455
+ },
+ {
+  "keys": [
+   "pak",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 65.25
+ },
+ {
+  "keys": [
+   "pan",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 8
+ },
+ {
+  "keys": [
+   "per",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 38
+ },
+ {
+  "keys": [
+   "per",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 11,
+  "ctr": 0,
+  "position": 7.545454545454546
+ },
+ {
+  "keys": [
+   "phl",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 8,
+  "ctr": 0,
+  "position": 66
+ },
+ {
+  "keys": [
+   "phl",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 72
+ },
+ {
+  "keys": [
+   "pol",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 52.333333333333336
+ },
+ {
+  "keys": [
+   "pri",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 11,
+  "ctr": 0,
+  "position": 31.181818181818183
+ },
+ {
+  "keys": [
+   "prt",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 10
+ },
+ {
+  "keys": [
+   "pry",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 50.5
+ },
+ {
+  "keys": [
+   "pry",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 7,
+  "ctr": 0,
+  "position": 4.142857142857142
+ },
+ {
+  "keys": [
+   "qat",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 7
+ },
+ {
+  "keys": [
+   "rou",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 72.33333333333333
+ },
+ {
+  "keys": [
+   "rou",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 2,
+  "ctr": 0,
+  "position": 13.5
+ },
+ {
+  "keys": [
+   "rus",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 35,
+  "ctr": 0,
+  "position": 54.82857142857143
+ },
+ {
+  "keys": [
+   "rus",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 7,
+  "ctr": 0,
+  "position": 2
+ },
+ {
+  "keys": [
+   "sau",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 25.5
+ },
+ {
+  "keys": [
+   "sau",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 2
+ },
+ {
+  "keys": [
+   "sgp",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 43.75
+ },
+ {
+  "keys": [
+   "slv",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 28
+ },
+ {
+  "keys": [
+   "srb",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 15
+ },
+ {
+  "keys": [
+   "syr",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 44
+ },
+ {
+  "keys": [
+   "tha",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 11,
+  "ctr": 0,
+  "position": 55.09090909090909
+ },
+ {
+  "keys": [
+   "tur",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 60.333333333333336
+ },
+ {
+  "keys": [
+   "tur",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 13
+ },
+ {
+  "keys": [
+   "twn",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 3,
+  "ctr": 0,
+  "position": 46
+ },
+ {
+  "keys": [
+   "ukr",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 19,
+  "ctr": 0,
+  "position": 44.31578947368421
+ },
+ {
+  "keys": [
+   "ukr",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 33.25
+ },
+ {
+  "keys": [
+   "usa",
+   "TABLET"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 12
+ },
+ {
+  "keys": [
+   "uzb",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 7,
+  "ctr": 0,
+  "position": 58.285714285714285
+ },
+ {
+  "keys": [
+   "vct",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 9
+ },
+ {
+  "keys": [
+   "ven",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 5,
+  "ctr": 0,
+  "position": 17.6
+ },
+ {
+  "keys": [
+   "ven",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 4,
+  "ctr": 0,
+  "position": 6.5
+ },
+ {
+  "keys": [
+   "vnm",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 26,
+  "ctr": 0,
+  "position": 54.15384615384615
+ },
+ {
+  "keys": [
+   "vnm",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 81
+ },
+ {
+  "keys": [
+   "zzz",
+   "DESKTOP"
+  ],
+  "clicks": 0,
+  "impressions": 7,
+  "ctr": 0,
+  "position": 21.857142857142858
+ },
+ {
+  "keys": [
+   "zzz",
+   "MOBILE"
+  ],
+  "clicks": 0,
+  "impressions": 1,
+  "ctr": 0,
+  "position": 61
+ }
+]

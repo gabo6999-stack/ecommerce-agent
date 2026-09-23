@@ -1,0 +1,115 @@
+EXOMA: 112 productos | con compendio: 72
+categorias: {'Orales': 17, 'Agonistas Metabólicos': 17, 'Regeneración Tisular': 9, 'Neuroendocrinología': 2, 'Endocrinología': 19, 'Nootrópicos': 10, 'Suministros': 2, 'Dermatología': 10, 'Biorreguladores': 14, 'Regulación Circadiana': 1, 'Biología de la Longevidad': 9, 'Inmunología': 2}
+
+retatrutida                    |Retatrutide                  |Agonistas Metabólicos  |r=4.8 n=40|comp=.| 5mg=$870; 15mg=$1580; 20mg=$1890; 30mg=$2520; 40mg=$3150; 50mg=$3780; 60mg=$4410; 100mg=$6
+agua-bacteriostatica           |Agua Bacteriostática         |Suministros            |r=4.9 n=30|comp=Y| 30ml=$300; 3ml=$150(!OutOfStock); 10ml=$200(!OutOfStock)
+tirzepatida                    |Tirzepatida                  |Agonistas Metabólicos  |r=4.8 n=25|comp=.| 5mg=$550; 10mg=$790; 15mg=$940; 20mg=$1100; 30mg=$1420; 40mg=$1730; 50mg=$2050; 60mg=$2360
+ghk-cu                         |GHK-Cu                       |Dermatología           |r=4.8 n=21|comp=Y| 50mg=$520; 100mg=$780
+hgh                            |HGH (Somatropina)            |Endocrinología         |r=4.7 n=19|comp=Y| 6iu=$350; 10iu=$450; 12iu=$550; 15iu=$650; 24iu=$950; 36iu=$1290; 50iu=$1750
+mots-c                         |MOTS-c                       |Agonistas Metabólicos  |r=4.9 n=18|comp=Y| 10mg=$850; 40mg=$2300
+nad                            |NAD+                         |Biología de la Longevi |r=4.9 n=17|comp=.| 100mg=$610; 250mg=$870; 500mg=$1220; 1000mg=$1899(!OutOfStock)
+selank                         |Selank                       |Nootrópicos            |r=5.0 n=17|comp=Y| 5mg=$599; 10mg=$890; 30mg=$1999
+semax                          |Semax                        |Nootrópicos            |r=4.9 n=17|comp=Y| 5mg=$549; 10mg=$890; 30mg=$2100
+bpc-157                        |BPC-157                      |Regeneración Tisular   |r=4.8 n=16|comp=Y| 5mg=$610; 10mg=$960; 20mg=$1660
+tb-500                         |TB-500                       |Regeneración Tisular   |r=4.9 n=16|comp=Y| 5mg=$1099; 10mg=$1190; 20mg=$2699
+glutation                      |Glutatión (GSH)              |Biología de la Longevi |r=4.9 n=15|comp=.| 500mg=$599; 1500mg=$1499
+melanotan-ii                   |Melanotan II                 |Dermatología           |r=4.6 n=15|comp=.| 10mg=$780
+pt-141                         |PT-141 (Bremelanotida)       |Neuroendocrinología    |r=4.9 n=15|comp=Y| 10mg=$870
+cjc-1295-sindac-ipamorelina    |CJC-1295 (Sin DAC) + Ipamore |Endocrinología         |r=4.9 n=14|comp=.| 5mg-5mg=$1570; 10mg-10mg=$1950(!OutOfStock)
+ipamorelin                     |Ipamorelina                  |Endocrinología         |r=4.9 n=14|comp=Y| 2mg=$520; 5mg=$610; 10mg=$1050
+bpc-157-tb-500                 |BPC-157 + TB-500             |Regeneración Tisular   |r=4.8 n=13|comp=.| 5mg-5mg=$1399; 10mg-10mg=$1780
+epithalon                      |Epitalon                     |Biología de la Longevi |r=5.0 n=13|comp=Y| 40mg=$2360; 10mg=$700(!OutOfStock); 50mg=$2620(!OutOfStock)
+aod-9604                       |AOD-9604                     |Agonistas Metabólicos  |r=4.6 n=12|comp=Y| 2mg=$780; 5mg=$1199; 10mg=$1840(!OutOfStock)
+5-amino-1mq                    |5-Amino-1MQ                  |Agonistas Metabólicos  |r=4.6 n=11|comp=Y| 5mg=$610; 50mg=$1125; 10mg=$899(!OutOfStock)
+azul-de-metileno               |Azul de Metileno             |Orales                 |r=4.5 n=11|comp=.| 20mg=$931
+kpv                            |KPV                          |Regeneración Tisular   |r=4.7 n=11|comp=.| 5mg=$700; 10mg=$960; 30mg=$2620
+tesamorelin                    |Tesamorelina                 |Endocrinología         |r=5.0 n=10|comp=Y| 2mg=$620; 10mg=$1890; 20mg=$3190; 5mg=$980(!OutOfStock)
+dsip                           |DSIP (Péptido Inductor del S |Regulación Circadiana  |r=4.8 n=9|comp=Y| 10mg=$999; 15mg=$1199; 5mg=$699(!OutOfStock)
+bpc-157-arginate               |BPC-157 Arginate             |Orales                 |r=4.8 n=8|comp=.| oral-500mcg=$2087
+clenbuterol                    |Clenbuterol                  |Orales                 |r=4.7 n=8|comp=Y| 40mcg=$696
+semaglutide                    |Semaglutida                  |Agonistas Metabólicos  |r=5.0 n=8|comp=Y| 2mg=$390; 5mg=$550; 10mg=$790; 15mg=$940; 20mg=$1100; 30mg=$1420
+klow                           |KLOW                         |Dermatología           |r=4.9 n=7|comp=.| 80mg=$2940
+semax-selank                   |Semax + Selank               |Nootrópicos            |r=5.0 n=7|comp=.| 10mg-10mg=$1449
+ss-31                          |SS-31                        |Biología de la Longevi |r=5.0 n=7|comp=Y| 10mg=$1099; 50mg=$3899
+agua-aa                        |Ácido acético 0.6%           |Suministros            |r=4.7 n=6|comp=.| 10ml=$200
+igf-1-lr3                      |IGF-1 LR3                    |Endocrinología         |r=4.8 n=6|comp=.| 01mg=$490; 1mg=$1790
+kisspeptin                     |Kisspeptina                  |Endocrinología         |r=4.9 n=6|comp=Y| 5mg=$780; 10mg=$1220
+5-amino-1mq-oral               |5-Amino-1MQ Oral             |Orales                 |r=4.8 n=5|comp=Y| 50mg=$1699
+aicar-oral                     |AICAR Oral                   |Orales                 |r=4.8 n=5|comp=.| 10mg=$2557
+andarina                       |Andarina (S-4)               |Orales                 |r=4.8 n=5|comp=.| 25mg=$1626
+bam-15                         |BAM-15                       |Orales                 |r=4.8 n=5|comp=Y| 50mg=$3713(!OutOfStock)
+bpc-157-tb-500-mezcla          |BPC-157 + TB-500 Mezcla      |Orales                 |r=4.8 n=5|comp=.| 1000mcg=$6035
+cardarina                      |Cardarina (GW-501516)        |Orales                 |r=4.8 n=5|comp=.| 10mg=$1626
+cerebrolysine                  |Cerebrolysine                |Nootrópicos            |r=4.8 n=5|comp=.| 60mg=$1450
+cjc-1295-dac                   |CJC-1295 (DAC)               |Endocrinología         |r=4.7 n=5|comp=.| 2mg=$899; 5mg=$1600; 10mg=$2940
+dihexa                         |Dihexa                       |Orales                 |r=4.8 n=5|comp=Y| 20mg=$5104
+estenabolico                   |Estenabólico                 |Orales                 |r=4.8 n=5|comp=.| 10mg=$2322
+hcg                            |HCG (Gonadotropina Coriónica |Endocrinología         |r=4.6 n=5|comp=Y| 2000iu=$390; 5000iu=$590; 10000iu=$1150
+kpv-oral                       |KPV Oral                     |Orales                 |r=4.8 n=5|comp=Y| 500mcg=$1862
+ligandrol                      |Ligandrol (LGD-4033)         |Orales                 |r=4.8 n=5|comp=.| 10mg=$1626
+ostarina                       |Ostarina                     |Orales                 |r=4.8 n=5|comp=.| 25mg=$1626
+slu-pp-332-bam-15-mezcla-en-ca |SLU-PP-332 + BAM-15 Mezcla e |Orales                 |r=4.8 n=5|comp=.| 300mcg=$1626(!OutOfStock)
+tesofensina                    |Tesofensina                  |Agonistas Metabólicos  |r=4.8 n=5|comp=.| 500mcg=$1626
+testolona                      |Testolona (RAD-140)          |Orales                 |r=4.8 n=5|comp=.| 10mg=$2322
+yk11                           |YK11                         |Orales                 |r=4.8 n=5|comp=Y| 10mg=$3253
+cardiogen                      |Cardiogen                    |Biorreguladores        |r=5.0 n=4|comp=Y| 20mg=$1750
+cartalax                       |Cartalax                     |Biorreguladores        |r=4.4 n=4|comp=Y| 20mg=$1750
+cjc-1295-sindac                |CJC-1295 (Sin DAC)           |Endocrinología         |r=4.2 n=4|comp=.| 5mg=$1099(!OutOfStock); 10mg=$1440(!OutOfStock)
+ghrp-2                         |GHRP-2                       |Endocrinología         |r=5.0 n=4|comp=Y| 5mg=$520; 10mg=$799(!OutOfStock)
+na-semax-amidate               |NA Semax Amidato             |Nootrópicos            |r=4.3 n=4|comp=.| 30mg=$2270
+acetato-de-sermorelina         |Acetato de Sermorelina       |Endocrinología         |r=4.5 n=3|comp=.| 5mg=$980; 10mg=$1799; 15mg=$2699
+ahk-cu                         |AHK-Cu                       |Dermatología           |r=5.0 n=3|comp=Y| 100mg=$1130
+aicar                          |AICAR                        |Agonistas Metabólicos  |r=5.0 n=3|comp=Y| 50mg=$1130(!OutOfStock); 100mg=$1570(!OutOfStock)
+foxo4-dri                      |FOXO4-DRI                    |Biología de la Longevi |r=4.8 n=3|comp=Y| 10mg=$4999(!OutOfStock)
+humanin                        |Humanin                      |Biología de la Longevi |r=4.3 n=3|comp=Y| 10mg=$3150
+matrixyl                       |Matrixyl                     |Dermatología           |r=4.0 n=3|comp=Y| 10mg=$610
+n-acetyl-epithalon-amidate     |Amidato de N-Acetil Epitalon |Biología de la Longevi |r=5.0 n=3|comp=.| 5mg=$780; 10mg=$1399
+p21                            |P21                          |Nootrópicos            |r=5.0 n=3|comp=Y| 10mg=$960(!OutOfStock)
+pancragen                      |Pancragen                    |Biorreguladores        |r=4.3 n=3|comp=Y| 20mg=$1750
+peg-mgf                        |PEG MGF                      |Endocrinología         |r=5.0 n=3|comp=Y| 2mg=$1310(!OutOfStock)
+pinealon                       |Pinealon                     |Biología de la Longevi |r=5.0 n=3|comp=Y| 5mg=$700; 10mg=$1050; 20mg=$1570
+vesugen                        |Vesugen                      |Biorreguladores        |r=4.8 n=3|comp=Y| 20mg=$1750
+ace-031                        |ACE-031                      |Regeneración Tisular   |r=4.7 n=2|comp=Y| 1mg=$1399(!OutOfStock)
+acetato-de-oxitocina           |Acetato de Oxitocina         |Neuroendocrinología    |r=4.5 n=2|comp=.| 2mg=$610; 5mg=$780; 10mg=$999
+adamax                         |Adamax                       |Nootrópicos            |r=5.0 n=2|comp=Y| 5mg=$1920
+ghrp-6                         |GHRP-6                       |Endocrinología         |r=4.0 n=2|comp=Y| 5mg=$520; 10mg=$799
+hmg                            |HMG (Menotropina)            |Endocrinología         |r=5.0 n=2|comp=Y| 75iu=$950
+prostamax                      |Prostamax                    |Biorreguladores        |r=5.0 n=2|comp=Y| 20mg=$1750
+testagen                       |Testagen                     |Biorreguladores        |r=5.0 n=2|comp=Y| 20mg=$1750
+vilon                          |Vilon                        |Biorreguladores        |r=5.0 n=2|comp=Y| 20mg=$1750
+bpc-157-tb-500-kpv             |BPC-157 + TB-500 + KPV       |Regeneración Tisular   |r=4.0 n=1|comp=.| 30mg=$2999
+melanotan-i                    |Melanotan I                  |Dermatología           |r=5.0 n=1|comp=Y| 10mg=$780
+p21-adamantane                 |P21-Adamantano               |Nootrópicos            |r=4.0 n=1|comp=Y| 10mg=$4999
+ptd-dbm                        |PTD-DBM                      |Regeneración Tisular   |r=5.0 n=1|comp=Y| 5mg=$3410
+adipotide                      |Adipotida                    |Agonistas Metabólicos  |r=None n=None|comp=Y| 2mg=$1130; 5mg=$2399
+ara-290                        |ARA-290                      |Regeneración Tisular   |r=None n=None|comp=Y| 10mg=$960(!OutOfStock)
+b7-33                          |B7-33                        |Endocrinología         |r=None n=None|comp=.| 6mg=$3150
+bronchogen                     |Bronchogen                   |Biorreguladores        |r=None n=None|comp=Y| 20mg=$1750
+cagrilintide-semaglutide       |Cagrilintida + Semaglutida   |Agonistas Metabólicos  |r=None n=None|comp=Y| 10mg=$1920
+cagrilintide                   |Cagrilintida                 |Agonistas Metabólicos  |r=None n=None|comp=Y| 5mg=$1199; 10mg=$1900; 20mg=$2700
+chonluten                      |Chonluten                    |Biorreguladores        |r=None n=None|comp=Y| 20mg=$1750
+cortagen                       |Cortagen                     |Biorreguladores        |r=None n=None|comp=Y| 20mg=$1750
+crystagen                      |Crystagen                    |Biorreguladores        |r=None n=None|comp=Y| 20mg=$1750
+ghk-basic                      |GHK Básico                   |Dermatología           |r=None n=None|comp=Y| 50mg=$610(!OutOfStock)
+ghk-cu-serum                   |GHK-Cu Serum 30 mL           |Dermatología           |r=None n=None|comp=.| 30ml=$990(!OutOfStock)
+glow                           |GLOW                         |Dermatología           |r=None n=None|comp=.| 50mg=$1840; 70-70mg=$2240
+hexarelin                      |Hexarelina                   |Endocrinología         |r=None n=None|comp=Y| 2mg=$610; 5mg=$1199
+hgh-frag-176-191               |HGH Frag 176-191             |Agonistas Metabólicos  |r=None n=None|comp=.| 2mg=$780; 5mg=$1099
+liraglutide                    |Liraglutida                  |Agonistas Metabólicos  |r=None n=None|comp=Y| 5mg=$1400; 10mg=$1920; 30mg=$2970
+livagen                        |Livagen                      |Biorreguladores        |r=None n=None|comp=Y| 20mg=$1750
+ll-37                          |LL-37                        |Inmunología            |r=None n=None|comp=Y| 5mg=$1499
+mazdutide                      |Mazdutida                    |Agonistas Metabólicos  |r=None n=None|comp=Y| 5mg=$1699; 10mg=$2270
+mgf                            |MGF                          |Endocrinología         |r=None n=None|comp=Y| 2mg=$780
+na-selank-amidate              |NA Selank Amidato            |Nootrópicos            |r=None n=None|comp=.| 30mg=$2270
+nad-mots-c-5-amino-1mq         |NAD+ + MOTS-c + 5-Amino-1MQ  |Agonistas Metabólicos  |r=None n=None|comp=.| 120mg=$2450(!OutOfStock)
+ovagen                         |Ovagen                       |Biorreguladores        |r=None n=None|comp=Y| 20mg=$1750
+pe-22-28                       |PE 22-28                     |Nootrópicos            |r=None n=None|comp=Y| 10mg=$960
+pnc-27                         |PNC 27                       |Biología de la Longevi |r=None n=None|comp=Y| 5mg=$1480; 10mg=$2620
+retatrutide-cagrilintide       |Retatrutida + Cagrilintida   |Agonistas Metabólicos  |r=None n=None|comp=Y| 10mg=$2450
+snap-8                         |SNAP-8                       |Dermatología           |r=None n=None|comp=Y| 10mg=$699
+survodutide                    |Survodutida                  |Agonistas Metabólicos  |r=None n=None|comp=Y| 10mg=$3670
+tb-500-frag                    |TB-500 FRAG                  |Regeneración Tisular   |r=None n=None|comp=.| 10mg=$1570
+tesamorelin-ipamorelin         |Tesamorelina + Ipamorelina   |Endocrinología         |r=None n=None|comp=.| 17mg=$2970(!OutOfStock)
+thymalin                       |Timalina                     |Biorreguladores        |r=None n=None|comp=Y| 10mg=$960
+thymosin-alpha-1               |Timosina Alfa-1              |Inmunología            |r=None n=None|comp=Y| 10mg=$1270; 5mg=$1310
+vip                            |VIP                          |Endocrinología         |r=None n=None|comp=Y| 5mg=$1249; 10mg=$1590

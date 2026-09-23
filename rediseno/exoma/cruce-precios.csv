@@ -1,0 +1,22 @@
+﻿pys_nombre,pys_slug,presentacion,pys_precio,pys_stock,exoma_slug,exoma_precio,exoma_stock,dif_pct_pys_vs_exoma,exoma_resenas,exoma_rating,pys_estado
+GHK-Cu,ghk-cu,100mg,1800,instock,ghk-cu,780,InStock,130.8,21,4.8,publish
+BPC-157,bpc-157,5mg,800,outofstock,bpc-157,610,InStock,31.1,16,4.8,publish
+BPC-157,bpc-157,10mg,1200,outofstock,bpc-157,960,InStock,25.0,16,4.8,publish
+Cagrilintida,cagrilintida-10mg,10mg,2300,instock,cagrilintide,1900,InStock,21.1,,,publish
+Glutatión 1500mg | Antioxidante y Detox Celular México,glutation-1500mg,1500mg,1500,instock,glutation,1499,InStock,0.1,15,4.9,publish
+CJC-1295 (no-DAC) + Ipamorelina,cjc-1295-ipamorelina-5mg,5mg,1200,instock,cjc-1295-sindac-ipamorelina,1570,InStock,-23.6,14,4.9,publish
+Sermorelina,sermorelina-10mg,10mg,1900,instock,acetato-de-sermorelina,1799,InStock,5.6,3,4.5,publish
+Timosina Alfa-1,thymosin-alpha-1-10mg,10mg,2800,instock,thymosin-alpha-1,1270,InStock,120.5,,,publish
+Selank,selank-10-mg,10mg,1100,instock,selank,890,InStock,23.6,17,5.0,publish
+Semaglutida 5mg,semaglutida-5-mg,5mg,800,instock,semaglutide,550,InStock,45.5,8,5.0,publish
+Tirzepatida 60 mg,tirzepatida-60-mg-archivado,60mg,3200,instock,tirzepatida,2360,InStock,35.6,25,4.8,draft
+Tirzepatida,tirzepatida,30mg,1900,instock,tirzepatida,1420,InStock,33.8,25,4.8,publish
+Tirzepatida,tirzepatida,60mg,3200,instock,tirzepatida,2360,InStock,35.6,25,4.8,publish
+Semaglutida 20mg | Péptido Control de Peso y Apetito México,semaglutida-20mg,20mg,1400,outofstock,semaglutide,1100,InStock,27.3,8,5.0,publish
+NAD+,nad-suplemento,500mg,1400,instock,nad,1220,InStock,14.8,17,4.9,publish
+IGF-1 LR3,igf-1-lr3-1mg,1mg,1800,instock,igf-1-lr3,1790,InStock,0.6,6,4.8,publish
+Agua Bacteriostática,agua-bacteriostatica-3ml,3ml,350,instock,agua-bacteriostatica,150,OutOfStock,133.3,30,4.9,publish
+BPC-157 + TB-500,bpc-157-tb-500,5mg,1800,instock,bpc-157-tb-500,1399,InStock,28.7,13,4.8,publish
+MOTS-c 40 mg,mots-c-40mg,40mg,2800,instock,mots-c,2300,InStock,21.7,18,4.9,publish
+MOTS-c,mots-c-10mg,10mg,1200,instock,mots-c,850,InStock,41.2,18,4.9,publish
+Retatrutida,retatrutida,30mg,4000,instock,retatrutida,2520,InStock,58.7,40,4.8,publish

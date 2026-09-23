@@ -1,0 +1,442 @@
+[
+ {
+  "url": "/product/retatrutida-30mg/",
+  "impresiones": 1002,
+  "clics": 6,
+  "http": "301",
+  "redirect": "/product/retatrutida/",
+  "final": "/product/retatrutida/"
+ },
+ {
+  "url": "/retatrutide-precio-guia-completa-costos-beneficios/",
+  "impresiones": 927,
+  "clics": 6,
+  "http": "301",
+  "redirect": "/precio-retatrutida/",
+  "final": "/precio-retatrutida/"
+ },
+ {
+  "url": "/product/comprar-retatrutida-30mg/",
+  "impresiones": 407,
+  "clics": 5,
+  "http": "301",
+  "redirect": "/product/retatrutida/",
+  "final": "/product/retatrutida/"
+ },
+ {
+  "url": "/product/mots-c-40mg/",
+  "impresiones": 300,
+  "clics": 3,
+  "http": "200",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/productos/",
+  "impresiones": 289,
+  "clics": 2,
+  "http": "301",
+  "redirect": "/comprar-peptidos-en-mexico/",
+  "final": "/comprar-peptidos-en-mexico/"
+ },
+ {
+  "url": "/product/tirzepatida-30-mg/",
+  "impresiones": 265,
+  "clics": 3,
+  "http": "301",
+  "redirect": "/product/tirzepatida/",
+  "final": "/product/tirzepatida/"
+ },
+ {
+  "url": "/product/tirzepatida-60-mg/",
+  "impresiones": 191,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/product/tirzepatida/",
+  "final": "/product/tirzepatida/"
+ },
+ {
+  "url": "/productos/page/2/",
+  "impresiones": 182,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/comprar-peptidos-en-mexico/page/2/",
+  "final": "/comprar-peptidos-en-mexico/page/2/"
+ },
+ {
+  "url": "/comprar-peptidos-en-mexico/page/2/",
+  "impresiones": 125,
+  "clics": 0,
+  "http": "200",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/peptidos-en-mexico/",
+  "impresiones": 90,
+  "clics": 2,
+  "http": "301",
+  "redirect": "/peptidos-mexico/",
+  "final": "/peptidos-mexico/"
+ },
+ {
+  "url": "/bpc-157-peptido-recuperacion-deportiva/",
+  "impresiones": 78,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/bpc-157-para-que-sirve/",
+  "final": "/bpc-157-para-que-sirve/"
+ },
+ {
+  "url": "/product/nad-plus-500mg/",
+  "impresiones": 72,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/product/nad-suplemento/",
+  "final": "/product/nad-suplemento/"
+ },
+ {
+  "url": "/product/methylated-vitamin-b-complex-nutricost/",
+  "impresiones": 35,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/product/complejo-b-metilado/",
+  "final": "/product/complejo-b-metilado/"
+ },
+ {
+  "url": "/product/bpc-157-tb-500-10-10mg/",
+  "impresiones": 27,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/product/bpc-157-tb-500/",
+  "final": "/product/bpc-157-tb-500/"
+ },
+ {
+  "url": "/product/bpc-157-precio/",
+  "impresiones": 26,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/product/bpc-157-tb-500/",
+  "final": "/product/bpc-157-tb-500/"
+ },
+ {
+  "url": "/longevidad/",
+  "impresiones": 25,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/envejecimiento-saludable/",
+  "final": "/envejecimiento-saludable/"
+ },
+ {
+  "url": "/precio-de-retatrutida-en-mexico/",
+  "impresiones": 19,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/product/retatrutida/",
+  "final": "/product/retatrutida/"
+ },
+ {
+  "url": "/product-category/reparacion-celular/",
+  "impresiones": 15,
+  "clics": 1,
+  "http": "200",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/product/dim-nutricost-300mg/",
+  "impresiones": 15,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/product/dim-suplemento/",
+  "final": "/product/dim-suplemento/"
+ },
+ {
+  "url": "/suplementos-en-mexico-2/",
+  "impresiones": 15,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/suplementos-deportivos/",
+  "final": "/suplementos-deportivos/"
+ },
+ {
+  "url": "/retatrutide-triumph-1/",
+  "impresiones": 10,
+  "clics": 1,
+  "http": "301",
+  "redirect": "/estudio-triumph-1-retatrutide/",
+  "final": "/estudio-triumph-1-retatrutide/"
+ },
+ {
+  "url": "/product/zinc-picolinato-nutricost-50mg/",
+  "impresiones": 10,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/product/picolinato-de-zinc/",
+  "final": "/product/picolinato-de-zinc/"
+ },
+ {
+  "url": "/product-category/suplementos/bienestar-general/",
+  "impresiones": 9,
+  "clics": 0,
+  "http": "200",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/reparacion-celular/",
+  "impresiones": 8,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/recuperacion-muscular/",
+  "final": "/recuperacion-muscular/"
+ },
+ {
+  "url": "/semaglutida-2026-guia-completa-perdida-peso/",
+  "impresiones": 8,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/glp-1/",
+  "final": "/glp-1/"
+ },
+ {
+  "url": "/capacidad-fisica-performance/",
+  "impresiones": 7,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/rendimiento-deportivo/",
+  "final": "/rendimiento-deportivo/"
+ },
+ {
+  "url": "/marca/nutricost/",
+  "impresiones": 6,
+  "clics": 1,
+  "http": "404",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/product-category/peptidos-para-rendimiento-cognitivo/",
+  "impresiones": 6,
+  "clics": 0,
+  "http": "200",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/acelerar-el-metabolismo/",
+  "impresiones": 4,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/como-acelerar-el-metabolismo/",
+  "final": "/como-acelerar-el-metabolismo/"
+ },
+ {
+  "url": "/nad-que-es-y-para-que-sirve/",
+  "impresiones": 4,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/nad-para-que-sirve/",
+  "final": "/nad-para-que-sirve/"
+ },
+ {
+  "url": "/optimizar-rendimiento-deportivo-suplementos-peptidos/",
+  "impresiones": 4,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/rendimiento-deportivo-con-peptidos/",
+  "final": "/rendimiento-deportivo-con-peptidos/"
+ },
+ {
+  "url": "/peptidos-para-bajar-de-peso/",
+  "impresiones": 4,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/glp-1/",
+  "final": "/glp-1/"
+ },
+ {
+  "url": "/product-category/performance-top/",
+  "impresiones": 4,
+  "clics": 0,
+  "http": "200",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/product-category/suplementos/",
+  "impresiones": 4,
+  "clics": 0,
+  "http": "200",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/perdida-de-grasa-con-peptidos/",
+  "impresiones": 3,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/glp-1/",
+  "final": "/glp-1/"
+ },
+ {
+  "url": "/product-category/metabolismo-activo/",
+  "impresiones": 3,
+  "clics": 0,
+  "http": "200",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/retatrutide-peptido-triple-agonista-perdida-de-peso/",
+  "impresiones": 3,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/retatrutide-que-es/",
+  "final": "/retatrutide-que-es/"
+ },
+ {
+  "url": "/semaglutida-para-bajar-de-peso/",
+  "impresiones": 3,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/glp-1/",
+  "final": "/glp-1/"
+ },
+ {
+  "url": "/blog/page/3/",
+  "impresiones": 2,
+  "clics": 0,
+  "http": "404",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/ozempic-vs-mounjaro-vs-zepbound/",
+  "impresiones": 2,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/glp-1/",
+  "final": "/glp-1/"
+ },
+ {
+  "url": "/peptidos-para-bajar-de-peso-glp-1-mexico-2026/",
+  "impresiones": 2,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/glp-1/",
+  "final": "/glp-1/"
+ },
+ {
+  "url": "/peptidos-que-son-para-que-sirven-como-usarlos/",
+  "impresiones": 2,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/que-son-los-peptidos/",
+  "final": "/que-son-los-peptidos/"
+ },
+ {
+  "url": "/tirzepatida-para-que-sirve-guia-completa-mexico-2026/",
+  "impresiones": 2,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/tirzepatida-para-que-sirve/",
+  "final": "/tirzepatida-para-que-sirve/"
+ },
+ {
+  "url": "/blog/page/2/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "200",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/bpc-157-que-es-evidencia-cientifica-seguridad/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/bpc-157-para-que-sirve/",
+  "final": "/bpc-157-para-que-sirve/"
+ },
+ {
+  "url": "/category/longevidad-y-regeneracion-biologica/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/category/blog/",
+  "final": "/category/blog/"
+ },
+ {
+  "url": "/como-bajar-de-peso/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/glp-1/",
+  "final": "/glp-1/"
+ },
+ {
+  "url": "/comparativas/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/comparativas-de-peptidos/",
+  "final": "/comparativas-de-peptidos/"
+ },
+ {
+  "url": "/marca/pys/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "404",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/ozempic-vs-mounjaro-vs-zepbound-comparativa-glp-1-mexico-2026/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/glp-1/",
+  "final": "/glp-1/"
+ },
+ {
+  "url": "/peptidos-glp-1-adicciones-evidencia-cientifica/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/peptidos-glp-1-y-adicciones/",
+  "final": "/peptidos-glp-1-y-adicciones/"
+ },
+ {
+  "url": "/product-category/recuperacion-rapida/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "200",
+  "redirect": "",
+  "final": ""
+ },
+ {
+  "url": "/product/agua-bacteriostatica-10ml/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/product/agua-bacteriostatica-3ml/",
+  "final": "/product/agua-bacteriostatica-3ml/"
+ },
+ {
+  "url": "/selank-que-es-para-que-sirve-beneficios-dosis/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "301",
+  "redirect": "/selank-beneficios-y-dosis/",
+  "final": "/selank-beneficios-y-dosis/"
+ },
+ {
+  "url": "/terminos-y-condiciones/",
+  "impresiones": 1,
+  "clics": 0,
+  "http": "200",
+  "redirect": "",
+  "final": ""
+ }
+]

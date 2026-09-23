@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+
+    <meta charset="UTF-8" />
+    
+    <script>
+      (function(){try{
+        var m=document.cookie.match(/(?:^|;\s*)exoma_lang=(en|es)/);var pref=m&&m[1];if(!pref)return;
+        var path=location.pathname,isEn=path==="/en"||path.indexOf("/en/")===0;
+        if(/^\/(en\/)?(checkout|carrito|cuenta|mi-cuenta|mi-investigacion|auth|administrador|admin|packing|order-history|3ds-return|reset-password|recuperar|email-preferences|assets|coa|img)\b/.test(path))return;
+        if(pref==="en"&&!isEn){location.replace("/en"+(path==="/"?"":path)+location.search+location.hash);}
+        else if(pref==="es"&&isEn){location.replace((path.replace(/^\/en/,"")||"/")+location.search+location.hash);}
+      }catch(e){}})();
+    </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    
+
+    
+    <link rel="preload" href="/fonts/Kallisto-Medium.woff2" as="font" type="font/woff2" crossorigin />
+
+    
+
+    
+
+    
+    <style>
+      
+      @font-face {
+        font-family: 'Kallisto';
+        src: url('/fonts/Kallisto-Medium.woff2') format('woff2');
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      :root {
+        --background: 220 14% 98%;
+        --foreground: 220 30% 12%;
+        --primary: 220 65% 38%;
+      }
+      html, body, button, input, select, textarea {
+        font-family: 'Kallisto', system-ui, -apple-system, sans-serif;
+      }
+      body {
+        background: hsl(220 14% 98%);
+        color: hsl(220 30% 12%);
+        margin: 0;
+      }
+      #root { min-height: 100vh; }
+      
+      .lcp-h1 {
+        font-family: 'Kallisto', system-ui, -apple-system, sans-serif;
+        font-size: 2.4rem;
+        line-height: 0.98;
+        letter-spacing: -0.02em;
+        color: hsl(220 30% 12%);
+        margin: 0;
+        font-weight: 600;
+      }
+      .lcp-h1 > span { display: block; }
+      
+      .sr-only {
+        position: absolute;
+        width: 1px; height: 1px;
+        padding: 0; margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      
+      #root { visibility: hidden; }
+      
+      #exoma-boot-loader {
+        position: fixed; inset: 0; z-index: 2147483000;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px;
+        background: radial-gradient(125% 125% at 50% 38%, #ffffff 0%, #eef2fa 78%, #e6ecf7 100%);
+        animation: exomaBootIn .5s ease-out both;
+      }
+      @keyframes exomaBootIn { from { opacity: 0; } to { opacity: 1; } }
+      #exoma-boot-loader .wm {
+        width: min(52vw, 232px); aspect-ratio: 481 / 49;
+        
+        background: linear-gradient(100deg, #0C2454 0 38%, #93a9d6 47%, #eaf0fb 50%, #93a9d6 53%, #0C2454 62% 100%);
+        background-size: 260% 100%; background-position: 135% 0;
+        -webkit-mask: url(/exoma-wordmark.svg) no-repeat center / contain;
+        mask: url(/exoma-wordmark.svg) no-repeat center / contain;
+        filter: drop-shadow(0 8px 22px rgba(12, 36, 84, 0.16));
+        animation: exomaBootWm 1.9s cubic-bezier(.4, 0, .2, 1) infinite,
+                   exomaBootBreathe 3.4s ease-in-out infinite;
+        will-change: background-position, transform;
+      }
+      @keyframes exomaBootWm { 0% { background-position: 135% 0; } 62%, 100% { background-position: -35% 0; } }
+      @keyframes exomaBootBreathe { 0%, 100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.028); opacity: 1; } }
+      
+      #exoma-boot-loader .bar {
+        width: min(40vw, 172px); height: 2px; border-radius: 2px;
+        background: rgba(12, 36, 84, 0.12); overflow: hidden; position: relative;
+      }
+      #exoma-boot-loader .bar::after {
+        content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 42%;
+        background: linear-gradient(90deg, transparent, #0C2454, transparent);
+        border-radius: 2px; animation: exomaBootBar 1.25s ease-in-out infinite;
+        will-change: transform;
+      }
+      @keyframes exomaBootBar { 0% { transform: translateX(-130%); } 100% { transform: translateX(330%); } }
+      @media (prefers-reduced-motion: reduce) {
+        #exoma-boot-loader { animation: none; }
+        #exoma-boot-loader .wm { animation: none; background: #0C2454; }
+        #exoma-boot-loader .bar::after { animation: none; }
+      }
+    </style>
+    
+    <noscript><style>
+      #root { visibility: visible !important; }
+      #af-shell { display: none !important; }
+      #exoma-boot-loader { display: none !important; }
+    </style></noscript>
+    
+    
+    <script>(function(){var done=false;function killLoader(){var l=document.getElementById('exoma-boot-loader');if(l&&l.parentNode)l.parentNode.removeChild(l);}function reveal(){if(done)return;done=true;killLoader();var el=document.getElementById('root');if(el)el.style.visibility='visible';var s=document.getElementById('af-shell');if(s&&s.parentNode)s.parentNode.removeChild(s);}function fallbackShell(){if(done)return;done=true;killLoader();var s=document.getElementById('af-shell');if(!s){var el=document.getElementById('root');if(el)el.style.visibility='visible';}}function reactReady(){var root=document.getElementById('root');if(!root)return false;var mounted=false;var k=root.children;for(var i=0;i<k.length;i++){if(!k[i].hasAttribute('data-seo-prerender')){mounted=true;break;}}if(!mounted)return false;var s=document.getElementById('af-shell');if(s){var af=s.getAttribute('data-af');if(af==='product'){if(!root.querySelector('h1'))return false;var im=root.querySelector('.aspect-square img');return !im||(im.complete&&im.naturalWidth>0);}if(af==='catalog'){return !!root.querySelector('.product-grid > *');}if(af==='listing'){return !!root.querySelector('main h1');}if(af==='article'){return !!root.querySelector('main h1');}return !!root.querySelector('.home-scale');}return true;}function check(){if(done)return;if(reactReady()){reveal();return;}requestAnimationFrame(check);}requestAnimationFrame(check);setTimeout(function(){if(done)return;if(reactReady()){reveal();return;}if(document.getElementById('af-shell')){setTimeout(function(){if(done)return;if(reactReady())reveal();else fallbackShell();},7500);}else{reveal();}},2500);})();</script>
+
+    
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+    </script>
+
+    
+    
+    <script>window.__exomaDefer||(function(){var q=[],f=false;window.__exomaDefer=function(fn){f?fn():q.push(fn)};function r(){if(f)return;f=true;for(var i=0;i<q.length;i++){try{q[i]()}catch(e){}}q=[]}var ev=['pointerdown','keydown','touchstart','scroll','mousemove'];ev.forEach(function(e){addEventListener(e,r,{once:true,passive:true})});'requestIdleCallback'in window?requestIdleCallback(r,{timeout:3500}):setTimeout(r,3500)})();window.__exomaDefer(function(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N2262BBF');});</script>
+    
+
+    
+    <script>
+      // Consentimiento ANTES de inicializar (grabación/heatmap = perfilado). Llave real del
+      // banner: `exoma_cookie_consent` (lib/cookies/consentManager.ts).
+      /**
+       * MUESTREO DEL SESSION REPLAY (2026-08-25, INP).
+       * El recorder de PostHog serializa las mutaciones del DOM y las comprime
+       * EN EL HILO PRINCIPAL mientras el usuario interactúa. Medido con trace
+       * del navegador en un tap del selector de dosis (Pixel 7, CPU 4x):
+       * posthog-recorder 133 ms + fbevents 104 ms, frente a 156 ms de nuestro
+       * propio bundle. A/B con n=10 por escenario: 304 ms de mediana con todo
+       * activo contra 224 ms sin recorder ni pixel (p75 336 -> 248).
+       * Grabando 1 de cada 5 sesiones, el p75 —que es lo que puntúa CrUX— cae
+       * en la cohorte que NO paga ese coste, y se conservan pageviews, eventos
+       * y heatmaps ($$heatmap no usa el recorder).
+       * La decisión se toma UNA vez por sesión y se guarda en sessionStorage
+       * para no empezar a grabar a mitad de visita; si sessionStorage no está
+       * disponible (modo privado), no se graba.
+       */
+      var __EXOMA_REPLAY_SAMPLE = 0.2;
+      var __exomaReplay = false;
+      try {
+        var __rk = 'exoma_replay_sample', __rv = sessionStorage.getItem(__rk);
+        if (__rv === null) { __rv = (Math.random() < __EXOMA_REPLAY_SAMPLE) ? '1' : '0'; sessionStorage.setItem(__rk, __rv); }
+        __exomaReplay = __rv === '1';
+      } catch (e) { __exomaReplay = false; }
+      var __exomaAnalitica = false;
+      try {
+        var __c = JSON.parse(localStorage.getItem('exoma_cookie_consent') || 'null');
+        __exomaAnalitica = !!(__c && __c.preferences && __c.preferences.analytics === true);
+      } catch (e) { /* localStorage bloqueado: sin permiso comprobable, no se graba */ }
+
+      // El MISMO distinct_id en las dos mitades, desde el primer evento.
+      //
+      // Los eventos de la taxonomía los manda el servidor (el sink de PostHog en
+      // supabase/functions), y lo hace bajo el distinct_id que decida ESTE SDK:
+      // posthogIdentity() lo lee y viaja en el ctx del collector. En una visita
+      // nueva ese id todavía no existe cuando sale el primer lote, así que aquí se
+      // siembra con `exoma_session_id`, el mismo valor que ya identifica al
+      // visitante en nuestras tablas.
+      //
+      // Sólo se siembra si PostHog NO tiene ya identidad guardada: pisar la suya
+      // partiría en dos a un visitante que vuelve, que es justo el bug que esto
+      // arregla.
+      var __exomaBootstrap;
+      try {
+        var __phGuardado = false;
+        for (var __i = 0; __i < localStorage.length; __i++) {
+          var __k = localStorage.key(__i);
+          if (__k && /^ph_.+_posthog$/.test(__k)) { __phGuardado = true; break; }
+        }
+        if (!__phGuardado) {
+          var __sid = localStorage.getItem('exoma_session_id');
+          if (!__sid) {
+            // Mismo formato que src/lib/sessionId.ts — si cambia allá, cambia aquí.
+            __sid = 'session_' + Date.now() + '_' + crypto.randomUUID();
+            localStorage.setItem('exoma_session_id', __sid);
+            try { sessionStorage.setItem('exoma_session_id', __sid); } catch (e2) {}
+          }
+          __exomaBootstrap = { distinctID: __sid };
+        }
+      } catch (e) { /* sin almacenamiento: PostHog se queda con su id de siempre */ }
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+      window.__exomaDefer||(function(){var q=[],f=false;window.__exomaDefer=function(fn){f?fn():q.push(fn)};function r(){if(f)return;f=true;for(var i=0;i<q.length;i++){try{q[i]()}catch(e){}}q=[]}var ev=['pointerdown','keydown','touchstart','scroll','mousemove'];ev.forEach(function(e){addEventListener(e,r,{once:true,passive:true})});'requestIdleCallback'in window?requestIdleCallback(r,{timeout:3500}):setTimeout(r,3500)})();window.__exomaDefer(function(){posthog.init('phc_BSEPE69jegnNEZ4qXtSxTqiSTjgVvmiTFjf8bEZHPhvF', {
+        api_host: 'https://ph.vyal.mx',
+        capture_pageview: true,
+        capture_pageleave: true,
+        autocapture: false,
+        // HEATMAPS: manda eventos $$heatmap (scroll/click) sin encender autocapture completo.
+        // Es lo que faltaba — sin esta línea el panel de heatmaps salía vacío.
+        capture_heatmaps: true,
+        disable_surveys: true,
+        persistence: 'localStorage+cookie',
+        // Replay y heatmap solo con consentimiento (se decide aquí, al init).
+        disable_session_recording: !__exomaAnalitica || !__exomaReplay,
+        maskAllInputs: true,
+        session_recording: { maskAllInputs: true },
+        // Ver el bloque de arriba. `undefined` = no sembrar (visitante que vuelve).
+        bootstrap: __exomaBootstrap
+      });});
+    </script>
+    
+
+    
+    <script>
+      window.__exomaDefer||(function(){var q=[],f=false;window.__exomaDefer=function(fn){f?fn():q.push(fn)};function r(){if(f)return;f=true;for(var i=0;i<q.length;i++){try{q[i]()}catch(e){}}q=[]}var ev=['pointerdown','keydown','touchstart','scroll','mousemove'];ev.forEach(function(e){addEventListener(e,r,{once:true,passive:true})});'requestIdleCallback'in window?requestIdleCallback(r,{timeout:3500}):setTimeout(r,3500)})();window.__exomaDefer(function(){
+      (function () {
+        try {
+          var c = JSON.parse(localStorage.getItem('exoma_cookie_consent') || 'null');
+          if (!(c && c.preferences && c.preferences.analytics === true)) return;
+        } catch (e) { return; }
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-059LQFK7TC';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-059LQFK7TC', { anonymize_ip: true, cookie_flags: 'SameSite=Lax;Secure' });
+      })();
+      });
+    </script>
+    
+
+    
+    <script>
+      window.__exomaDefer||(function(){var q=[],f=false;window.__exomaDefer=function(fn){f?fn():q.push(fn)};function r(){if(f)return;f=true;for(var i=0;i<q.length;i++){try{q[i]()}catch(e){}}q=[]}var ev=['pointerdown','keydown','touchstart','scroll','mousemove'];ev.forEach(function(e){addEventListener(e,r,{once:true,passive:true})});'requestIdleCallback'in window?requestIdleCallback(r,{timeout:3500}):setTimeout(r,3500)})();window.__exomaDefer(function(){
+      (function () {
+        try {
+          var c = JSON.parse(localStorage.getItem('exoma_cookie_consent') || 'null');
+          if (!(c && c.preferences && c.preferences.marketing === true)) return;
+        } catch (e) { return; }
+        var PIXEL = '2519484425218765';
+        // eventID compartido pixel↔CAPI para que Meta deduplique la misma PageView.
+        var eid;
+        try {
+          eid = sessionStorage.getItem('exoma_fb_pv_eid');
+          if (!eid) { eid = 'pv_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8); sessionStorage.setItem('exoma_fb_pv_eid', eid); }
+        } catch (e) { eid = undefined; }
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        // autoConfig OFF (2026-08-25, INP): con él el pixel engancha listeners a
+        // todos los botones y enlaces para INFERIR eventos, y ese análisis corre
+        // en el hilo principal en cada tap (104 ms en el trace). No se pierde
+        // nada: los eventos de negocio se disparan explícitamente desde el
+        // código (trackAddToCart en CartContext, Purchase en el checkout) y se
+        // deduplican con CAPI por eventID. Es la misma línea que ya usa
+        // src/lib/analytics/providers/meta-pixel.ts.
+        fbq('set', 'autoConfig', false, PIXEL);
+        fbq('init', PIXEL);
+        fbq('track', 'PageView', {}, eid ? { eventID: eid } : undefined);
+      })();
+      });
+    </script>
+    
+
+    
+    
+    
+    <meta name="build-time" content="2026-09-21T16:00:56.411Z" />
+    
+    
+
+    
+    
+    
+
+    
+    <link rel="dns-prefetch" href="https://db.exomapeptides.mx" />
+    <link rel="preconnect" href="https://db.exomapeptides.mx" crossorigin />
+
+    
+
+
+    
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+    
+
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=8">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=8" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=8" />
+    <link rel="icon" href="/favicon.ico?v=8" />
+    <link rel="shortcut icon" href="/favicon.ico?v=8" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=8" />
+    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png?v=8" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png?v=8" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8" />
+    <link rel="apple-touch-icon" sizes="128x128" href="/icons/icon-128x128.png?v=8" />
+    <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8" />
+    
+    
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#224E9E" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Exoma Peptides" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="rating" content="general" />
+    
+    
+    <title data-rh="true">BPC-157 pentadecapéptido | Compendio EXOMA</title>
+    <meta name="application-name" content="Exoma Peptides" />
+    <meta name="author" content="Exoma Peptides México" />
+
+    
+
+    
+
+    
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    
+    <link rel="alternate" type="application/rss+xml" title="EXOMA Peptides Blog" href="/feed.xml" />
+
+    
+
+    
+    <link rel="help" type="text/plain" href="/llms.txt" />
+
+    
+
+    
+    <meta name="copyright" content="© 2025-2026 EXOMA Peptides México." />
+    <meta name="dcterms.rightsHolder" content="EXOMA Peptides México" />
+    
+
+    
+    
+    <meta data-rh="true" name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="google" content="notranslate" />
+    
+    
+    <meta name="google-site-verification" content="jJrCOwC-7T5OzWaZ1ONQsZzxYoCAk39-gnwnZJ4wOk4" />
+    <meta name="msvalidate.01" content="DCD35A38A9B713F8DD9EB3283BE48971" />
+
+    
+    
+    
+    
+    
+
+
+    
+    <style>
+      * { -webkit-tap-highlight-color: transparent; }
+      html { touch-action: manipulation; }
+    </style>
+    
+
+    <script>
+      /* Beacon de detección de scrape — SOLO registro server-side (IP hasheada),
+         NUNCA bloquea. Vanilla (independiente de React) para el apex prod. Manda
+         path + referrer + host para que la edge fn detecte proxies de traducción
+         (translate.goog / Yandex) y ritmo. sendBeacon = fire-and-forget. */
+      (function () {
+        try {
+          var EP = "https://db.exomapeptides.mx/functions/v1/track-visit";
+          function sid() {
+            try { var k = "exoma_sid", v = localStorage.getItem(k);
+              if (!v) { v = Date.now().toString(36) + Math.random().toString(36).slice(2, 10); localStorage.setItem(k, v); }
+              return v; } catch (e) { return null; }
+          }
+          var last = "";
+          function ping() {
+            try {
+              var p = location.pathname;
+              if (p === last) return; last = p;
+              if (/^\/(admin|administrador|dev-|preview)/.test(p)) return;
+              var body = JSON.stringify({ path: p, ref: document.referrer || "", host: location.hostname, sessionId: sid() });
+              var blob = new Blob([body], { type: "text/plain" });
+              if (navigator.sendBeacon && navigator.sendBeacon(EP, blob)) return;
+              fetch(EP, { method: "POST", body: body, keepalive: true, headers: { "Content-Type": "text/plain" } }).catch(function () {});
+            } catch (e) {}
+          }
+          var _ps = history.pushState; history.pushState = function () { _ps.apply(this, arguments); setTimeout(ping, 0); };
+          var _rs = history.replaceState; history.replaceState = function () { _rs.apply(this, arguments); setTimeout(ping, 0); };
+          window.addEventListener("popstate", function () { setTimeout(ping, 0); });
+          if (document.readyState !== "loading") ping(); else document.addEventListener("DOMContentLoaded", ping);
+        } catch (e) {}
+      })();
+    </script>
+
+  <script type="module" crossorigin src="/assets/index-DVu66QYR.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BzystiHl.css">
+    <meta data-rh="true" name="description" content="BPC-157 (Body Protection Compound-157), pentadecapéptido sintético para investigación. CAS 137525-51-0. Mecanismo VEGF/eNOS. In vitro/preclínico (RUO)." />
+    <link data-rh="true" rel="canonical" href="https://exomapeptides.mx/compendio/bpc-157" />
+    <meta data-rh="true" property="og:type" content="article" />
+    <meta data-rh="true" property="og:site_name" content="EXOMA Peptides México" />
+    <meta data-rh="true" property="og:locale" content="es_MX" />
+    <meta data-rh="true" property="og:url" content="https://exomapeptides.mx/compendio/bpc-157" />
+    <meta data-rh="true" property="og:title" content="BPC-157 pentadecapéptido | Compendio EXOMA" />
+    <meta data-rh="true" property="og:description" content="BPC-157 (Body Protection Compound-157), pentadecapéptido sintético para investigación. CAS 137525-51-0. Mecanismo VEGF/eNOS. In vitro/preclínico (RUO)." />
+    <meta data-rh="true" property="og:image" content="https://exomapeptides.mx/img/product-images/catalogo/dc8d72f1-e5b0-453f-8f3b-c2aad4f9fa79.webp" />
+    <meta data-rh="true" property="og:image:alt" content="BPC-157 pentadecapéptido | Compendio EXOMA" />
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="BPC-157 pentadecapéptido | Compendio EXOMA" />
+    <meta data-rh="true" name="twitter:description" content="BPC-157 (Body Protection Compound-157), pentadecapéptido sintético para investigación. CAS 137525-51-0. Mecanismo VEGF/eNOS. In vitro/preclínico (RUO)." />
+    <meta data-rh="true" name="twitter:image" content="https://exomapeptides.mx/img/product-images/catalogo/dc8d72f1-e5b0-453f-8f3b-c2aad4f9fa79.webp" />
+    <script data-seo-graph="baked" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","OnlineStore","LocalBusiness"],"@id":"https://exomapeptides.mx/#organization","name":"EXOMA Peptides México","legalName":"EXOMA PEPTIDES S.A. de C.V.","alternateName":["EXOMA Peptides","EXOMA"],"url":"https://exomapeptides.mx/","foundingDate":"2025","description":"Exoma Peptides es un proveedor mexicano de péptidos de investigación: compuestos de referencia —agonistas GLP-1 (Semaglutida, Tirzepatida, Retatrutide), secretagogos de hormona de crecimiento (CJC-1295, Ipamorelina, Sermorelina), recuperación tisular (BPC-157, TB-500), cognición (Semax, Selank) y longevidad (Epitalon, NAD+)— con pureza verificada por HPLC y Certificado de Análisis (COA) por lote. Envío nacional en México. Uso exclusivo para investigación científica.","logo":{"@id":"https://exomapeptides.mx/#logo"},"image":{"@id":"https://exomapeptides.mx/#logo"},"sameAs":["https://www.instagram.com/exomamx","https://www.tiktok.com/@exoma.mx","https://www.facebook.com/profile.php?id=61592117955763","https://www.google.com/search?kgmid=/g/11zh4_kh9x"],"publishingPrinciples":"https://exomapeptides.mx/politica-editorial","correctionsPolicy":"https://exomapeptides.mx/politica-editorial#correccion-de-errores","actionableFeedbackPolicy":"https://exomapeptides.mx/politica-editorial#correccion-de-errores","areaServed":{"@type":"Country","name":"México"},"geo":{"@type":"GeoCoordinates","latitude":25.658194,"longitude":-100.3422952},"hasMap":"https://maps.app.goo.gl/jV8vDFB26bMw1o8fA","address":{"@type":"PostalAddress","streetAddress":"Av. Lázaro Cárdenas 1007, Residencial Santa Bárbara","addressLocality":"San Pedro Garza García","addressRegion":"Nuevo León","postalCode":"66266","addressCountry":"MX"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"18:00"}],"currenciesAccepted":"MXN","paymentAccepted":"Tarjeta de crédito, Tarjeta de débito, Transferencia SPEI","knowsAbout":["Péptidos de investigación","Cromatografía HPLC","Agonistas GLP-1","Neuropéptidos"],"priceRange":"$150–$6,399 MXN","email":"ventas@exomapeptides.mx","slogan":"Elevando el estándar en péptidos de investigación en México.","hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","@id":"https://exomapeptides.mx/#merchant-return-policy","applicableCountry":"MX","returnPolicyCountry":"MX","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":15,"returnMethod":"https://schema.org/ReturnByMail","returnFees":"https://schema.org/FreeReturn","refundType":"https://schema.org/FullRefund","merchantReturnLink":"https://exomapeptides.mx/devoluciones"},"hasShippingService":{"@type":"ShippingService","@id":"https://exomapeptides.mx/#shipping-service-mx","name":"Envío Express nacional","fulfillmentType":"https://schema.org/FulfillmentTypeDelivery","handlingTime":{"@type":"ServicePeriod","businessDays":["https://schema.org/Monday","https://schema.org/Tuesday","https://schema.org/Wednesday","https://schema.org/Thursday","https://schema.org/Friday"],"cutoffTime":"13:00:00-06:00","duration":{"@type":"QuantitativeValue","minValue":0,"maxValue":1,"unitCode":"DAY"}},"shippingConditions":[{"@type":"ShippingConditions","shippingDestination":{"@type":"DefinedRegion","addressCountry":"MX"},"orderValue":{"@type":"MonetaryAmount","currency":"MXN","minValue":0,"maxValue":1999.99},"shippingRate":{"@type":"MonetaryAmount","currency":"MXN","value":200},"transitTime":{"@type":"ServicePeriod","businessDays":["https://schema.org/Monday","https://schema.org/Tuesday","https://schema.org/Wednesday","https://schema.org/Thursday","https://schema.org/Friday"],"duration":{"@type":"QuantitativeValue","minValue":1,"maxValue":4,"unitCode":"DAY"}}},{"@type":"ShippingConditions","shippingDestination":{"@type":"DefinedRegion","addressCountry":"MX"},"orderValue":{"@type":"MonetaryAmount","currency":"MXN","minValue":2000},"shippingRate":{"@type":"MonetaryAmount","currency":"MXN","value":0},"transitTime":{"@type":"ServicePeriod","businessDays":["https://schema.org/Monday","https://schema.org/Tuesday","https://schema.org/Wednesday","https://schema.org/Thursday","https://schema.org/Friday"],"duration":{"@type":"QuantitativeValue","minValue":1,"maxValue":4,"unitCode":"DAY"}}}]},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","url":"https://wa.me/17243459069","email":"ventas@exomapeptides.mx","availableLanguage":["Spanish"],"areaServed":"MX","hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"18:00"}}]},{"@type":"ImageObject","@id":"https://exomapeptides.mx/#logo","url":"https://exomapeptides.mx/icons/icon-512x512.png","contentUrl":"https://exomapeptides.mx/icons/icon-512x512.png","width":512,"height":512},{"@type":"WebSite","@id":"https://exomapeptides.mx/#website","url":"https://exomapeptides.mx/","name":"EXOMA Peptides México","alternateName":["EXOMA Peptides","EXOMA"],"inLanguage":["es-MX","en"],"publisher":{"@id":"https://exomapeptides.mx/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://exomapeptides.mx/productos?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://exomapeptides.mx/compendio/bpc-157#webpage","name":"BPC-157: Mecanismo, Dosis y Estudios","headline":"BPC-157","description":"BPC-157 (Body Protection Compound-157), pentadecapéptido sintético para investigación. CAS 137525-51-0. Mecanismo VEGF/eNOS. In vitro/preclínico (RUO).","inLanguage":"es-MX","datePublished":"2025-12-28T01:56:29.610671-06:00","dateModified":"2026-09-18T07:00:39.435501-06:00","url":"https://exomapeptides.mx/compendio/bpc-157","publisher":{"@id":"https://exomapeptides.mx/#organization"},"isPartOf":{"@id":"https://exomapeptides.mx/#website"},"breadcrumb":{"@id":"https://exomapeptides.mx/compendio/bpc-157#breadcrumb"},"about":{"@type":"MolecularEntity","@id":"https://exomapeptides.mx/compendio/bpc-157#substance","name":"BPC-157","alternateName":"Body Protection Compound-157","molecularFormula":"C62H98N16O22","molecularWeight":{"@type":"QuantitativeValue","value":1419.53,"unitText":"Da"},"identifier":[{"@type":"PropertyValue","propertyID":"CAS","value":"137525-51-0"}],"hasBioChemEntityPart":{"@type":"Protein","hasBioPolymerSequence":"Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val"}},"citation":[{"@type":"ScholarlyArticle","name":"Eje cerebro-intestino y pentadecapéptido BPC-157","isPartOf":{"@type":"Periodical","name":"Current Neuropharmacology"},"datePublished":"2016","sameAs":"https://doi.org/10.2174/1570159X13666160502153022","url":"https://pubmed.ncbi.nlm.nih.gov/27138887/"},{"@type":"ScholarlyArticle","name":"BPC-157 incrementa expresión de receptor de hormona de crecimiento en fibroblastos tendinosos","isPartOf":{"@type":"Periodical","name":"Molecules"},"datePublished":"2014","sameAs":"https://doi.org/10.3390/molecules191119066","url":"https://pubmed.ncbi.nlm.nih.gov/25415472/"},{"@type":"ScholarlyArticle","name":"Stable gastric pentadecapeptide BPC 157: Novel therapy in gastrointestinal tract","isPartOf":{"@type":"Periodical","name":"Current Pharmaceutical Design"},"datePublished":"2011","sameAs":"https://doi.org/10.2174/138161211796196954","url":"https://pubmed.ncbi.nlm.nih.gov/21548867/"},{"@type":"ScholarlyArticle","name":"BPC 157 enhances healing of transected rat Achilles tendon","isPartOf":{"@type":"Periodical","name":"Journal of Orthopaedic Research"},"datePublished":"2003","sameAs":"https://doi.org/10.1016/S0736-0266(03)00110-4","url":"https://pubmed.ncbi.nlm.nih.gov/14554208/"},{"@type":"ScholarlyArticle","name":"Protective effects of pentadecapeptide BPC 157 on gastric ulcer in rats","isPartOf":{"@type":"Periodical","name":"World Journal of Gastroenterology"},"datePublished":"2004","url":"https://pubmed.ncbi.nlm.nih.gov/15052688/"},{"@type":"ScholarlyArticle","name":"Focus on ulcerative colitis: stable gastric pentadecapeptide BPC 157","isPartOf":{"@type":"Periodical","name":"Current Medicinal Chemistry"},"datePublished":"2012","url":"https://pubmed.ncbi.nlm.nih.gov/22300085/"},{"@type":"ScholarlyArticle","name":"The promoting effect of pentadecapeptide BPC 157 on tendon healing involves tendon outgrowth, cell survival, and cell migration","isPartOf":{"@type":"Periodical","name":"Journal of Applied Physiology"},"datePublished":"2011","url":"https://pubmed.ncbi.nlm.nih.gov/21030672/"}]},{"@type":"FAQPage","@id":"https://exomapeptides.mx/compendio/bpc-157#faq","url":"https://exomapeptides.mx/compendio/bpc-157","inLanguage":"es-MX","mainEntity":[{"@type":"Question","name":"¿Qué es BPC-157?","acceptedAnswer":{"@type":"Answer","text":"BPC-157 (Body Protection Compound-157; sinónimos PL 14736, Bepecin, PL-10): pentadecapéptido sintético estable (15 aa) para investigación. Modula angiogénesis vía VEGF/eNOS y sistemas dopaminérgico/serotoninérgico/GABAérgico (preclínico)."}},{"@type":"Question","name":"¿Cuál es el mecanismo de acción de BPC-157?","acceptedAnswer":{"@type":"Answer","text":"Pentadecapéptido sintético estable que promueve angiogénesis vía VEGF/VEGFR2 y la vía eNOS/óxido nítrico, participa en señalización tipo FGF y regula al alza el receptor de hormona de crecimiento en fibroblastos de tendón; modula sistemas dopaminérgico, serotoninérgico y GABAérgico (preclínico)."}},{"@type":"Question","name":"¿Para qué se investiga BPC-157?","acceptedAnswer":{"@type":"Answer","text":"En investigación preclínica, BPC-157 se estudia principalmente en: Investigación en cicatrización de tendones; Modelos de protección gastrointestinal; Estudios de angiogénesis y vasculogénesis. Material exclusivamente para investigación científica."}},{"@type":"Question","name":"¿Cuáles son las propiedades químicas de BPC-157?","acceptedAnswer":{"@type":"Answer","text":"Fórmula molecular C62H98N16O22; peso molecular 1419.53 Da; número CAS 137525-51-0."}},{"@type":"Question","name":"¿Cómo se almacena BPC-157?","acceptedAnswer":{"@type":"Answer","text":"Condiciones de conservación: -20 °C liofilizado; 2-8 °C reconstituido; estabilidad liofilizado: 36 meses a 2-8°C; una vez reconstituido: 21-30 días a 2-8°C con conservante bacteriostático."}},{"@type":"Question","name":"¿Qué vías de administración se estudian para BPC-157?","acceptedAnswer":{"@type":"Answer","text":"En los modelos de investigación se describen: Subcutánea, Intramuscular, Oral. El uso es exclusivamente para investigación científica."}}]},{"@type":"BreadcrumbList","@id":"https://exomapeptides.mx/compendio/bpc-157#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://exomapeptides.mx/"},{"@type":"ListItem","position":2,"name":"Compendio","item":"https://exomapeptides.mx/compendio"},{"@type":"ListItem","position":3,"name":"BPC-157","item":"https://exomapeptides.mx/compendio/bpc-157"}]}]}</script>
+</head>
+
+  
+  <body>
+    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2262BBF"
+    height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager (sin JavaScript)" aria-hidden="true"></iframe></noscript>
+    
+    <div id="exoma-boot-loader" aria-hidden="true"><div class="wm"></div><div class="bar"></div></div>
+    <!--AF-SHELL--><div id="af-shell" data-af="article"><header class="fixed top-0 left-0 right-0 z-[300] isolate w-full overflow-visible [backdrop-filter:blur(10px)_saturate(180%)] [-webkit-backdrop-filter:blur(10px)_saturate(180%)] supports-[backdrop-filter]:bg-background/85 bg-background/95 border-b border-border/50" style="transition: background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.5s; padding-top: env(safe-area-inset-top, 0px); padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px);"><a href="https://www.whatsapp.com/channel/0029VbDjHrFKWEKswCsQ8j38" target="_blank" rel="noopener noreferrer" aria-label="Únete a Exoma Community, nuestro canal de novedades en WhatsApp" class="group flex h-11 w-full items-center justify-center gap-2 bg-[#0a2a5e] px-3 text-white transition-colors hover:bg-[#0d3573]"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" class="h-[15px] w-[15px] shrink-0 text-[#25D366]"><path d="M16.5C7.4.5.5 7.4.5 16c0 2.8.74 5.44 2.02 7.72L.5 31.5l7.96-2.02A15.4 15.4 0 0 0 16 31.5C24.6 31.5 31.5 24.6 31.5 16S24.6.5 16.5zm0 28.3c-2.42 0-4.7-.64-6.68-1.76l-.48-.28-4.96 1.3 1.32-4.84-.32-.5A12.7 12.7 0 0 1 3.2 16C3.2 8.94 8.94 3.2 16 3.2S28.8 8.94 28.8 16 23.06 28.8 16 28.8zm7.06-9.52c-.38-.2-2.28-1.12-2.64-1.24-.36-.14-.62-.2-.88.2-.26.38-1 1.24-1.22 1.5-.22.26-.44.28-.82.1-.38-.2-1.6-.6-3.06-1.9-1.14-1.02-1.9-2.28-2.12-2.66-.22-.38-.02-.58.16-.78.18-.18.38-.44.56-.66.2-.22.26-.38.38-.62.12-.26.06-.48-.04-.68-.1-.2-.88-2.12-1.2-2.9-.32-.76-.64-.66-.88-.66h-.76c-.26 0-.68.1-1.04.48-.36.38-1.36 1.34-1.36 3.26s1.4 3.78 1.6 4.04c.2.26 2.76 4.22 6.68 5.92.94.4 1.66.64 2.22.82.94.3 1.78.26 2.46.16.76-.12 2.28-.94 2.6-1.84.32-.9.32-1.66.22-1.84-.1-.16-.36-.26-.74-.44z"></path></svg><span class="text-[12px] sm:text-[13px] leading-none"><span class="font-semibold">Únete a Exoma Community</span><span class="hidden sm:inline text-white/70"> — novedades, lanzamientos y ofertas</span></span><span class="text-[12px] sm:text-[13px] font-semibold leading-none underline decoration-white/40 underline-offset-[3px] transition-colors group-hover:decoration-white">Unirme</span></a><div class="container flex items-center justify-between gap-3 sm:gap-6 relative z-10 h-[88px] lg:h-[104px]"><a aria-label="Exoma Peptides — Inicio" class="relative flex items-center shrink-0 h-[88px] lg:h-[104px] -ml-3 sm:-ml-5 lg:-ml-7 hover:opacity-80 origin-[left_center] transition-[transform,opacity] duration-200 scale-100" href="/"><img src="/assets/exoma-logo-DDfY4JWX.png" alt="Exoma Peptides" width="320" height="320" loading="eager" decoding="async" class="pointer-events-none w-auto select-none h-[120px] min-[360px]:h-[150px] sm:h-[190px] xl:h-[240px]"></a><nav aria-label="Principal" class="hidden xl:flex items-center gap-1 shrink-0 desktop-nav"><a class="nav-link nav-link-animated px-2 xl:px-2.5 py-2.5 text-[12px] xl:text-[13px] 2xl:text-sm font-medium uppercase tracking-[0.08em] transition-colors duration-base ease-exoma relative text-muted-foreground hover:text-foreground" href="/">Inicio</a><span class="hidden 2xl:block w-px h-4 bg-border/40 mx-1.5 select-none"></span><a class="nav-link nav-link-animated px-2 xl:px-2.5 py-2.5 text-[12px] xl:text-[13px] 2xl:text-sm font-medium uppercase tracking-[0.08em] transition-colors duration-base ease-exoma relative text-muted-foreground hover:text-foreground" href="/productos">Catálogo</a><span class="hidden 2xl:block w-px h-4 bg-border/40 mx-1.5 select-none"></span><button class="group inline-flex items-center gap-2 nav-link px-2 xl:px-2.5 py-2.5 text-[12px] xl:text-[13px] 2xl:text-sm font-medium uppercase tracking-[0.08em] text-muted-foreground hover:text-foreground transition-colors duration-base ease-exoma" type="button" aria-haspopup="dialog" aria-expanded="false">Péptidos<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-3 w-3 transition-transform duration-base ease-exoma group-data-[state=open]:rotate-180"><polyline points="208 96 128 176 48 96"></polyline></svg></button><span class="hidden 2xl:block w-px h-4 bg-border/40 mx-1.5 select-none"></span><a class="nav-link nav-link-animated px-2 xl:px-2.5 py-2.5 text-[12px] xl:text-[13px] 2xl:text-sm font-medium uppercase tracking-[0.08em] transition-colors duration-base ease-exoma relative inline-flex items-center gap-2 text-muted-foreground hover:text-foreground" href="/certificados-analisis">CERTIFICADOS</a><span class="hidden 2xl:block w-px h-4 bg-border/40 mx-1.5 select-none"></span><a class="nav-link nav-link-animated px-2 xl:px-2.5 py-2.5 text-[12px] xl:text-[13px] 2xl:text-sm font-medium uppercase tracking-[0.08em] transition-colors duration-base ease-exoma relative text-muted-foreground hover:text-foreground" href="/distribuidores">Mayoreo</a><span class="hidden 2xl:block w-px h-4 bg-border/40 mx-1.5 select-none"></span><button class="group inline-flex items-center gap-2 nav-link nav-link-animated px-2 xl:px-2.5 py-2.5 text-[12px] xl:text-[13px] 2xl:text-sm font-medium uppercase tracking-[0.08em] transition-colors duration-base ease-exoma text-muted-foreground hover:text-foreground" type="button" aria-haspopup="dialog" aria-expanded="false">Herramientas<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-3 w-3 transition-transform duration-base ease-exoma group-data-[state=open]:rotate-180"><polyline points="208 96 128 176 48 96"></polyline></svg></button></nav><div class="flex items-center gap-1.5 xs:gap-2.5 sm:gap-4 shrink-0 relative z-20"><a data-lang-switch href="/en/compendio/bpc-157" hreflang="en" aria-label="Cambiar idioma a inglés" title="Español / English" class="flex items-center justify-center h-9 min-w-9 px-2 rounded-full text-[12px] font-semibold uppercase tracking-[0.06em] text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-fast ease-exoma flex" rel="nofollow">EN</a><button aria-label="Buscar productos" title="Buscar (⌘K)" class="hidden xl:flex items-center justify-center h-9 w-9 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-fast ease-exoma"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-[22px] w-[22px]"><circle cx="112" cy="112" r="80"></circle><line x1="168.57" y1="168.57" x2="224" y2="224"></line></svg></button><a aria-label="Mi Cuenta" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-[background-color,border-color,color,box-shadow,transform] duration-fast ease-exoma active:scale-[0.98] max-sm:min-h-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-muted hover:shadow-none hover:translate-y-0 max-sm:min-w-11 hidden sm:inline-flex h-9 w-9 text-muted-foreground hover:text-foreground" href="/mi-cuenta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-[22px] w-[22px]"><circle cx="128" cy="96" r="48"></circle><path d="M32 216a112 112 0 0 1 192 0"></path></svg></a><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-[background-color,border-color,color,box-shadow,transform] duration-fast ease-exoma active:scale-[0.98] max-sm:min-h-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-foreground hover:bg-muted hover:text-foreground hover:shadow-none hover:translate-y-0 max-sm:min-w-11 cart-trigger-btn relative h-11 w-11 xs:h-12 xs:w-12 lg:h-9 lg:w-9 rounded-xl lg:rounded-lg border border-border/40 lg:border-0 bg-background/60 lg:bg-transparent" aria-label="Carrito" data-cart-trigger="true" type="button" aria-haspopup="dialog" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="h-6 w-6 lg:h-[22px] lg:w-[22px]"><path d="M241.55,64.74A12,12,0,0,0,232,60H60.23L51.56,28.79A12,12,0,0,0,40,20H20a12,12,0,0,0,0,24H30.88l34.3,123.49a28.09,28.09,0,0,0,27,20.51H191a28.09,28.09,0,0,0,27-20.51l25.63-92.28A12,12,0,0,0,241.55,64.74ZM194.8,161.07A4,4,0,0,1,191,164H92.16a4,4,0,0,1-3.85-2.93L66.9,84H216.21ZM108,220a20,20,0,1,1-20-20A20,20,0,0,1,108,220Zm104,0a20,20,0,1,1-20-20A20,20,0,0,1,212,220Z"></path></svg></button><button aria-label="Buscar productos" class="xl:hidden flex items-center justify-center h-11 w-11 xs:h-12 xs:w-12 rounded-xl border border-border/40 bg-background/60 text-foreground hover:bg-muted active:scale-95 transition-[transform,background-color] duration-fast ease-exoma"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-6 w-6"><circle cx="112" cy="112" r="80"></circle><line x1="168.57" y1="168.57" x2="224" y2="224"></line></svg></button><button aria-label="Abrir menú" aria-expanded="false" class="hamburger-btn flex xl:hidden items-center justify-center h-12 w-12 xs:h-14 xs:w-14 rounded-xl border border-border/40 bg-background/60 text-foreground hover:bg-muted active:scale-95 transition-[transform,background-color] duration-fast ease-exoma"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-7 w-7 xs:h-8 xs:w-8"><line x1="40" y1="128" x2="216" y2="128"></line><line x1="40" y1="64" x2="216" y2="64"></line><line x1="40" y1="192" x2="216" y2="192"></line></svg></button></div></div></header><div class="h-[132px] lg:h-[148px]"></div><section class="border-b border-border/60 bg-background"><div class="container mx-auto py-12 sm:py-16"><nav aria-label="Breadcrumb" class="text-[11px] text-muted-foreground mb-5 flex items-center gap-1.5 flex-wrap"><a class="inline-flex items-center hover:text-foreground transition-colors" href="/">Inicio</a><span aria-hidden="true" class="opacity-50">›</span><a class="inline-flex items-center hover:text-foreground transition-colors" href="/compendio">Compendio</a><span aria-hidden="true" class="opacity-50">›</span><span class="text-foreground">BPC-157</span></nav><div class="max-w-3xl"><p class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight mb-4 text-foreground">BPC-157</p><p class="lead max-w-2xl">BPC-157 (Body Protection Compound-157), pentadecapéptido sintético para investigación. CAS 137525-51-0. Mecanismo VEGF/eNOS. In vitro/preclínico (RUO).</p></div></div></section></div><!--/AF-SHELL-->
+    <div id="root"><main data-seo-prerender="1" style="max-width:72rem;margin:0 auto;padding:2rem 1rem;line-height:1.6"><h1>BPC-157: Perfil Científico</h1><p data-byline="1">Publicado el <time datetime="2025-12-28">28 de diciembre de 2025</time> · Actualizado el <time datetime="2026-09-18">18 de septiembre de 2026</time></p><p>BPC-157 (Body Protection Compound-157; sinónimos PL 14736, Bepecin, PL-10): pentadecapéptido sintético estable (15 aa) para investigación. Modula angiogénesis vía VEGF/eNOS y sistemas dopaminérgico/serotoninérgico/GABAérgico (preclínico). CAS 137525-51-0.</p><p>BPC-157 (Body Protection Compound-157) es un pentadecapéptido sintético estable, secuencia parcial de Body Protection Compound (BPC), 15 aminoácidos (GEPPPGKPADDAGLV). Sinónimos: PL 14736, Bepecin, PL-10. Fórmula C62H98N16O22; peso molecular ~1419.53 Da; CAS 137525-51-0. Es un péptido de investigación citoprotector sin aprobación regulatoria (investigacional, RUO). Resiste la degradación por jugo gástrico y conserva actividad oral en modelos preclínicos. Mecanismo: promueve angiogénesis mediante regulación al alza de VEGF/VEGFR2 y la vía eNOS/óxido nítrico, participa en señalización tipo FGF y regula al alza el receptor de hormona de crecimiento en fibroblastos de tendón; modula sistemas dopaminérgico, serotoninérgico y GABAérgico (preclínico). Aplicaciones in vitro y preclínicas: cicatrización de tendón y ligamento, protección de mucosa gastrointestinal, tejido conectivo y hueso, y estudios de angiogénesis/vasculogénesis. Manejo: reconstituir el liofilizado con agua bacteriostática; almacenar liofilizado a -20 °C y reconstituido a 2-8 °C hasta 30 días. Producto para investigación.</p><section><h2>Mecanismo de acción</h2><p>BPC-157 ejerce sus efectos a través de mecanismos multimodales que incluyen: (1) Modulación del sistema nitrérgico endotelial: incrementa expresión y actividad de eNOS, generando NO con efecto vasodilatador y angiogénico; antagoniza efectos de inhibidores de NOS como L-NAME; (2) Estimulación de la angiogénesis: incrementa expresión de VEGF (vascular endothelial growth factor) y formación de capilares en lechos lesionados, demostrado en modelos de tendinopatía con quemado por Sikiric et al.; (3) Activación de la vía VEGFR2-Akt-eNOS en células endoteliales y fibroblastos; (4) Modulación del eje cerebro-intestino: interacción con sistemas dopaminérgico, serotoninérgico y GABAérgico, con efectos antidepresivos y ansiolíticos en modelos murinos; (5) Estimulación de la migración de fibroblastos y formación de colágeno tipo I; (6) Citoprotección gastrointestinal: protege contra lesiones inducidas por etanol, AINE, estrés y radiación; (7) Modulación de FAK-paxillin en miocitos lesionados. Vida media plasmática en rata: ~30 minutos (intraperitoneal). Biodisponibilidad oral: ~12% pero suficiente para efectos sistémicos por activación de receptores entéricos. Sin acumulación tisular. Eliminación por catabolismo peptídico.</p></section><section><h2>Resumen del mecanismo</h2><p>Pentadecapéptido sintético estable que promueve angiogénesis vía VEGF/VEGFR2 y la vía eNOS/óxido nítrico, participa en señalización tipo FGF y regula al alza el receptor de hormona de crecimiento en fibroblastos de tendón; modula sistemas dopaminérgico, serotoninérgico y GABAérgico (preclínico).</p></section><section><h2>Estudios Clínicos (7)</h2><ul><li><strong>Eje cerebro-intestino y pentadecapéptido BPC-157</strong> (Sikiric P, Seiwerth S, Rucman R, et al. · Current Neuropharmacology · 2016) — Revisión de efectos neuroprotectores y modulación del eje cerebro-intestino por BPC-157. <a href="https://pubmed.ncbi.nlm.nih.gov/27138887/" rel="noopener" target="_blank">PMID 27138887</a>.</li><li><strong>BPC-157 incrementa expresión de receptor de hormona de crecimiento en fibroblastos tendinosos</strong> (Chang CH, Tsai WC, Hsu YH, Pang JH. · Molecules · 2014) — Estudio in vitro en fibroblastos tendinosos humanos evaluando vías de señalización activadas por BPC-157. <a href="https://pubmed.ncbi.nlm.nih.gov/25415472/" rel="noopener" target="_blank">PMID 25415472</a>.</li><li><strong>Stable gastric pentadecapeptide BPC 157: Novel therapy in gastrointestinal tract</strong> (Sikiric P, et al. · Current Pharmaceutical Design · 2011) — Revisión comprehensiva de los efectos de BPC-157 en el tracto gastrointestinal y su potencial terapéutico. <a href="https://pubmed.ncbi.nlm.nih.gov/21548867/" rel="noopener" target="_blank">PMID 21548867</a>.</li><li><strong>BPC 157 enhances healing of transected rat Achilles tendon</strong> (Sikiric P, et al. · Journal of Orthopaedic Research · 2003) — Estudio preclínico mostrando aceleración de curación tendinosa con BPC-157. <a href="https://pubmed.ncbi.nlm.nih.gov/14554208/" rel="noopener" target="_blank">PMID 14554208</a>.</li><li><strong>Protective effects of pentadecapeptide BPC 157 on gastric ulcer in rats</strong> (Xue, et al. · World Journal of Gastroenterology · 2004) <a href="https://pubmed.ncbi.nlm.nih.gov/15052688/" rel="noopener" target="_blank">PMID 15052688</a>.</li><li><strong>Focus on ulcerative colitis: stable gastric pentadecapeptide BPC 157</strong> (Sikiric, et al. · Current Medicinal Chemistry · 2012) <a href="https://pubmed.ncbi.nlm.nih.gov/22300085/" rel="noopener" target="_blank">PMID 22300085</a>.</li><li><strong>The promoting effect of pentadecapeptide BPC 157 on tendon healing involves tendon outgrowth, cell survival, and cell migration</strong> (Chang, et al. · Journal of Applied Physiology · 2011) <a href="https://pubmed.ncbi.nlm.nih.gov/21030672/" rel="noopener" target="_blank">PMID 21030672</a>.</li></ul></section><section><h2>Advertencias</h2><p>BPC-157 es un compuesto exclusivamente para investigación (RUO); las siguientes advertencias y consideraciones de manejo aplican en su uso en laboratorio:</p><ul><li>Compuesto experimental sin aprobación regulatoria como medicamento</li><li>Datos clínicos en humanos limitados a estudios observacionales pequeños</li><li>Riesgo teórico de promoción tumoral vía VEGF/angiogénesis</li><li>Sin estudios farmacocinéticos completos en humanos</li><li>Interacciones farmacológicas no caracterizadas</li><li>Uso exclusivo en protocolos de investigación</li><li>No reemplaza intervenciones médicas convencionales</li><li>Hipersensibilidad conocida al péptido</li><li>Embarazo y lactancia (sin datos)</li><li>Pacientes con neoplasias activas (riesgo teórico por VEGF)</li><li>Sin perfil de seguridad clínica establecido</li></ul></section><section><h2>Ficha técnica</h2><dl><dt>CAS</dt><dd>137525-51-0</dd><dt>Fórmula molecular</dt><dd>C62H98N16O22</dd><dt>Peso molecular</dt><dd>1419.53 Da</dd><dt>Tipo de compuesto</dt><dd>peptide</dd><dt>Almacenamiento</dt><dd>-20 °C liofilizado; 2-8 °C reconstituido</dd><dt>Vida útil (liofilizado)</dt><dd>36 meses a 2-8°C</dd><dt>Vida útil (reconstituido)</dt><dd>21-30 días a 2-8°C con conservante bacteriostático</dd><dt>Sensible a la luz</dt><dd>No</dd></dl></section><section><h2>Disponible para investigación</h2><p>BPC-157 está disponible como reactivo para investigación (RUO):</p><ul><li><a href="/producto/bpc-157">BPC-157</a></li><li><a href="/producto/bpc-157-tb-500-kpv">BPC-157 + TB-500 + KPV</a></li></ul></section><section><h2>Preguntas frecuentes sobre BPC-157</h2><div><h3>¿Qué es BPC-157?</h3><p>BPC-157 (Body Protection Compound-157; sinónimos PL 14736, Bepecin, PL-10): pentadecapéptido sintético estable (15 aa) para investigación. Modula angiogénesis vía VEGF/eNOS y sistemas dopaminérgico/serotoninérgico/GABAérgico (preclínico).</p></div><div><h3>¿Cuál es el mecanismo de acción de BPC-157?</h3><p>Pentadecapéptido sintético estable que promueve angiogénesis vía VEGF/VEGFR2 y la vía eNOS/óxido nítrico, participa en señalización tipo FGF y regula al alza el receptor de hormona de crecimiento en fibroblastos de tendón; modula sistemas dopaminérgico, serotoninérgico y GABAérgico (preclínico).</p></div><div><h3>¿Para qué se investiga BPC-157?</h3><p>En investigación preclínica, BPC-157 se estudia principalmente en: Investigación en cicatrización de tendones; Modelos de protección gastrointestinal; Estudios de angiogénesis y vasculogénesis. Material exclusivamente para investigación científica.</p></div><div><h3>¿Cuáles son las propiedades químicas de BPC-157?</h3><p>Fórmula molecular C62H98N16O22; peso molecular 1419.53 Da; número CAS 137525-51-0.</p></div><div><h3>¿Cómo se almacena BPC-157?</h3><p>Condiciones de conservación: -20 °C liofilizado; 2-8 °C reconstituido; estabilidad liofilizado: 36 meses a 2-8°C; una vez reconstituido: 21-30 días a 2-8°C con conservante bacteriostático.</p></div><div><h3>¿Qué vías de administración se estudian para BPC-157?</h3><p>En los modelos de investigación se describen: Subcutánea, Intramuscular, Oral. El uso es exclusivamente para investigación científica.</p></div></section><section><h2>Ver también</h2><ul><li><a href="/compendio/bpc157-tb500">BPC-157 + TB-500</a></li><li><a href="/compendio/bpc-157-tb-500-oral-blend">BPC-157 + TB-500 Oral Blend</a></li><li><a href="/compendio/bpc-157-arginate-oral">BPC-157 Arginate Oral</a></li><li><a href="/compendio/brain-peptide-complex">Brain Peptide Complex</a></li></ul></section></main><footer data-seo-prerender="1" style="max-width:72rem;margin:0 auto;padding:2rem 1rem"><nav aria-label="Mapa del sitio"><ul><li><a href="/productos">Catálogo Completo</a></li><li><a href="/compendio">Compendio Científico</a></li><li><a href="/calculadora">Calculadora de Reconstitución</a></li><li><a href="/comparador">Comparador</a></li><li><a href="/stacks">Protocolos</a></li><li><a href="/blog">Blog</a></li><li><a href="/nosotros">Sobre EXOMA</a></li><li><a href="/contacto">Contacto</a></li><li><a href="/que-son-peptidos">Qué son los péptidos</a></li><li><a href="/como-reconstituir">Cómo Reconstituir</a></li><li><a href="/control-calidad">Control de Calidad</a></li><li><a href="/faq">Preguntas Frecuentes</a></li><li><a href="/ayuda-especializada">Ayuda especializada</a></li><li><a href="/tracking">Rastrear Pedido</a></li><li><a href="/distribuidores">Distribuidores y Mayoreo</a></li><li><a href="/certificados-analisis">Certificados (COA)</a></li><li><a href="/cumplimiento">Cumplimiento Regulatorio</a></li><li><a href="/terms">Términos y Condiciones</a></li><li><a href="/privacy">Política de Privacidad</a></li><li><a href="/envios">Envíos y Entregas</a></li><li><a href="/devoluciones">Devoluciones</a></li><li><a href="/peptidos-son-seguros">¿Son Seguros los Péptidos?</a></li><li><a href="/mitos-peptidos">Mitos sobre Péptidos</a></li><li><a href="/certificados-janoshik">Verificación Janoshik</a></li><li><a href="/pureza-hplc">Pureza y Análisis HPLC</a></li><li><a href="/legalidad-peptidos">Legalidad de Péptidos</a></li><li><a href="/compra-segura">Compra Protegida</a></li><li><a href="/policies">Centro de Políticas</a></li></ul></nav><nav aria-label="Idioma"><ul><li><a href="/en" hreflang="en">English</a></li></ul></nav><address style="font-style:normal">Contacto: <ul><li><a href="mailto:ventas@exomapeptides.mx">ventas@exomapeptides.mx</a></li><li>Atención: 9:00 a 18:00 h, todos los días</li></ul></address></footer></div>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3f3b4a34858eee9',t:'MTc5MDEwNTIzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

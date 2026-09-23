@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://exomapeptides.mx/sitemap-static.xml</loc>
+    <lastmod>2026-07-11</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://exomapeptides.mx/sitemap-products.xml</loc>
+    <lastmod>2026-09-21</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://exomapeptides.mx/sitemap-images.xml</loc>
+    <lastmod>2026-09-21</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://exomapeptides.mx/sitemap-blog.xml</loc>
+    <lastmod>2026-09-20</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://exomapeptides.mx/sitemap-compendium.xml</loc>
+    <lastmod>2026-09-20</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://exomapeptides.mx/sitemap-categorias.xml</loc>
+    <lastmod>2026-07-11</lastmod>
+  </sitemap>
+  <sitemap><loc>https://exomapeptides.mx/sitemap-en.xml</loc></sitemap>
+</sitemapindex>

@@ -1,0 +1,56 @@
+url                                                           impr  clics   http  destino_final
+/product/retatrutida-30mg/                                    1002      6    301  /product/retatrutida/ => /product/retatrutida/
+/retatrutide-precio-guia-completa-costos-beneficios/           927      6    301  /precio-retatrutida/ => /precio-retatrutida/
+/product/comprar-retatrutida-30mg/                             407      5    301  /product/retatrutida/ => /product/retatrutida/
+/product/mots-c-40mg/                                          300      3    200  
+/productos/                                                    289      2    301  /comprar-peptidos-en-mexico/ => /comprar-peptidos-en-mexico/
+/product/tirzepatida-30-mg/                                    265      3    301  /product/tirzepatida/ => /product/tirzepatida/
+/product/tirzepatida-60-mg/                                    191      0    301  /product/tirzepatida/ => /product/tirzepatida/
+/productos/page/2/                                             182      0    301  /comprar-peptidos-en-mexico/page/2/ => /comprar-peptidos-en-mexico/page/2/
+/comprar-peptidos-en-mexico/page/2/                            125      0    200  
+/peptidos-en-mexico/                                            90      2    301  /peptidos-mexico/ => /peptidos-mexico/
+/bpc-157-peptido-recuperacion-deportiva/                        78      0    301  /bpc-157-para-que-sirve/ => /bpc-157-para-que-sirve/
+/product/nad-plus-500mg/                                        72      0    301  /product/nad-suplemento/ => /product/nad-suplemento/
+/product/methylated-vitamin-b-complex-nutricost/                35      0    301  /product/complejo-b-metilado/ => /product/complejo-b-metilado/
+/product/bpc-157-tb-500-10-10mg/                                27      0    301  /product/bpc-157-tb-500/ => /product/bpc-157-tb-500/
+/product/bpc-157-precio/                                        26      0    301  /product/bpc-157-tb-500/ => /product/bpc-157-tb-500/
+/longevidad/                                                    25      0    301  /envejecimiento-saludable/ => /envejecimiento-saludable/
+/precio-de-retatrutida-en-mexico/                               19      0    301  /product/retatrutida/ => /product/retatrutida/
+/product-category/reparacion-celular/                           15      1    200  
+/product/dim-nutricost-300mg/                                   15      0    301  /product/dim-suplemento/ => /product/dim-suplemento/
+/suplementos-en-mexico-2/                                       15      0    301  /suplementos-deportivos/ => /suplementos-deportivos/
+/retatrutide-triumph-1/                                         10      1    301  /estudio-triumph-1-retatrutide/ => /estudio-triumph-1-retatrutide/
+/product/zinc-picolinato-nutricost-50mg/                        10      0    301  /product/picolinato-de-zinc/ => /product/picolinato-de-zinc/
+/product-category/suplementos/bienestar-general/                 9      0    200  
+/reparacion-celular/                                             8      0    301  /recuperacion-muscular/ => /recuperacion-muscular/
+/semaglutida-2026-guia-completa-perdida-peso/                    8      0    301  /glp-1/ => /glp-1/
+/capacidad-fisica-performance/                                   7      0    301  /rendimiento-deportivo/ => /rendimiento-deportivo/
+/marca/nutricost/                                                6      1    404  
+/product-category/peptidos-para-rendimiento-cognitivo/           6      0    200  
+/acelerar-el-metabolismo/                                        4      0    301  /como-acelerar-el-metabolismo/ => /como-acelerar-el-metabolismo/
+/nad-que-es-y-para-que-sirve/                                    4      0    301  /nad-para-que-sirve/ => /nad-para-que-sirve/
+/optimizar-rendimiento-deportivo-suplementos-peptidos/           4      0    301  /rendimiento-deportivo-con-peptidos/ => /rendimiento-deportivo-con-peptidos/
+/peptidos-para-bajar-de-peso/                                    4      0    301  /glp-1/ => /glp-1/
+/product-category/performance-top/                               4      0    200  
+/product-category/suplementos/                                   4      0    200  
+/perdida-de-grasa-con-peptidos/                                  3      0    301  /glp-1/ => /glp-1/
+/product-category/metabolismo-activo/                            3      0    200  
+/retatrutide-peptido-triple-agonista-perdida-de-peso/            3      0    301  /retatrutide-que-es/ => /retatrutide-que-es/
+/semaglutida-para-bajar-de-peso/                                 3      0    301  /glp-1/ => /glp-1/
+/blog/page/3/                                                    2      0    404  
+/ozempic-vs-mounjaro-vs-zepbound/                                2      0    301  /glp-1/ => /glp-1/
+/peptidos-para-bajar-de-peso-glp-1-mexico-2026/                  2      0    301  /glp-1/ => /glp-1/
+/peptidos-que-son-para-que-sirven-como-usarlos/                  2      0    301  /que-son-los-peptidos/ => /que-son-los-peptidos/
+/tirzepatida-para-que-sirve-guia-completa-mexico-2026/           2      0    301  /tirzepatida-para-que-sirve/ => /tirzepatida-para-que-sirve/
+/blog/page/2/                                                    1      0    200  
+/bpc-157-que-es-evidencia-cientifica-seguridad/                  1      0    301  /bpc-157-para-que-sirve/ => /bpc-157-para-que-sirve/
+/category/longevidad-y-regeneracion-biologica/                   1      0    301  /category/blog/ => /category/blog/
+/como-bajar-de-peso/                                             1      0    301  /glp-1/ => /glp-1/
+/comparativas/                                                   1      0    301  /comparativas-de-peptidos/ => /comparativas-de-peptidos/
+/marca/pys/                                                      1      0    404  
+/ozempic-vs-mounjaro-vs-zepbound-comparativa-glp-1-mexico-       1      0    301  /glp-1/ => /glp-1/
+/peptidos-glp-1-adicciones-evidencia-cientifica/                 1      0    301  /peptidos-glp-1-y-adicciones/ => /peptidos-glp-1-y-adicciones/
+/product-category/recuperacion-rapida/                           1      0    200  
+/product/agua-bacteriostatica-10ml/                              1      0    301  /product/agua-bacteriostatica-3ml/ => /product/agua-bacteriostatica-3ml/
+/selank-que-es-para-que-sirve-beneficios-dosis/                  1      0    301  /selank-beneficios-y-dosis/ => /selank-beneficios-y-dosis/
+/terminos-y-condiciones/                                         1      0    200  

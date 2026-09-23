@@ -1,0 +1,113 @@
+{
+ "resumen": "Las reseñas de WooCommerce YA están activadas en las 22 fichas publicadas y hoy hay CERO reseñas en todo el sitio. El schema es honesto: Rank Math no emite aggregateRating mientras no haya al menos una reseña real (comprobado en código y en vivo). Lo que falta no es activar nada, sino (1) sacar las valoraciones de la 3ª pestaña escondida y darles sección propia, (2) cerrar la puerta a reseñas de quien no compró, y (3) un mu-plugin que pida la reseña 14 días después de completar el pedido vía Action Scheduler, que ya funciona. El dato que manda: solo hay 2 pedidos completados en la historia del sitio (abril y junio 2026), de 2 clientes. El techo real a corto plazo son 2 reseñas, así que el COA (que solo cubre 1 de 22 productos) rinde más que esperar reseñas.",
+ "hallazgos": [
+  {
+   "hecho": "Las reseñas están activadas globalmente, con estrella obligatoria, pero SIN exigir compra verificada: hoy cualquier visitante puede reseñar sin haber comprado",
+   "evidencia": "wp option get: woocommerce_enable_reviews=yes, woocommerce_enable_review_rating=yes, woocommerce_review_rating_required=yes, woocommerce_review_rating_verification_required=no, woocommerce_review_rating_verification_label=yes"
+  },
+  {
+   "hecho": "Los 22 productos publicados tienen comment_status=open y comment_count=0. No hay una sola reseña en el sitio",
+   "evidencia": "wp eval con $wpdb: 'TOTAL PRODUCTOS: 22 / comment_status open: 22 / closed: 0'. Comentarios por tipo: solo 'order_note' n=31. Comentarios en productos: 0. _wc_average_rating=0 y _wc_review_count=0 en las 27 filas de postmeta"
+  },
+  {
+   "hecho": "Rank Math NO inventa rating: corta antes de emitir aggregateRating si no hay reseñas",
+   "evidencia": "wp-content/plugins/seo-by-rank-math/includes/modules/schema/snippets/class-product-woocommerce.php línea 191: 'if ( $product->get_rating_count() < 1 ) { return; }'"
+  },
+  {
+   "hecho": "Confirmado en vivo y anónimo: la ficha no emite ningún rating falso. El Product schema hoy lleva brand, name, description, category, mainEntityOfPage, image, offers, mpn, @id — y nada más",
+   "evidencia": "curl anónimo a /product/bpc-157/ (174,947 bytes): 0 ocurrencias de aggregateRating, ratingValue, reviewCount o \"review\". Igual en /product/retatrutida/: grep -c aggregateRating = 0. Son 2 bloques JSON-LD: @graph (Organization, WebSite, ImageObject, ItemPage, Product) + MedicalWebPage"
+  },
+  {
+   "hecho": "Cuando haya reseñas reales, el schema saldrá automáticamente: con 1 reseña ratingCount=1 y reviewCount=1 más 1 objeto Review; con 3, ratingCount=3/reviewCount=3 y 3 Review; con 10, ratingCount=10/reviewCount=10 y 10 Review. Cada Review lleva @id, description, datePublished, reviewRating (bestRating 5, worstRating 1) y author",
+   "evidencia": "class-product-woocommerce.php líneas 196-231: aggregateRating usa get_average_rating(), get_rating_count() y get_review_count(); el bucle recorre get_comments(status=approve, parent=0) y salta los que no tengan meta 'rating'"
+  },
+  {
+   "hecho": "pys-merchant-schema.php solo añade mpn (desde el SKU) y shippingDetails al Product. No toca rating ni review: no hay riesgo de que inyecte una valoración inventada",
+   "evidencia": "Lectura completa de wp-content/mu-plugins/pys-merchant-schema.php (filtro rank_math/snippet/rich_snippet_product_entity, prioridad 20)"
+  },
+  {
+   "hecho": "Hoy las valoraciones son la TERCERA pestaña, con el panel oculto y casi al final del documento. Se anuncia como 'Valoraciones (0)', que es el peor cartel posible",
+   "evidencia": "HTML en vivo: <li class=\"reviews_tab\" id=\"tab-title-reviews\"><a href=\"#tab-reviews\">Valoraciones (0)</a>. El bloque id=\"reviews\" arranca en la posición 153,677 de 174,947 bytes. El panel dice 'No hay valoraciones aún. Sé el primero en valorar “BPC-157”'"
+  },
+  {
+   "hecho": "El estilo de la sección de reseñas YA está escrito en el rediseño: falta colocarla, no maquetarla",
+   "evidencia": "wp-content/mu-plugins/pys-diseno/ficha.php (539 líneas, solo CSS) bloque '── valoraciones ──' líneas 474-500: estilos para #reviews h2, labels, inputs, p.stars a y el botón de envío en magenta"
+  },
+  {
+   "hecho": "El enlace directo del correo funcionará sin escribir JS: WooCommerce abre la pestaña sola con el hash, y ese JS sí llega al navegador dentro del bundle de LiteSpeed",
+   "evidencia": "woocommerce/assets/js/frontend/single-product.js línea 18: hash === '#reviews' || hash === '#tab-reviews' || indexOf('comment-'). El bundle https://peptidosysuplementos.mx/wp-content/litespeed/js/c0a56bf1203782c06b07afe26ff90b9d.js (397,663 bytes) contiene 'tab-reviews', 'wc-tabs', 'woocommerce-tabs' y 'wc_single_product_params'"
+  },
+  {
+   "hecho": "No hay ningún plugin de seguimiento ni de solicitud de reseñas entre los 26 activos",
+   "evidencia": "wp plugin list --status=active: woocommerce 10.8.1, elementor, rank-math, litespeed-cache, wp-mail-smtp, mercadopago, paypal-payments, coingate, zeno-crypto, woo-advanced-shipment-tracking… ninguno de reviews/follow-up"
+  },
+  {
+   "hecho": "El correo de pedido completado SÍ está activo y el envío de correo está montado sobre SMTP propio, así que el correo de solicitud saldría por el mismo canal",
+   "evidencia": "WC()->mailer(): customer_completed_order enabled=SI (también processing, on_hold, refunded, note). wp_mail_smtp: mailer=smtp, host=smtp.hostinger.com, puerto 465 SSL, from ventas@peptidosysuplementos.mx con from_email_force"
+  },
+  {
+   "hecho": "Action Scheduler está vivo y procesando: es la vía correcta para el retraso de N días, no wp_schedule_single_event",
+   "evidencia": "as_schedule_single_action existe; tabla wp_actionscheduler_actions presente; 15 acciones pendientes; última completada 2026-09-22 19:31:48 (minutos antes de la medición). DISABLE_WP_CRON no está definido en wp-config.php"
+  },
+  {
+   "hecho": "El techo real de la campaña son 2 reseñas: solo hay 6 pedidos en toda la historia del sitio, 2 completados y 4 cancelados, de 2 clientes distintos",
+   "evidencia": "Tabla HPOS wp_wc_orders: wc-completed=2, wc-cancelled=4. Completados por mes: 2026-04 → 1, 2026-06 → 1. COUNT(DISTINCT billing_email) con estado completado = 2. Líneas de pedido: Retatrutide 30 mg (4 pedidos), MOTS-c 10mg, Tirzepatida 30 mg"
+  },
+  {
+   "hecho": "Exigir compra verificada solo habilita a quien tenga un pedido en processing o completed: los 4 pedidos cancelados quedarían fuera",
+   "evidencia": "wc_get_is_paid_statuses() devuelve [processing, completed]; has_filter('woocommerce_review_is_from_verified_owner') = sin filtros"
+  },
+  {
+   "hecho": "El mecanismo de COA existe y funciona, pero hoy cubre 1 de 22 productos",
+   "evidencia": "Solo un registro con meta _pys_coa: producto 19 (Retatrutida), lote AA54YCH, pureza 99.76. pys-coa.php pinta el aviso en woocommerce_single_product_summary prio 35 y el panel en woocommerce_after_single_product_summary prio 9"
+  },
+  {
+   "hecho": "Los avisos de reseña pendiente de moderación se van a un correo del dominio viejo: el dueño no se enteraría de que llegó una reseña",
+   "evidencia": "admin_email = enlace@grupoptm.com, con comments_notify=1 y moderation_notify=1. Además comment_previously_approved=1, así que la primera reseña de cada persona queda retenida esperando aprobación"
+  },
+  {
+   "hecho": "El camino está libre para un mu-plugin: el tema no sobrescribe plantillas de WooCommerce y nadie filtra las pestañas hoy",
+   "evidencia": "Tema activo hello-elementor 3.4.7; find sobre wp-content/themes/hello-elementor con ruta *woocommerce* y *.php: sin resultados; grep de 'woocommerce_product_tabs' en mu-plugins y tema: sin resultados. Los code-snippets activos son 3 y ninguno toca reseñas"
+  },
+  {
+   "hecho": "La ficha se sirve cacheada en dos capas, así que la reseña recién aprobada no aparece al instante para el visitante anónimo",
+   "evidencia": "Cabeceras anónimas: x-litespeed-cache: hit, x-hcdn-cache-status: HIT, Age: 303, Cache-Control: public, max-age=300, stale-while-revalidate=600. LiteSpeed con cache=1 y TTL público 604800 s (7 días)"
+  }
+ ],
+ "recomendacion": "Hacer las tres cosas, pero en el orden que dicta el volumen real de pedidos, no en el orden que parece lógico.\n\nLo primero es entender qué se está comprando. El competidor tiene una sección de reseñas llena porque tiene clientes que reseñan; PYS tiene 2 pedidos completados en toda su historia. Copiar el contenedor no copia el contenido. Si mañana se monta la sección de reseñas más bonita del mercado, quedará vacía en 21 de 22 fichas durante meses, y una sección vacía con el cartel \"No hay valoraciones aún\" resta más de lo que suma: hoy al menos está escondida en la tercera pestaña.\n\nPor eso la recomendación es: **primero el COA en los 22 productos, después la sección de reseñas, y el correo automático montado desde ya pero sin disparo retroactivo.** El COA es prueba verificable, no depende de que nadie escriba nada, el mecanismo ya existe (pys-coa.php, meta _pys_coa, panel en la ficha) y hoy cubre 1 producto. Llevarlo de 1 a 22 es trabajo de captura, no de programación, y llena el hueco de confianza que las reseñas no van a llenar este trimestre. Ese es el mejor uso del espacio mientras no haya reseñas.\n\nSobre la sección de reseñas: montarla igual, pero condicionada. Con reseñas, sección propia y visible, sacada de las pestañas. Sin reseñas, no pintar \"0.0 de 5\" ni estrellas vacías: pintar una línea honesta con enlace al certificado de análisis del lote, y dejar el formulario accesible pero sin gritar el cero. El CSS ya está escrito en ficha.php (líneas 474-500), así que el trabajo es de colocación: quitar 'reviews' del filtro woocommerce_product_tabs y llamar a comments_template() en woocommerce_after_single_product_summary con prioridad 20, es decir después del panel de COA (prio 9) y después de las pestañas (prio 10). Como el CSS cuelga del id #reviews, que es lo que pinta la plantilla single-product-reviews.php, los estilos siguen aplicando sin tocarlos.\n\nSobre la honestidad, que es lo que el dueño pidió: hay que poner woocommerce_review_rating_verification_required en 'yes'. Hoy está en 'no' y eso significa que cualquiera con el enlace puede dejar cinco estrellas sin haber comprado nunca — incluido el propio dueño, un competidor o un bot. Si la promesa es \"reseñas de clientes reales\", el sitio tiene que poder sostenerla técnicamente, no solo de palabra. El costo es real y hay que decirlo: con 4 de 6 pedidos cancelados, solo los 2 clientes con pedido en processing o completed podrán reseñar. Es el precio de que la sección signifique algo.\n\nFrente a la alternativa de dejarlo en 'no' y moderar a mano: no la recomiendo. Moderar a mano depende de que alguien lea los avisos, y esos avisos hoy se van a enlace@grupoptm.com, un buzón del dominio anterior. Antes de encender nada de esto hay que arreglar ese correo, o las reseñas reales se quedarán retenidas esperando una aprobación que nadie verá.\n\nSobre el retraso del correo: 14 días naturales desde que el pedido pasa a 'completed'. El razonamiento es que 'completed' se marca al despachar, no al entregar, y la política publicada del sitio dice 2 a 5 días hábiles de tránsito, que en calendario real son hasta unos 7 días. Sumado el margen de que el cliente lo reciba, lo abra y lo tenga presente, 14 días cae en el punto donde ya lo tiene en la mano y todavía lo recuerda. No hay forma de afinar más: la tabla de seguimiento de envíos está vacía, así que no existe señal de entrega real que consultar. Si más adelante se empieza a capturar la guía, se puede contar desde la entrega y bajar a 7 días.",
+ "riesgos": [
+  "El techo es de 2 reseñas, no de 22 fichas. Con 2 pedidos completados históricos y 2 clientes distintos, la campaña de solicitud puede producir como máximo 2 reseñas, concentradas en Retatrutida, MOTS-c y Tirzepatida. Las otras 19 fichas seguirán vacías. Montar la sección sin asumir esto produce 21 páginas anunciando su propio cero.",
+  "Hoy cualquiera puede reseñar sin haber comprado (verification_required=no). Eso es una puerta abierta a reseñas falsas de terceros, a spam automatizado y a la sospecha razonable de que las reseñas se las puso el propio sitio. Mientras esté así, la sección no prueba nada.",
+  "Los avisos de reseña pendiente van a enlace@grupoptm.com, del dominio anterior. Con comment_previously_approved=1, la primera reseña de cada cliente queda retenida. Si nadie lee ese buzón, las reseñas reales se quedan invisibles y el cliente que se tomó la molestia no ve publicado su texto.",
+  "Emitir aggregateRating con una sola reseña de 5 estrellas es técnicamente válido y Rank Math lo hará solo, pero se lee como manipulado y es frágil: si esa única reseña se borra o se desaprueba, el rich result desaparece de golpe. Conviene no perseguir las estrellas en el buscador hasta tener un puñado de reseñas.",
+  "Sacar el panel de las pestañas cambia el DOM de las 22 fichas. Hay que re-verificar en 1440 y 390 px, porque el CSS de ficha.php asume el panel dentro de .woocommerce-Tabs-panel en varias reglas y el COA ya ocupa esa zona (woocommerce_after_single_product_summary prio 9).",
+  "La ficha se sirve con doble caché. LiteSpeed tiene TTL de 7 días y el CDN de Hostinger respondió HIT con Age 303. Una reseña recién aprobada no se verá hasta que caduque el edge (max-age=300) y se purgue LiteSpeed. Y el CDN de Hostinger no se purga desde LiteSpeed: va por hPanel → Rendimiento → CDN.",
+  "Disparar el correo de forma retroactiva a los 2 clientes de abril y junio de 2026 sería extemporáneo: pedirle a alguien que califique una compra de hace cinco meses se lee como descuido, no como atención. El mu-plugin debe engancharse solo a pedidos futuros.",
+  "El texto del correo tiene riesgo regulatorio si invita a contar resultados. Como el producto se vende solo para investigación y no para consumo humano, una reseña que describa uso en personas se vuelve un pasivo publicado en la propia ficha, justo después de haber retirado dosis y vías de 10 páginas. El correo tiene que dirigir explícitamente la reseña a empaque, etiquetado, entrega y atención, y la moderación tiene que rechazar lo demás.",
+  "No se debe ofrecer descuento, cupón ni regalo a cambio de la reseña. Además de sesgar el contenido, contamina la validez de lo que se publica y va contra las políticas de reseñas de Google. El correo propuesto lo dice de forma explícita para que quede por escrito.",
+  "Detalle de seguridad ajeno al encargo: la contraseña SMTP de ventas@peptidosysuplementos.mx está guardada en la tabla de opciones en un formato recuperable desde cualquier volcado de base de datos. No la reproduzco aquí; conviene tenerlo presente al compartir respaldos."
+ ],
+ "pasos": [
+  "PASO 0 — Arreglar el buzón antes que nada. Cambiar admin_email (hoy enlace@grupoptm.com) o, mejor, no tocar admin_email y añadir en el mu-plugin un filtro sobre 'comment_moderation_recipients' y 'comment_notification_recipients' que mande los avisos a ventas@peptidosysuplementos.mx. Sin esto, las reseñas reales se quedan retenidas sin que nadie lo sepa. Verificar con una reseña de prueba que luego se borra.",
+  "PASO 1 — Cerrar la puerta a las reseñas sin compra. Poner woocommerce_review_rating_verification_required en 'yes'. Dejar woocommerce_review_rating_verification_label en 'yes' para que se pinte la etiqueta 'Compra verificada'. Consecuencia medida y aceptada: solo los pedidos en processing o completed habilitan a reseñar, así que los 4 pedidos cancelados quedan fuera.",
+  "PASO 2 — Cargar los COA de los 21 productos que no lo tienen. Es la palanca de confianza que sí se puede llenar este mes, el mecanismo ya existe (pys-coa.php, meta _pys_coa) y solo requiere capturar lote, pureza, masa, % de etiqueta, identidad, método, laboratorio, fechas y el PDF en la caja del editor de cada ficha. Hoy solo el producto 19 (Retatrutida) lo tiene.",
+  "PASO 3 — Sacar las valoraciones de la pestaña y darles sección propia, en un mu-plugin nuevo (por ejemplo pys-resenas.php, nunca dentro de ficha.php que es solo CSS). Quitar 'reviews' con el filtro woocommerce_product_tabs y llamar a comments_template() colgado de woocommerce_after_single_product_summary con prioridad 20, es decir después del COA (prio 9) y de las pestañas (prio 10). Validar con php -l antes de subir por scp: un error de sintaxis en mu-plugins tumba el sitio entero.",
+  "PASO 4 — Hacer honesto el estado vacío. Mientras el producto tenga get_review_count() == 0, no pintar estrellas vacías ni '0.0 de 5' ni el cartel 'Valoraciones (0)'. Pintar una línea del tipo 'Todavía no hay valoraciones de clientes de este producto' y, si el producto tiene COA, un enlace al certificado del lote. El formulario sigue accesible, pero sin anunciar el cero.",
+  "PASO 5 — Reutilizar el CSS que ya existe. No escribir estilos nuevos: el bloque '── valoraciones ──' de wp-content/mu-plugins/pys-diseno/ficha.php (líneas 474-500) ya estiliza #reviews, sus labels, inputs, p.stars y el botón en magenta. Como comments_template() pinta el mismo id #reviews, los estilos siguen aplicando. Añadir solo lo del estado vacío y el encabezado de la sección.",
+  "PASO 6 — Montar la solicitud automática con Action Scheduler, que está comprobado vivo (última acción completada 2026-09-22 19:31:48). Enganchar 'woocommerce_order_status_completed' y programar con as_schedule_single_action( time() + 14*DAY_IN_SECONDS, 'pys_pedir_resena', [ $order_id ] ). En el manejador: reconstruir el pedido, salir si ya fue reembolsado o cancelado, salir si el cliente ya reseñó ese producto, y salir si ya se le envió antes (guardar una meta de control en el pedido, por ejemplo _pys_resena_solicitada, para que no se duplique). Enganchar el disparo solo a pedidos nuevos, nunca retroactivo.",
+  "PASO 7 — Enlace directo al formulario, sin escribir JS. Usar https://peptidosysuplementos.mx/product/<slug>/#tab-reviews (o #reviews). WooCommerce abre la pestaña sola con ese hash y el JS llega dentro del bundle de LiteSpeed, ya verificado. Si en el PASO 3 las reseñas dejan de ser pestaña, el mismo ancla #reviews sigue sirviendo porque pasa a ser una sección con ese id.",
+  "PASO 8 — TEXTO EXACTO DEL CORREO. Asunto: «¿Cómo te fue con tu pedido #{numero}?» — Cuerpo: «Hola {nombre}: / Hace unos días te enviamos el pedido #{numero}. Si ya lo recibiste, nos ayudaría mucho que dejaras tu opinión. / {por cada producto: nombre del producto + botón 'Calificar {producto}' apuntando a /product/<slug>/#tab-reviews} / Toma menos de un minuto: eliges de una a cinco estrellas y escribes lo que quieras contar. / Te pedimos que tu reseña hable de lo que sí podemos publicar: la presentación del vial, el etiquetado, el empaque, el tiempo de entrega y la atención que recibiste. Nuestros productos se venden solo para investigación y no para consumo humano, así que no publicamos reseñas que describan uso en personas; si llega una con ese contenido, no la podemos aprobar. / Publicamos las reseñas tal como las escribes, sean buenas o malas. No damos descuentos ni regalos a cambio de una reseña. / Si algo salió mal con tu pedido, responde este correo y lo revisamos directamente. / Gracias, / PyS — Péptidos y Suplementos / ventas@peptidosysuplementos.mx». Revisado: sin la palabra prohibida, sin mencionar refrigeración en transporte, sin pautas de uso en personas, sin prometer nada.",
+  "PASO 9 — Moderar con criterio escrito. Mantener comment_previously_approved=1 para que la primera reseña de cada persona pase por revisión. Regla de rechazo: se rechaza la reseña que describa uso, dosis, vía de administración o resultados en personas, y se le responde al cliente por correo explicando por qué y ofreciéndole reformularla. Todo lo demás se publica, incluidas las críticas.",
+  "PASO 10 — Verificar como manda la casa. Comprobar por código (curl anónimo + grep de aggregateRating antes y después de la primera reseña) Y por captura en modo anónimo a 1440 y 390 px. Purgar LiteSpeed con 'Vaciar todo' y además purgar el CDN de Hostinger desde hPanel → Rendimiento → CDN, porque LiteSpeed no lo purga. Confirmar que con 0 reseñas sigue sin emitirse aggregateRating y que con la primera reseña aprobada aparece ratingCount=1 y reviewCount=1.",
+  "PASO 11 — Medir a 8 semanas: número de reseñas recibidas por correo enviado, y si Google llegó a pintar estrellas en el resultado. Con el volumen actual de pedidos, el resultado esperado es cercano a cero, y eso mismo es el argumento para que el esfuerzo del trimestre vaya al COA y al tráfico, no a la sección de reseñas."
+ ],
+ "preguntas": [
+  "¿Acepta el costo de exigir compra verificada? Es lo honesto y lo que sostiene la promesa, pero con 4 de 6 pedidos cancelados deja habilitados solo a 2 clientes. La alternativa (dejarlo abierto y moderar a mano) permite más reseñas pero no puede demostrar que vinieran de compradores.",
+  "¿A qué correo deben llegar los avisos de reseña pendiente? Hoy van a enlace@grupoptm.com, del dominio anterior. ¿Se cambia admin_email por completo, o se deja como está y solo se redirigen los avisos de comentarios a ventas@peptidosysuplementos.mx?",
+  "¿Quiere que se contacte a los 2 clientes de abril y junio de 2026? Mi recomendación es que no por correo automático: han pasado meses y se lee mal. Si los conoce, un mensaje personal suyo funcionaría mejor que una plantilla.",
+  "¿Confirma los 14 días de retraso? Está calculado sobre la política publicada de 2 a 5 días hábiles y contando desde 'completed', que se marca al despachar. Si en la práctica despacha mucho antes o mucho después de marcar completado, ese número cambia.",
+  "¿Tiene a la mano los certificados de análisis de los otros 21 productos? Es el trabajo con más retorno del plan y es captura, no programación. Si los COA no existen para todos los lotes, hay que decidir qué se muestra en las fichas que no lo tengan.",
+  "Para la sección vacía, ¿prefiere que se muestre el enlace al certificado de análisis, o que la sección de reseñas simplemente no aparezca hasta que haya la primera? Ambas son honestas; la segunda es más discreta.",
+  "¿Quiere reseñas también en los suplementos de marca ajena (Nutricost: Omega-3, Zinc, DIM, Complejo B, Glutatión)? Ahí la reseña puede hablar de uso sin el mismo riesgo regulatorio que los péptidos, y son los productos donde antes habrá clientes dispuestos a calificar."
+ ]
+}

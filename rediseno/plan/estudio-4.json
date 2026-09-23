@@ -1,0 +1,110 @@
+{
+ "resumen": "Sí se puede montar /monografia/<slug> y la vía limpia es un tipo de contenido propio ('monografia') registrado por un mu-plugin, con una página madre /monografia/ como hub. Lo comprobé en el sitio real: las reglas del tipo nuevo se generan antes que las de páginas (regla #104 vs #186 de 237), así que hub y monografías conviven sin choque; el tema hello-elementor no tiene single.php ni singular.php y ninguna plantilla de Elementor casa con el tipo nuevo, así que la entrada se pinta como H1 + contenido plano y la capa de diseño la viste igual que al blog. Dos trampas medidas: Rank Math NO mete un tipo nuevo en el sitemap por defecto (handles_type('monografia') devuelve false porque falta la opción) y tampoco le genera schema (default_rich_snippet = false), pero sí le da caja de título y meta por entrada sin tocar nada. El riesgo mayor no es técnico: 11 de las 22 moléculas YA tienen URL informativa propia y esas URLs suman 0 clics en 90 días mientras las fichas se llevan casi todo. Y las reseñas no necesitan nada nuevo: WooCommerce ya las tiene activas, 23 productos con comentarios abiertos y la pestaña \"Valoraciones (0)\" ya se pinta en la ficha.",
+ "hallazgos": [
+  {
+   "hecho": "La base real de las fichas es /product/, NO /producto/ como dice el encargo. Son 22 productos publicados.",
+   "evidencia": "wp option get woocommerce_permalinks -> {\"product_base\":\"\\/product\",...}; wp post list --post_type=product --post_status=publish -> 22 filas (IDs 19..2823)"
+  },
+  {
+   "hecho": "Rank Math deja FUERA del sitemap a un tipo de contenido nuevo hasta que se le crea la opción a mano. No es que tarde: es que no lo considera.",
+   "evidencia": "Registré el tipo en memoria con 'wp eval-file -' (sin guardar nada) y llamé al proveedor real: handles_type('monografia') = false, handles_type('product') = true. La causa está en includes/modules/sitemap/providers/class-post-type.php:78, que exige Helper::get_settings('sitemap.pt_<tipo>_sitemap'); esa clave no existe (var_dump devolvió bool(false)). El sitemap vivo solo lista post, page, product y category."
+  },
+  {
+   "hecho": "En cambio Rank Math SÍ da título y meta descripción por entrada al tipo nuevo sin configurar nada, y lo deja indexable.",
+   "evidencia": "get_settings('titles.pt_monografia_add_meta_box', true) -> bool(true) (default true en includes/helpers/class-post-type.php:175); el título cae al patrón por defecto '%title% %sep% %sitename%' (includes/frontend/paper/class-singular.php:137); custom_robots -> false, así que hereda el robots global (index)."
+  },
+  {
+   "hecho": "Rank Math NO generará datos estructurados para el tipo nuevo: hay que inyectarlos nosotros. Ya hay precedente en el sitio.",
+   "evidencia": "get_settings('titles.pt_monografia_default_rich_snippet') -> bool(false). El mu-plugin wp-content/mu-plugins/pys-seo-tweaks.php ya inyecta MedicalWebPage + reviewedBy (Dr. Gavito, cédula 4606965) con un add_action('wp_head') acotado a is_singular('product')."
+  },
+  {
+   "hecho": "Una página madre /monografia/ y el tipo de contenido en /monografia/<slug>/ NO chocan: las reglas del tipo se generan antes que el comodín de páginas.",
+   "evidencia": "Generé las reglas en memoria (WP_Rewrite::rewrite_rules(), que no escribe la opción): primera regla 'monografia/...' en la posición #104; primera regla con pagename= en la #186, de 237 totales. Condición: has_archive => false."
+  },
+  {
+   "hecho": "El tema pinta la monografía como contenido plano (H1 + the_content), que es exactamente lo que la capa de diseño sabe vestir.",
+   "evidencia": "hello-elementor no tiene single.php, singular.php ni single-monografia.php (comprobado con file_exists); index.php llama a elementor_theme_do_location('single') y, si falla, a template-parts/single.php. La única plantilla de tipo único de Elementor es la #159, con condición [\"include\\/singular\\/post\"] — solo entradas."
+  },
+  {
+   "hecho": "Cabecera y pie ya se aplicarían solos al tipo nuevo; lo único que falta es la familia de diseño.",
+   "evidencia": "Las plantillas de Elementor 1099 (header) y 205 (footer) tienen condición [\"include\\/general\"], y pys-diseno.php captura y sustituye esa salida para todo lo que no sea la portada (pys_dis_ajena() solo excluye is_front_page()). Ningún predicado actual atrapa el tipo nuevo: pys_dis_es_pagina_plana() exige is_page(), pys_dis_es_catalogo() exige is_product/is_shop, pys_dis_es_blog() exige is_singular('post')."
+  },
+  {
+   "hecho": "Las migas de pan hay que emitirlas nosotros: Rank Math las tiene apagadas y la ficha no emite BreadcrumbList.",
+   "evidencia": "rank-math-options-general -> \"breadcrumbs\":\"off\". En el HTML vivo de https://peptidosysuplementos.mx/product/retatrutida/ (curl anónimo, 200, 190 KB) hay clases .woocommerce-breadcrumb pero 0 ocurrencias de 'BreadcrumbList'. Los @type presentes son: Product, Offer, Brand, ItemPage, MedicalWebPage, Person, Patient, Organization x2, WebSite, ImageObject x3, más los de envío."
+  },
+  {
+   "hecho": "El modelo del competidor: 132 páginas en /compendio/<slug> (sin barra final) más un hub /compendio con índice alfabético y una tabla de referencia CAS / fórmula / peso molecular de 106 compuestos.",
+   "evidencia": "rediseno/exoma/sitemap-compendium.xml: 132 <loc>. rediseno/exoma/html/compendio.html: listado completo + 'Tabla de referencia: identidad química de péptidos de investigación'."
+  },
+  {
+   "hecho": "El competidor NO usa MedicalWebPage en el compendio: usa WebPage con about: MolecularEntity (fórmula, peso molecular, CAS, secuencia como Protein) + FAQPage + BreadcrumbList. El MedicalWebPage se lo guarda para otra cosa.",
+   "evidencia": "rediseno/exoma/extractos.json, clave compendio-bpc-157: schema_types = [Organization/OnlineStore/LocalBusiness, ImageObject, WebSite, WebPage, FAQPage, BreadcrumbList]; webpage_schema.about = {\"@type\":\"MolecularEntity\",\"molecularFormula\":\"C62H98N16O22\",\"molecularWeight\":1419.53 Da,\"identifier\":[{propertyID:CAS,value:137525-51-0}],\"hasBioChemEntityPart\":{\"@type\":\"Protein\",...}}"
+  },
+  {
+   "hecho": "El enlace competidor ficha <-> compendio es bidireccional y con anclaje descriptivo, no con un 'leer más'.",
+   "evidencia": "rediseno/exoma/html/producto-bpc-157.html -> <a href=\"/compendio/bpc-157\">BPC-157 en el compendio</a>; compendio-bpc-157.html -> bloque H2 'Disponible para investigación' con <a href=\"/producto/bpc-157\">. Igual en tirzepatida, tb-500 y retatrutida."
+  },
+  {
+   "hecho": "Canibalización real y medible: 11 de las 22 moléculas YA tienen URL informativa propia, y esas URLs informativas ganan 0 clics mientras las fichas se llevan el tráfico.",
+   "evidencia": "Blog/páginas existentes: bpc-157-para-que-sirve, selank-beneficios-y-dosis, igf-1-lr3-que-es..., mots-c-que-es..., agua-bacteriostatica-que-es, tirzepatida-para-que-sirve, retatrutide-que-es, precio-retatrutida, tb-500-peptido-recuperacion-atletas, ghk-cu-peptido-cobre..., y las páginas /nad-para-que-sirve/, /semaglutida-en-mexico/, /tirzepatida-en-mexico/, /glp-1/. En GSC 90d (rediseno/seo/gsc_cur_page.json, 2026-06-22 a 2026-09-19): /igf-1-lr3-que-es.../ 0 clics/25 impr pos 64, /mots-c-que-es.../ 0/14 pos 60, /selank-beneficios-y-dosis/ 0/13 pos 45, /nad-para-que-sirve/ 0/11 pos 74, /glp-1/ 0/51 pos 68. Las fichas, en cambio: /product/igf-1-lr3-1mg/ 9 clics, /product/retatrutida-30mg/ 6, /product/agua-bacteriostatica-3ml/ 4."
+  },
+  {
+   "hecho": "Las reseñas por producto no necesitan plugin ni desarrollo: ya están encendidas y la pestaña ya se pinta. Lo que falta son reseñas reales.",
+   "evidencia": "woocommerce_enable_reviews=yes, woocommerce_enable_review_rating=yes, woocommerce_review_rating_verification_label=yes; 23 productos con comment_status=open y 0 comentarios en post_type=product (consulta directa con $wpdb). En el HTML vivo de la ficha ya aparecen 'Valoraciones', '#tab-reviews', 'woocommerce-Reviews' y 'comment-form-rating'."
+  },
+  {
+   "hecho": "Elementor Pro 4.1.0 tiene Theme Builder con plantillas de tipo único, pero su plantilla de archivo es genérica: si al tipo nuevo se le pone has_archive, esa plantilla se apodera de /monografia/.",
+   "evidencia": "wp plugin list -> elementor-pro 4.1.0 activo; class_exists(ElementorPro\\Modules\\ThemeBuilder\\Module) = SI; plantilla 155 'Elementor Archive' con condición [\"include\\/archive\"]."
+  },
+  {
+   "hecho": "El terreno está limpio: no hay ninguna regla de redirección ni ninguna página que ocupe /monografia.",
+   "evidencia": "Tabla redirection_items: 55 reglas, 0 con 'monograf' o 'compendio' en la URL. wp post list --post_type=page: 27 páginas publicadas, todas con post_parent=0, ninguna con slug 'monografia'. wp post-type list: no existe ningún tipo llamado 'monografia'."
+  },
+  {
+   "hecho": "Herramienta disponible para los pasos de publicación y verificación: hay CLI de Rank Math y de LiteSpeed en el servidor.",
+   "evidencia": "wp help rankmath -> subcomando 'sitemap'; wp litespeed-purge --help -> 'LiteSpeed Cache Purge Interface'. Inventario: 26 plugins activos + 8 mu-plugins; tema hello-elementor 3.4.7."
+  }
+ ],
+ "recomendacion": "Opción (a): un tipo de contenido propio 'monografia' registrado por un mu-plugin nuevo (pys-monografias.php), con rewrite slug 'monografia', has_archive => false, y una página normal /monografia/ como hub.\n\nPor qué gana a (b) páginas hijas de una página madre: con páginas, las 22 monografías caen en el mismo saco que las políticas, los términos y las landings — comparten el sitemap de páginas, el patrón de título, el robots y la familia de diseño 'paginas-planas'. No se pueden tratar distinto sin listas de IDs a mano, que es justo lo que ya duele en el sitio (el listado 1551 con URLs empotradas). Con un tipo propio, \"todas las monografías\" es una condición de una línea (is_singular('monografia')) en el sitemap, en el diseño, en el schema y en las consultas; y el hub /monografia/ puede seguir siendo una página normal porque comprobé que las reglas del tipo se generan antes que el comodín de páginas. El único peaje frente a (b) es que hay que crear a mano la opción pt_monografia_sitemap — un comando, una vez.\n\nPor qué gana a (c) taxonomía o plantilla de Elementor: una taxonomía solo tiene un campo de descripción, no admite H2/H3/tablas/citas sin inventarse campos, y su sitemap está apagado por defecto igual que el del tipo (tax_product_cat_sitemap ya está en off en este sitio, con las 7 categorías indexables y fuera del sitemap: ya se pagó ese error una vez). Y una plantilla de Elementor obliga a abrir el editor 22 veces, que es exactamente lo que el encargo pide evitar y lo que las notas del proyecto marcan como trampa (en las páginas de Elementor solo se pueden tocar title/meta/slug por API).\n\nSobre lo que pidió el dueño: los protocolos van en la monografía, no en la ficha, y se escriben como ficha de estudio, no como pauta. Cada protocolo = una tarjeta con modelo (línea celular o especie), dosis EN EL MODELO con sus unidades (mg/kg en rata, µM en cultivo), vía usada en ese estudio, duración, variable medida, resultado, y cita con PMID/DOI verificado; encabezando la sección, una línea fija: \"Datos tal como se publicaron, en el modelo indicado. No se extrapolan a personas\". Nunca una tabla de \"dosis\" sin modelo, nunca una equivalencia humana, nunca un rango recomendado. Así se da lo que el competidor da sin volver a poner en la página lo que se acaba de retirar de 10 páginas.\n\nDatos estructurados: WebPage + about:MolecularEntity (nombre, alternateName, fórmula, peso molecular, CAS, secuencia como hasBioChemEntityPart:Protein, sameAs a PubChem) + citation por cada referencia + BreadcrumbList propio + reviewedBy (Dr. Gavito) — y NO MedicalWebPage. MedicalWebPage lleva medicalAudience:Patient, que es precisamente el encuadre que el sitio está evitando; el competidor tampoco lo usa en su compendio. El MedicalWebPage que ya inyecta pys-seo-tweaks.php se queda donde está, en la ficha. AggregateRating solo el que emita WooCommerce solo cuando haya reseñas reales: nada de inyectarlo a mano.\n\nReseñas: no hace falta nada nuevo, ya están activas y la pestaña ya se pinta. Lo que falta es sacarlas de la pestaña a una sección visible de la ficha (como el competidor) — cambio de ficha.php, media hora, y es independiente de las monografías.",
+ "riesgos": [
+  "Canibalización, que es el riesgo número uno y está medido: 11 de las 22 moléculas ya tienen URL informativa y esas URLs llevan 0 clics en 90 días. Publicar 22 monografías sin decidir antes qué pasa con esas 11 URLs añade 22 páginas más a competir contra su propia ficha y contra su propio blog. Si no se consolida, lo más probable es repetir el resultado de 2026: impresiones sin clics.",
+  "El sitemap: si nadie crea pt_monografia_sitemap, las 22 quedan fuera y nadie se entera, porque el sitemap se seguirá generando sin error. Está comprobado: handles_type('monografia') devuelve false.",
+  "El schema: Rank Math no generará nada para el tipo nuevo (default_rich_snippet = false). Si el mu-plugin no lo inyecta, las 22 salen sin datos estructurados y sin migas.",
+  "Riesgo regulatorio en la sección de protocolos. Es literalmente el contenido que se acaba de retirar de 10 páginas. Si una tarjeta de protocolo pierde el modelo y deja solo 'dosis' y 'vía', vuelve el problema, multiplicado por 22 y con la firma de un médico encima.",
+  "Contenido de molde. 22 páginas con los mismos 10 H2 y poco dato propio es lo que Google trata como plantilla. El competidor sostiene 132 porque cada una lleva CAS, fórmula, peso molecular, secuencia y estudios distintos. Sin ese dato duro por molécula, las 22 son relleno. Además hay 6 productos que son suplementos (omega-3, zinc, DIM, complejo B, glutatión, NAD+) y uno que es agua bacteriostática: no todos dan para monografía.",
+  "has_archive. Si se registra con archivo, la plantilla de archivo de Elementor (#155, condición include/archive) se apodera de /monografia/ y se pierde el control del hub. Debe ir en false.",
+  "Dependencia del mu-plugin. Si alguien lo borra o lo renombra, el tipo deja de existir: las 22 entradas quedan huérfanas en la base y las 22 URLs devuelven 404 de golpe. Conviene dejarlo escrito en el propio archivo y en el respaldo.",
+  "El encargo dice /producto/<slug> pero la base real es /product/. Si en algún momento se decide alinear las dos, son 22 fichas con 301 y todas las URLs internas y de _elementor_data a revisar (ahí las barras van escapadas, \\/). Es un proyecto aparte, no un detalle.",
+  "Caché en dos capas. LiteSpeed se purga con wp litespeed-purge all, pero hcdn NO: va por hPanel -> Rendimiento -> CDN. Verificar en modo anónimo antes de dar nada por bueno.",
+  "Pedir reseñas a clientes es legítimo, pero si se inyecta AggregateRating antes de tener reseñas reales se está fabricando una señal. Que la emita WooCommerce sola, cuando existan."
+ ],
+ "pasos": [
+  "0. Decidir antes de escribir una línea: qué pasa con las 11 URLs informativas que ya existen (301 a la monografía, o coexistir con canónicas distintas) y cuáles de los 22 productos merecen monografía de verdad. Esto condiciona todo lo demás.",
+  "1. Respaldo: scp -P 65002 -i ~/.ssh/cmlc -r u303216082@145.79.4.65:.../wp-content/mu-plugins/ a C:\\Users\\gabom\\Proyectos\\ecommerce-agent\\rediseno\\respaldos\\monografias-<fecha>\\ , antes de subir nada.",
+  "2. Escribir wp-content/mu-plugins/pys-monografias.php: register_post_type('monografia') en 'init' con public=true, has_archive=false, hierarchical=false, rewrite => ['slug'=>'monografia','with_front'=>false], supports title/editor/excerpt/thumbnail/custom-fields/revisions, show_in_rest=true, etiquetas en español. En el mismo archivo, register_post_meta('monografia','_pys_producto_id') para guardar el ID de la ficha: ese único dato da los dos sentidos del enlace, sin doble contabilidad.",
+  "3. En ese mismo mu-plugin, los tres bloques de salida, todos acotados: (a) migas propias 'Inicio › Monografías › <molécula>' + JSON-LD BreadcrumbList en is_singular('monografia'), porque Rank Math las tiene apagadas; (b) JSON-LD WebPage + about:MolecularEntity + citation[] + reviewedBy, también en is_singular('monografia'); (c) el bloque 'Disponible para investigación' con el enlace a la ficha, al final del contenido de la monografía.",
+  "4. El enlace inverso en la ficha: add_action('woocommerce_single_product_summary', ..., 45) — después del botón de compra (30) y del meta (40), y antes de las pestañas. Con ancla descriptiva tipo 'Monografía científica de la Retatrutida', no 'leer más'. Nota: pys-seo-tweaks.php ya usa woocommerce_after_single_product_summary en 11 para el bloque 'Revisado por'; no pisarlo.",
+  "5. Validar la sintaxis ANTES de subir: php -l sobre cada archivo. Un error de sintaxis en mu-plugins tumba el sitio entero.",
+  "6. Capa de diseño: crear wp-content/mu-plugins/pys-diseno/monografias.php con una sola función pys_dis_css_monografias(). En pys-diseno.php (y solo ahí, que es donde el propio archivo dice que se deciden los ámbitos): añadir 'monografias' al foreach de familias; definir pys_dis_es_monografia() { return is_singular('monografia') || is_page('monografia'); }; añadir 'pys_dis_css_monografias' => pys_dis_es_monografia() al mapa $familias del wp_head; y añadir is_page('monografia') a pys_dis_pagina_especial() para que el hub no reciba además la hoja de 'paginas-planas'. Partir del CSS de blog.php, que es el que ya viste prosa larga con h2/h3/tablas.",
+  "7. wp rewrite flush --hard, y comprobar con curl -I que /monografia/<slug-de-prueba>/ responde 200 y no 404.",
+  "8. Sitemap: wp option patch update rank-math-options-sitemap pt_monografia_sitemap on ; luego wp rankmath sitemap generate ; luego verificar que /sitemap_index.xml lista monografia-sitemap.xml. Sin este paso las 22 no existen para Google.",
+  "9. Generar las 22 por código, nunca por el editor ni por REST: un archivo de datos por molécula (nombre, alternateName, CAS, fórmula, peso molecular, secuencia, secciones en HTML plano h2/h3/p/ul/table, protocolos con PMID, FAQ) y un wp eval-file que haga wp_insert_post en post_status=draft + update_post_meta de _pys_producto_id, rank_math_title, rank_math_description y rank_math_focus_keyword. Importante: rank_math_* NO persiste por el campo 'meta' de la REST API (devuelve 200 y lo ignora); por update_post_meta / wp post meta update sí.",
+  "10. Crear el hub: una página normal (Gutenberg/HTML plano, sin Elementor) con slug 'monografia', que liste las 22 y lleve la tabla de identidad química (CAS, fórmula, peso molecular), que es lo que hace que el hub valga por sí mismo y no sea un índice vacío.",
+  "11. Publicar en lote corto primero: 3 monografías de moléculas SIN URL informativa previa (candidatas por los datos: cagrilintida, sermorelina, CJC-1295 + Ipamorelina, timosina alfa-1). Son las que no canibalizan nada y sirven de prueba limpia.",
+  "12. Verificar por código Y por captura, siempre en modo anónimo: curl con user-agent de navegador para código 200, <title>, meta description, robots (index), y presencia del JSON-LD; luego herramientas/verificar.py y revisar.py en 1440 y 390 sobre las 3 monografías nuevas Y sobre las 3 fichas que ganaron bloque (la ficha cambia, así que entra en la verificación antes/después). Purgar con wp litespeed-purge all y además hcdn desde hPanel -> Rendimiento -> CDN antes de dar nada por bueno.",
+  "13. Solo si el lote de 3 pasa: generar las 19 restantes, publicarlas, y ejecutar en ese momento la decisión del paso 0 sobre las URLs informativas duplicadas (los 301, si se eligen, por mu-plugin en 'init' — Rank Math Redirections deja 404 en este stack, ya está documentado).",
+  "14. Pedir indexación en GSC de las nuevas con la cuota real (~9-10 URLs/día) y dejar la medición a 4 y 8 semanas sobre clics e impresiones de /monografia/* frente a la línea base de rediseno/seo/linea_base_rediseno.json.",
+  "15. Aparte y en paralelo, lo de las reseñas: sacar 'Valoraciones' de la pestaña a una sección visible de la ficha en pys-diseno/ficha.php. No toca las monografías y ya está todo activado en WooCommerce."
+ ],
+ "preguntas": [
+  "El encargo dice /producto/<slug> pero la base real del sitio es /product/. ¿Se deja como está (recomendado: las monografías no dependen de eso) o se abre un proyecto aparte para migrar las 22 fichas con 301?",
+  "¿Qué se hace con las 11 URLs informativas que ya cubren esas moléculas (bpc-157-para-que-sirve, selank-beneficios-y-dosis, igf-1-lr3-que-es..., mots-c-que-es..., agua-bacteriostatica-que-es, tirzepatida-para-que-sirve, retatrutide-que-es, precio-retatrutida, tb-500..., ghk-cu..., nad-para-que-sirve)? ¿301 a la monografía, o coexisten? Hoy dan 0 clics, así que consolidar cuesta poco y evita competir consigo mismo.",
+  "¿Las 22 de verdad, o solo los péptidos? Hay 6 suplementos (omega-3, zinc picolinato, DIM, complejo B, glutatión, NAD+) y el agua bacteriostática, que no dan monografía científica del mismo tipo. Podrían ir con una plantilla más corta o quedarse fuera.",
+  "¿De dónde salen los datos duros por molécula (CAS, fórmula, peso molecular, secuencia)? Sin eso las 22 se parecen demasiado entre sí. ¿Se aceptan solo fuentes con PMID/DOI verificable, como en el playbook de fichas?",
+  "En la sección de protocolos, ¿se acepta la regla estricta de que cada dato vaya siempre con su modelo (especie o línea celular) y su cita, y que no haya ninguna tabla de dosis sin modelo ni ninguna equivalencia a persona? Es lo que mantiene la sección del lado seguro.",
+  "¿Quién firma la revisión de cada monografía y con qué fecha (lastReviewed)? Hoy el bloque 'Revisado por' de la ficha lleva al Dr. Gavito con cédula 4606965.",
+  "¿Publicamos primero el lote de 3 (moléculas sin URL previa) y medimos a 4 semanas antes de soltar las 19 restantes, o se quieren las 22 de golpe?",
+  "Lo de las reseñas: ¿se quiere la sección visible en la ficha ya, en paralelo a esto, o se espera a tener las primeras reseñas reales de clientes?"
+ ]
+}

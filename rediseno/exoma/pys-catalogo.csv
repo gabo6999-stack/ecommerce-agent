@@ -1,0 +1,26 @@
+﻿id,nombre,slug,url,tipo,estado,sku,presentacion,precio_mxn,precio_por_mg,stock,categorias,ventas
+2823,GHK-Cu,ghk-cu,https://peptidosysuplementos.mx/product/ghk-cu,simple,publish,,100mg,1800,18.0,instock,Péptidos Reparación Celular Anti-Aging,0
+2464,BPC-157,bpc-157,https://peptidosysuplementos.mx/product/bpc-157,variable,publish,BPC157-5MG,5mg,800,160.0,outofstock,Péptidos Recuperación y Crecimiento Muscular,0
+2464,BPC-157,bpc-157,https://peptidosysuplementos.mx/product/bpc-157,variable,publish,BPC157-10MG,10mg,1200,120.0,outofstock,Péptidos Recuperación y Crecimiento Muscular,0
+2240,Cagrilintida,cagrilintida-10mg,https://peptidosysuplementos.mx/product/cagrilintida-10mg,simple,publish,CAGRI-10MG,10mg,2300,230.0,instock,Péptidos para Metabolismo y Pérdida de Peso,0
+2234,Glutatión 1500mg | Antioxidante y Detox Celular México,glutation-1500mg,https://peptidosysuplementos.mx/product/glutation-1500mg,simple,publish,GLUT-1500MG,1500mg,1500,1.0,instock,Péptidos Bienestar General,0
+2232,CJC-1295 (no-DAC) + Ipamorelina,cjc-1295-ipamorelina-5mg,https://peptidosysuplementos.mx/product/cjc-1295-ipamorelina-5mg,simple,publish,CJC-IPA-5MG,5mg,1200,240.0,instock,Péptidos Reparación Celular Anti-Aging,0
+2231,Sermorelina,sermorelina-10mg,https://peptidosysuplementos.mx/product/sermorelina-10mg,simple,publish,SERMO-10MG,10mg,1900,190.0,instock,Péptidos Reparación Celular Anti-Aging,0
+2230,Timosina Alfa-1,thymosin-alpha-1-10mg,https://peptidosysuplementos.mx/product/thymosin-alpha-1-10mg,simple,publish,THYA1-10MG,10mg,2800,280.0,instock,Péptidos Bienestar General,0
+1699,Selank,selank-10-mg,https://peptidosysuplementos.mx/product/selank-10-mg,simple,publish,SELANK-10MG,10mg,1100,110.0,instock,Péptidos para Rendimiento Cognitivo,0
+1689,Semaglutida 5mg,semaglutida-5-mg,https://peptidosysuplementos.mx/product/semaglutida-5-mg,simple,publish,SEMA-5MG,5mg,800,160.0,instock,Péptidos para Metabolismo y Pérdida de Peso,0
+1531,Tirzepatida 60 mg,tirzepatida-60-mg-archivado,https://peptidosysuplementos.mx/product/tirzepatida-60-mg-archivado,simple,draft,TIRZ-60MG,60mg,3200,53.33,instock,Péptidos para Metabolismo y Pérdida de Peso,0
+1525,Tirzepatida,tirzepatida,https://peptidosysuplementos.mx/product/tirzepatida,variable,publish,TIRZE-30MG,30mg,1900,63.33,instock,Péptidos para Metabolismo y Pérdida de Peso,0
+1525,Tirzepatida,tirzepatida,https://peptidosysuplementos.mx/product/tirzepatida,variable,publish,TIRZE-60MG,60mg,3200,53.33,instock,Péptidos para Metabolismo y Pérdida de Peso,0
+1518,Semaglutida 20mg | Péptido Control de Peso y Apetito México,semaglutida-20mg,https://peptidosysuplementos.mx/product/semaglutida-20mg,simple,publish,SEMA-20MG,20mg,1400,70.0,outofstock,Péptidos para Metabolismo y Pérdida de Peso,0
+1161,Complejo B Metilado Nutricost 60 Caps Energía y Metabolismo,complejo-b-metilado,https://peptidosysuplementos.mx/product/complejo-b-metilado,simple,publish,CPLXB-60CAP,60 caps,800,,outofstock,Péptidos Bienestar General; Suplementos Deportivos Premium,0
+1158,DIM 300mg Nutricost | Balance Hormonal 120 Cápsulas México,dim-suplemento,https://peptidosysuplementos.mx/product/dim-suplemento,simple,publish,DIM-300MG,300mg,800,2.67,outofstock,Péptidos Bienestar General; Suplementos Deportivos Premium,0
+1154,Zinc Picolinato 50mg | 240 Cápsulas Nutricost México,picolinato-de-zinc,https://peptidosysuplementos.mx/product/picolinato-de-zinc,simple,publish,ZINC-50MG,50mg,800,16.0,outofstock,Péptidos Bienestar General; Suplementos Deportivos Premium,0
+1151,Omega-3 2500mg EPA DHA | 120 Softgels Nutricost México,omega-3-nutricost-2500mg,https://peptidosysuplementos.mx/product/omega-3-nutricost-2500mg,simple,publish,OMEGA3-2500MG,2500mg,800,0.32,outofstock,Suplementos Deportivos Premium,0
+1131,NAD+,nad-suplemento,https://peptidosysuplementos.mx/product/nad-suplemento,simple,publish,NAD-500MG,500mg,1400,2.8,instock,Péptidos para Metabolismo y Pérdida de Peso,0
+1128,IGF-1 LR3,igf-1-lr3-1mg,https://peptidosysuplementos.mx/product/igf-1-lr3-1mg,simple,publish,IGF1-1MG,1mg,1800,1800.0,instock,Péptidos Reparación Celular Anti-Aging,0
+799,Agua Bacteriostática,agua-bacteriostatica-3ml,https://peptidosysuplementos.mx/product/agua-bacteriostatica-3ml,simple,publish,AGUA-BACT,3ml,350,,instock,Péptidos Recuperación y Crecimiento Muscular,0
+795,BPC-157 + TB-500,bpc-157-tb-500,https://peptidosysuplementos.mx/product/bpc-157-tb-500,simple,publish,BPC-TB500-5MG,5mg,1800,360.0,instock,Péptidos Recuperación y Crecimiento Muscular,0
+793,MOTS-c 40 mg,mots-c-40mg,https://peptidosysuplementos.mx/product/mots-c-40mg,simple,publish,MOTSC-40MG,40mg,2800,70.0,instock,Péptidos para Metabolismo y Pérdida de Peso; Péptidos para Rendimiento Deportivo,0
+790,MOTS-c,mots-c-10mg,https://peptidosysuplementos.mx/product/mots-c-10mg,simple,publish,MOTSC-10MG,10mg,1200,120.0,instock,Péptidos para Metabolismo y Pérdida de Peso,1
+19,Retatrutida,retatrutida,https://peptidosysuplementos.mx/product/retatrutida,simple,publish,RETAT-30MG,30mg,4000,133.33,instock,Péptidos para Metabolismo y Pérdida de Peso,1

@@ -1,0 +1,25 @@
+{
+ "periodo": [
+  "2026-06-22",
+  "2026-09-19"
+ ],
+ "clics": 72,
+ "impresiones": 5597,
+ "ctr_pct": 1.29,
+ "posicion": 36.5,
+ "datos_gsc_desde": "2026-04-29",
+ "impr_pos_21mas_pct": 85.3,
+ "impr_pag1_pct": 10.8,
+ "impr_a_urls_301_pct": 56.9,
+ "clics_a_urls_301_pct": 34.2,
+ "consultas_canibalizadas": 121,
+ "impr_canibalizadas_pct": 78.4,
+ "sitemap_urls": 64,
+ "sitemap_sin_impresiones": 10,
+ "urls_impr_fuera_sitemap": 55,
+ "blog_articulos": 20,
+ "blog_impresiones": 1215,
+ "blog_clics": 7,
+ "ultimo_post": "2026-08-22",
+ "impr_marca_pct": 0.1
+}

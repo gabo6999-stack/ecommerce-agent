@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+
+    <meta charset="UTF-8" />
+    
+    <script>
+      (function(){try{
+        var m=document.cookie.match(/(?:^|;\s*)exoma_lang=(en|es)/);var pref=m&&m[1];if(!pref)return;
+        var path=location.pathname,isEn=path==="/en"||path.indexOf("/en/")===0;
+        if(/^\/(en\/)?(checkout|carrito|cuenta|mi-cuenta|mi-investigacion|auth|administrador|admin|packing|order-history|3ds-return|reset-password|recuperar|email-preferences|assets|coa|img)\b/.test(path))return;
+        if(pref==="en"&&!isEn){location.replace("/en"+(path==="/"?"":path)+location.search+location.hash);}
+        else if(pref==="es"&&isEn){location.replace((path.replace(/^\/en/,"")||"/")+location.search+location.hash);}
+      }catch(e){}})();
+    </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    
+
+    
+    <link rel="preload" href="/fonts/Kallisto-Medium.woff2" as="font" type="font/woff2" crossorigin />
+
+    
+
+    
+
+    
+    <style>
+      
+      @font-face {
+        font-family: 'Kallisto';
+        src: url('/fonts/Kallisto-Medium.woff2') format('woff2');
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      :root {
+        --background: 220 14% 98%;
+        --foreground: 220 30% 12%;
+        --primary: 220 65% 38%;
+      }
+      html, body, button, input, select, textarea {
+        font-family: 'Kallisto', system-ui, -apple-system, sans-serif;
+      }
+      body {
+        background: hsl(220 14% 98%);
+        color: hsl(220 30% 12%);
+        margin: 0;
+      }
+      #root { min-height: 100vh; }
+      
+      .lcp-h1 {
+        font-family: 'Kallisto', system-ui, -apple-system, sans-serif;
+        font-size: 2.4rem;
+        line-height: 0.98;
+        letter-spacing: -0.02em;
+        color: hsl(220 30% 12%);
+        margin: 0;
+        font-weight: 600;
+      }
+      .lcp-h1 > span { display: block; }
+      
+      .sr-only {
+        position: absolute;
+        width: 1px; height: 1px;
+        padding: 0; margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      
+      #root { visibility: hidden; }
+      
+      #exoma-boot-loader {
+        position: fixed; inset: 0; z-index: 2147483000;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px;
+        background: radial-gradient(125% 125% at 50% 38%, #ffffff 0%, #eef2fa 78%, #e6ecf7 100%);
+        animation: exomaBootIn .5s ease-out both;
+      }
+      @keyframes exomaBootIn { from { opacity: 0; } to { opacity: 1; } }
+      #exoma-boot-loader .wm {
+        width: min(52vw, 232px); aspect-ratio: 481 / 49;
+        
+        background: linear-gradient(100deg, #0C2454 0 38%, #93a9d6 47%, #eaf0fb 50%, #93a9d6 53%, #0C2454 62% 100%);
+        background-size: 260% 100%; background-position: 135% 0;
+        -webkit-mask: url(/exoma-wordmark.svg) no-repeat center / contain;
+        mask: url(/exoma-wordmark.svg) no-repeat center / contain;
+        filter: drop-shadow(0 8px 22px rgba(12, 36, 84, 0.16));
+        animation: exomaBootWm 1.9s cubic-bezier(.4, 0, .2, 1) infinite,
+                   exomaBootBreathe 3.4s ease-in-out infinite;
+        will-change: background-position, transform;
+      }
+      @keyframes exomaBootWm { 0% { background-position: 135% 0; } 62%, 100% { background-position: -35% 0; } }
+      @keyframes exomaBootBreathe { 0%, 100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.028); opacity: 1; } }
+      
+      #exoma-boot-loader .bar {
+        width: min(40vw, 172px); height: 2px; border-radius: 2px;
+        background: rgba(12, 36, 84, 0.12); overflow: hidden; position: relative;
+      }
+      #exoma-boot-loader .bar::after {
+        content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 42%;
+        background: linear-gradient(90deg, transparent, #0C2454, transparent);
+        border-radius: 2px; animation: exomaBootBar 1.25s ease-in-out infinite;
+        will-change: transform;
+      }
+      @keyframes exomaBootBar { 0% { transform: translateX(-130%); } 100% { transform: translateX(330%); } }
+      @media (prefers-reduced-motion: reduce) {
+        #exoma-boot-loader { animation: none; }
+        #exoma-boot-loader .wm { animation: none; background: #0C2454; }
+        #exoma-boot-loader .bar::after { animation: none; }
+      }
+    </style>
+    
+    <noscript><style>
+      #root { visibility: visible !important; }
+      #af-shell { display: none !important; }
+      #exoma-boot-loader { display: none !important; }
+    </style></noscript>
+    
+    
+    <script>(function(){var done=false;function killLoader(){var l=document.getElementById('exoma-boot-loader');if(l&&l.parentNode)l.parentNode.removeChild(l);}function reveal(){if(done)return;done=true;killLoader();var el=document.getElementById('root');if(el)el.style.visibility='visible';var s=document.getElementById('af-shell');if(s&&s.parentNode)s.parentNode.removeChild(s);}function fallbackShell(){if(done)return;done=true;killLoader();var s=document.getElementById('af-shell');if(!s){var el=document.getElementById('root');if(el)el.style.visibility='visible';}}function reactReady(){var root=document.getElementById('root');if(!root)return false;var mounted=false;var k=root.children;for(var i=0;i<k.length;i++){if(!k[i].hasAttribute('data-seo-prerender')){mounted=true;break;}}if(!mounted)return false;var s=document.getElementById('af-shell');if(s){var af=s.getAttribute('data-af');if(af==='product'){if(!root.querySelector('h1'))return false;var im=root.querySelector('.aspect-square img');return !im||(im.complete&&im.naturalWidth>0);}if(af==='catalog'){return !!root.querySelector('.product-grid > *');}if(af==='listing'){return !!root.querySelector('main h1');}if(af==='article'){return !!root.querySelector('main h1');}return !!root.querySelector('.home-scale');}return true;}function check(){if(done)return;if(reactReady()){reveal();return;}requestAnimationFrame(check);}requestAnimationFrame(check);setTimeout(function(){if(done)return;if(reactReady()){reveal();return;}if(document.getElementById('af-shell')){setTimeout(function(){if(done)return;if(reactReady())reveal();else fallbackShell();},7500);}else{reveal();}},2500);})();</script>
+
+    
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+    </script>
+
+    
+    
+    <script>window.__exomaDefer||(function(){var q=[],f=false;window.__exomaDefer=function(fn){f?fn():q.push(fn)};function r(){if(f)return;f=true;for(var i=0;i<q.length;i++){try{q[i]()}catch(e){}}q=[]}var ev=['pointerdown','keydown','touchstart','scroll','mousemove'];ev.forEach(function(e){addEventListener(e,r,{once:true,passive:true})});'requestIdleCallback'in window?requestIdleCallback(r,{timeout:3500}):setTimeout(r,3500)})();window.__exomaDefer(function(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N2262BBF');});</script>
+    
+
+    
+    <script>
+      // Consentimiento ANTES de inicializar (grabación/heatmap = perfilado). Llave real del
+      // banner: `exoma_cookie_consent` (lib/cookies/consentManager.ts).
+      /**
+       * MUESTREO DEL SESSION REPLAY (2026-08-25, INP).
+       * El recorder de PostHog serializa las mutaciones del DOM y las comprime
+       * EN EL HILO PRINCIPAL mientras el usuario interactúa. Medido con trace
+       * del navegador en un tap del selector de dosis (Pixel 7, CPU 4x):
+       * posthog-recorder 133 ms + fbevents 104 ms, frente a 156 ms de nuestro
+       * propio bundle. A/B con n=10 por escenario: 304 ms de mediana con todo
+       * activo contra 224 ms sin recorder ni pixel (p75 336 -> 248).
+       * Grabando 1 de cada 5 sesiones, el p75 —que es lo que puntúa CrUX— cae
+       * en la cohorte que NO paga ese coste, y se conservan pageviews, eventos
+       * y heatmaps ($$heatmap no usa el recorder).
+       * La decisión se toma UNA vez por sesión y se guarda en sessionStorage
+       * para no empezar a grabar a mitad de visita; si sessionStorage no está
+       * disponible (modo privado), no se graba.
+       */
+      var __EXOMA_REPLAY_SAMPLE = 0.2;
+      var __exomaReplay = false;
+      try {
+        var __rk = 'exoma_replay_sample', __rv = sessionStorage.getItem(__rk);
+        if (__rv === null) { __rv = (Math.random() < __EXOMA_REPLAY_SAMPLE) ? '1' : '0'; sessionStorage.setItem(__rk, __rv); }
+        __exomaReplay = __rv === '1';
+      } catch (e) { __exomaReplay = false; }
+      var __exomaAnalitica = false;
+      try {
+        var __c = JSON.parse(localStorage.getItem('exoma_cookie_consent') || 'null');
+        __exomaAnalitica = !!(__c && __c.preferences && __c.preferences.analytics === true);
+      } catch (e) { /* localStorage bloqueado: sin permiso comprobable, no se graba */ }
+
+      // El MISMO distinct_id en las dos mitades, desde el primer evento.
+      //
+      // Los eventos de la taxonomía los manda el servidor (el sink de PostHog en
+      // supabase/functions), y lo hace bajo el distinct_id que decida ESTE SDK:
+      // posthogIdentity() lo lee y viaja en el ctx del collector. En una visita
+      // nueva ese id todavía no existe cuando sale el primer lote, así que aquí se
+      // siembra con `exoma_session_id`, el mismo valor que ya identifica al
+      // visitante en nuestras tablas.
+      //
+      // Sólo se siembra si PostHog NO tiene ya identidad guardada: pisar la suya
+      // partiría en dos a un visitante que vuelve, que es justo el bug que esto
+      // arregla.
+      var __exomaBootstrap;
+      try {
+        var __phGuardado = false;
+        for (var __i = 0; __i < localStorage.length; __i++) {
+          var __k = localStorage.key(__i);
+          if (__k && /^ph_.+_posthog$/.test(__k)) { __phGuardado = true; break; }
+        }
+        if (!__phGuardado) {
+          var __sid = localStorage.getItem('exoma_session_id');
+          if (!__sid) {
+            // Mismo formato que src/lib/sessionId.ts — si cambia allá, cambia aquí.
+            __sid = 'session_' + Date.now() + '_' + crypto.randomUUID();
+            localStorage.setItem('exoma_session_id', __sid);
+            try { sessionStorage.setItem('exoma_session_id', __sid); } catch (e2) {}
+          }
+          __exomaBootstrap = { distinctID: __sid };
+        }
+      } catch (e) { /* sin almacenamiento: PostHog se queda con su id de siempre */ }
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+      window.__exomaDefer||(function(){var q=[],f=false;window.__exomaDefer=function(fn){f?fn():q.push(fn)};function r(){if(f)return;f=true;for(var i=0;i<q.length;i++){try{q[i]()}catch(e){}}q=[]}var ev=['pointerdown','keydown','touchstart','scroll','mousemove'];ev.forEach(function(e){addEventListener(e,r,{once:true,passive:true})});'requestIdleCallback'in window?requestIdleCallback(r,{timeout:3500}):setTimeout(r,3500)})();window.__exomaDefer(function(){posthog.init('phc_BSEPE69jegnNEZ4qXtSxTqiSTjgVvmiTFjf8bEZHPhvF', {
+        api_host: 'https://ph.vyal.mx',
+        capture_pageview: true,
+        capture_pageleave: true,
+        autocapture: false,
+        // HEATMAPS: manda eventos $$heatmap (scroll/click) sin encender autocapture completo.
+        // Es lo que faltaba — sin esta línea el panel de heatmaps salía vacío.
+        capture_heatmaps: true,
+        disable_surveys: true,
+        persistence: 'localStorage+cookie',
+        // Replay y heatmap solo con consentimiento (se decide aquí, al init).
+        disable_session_recording: !__exomaAnalitica || !__exomaReplay,
+        maskAllInputs: true,
+        session_recording: { maskAllInputs: true },
+        // Ver el bloque de arriba. `undefined` = no sembrar (visitante que vuelve).
+        bootstrap: __exomaBootstrap
+      });});
+    </script>
+    
+
+    
+    <script>
+      window.__exomaDefer||(function(){var q=[],f=false;window.__exomaDefer=function(fn){f?fn():q.push(fn)};function r(){if(f)return;f=true;for(var i=0;i<q.length;i++){try{q[i]()}catch(e){}}q=[]}var ev=['pointerdown','keydown','touchstart','scroll','mousemove'];ev.forEach(function(e){addEventListener(e,r,{once:true,passive:true})});'requestIdleCallback'in window?requestIdleCallback(r,{timeout:3500}):setTimeout(r,3500)})();window.__exomaDefer(function(){
+      (function () {
+        try {
+          var c = JSON.parse(localStorage.getItem('exoma_cookie_consent') || 'null');
+          if (!(c && c.preferences && c.preferences.analytics === true)) return;
+        } catch (e) { return; }
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-059LQFK7TC';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-059LQFK7TC', { anonymize_ip: true, cookie_flags: 'SameSite=Lax;Secure' });
+      })();
+      });
+    </script>
+    
+
+    
+    <script>
+      window.__exomaDefer||(function(){var q=[],f=false;window.__exomaDefer=function(fn){f?fn():q.push(fn)};function r(){if(f)return;f=true;for(var i=0;i<q.length;i++){try{q[i]()}catch(e){}}q=[]}var ev=['pointerdown','keydown','touchstart','scroll','mousemove'];ev.forEach(function(e){addEventListener(e,r,{once:true,passive:true})});'requestIdleCallback'in window?requestIdleCallback(r,{timeout:3500}):setTimeout(r,3500)})();window.__exomaDefer(function(){
+      (function () {
+        try {
+          var c = JSON.parse(localStorage.getItem('exoma_cookie_consent') || 'null');
+          if (!(c && c.preferences && c.preferences.marketing === true)) return;
+        } catch (e) { return; }
+        var PIXEL = '2519484425218765';
+        // eventID compartido pixel↔CAPI para que Meta deduplique la misma PageView.
+        var eid;
+        try {
+          eid = sessionStorage.getItem('exoma_fb_pv_eid');
+          if (!eid) { eid = 'pv_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8); sessionStorage.setItem('exoma_fb_pv_eid', eid); }
+        } catch (e) { eid = undefined; }
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        // autoConfig OFF (2026-08-25, INP): con él el pixel engancha listeners a
+        // todos los botones y enlaces para INFERIR eventos, y ese análisis corre
+        // en el hilo principal en cada tap (104 ms en el trace). No se pierde
+        // nada: los eventos de negocio se disparan explícitamente desde el
+        // código (trackAddToCart en CartContext, Purchase en el checkout) y se
+        // deduplican con CAPI por eventID. Es la misma línea que ya usa
+        // src/lib/analytics/providers/meta-pixel.ts.
+        fbq('set', 'autoConfig', false, PIXEL);
+        fbq('init', PIXEL);
+        fbq('track', 'PageView', {}, eid ? { eventID: eid } : undefined);
+      })();
+      });
+    </script>
+    
+
+    
+    
+    
+    <meta name="build-time" content="2026-09-21T16:00:56.411Z" />
+    
+    
+
+    
+    
+    
+
+    
+    <link rel="dns-prefetch" href="https://db.exomapeptides.mx" />
+    <link rel="preconnect" href="https://db.exomapeptides.mx" crossorigin />
+
+    
+
+
+    
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+    
+
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=8">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=8" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=8" />
+    <link rel="icon" href="/favicon.ico?v=8" />
+    <link rel="shortcut icon" href="/favicon.ico?v=8" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=8" />
+    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png?v=8" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png?v=8" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8" />
+    <link rel="apple-touch-icon" sizes="128x128" href="/icons/icon-128x128.png?v=8" />
+    <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8" />
+    
+    
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#224E9E" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Exoma Peptides" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="rating" content="general" />
+    
+    
+    <title data-rh="true">Certificados de Análisis (COA) por Lote | Pureza HPLC</title>
+    <meta name="application-name" content="Exoma Peptides" />
+    <meta name="author" content="Exoma Peptides México" />
+
+    
+
+    
+
+    
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    
+    <link rel="alternate" type="application/rss+xml" title="EXOMA Peptides Blog" href="/feed.xml" />
+
+    
+
+    
+    <link rel="help" type="text/plain" href="/llms.txt" />
+
+    
+
+    
+    <meta name="copyright" content="© 2025-2026 EXOMA Peptides México." />
+    <meta name="dcterms.rightsHolder" content="EXOMA Peptides México" />
+    
+
+    
+    
+    <meta data-rh="true" name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="google" content="notranslate" />
+    
+    
+    <meta name="google-site-verification" content="jJrCOwC-7T5OzWaZ1ONQsZzxYoCAk39-gnwnZJ4wOk4" />
+    <meta name="msvalidate.01" content="DCD35A38A9B713F8DD9EB3283BE48971" />
+
+    
+    
+    
+    
+    
+
+
+    
+    <style>
+      * { -webkit-tap-highlight-color: transparent; }
+      html { touch-action: manipulation; }
+    </style>
+    
+
+    <script>
+      /* Beacon de detección de scrape — SOLO registro server-side (IP hasheada),
+         NUNCA bloquea. Vanilla (independiente de React) para el apex prod. Manda
+         path + referrer + host para que la edge fn detecte proxies de traducción
+         (translate.goog / Yandex) y ritmo. sendBeacon = fire-and-forget. */
+      (function () {
+        try {
+          var EP = "https://db.exomapeptides.mx/functions/v1/track-visit";
+          function sid() {
+            try { var k = "exoma_sid", v = localStorage.getItem(k);
+              if (!v) { v = Date.now().toString(36) + Math.random().toString(36).slice(2, 10); localStorage.setItem(k, v); }
+              return v; } catch (e) { return null; }
+          }
+          var last = "";
+          function ping() {
+            try {
+              var p = location.pathname;
+              if (p === last) return; last = p;
+              if (/^\/(admin|administrador|dev-|preview)/.test(p)) return;
+              var body = JSON.stringify({ path: p, ref: document.referrer || "", host: location.hostname, sessionId: sid() });
+              var blob = new Blob([body], { type: "text/plain" });
+              if (navigator.sendBeacon && navigator.sendBeacon(EP, blob)) return;
+              fetch(EP, { method: "POST", body: body, keepalive: true, headers: { "Content-Type": "text/plain" } }).catch(function () {});
+            } catch (e) {}
+          }
+          var _ps = history.pushState; history.pushState = function () { _ps.apply(this, arguments); setTimeout(ping, 0); };
+          var _rs = history.replaceState; history.replaceState = function () { _rs.apply(this, arguments); setTimeout(ping, 0); };
+          window.addEventListener("popstate", function () { setTimeout(ping, 0); });
+          if (document.readyState !== "loading") ping(); else document.addEventListener("DOMContentLoaded", ping);
+        } catch (e) {}
+      })();
+    </script>
+
+  <script type="module" crossorigin src="/assets/index-DVu66QYR.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BzystiHl.css">
+    <meta data-rh="true" name="description" content="Certificado de análisis por lote: pureza por HPLC, identidad por espectrometría de masas y contenido neto. Busca el COA de tu vial por producto o lote." />
+    <link data-rh="true" rel="canonical" href="https://exomapeptides.mx/certificados-analisis" />
+    <link data-rh="true" rel="alternate" hreflang="es-MX" href="https://exomapeptides.mx/certificados-analisis" />
+    <link data-rh="true" rel="alternate" hreflang="en" href="https://exomapeptides.mx/en/certificados-analisis" />
+    <link data-rh="true" rel="alternate" hreflang="x-default" href="https://exomapeptides.mx/certificados-analisis" />
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="EXOMA Peptides México" />
+    <meta data-rh="true" property="og:locale" content="es_MX" />
+    <meta data-rh="true" property="og:url" content="https://exomapeptides.mx/certificados-analisis" />
+    <meta data-rh="true" property="og:title" content="Certificados de Análisis (COA) por Lote | Pureza HPLC" />
+    <meta data-rh="true" property="og:description" content="Certificado de análisis por lote: pureza por HPLC, identidad por espectrometría de masas y contenido neto. Busca el COA de tu vial por producto o lote." />
+    <meta data-rh="true" property="og:image" content="https://exomapeptides.mx/og-image.jpg" />
+    <meta data-rh="true" property="og:image:alt" content="Certificados de Análisis (COA) por Lote | Pureza HPLC" />
+    <meta data-rh="true" property="og:image:width" content="1200" />
+    <meta data-rh="true" property="og:image:height" content="805" />
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="Certificados de Análisis (COA) por Lote | Pureza HPLC" />
+    <meta data-rh="true" name="twitter:description" content="Certificado de análisis por lote: pureza por HPLC, identidad por espectrometría de masas y contenido neto. Busca el COA de tu vial por producto o lote." />
+    <meta data-rh="true" name="twitter:image" content="https://exomapeptides.mx/og-image.jpg" />
+    <script data-seo-graph="baked" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","OnlineStore","LocalBusiness"],"@id":"https://exomapeptides.mx/#organization","name":"EXOMA Peptides México","legalName":"EXOMA PEPTIDES S.A. de C.V.","alternateName":["EXOMA Peptides","EXOMA"],"url":"https://exomapeptides.mx/","foundingDate":"2025","description":"Exoma Peptides es un proveedor mexicano de péptidos de investigación: compuestos de referencia —agonistas GLP-1 (Semaglutida, Tirzepatida, Retatrutide), secretagogos de hormona de crecimiento (CJC-1295, Ipamorelina, Sermorelina), recuperación tisular (BPC-157, TB-500), cognición (Semax, Selank) y longevidad (Epitalon, NAD+)— con pureza verificada por HPLC y Certificado de Análisis (COA) por lote. Envío nacional en México. Uso exclusivo para investigación científica.","logo":{"@id":"https://exomapeptides.mx/#logo"},"image":{"@id":"https://exomapeptides.mx/#logo"},"sameAs":["https://www.instagram.com/exomamx","https://www.tiktok.com/@exoma.mx","https://www.facebook.com/profile.php?id=61592117955763","https://www.google.com/search?kgmid=/g/11zh4_kh9x"],"publishingPrinciples":"https://exomapeptides.mx/politica-editorial","correctionsPolicy":"https://exomapeptides.mx/politica-editorial#correccion-de-errores","actionableFeedbackPolicy":"https://exomapeptides.mx/politica-editorial#correccion-de-errores","areaServed":{"@type":"Country","name":"México"},"geo":{"@type":"GeoCoordinates","latitude":25.658194,"longitude":-100.3422952},"hasMap":"https://maps.app.goo.gl/jV8vDFB26bMw1o8fA","address":{"@type":"PostalAddress","streetAddress":"Av. Lázaro Cárdenas 1007, Residencial Santa Bárbara","addressLocality":"San Pedro Garza García","addressRegion":"Nuevo León","postalCode":"66266","addressCountry":"MX"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"18:00"}],"currenciesAccepted":"MXN","paymentAccepted":"Tarjeta de crédito, Tarjeta de débito, Transferencia SPEI","knowsAbout":["Péptidos de investigación","Cromatografía HPLC","Agonistas GLP-1","Neuropéptidos"],"priceRange":"$150–$6,399 MXN","email":"ventas@exomapeptides.mx","slogan":"Elevando el estándar en péptidos de investigación en México.","hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","@id":"https://exomapeptides.mx/#merchant-return-policy","applicableCountry":"MX","returnPolicyCountry":"MX","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":15,"returnMethod":"https://schema.org/ReturnByMail","returnFees":"https://schema.org/FreeReturn","refundType":"https://schema.org/FullRefund","merchantReturnLink":"https://exomapeptides.mx/devoluciones"},"hasShippingService":{"@type":"ShippingService","@id":"https://exomapeptides.mx/#shipping-service-mx","name":"Envío Express nacional","fulfillmentType":"https://schema.org/FulfillmentTypeDelivery","handlingTime":{"@type":"ServicePeriod","businessDays":["https://schema.org/Monday","https://schema.org/Tuesday","https://schema.org/Wednesday","https://schema.org/Thursday","https://schema.org/Friday"],"cutoffTime":"13:00:00-06:00","duration":{"@type":"QuantitativeValue","minValue":0,"maxValue":1,"unitCode":"DAY"}},"shippingConditions":[{"@type":"ShippingConditions","shippingDestination":{"@type":"DefinedRegion","addressCountry":"MX"},"orderValue":{"@type":"MonetaryAmount","currency":"MXN","minValue":0,"maxValue":1999.99},"shippingRate":{"@type":"MonetaryAmount","currency":"MXN","value":200},"transitTime":{"@type":"ServicePeriod","businessDays":["https://schema.org/Monday","https://schema.org/Tuesday","https://schema.org/Wednesday","https://schema.org/Thursday","https://schema.org/Friday"],"duration":{"@type":"QuantitativeValue","minValue":1,"maxValue":4,"unitCode":"DAY"}}},{"@type":"ShippingConditions","shippingDestination":{"@type":"DefinedRegion","addressCountry":"MX"},"orderValue":{"@type":"MonetaryAmount","currency":"MXN","minValue":2000},"shippingRate":{"@type":"MonetaryAmount","currency":"MXN","value":0},"transitTime":{"@type":"ServicePeriod","businessDays":["https://schema.org/Monday","https://schema.org/Tuesday","https://schema.org/Wednesday","https://schema.org/Thursday","https://schema.org/Friday"],"duration":{"@type":"QuantitativeValue","minValue":1,"maxValue":4,"unitCode":"DAY"}}}]},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","url":"https://wa.me/17243459069","email":"ventas@exomapeptides.mx","availableLanguage":["Spanish"],"areaServed":"MX","hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"18:00"}}]},{"@type":"ImageObject","@id":"https://exomapeptides.mx/#logo","url":"https://exomapeptides.mx/icons/icon-512x512.png","contentUrl":"https://exomapeptides.mx/icons/icon-512x512.png","width":512,"height":512},{"@type":"WebSite","@id":"https://exomapeptides.mx/#website","url":"https://exomapeptides.mx/","name":"EXOMA Peptides México","alternateName":["EXOMA Peptides","EXOMA"],"inLanguage":["es-MX","en"],"publisher":{"@id":"https://exomapeptides.mx/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://exomapeptides.mx/productos?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"CollectionPage","@id":"https://exomapeptides.mx/certificados-analisis#collection","url":"https://exomapeptides.mx/certificados-analisis","name":"Certificados de Análisis (COA) por lote","inLanguage":"es-MX","isPartOf":{"@id":"https://exomapeptides.mx/#website"}},{"@type":"BreadcrumbList","@id":"https://exomapeptides.mx/certificados-analisis#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://exomapeptides.mx/"},{"@type":"ListItem","position":2,"name":"Certificados de análisis","item":"https://exomapeptides.mx/certificados-analisis"}]}]}</script>
+</head>
+
+  
+  <body>
+    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2262BBF"
+    height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager (sin JavaScript)" aria-hidden="true"></iframe></noscript>
+    
+    <div id="exoma-boot-loader" aria-hidden="true"><div class="wm"></div><div class="bar"></div></div>
+    <div id="root"><main data-seo-prerender="1" style="max-width:72rem;margin:0 auto;padding:2rem 1rem;line-height:1.6"><h1>Certificados de Análisis (COA)</h1><p>Certificado de análisis por lote, con producto, dosis, número de lote y fecha de emisión. La ficha de cada producto con lote certificado enlaza directamente el lote que le corresponde en esta página.</p><ul><li id="lote-EXO010626001B"><a href="/producto/5-amino-1mq">5-Amino-1MQ 10 mg — Lote EXO010626001B</a> — emitido 2026-05-25</li><li id="lote-EXO010626001D"><a href="/producto/5-amino-1mq">5-Amino-1MQ 5 mg — Lote EXO010626001D</a> — emitido 2026-05-24</li><li id="lote-EXO010626001A"><a href="/producto/5-amino-1mq">5-Amino-1MQ 50 mg — Lote EXO010626001A</a> — emitido 2026-05-23</li><li id="lote-EXO010626125A"><a href="/producto/acetato-de-oxitocina">Acetato de Oxitocina 10 mg — Janoshik · 96.804%</a> — emitido 2026-05-30</li><li id="lote-EXO010626125B"><a href="/producto/acetato-de-oxitocina">Acetato de Oxitocina 2 mg — Lote EXO010626125B</a> — emitido 2026-05-29</li><li id="lote-EXO010626125C"><a href="/producto/acetato-de-oxitocina">Acetato de Oxitocina 5 mg — Lote EXO010626125C</a> — emitido 2026-05-30</li><li id="lote-EXO010626126B"><a href="/producto/acetato-de-sermorelina">Acetato de Sermorelina 10 mg — Lote EXO010626126B</a> — emitido 2026-05-28</li><li id="lote-EXO010626126C"><a href="/producto/acetato-de-sermorelina">Acetato de Sermorelina 15 mg — Lote EXO010626126C</a> — emitido 2026-05-29</li><li id="lote-EXO010626126A"><a href="/producto/acetato-de-sermorelina">Acetato de Sermorelina 5 mg — Lote EXO010626126A</a> — emitido 2026-05-29</li><li id="lote-EXO010626123B"><a href="/producto/agua-bacteriostatica">Agua Bacteriostática 10 mL — Lote EXO010626123B</a> — emitido 2026-06-01</li><li id="lote-EXO010626123C"><a href="/producto/agua-bacteriostatica">Agua Bacteriostática 3 mL — Lote EXO010626123C</a> — emitido 2026-06-01</li><li id="lote-EXO010626123A"><a href="/producto/agua-bacteriostatica">Agua Bacteriostática 30 mL — Lote EXO010626123A</a> — emitido 2026-06-01</li><li id="lote-EXO010626049A"><a href="/producto/ahk-cu">AHK-Cu 100 mg — Lote EXO010626049A</a> — emitido 2026-05-30</li><li id="lote-EXO010626088B"><a href="/producto/aicar">AICAR 100 mg — Lote EXO010626088B</a> — emitido 2026-05-23</li><li id="lote-EXO010626088A"><a href="/producto/aicar">AICAR 50 mg — Lote EXO010626088A</a> — emitido 2026-05-25</li><li id="lote-EXO010626129A"><a href="/producto/n-acetyl-epithalon-amidate">Amidato de N-Acetil Epitalon 10 mg — Lote EXO010626129A</a> — emitido 2026-05-28</li><li id="lote-EXO010626129B"><a href="/producto/n-acetyl-epithalon-amidate">Amidato de N-Acetil Epitalon 5 mg — Lote EXO010626129B</a> — emitido 2026-05-30</li><li id="lote-EXO010626002A"><a href="/producto/aod-9604">AOD-9604 10 mg — Lote EXO010626002A</a> — emitido 2026-05-30</li><li id="lote-EXO010626002C"><a href="/producto/aod-9604">AOD-9604 2 mg — Lote EXO010626002C</a> — emitido 2026-05-29</li><li id="lote-EXO010626002B"><a href="/producto/aod-9604">AOD-9604 5 mg — Lote EXO010626002B</a> — emitido 2026-05-30</li><li id="lote-EXO010626003A"><a href="/producto/bpc-157">BPC-157 10 mg — Janoshik · 99.533%</a> — emitido 2026-05-30</li><li id="lote-EXO010626003C"><a href="/producto/bpc-157">BPC-157 20 mg — Janoshik · 99.421%</a> — emitido 2026-05-30</li><li id="lote-EXO010626003B"><a href="/producto/bpc-157">BPC-157 5 mg — Janoshik · 99.606%</a> — emitido 2026-05-29</li><li id="lote-EXO010626167G"><a href="/producto/bpc-157-tb-500">BPC-157 + TB-500 10 mg + 10 mg — Janoshik</a> — emitido 2026-05-29</li><li id="lote-EXO010626168H"><a href="/producto/bpc-157-tb-500">BPC-157 + TB-500 5 mg + 5 mg — Janoshik</a> — emitido 2026-05-28</li><li id="lote-EXO010626131A"><a href="/producto/cagrilintide">Cagrilintida 10 mg — Lote EXO010626131A</a> — emitido 2026-05-30</li><li id="lote-EXO010626131B"><a href="/producto/cagrilintide">Cagrilintida 20 mg — Lote EXO010626131B</a> — emitido 2026-05-30</li><li id="lote-EXO010626131C"><a href="/producto/cagrilintide">Cagrilintida 5 mg — Lote EXO010626131C</a> — emitido 2026-05-29</li><li id="lote-EXO010626132A"><a href="/producto/cagrilintide-semaglutide">Cagrilintida + Semaglutida 10 mg — Lote EXO010626132A</a> — emitido 2026-05-30</li><li id="lote-EXO010626006B"><a href="/producto/cjc-1295-dac">CJC-1295 (DAC) 10 mg — Lote EXO010626006B</a> — emitido 2026-05-30</li><li id="lote-EXO010626006C"><a href="/producto/cjc-1295-dac">CJC-1295 (DAC) 2 mg — Lote EXO010626006C</a> — emitido 2026-05-30</li><li id="lote-EXO010626006A"><a href="/producto/cjc-1295-dac">CJC-1295 (DAC) 5 mg — Lote EXO010626006A</a> — emitido 2026-05-28</li><li id="lote-EXO010626042B"><a href="/producto/cjc-1295-sindac">CJC-1295 (Sin DAC) 10 mg — Lote EXO010626042B</a> — emitido 2026-05-30</li><li id="lote-EXO010626042A"><a href="/producto/cjc-1295-sindac">CJC-1295 (Sin DAC) 5 mg — Janoshik · 98.286%</a> — emitido 2026-05-29</li><li id="lote-EXO010626134C"><a href="/producto/dsip">DSIP (Péptido Inductor del Sueño Delta) 10 mg — Lote EXO010626134C</a> — emitido 2026-05-30</li><li id="lote-EXO010626134B"><a href="/producto/dsip">DSIP (Péptido Inductor del Sueño Delta) 15 mg — Janoshik · 99.443%</a> — emitido 2026-05-28</li><li id="lote-EXO010626134A"><a href="/producto/dsip">DSIP (Péptido Inductor del Sueño Delta) 5 mg — Lote EXO010626134A</a> — emitido 2026-05-29</li><li id="lote-EXO010626135B"><a href="/producto/epithalon">Epitalon 10 mg — Lote EXO010626135B</a> — emitido 2026-05-30</li><li id="lote-EXO010626135A"><a href="/producto/epithalon">Epitalon 40 mg — Lote EXO010626135A</a> — emitido 2026-05-30</li><li id="lote-EXO010626135C"><a href="/producto/epithalon">Epitalon 50 mg — Janoshik · 97.899%</a> — emitido 2026-05-28</li><li id="lote-EXO010626137A"><a href="/producto/foxo4-dri">FOXO4-DRI 10 mg — Lote EXO010626137A</a> — emitido 2026-05-29</li><li id="lote-EXO010626138A"><a href="/producto/ghk-basic">GHK Básico 50 mg — Lote EXO010626138A</a> — emitido 2026-05-25</li><li id="lote-EXO010626010B"><a href="/producto/ghk-cu">GHK-Cu 100 mg — Janoshik · 99.498%</a> — emitido 2026-05-28</li><li id="lote-EXO010626010A"><a href="/producto/ghk-cu">GHK-Cu 50 mg — Janoshik · 99.655%</a> — emitido 2026-05-28</li><li id="lote-EXO010626011B"><a href="/producto/ghrp-2">GHRP-2 10 mg — Lote EXO010626011B</a> — emitido 2026-05-30</li><li id="lote-EXO010626011A"><a href="/producto/ghrp-2">GHRP-2 5 mg — Lote EXO010626011A</a> — emitido 2026-05-29</li><li id="lote-EXO010626012B"><a href="/producto/ghrp-6">GHRP-6 10 mg — Lote EXO010626012B</a> — emitido 2026-05-29</li><li id="lote-EXO010626012A"><a href="/producto/ghrp-6">GHRP-6 5 mg — Lote EXO010626012A</a> — emitido 2026-05-30</li><li id="lote-EXO010626013B"><a href="/producto/glow">GLOW 50 mg — Lote EXO010626013B</a> — emitido 2026-05-30</li><li id="lote-EXO010626013A"><a href="/producto/glow">GLOW 70 mg — Janoshik</a> — emitido 2026-05-30</li><li id="lote-EXO010626139A"><a href="/producto/glutation">Glutatión (GSH) 1500 mg — Janoshik · 98.841%</a> — emitido 2026-05-27</li><li id="lote-EXO010626142B"><a href="/producto/hexarelin">Hexarelina 2 mg — Lote EXO010626142B</a> — emitido 2026-05-29</li><li id="lote-EXO010626142A"><a href="/producto/hexarelin">Hexarelina 5 mg — Lote EXO010626142A</a> — emitido 2026-05-29</li><li id="lote-EXO010626145B"><a href="/producto/ipamorelin">Ipamorelina 10 mg — Janoshik · 99.695%</a> — emitido 2026-05-30</li><li id="lote-EXO010626145A"><a href="/producto/ipamorelin">Ipamorelina 2 mg — Lote EXO010626145A</a> — emitido 2026-05-30</li><li id="lote-EXO010626145C"><a href="/producto/ipamorelin">Ipamorelina 5 mg — Lote EXO010626145C</a> — emitido 2026-05-30</li><li id="lote-EXO010626146A"><a href="/producto/kisspeptin">Kisspeptina 10 mg — Janoshik · 99.868%</a> — emitido 2026-05-30</li><li id="lote-EXO010626146B"><a href="/producto/kisspeptin">Kisspeptina 5 mg — Lote EXO010626146B</a> — emitido 2026-05-30</li><li id="lote-EXO010626014A"><a href="/producto/klow">KLOW 80 mg — Lote EXO010626014A</a> — emitido 2026-05-30</li><li id="lote-EXO010626060A"><a href="/producto/kpv">KPV 10 mg — Lote EXO010626060A</a> — emitido 2026-05-30</li><li id="lote-EXO010626060C"><a href="/producto/kpv">KPV 30 mg — Janoshik · 97.372%</a> — emitido 2026-05-30</li><li id="lote-EXO010626060B"><a href="/producto/kpv">KPV 5 mg — Lote EXO010626060B</a> — emitido 2026-05-29</li><li id="lote-EXO010626147B"><a href="/producto/liraglutide">Liraglutida 10 mg — Lote EXO010626147B</a> — emitido 2026-05-29</li><li id="lote-EXO010626147A"><a href="/producto/liraglutide">Liraglutida 30 mg — Lote EXO010626147A</a> — emitido 2026-05-28</li><li id="lote-EXO010626147C"><a href="/producto/liraglutide">Liraglutida 5 mg — Lote EXO010626147C</a> — emitido 2026-05-30</li><li id="lote-EXO010626061A"><a href="/producto/ll-37">LL-37 5 mg — Lote EXO010626061A</a> — emitido 2026-05-30</li><li id="lote-EXO010626148A"><a href="/producto/mazdutide">Mazdutida 10 mg — Lote EXO010626148A</a> — emitido 2026-05-25</li><li id="lote-EXO010626148B"><a href="/producto/mazdutide">Mazdutida 5 mg — Lote EXO010626148B</a> — emitido 2026-05-23</li><li id="lote-EXO010626021A"><a href="/producto/melanotan-i">Melanotan I 10 mg — Lote EXO010626021A</a> — emitido 2026-05-29</li><li id="lote-EXO010626022A"><a href="/producto/melanotan-ii">Melanotan II 10 mg — Janoshik · 99.931%</a> — emitido 2026-05-29</li><li id="lote-EXO010626023B"><a href="/producto/mots-c">MOTS-c 10 mg — Janoshik · 98.953%</a> — emitido 2026-05-30</li><li id="lote-EXO010626023A"><a href="/producto/mots-c">MOTS-c 40 mg — Lote EXO010626023A</a> — emitido 2026-05-29</li><li id="lote-EXO010626149A"><a href="/producto/na-selank-amidate">NA Selank Amidato 30 mg — Lote EXO010626149A</a> — emitido 2026-05-30</li><li id="lote-EXO010626150A"><a href="/producto/na-semax-amidate">NA Semax Amidato 30 mg — Lote EXO010626150A</a> — emitido 2026-05-29</li><li id="lote-EXO010626024A"><a href="/producto/nad">NAD+ 100 mg — Lote EXO010626024A</a> — emitido 2026-05-21</li><li id="lote-EXO010626024D"><a href="/producto/nad">NAD+ 1000 mg — Lote EXO010626024D</a> — emitido 2026-05-28</li><li id="lote-EXO010626024B"><a href="/producto/nad">NAD+ 250 mg — Lote EXO010626024B</a> — emitido 2026-05-21</li><li id="lote-EXO010626024C"><a href="/producto/nad">NAD+ 500 mg — Lote EXO010626024C</a> — emitido 2026-05-24</li><li id="lote-EXO010626153A"><a href="/producto/pt-141">PT-141 (Bremelanotida) 10 mg — Janoshik · 99.934%</a> — emitido 2026-05-30</li><li id="lote-EXO010626027D"><a href="/producto/retatrutida">Retatrutide 10 mg — Lote EXO010626027D</a> — emitido 2026-05-22</li><li id="lote-EXO010626027J"><a href="/producto/retatrutida">Retatrutide 100 mg — Lote EXO010626027J</a> — emitido 2026-05-22</li><li id="lote-EXO010626027B"><a href="/producto/retatrutida">Retatrutide 15 mg — Lote EXO010626027B</a> — emitido 2026-05-22</li><li id="lote-EXO010626027H"><a href="/producto/retatrutida">Retatrutide 20 mg — Lote EXO010626027H</a> — emitido 2026-05-27</li><li id="lote-EXO010626027A"><a href="/producto/retatrutida">Retatrutide 30 mg — Janoshik · 99.116%</a> — emitido 2026-05-21</li><li id="lote-EXO010626027E"><a href="/producto/retatrutida">Retatrutide 40 mg — Lote EXO010626027E</a> — emitido 2026-05-21</li><li id="lote-EXO010626027C"><a href="/producto/retatrutida">Retatrutide 5 mg — Lote EXO010626027C</a> — emitido 2026-05-25</li><li id="lote-EXO010626027F"><a href="/producto/retatrutida">Retatrutide 50 mg — Lote EXO010626027F</a> — emitido 2026-05-23</li><li id="lote-EXO010626027G"><a href="/producto/retatrutida">Retatrutide 60 mg — Lote EXO010626027G</a> — emitido 2026-05-19</li><li id="lote-EXO010626028B"><a href="/producto/selank">Selank 10 mg — Janoshik · 99.62%</a> — emitido 2026-05-30</li><li id="lote-EXO010626028A"><a href="/producto/selank">Selank 30 mg — Lote EXO010626028A</a> — emitido 2026-05-28</li><li id="lote-EXO010626028C"><a href="/producto/selank">Selank 5 mg — Lote EXO010626028C</a> — emitido 2026-05-29</li><li id="lote-EXO010626155C"><a href="/producto/semaglutide">Semaglutida 10 mg — Lote EXO010626155C</a> — emitido 2026-05-21</li><li id="lote-EXO010626155F"><a href="/producto/semaglutide">Semaglutida 15 mg — Lote EXO010626155F</a> — emitido 2026-05-20</li><li id="lote-EXO010626155B"><a href="/producto/semaglutide">Semaglutida 2 mg — Lote EXO010626155B</a> — emitido 2026-05-19</li><li id="lote-EXO010626155E"><a href="/producto/semaglutide">Semaglutida 20 mg — Lote EXO010626155E</a> — emitido 2026-05-28</li><li id="lote-EXO010626155D"><a href="/producto/semaglutide">Semaglutida 30 mg — Lote EXO010626155D</a> — emitido 2026-05-23</li><li id="lote-EXO010626155A"><a href="/producto/semaglutide">Semaglutida 5 mg — Lote EXO010626155A</a> — emitido 2026-05-24</li><li id="lote-EXO010626029B"><a href="/producto/semax">Semax 10 mg — Janoshik · 99.263%</a> — emitido 2026-05-28</li><li id="lote-EXO010626029A"><a href="/producto/semax">Semax 30 mg — Lote EXO010626029A</a> — emitido 2026-05-30</li><li id="lote-EXO010626029C"><a href="/producto/semax">Semax 5 mg — Lote EXO010626029C</a> — emitido 2026-05-30</li><li id="lote-EXO010626217E"><a href="/producto/semax-selank">Semax + Selank 10 mg + 10 mg — Lote EXO010626217E</a> — emitido 2026-05-30</li><li id="lote-EXO010626078A"><a href="/producto/ss-31">SS-31 10 mg — Lote EXO010626078A</a> — emitido 2026-05-30</li><li id="lote-EXO010626078B"><a href="/producto/ss-31">SS-31 50 mg — Janoshik · 99.723%</a> — emitido 2026-05-30</li><li id="lote-EXO010626031C"><a href="/producto/tb-500">TB-500 10 mg — Lote EXO010626031C</a> — emitido 2026-05-30</li><li id="lote-EXO010626031B"><a href="/producto/tb-500">TB-500 20 mg — Janoshik · 99.31%</a> — emitido 2026-05-30</li><li id="lote-EXO010626031A"><a href="/producto/tb-500">TB-500 5 mg — Lote EXO010626031A</a> — emitido 2026-05-30</li><li id="lote-EXO010626035A"><a href="/producto/tb-500-frag">TB-500 FRAG 10 mg — Lote EXO010626035A</a> — emitido 2026-05-29</li><li id="lote-EXO010626157C"><a href="/producto/tesamorelin">Tesamorelina 10 mg — Janoshik · 97.849%</a> — emitido 2026-05-29</li><li id="lote-EXO010626157A"><a href="/producto/tesamorelin">Tesamorelina 2 mg — Lote EXO010626157A</a> — emitido 2026-05-29</li><li id="lote-EXO010626157B"><a href="/producto/tesamorelin">Tesamorelina 20 mg — Janoshik · 97.609%</a> — emitido 2026-05-30</li><li id="lote-EXO010626157D"><a href="/producto/tesamorelin">Tesamorelina 5 mg — Lote EXO010626157D</a> — emitido 2026-05-29</li><li id="lote-EXO010626159B"><a href="/producto/thymosin-alpha-1">Timosina Alfa-1 10 mg — Lote EXO010626159B</a> — emitido 2026-05-28</li><li id="lote-EXO010626159A"><a href="/producto/thymosin-alpha-1">Timosina Alfa-1 5 mg — Lote EXO010626159A</a> — emitido 2026-05-30</li><li id="lote-EXO010626033F"><a href="/producto/tirzepatida">Tirzepatida 10 mg — Lote EXO010626033F</a> — emitido 2026-05-28</li><li id="lote-EXO010626033A"><a href="/producto/tirzepatida">Tirzepatida 100 mg — Lote EXO010626033A</a> — emitido 2026-05-23</li><li id="lote-EXO010626033J"><a href="/producto/tirzepatida">Tirzepatida 15 mg — Lote EXO010626033J</a> — emitido 2026-05-22</li><li id="lote-EXO010626033E"><a href="/producto/tirzepatida">Tirzepatida 20 mg — Lote EXO010626033E</a> — emitido 2026-05-23</li><li id="lote-EXO010626033B"><a href="/producto/tirzepatida">Tirzepatida 30 mg — Lote EXO010626033B</a> — emitido 2026-05-21</li><li id="lote-EXO010626033C"><a href="/producto/tirzepatida">Tirzepatida 40 mg — Lote EXO010626033C</a> — emitido 2026-05-25</li><li id="lote-EXO010626033H"><a href="/producto/tirzepatida">Tirzepatida 5 mg — Lote EXO010626033H</a> — emitido 2026-05-23</li><li id="lote-EXO010626033G"><a href="/producto/tirzepatida">Tirzepatida 50 mg — Lote EXO010626033G</a> — emitido 2026-05-20</li><li id="lote-EXO010626033D"><a href="/producto/tirzepatida">Tirzepatida 60 mg — Lote EXO010626033D</a> — emitido 2026-05-23</li></ul></main><footer data-seo-prerender="1" style="max-width:72rem;margin:0 auto;padding:2rem 1rem"><nav aria-label="Mapa del sitio"><ul><li><a href="/productos">Catálogo Completo</a></li><li><a href="/compendio">Compendio Científico</a></li><li><a href="/calculadora">Calculadora de Reconstitución</a></li><li><a href="/comparador">Comparador</a></li><li><a href="/stacks">Protocolos</a></li><li><a href="/blog">Blog</a></li><li><a href="/nosotros">Sobre EXOMA</a></li><li><a href="/contacto">Contacto</a></li><li><a href="/que-son-peptidos">Qué son los péptidos</a></li><li><a href="/como-reconstituir">Cómo Reconstituir</a></li><li><a href="/control-calidad">Control de Calidad</a></li><li><a href="/faq">Preguntas Frecuentes</a></li><li><a href="/ayuda-especializada">Ayuda especializada</a></li><li><a href="/tracking">Rastrear Pedido</a></li><li><a href="/distribuidores">Distribuidores y Mayoreo</a></li><li><a href="/certificados-analisis">Certificados (COA)</a></li><li><a href="/cumplimiento">Cumplimiento Regulatorio</a></li><li><a href="/terms">Términos y Condiciones</a></li><li><a href="/privacy">Política de Privacidad</a></li><li><a href="/envios">Envíos y Entregas</a></li><li><a href="/devoluciones">Devoluciones</a></li><li><a href="/peptidos-son-seguros">¿Son Seguros los Péptidos?</a></li><li><a href="/mitos-peptidos">Mitos sobre Péptidos</a></li><li><a href="/certificados-janoshik">Verificación Janoshik</a></li><li><a href="/pureza-hplc">Pureza y Análisis HPLC</a></li><li><a href="/legalidad-peptidos">Legalidad de Péptidos</a></li><li><a href="/compra-segura">Compra Protegida</a></li><li><a href="/policies">Centro de Políticas</a></li></ul></nav><nav aria-label="Idioma"><ul><li><a href="/en" hreflang="en">English</a></li></ul></nav><address style="font-style:normal">Contacto: <ul><li><a href="mailto:ventas@exomapeptides.mx">ventas@exomapeptides.mx</a></li><li>Atención: 9:00 a 18:00 h, todos los días</li></ul></address></footer></div>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3f3b884ef043589',t:'MTc5MDEwNTM5MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
