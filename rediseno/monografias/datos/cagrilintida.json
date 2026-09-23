@@ -42,8 +42,7 @@
  },
  "regulatorio": {
   "aprobacion": "Sin aprobación vigente como producto independiente en el momento de esta revisión. Está en desarrollo clínico avanzado.",
-  "wada": "PROHIBIDA por la cláusula S0: está en fase 3 sin aprobación sanitaria, así que cae aunque no esté nombrada en la lista.",
-  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+  "nota": "Campos retirados el 2026-09-23 por decisión del dueño; están en el historial de git si alguna vez hicieran falta."
  },
  "estudios": [
   {

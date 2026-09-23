@@ -43,8 +43,7 @@
  },
  "regulatorio": {
   "aprobacion": "Aprobada por agencias reguladoras para diabetes tipo 2 y para el manejo crónico del peso, con distintas marcas.",
-  "wada": "NO prohibida: tiene aprobación regulatoria y no figura en la sección S2. Está en el Programa de Monitoreo y no requiere autorización de uso terapéutico.",
-  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+  "nota": "Campos retirados el 2026-09-23 por decisión del dueño; están en el historial de git si alguna vez hicieran falta."
  },
  "estudios": [
   {

@@ -49,8 +49,7 @@
  },
  "regulatorio": {
   "aprobacion": "Aprobada y comercializada como Zadaxin en varios países para hepatitis B y C crónicas y como adyuvante inmunológico. No cuenta con aprobación de la FDA de Estados Unidos. Comprobar el estatus vigente en México antes de afirmar nada.",
-  "wada": "NO está nombrada en la Lista de Prohibiciones. Es una molécula distinta de la timosina beta-4, con la que se confunde a menudo. Su situación depende de si existe aprobación sanitaria vigente aplicable (cláusula S0): verificar caso a caso.",
-  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+  "nota": "Campos retirados el 2026-09-23 por decisión del dueño; están en el historial de git si alguna vez hicieran falta."
  },
  "estudios": [
   {
@@ -265,7 +264,6 @@
   "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
  },
  "avisos": [
-  "No confundir timosina ALFA-1 con timosina BETA-4 (TB-500). Son moléculas distintas, con literatura distinta y con estatus distinto en la lista de la WADA.",
   "La pauta de 1,6 mg dos veces por semana se repite en casi todo el programa clínico. Eso NO la convierte en una recomendación: es el diseño de esos ensayos y así debe leerse."
  ],
  "pendientes": [

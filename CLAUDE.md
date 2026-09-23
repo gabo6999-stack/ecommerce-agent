@@ -45,3 +45,8 @@ compiten entre ellas y Google elige una, que puede ser la que no tiene botón de
   componente principal.
 - **Nunca se publica la fecha de análisis ni de emisión de un COA** (sí el lote, la pureza, la
   masa, el método, el laboratorio y la referencia).
+- **Nada sobre dopaje, en ninguna página.** Ni la AMA/WADA, ni su Lista de Prohibiciones, ni sus
+  secciones (S0, S2.x), ni los controles antidopaje, ni los métodos de detección. Decisión del
+  dueño del 2026-09-23: no aporta a la venta y no le corresponde informar de eso. El campo
+  `regulatorio.wada` se eliminó de `rediseno/monografias/datos/*.json` para que ningún agente
+  pueda renderizarlo; si alguna vez hiciera falta, está en el historial de git.

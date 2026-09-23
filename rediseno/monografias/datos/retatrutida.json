@@ -50,8 +50,7 @@
  },
  "regulatorio": {
   "aprobacion": "SIN aprobación en ninguna jurisdicción. Está en desarrollo clínico.",
-  "wada": "PROHIBIDA por la cláusula S0: está en desarrollo clínico sin aprobación sanitaria, así que cae aunque no esté nombrada en la lista. Es el contraste exacto con semaglutida y tirzepatida, que sí están aprobadas y no lo están.",
-  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+  "nota": "Campos retirados el 2026-09-23 por decisión del dueño; están en el historial de git si alguna vez hicieran falta."
  },
  "estudios": [
   {
@@ -429,9 +428,7 @@
   ],
   "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
  },
- "avisos": [
-  "Retatrutida NO está aprobada. Es la diferencia que explica por qué está prohibida en competición y semaglutida no: el criterio de la WADA es regulatorio, no farmacológico."
- ],
+ "avisos": [],
  "pendientes": [
   "No hay CAS, fórmula molecular ni peso molecular verificables: PubChem solo tiene registros de impurezas. Si se quieren publicar, hay que citar otra fuente citable (por ejemplo la propuesta de DCI de la OMS). No inventarlos.",
   "Tres resúmenes no declaran la pauta completa y sus celdas lo dicen con la fórmula del archivo: 35985340 (ni dosis ni vía, ni en ratones ni en el estudio de fase 1), 40726454 (sin vía, frecuencia ni duración) y 40916752 (sin vía). Solo se podrán rellenar leyendo el texto completo.",

@@ -42,8 +42,7 @@
  },
  "regulatorio": {
   "aprobacion": "Registrado en Rusia como ansiolítico peptídico. Sin aprobación en Estados Unidos ni en la Unión Europea.",
-  "wada": "No está nombrado en la Lista de Prohibiciones. Queda sujeto a la cláusula S0 si no cuenta con aprobación sanitaria vigente aplicable: verificar caso a caso.",
-  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+  "nota": "Campos retirados el 2026-09-23 por decisión del dueño; están en el historial de git si alguna vez hicieran falta."
  },
  "estudios": [
   {

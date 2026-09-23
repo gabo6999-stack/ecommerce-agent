@@ -41,8 +41,7 @@
  },
  "regulatorio": {
   "aprobacion": "Sin aprobación. Se produce y se vende como reactivo de investigación bioquímica y como suplemento de medios de cultivo celular.",
-  "wada": "PROHIBIDO. Sección S2.3 (factores de crecimiento): el IGF-1 y sus análogos están nombrados.",
-  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+  "nota": "Campos retirados el 2026-09-23 por decisión del dueño; están en el historial de git si alguna vez hicieran falta."
  },
  "estudios": [
   {

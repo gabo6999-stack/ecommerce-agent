@@ -317,9 +317,7 @@
    "pendientes": [
     "No hay CAS, fórmula molecular ni peso molecular verificables: PubChem solo tiene registros de impurezas. Si se quieren publicar, hay que citar otra fuente citable (por ejemplo la propuesta de DCI de la OMS). No inventarlos."
    ],
-   "avisos_para_el_redactor": [
-    "Retatrutida NO está aprobada. Es la diferencia que explica por qué está prohibida en competición y semaglutida no: el criterio de la WADA es regulatorio, no farmacológico."
-   ]
+   "avisos_para_el_redactor": []
   },
   {
    "slug": "selank",
@@ -405,7 +403,6 @@
     "Confirmar el estatus regulatorio vigente en México (COFEPRIS) antes de decir nada sobre aprobación en la monografía."
    ],
    "avisos_para_el_redactor": [
-    "No confundir timosina ALFA-1 con timosina BETA-4 (TB-500). Son moléculas distintas, con literatura distinta y con estatus distinto en la lista de la WADA.",
     "La pauta de 1,6 mg dos veces por semana se repite en casi todo el programa clínico. Eso NO la convierte en una recomendación: es el diseño de esos ensayos y así debe leerse."
    ]
   },

@@ -55,8 +55,7 @@
  },
  "regulatorio": {
   "aprobacion": "Sin aprobación como medicamento. Se usa como ingrediente cosmético tópico.",
-  "wada": "No nombrado en la Lista de Prohibiciones. Queda sujeto a la cláusula S0 (sustancia sin aprobación sanitaria vigente para uso humano) si se administra por vía sistémica. Verificar caso por caso.",
-  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026, secciones S0 y S2; lectura interna del PDF contrastada con USADA (2026-08-29). La lista cambia cada 1 de enero: revalidar antes de publicar."
+  "nota": "Campos retirados el 2026-09-23 por decisión del dueño; están en el historial de git si alguna vez hicieran falta."
  },
  "estudios": [
   {

@@ -61,8 +61,7 @@
  },
  "regulatorio": {
   "aprobacion": "Ninguno de los dos componentes está aprobado.",
-  "wada": "BPC-157: prohibido por S0, citado por nombre. TB-500 y timosina beta-4: prohibidos por S2.3 (factores de crecimiento), citados por nombre.",
-  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+  "nota": "Campos retirados el 2026-09-23 por decisión del dueño; están en el historial de git si alguna vez hicieran falta."
  },
  "estudios": [
   {
