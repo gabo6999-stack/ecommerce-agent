@@ -1,0 +1,10 @@
+# El sitio corre en Linux y los archivos se despliegan por scp desde la copia de
+# trabajo. Sin esto, un checkout en Windows los convierte a CRLF y el despliegue
+# mete retornos de carro donde no los había: pasó el 2026-09-22 con el widget de
+# la página 1551, que entró a la base con 524 CR de más.
+* text=auto eol=lf
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.pdf binary
