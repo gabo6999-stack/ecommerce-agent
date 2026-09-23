@@ -852,8 +852,10 @@ function pys_dis_vial( $post_id ) {
 	 */
 	static $viales = array(
 	'retatrutida'              => 'vial-retatrutida-30-mg.jpg',
-	'mots-c-10mg'              => 'vial-mots-c-10-mg.jpg',
-	'mots-c-40mg'              => 'vial-mots-c-40-mg.jpg',
+	/* Las dos presentaciones se fusionaron en una ficha variable el 2026-09-23;
+	   la tarjeta usa el render de 10 mg, que es el gramaje de entrada, igual que
+	   la destacada del padre. El de 40 mg vive en su variación. */
+	'mots-c'                   => 'vial-mots-c-10-mg.jpg',
 	'bpc-157-tb-500'           => 'vial-bpc-157-tb500-5-5mg.jpg',
 	'agua-bacteriostatica-3ml' => 'vial-agua-bacteriostatica-0-9-alcohol-bencilico.jpg',
 	'igf-1-lr3-1mg'            => 'vial-igf-1-lr3-1-mg.jpg',
