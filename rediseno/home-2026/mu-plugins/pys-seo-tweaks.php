@@ -40,25 +40,60 @@ function pys_medical_reviewer() {
 }
 }
 
-if (!function_exists('pys_medical_schema')) {
-function pys_medical_schema() {
-    if (!is_singular('product')) { return; }
-    global $post;
-    $schema = array(
-        '@context'            => 'https://schema.org',
-        '@type'               => 'MedicalWebPage',
-        'name'                => get_the_title($post->ID),
-        'url'                 => get_permalink($post->ID),
-        'lastReviewed'        => get_the_modified_date('Y-m-d', $post->ID),
-        'reviewedBy'          => pys_medical_reviewer(),
-        'medicalAudience'     => array('@type' => 'Patient'),
-        'isAccessibleForFree' => true,
-        'inLanguage'          => 'es-MX',
-    );
-    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</' . 'script>';
-}
-add_action('wp_head', 'pys_medical_schema');
-}
+/* -- Por qué la ficha ya NO emite MedicalWebPage -----------------------
+   Emitía MedicalWebPage con medicalAudience: Patient en cada ficha. Dos
+   problemas, y el primero no es de posicionamiento: la propia ficha dice
+   «material destinado exclusivamente a investigación de laboratorio, no para
+   consumo humano», así que declararle a Google una audiencia de PACIENTES la
+   contradice de frente. El segundo es el reparto: MedicalWebPage empuja la
+   ficha a territorio informacional, que es el de /monografia/<slug>/, y las
+   dos páginas acaban peleándose la misma consulta.
+   El revisor médico no se pierde: sigue visible en la ficha (pys_revisado_por)
+   y sigue emitiéndose como reviewedBy en el schema de la monografía, que es la
+   página cuya entidad sí es científica. */
+
+/* -- Migas de pan en el schema de las fichas ---------------------------
+   Rank Math emite su @graph sin BreadcrumbList (comprobado: Organization,
+   WebSite, ImageObject, ItemPage y Product, y nada más). Se añade aquí, con el
+   mismo hook que usa el resto del sitio, para que la ruta Inicio › Categoría ›
+   Producto quede declarada a máquina igual que la de las monografías. */
+add_filter(
+    'rank_math/json_ld',
+    function ( $datos, $jsonld ) {
+        if ( ! function_exists( 'is_product' ) || ! is_product() ) {
+            return $datos;
+        }
+        $id = get_queried_object_id();
+        $ruta = array( array( 'nombre' => 'Inicio', 'url' => home_url( '/' ) ) );
+        $terminos = get_the_terms( $id, 'product_cat' );
+        if ( $terminos && ! is_wp_error( $terminos ) ) {
+            $t = reset( $terminos );
+            $enlace = get_term_link( $t );
+            if ( ! is_wp_error( $enlace ) ) {
+                $ruta[] = array( 'nombre' => $t->name, 'url' => $enlace );
+            }
+        }
+        $ruta[] = array( 'nombre' => get_the_title( $id ), 'url' => get_permalink( $id ) );
+
+        $elementos = array();
+        foreach ( $ruta as $i => $paso ) {
+            $elementos[] = array(
+                '@type'    => 'ListItem',
+                'position' => $i + 1,
+                'name'     => $paso['nombre'],
+                'item'     => $paso['url'],
+            );
+        }
+        $datos['pysMigas'] = array(
+            '@type'           => 'BreadcrumbList',
+            '@id'             => get_permalink( $id ) . '#breadcrumb',
+            'itemListElement' => $elementos,
+        );
+        return $datos;
+    },
+    20,
+    2
+);
 
 /* -- Bloque visible "Revisado por" en fichas de producto ---------------- */
 if (!function_exists('pys_revisado_por')) {

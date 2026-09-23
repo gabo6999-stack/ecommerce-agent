@@ -201,6 +201,19 @@ function pys_mono_molecula( $id ) {
 	return '' !== $m ? $m : get_the_title( $id );
 }
 
+/**
+ * Título SEO de la monografía, para el `name` del WebPage.
+ *
+ * El H1 y el título SEO dicen cosas distintas a propósito —el H1 es la firma de
+ * la serie y el title es el que captura la consulta—, así que el schema tiene
+ * que declarar el segundo, que es el que Google enseña. Si Rank Math guardó el
+ * título con variables sin resolver (%sep%, %sitename%), se cae al del post.
+ */
+function pys_mono_titulo_seo( $id ) {
+	$t = trim( (string) get_post_meta( $id, 'rank_math_title', true ) );
+	return ( '' !== $t && false === strpos( $t, '%' ) ) ? $t : get_the_title( $id );
+}
+
 /** La ficha de producto asociada a una monografía, si sigue publicada. */
 function pys_mono_producto( $id ) {
 	$pid = (int) get_post_meta( $id, '_pys_producto_id', true );
@@ -429,7 +442,7 @@ add_action(
 			'@type'               => 'WebPage',
 			'@id'                 => $url . '#pagina',
 			'url'                 => $url,
-			'name'                => get_the_title( $id ),
+			'name'                => pys_mono_titulo_seo( $id ),
 			'inLanguage'          => 'es-MX',
 			'isAccessibleForFree' => true,
 			'datePublished'       => get_the_date( 'c', $id ),
@@ -448,8 +461,19 @@ add_action(
 			$pagina['citation'] = array_values(
 				array_map(
 					function ( $c ) {
+						/* El campo admite «PMID 14554208» o una URL. Antes se metía el
+						   texto tal cual en `url`, y «PMID 14554208» no es una URL:
+						   el nodo quedaba inválido. Ahora el PMID se convierte en
+						   ScholarlyArticle con su identificador y su URL de PubMed. */
+						if ( preg_match( '/^PMID[\s:]*([0-9]{4,9})$/i', $c, $m ) ) {
+							return array(
+								'@type'      => 'ScholarlyArticle',
+								'identifier' => 'PMID:' . $m[1],
+								'url'        => 'https://pubmed.ncbi.nlm.nih.gov/' . $m[1] . '/',
+							);
+						}
 						return array(
-							'@type' => 'CreativeWork',
+							'@type' => 'ScholarlyArticle',
 							'url'   => $c,
 						);
 					},
@@ -507,17 +531,53 @@ add_shortcode(
 		$filas = '';
 		foreach ( $monografias as $m ) {
 			$molecula = pys_mono_molecula( $m->ID );
-			$producto = pys_mono_producto( $m->ID );
 			$cas      = trim( (string) get_post_meta( $m->ID, '_pys_cas', true ) );
 			$filas   .= '<li class="pys-mono-item">'
 				. '<a class="pys-mono-item-tit" href="' . esc_url( get_permalink( $m ) ) . '">'
 				. esc_html( $molecula ) . '</a>'
 				. ( '' !== $cas ? '<span class="pys-mono-item-cas">CAS ' . esc_html( $cas ) . '</span>' : '' )
-				. ( $producto
-					? '<a class="pys-mono-item-ficha" href="' . esc_url( get_permalink( $producto ) ) . '">Ver la ficha</a>'
-					: '' )
+				/* El índice NO enlaza a las fichas: el puente a la tienda vive dentro
+				   de cada monografía, por debajo del 80% de la página. Un hub que
+				   empuja a comprar deja de ser el silo informativo que justifica
+				   que las dos páginas existan por separado. */
 				. '</li>';
 		}
 		return '<ul class="pys-mono-indice">' . $filas . '</ul>';
 	}
+);
+
+/* ─────────────────────────────────────────────────────────────────────
+   7. EL PUNTERO DE LA FICHA A SU MONOGRAFÍA, EN EL SCHEMA
+   ─────────────────────────────────────────────────────────────────────
+   Exoma declara el cruce a máquina y en un solo sentido: Product.subjectOf
+   apunta al compendio, y el compendio NO devuelve el puntero porque su
+   entidad es la sustancia (WebPage.about → MolecularEntity), no el producto.
+   Así queda dicho quién es la página comercial y quién la científica, que es
+   justo lo que evita que Google las trate como la misma cosa.
+   PYS no emitía `subjectOf` en ninguna ficha. */
+add_filter(
+	'rank_math/json_ld',
+	function ( $datos, $jsonld ) {
+		if ( ! function_exists( 'is_product' ) || ! is_product() ) {
+			return $datos;
+		}
+		$monografia = pys_mono_de_producto( get_queried_object_id() );
+		if ( ! $monografia ) {
+			return $datos;
+		}
+		foreach ( $datos as $clave => $nodo ) {
+			if ( ! is_array( $nodo ) || empty( $nodo['@type'] ) || 'Product' !== $nodo['@type'] ) {
+				continue;
+			}
+			$datos[ $clave ]['subjectOf'] = array(
+				'@type' => 'WebPage',
+				'@id'   => get_permalink( $monografia ) . '#webpage',
+				'url'   => get_permalink( $monografia ),
+				'name'  => pys_mono_molecula( $monografia->ID ) . ' — monografía científica',
+			);
+		}
+		return $datos;
+	},
+	21,
+	2
 );

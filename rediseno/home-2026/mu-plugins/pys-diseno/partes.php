@@ -528,6 +528,16 @@ if ( $pys_envio_fijo ) {
 }
 $pys_avisos[] = '<span>Transferencia · tarjeta · Mercado Pago · <b>depósito en OXXO</b> · cripto</span>';
 ?>
+<?php
+/* El cintillo no entra en el silo de monografías. Es el único bloque
+   realmente comercial de esas páginas —«envío gratuito desde $4,500 MXN»,
+   «tarifa fija», las formas de pago— y encabezarlas con él convierte una
+   página de consulta en un escaparate: es justo lo que hace que la ficha y
+   la monografía se peleen por la misma consulta. Exoma tampoco lo pone en
+   sus compendios (medido: cero «MXN», cero «precio», cero «envío»).
+   El resto de la cabecera y el pie sí se quedan: son navegación del sitio. */
+if ( ! function_exists( 'pys_dis_es_monografia' ) || ! pys_dis_es_monografia() ) :
+?>
 <div class="cintillo">
   <div class="tira">
     <?php
@@ -545,6 +555,7 @@ $pys_avisos[] = '<span>Transferencia · tarjeta · Mercado Pago · <b>depósito 
     <?php endfor; ?>
   </div>
 </div>
+<?php endif; ?>
 
 <header class="top">
   <div class="wrap">
