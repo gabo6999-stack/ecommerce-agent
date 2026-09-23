@@ -24,7 +24,7 @@
  },
  "estado_evidencia": {
   "escalon": "fase 2 completada y fase 3 en curso, sin aprobación",
-  "texto": "Retatrutida está en desarrollo clínico avanzado y no está aprobada. En PubMed, la consulta «retatrutide OR LY3437943» devuelve 192 registros, de los que 8 están tipificados como ensayo clínico y 7 como ensayo aleatorizado (consulta del 22-sep-2026). El ensayo de fase 2 en obesidad y el de fase 3 en diabetes tipo 2 ya están publicados.",
+  "texto": "Retatrutida está en desarrollo clínico avanzado y no está aprobada. En PubMed, la consulta «retatrutide OR LY3437943» devuelve 192 registros, de los que 8 están tipificados como ensayo clínico y 7 como ensayo aleatorizado (recuento del 22-sep-2026, repetido sin cambios el 23-sep-2026). La serie publicada cubre el desarrollo entero: caracterización in vitro y en ratones junto con un estudio de fase 1 de dosis única ascendente (2022), fase 1b de dosis múltiples ascendentes en diabetes tipo 2 (2022), fase 2 en diabetes tipo 2 (2023), fase 2 en obesidad (2023), subestudio de fase 2a en enfermedad hepática esteatósica (2024), subestudios y análisis post-hoc de fase 2 (2025 y 2026), un estudio mecanístico de fase 2b en enfermedad renal crónica con solo el diseño publicado (2026) y fase 3 en diabetes tipo 2 (2026). Esta monografía documenta 11 registros verificados uno a uno contra PubMed.",
   "consultas_pubmed": [
    {
     "consulta": "retatrutide OR LY3437943",
@@ -35,6 +35,16 @@
     "consulta": "(lo anterior) AND clinical trial[pt]",
     "resultados": 8,
     "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "retatrutide OR LY3437943 (recuento repetido)",
+    "resultados": 192,
+    "fecha": "2026-09-23"
+   },
+   {
+    "consulta": "(lo anterior) AND randomized controlled trial[pt]",
+    "resultados": 7,
+    "fecha": "2026-09-23"
    }
   ]
  },
@@ -44,6 +54,78 @@
   "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
  },
  "estudios": [
+  {
+   "pmid": "35985340",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/35985340/",
+   "titulo": "LY3437943, a novel triple glucagon, GIP, and GLP-1 receptor agonist for glycemic control and weight loss: From discovery to clinical proof of concept.",
+   "autores": [
+    "Coskun T",
+    "Urva S",
+    "Roell WC",
+    "Qu H",
+    "Loghin C",
+    "Moyers JS"
+   ],
+   "revista": "Cell metabolism",
+   "anio": "2022",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Tres escenarios dentro del mismo artículo: ensayos in vitro sobre los receptores de glucagón (GCGR), de GIP (GIPR) y de GLP-1 (GLP-1R); ratones obesos; y un estudio de fase 1 de dosis única ascendente en personas. El resumen no declara el número de animales ni el de participantes",
+   "que_midieron": "In vitro, LY3437943 muestra actividad equilibrada sobre GCGR y GLP-1R, y mayor actividad sobre GIPR. En ratones obesos, su administración redujo el peso corporal y mejoró el control glucémico; los autores atribuyen la pérdida de peso adicional al aumento del gasto energético mediado por GCGR sumado a la reducción de la ingesta calórica mediada por GIPR y GLP-1R. En el estudio de fase 1 de dosis única ascendente, el perfil de seguridad y tolerabilidad fue similar al de otras incretinas, el perfil farmacocinético respaldó una pauta de una vez por semana y la reducción de peso persistió hasta el día 43 después de una sola dosis. El resumen no publica cifras numéricas de ninguno de los tres escenarios",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "36354040",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36354040/",
+   "titulo": "LY3437943, a novel triple GIP, GLP-1, and glucagon receptor agonist in people with type 2 diabetes: a phase 1b, multicentre, double-blind, placebo-controlled, randomised, multiple-ascending dose trial.",
+   "autores": [
+    "Urva S",
+    "Coskun T",
+    "Loh MT",
+    "Du Y",
+    "Thomas MK",
+    "Gurbuz S"
+   ],
+   "revista": "Lancet (London, England)",
+   "anio": "2022",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Multicenter Study",
+    "Clinical Trial, Phase I",
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Humanos; 210 personas cribadas y 72 incluidas, adultos de 20 a 70 años con diabetes tipo 2 de al menos 3 meses, HbA1c de 7,0 a 10,5 %, índice de masa corporal de 23 a 50 kg/m² y peso estable, reclutados en cuatro centros de Estados Unidos entre el 18 de diciembre de 2019 y el 28 de diciembre de 2020. Reparto: 15 a placebo, 5 a dulaglutida 1,5 mg y, para LY3437943, 9 a 0,5 mg, 9 a 1,5 mg, 11 a 3 mg, 11 a 3/6 mg y 12 a 3/6/9/12 mg",
+   "que_midieron": "Objetivo principal: seguridad y tolerabilidad; farmacocinética y farmacodinámica como objetivos secundarios. La farmacocinética resultó proporcional a la dosis y la semivida fue de aproximadamente 6 días. A las 12 semanas, la glucosa plasmática media diaria ajustada por placebo bajó −2,8 mmol/L (IC 90 % −4,63 a −0,94) con 3 mg, −3,1 mmol/L (−4,91 a −1,22) con 3/6 mg y −2,9 mmol/L (−4,70 a −1,01) con 3/6/9/12 mg; la sHbA1c ajustada por placebo bajó −1,4 % (IC 90 % −2,17 a −0,56), −1,6 % (−2,37 a −0,75) y −1,2 % (−2,05 a −0,45) en esos mismos grupos; la reducción de peso ajustada por placebo llegó hasta −8,96 kg (IC 90 % −11,16 a −6,75) en el grupo de 3/6/9/12 mg. Acontecimientos adversos surgidos del tratamiento en 33 participantes (63 %) con LY3437943, 3 (60 %) con dulaglutida y 8 (54 %) con placebo, con los trastornos gastrointestinales como los más frecuentes. 29 de los 72 participantes abandonaron el estudio de forma prematura. Registro ClinicalTrials.gov NCT04143802",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "37385280",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37385280/",
+   "titulo": "Retatrutide, a GIP, GLP-1 and glucagon receptor agonist, for people with type 2 diabetes: a randomised, double-blind, placebo and active-controlled, parallel-group, phase 2 trial conducted in the USA.",
+   "autores": [
+    "Rosenstock J",
+    "Frias J",
+    "Jastreboff AM",
+    "Du Y",
+    "Lou J",
+    "Gurbuz S"
+   ],
+   "revista": "Lancet (London, England)",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Clinical Trial, Phase II",
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "especie_o_modelo": "Humanos; 281 adultos de 18 a 75 años con diabetes tipo 2, HbA1c de 7,0 a 10,5 % (53,0 a 91,3 mmol/mol) e índice de masa corporal de 25 a 50 kg/m², reclutados en 42 centros de Estados Unidos entre el 13 de mayo de 2021 y el 13 de junio de 2022; media de edad 56,2 años (DE 9,7), media de duración de la diabetes 8,1 años (7,0), 156 mujeres (56 %); aleatorización 2:2:2:1:1:1:1:2; 275 participantes entraron en el análisis de eficacia, 237 (84 %) completaron el estudio y 222 (79 %) completaron el tratamiento",
+   "que_midieron": "Variable principal: cambio de HbA1c desde el inicio hasta las 24 semanas. Cambios por mínimos cuadrados a 24 semanas: −0,43 % (EE 0,20) con 0,5 mg; −1,39 % (0,14) con 4 mg escalado; −1,30 % (0,22) con 4 mg sin escalar; −1,99 % (0,15) con 8 mg de escalado lento; −1,88 % (0,21) con 8 mg de escalado rápido; y −2,02 % (0,11) con 12 mg escalado; frente a −0,01 % (0,21) con placebo y −1,41 % (0,12) con dulaglutida 1,5 mg. Las reducciones fueron significativas frente a placebo en todos los grupos salvo el de 0,5 mg. Peso corporal a 36 semanas: −3,19 % (EE 0,61) con 0,5 mg; −7,92 % (1,28) con 4 mg escalado; −10,37 % (1,56) con 4 mg sin escalar; −16,81 % (1,59) con 8 mg de escalado lento; −16,34 % (1,65) con 8 mg de escalado rápido; y −16,94 % (1,30) con 12 mg escalado; frente a −3,00 % (0,86) con placebo y −2,02 % (0,72) con dulaglutida. Acontecimientos adversos gastrointestinales de leves a moderados en 67 (35 %) de 190 participantes de los grupos de retatrutida —desde 6 (13 %) de 47 en el de 0,5 mg hasta 12 (50 %) de 24 en el de 8 mg de escalado rápido—, 6 (13 %) de 45 con placebo y 16 (35 %) de 46 con dulaglutida. No hubo hipoglucemia grave ni muertes durante el estudio. Registro ClinicalTrials.gov NCT04867785",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
   {
    "pmid": "37366315",
    "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
@@ -69,29 +151,28 @@
    "fecha_verificacion": "2026-09-22"
   },
   {
-   "pmid": "42250575",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/42250575/",
-   "titulo": "Efficacy and safety of retatrutide, a GIP, GLP-1, and glucagon receptor agonist, in people with type 2 diabetes and inadequate glycaemic control with diet and exercise (TRANSCEND-T2D-1): a double-blind, randomised, phase 3 trial.",
+   "pmid": "38858523",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/38858523/",
+   "titulo": "Triple hormone receptor agonist retatrutide for metabolic dysfunction-associated steatotic liver disease: a randomized phase 2a trial.",
    "autores": [
-    "Bajaj HS",
-    "Welch M",
-    "Shah P",
-    "Luna E",
-    "Jaouimaa FZ",
-    "Liu B"
+    "Sanyal AJ",
+    "Kaplan LM",
+    "Frias JP",
+    "Brouwers B",
+    "Wu Q",
+    "Thomas MK"
    ],
-   "revista": "Lancet (London, England)",
-   "anio": "2026",
+   "revista": "Nature medicine",
+   "anio": "2024",
    "tipos_publicacion": [
     "Journal Article",
     "Randomized Controlled Trial",
-    "Clinical Trial, Phase III",
-    "Multicenter Study"
+    "Clinical Trial, Phase II"
    ],
-   "especie_o_modelo": "Humanos; 537 participantes aleatorizados de 930 cribados (296 mujeres y 241 varones), entre abril de 2024 y abril de 2025: 134 a 4 mg, 133 a 9 mg, 136 a 12 mg y 134 a placebo",
-   "que_midieron": "Cambio medio de HbA1c desde el inicio: −1,69 % (EE 0,11) con 4 mg, −1,86 % (0,10) con 9 mg y −1,94 % (0,08) con 12 mg, frente a −0,81 % (0,12) con placebo; diferencia frente a placebo de −0,88 puntos porcentuales (IC 95 % −1,18 a −0,59) con 4 mg",
+   "especie_o_modelo": "Humanos; 98 participantes procedentes del estudio de fase 2 en obesidad de 48 semanas que tenían enfermedad hepática esteatósica asociada a disfunción metabólica y al menos un 10 % de grasa hepática; subestudio aleatorizado, doble ciego y controlado con placebo",
+   "que_midieron": "Objetivo principal: cambio relativo medio de la grasa hepática desde el inicio a las 24 semanas. Resultados a 24 semanas: −42,9 % con 1 mg, −57,0 % con 4 mg, −81,4 % con 8 mg, −82,4 % con 12 mg y +0,3 % con placebo (todos p < 0,001 frente a placebo). Grasa hepática normal (menos del 5 %) a las 24 semanas en el 27 % con 1 mg, el 52 % con 4 mg, el 79 % con 8 mg, el 86 % con 12 mg y el 0 % con placebo. Las reducciones de grasa hepática se relacionaron de forma significativa con los cambios de peso corporal, grasa abdominal y medidas metabólicas asociadas a mejor sensibilidad a la insulina y metabolismo lipídico. Registro ClinicalTrials.gov NCT04881760",
    "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
+   "fecha_verificacion": "2026-09-23"
   },
   {
    "pmid": "40609566",
@@ -119,6 +200,78 @@
    "fecha_verificacion": "2026-09-22"
   },
   {
+   "pmid": "40726454",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40726454/",
+   "titulo": "Decreases in circulating ANGPTL3/8 concentrations following retatrutide treatment parallel reductions in serum lipids.",
+   "autores": [
+    "Wen Y",
+    "Lemen D",
+    "Lin Y",
+    "Chen YQ",
+    "Regmi A",
+    "Roell WC"
+   ],
+   "revista": "Diabetes, obesity & metabolism",
+   "anio": "2025",
+   "tipos_publicacion": [
+    "Clinical Trial, Phase II",
+    "Journal Article"
+   ],
+   "especie_o_modelo": "Dos fuentes en el mismo artículo: análisis post-hoc de dos ensayos de fase 2 de retatrutida —uno en personas con diabetes tipo 2 y otro en personas con obesidad o sobrepeso sin diabetes— y experimentos in vitro sobre hepatocitos humanos primarios. El resumen no declara el número de participantes de ninguno de los dos ensayos",
+   "que_midieron": "Concentraciones circulantes del complejo ANGPTL3/8, del complejo ANGPTL4/8, de ANGPTL3 y de ANGPTL4, medidas con inmunoensayos específicos. Se observaron descensos de ANGPTL3/8 con 8 y 12 mg en participantes con diabetes tipo 2, y con 1, 4, 8 y 12 mg en participantes con obesidad o sobrepeso sin diabetes; en ambos casos los descensos acompañaron a las reducciones de triglicéridos y de colesterol LDL. En hepatocitos humanos primarios, tanto el glucagón como la retatrutida redujeron la secreción de ANGPTL3/8, y un anticuerpo antagonista del receptor de glucagón bloqueó esa reducción",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "40916752",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40916752/",
+   "titulo": "Appetite, eating attitudes, and eating behaviours during treatment with retatrutide in adults with type 2 diabetes: Results of a phase 2 study.",
+   "autores": [
+    "Kanu C",
+    "Boye KS",
+    "Poon JL",
+    "Goetz I",
+    "Williamson S",
+    "Lou J"
+   ],
+   "revista": "Diabetes, obesity & metabolism",
+   "anio": "2025",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Clinical Trial, Phase II",
+    "Randomized Controlled Trial"
+   ],
+   "especie_o_modelo": "Humanos; 275 adultos con diabetes tipo 2 del ensayo de fase 2; análisis exploratorios preespecificados, más correlaciones post-hoc entre el cambio de peso y las puntuaciones de los cuestionarios",
+   "que_midieron": "Escala visual analógica de apetito e Inventario de la Conducta Alimentaria a las 24 y 36 semanas. Frente a placebo, quienes recibieron retatrutida de 4 mg o más declararon mayores reducciones del apetito global, del hambre y del consumo prospectivo de alimentos en la semana 24 (todos p < 0,05). Las diferencias frente a dulaglutida fueron menos consistentes. La mejoría frente a placebo en hambre percibida y desinhibición fue mayor con 8 y 12 mg en las semanas 24 y 36; la restricción dietética aumentó frente a placebo solo con 12 mg en la semana 36. Correlación con la reducción de peso en la semana 36: r = 0,28 para hambre percibida, r = 0,36 para desinhibición y r = 0,31 para restricción dietética",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "42250575",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42250575/",
+   "titulo": "Efficacy and safety of retatrutide, a GIP, GLP-1, and glucagon receptor agonist, in people with type 2 diabetes and inadequate glycaemic control with diet and exercise (TRANSCEND-T2D-1): a double-blind, randomised, phase 3 trial.",
+   "autores": [
+    "Bajaj HS",
+    "Welch M",
+    "Shah P",
+    "Luna E",
+    "Jaouimaa FZ",
+    "Liu B"
+   ],
+   "revista": "Lancet (London, England)",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Clinical Trial, Phase III",
+    "Multicenter Study"
+   ],
+   "especie_o_modelo": "Humanos; 537 participantes aleatorizados de 930 cribados (296 mujeres y 241 varones), entre abril de 2024 y abril de 2025: 134 a 4 mg, 133 a 9 mg, 136 a 12 mg y 134 a placebo",
+   "que_midieron": "Cambio medio de HbA1c desde el inicio: −1,69 % (EE 0,11) con 4 mg, −1,86 % (0,10) con 9 mg y −1,94 % (0,08) con 12 mg, frente a −0,81 % (0,12) con placebo; diferencia frente a placebo de −0,88 puntos porcentuales (IC 95 % −1,18 a −0,59) con 4 mg",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-22"
+  },
+  {
    "pmid": "42608321",
    "url": "https://pubmed.ncbi.nlm.nih.gov/42608321/",
    "titulo": "Retatrutide-Associated Improvements in Cardiovascular Risk Biomarkers in Adults With Obesity With or Without Type 2 Diabetes.",
@@ -135,8 +288,8 @@
    "tipos_publicacion": [
     "Journal Article"
    ],
-   "especie_o_modelo": "Humanos; estudio 1 en adultos con obesidad o sobrepeso y diabetes tipo 2; estudio 2 en adultos con obesidad clínica sin diabetes tipo 2",
-   "que_midieron": "Biomarcadores de riesgo cardiovascular",
+   "especie_o_modelo": "Humanos; análisis post-hoc de dos ensayos de fase 2 aleatorizados, doble ciego y controlados con placebo: estudio 1 en adultos con obesidad o sobrepeso y diabetes tipo 2; estudio 2 en adultos con obesidad clínica sin diabetes tipo 2. El resumen no declara el número de participantes de ninguno de los dos",
+   "que_midieron": "Biomarcadores lipoproteicos e inflamatorios evaluados post-hoc. Índice de masa corporal medio: 35,4 kg/m² en el estudio 1 y 37,4 kg/m² en el estudio 2. En ambos estudios hubo reducciones significativas de colesterol no-HDL (hasta −21,0 % en el estudio 1 y hasta −26,9 % en el estudio 2), apolipoproteína B (−21,4 % y −24,2 %), partículas totales ricas en triglicéridos (−22,5 % y −33,7 %), partículas grandes ricas en triglicéridos (−84,4 % y −76,6 %), colesterol de lipoproteínas ricas en triglicéridos (−29,4 % y −38,6 %), partículas LDL totales (−19,7 % y −23,5 %) y partículas LDL pequeñas (−32,6 % y −32,3 %). La reducción de proteína C reactiva de alta sensibilidad (−54,8 %) y de interleucina 6 (−29,6 %) fue significativa en el estudio 2 pero no en el estudio 1. La significación se definió como p < 0,05 ajustada por tasa de falsos descubrimientos. Registros ClinicalTrials.gov NCT04881760 y NCT04867785",
    "verificado_en_pubmed": true,
    "fecha_verificacion": "2026-09-22"
   },
@@ -158,8 +311,8 @@
     "Journal Article",
     "Clinical Trial Protocol"
    ],
-   "especie_o_modelo": "Humanos; participantes con enfermedad renal crónica, con mediana basal del cociente albúmina/creatinina en orina de 14,0 mg/g (rango intercuartílico 6,0 a 69,0)",
-   "que_midieron": "Publicación de diseño y características basales; los desenlaces renales se reportarán al terminar el ensayo",
+   "especie_o_modelo": "Humanos; estudio mecanístico de fase 2b, doble ciego y controlado con placebo, en adultos con sobrepeso u obesidad y enfermedad renal crónica (filtrado glomerular estimado de 25 a 75 mL/min/1,73 m²), con y sin diabetes tipo 2; de 367 personas cribadas se aleatorizaron 146",
+   "que_midieron": "Publicación de diseño y características basales: el objetivo principal es el cambio del filtrado glomerular medido por aclaramiento de iohexol desde el inicio hasta la semana 24, y entre los objetivos adicionales están los cambios en medidas hemodinámicas y volumétricas renales por resonancia magnética, incluida la grasa perirrenal y del seno renal. Basales publicados: edad media 65,1 años (DE 10,6), 45,2 % mujeres, peso medio 101,1 kg (DE 20,6), índice de masa corporal 35,7 kg/m² (DE 6,1); el 37,7 % tenía diabetes tipo 2, con HbA1c media de 7,1 % (DE 1,1) frente a 5,7 % (DE 0,3) en quienes no la tenían; filtrado glomerular medido medio 49,3 mL/min/1,73 m² (DE 19,0), estimado por cistatina C 49,6 mL/min/1,73 m² (DE 13,2) y por creatinina 64,2 mL/min/1,73 m² (DE 17,8); mediana basal del cociente albúmina/creatinina en orina de 14,0 mg/g (rango intercuartílico 6,0 a 69,0); el 21,8 % tomaba inhibidores del cotransportador sodio-glucosa tipo 2 al inicio. Los desenlaces renales se reportarán al terminar el ensayo. Registro ClinicalTrials.gov NCT05936151",
    "verificado_en_pubmed": true,
    "fecha_verificacion": "2026-09-22"
   }
@@ -175,6 +328,33 @@
   ],
   "filas": [
    {
+    "estudio": "Caracterización original de LY3437943: del descubrimiento a la prueba de concepto clínica",
+    "pmid": "35985340",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/35985340/",
+    "modelo": "Tres escenarios dentro del mismo artículo: ensayos in vitro sobre los receptores de glucagón (GCGR), de GIP (GIPR) y de GLP-1 (GLP-1R); ratones obesos; y un estudio de fase 1 de dosis única ascendente en personas. El resumen no declara el número de animales ni el de participantes",
+    "via": "no reportada en el resumen — pendiente de comprobar en el texto completo",
+    "pauta_reportada": "El resumen declara únicamente que el estudio clínico fue de dosis única ascendente y que el perfil farmacocinético respaldó una pauta de una vez por semana; no reporta las dosis ni la vía, ni la pauta del experimento en ratones — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "In vitro, LY3437943 muestra actividad equilibrada sobre GCGR y GLP-1R, y mayor actividad sobre GIPR. En ratones obesos, su administración redujo el peso corporal y mejoró el control glucémico; los autores atribuyen la pérdida de peso adicional al aumento del gasto energético mediado por GCGR sumado a la reducción de la ingesta calórica mediada por GIPR y GLP-1R. En el estudio de fase 1 de dosis única ascendente, el perfil de seguridad y tolerabilidad fue similar al de otras incretinas, el perfil farmacocinético respaldó una pauta de una vez por semana y la reducción de peso persistió hasta el día 43 después de una sola dosis. El resumen no publica cifras numéricas de ninguno de los tres escenarios"
+   },
+   {
+    "estudio": "Dosis múltiples ascendentes en diabetes tipo 2 (fase 1b)",
+    "pmid": "36354040",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36354040/",
+    "modelo": "Humanos; 210 personas cribadas y 72 incluidas, adultos de 20 a 70 años con diabetes tipo 2 de al menos 3 meses, HbA1c de 7,0 a 10,5 %, índice de masa corporal de 23 a 50 kg/m² y peso estable, reclutados en cuatro centros de Estados Unidos entre el 18 de diciembre de 2019 y el 28 de diciembre de 2020. Reparto: 15 a placebo, 5 a dulaglutida 1,5 mg y, para LY3437943, 9 a 0,5 mg, 9 a 1,5 mg, 11 a 3 mg, 11 a 3/6 mg y 12 a 3/6/9/12 mg",
+    "via": "Subcutánea",
+    "pauta_reportada": "Inyección subcutánea una vez por semana durante 12 semanas, en cinco cohortes de dosis ascendente: 0,5 mg; 1,5 mg; 3 mg; 3/6 mg; y 3/6/9/12 mg —las dos cohortes más altas alcanzaron su dosis máxima por escalado gradual—, frente a placebo o dulaglutida 1,5 mg",
+    "desenlace_medido": "Objetivo principal: seguridad y tolerabilidad; farmacocinética y farmacodinámica como objetivos secundarios. La farmacocinética resultó proporcional a la dosis y la semivida fue de aproximadamente 6 días. A las 12 semanas, la glucosa plasmática media diaria ajustada por placebo bajó −2,8 mmol/L (IC 90 % −4,63 a −0,94) con 3 mg, −3,1 mmol/L (−4,91 a −1,22) con 3/6 mg y −2,9 mmol/L (−4,70 a −1,01) con 3/6/9/12 mg; la sHbA1c ajustada por placebo bajó −1,4 % (IC 90 % −2,17 a −0,56), −1,6 % (−2,37 a −0,75) y −1,2 % (−2,05 a −0,45) en esos mismos grupos; la reducción de peso ajustada por placebo llegó hasta −8,96 kg (IC 90 % −11,16 a −6,75) en el grupo de 3/6/9/12 mg. Acontecimientos adversos surgidos del tratamiento en 33 participantes (63 %) con LY3437943, 3 (60 %) con dulaglutida y 8 (54 %) con placebo, con los trastornos gastrointestinales como los más frecuentes. 29 de los 72 participantes abandonaron el estudio de forma prematura. Registro ClinicalTrials.gov NCT04143802"
+   },
+   {
+    "estudio": "Retatrutida en diabetes tipo 2 (fase 2, Estados Unidos)",
+    "pmid": "37385280",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/37385280/",
+    "modelo": "Humanos; 281 adultos de 18 a 75 años con diabetes tipo 2, HbA1c de 7,0 a 10,5 % (53,0 a 91,3 mmol/mol) e índice de masa corporal de 25 a 50 kg/m², reclutados en 42 centros de Estados Unidos entre el 13 de mayo de 2021 y el 13 de junio de 2022; media de edad 56,2 años (DE 9,7), media de duración de la diabetes 8,1 años (7,0), 156 mujeres (56 %); aleatorización 2:2:2:1:1:1:1:2; 275 participantes entraron en el análisis de eficacia, 237 (84 %) completaron el estudio y 222 (79 %) completaron el tratamiento",
+    "via": "Subcutánea",
+    "pauta_reportada": "Inyección subcutánea una vez por semana de placebo, dulaglutida 1,5 mg, o retatrutida en dosis de mantenimiento de 0,5 mg; 4 mg con dosis inicial de 2 mg; 4 mg sin escalado; 8 mg con dosis inicial de 2 mg; 8 mg con dosis inicial de 4 mg; o 12 mg con dosis inicial de 2 mg. Variable principal a las 24 semanas y variables secundarias a las 36 semanas",
+    "desenlace_medido": "Variable principal: cambio de HbA1c desde el inicio hasta las 24 semanas. Cambios por mínimos cuadrados a 24 semanas: −0,43 % (EE 0,20) con 0,5 mg; −1,39 % (0,14) con 4 mg escalado; −1,30 % (0,22) con 4 mg sin escalar; −1,99 % (0,15) con 8 mg de escalado lento; −1,88 % (0,21) con 8 mg de escalado rápido; y −2,02 % (0,11) con 12 mg escalado; frente a −0,01 % (0,21) con placebo y −1,41 % (0,12) con dulaglutida 1,5 mg. Las reducciones fueron significativas frente a placebo en todos los grupos salvo el de 0,5 mg. Peso corporal a 36 semanas: −3,19 % (EE 0,61) con 0,5 mg; −7,92 % (1,28) con 4 mg escalado; −10,37 % (1,56) con 4 mg sin escalar; −16,81 % (1,59) con 8 mg de escalado lento; −16,34 % (1,65) con 8 mg de escalado rápido; y −16,94 % (1,30) con 12 mg escalado; frente a −3,00 % (0,86) con placebo y −2,02 % (0,72) con dulaglutida. Acontecimientos adversos gastrointestinales de leves a moderados en 67 (35 %) de 190 participantes de los grupos de retatrutida —desde 6 (13 %) de 47 en el de 0,5 mg hasta 12 (50 %) de 24 en el de 8 mg de escalado rápido—, 6 (13 %) de 45 con placebo y 16 (35 %) de 46 con dulaglutida. No hubo hipoglucemia grave ni muertes durante el estudio. Registro ClinicalTrials.gov NCT04867785"
+   },
+   {
     "estudio": "Retatrutida para la obesidad (fase 2)",
     "pmid": "37366315",
     "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
@@ -184,13 +364,13 @@
     "desenlace_medido": "Cambio porcentual del peso a 24 semanas (variable principal) y a 48 semanas. A 48 semanas: −8,7 % con 1 mg, −17,1 % con 4 mg, −22,8 % con 8 mg y −24,2 % con 12 mg, frente a −2,1 % con placebo. Eventos adversos gastrointestinales dependientes de la dosis; aumento de la frecuencia cardiaca dependiente de la dosis con pico a las 24 semanas"
    },
    {
-    "estudio": "Retatrutida en diabetes tipo 2 (fase 3)",
-    "pmid": "42250575",
-    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42250575/",
-    "modelo": "Humanos; 537 participantes aleatorizados de 930 cribados (296 mujeres y 241 varones), entre abril de 2024 y abril de 2025: 134 a 4 mg, 133 a 9 mg, 136 a 12 mg y 134 a placebo",
+    "estudio": "Enfermedad hepática esteatósica asociada a disfunción metabólica (subestudio de fase 2a)",
+    "pmid": "38858523",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/38858523/",
+    "modelo": "Humanos; 98 participantes procedentes del estudio de fase 2 en obesidad de 48 semanas que tenían enfermedad hepática esteatósica asociada a disfunción metabólica y al menos un 10 % de grasa hepática; subestudio aleatorizado, doble ciego y controlado con placebo",
     "via": "Subcutánea",
-    "pauta_reportada": "4 mg, 9 mg o 12 mg una vez por semana, frente a placebo; aleatorización 1:1:1:1",
-    "desenlace_medido": "Cambio medio de HbA1c desde el inicio: −1,69 % (EE 0,11) con 4 mg, −1,86 % (0,10) con 9 mg y −1,94 % (0,08) con 12 mg, frente a −0,81 % (0,12) con placebo; diferencia frente a placebo de −0,88 puntos porcentuales (IC 95 % −1,18 a −0,59) con 4 mg"
+    "pauta_reportada": "Retatrutida 1 mg, 4 mg, 8 mg o 12 mg, o placebo, por vía subcutánea una vez por semana durante 48 semanas; el objetivo principal del subestudio se midió a las 24 semanas",
+    "desenlace_medido": "Objetivo principal: cambio relativo medio de la grasa hepática desde el inicio a las 24 semanas. Resultados a 24 semanas: −42,9 % con 1 mg, −57,0 % con 4 mg, −81,4 % con 8 mg, −82,4 % con 12 mg y +0,3 % con placebo (todos p < 0,001 frente a placebo). Grasa hepática normal (menos del 5 %) a las 24 semanas en el 27 % con 1 mg, el 52 % con 4 mg, el 79 % con 8 mg, el 86 % con 12 mg y el 0 % con placebo. Las reducciones de grasa hepática se relacionaron de forma significativa con los cambios de peso corporal, grasa abdominal y medidas metabólicas asociadas a mejor sensibilidad a la insulina y metabolismo lipídico. Registro ClinicalTrials.gov NCT04881760"
    },
    {
     "estudio": "Composición corporal en diabetes tipo 2 (subestudio de fase 2)",
@@ -202,22 +382,49 @@
     "desenlace_medido": "Reducción porcentual de la masa grasa total desde el inicio: 4,9 % (EE 1,4) con 0,5 mg; 15,2 % (3,2) con 4 mg agrupado; 26,1 % (2,5) con 8 mg agrupado; 23,2 % (3,0) con 12 mg; 2,6 % (1,6) con dulaglutida y 4,5 % (1,2) con placebo"
    },
    {
+    "estudio": "ANGPTL3/8 y lípidos séricos (post-hoc de dos ensayos de fase 2 más trabajo in vitro)",
+    "pmid": "40726454",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/40726454/",
+    "modelo": "Dos fuentes en el mismo artículo: análisis post-hoc de dos ensayos de fase 2 de retatrutida —uno en personas con diabetes tipo 2 y otro en personas con obesidad o sobrepeso sin diabetes— y experimentos in vitro sobre hepatocitos humanos primarios. El resumen no declara el número de participantes de ninguno de los dos ensayos",
+    "via": "no reportada en el resumen — pendiente de comprobar en el texto completo",
+    "pauta_reportada": "El resumen solo declara las dosis de retatrutida por grupo —8 y 12 mg en diabetes tipo 2; 1, 4, 8 y 12 mg en obesidad o sobrepeso sin diabetes— y no reporta la vía, la frecuencia ni la duración — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Concentraciones circulantes del complejo ANGPTL3/8, del complejo ANGPTL4/8, de ANGPTL3 y de ANGPTL4, medidas con inmunoensayos específicos. Se observaron descensos de ANGPTL3/8 con 8 y 12 mg en participantes con diabetes tipo 2, y con 1, 4, 8 y 12 mg en participantes con obesidad o sobrepeso sin diabetes; en ambos casos los descensos acompañaron a las reducciones de triglicéridos y de colesterol LDL. En hepatocitos humanos primarios, tanto el glucagón como la retatrutida redujeron la secreción de ANGPTL3/8, y un anticuerpo antagonista del receptor de glucagón bloqueó esa reducción"
+   },
+   {
+    "estudio": "Apetito y conducta alimentaria en diabetes tipo 2 (análisis exploratorio de fase 2)",
+    "pmid": "40916752",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/40916752/",
+    "modelo": "Humanos; 275 adultos con diabetes tipo 2 del ensayo de fase 2; análisis exploratorios preespecificados, más correlaciones post-hoc entre el cambio de peso y las puntuaciones de los cuestionarios",
+    "via": "no reportada en el resumen — pendiente de comprobar en el texto completo",
+    "pauta_reportada": "Una vez por semana: placebo, dulaglutida 1,5 mg, o retatrutida 0,5, 4, 8 o 12 mg, con evaluaciones a las 24 y 36 semanas; el resumen no declara la vía — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Escala visual analógica de apetito e Inventario de la Conducta Alimentaria a las 24 y 36 semanas. Frente a placebo, quienes recibieron retatrutida de 4 mg o más declararon mayores reducciones del apetito global, del hambre y del consumo prospectivo de alimentos en la semana 24 (todos p < 0,05). Las diferencias frente a dulaglutida fueron menos consistentes. La mejoría frente a placebo en hambre percibida y desinhibición fue mayor con 8 y 12 mg en las semanas 24 y 36; la restricción dietética aumentó frente a placebo solo con 12 mg en la semana 36. Correlación con la reducción de peso en la semana 36: r = 0,28 para hambre percibida, r = 0,36 para desinhibición y r = 0,31 para restricción dietética"
+   },
+   {
+    "estudio": "Retatrutida en diabetes tipo 2 (fase 3)",
+    "pmid": "42250575",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42250575/",
+    "modelo": "Humanos; 537 participantes aleatorizados de 930 cribados (296 mujeres y 241 varones), entre abril de 2024 y abril de 2025: 134 a 4 mg, 133 a 9 mg, 136 a 12 mg y 134 a placebo",
+    "via": "Subcutánea",
+    "pauta_reportada": "4 mg, 9 mg o 12 mg una vez por semana, frente a placebo; aleatorización 1:1:1:1",
+    "desenlace_medido": "Cambio medio de HbA1c desde el inicio: −1,69 % (EE 0,11) con 4 mg, −1,86 % (0,10) con 9 mg y −1,94 % (0,08) con 12 mg, frente a −0,81 % (0,12) con placebo; diferencia frente a placebo de −0,88 puntos porcentuales (IC 95 % −1,18 a −0,59) con 4 mg"
+   },
+   {
     "estudio": "Biomarcadores de riesgo cardiovascular en dos ensayos",
     "pmid": "42608321",
     "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42608321/",
-    "modelo": "Humanos; estudio 1 en adultos con obesidad o sobrepeso y diabetes tipo 2; estudio 2 en adultos con obesidad clínica sin diabetes tipo 2",
-    "via": "Subcutánea",
+    "modelo": "Humanos; análisis post-hoc de dos ensayos de fase 2 aleatorizados, doble ciego y controlados con placebo: estudio 1 en adultos con obesidad o sobrepeso y diabetes tipo 2; estudio 2 en adultos con obesidad clínica sin diabetes tipo 2. El resumen no declara el número de participantes de ninguno de los dos",
+    "via": "no reportada en el resumen — pendiente de comprobar en el texto completo",
     "pauta_reportada": "Estudio 1: retatrutida 0,5 / 4 / 8 / 12 mg una vez por semana, dulaglutida 1,5 mg o placebo, durante 36 semanas. Estudio 2: retatrutida 1 / 4 / 8 / 12 mg o placebo durante 48 semanas",
-    "desenlace_medido": "Biomarcadores de riesgo cardiovascular"
+    "desenlace_medido": "Biomarcadores lipoproteicos e inflamatorios evaluados post-hoc. Índice de masa corporal medio: 35,4 kg/m² en el estudio 1 y 37,4 kg/m² en el estudio 2. En ambos estudios hubo reducciones significativas de colesterol no-HDL (hasta −21,0 % en el estudio 1 y hasta −26,9 % en el estudio 2), apolipoproteína B (−21,4 % y −24,2 %), partículas totales ricas en triglicéridos (−22,5 % y −33,7 %), partículas grandes ricas en triglicéridos (−84,4 % y −76,6 %), colesterol de lipoproteínas ricas en triglicéridos (−29,4 % y −38,6 %), partículas LDL totales (−19,7 % y −23,5 %) y partículas LDL pequeñas (−32,6 % y −32,3 %). La reducción de proteína C reactiva de alta sensibilidad (−54,8 %) y de interleucina 6 (−29,6 %) fue significativa en el estudio 2 pero no en el estudio 1. La significación se definió como p < 0,05 ajustada por tasa de falsos descubrimientos. Registros ClinicalTrials.gov NCT04881760 y NCT04867785"
    },
    {
     "estudio": "Ensayo TRANSCEND-CKD en enfermedad renal crónica (diseño y basal)",
     "pmid": "41160422",
     "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41160422/",
-    "modelo": "Humanos; participantes con enfermedad renal crónica, con mediana basal del cociente albúmina/creatinina en orina de 14,0 mg/g (rango intercuartílico 6,0 a 69,0)",
-    "via": "Subcutánea",
-    "pauta_reportada": "Una vez por semana, a la dosis máxima tolerada hasta 12 mg, frente a placebo equiparado; aleatorización 1:1",
-    "desenlace_medido": "Publicación de diseño y características basales; los desenlaces renales se reportarán al terminar el ensayo"
+    "modelo": "Humanos; estudio mecanístico de fase 2b, doble ciego y controlado con placebo, en adultos con sobrepeso u obesidad y enfermedad renal crónica (filtrado glomerular estimado de 25 a 75 mL/min/1,73 m²), con y sin diabetes tipo 2; de 367 personas cribadas se aleatorizaron 146",
+    "via": "no reportada en el resumen — pendiente de comprobar en el texto completo",
+    "pauta_reportada": "Una vez por semana, a la dosis máxima tolerada hasta 12 mg, frente a placebo equiparado; aleatorización 1:1. El resumen no declara la vía — pendiente de comprobar en el texto completo",
+    "desenlace_medido": "Publicación de diseño y características basales: el objetivo principal es el cambio del filtrado glomerular medido por aclaramiento de iohexol desde el inicio hasta la semana 24, y entre los objetivos adicionales están los cambios en medidas hemodinámicas y volumétricas renales por resonancia magnética, incluida la grasa perirrenal y del seno renal. Basales publicados: edad media 65,1 años (DE 10,6), 45,2 % mujeres, peso medio 101,1 kg (DE 20,6), índice de masa corporal 35,7 kg/m² (DE 6,1); el 37,7 % tenía diabetes tipo 2, con HbA1c media de 7,1 % (DE 1,1) frente a 5,7 % (DE 0,3) en quienes no la tenían; filtrado glomerular medido medio 49,3 mL/min/1,73 m² (DE 19,0), estimado por cistatina C 49,6 mL/min/1,73 m² (DE 13,2) y por creatinina 64,2 mL/min/1,73 m² (DE 17,8); mediana basal del cociente albúmina/creatinina en orina de 14,0 mg/g (rango intercuartílico 6,0 a 69,0); el 21,8 % tomaba inhibidores del cotransportador sodio-glucosa tipo 2 al inicio. Los desenlaces renales se reportarán al terminar el ensayo. Registro ClinicalTrials.gov NCT05936151"
    }
   ],
   "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
@@ -226,11 +433,15 @@
   "Retatrutida NO está aprobada. Es la diferencia que explica por qué está prohibida en competición y semaglutida no: el criterio de la WADA es regulatorio, no farmacológico."
  ],
  "pendientes": [
-  "No hay CAS, fórmula molecular ni peso molecular verificables: PubChem solo tiene registros de impurezas. Si se quieren publicar, hay que citar otra fuente citable (por ejemplo la propuesta de DCI de la OMS). No inventarlos."
+  "No hay CAS, fórmula molecular ni peso molecular verificables: PubChem solo tiene registros de impurezas. Si se quieren publicar, hay que citar otra fuente citable (por ejemplo la propuesta de DCI de la OMS). No inventarlos.",
+  "Tres resúmenes no declaran la pauta completa y sus celdas lo dicen con la fórmula del archivo: 35985340 (ni dosis ni vía, ni en ratones ni en el estudio de fase 1), 40726454 (sin vía, frecuencia ni duración) y 40916752 (sin vía). Solo se podrán rellenar leyendo el texto completo.",
+  "CORREGIDO el 23-sep-2026: las filas de 42608321 y 41160422 decían «Subcutánea» y sus resúmenes NO lo declaran (comprobado contra efetch). Ahora dicen «no reportada en el resumen». Si alguien tiene el texto completo y confirma la vía, se puede reponer citando esa fuente, nunca por analogía con los otros ensayos.",
+  "La lectura de PubMed se hizo con rettype=abstract&retmode=text para no pasar por entidades HTML. Cualquier relectura futura debe repetir ese modo o decodificar las entidades antes de copiar una cifra con unidad."
  ],
- "generado": "2026-09-22",
+ "generado": "2026-09-23",
  "fuentes": [
   "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
-  "PubChem PUG REST, NCBI, 2026-09-22"
+  "PubChem PUG REST, NCBI, 2026-09-22",
+  "PubMed E-utilities (esearch/efetch, rettype=abstract&retmode=text), NCBI, 2026-09-23 — ampliación con 35985340, 36354040, 37385280, 38858523, 40726454 y 40916752, y reverificación de 42608321 y 41160422"
  ]
 }

@@ -75,7 +75,13 @@
    "especie_o_modelo": "Humanos; 552 pacientes con hepatitis C que no respondieron a peginterferón alfa-2a o 2b con ribavirina, aleatorizados a timosina alfa-1 (n = 275) o placebo (n = 277)",
    "que_midieron": "Respuesta virológica en pacientes no respondedores",
    "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
+   "fecha_verificacion": "2026-09-22",
+   "resultado_reportado": "Tasas de respuesta virológica sostenida (RVS) similares entre timosina alfa-1 y placebo en la población por intención de tratar: 12,7 % frente a 10,5 % (p = 0,407). Entre los pacientes que completaron las 48 semanas de tratamiento, la RVS fue del 41,0 % (34/83) con timosina alfa-1 frente al 26,3 % (26/99) con placebo (p = 0,048). El 88 % de los pacientes tenía genotipo 1 del VHC.",
+   "conclusion_autores": "Añadir timosina alfa-1 al estándar de tratamiento no aumentó la respuesta virológica durante el tratamiento. Los autores escriben que la timosina alfa-1 no parece tener ningún papel en la terapia primaria de la enfermedad, y plantean como hipótesis un posible papel secundario como adyuvante en la prevención de recaídas en quienes alcanzan respuesta virológica durante la terapia.",
+   "signo_del_resultado": "negativo en el desenlace primario",
+   "eventos_adversos": "No se observó diferencia significativa entre los grupos de tratamiento en la incidencia de eventos adversos. El resumen no desglosa cifras.",
+   "fecha_verificacion_desenlace": "2026-09-23",
+   "fuente_desenlace": "PubMed E-utilities (efetch), NCBI, 2026-09-23"
   },
   {
    "pmid": "35713670",
@@ -97,10 +103,16 @@
     "Randomized Controlled Trial",
     "Research Support, Non-U.S. Gov't"
    ],
-   "especie_o_modelo": "Humanos; pacientes con predicción de pancreatitis aguda necrosante grave, estudio multicéntrico",
+   "especie_o_modelo": "Humanos; 508 pacientes con predicción de pancreatitis aguda necrosante grave (APACHE II ≥ 8 y puntuación de gravedad por TC ≥ 5, ingresados en los primeros 7 días desde el inicio de los síntomas), aleatorizados 254 a Tα1 y 254 a placebo; 479 de 508 (94,3 %) requirieron ingreso en cuidados intensivos",
    "que_midieron": "Refuerzo inmunitario y desenlaces clínicos en pancreatitis grave",
    "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
+   "fecha_verificacion": "2026-09-22",
+   "resultado_reportado": "Desenlace primario: necrosis pancreática infectada durante el ingreso índice en 40 de 254 pacientes (15,7 %) del grupo de Tα1 frente a 46 de 254 (18,1 %) del grupo placebo; diferencia −2,4 % (IC 95 % −7,4 a 5,1), p = 0,48. Resultados similares en los cuatro subgrupos predefinidos.",
+   "conclusion_autores": "El tratamiento inmunoestimulante con Tα1 en pacientes con predicción de pancreatitis aguda necrosante grave no redujo la incidencia de necrosis pancreática infectada durante el ingreso índice.",
+   "signo_del_resultado": "negativo en el desenlace primario",
+   "eventos_adversos": "No hubo diferencia en otras complicaciones mayores: fallo orgánico de nueva aparición 10,6 % frente a 15 %, sangrado 6,3 % frente a 3,5 % y fístula gastrointestinal 2 % frente a 2,4 %.",
+   "fecha_verificacion_desenlace": "2026-09-23",
+   "fuente_desenlace": "PubMed E-utilities (efetch), NCBI, 2026-09-23"
   },
   {
    "pmid": "36881981",
@@ -121,7 +133,13 @@
    "especie_o_modelo": "Humanos; 194 pacientes en diálisis renal aleatorizados 1:1",
    "que_midieron": "Infección por covid-19 y morbilidad asociada",
    "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
+   "fecha_verificacion": "2026-09-22",
+   "resultado_reportado": "Datos preliminares con el estudio aún sin completar: 3 muertes en el grupo tratado con Tα1 frente a 7 en el grupo control, y 12 eventos adversos graves relacionados con covid-19 (5 en el grupo A y 7 en el grupo B). Se cribaron 254 pacientes en cinco centros de diálisis para aleatorizar a 194. La mayoría de los participantes recibió vacuna covid-19 en distintos momentos del estudio: 91 pacientes en el grupo A y 76 en el grupo B.",
+   "conclusion_autores": "Los autores no emiten conclusión de eficacia: declaran que la respuesta de anticuerpos y los desenlaces de seguridad y eficacia se analizarán cuando todos los sujetos completen el estudio.",
+   "signo_del_resultado": "sin conclusión; informe preliminar de un ensayo piloto",
+   "eventos_adversos": "12 eventos adversos graves relacionados con covid-19 (5 en el grupo A, 7 en el grupo B) y 3 muertes en el grupo A frente a 7 en el grupo B. Un comité de monitorización de seguridad revisó todos los efectos adversos notificados.",
+   "fecha_verificacion_desenlace": "2026-09-23",
+   "fuente_desenlace": "PubMed E-utilities (efetch), NCBI, 2026-09-23"
   },
   {
    "pmid": "22726105",
@@ -147,7 +165,14 @@
    "especie_o_modelo": "Humanos; 51 pacientes repartidos en combinación (n = 26) y monoterapia (n = 25)",
    "que_midieron": "Respuesta combinada definida como seroconversión de HBeAg, supresión del ADN del VHB y normalización de la ALT: 15,4 % frente a 12,0 % al final del tratamiento (p = 0,725)",
    "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
+   "fecha_verificacion": "2026-09-22",
+   "resultado_reportado": "Respuesta combinada (seroconversión de HBeAg, supresión del ADN del VHB y normalización de la ALT): 4 de 26 (15,4 %) con la combinación frente a 3 de 25 (12,0 %) con monoterapia al final del tratamiento (p = 0,725), y 6 de 26 (23,1 %) frente a 5 de 25 (20,0 %) al final del seguimiento (p = 0,789).",
+   "conclusion_autores": "La adición a corto plazo de timosina alfa-1 no fue superior a peginterferón alfa-2a en monoterapia en pacientes con hepatitis B crónica y HBeAg positivo, en términos de eficacia antiviral.",
+   "signo_del_resultado": "negativo en el desenlace primario",
+   "eventos_adversos": "No se observaron diferencias significativas en eventos adversos. El resumen no desglosa cifras.",
+   "via_en_el_resumen": "No especificada. El resumen detalla 1,6 mg dos veces por semana las primeras 12 semanas, pero no declara la vía de la timosina alfa-1.",
+   "fecha_verificacion_desenlace": "2026-09-23",
+   "fuente_desenlace": "PubMed E-utilities (efetch), NCBI, 2026-09-23"
   },
   {
    "pmid": "21227010",
@@ -171,7 +196,14 @@
    "especie_o_modelo": "Humanos; 25 pacientes con hepatitis B y antígeno e positivo, aleatorizados a tres grupos",
    "que_midieron": "Síntesis de citocinas por linfocitos T colaboradores de tipo 1 y de tipo 2",
    "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
+   "fecha_verificacion": "2026-09-22",
+   "resultado_reportado": "En todos los pacientes tratados, los niveles de citocinas y la proporción de células mononucleares de sangre periférica productoras de esas citocinas aumentaron de forma significativa frente al valor basal y frente a controles sanos. Las proporciones de células productoras de IFN-γ e IL-4 alcanzaron valores superiores a los de los controles sanos.",
+   "conclusion_autores": "El tratamiento aumentó la producción de citocinas, en especial IFN-γ, y la dosis mayor de Tα1 recombinante mostró mejor eficacia frente al VHB que los otros tratamientos estudiados.",
+   "signo_del_resultado": "favorable en un marcador inmunológico intermedio; sin desenlace clínico",
+   "limitacion_de_diseno": "Los tres grupos recibieron timosina alfa-1: no hubo grupo sin el péptido. La comparación se hace frente al valor basal y frente a controles sanos, no frente a un control aleatorizado sin tratamiento.",
+   "eventos_adversos": "El resumen no reporta eventos adversos.",
+   "fecha_verificacion_desenlace": "2026-09-23",
+   "fuente_desenlace": "PubMed E-utilities (efetch), NCBI, 2026-09-23"
   }
  ],
  "protocolos_investigacion_publicados": {
@@ -191,16 +223,16 @@
     "modelo": "Humanos; 552 pacientes con hepatitis C que no respondieron a peginterferón alfa-2a o 2b con ribavirina, aleatorizados a timosina alfa-1 (n = 275) o placebo (n = 277)",
     "via": "Subcutánea",
     "pauta_reportada": "Timosina alfa-1 1,6 mg dos veces por semana durante 48 semanas, sobre una base de peginterferón alfa-2a 180 µg/semana con ribavirina 800–1200 mg/día",
-    "desenlace_medido": "Respuesta virológica en pacientes no respondedores"
+    "desenlace_medido": "Respuesta virológica sostenida por intención de tratar: 12,7 % con timosina alfa-1 frente a 10,5 % con placebo (p = 0,407). Entre quienes completaron las 48 semanas, 41,0 % (34/83) frente a 26,3 % (26/99) (p = 0,048)"
    },
    {
     "estudio": "Pancreatitis aguda necrosante grave prevista (multicéntrico)",
     "pmid": "35713670",
     "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/35713670/",
-    "modelo": "Humanos; pacientes con predicción de pancreatitis aguda necrosante grave, estudio multicéntrico",
+    "modelo": "Humanos; 508 pacientes con predicción de pancreatitis aguda necrosante grave (APACHE II ≥ 8 y puntuación de gravedad por TC ≥ 5, ingresados en los primeros 7 días desde el inicio de los síntomas), aleatorizados 254 a Tα1 y 254 a placebo; 479 de 508 (94,3 %) requirieron ingreso en cuidados intensivos",
     "via": "Subcutánea",
     "pauta_reportada": "Tα1 1,6 mg cada 12 h durante los primeros 7 días y 1,6 mg una vez al día los 7 días siguientes, frente a placebo de salino",
-    "desenlace_medido": "Refuerzo inmunitario y desenlaces clínicos en pancreatitis grave"
+    "desenlace_medido": "Necrosis pancreática infectada durante el ingreso índice: 40/254 (15,7 %) con Tα1 frente a 46/254 (18,1 %) con placebo; diferencia −2,4 % (IC 95 % −7,4 a 5,1), p = 0,48"
    },
    {
     "estudio": "Prevención de covid-19 en pacientes en diálisis renal (piloto aleatorizado)",
@@ -216,9 +248,9 @@
     "pmid": "22726105",
     "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/22726105/",
     "modelo": "Humanos; 51 pacientes repartidos en combinación (n = 26) y monoterapia (n = 25)",
-    "via": "Subcutánea",
+    "via": "No especificada en el resumen",
     "pauta_reportada": "Timosina alfa-1 1,6 mg dos veces por semana durante las primeras 12 semanas, sobre peginterferón alfa-2a 180 µg semanales durante 48 semanas",
-    "desenlace_medido": "Respuesta combinada definida como seroconversión de HBeAg, supresión del ADN del VHB y normalización de la ALT: 15,4 % frente a 12,0 % al final del tratamiento (p = 0,725)"
+    "desenlace_medido": "Respuesta combinada definida como seroconversión de HBeAg, supresión del ADN del VHB y normalización de la ALT: 15,4 % frente a 12,0 % al final del tratamiento (p = 0,725) y 23,1 % frente a 20,0 % al final del seguimiento (p = 0,789)"
    },
    {
     "estudio": "Monoterapia a dos niveles de dosis en hepatitis B",
@@ -227,7 +259,7 @@
     "modelo": "Humanos; 25 pacientes con hepatitis B y antígeno e positivo, aleatorizados a tres grupos",
     "via": "No especificada en el resumen",
     "pauta_reportada": "Monoterapia durante 52 semanas: 1,6 mg de Tα1 activa (grupo A), 1,6 mg de Tα1 recombinante (grupo B) o 3,2 mg de Tα1 recombinante (grupo C)",
-    "desenlace_medido": "Síntesis de citocinas por linfocitos T colaboradores de tipo 1 y de tipo 2"
+    "desenlace_medido": "Síntesis de citocinas por linfocitos T colaboradores de tipo 1 y de tipo 2. Aumento significativo frente al valor basal y frente a controles sanos en todos los grupos; los tres grupos recibieron el péptido"
    }
   ],
   "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
@@ -243,6 +275,24 @@
  "generado": "2026-09-22",
  "fuentes": [
   "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
-  "PubChem PUG REST, NCBI, 2026-09-22"
+  "PubChem PUG REST, NCBI, 2026-09-22",
+  "PubMed E-utilities (efetch), NCBI, 2026-09-23 — desenlaces primarios y eventos adversos de los 5 PMID"
+ ],
+ "seguridad_reportada": {
+  "resumen": "Cuatro de los cinco resúmenes verificados dicen algo sobre eventos adversos; el quinto (PMID 21227010) no los menciona. Ninguno de los cinco es un estudio de seguridad ni publica una tabla completa de eventos adversos: lo que hay son comparaciones entre brazos dentro de cada ensayo.",
+  "fecha_verificacion": "2026-09-23",
+  "fuente": "PubMed E-utilities (efetch), NCBI, 2026-09-23"
+ },
+ "farmacocinetica": {
+  "disponible": false,
+  "nota": "Ninguna de las cinco referencias verificadas es un estudio de farmacocinética. Los resúmenes no reportan semivida de eliminación, biodisponibilidad, volumen de distribución ni vía de excreción.",
+  "vias_declaradas": "Subcutánea en tres de los cinco ensayos (PMID 22233415, 35713670 y 36881981). Los resúmenes de PMID 22726105 y 21227010 no declaran la vía."
+ },
+ "revisiones": [
+  {
+   "fecha": "2026-09-23",
+   "cambio": "Se añaden los desenlaces primarios y las conclusiones de los autores de los 5 estudios, los eventos adversos reportados, el n del PMID 35713670 (508; 254/254) con su criterio de inclusión y el 94,3 % de ingreso en cuidados intensivos, y se corrige la vía del PMID 22726105 a «No especificada en el resumen». Motivo: la revisión detectó que faltaban los resultados NEGATIVOS de los dos ensayos más grandes y que el archivo afirmaba una vía que su fuente no reporta.",
+   "verificado_contra": "NCBI efetch, 2026-09-23"
+  }
  ]
 }

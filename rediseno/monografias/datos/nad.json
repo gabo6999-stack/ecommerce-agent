@@ -24,12 +24,13 @@
   "peso_molecular_da": "663.4",
   "secuencia_aminoacidos": "No aplica: no es un péptido, es un dinucleótido",
   "pubchem_cid": 5892,
-  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22",
+  "fuente_identidad": "PubChem PUG REST, consultado el 2026-09-22 y revalidado el 2026-09-23 (fórmula, peso molecular y CID sin cambios)",
   "es_peptido": false
  },
  "estado_evidencia": {
-  "escalon": "ensayos aleatorizados en personas, pero sobre los PRECURSORES (ribósido de nicotinamida y mononucleótido de nicotinamida), no sobre NAD+ administrado como tal",
-  "texto": "Este es el punto que decide cómo se lee toda la bibliografía de este producto. Los ensayos aleatorizados en personas se hicieron con precursores: ribósido de nicotinamida (NR) y mononucleótido de nicotinamida (NMN). No son ensayos de NAD+ administrado directamente. Cada fila de la tabla nombra la molécula que se administró de verdad. En PubMed, la consulta «\"nicotinamide adenine dinucleotide\" AND (supplement* OR \"NAD+ precursor\")» devuelve 1095 registros, de los que 46 están tipificados como ensayo clínico (consulta del 22-sep-2026).",
+  "titulo_h2_sugerido": "Estado de la evidencia: 28 ensayos aleatorizados en personas, casi todos sobre precursores",
+  "escalon": "Ensayos aleatorizados en personas. La gran mayoría administró un PRECURSOR (ribósido de nicotinamida, NR, o mononucleótido de nicotinamida, NMN) y no NAD+. Existen además, y son la excepción, dos ensayos aleatorizados que sí administraron NAD+ como tal, ambos en indicaciones de enfermedad, y un estudio piloto de infusión intravenosa de NAD+ sin grupo de control.",
+  "texto": "Este es el punto que decide cómo se lee toda la bibliografía de este producto. De las 50 entradas verificadas de esta monografía, 3 administraron NAD+ tal cual: dos ensayos aleatorizados (insuficiencia cardiaca por miocardiopatía isquémica, PMID 40954388; e hipoacusia neurosensorial súbita, PMID 41035311) y un estudio piloto de infusión intravenosa sin grupo de comparación (PMID 31572171). Otras dos administraron un precursor por una vía distinta de la oral. Todas las demás dieron un precursor por boca: ribósido de nicotinamida o mononucleótido de nicotinamida. Por eso cada fila de la tabla nombra la molécula que se administró de verdad: NAD+, NR, NMN, nicotinamida o una mezcla. La revisión sistemática que sirve de ancla a esta página (PMID 41655607) resume esa misma asimetría desde el otro lado: identificó 113 estudios entre enero de 2010 y octubre de 2025 y afirma que ningún ensayo elegible evaluó NAD+ intravenoso o intramuscular por sí mismo para indicaciones de antienvejecimiento o bienestar. Las dos excepciones que aparecen en esta tabla no la contradicen: son ensayos en enfermedad, fuera del alcance que esa revisión se fijó.",
   "consultas_pubmed": [
    {
     "consulta": "\"nicotinamide adenine dinucleotide\" AND (supplement* OR \"NAD+ precursor\")",
@@ -40,19 +41,218 @@
     "consulta": "(lo anterior) AND clinical trial[pt]",
     "resultados": 46,
     "fecha": "2026-09-22"
+   },
+   {
+    "consulta": "\"nicotinamide riboside\"[tiab] AND randomized controlled trial[pt]",
+    "resultados": 31,
+    "fecha": "2026-09-23"
+   },
+   {
+    "consulta": "\"nicotinamide mononucleotide\"[tiab] AND randomized controlled trial[pt]",
+    "resultados": 17,
+    "fecha": "2026-09-23"
+   },
+   {
+    "consulta": "(\"nicotinamide adenine dinucleotide\"[ti] OR \"NAD+\"[ti] OR \"NAD\"[ti]) AND humans[mh] AND (randomized controlled trial[pt] OR clinical trial[pt])",
+    "resultados": 62,
+    "fecha": "2026-09-23",
+    "nota": "Barrido completo de títulos para localizar los estudios que administran NAD+ como tal. De los 62 registros, los únicos que administran NAD+ intacto a personas son 40954388, 41035311 y 31572171; el resto lo mencionan como analito, como vía metabólica o como diana."
+   },
+   {
+    "consulta": "(\"nicotinamide adenine dinucleotide\"[tiab] OR \"NAD+\"[tiab]) AND (intravenous[tiab] OR intramuscular[tiab] OR infusion[tiab] OR parenteral[tiab]) AND humans[mh] AND randomized controlled trial[pt]",
+    "resultados": 7,
+    "fecha": "2026-09-23",
+    "nota": "Revisados uno por uno: ninguno de los 7 administra NAD+ por vía parenteral. Mencionan NAD o NAD(P)H como cofactor o como enzima medida (glutatión, dieta con queso, suero salino hipertónico, cortisol, aminoácidos) o usan NR por vía oral."
    }
   ]
+ },
+ "revision_sistematica_ancla": {
+  "pmid": "41655607",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/41655607/",
+  "titulo": "NAD+ supplementation for anti-aging and wellness: A PRISMA-guided systematic review of preclinical and clinical evidence.",
+  "autores": [
+   "Gallagher C",
+   "Emmanuel OO"
+  ],
+  "revista": "Ageing Res Rev",
+  "anio": "2026",
+  "volumen_pagina": "116:103057",
+  "tipos_publicacion": [
+   "Journal Article",
+   "Systematic Review"
+  ],
+  "verificado_en_pubmed": true,
+  "fecha_verificacion": "2026-09-23",
+  "ventana_de_busqueda": "Enero de 2010 a octubre de 2025",
+  "que_incluyo": "Estudios de intervención en personas y en roedores, revisados por pares, con compuestos relacionados con NAD administrados por vía oral o parenteral.",
+  "cifras_reportadas": {
+   "estudios_elegibles": 113,
+   "estudios_de_intervencion_en_personas": 33,
+   "de_ellos_aleatorizados": 28,
+   "de_ellos_no_aleatorizados": 5,
+   "estudios_en_roedores": 80
+  },
+  "conclusiones_textuales": [
+   "En roedores, el aumento de NAD+ se asoció con frecuencia a mejoras metabólicas, mitocondriales, inflamatorias y funcionales, aunque los efectos variaron entre modelos y desenlaces.",
+   "En personas, el NR y el NMN orales demostraron de forma consistente compromiso bioquímico de la diana (metabolitos de NAD en plasma, sangre total o células mononucleares) y se toleraron bien durante semanas o meses.",
+   "Sobre los desenlaces funcionales, metabólicos, vasculares y de otros dominios relevantes para la salud, los efectos fueron heterogéneos y a menudo NULOS o dependientes del desenlace concreto.",
+   "Ningún ensayo elegible de desenlaces evaluó NAD+ intravenoso ni intramuscular por sí mismo para indicaciones de antienvejecimiento o bienestar.",
+   "Un único estudio no aleatorizado de NMN intravenoso cumplió los criterios de inclusión y aportó sobre todo información de seguridad a corto plazo y de biomarcadores.",
+   "Un estudio piloto de farmacocinética de NAD+ intravenoso, sin desenlaces clínicos elegibles, se identificó solo como evidencia contextual.",
+   "En conjunto, el aumento de NAD+ muestra actividad biológica clara, pero su eficacia clínica para desenlaces de antienvejecimiento o bienestar sigue siendo no concluyente."
+  ],
+  "conflicto_de_interes_declarado": "Uno de los autores declara ser propietario de una organización de servicios de gestión que presta servicios administrativos a una clínica estética; el artículo precisa que esa clínica no ofrece infusiones ni suplementación de NAD+.",
+  "por_que_es_el_ancla": "Es la referencia que ya cita la ficha de venta del producto 1131. Fija el tamaño real del cuerpo de evidencia (113 estudios) y, sobre todo, fija su forma: la actividad bioquímica está demostrada y la eficacia clínica no.",
+  "limite_que_hay_que_declarar": "Su búsqueda se cerró en octubre de 2025 y su alcance eran las indicaciones de antienvejecimiento y bienestar. Por eso NO contiene los ensayos de 2026 de esta tabla ni los dos ensayos aleatorizados de NAD+ administrado como tal, que son de indicaciones de enfermedad. PubMed no publica la lista de referencias de este artículo, de modo que los estudios de esta monografía no se copiaron de él: se localizaron y se verificaron uno a uno en PubMed."
  },
  "regulatorio": {
   "aprobacion": "NAD+ y sus precursores se comercializan como suplementos alimenticios en varios mercados, no como medicamentos. Comprobar el estatus en México antes de afirmar nada.",
   "wada": "No está en la Lista de Prohibiciones.",
-  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero."
+  "fuente_wada": "Lista de Prohibiciones WADA vigente 2026; lectura interna del PDF contrastada con USADA (2026-08-29). Revalidar cada 1 de enero.",
+  "no_publicar": [
+   "wada",
+   "fuente_wada"
+  ],
+  "nota_no_publicar": "La clasificación WADA NO se publica: el dueño no ha dado permiso. El dato se conserva aquí solo como referencia interna."
  },
  "estudios": [
+  {
+   "pmid": "40954388",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40954388/",
+   "titulo": "Effect of Nicotinamide Adenine Dinucleotide on Heart Failure Caused by Ischemic Cardiomyopathy: A Randomized, Placebo-Controlled Trial.",
+   "revista": "Am J Cardiovasc Drugs",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "autores": [
+    "Yu X",
+    "Xu J",
+    "Cao J",
+    "Xu Q",
+    "Chen H",
+    "Yu D"
+   ],
+   "especie_o_modelo": "Humanos; 180 adultos con miocardiopatía isquémica, fracción de eyección del ventrículo izquierdo ≤ 45 % y clase funcional NYHA II-III; ensayo aleatorizado, controlado con placebo, de un solo centro",
+   "que_midieron": "Cambio de la fracción de eyección del ventrículo izquierdo al mes (desenlace principal); NT-proBNP a 7 y 30 días, un compuesto de eventos cardiovasculares y cerebrovasculares adversos mayores a 6 meses, y clase funcional NYHA",
+   "resultado_reportado": "Al mes, la fracción de eyección mejoró más en el grupo de NAD+ que en el de placebo (45.44 ± 8.55 % frente a 42.44 ± 9.09 %, p = 0.024). El descenso de NT-proBNP al día 7, el compuesto de eventos a 6 meses (14.6 % frente a 24.7 %) y la mejoría de clase NYHA quedaron como tendencias sin significación estadística. No hubo diferencias en los parámetros estructurales.",
+   "signo_del_resultado": "positivo en el desenlace principal, con los desenlaces secundarios no significativos",
+   "grupo": "A",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "41035311",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41035311/",
+   "titulo": "NAD+ Enhanced on Hearing Recovery in Sudden Sensorineural Hearing Loss: Randomized Controlled Trial.",
+   "revista": "Laryngoscope",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Gao M",
+    "Guan Y",
+    "Yue X",
+    "Bao H",
+    "Li Q",
+    "Zheng Y"
+   ],
+   "especie_o_modelo": "Humanos; 38 pacientes con hipoacusia neurosensorial súbita (18 en el grupo de NAD+ y 20 de control); ensayo aleatorizado y doble ciego realizado entre junio de 2022 y junio de 2024",
+   "que_midieron": "Mejoría del promedio de tonos puros, tasa de recuperación según los criterios de Siegel y tiempo medio de recuperación, desde el inicio hasta los 3 meses",
+   "resultado_reportado": "El grupo de NAD+ ganó más audición (40.21 dB HL frente a 23.06 dB HL, p = 0.010), tuvo mayor tasa de eficacia (94.44 % frente a 60.00 %, p = 0.003) y un tiempo de recuperación más corto (62.97 frente a 175.98 días, p = 0.028). El acúfeno y la plenitud aural también mejoraron más.",
+   "signo_del_resultado": "positivo",
+   "grupo": "A",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "31572171",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31572171/",
+   "titulo": "A Pilot Study Investigating Changes in the Human Plasma and Urine NAD+ Metabolome During a 6 Hour Intravenous Infusion of NAD.",
+   "revista": "Front Aging Neurosci",
+   "anio": "2019",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "autores": [
+    "Grant R",
+    "Berg J",
+    "Mestayer R",
+    "Braidy N",
+    "Bennett J",
+    "Broom S"
+   ],
+   "especie_o_modelo": "Humanos; estudio piloto sin grupo de comparación. El resumen no reporta el número de participantes",
+   "que_midieron": "Concentraciones de NAD+ y de sus metabolitos (nicotinamida, metilnicotinamida, ADP-ribosa y mononucleótido de nicotinamida) en plasma y en orina, durante la infusión y después de ella",
+   "resultado_reportado": "No se observó ningún cambio en el NAD+ plasmático ni en sus metabolitos hasta pasadas 2 horas: a esa velocidad de infusión el NAD+ se retira del plasma de forma rápida y completa durante al menos las primeras 2 horas. A las 6 horas aumentó la excreción urinaria de metilnicotinamida y de NAD+, pero no la de nicotinamida.",
+   "signo_del_resultado": "sin desenlace clínico; solo farmacocinética",
+   "grupo": "A",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "36225528",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36225528/",
+   "titulo": "Nicotinamide Mononucleotide Is Safely Metabolized and Significantly Reduces Blood Triglyceride Levels in Healthy Individuals.",
+   "revista": "Cureus",
+   "anio": "2022",
+   "tipos_publicacion": [
+    "Journal Article"
+   ],
+   "autores": [
+    "Kimura S",
+    "Ichikawa M",
+    "Sugawara S",
+    "Katagiri T",
+    "Hirasawa Y",
+    "Ishikawa T"
+   ],
+   "especie_o_modelo": "Humanos; 10 voluntarios sanos. El resumen no describe aleatorización ni grupo placebo",
+   "que_midieron": "Electrocardiograma, pulso y presión arterial; marcadores metabólicos de hígado, corazón, páncreas y riñón; NAD+ en sangre y triglicéridos en sangre",
+   "resultado_reportado": "No se afectaron el electrocardiograma, el pulso, la presión arterial ni los marcadores metabólicos. El NAD+ en sangre aumentó sin daño de las células sanguíneas, y los triglicéridos en sangre bajaron de forma significativa.",
+   "signo_del_resultado": "positivo, en un diseño sin grupo de control",
+   "grupo": "B",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "42304075",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42304075/",
+   "titulo": "Sublingual NMN administration increases early circulating terminal catabolites 2PY and 4PY compared with oral administration in healthy adult men.",
+   "revista": "Sci Rep",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Comparative Study"
+   ],
+   "autores": [
+    "Wakabayashi J",
+    "Higashi S",
+    "Morifuji M"
+   ],
+   "especie_o_modelo": "Humanos; 14 varones adultos sanos; ensayo cruzado aleatorizado de dos periodos con 8 días de lavado",
+   "que_midieron": "Área bajo la curva incremental de NMN, nicotinamida, NAD+ y los catabolitos terminales 2PY y 4PY, durante los 60 minutos posteriores a una dosis única",
+   "resultado_reportado": "La vía sublingual dio un área bajo la curva incremental mayor para los catabolitos terminales 2PY y 4PY. No hubo diferencias entre vías en las concentraciones de NMN, nicotinamida ni NAD+. Los propios autores señalan que no pudieron distinguir el origen metabólico de ese aumento.",
+   "signo_del_resultado": "mixto; solo farmacocinética",
+   "grupo": "B",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
   {
    "pmid": "42082179",
    "url": "https://pubmed.ncbi.nlm.nih.gov/42082179/",
    "titulo": "Effect of Nicotinamide Mononucleotide on Retinal Thickness of Older Patients With Diabetes Mellitus: A Placebo-Controlled, Double-Blind Study.",
+   "revista": "Geriatr Gerontol Int",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
    "autores": [
     "Shiraki A",
     "Hara C",
@@ -61,69 +261,24 @@
     "Sugimoto K",
     "Yasunobe Y"
    ],
-   "revista": "Geriatrics & gerontology international",
-   "anio": "2026",
-   "tipos_publicacion": [
-    "Journal Article",
-    "Randomized Controlled Trial"
-   ],
    "especie_o_modelo": "Humanos; pacientes mayores con diabetes mellitus",
    "que_midieron": "Grosor retiniano",
+   "resultado_reportado": "El resumen disponible no permite fijar la dirección del efecto; hay que consultar el texto completo.",
+   "signo_del_resultado": "no determinado a partir del resumen",
+   "grupo": "C",
    "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
-  },
-  {
-   "pmid": "42048163",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/42048163/",
-   "titulo": "NAD+ augmentation by nicotinamide riboside engages SLIT2/ROBO1 signaling to attenuate Th17 inflammation in psoriasis.",
-   "autores": [
-    "Han K",
-    "Klein RJ",
-    "Recupero TC",
-    "Russo AC",
-    "Sharma R",
-    "Gupta AK"
-   ],
-   "revista": "JCI insight",
-   "anio": "2026",
-   "tipos_publicacion": [
-    "Journal Article",
-    "Randomized Controlled Trial",
-    "Research Support, N.I.H., Extramural"
-   ],
-   "especie_o_modelo": "Humanos; participantes con psoriasis, con muestras de sangre al inicio y tras la suplementación",
-   "que_midieron": "Señalización SLIT2/ROBO1 y atenuación de la inflamación mediada por Th17",
-   "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
-  },
-  {
-   "pmid": "42009009",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/42009009/",
-   "titulo": "Safety and efficacy of individualised exercise and NAD + precursor supplementation in patients with Friedreich's ataxia in the USA: a single-centre, 2 × 2 factorial, randomised controlled trial.",
-   "autores": [
-    "Lin KY",
-    "Bucha A",
-    "McSweeney K",
-    "Wade KL",
-    "Karaj A",
-    "Tamaroff J"
-   ],
-   "revista": "The Lancet. Neurology",
-   "anio": "2026",
-   "tipos_publicacion": [
-    "Journal Article",
-    "Randomized Controlled Trial",
-    "Clinical Trial, Phase II"
-   ],
-   "especie_o_modelo": "Humanos; pacientes con ataxia de Friedreich, en un ensayo aleatorizado factorial 2 × 2 de un solo centro en Estados Unidos",
-   "que_midieron": "Seguridad y eficacia; consultar el resumen completo para las variables exactas",
-   "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
+   "fecha_verificacion": "2026-09-23"
   },
   {
    "pmid": "41162813",
    "url": "https://pubmed.ncbi.nlm.nih.gov/41162813/",
    "titulo": "Association between blood nicotinamide adenine dinucleotide levels and blood laboratory parameters at baseline and after nicotinamide mononucleotide supplementation in middle-aged healthy individuals: post hoc analysis of a randomized, double-blinded, placebo-controlled clinical trial.",
+   "revista": "Geroscience",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
    "autores": [
     "Kuerec AH",
     "Wang W",
@@ -132,21 +287,399 @@
     "Lin Z",
     "Vaidya A"
    ],
-   "revista": "GeroScience",
+   "especie_o_modelo": "Humanos; 80 participantes sanos de mediana edad (49.4 ± 6.8 años); análisis post hoc de un ensayo aleatorizado y doble ciego",
+   "que_midieron": "Concentración sanguínea de dinucleótido de nicotinamida y adenina y su asociación con parámetros de laboratorio",
+   "resultado_reportado": "Un NAD basal más alto se asoció con más linfocitos, menos neutrófilos, más triglicéridos, menos lipoproteína de alta densidad y más alanina y aspartato aminotransferasa. El ascenso de NAD inducido por el NMN se asoció con incrementos de hemoglobina, eritrocitos y concentración corpuscular media de hemoglobina.",
+   "signo_del_resultado": "asociativo; no es un desenlace clínico",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "36482258",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36482258/",
+   "titulo": "The efficacy and safety of β-nicotinamide mononucleotide (NMN) supplementation in healthy middle-aged adults: a randomized, multicenter, double-blind, placebo-controlled, parallel-group, dose-dependent clinical trial.",
+   "revista": "Geroscience",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Multicenter Study",
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Yi L",
+    "Maier AB",
+    "Tao R",
+    "Lin Z",
+    "Vaidya A",
+    "Pendse S"
+   ],
+   "especie_o_modelo": "Humanos; 80 adultos sanos de mediana edad; ensayo aleatorizado, multicéntrico, doble ciego, de grupos paralelos",
+   "que_midieron": "Concentración sanguínea de NAD (objetivo principal); seguridad y tolerabilidad; prueba de marcha de seis minutos, edad biológica sanguínea, índice HOMA-IR y cuestionario SF-36",
+   "resultado_reportado": "El NAD en sangre subió en los tres grupos tratados en los días 30 y 60 (todos p ≤ 0.001), con los valores más altos en 600 y 900 mg. La distancia recorrida en seis minutos aumentó más que con placebo en las tres dosis. El índice HOMA-IR NO mostró diferencias frente a placebo en el día 60.",
+   "signo_del_resultado": "mixto",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "38789831",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/38789831/",
+   "titulo": "Ingestion of β-nicotinamide mononucleotide increased blood NAD levels, maintained walking speed, and improved sleep quality in older adults in a double-blind randomized, placebo-controlled study.",
+   "revista": "Geroscience",
+   "anio": "2024",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Morifuji M",
+    "Higashi S",
+    "Ebihara S",
+    "Nagata M"
+   ],
+   "especie_o_modelo": "Humanos; 60 adultos mayores asignados al azar a placebo o a NMN; estudio doble ciego de grupos paralelos",
+   "que_midieron": "Prueba de escalón (desenlace principal); tiempo de marcha de 4 metros, metabolitos de NAD en sangre, calidad del sueño por el índice de Pittsburgh y estrés",
+   "resultado_reportado": "En el desenlace principal NO hubo diferencia entre NMN y placebo en la prueba de escalón, ni a las 4 ni a las 12 semanas. En los desenlaces secundarios, a las 12 semanas el grupo de NMN tuvo menor tiempo de marcha de 4 metros, mayor NAD+ en sangre y mejores puntuaciones de sueño.",
+   "signo_del_resultado": "negativo en el desenlace principal, positivo en los secundarios",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "36797393",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36797393/",
+   "titulo": "Nicotinamide adenine dinucleotide metabolism and arterial stiffness after long-term nicotinamide mononucleotide supplementation: a randomized, double-blind, placebo-controlled trial.",
+   "revista": "Sci Rep",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Katayoshi T",
+    "Uehata S",
+    "Nakashima N",
+    "Nakajo T",
+    "Kitajima N",
+    "Kageyama M"
+   ],
+   "especie_o_modelo": "Humanos; 36 participantes sanos de mediana edad; ensayo aleatorizado, doble ciego, de grupos paralelos",
+   "que_midieron": "Metabolitos de NAD+ en suero y velocidad de la onda de pulso como indicador de rigidez arterial",
+   "resultado_reportado": "La nicotinamida sérica fue más alta con NMN. La velocidad de la onda de pulso tendió a bajar en el grupo de NMN, pero NO se encontró diferencia significativa entre los dos grupos. La pauta se toleró bien y no causó eventos adversos.",
+   "signo_del_resultado": "negativo en el desenlace vascular",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "36740954",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36740954/",
+   "titulo": "Nicotinamide Adenine Dinucleotide Augmentation in Overweight or Obese Middle-Aged and Older Adults: A Physiologic Study.",
+   "revista": "J Clin Endocrinol Metab",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Pencina KM",
+    "Valderrabano R",
+    "Wipper B",
+    "Orkaby AR",
+    "Reid KF",
+    "Storer T"
+   ],
+   "especie_o_modelo": "Humanos; 30 adultos con sobrepeso u obesidad de 45 años o más, aleatorizados en proporción 2:1",
+   "que_midieron": "Seguridad; NAD y su metaboloma; peso corporal; grasa hepática, muscular e intraabdominal; sensibilidad a la insulina; presión arterial; lípidos; rendimiento físico y bioenergética muscular",
+   "resultado_reportado": "Subieron el NAD circulante y sus metabolitos. Bajaron más que con placebo el peso (−1.9 kg), la presión arterial diastólica (−7.01 mmHg), el colesterol total (−26.89 mg/dL) y el colesterol LDL (−18.73 mg/dL). NO cambiaron la fuerza muscular, la fatigabilidad, la capacidad aeróbica, la potencia al subir escaleras, la sensibilidad a la insulina ni la grasa hepática e intraabdominal.",
+   "signo_del_resultado": "mixto",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "35182418",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/35182418/",
+   "titulo": "MIB-626, an Oral Formulation of a Microcrystalline Unique Polymorph of β-Nicotinamide Mononucleotide, Increases Circulating Nicotinamide Adenine Dinucleotide and its Metabolome in Middle-Aged and Older Adults.",
+   "revista": "J Gerontol A Biol Sci Med Sci",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Pencina KM",
+    "Lavu S",
+    "Dos Santos M",
+    "Beleva YM",
+    "Cheng M",
+    "Livingston D"
+   ],
+   "especie_o_modelo": "Humanos; 32 adultos con sobrepeso u obesidad de 55 a 80 años, aleatorizados en bloques y estratificados por sexo; estudio doble ciego controlado con placebo",
+   "que_midieron": "NMN, NAD y metaboloma de NAD medidos por cromatografía líquida acoplada a espectrometría de masas en tándem; eventos adversos; excreción urinaria de NMN",
+   "resultado_reportado": "El NMN en sangre en el día 14 fue mayor que con placebo (1.7 y 3.7 veces el valor basal en los grupos de una y de dos tomas diarias). El NAD subió de forma dependiente de la dosis. Los cambios no se relacionaron con el sexo, el índice de masa corporal ni la edad, y se excretó muy poco NMN sin modificar en la orina.",
+   "signo_del_resultado": "positivo en el desenlace bioquímico; sin desenlace clínico",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "36443648",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36443648/",
+   "titulo": "Effects of nicotinamide mononucleotide on older patients with diabetes and impaired physical performance: A prospective, placebo-controlled, double-blind study.",
+   "revista": "Geriatr Gerontol Int",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Journal Article"
+   ],
+   "autores": [
+    "Akasaka H",
+    "Nakagami H",
+    "Sugimoto K",
+    "Yasunobe Y",
+    "Minami T",
+    "Fujimoto T"
+   ],
+   "especie_o_modelo": "Humanos; 14 varones con diabetes de 65 años o más (edad media 81.1 ± 6.4) con fuerza de prensión menor de 26 kg o velocidad de marcha menor de 1.0 m/s; estudio doble ciego controlado con placebo",
+   "que_midieron": "Seguridad; cambios en la fuerza de prensión y en la velocidad de marcha; indicadores exploratorios",
+   "resultado_reportado": "Fue tolerable y sin eventos adversos graves, pero NO mejoró la fuerza de prensión ni la velocidad de marcha: los cambios no se diferenciaron del placebo. Ningún indicador exploratorio difirió entre grupos; la prevalencia de fragilidad (p = 0.066) y el grosor retiniano central (p = 0.051) quedaron como tendencias.",
+   "signo_del_resultado": "negativo",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "36002548",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36002548/",
+   "titulo": "Safety evaluation of β-nicotinamide mononucleotide oral administration in healthy adult men and women.",
+   "revista": "Sci Rep",
+   "anio": "2022",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Fukamizu Y",
+    "Uchida Y",
+    "Shigekawa A",
+    "Sato T",
+    "Kosaka H",
+    "Sakurai T"
+   ],
+   "especie_o_modelo": "Humanos; 31 varones y mujeres adultos sanos de 20 a 65 años; estudio aleatorizado, doble ciego, controlado con placebo, de grupos paralelos",
+   "que_midieron": "Antropometría, hematología, bioquímica, orina y composición corporal; eventos adversos",
+   "resultado_reportado": "No hubo cambios que excedieran la variación fisiológica en ninguna de las mediciones, ni eventos adversos graves durante el periodo de estudio.",
+   "signo_del_resultado": "seguridad; sin desenlace de eficacia",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "35215405",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/35215405/",
+   "titulo": "Effect of 12-Week Intake of Nicotinamide Mononucleotide on Sleep Quality, Fatigue, and Physical Performance in Older Japanese Adults: A Randomized, Double-Blind Placebo-Controlled Study.",
+   "revista": "Nutrients",
+   "anio": "2022",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "autores": [
+    "Kim M",
+    "Seol J",
+    "Sato T",
+    "Fukamizu Y",
+    "Sakurai T",
+    "Okura T"
+   ],
+   "especie_o_modelo": "Humanos; 108 adultos mayores japoneses repartidos en cuatro grupos (NMN por la mañana, NMN por la tarde, placebo por la mañana, placebo por la tarde); estudio aleatorizado y doble ciego",
+   "que_midieron": "Calidad del sueño por el índice de Pittsburgh; fatiga por el cuestionario «Jikaku-sho shirabe»; fuerza de prensión, cinco levantadas de silla, prueba de levantarse y andar, y marcha habitual de 5 metros",
+   "resultado_reportado": "Hubo interacción significativa entre las cinco levantadas de silla y la somnolencia. El tamaño del efecto mayor estuvo en el grupo que tomó NMN por la tarde (d = 0.72 para las levantadas de silla y d = 0.64 para la somnolencia). Las cinco levantadas de silla mejoraron en todos los grupos, incluidos los de placebo.",
+   "signo_del_resultado": "mixto",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "34238308",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/34238308/",
+   "titulo": "Nicotinamide mononucleotide supplementation enhances aerobic capacity in amateur runners: a randomized, double-blind study.",
+   "revista": "J Int Soc Sports Nutr",
+   "anio": "2021",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "autores": [
+    "Liao B",
+    "Zhao Y",
+    "Wang D",
+    "Zhang X",
+    "Hao X",
+    "Hu M"
+   ],
+   "especie_o_modelo": "Humanos; 48 corredores aficionados jóvenes y de mediana edad de un equipo de Guangzhou, en cuatro brazos de 12 personas cada uno; estudio aleatorizado y doble ciego",
+   "que_midieron": "Capacidad aeróbica por prueba de esfuerzo cardiopulmonar al inicio y a las 6 semanas: consumo de oxígeno, porcentaje del consumo máximo de oxígeno y potencia en el primer y el segundo umbral ventilatorio",
+   "resultado_reportado": "El consumo de oxígeno, el porcentaje del consumo máximo y la potencia en los dos umbrales ventilatorios subieron más en los grupos de 600 y 1200 mg que en el de control. Pero NO hubo diferencia en el consumo máximo de oxígeno, el pulso de oxígeno, el consumo de oxígeno relativo a la carga de trabajo ni la potencia pico.",
+   "signo_del_resultado": "mixto",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "33888596",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/33888596/",
+   "titulo": "Nicotinamide mononucleotide increases muscle insulin sensitivity in prediabetic women.",
+   "revista": "Science",
+   "anio": "2021",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Yoshino M",
+    "Yoshino J",
+    "Kayser BD",
+    "Patti GJ",
+    "Franczyk MP",
+    "Mills KF"
+   ],
+   "especie_o_modelo": "Humanos; mujeres posmenopáusicas con prediabetes y con sobrepeso u obesidad; ensayo aleatorizado, doble ciego, controlado con placebo",
+   "que_midieron": "Eliminación de glucosa estimulada por insulina mediante pinza hiperinsulinémica euglucémica; señalización de insulina en músculo esquelético (fosforilación de AKT y de mTOR); expresión génica relacionada con la remodelación muscular",
+   "resultado_reportado": "La eliminación de glucosa estimulada por insulina y la señalización muscular de insulina aumentaron tras el NMN y no cambiaron con placebo. Subió la expresión del receptor β del factor de crecimiento derivado de plaquetas y la de otros genes de remodelación muscular.",
+   "signo_del_resultado": "positivo",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "41705654",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41705654/",
+   "titulo": "Anti-inflammatory effects of nicotinamide mononucleotide (NMN) in human skeletal muscle after BFR-exercise.",
+   "revista": "J Int Soc Sports Nutr",
    "anio": "2026",
    "tipos_publicacion": [
     "Journal Article",
     "Randomized Controlled Trial"
    ],
-   "especie_o_modelo": "Humanos; participantes sanos de mediana edad; análisis post hoc de un ensayo aleatorizado y doble ciego",
-   "que_midieron": "Concentración sanguínea de dinucleótido de nicotinamida y adenina y su asociación con parámetros de laboratorio",
+   "autores": [
+    "Yang DL",
+    "Chao KC",
+    "Yang HT",
+    "Chen KH",
+    "Dewi L",
+    "Condello G"
+   ],
+   "especie_o_modelo": "Humanos; 11 varones no entrenados (22.8 ± 1.5 años); ensayo cruzado aleatorizado, controlado con placebo y contrabalanceado, con 3 semanas de lavado",
+   "que_midieron": "ARN mensajero de TNF-α, IL-10 y p21 en biopsias musculares; necrosis muscular; contenido mitocondrial; inmunofluorescencia de TOM20, mieloperoxidasa y COX4",
+   "resultado_reportado": "El NMN suprimió el ascenso de TNF-α y de IL-10 inducido por el ejercicio y retrasó la subida de p21. Pero el ejercicio aumentó el contenido mitocondrial del músculo un 171 % a las 24 horas, y esa adaptación QUEDÓ ABOLIDA con NMN. La resolución de las células infiltrantes también se retrasó.",
+   "signo_del_resultado": "negativo: suprimió una adaptación al entrenamiento",
+   "grupo": "C",
    "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "41651893",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41651893/",
+   "titulo": "The effects of pyrroloquinoline quinone and nicotinamide mononucleotide supplementation on interoception following acute exhaustive exercise: a randomised, double-blind, placebo-controlled study.",
+   "revista": "Sci Rep",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "autores": [
+    "Zhao C",
+    "Wu B",
+    "Sui H",
+    "Kuan G",
+    "Wei G",
+    "Yan Y"
+   ],
+   "especie_o_modelo": "Humanos; 60 participantes asignados al azar a cuatro brazos; estudio doble ciego controlado con placebo",
+   "que_midieron": "Interocepción por el Body Perception Questionnaire y el Multidimensional Assessment of Interoceptive Awareness, al inicio y tras el ejercicio; indicadores de capacidad de ejercicio",
+   "resultado_reportado": "La única dimensión con interacción significativa de grupo por tiempo fue la escucha corporal, y la mejoría estuvo en el grupo de pirroloquinolina quinona. El NMN no mostró efecto propio sobre la interocepción.",
+   "signo_del_resultado": "negativo para el NMN",
+   "grupo": "C",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "42048163",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42048163/",
+   "titulo": "NAD+ augmentation by nicotinamide riboside engages SLIT2/ROBO1 signaling to attenuate Th17 inflammation in psoriasis.",
+   "revista": "JCI Insight",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "autores": [
+    "Han K",
+    "Klein RJ",
+    "Recupero TC",
+    "Russo AC",
+    "Sharma R",
+    "Gupta AK"
+   ],
+   "especie_o_modelo": "Humanos; participantes con psoriasis, con muestras de sangre al inicio y tras la suplementación",
+   "que_midieron": "Señalización SLIT2/ROBO1 y atenuación de la inflamación mediada por Th17",
+   "resultado_reportado": "El resumen disponible no permite fijar la magnitud del efecto; hay que consultar el texto completo.",
+   "signo_del_resultado": "no determinado a partir del resumen",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "42009009",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42009009/",
+   "titulo": "Safety and efficacy of individualised exercise and NAD+ precursor supplementation in patients with Friedreich's ataxia in the USA: a single-centre, 2 × 2 factorial, randomised controlled trial.",
+   "revista": "Lancet Neurol",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Clinical Trial, Phase II"
+   ],
+   "autores": [
+    "Lin KY",
+    "Bucha A",
+    "McSweeney K",
+    "Wade KL",
+    "Karaj A",
+    "Tamaroff J"
+   ],
+   "especie_o_modelo": "Humanos; pacientes con ataxia de Friedreich, en un ensayo aleatorizado factorial 2 × 2 de un solo centro en Estados Unidos",
+   "que_midieron": "Seguridad y eficacia; hay que consultar el texto completo para las variables exactas",
+   "resultado_reportado": "El resumen disponible no permite fijar los desenlaces exactos; hay que consultar el texto completo.",
+   "signo_del_resultado": "no determinado a partir del resumen",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
   },
   {
    "pmid": "40770531",
    "url": "https://pubmed.ncbi.nlm.nih.gov/40770531/",
    "titulo": "Nicotinamide riboside combined with exercise to treat hypertension in middle-aged and older adults: a pilot randomized clinical trial.",
+   "revista": "Geroscience",
+   "anio": "2025",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural"
+   ],
    "autores": [
     "Lin Y",
     "Zeidan RS",
@@ -155,22 +688,24 @@
     "Anton SD",
     "Buford TW"
    ],
-   "revista": "GeroScience",
-   "anio": "2025",
-   "tipos_publicacion": [
-    "Journal Article",
-    "Randomized Controlled Trial",
-    "Research Support, N.I.H., Extramural"
-   ],
    "especie_o_modelo": "Humanos; 54 adultos sedentarios de 55 años o más con presión arterial sistólica diurna media ≥ 130 mmHg",
-   "que_midieron": "Presión arterial sistólica diurna media",
+   "que_midieron": "Presión arterial sistólica diurna media (desenlace principal); velocidad de la onda de pulso, catabolitos de NAD y presión arterial nocturna",
+   "resultado_reportado": "NR más ejercicio NO redujo la presión sistólica más que placebo más ejercicio (+5.19 ± 13.2 mmHg frente a −2.71 ± 10.5 mmHg). Los catabolitos de NAD fueron más altos en los grupos con NR. La reducción de la presión nocturna en quienes no tomaban antihipertensivos quedó como tendencia en un análisis post hoc.",
+   "signo_del_resultado": "negativo en el desenlace principal",
+   "grupo": "D",
    "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
+   "fecha_verificacion": "2026-09-23"
   },
   {
    "pmid": "40459998",
    "url": "https://pubmed.ncbi.nlm.nih.gov/40459998/",
    "titulo": "Nicotinamide Riboside Supplementation Benefits in Patients With Werner Syndrome: A Double-Blind Randomized Crossover Placebo-Controlled Trial.",
+   "revista": "Aging Cell",
+   "anio": "2025",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
    "autores": [
     "Shoji M",
     "Kato H",
@@ -179,16 +714,740 @@
     "Baba Y",
     "Ishikawa T"
    ],
-   "revista": "Aging cell",
+   "especie_o_modelo": "Humanos; pacientes con síndrome de Werner",
+   "que_midieron": "Seguridad (desenlace principal); NAD+ en plasma, número y tamaño de las úlceras cutáneas, analítica, sarcopenia, grosor de la almohadilla del talón, índice vascular corazón-tobillo e índice tobillo-brazo; metaboloma plasmático como exploratorio",
+   "resultado_reportado": "No hubo eventos adversos graves. Mejoró el índice vascular corazón-tobillo, disminuyó el área de las úlceras cutáneas, el adelgazamiento de la almohadilla del talón mostró tendencia descendente y bajó la creatinina en sangre.",
+   "signo_del_resultado": "positivo",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "42478598",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42478598/",
+   "titulo": "A phase-II randomized controlled pilot study of nicotinamide riboside supplementation in older adults with amnestic mild cognitive impairment.",
+   "revista": "Alzheimers Dement",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Clinical Trial, Phase II"
+   ],
+   "autores": [
+    "Martens CR",
+    "Decker KP",
+    "DeConne TM",
+    "Sanjana F",
+    "Horvat F",
+    "Rizzi NA"
+   ],
+   "especie_o_modelo": "Humanos; 42 participantes que completaron el estudio (22 con NR y 20 con placebo) con deterioro cognitivo leve amnésico; estudio piloto doble ciego, aleatorizado y controlado con placebo",
+   "que_midieron": "Seguridad y tolerabilidad; función cognitiva (desenlace principal); flujo sanguíneo cerebral total y presión arterial (secundarios); flujo sanguíneo cerebral regional (exploratorio)",
+   "resultado_reportado": "El NAD+ en sangre se duplicó con NR, sin efectos adversos graves. Pero NO hubo mejoría de la función cognitiva (desenlace principal), ni del flujo sanguíneo cerebral total, ni de la presión arterial. Solo unos análisis exploratorios sugirieron aumentos regionales del flujo, sobre todo en el hipocampo.",
+   "signo_del_resultado": "negativo",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "41502156",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41502156/",
+   "titulo": "Evaluation of Nicotinamide Riboside in Prevention of Small Nerve Fiber Axon Degeneration and Promotion of Nerve Regeneration.",
+   "revista": "J Peripher Nerv Syst",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Clinical Trial, Phase II",
+    "Randomized Controlled Trial"
+   ],
+   "autores": [
+    "Thomas S",
+    "Ben-Davies R",
+    "Cetinkaya-Fisgin A",
+    "Hu X",
+    "Li X",
+    "Stewart S"
+   ],
+   "especie_o_modelo": "Humanos; estudio de fase 2, doble ciego y controlado con placebo, sobre un modelo experimental validado de degeneración y regeneración del nervio cutáneo",
+   "que_midieron": "NAD+ en plasma y en piel; degeneración de las fibras nerviosas sensitivas epidérmicas inducida por capsaicina; reinervación epidérmica a los 60 y a los 90 días",
+   "resultado_reportado": "El NR NO elevó el NAD+ plasmático y solo produjo un aumento pequeño en la piel. NO evitó la degeneración de las fibras por capsaicina ni cambió la reinervación a los 90 días. Los autores concluyen que, a esas dosis, el NR oral no puede recomendarse para prevenir neuropatía ni para mejorar la regeneración nerviosa.",
+   "signo_del_resultado": "negativo",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "39548320",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/39548320/",
+   "titulo": "Effect of nicotinamide riboside on airway inflammation in COPD: a randomized, placebo-controlled trial.",
+   "revista": "Nat Aging",
+   "anio": "2024",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Norheim KL",
+    "Ben Ezra M",
+    "Heckenbach I",
+    "Andreasson LM",
+    "Eriksen LL",
+    "Dyhre-Petersen N"
+   ],
+   "especie_o_modelo": "Humanos; 40 pacientes con enfermedad pulmonar obstructiva crónica estable; ensayo aleatorizado, doble ciego y controlado con placebo",
+   "que_midieron": "Cambio de la interleucina 8 en esputo entre el inicio y la semana 6 (desenlace principal); NAD+ en sangre total e interleucina 6 en plasma; vías génicas de integridad genómica y envejecimiento epigenético como exploratorios",
+   "resultado_reportado": "La interleucina 8 en esputo bajó un 52.6 % más que con placebo a las 6 semanas (p = 0.030), y el efecto persistió en el seguimiento (−63.7 %, p = 0.034). El NAD+ en sangre total se más que duplicó. La interleucina 6 en plasma NO cambió.",
+   "signo_del_resultado": "positivo",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "38871717",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/38871717/",
+   "titulo": "Nicotinamide riboside for peripheral artery disease: the NICE randomized clinical trial.",
+   "revista": "Nat Commun",
+   "anio": "2024",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "autores": [
+    "McDermott MM",
+    "Martens CR",
+    "Domanchuk KJ",
+    "Zhang D",
+    "Peek CB",
+    "Criqui MH"
+   ],
+   "especie_o_modelo": "Humanos; 90 personas con enfermedad arterial periférica de miembros inferiores; ensayo aleatorizado y doble ciego",
+   "que_midieron": "Distancia recorrida en la prueba de marcha de 6 minutos a los 6 meses, frente a placebo",
+   "resultado_reportado": "A los 6 meses el NR mejoró la marcha de 6 minutos frente a placebo (+7.0 frente a −10.6 metros; diferencia entre grupos +17.6 m, intervalo de confianza del 90 % desde +1.8). Entre quienes tomaron al menos el 75 % de las cápsulas, la mejoría fue de 31.0 m con NR y de 26.9 m con NR más resveratrol: el resveratrol no añadió beneficio.",
+   "signo_del_resultado": "positivo",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "38016950",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/38016950/",
+   "titulo": "NR-SAFE: a randomized, double-blind safety trial of high dose nicotinamide riboside in Parkinson's disease.",
+   "revista": "Nat Commun",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Clinical Trial, Phase I",
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Berven H",
+    "Kverneng S",
+    "Sheard E",
+    "Søgnen M",
+    "Af Geijerstam SA",
+    "Haugarvoll K"
+   ],
+   "especie_o_modelo": "Humanos; 20 personas con enfermedad de Parkinson aleatorizadas 1:1; ensayo de fase I de un solo centro, doble ciego y controlado con placebo, en Bergen, Noruega",
+   "que_midieron": "Seguridad, definida como frecuencia de eventos adversos moderados y graves (desenlace principal); tolerabilidad, metaboloma de NAD en sangre total y orina, y gravedad clínica por la escala MDS-UPDRS",
+   "resultado_reportado": "Se toleró bien, sin eventos adversos moderados ni graves. El metaboloma de NAD en sangre subió hasta 5 veces. Hubo mejoría de la puntuación MDS-UPDRS, pero los propios autores la asocian también a un intervalo más corto desde la última dosis de levodopa. Quienes recibieron NR tuvieron una subida inicial leve de homocisteína sérica.",
+   "signo_del_resultado": "seguridad favorable; eficacia no demostrada",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "37994989",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37994989/",
+   "titulo": "A randomized placebo-controlled trial of nicotinamide riboside in older adults with mild cognitive impairment.",
+   "revista": "Geroscience",
+   "anio": "2024",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Journal Article",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "autores": [
+    "Orr ME",
+    "Kotkowski E",
+    "Ramirez P",
+    "Bair-Kelps D",
+    "Liu Q",
+    "Brenner C"
+   ],
+   "especie_o_modelo": "Humanos; 20 personas con deterioro cognitivo leve; estudio piloto aleatorizado y controlado con placebo",
+   "que_midieron": "Seguridad (objetivo principal) y cambio en la evaluación cognitiva de Montreal; flujo sanguíneo cerebral, NAD+ en sangre, pruebas neurocognitivas, psicométricas y de rendimiento físico; metilación del ADN como exploratorio",
+   "resultado_reportado": "El NAD+ en sangre subió 2.6 veces, sin diferencia en eventos adversos. La evaluación cognitiva de Montreal y el resto de las métricas neurocognitivas se mantuvieron estables: el NR NO alteró la cognición. El flujo sanguíneo cerebral bajó en la red neuronal por defecto, aunque los propios autores señalan que ese resultado no habría resistido la corrección por comparaciones múltiples.",
+   "signo_del_resultado": "negativo",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "37159264",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37159264/",
+   "titulo": "Randomized crossover clinical trial of coenzyme Q10 and nicotinamide riboside in chronic kidney disease.",
+   "revista": "JCI Insight",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Ahmadi A",
+    "Begue G",
+    "Valencia AP",
+    "Norman JE",
+    "Lidgard B",
+    "Bennett BJ"
+   ],
+   "especie_o_modelo": "Humanos; 25 pacientes con filtrado glomerular estimado menor de 60 mL/min/1.73 m² (media 36.9 ± 9.2); ensayo aleatorizado, doble ciego, controlado con placebo y cruzado",
+   "que_midieron": "Capacidad aeróbica por consumo pico de oxígeno y eficiencia de trabajo en cicloergómetro graduado (desenlaces principales); metabolómica y lipidómica plasmáticas semidirigidas",
+   "resultado_reportado": "NO hubo diferencias frente a placebo en el consumo pico de oxígeno, el trabajo total ni la eficiencia de trabajo, ni cambios del filtrado glomerular. El NR bajó el consumo submáximo de oxígeno a 30 W, alteró intermediarios del ciclo de Krebs y redujo triglicéridos y ceramidas.",
+   "signo_del_resultado": "negativo en los desenlaces principales",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "36515353",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36515353/",
+   "titulo": "Oral nicotinamide riboside raises NAD+ and lowers biomarkers of neurodegenerative pathology in plasma extracellular vesicles enriched for neuronal origin.",
+   "revista": "Aging Cell",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Vreones M",
+    "Mustapic M",
+    "Moaddel R",
+    "Pucha KA",
+    "Lovett J",
+    "Seals DR"
+   ],
+   "especie_o_modelo": "Humanos; 22 adultos mayores sanos; ensayo aleatorizado, controlado con placebo y cruzado",
+   "que_midieron": "NAD+ y biomarcadores (amiloide β 42, pJNK y pERK1/2) en vesículas extracelulares plasmáticas enriquecidas en origen neuronal; proteínas de la vía insulina-Akt",
+   "resultado_reportado": "El NR aumentó el NAD+ en las vesículas de origen neuronal y bajó en ellas el amiloide β 42, la pJNK y la pERK1/2. Los cambios de NAD(H) se correlacionaron con los de las proteínas de señalización de insulina.",
+   "signo_del_resultado": "positivo en biomarcadores; sin desenlace clínico",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "35235774",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/35235774/",
+   "titulo": "The NADPARK study: A randomized phase I trial of nicotinamide riboside supplementation in Parkinson's disease.",
+   "revista": "Cell Metab",
+   "anio": "2022",
+   "tipos_publicacion": [
+    "Clinical Trial, Phase I",
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Brakedal B",
+    "Dölle C",
+    "Riemer F",
+    "Ma Y",
+    "Nido GS",
+    "Skeie GO"
+   ],
+   "especie_o_modelo": "Humanos; 30 pacientes con enfermedad de Parkinson recién diagnosticada y sin tratamiento previo; ensayo de fase I doble ciego",
+   "que_midieron": "Seguridad; NAD cerebral por espectroscopia de resonancia magnética de fósforo 31; metabolismo cerebral por tomografía por emisión de positrones con 18-fluorodesoxiglucosa; metaboloma de NAD y citocinas inflamatorias en suero y en líquido cefalorraquídeo",
+   "resultado_reportado": "Se toleró bien y elevó el NAD cerebral de forma significativa pero VARIABLE entre personas. Solo quienes subieron el NAD cerebral mostraron metabolismo cerebral alterado, y eso se asoció a una mejoría clínica leve. Bajaron las citocinas inflamatorias en suero y en líquido cefalorraquídeo.",
+   "signo_del_resultado": "mixto; el efecto dependió de la respuesta individual",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "33524145",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/33524145/",
+   "titulo": "Nicotinamide Riboside Enhances In Vitro Beta-adrenergic Brown Adipose Tissue Activity in Humans.",
+   "revista": "J Clin Endocrinol Metab",
+   "anio": "2021",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Nascimento EBM",
+    "Moonen MPB",
+    "Remie CME",
+    "Gariani K",
+    "Jörgensen JA",
+    "Schaart G"
+   ],
+   "especie_o_modelo": "Humanos; voluntarios de 45 a 65 años con índice de masa corporal de 27 a 35 kg/m²; estudio aleatorizado, doble ciego, controlado con placebo y cruzado",
+   "que_midieron": "Actividad del tejido adiposo pardo por captación de 18F-fluorodesoxiglucosa en tomografía por emisión de positrones y tomografía computarizada; termogénesis inducida por frío",
+   "resultado_reportado": "En las personas el NR NO alteró la actividad del tejido adiposo pardo ni la termogénesis inducida por frío, pese a que en adipocitos humanos cultivados sí aumentó el desacoplamiento mitocondrial estimulado por noradrenalina. Los propios autores lo presentan como un desajuste entre el modelo celular y animal y el humano.",
+   "signo_del_resultado": "negativo en humanos",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "32320006",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/32320006/",
+   "titulo": "Nicotinamide riboside supplementation alters body composition and skeletal muscle acetylcarnitine concentrations in healthy obese humans.",
+   "revista": "Am J Clin Nutr",
+   "anio": "2020",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Remie CME",
+    "Roumans KHM",
+    "Moonen MPB",
+    "Connell NJ",
+    "Havekes B",
+    "Mevenkamp J"
+   ],
+   "especie_o_modelo": "Humanos; 13 varones y mujeres sanos con sobrepeso u obesidad; estudio aleatorizado, doble ciego, controlado con placebo y cruzado",
+   "que_midieron": "Sensibilidad a la insulina por pinza hiperinsulinémica euglucémica; función mitocondrial ex vivo; espectroscopia por resonancia magnética; biopsias musculares; metabolismo energético in vivo",
+   "resultado_reportado": "Subieron los metabolitos de síntesis de NAD+ en músculo, la masa libre de grasa (de 61.32 % a 62.65 %) y la tasa metabólica durante el sueño, y aumentó la acetilcarnitina muscular. Pero NO hubo efecto sobre la sensibilidad a la insulina, la función mitocondrial, la grasa hepática o intramiocelular, la función cardiaca, la presión arterial ambulatoria ni los marcadores de inflamación.",
+   "signo_del_resultado": "mixto; negativo en los desenlaces metabólicos",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "31710095",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31710095/",
+   "titulo": "Nicotinamide riboside does not alter mitochondrial respiration, content or morphology in skeletal muscle from obese and insulin-resistant men.",
+   "revista": "J Physiol",
+   "anio": "2020",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Dollerup OL",
+    "Chubanava S",
+    "Agerholm M",
+    "Søndergård SD",
+    "Altıntaş A",
+    "Møller AB"
+   ],
+   "especie_o_modelo": "Humanos; 40 varones de mediana edad, obesos y con resistencia a la insulina; ensayo aleatorizado y controlado con placebo",
+   "que_midieron": "Capacidad respiratoria mitocondrial por respirometría de alta resolución en fibras musculares aisladas; abundancia proteica y expresión génica; área fraccional y morfología mitocondrial por microscopia confocal en un subgrupo",
+   "resultado_reportado": "La nicotinamida fosforribosiltransferasa muscular bajó un 14 %, pero el NAD+ en estado estacionario NO cambió en el músculo. Ni la capacidad respiratoria, ni la abundancia de proteínas mitocondriales, ni el área fraccional, ni la morfología de la red mitocondrial se modificaron. Los autores concluyen que sus datos no apoyan un efecto relevante del NR sobre la mitocondria muscular.",
+   "signo_del_resultado": "negativo",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "31412242",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31412242/",
+   "titulo": "Nicotinamide Riboside Augments the Aged Human Skeletal Muscle NAD+ Metabolome and Induces Transcriptomic and Anti-inflammatory Signatures.",
+   "revista": "Cell Rep",
+   "anio": "2019",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Elhassan YS",
+    "Kluckova K",
+    "Fletcher RS",
+    "Schmidt MS",
+    "Garten A",
+    "Doig CL"
+   ],
+   "especie_o_modelo": "Humanos; 12 varones de edad avanzada; ensayo aleatorizado, doble ciego, controlado con placebo y cruzado",
+   "que_midieron": "Metaboloma de NAD+ en músculo esquelético por metabolómica dirigida; bioenergética mitocondrial; transcriptoma muscular por secuenciación de ARN; citocinas inflamatorias circulantes",
+   "resultado_reportado": "El NR elevó el metaboloma de NAD+ del músculo y redujo las citocinas inflamatorias circulantes. La secuenciación de ARN mostró regulación a la baja de vías de metabolismo energético y de mitocondria, SIN cambiar la bioenergética mitocondrial medida.",
+   "signo_del_resultado": "mixto",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "31390002",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31390002/",
+   "titulo": "Effects of Nicotinamide Riboside on Endocrine Pancreatic Function and Incretin Hormones in Nondiabetic Men With Obesity.",
+   "revista": "J Clin Endocrinol Metab",
+   "anio": "2019",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Dollerup OL",
+    "Trammell SAJ",
+    "Hartmann B",
+    "Holst JJ",
+    "Christensen B",
+    "Møller N"
+   ],
+   "especie_o_modelo": "Humanos; 40 varones con obesidad y resistencia a la insulina (20 por brazo); ensayo aleatorizado, doble ciego, controlado con placebo y de grupos paralelos",
+   "que_midieron": "Glucosa, insulina, péptido C, glucagón, péptido similar al glucagón tipo 1 y polipéptido insulinotrópico dependiente de glucosa en pruebas de tolerancia oral a la glucosa de 75 g; índices de función de la célula β; ácidos biliares plasmáticos en ayuno",
+   "resultado_reportado": "A las 12 semanas el NR NO afectó ninguna de las concentraciones medidas, ni en ayuno ni tras la carga de glucosa, ni la función de la célula β, ni la adipsina circulante, ni los ácidos biliares.",
+   "signo_del_resultado": "negativo",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "31278280",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31278280/",
+   "titulo": "Safety and Metabolism of Long-term Administration of NIAGEN (Nicotinamide Riboside Chloride) in a Randomized, Double-Blind, Placebo-controlled Clinical Trial of Healthy Overweight Adults.",
+   "revista": "Sci Rep",
+   "anio": "2019",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "autores": [
+    "Conze D",
+    "Brenner C",
+    "Kruger CL"
+   ],
+   "especie_o_modelo": "Humanos; varones y mujeres con sobrepeso pero por lo demás sanos; ensayo aleatorizado, doble ciego y controlado con placebo, de 8 semanas",
+   "que_midieron": "NAD+ en sangre total y otros metabolitos de NAD+; eventos adversos; colesterol de lipoproteínas de baja densidad; metabolismo de un carbono",
+   "resultado_reportado": "El NAD+ en sangre total subió de forma dependiente de la dosis (22 %, 51 % y 142 %) en las primeras 2 semanas y se mantuvo el resto del estudio. No hubo rubefacción ni diferencias en eventos adversos entre grupos ni entre dosis, y el NR no elevó el colesterol LDL ni desreguló el metabolismo de un carbono.",
+   "signo_del_resultado": "positivo en el desenlace bioquímico; sin desenlace clínico",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "29992272",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/29992272/",
+   "titulo": "A randomized placebo-controlled clinical trial of nicotinamide riboside in obese men: safety, insulin-sensitivity, and lipid-mobilizing effects.",
+   "revista": "Am J Clin Nutr",
+   "anio": "2018",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Dollerup OL",
+    "Christensen B",
+    "Svart M",
+    "Schmidt MS",
+    "Sulek K",
+    "Ringgaard S"
+   ],
+   "especie_o_modelo": "Humanos; 40 varones sanos y sedentarios con índice de masa corporal mayor de 30 kg/m² y de 40 a 70 años; ensayo aleatorizado, doble ciego, controlado con placebo y de grupos paralelos",
+   "que_midieron": "Sensibilidad a la insulina por pinza hiperinsulinémica euglucémica; metabolismo de sustratos por calorimetría indirecta con glucosa tritiada y palmitato marcado; composición corporal por absorciometría dual de rayos X y resonancia magnética; lípido intrahepático por espectroscopia",
+   "resultado_reportado": "La sensibilidad a la insulina, la producción endógena de glucosa y la eliminación y oxidación de glucosa NO mejoraron. Tampoco cambiaron el gasto energético en reposo, la lipólisis, la oxidación de lípidos ni la composición corporal. No hubo eventos adversos graves y la analítica de seguridad fue normal.",
+   "signo_del_resultado": "negativo",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "29599478",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/29599478/",
+   "titulo": "Chronic nicotinamide riboside supplementation is well-tolerated and elevates NAD+ in healthy middle-aged and older adults.",
+   "revista": "Nat Commun",
+   "anio": "2018",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "autores": [
+    "Martens CR",
+    "Denman BA",
+    "Mazzo MR",
+    "Armstrong ML",
+    "Reisdorph N",
+    "McQueen MB"
+   ],
+   "especie_o_modelo": "Humanos; adultos sanos de mediana y avanzada edad; ensayo aleatorizado, doble ciego, controlado con placebo y cruzado",
+   "que_midieron": "Tolerabilidad; metabolismo del NAD+; función fisiológica, con atención a la presión arterial y la rigidez arterial",
+   "resultado_reportado": "Se toleró bien y estimuló de forma efectiva el metabolismo del NAD+. Sobre la función fisiológica los autores solo aportan indicios preliminares y proponen que futuros ensayos evalúen el efecto sobre la presión arterial y la rigidez arterial: no lo dan por demostrado.",
+   "signo_del_resultado": "positivo en el desenlace bioquímico; eficacia clínica no demostrada",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "39387327",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/39387327/",
+   "titulo": "Feasibility of telehealth exercise and nicotinamide riboside supplementation in survivors of childhood cancer at risk for diabetes: A pilot randomized controlled trial.",
+   "revista": "Pediatr Blood Cancer",
    "anio": "2025",
    "tipos_publicacion": [
     "Journal Article",
     "Randomized Controlled Trial"
    ],
-   "especie_o_modelo": "Humanos; pacientes con síndrome de Werner",
-   "que_midieron": "Consultar el resumen completo para las variables exactas",
+   "autores": [
+    "Bhandari R",
+    "Lukas K",
+    "Lee K",
+    "Shamunee J",
+    "Almeida B",
+    "Guzman T"
+   ],
+   "especie_o_modelo": "Humanos; 20 supervivientes de cáncer infantil con prediabetes; ensayo piloto de viabilidad, aleatorizado 1:1, de 6 semanas",
+   "que_midieron": "Métricas de viabilidad (reclutamiento, cumplimiento y retención); biomarcadores de homeostasis de la glucosa y de salud muscular; miostatina, tejido adiposo intramuscular y área transversal muscular",
+   "resultado_reportado": "La intervención resultó viable (87 % de reclutamiento, cumplimiento del ejercicio del 86.6 % y del NR mayor del 90 %) y sin eventos adversos graves atribuibles. Los desenlaces secundarios NO difirieron entre brazos al final del estudio.",
+   "signo_del_resultado": "negativo en los desenlaces secundarios; el objetivo declarado era la viabilidad",
+   "grupo": "D",
    "verificado_en_pubmed": true,
-   "fecha_verificacion": "2026-09-22"
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "40479886",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40479886/",
+   "titulo": "Effects of NAD+ supplementation with oral nicotinamide riboside on vascular health and cognitive function in older adults with peripheral artery disease: Results from a pilot 4-week open-label clinical trial.",
+   "revista": "J Pharmacol Exp Ther",
+   "anio": "2025",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Clinical Trial"
+   ],
+   "autores": [
+    "Szarvas Z",
+    "Reyff ZA",
+    "Peterfi A",
+    "Pinto CB",
+    "Owens CD",
+    "Kaposzta Z"
+   ],
+   "especie_o_modelo": "Humanos; 8 participantes con enfermedad arterial periférica; ensayo piloto ABIERTO, sin aleatorización y sin placebo",
+   "que_midieron": "Función endotelial periférica; respuestas cerebrovasculares funcionales; rendimiento cognitivo; y el efecto del suero de los pacientes sobre el estrés oxidativo y la función mitocondrial en células endoteliales cerebromicrovasculares en cultivo",
+   "resultado_reportado": "Los propios autores describen los resultados como PRELIMINARES: una tendencia positiva en la función endotelial periférica, mejoría de la respuesta cerebrovascular en la corteza prefrontal dorsolateral izquierda y mejoría cognitiva en varios dominios. Al no haber grupo de control ni cegamiento, el propio artículo pide diseños controlados en cohortes mayores.",
+   "signo_del_resultado": "preliminar; sin grupo de control",
+   "grupo": "D",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "41540253",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41540253/",
+   "titulo": "The differential impact of three different NAD+ boosters on circulatory NAD and microbial metabolism in humans.",
+   "revista": "Nat Metab",
+   "anio": "2026",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "autores": [
+    "Christen S",
+    "Redeuil K",
+    "Goulet L",
+    "Giner MP",
+    "Breton I",
+    "Rota R"
+   ],
+   "especie_o_modelo": "Humanos; 65 participantes sanos; estudio aleatorizado, abierto y controlado con placebo, complementado con fermentación ex vivo de microbiota humana y con ensayos ex vivo en sangre total",
+   "que_midieron": "NAD+ circulante y metaboloma de NAD+ en sangre total, de forma aguda y crónica; producción de ácido nicotínico por la microbiota; crecimiento y metabolismo microbianos",
+   "resultado_reportado": "A 14 días el NR y el NMN elevaron el NAD+ circulante de forma comparable; la NICOTINAMIDA NO lo elevó. En agudo, solo la nicotinamida alteró de forma transitoria el metaboloma de NAD+ en sangre. Ex vivo, el NR y el NMN dan lugar a ácido nicotínico por acción microbiana, y fue el ácido nicotínico el potenciador potente de NAD+, mientras que NMN, NR y nicotinamida NO lo fueron directamente en sangre total.",
+   "signo_del_resultado": "mecanístico; reencuadra la vía de acción",
+   "grupo": "E",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "37271226",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37271226/",
+   "titulo": "The acute effect of different NAD+ precursors included in the combined metabolic activators.",
+   "revista": "Free Radic Biol Med",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Controlled Clinical Trial",
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Li X",
+    "Yang H",
+    "Jin H",
+    "Turkez H",
+    "Ozturk G",
+    "Doganay HL"
+   ],
+   "especie_o_modelo": "Humanos; estudio clínico de un solo día, doble ciego y controlado con placebo, con metabolómica global",
+   "que_midieron": "Seguridad y efectos agudos sobre el metaboloma plasmático de seis formulaciones distintas de activadores metabólicos combinados",
+   "resultado_reportado": "Sin precursor, la vía de rescate es la fuente principal del NAD+. El orden de potencia para elevar los productos de NAD+ fue: nicotinamida, después ácido nicotínico, después RIBÓSIDO de nicotinamida y después MONONUCLEÓTIDO de nicotinamida; el ácido nicotínico sin rubefacción NO los elevó. El ácido nicotínico causó rubefacción, con descenso de fosfolípidos y ascenso de bilirrubina, que los autores señalan como potencialmente riesgoso.",
+   "signo_del_resultado": "mecanístico",
+   "grupo": "E",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "36082508",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36082508/",
+   "titulo": "Nicotinamide riboside and pterostilbene reduces markers of hepatic inflammation in NAFLD: A double-blind, placebo-controlled clinical trial.",
+   "revista": "Hepatology",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Randomized Controlled Trial",
+    "Journal Article"
+   ],
+   "autores": [
+    "Dellinger RW",
+    "Holmes HE",
+    "Hu-Seliger T",
+    "Butt RW",
+    "Harrison SA",
+    "Mozaffarian D"
+   ],
+   "especie_o_modelo": "Humanos; 111 adultos con hígado graso no alcohólico; ensayo prospectivo aleatorizado, doble ciego y controlado con placebo, de 6 meses, en tres brazos",
+   "que_midieron": "Fracción de grasa hepática (desenlace principal); alanina aminotransferasa, gamma-glutamiltransferasa y ceramida 14:0 como secundarios preespecificados",
+   "resultado_reportado": "Al final del estudio NO hubo cambio significativo en el desenlace principal, la fracción de grasa hepática. En los secundarios, la dosis sencilla bajó la alanina aminotransferasa, la gamma-glutamiltransferasa y la ceramida 14:0 frente a placebo. La dosis doble NO mostró efecto dependiente de la dosis en ninguno de los tres.",
+   "signo_del_resultado": "negativo en el desenlace principal",
+   "grupo": "F",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "35998039",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/35998039/",
+   "titulo": "A randomized placebo-controlled trial of nicotinamide riboside and pterostilbene supplementation in experimental muscle injury in elderly individuals.",
+   "revista": "JCI Insight",
+   "anio": "2022",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Jensen JB",
+    "Dollerup OL",
+    "Møller AB",
+    "Billeskov TB",
+    "Dalbram E",
+    "Chubanava S"
+   ],
+   "especie_o_modelo": "Humanos; 32 personas de 55 a 80 años; ensayo aleatorizado y controlado con placebo, con lesión muscular inducida por trabajo excéntrico estimulado eléctricamente",
+   "que_midieron": "Contenido, proliferación y tamaño de las células madre musculares; área de fibra muscular, núcleos centrales y cadena pesada de miosina embrionaria, en biopsias antes de la lesión y a las 2 horas y a los 2, 8 y 30 días",
+   "resultado_reportado": "La lesión fue sustancial y exigió reclutar células madre musculares, pero la suplementación NO afectó ese reclutamiento ni ninguna otra medida de recuperación muscular. Los autores concluyen que es segura pero que no mejora la regeneración.",
+   "signo_del_resultado": "negativo",
+   "grupo": "F",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "32791973",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/32791973/",
+   "titulo": "Nicotinamide riboside with pterostilbene (NRPT) increases NAD+ in patients with acute kidney injury (AKI): a randomized, double-blind, placebo-controlled, stepwise safety study of escalating doses of NRPT in patients with AKI.",
+   "revista": "BMC Nephrol",
+   "anio": "2020",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "autores": [
+    "Simic P",
+    "Vela Parada XF",
+    "Parikh SM",
+    "Dellinger R",
+    "Guarente LP",
+    "Rhee EP"
+   ],
+   "especie_o_modelo": "Humanos; 24 pacientes hospitalizados con lesión renal aguda, en cuatro escalones de 5 tratados y 1 con placebo cada uno; estudio aleatorizado, doble ciego y controlado con placebo",
+   "que_midieron": "NAD+ en sangre total por cromatografía líquida acoplada a espectrometría de masas; seguridad por historia clínica, exploración física y analítica (creatinina, filtrado glomerular estimado, electrolitos, pruebas hepáticas y hemograma)",
+   "resultado_reportado": "La lesión renal aguda por sí sola redujo el NAD+ en sangre un 50 % a las 48 horas en quienes recibieron placebo. Considerando todos los escalones juntos, el NRPT subió el NAD+ un 37 % a las 48 horas (p = 0.002), con variabilidad considerable entre personas; por escalones, solo el segundo alcanzó significación. Toda la analítica de seguridad quedó sin cambios, y 3 de 20 tratados reportaron molestias digestivas leves.",
+   "signo_del_resultado": "positivo en el desenlace bioquímico",
+   "grupo": "F",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "36703196",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/36703196/",
+   "titulo": "Combined metabolic activators improve cognitive functions in Alzheimer's disease patients: a randomised, double-blinded, placebo-controlled phase-II trial.",
+   "revista": "Transl Neurodegener",
+   "anio": "2023",
+   "tipos_publicacion": [
+    "Clinical Trial, Phase II",
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Yulug B",
+    "Altay O",
+    "Li X",
+    "Hanoglu L",
+    "Cankaya S",
+    "Lam S"
+   ],
+   "especie_o_modelo": "Humanos; pacientes con enfermedad de Alzheimer; ensayo aleatorizado, doble ciego y controlado con placebo, de fase II",
+   "que_midieron": "Función cognitiva y actividades de la vida diaria (desenlace principal); seguridad y tolerabilidad; metaboloma y proteoma plasmáticos; volumen hipocampal y grosor cortical por imagen",
+   "resultado_reportado": "La escala cognitiva ADAS-Cog bajó en el día 84 frente al día 0 en el grupo tratado (p = 0.00001, 29 % de mejoría), y el descenso fue mayor que con placebo en los pacientes con puntuaciones iniciales más altas (p = 0.0073). Mejoraron también parámetros de imagen y de metabolismo de NAD+ y de glutatión.",
+   "signo_del_resultado": "positivo, pero NO atribuible al componente precursor de NAD+: el ribósido de nicotinamida fue el 5 % de la mezcla y no hubo ningún brazo que lo aislara",
+   "grupo": "F",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "34180141",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/34180141/",
+   "titulo": "Combined Metabolic Activators Accelerates Recovery in Mild-to-Moderate COVID-19.",
+   "revista": "Adv Sci (Weinh)",
+   "anio": "2021",
+   "tipos_publicacion": [
+    "Clinical Trial, Phase II",
+    "Clinical Trial, Phase III",
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Altay O",
+    "Arif M",
+    "Li X",
+    "Yang H",
+    "Aydın M",
+    "Alkurt G"
+   ],
+   "especie_o_modelo": "Humanos; pacientes ambulatorios con COVID-19 leve a moderado; un estudio de fase 2 abierto y controlado con placebo, y un ensayo de fase 3 doble ciego",
+   "que_midieron": "Tiempo hasta la recuperación completa sin síntomas; metaboloma y proteoma plasmáticos",
+   "resultado_reportado": "El tiempo hasta la recuperación completa fue más corto con la mezcla que con placebo: 6.6 frente a 9.3 días en la fase 2 y 5.7 frente a 9.2 días en la fase 3. Mejoraron proteínas y metabolitos de inflamación y de metabolismo antioxidante.",
+   "signo_del_resultado": "positivo, pero NO atribuible al componente precursor de NAD+: no hubo ningún brazo que lo aislara",
+   "grupo": "F",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
+  },
+  {
+   "pmid": "33524145",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/33524145/",
+   "titulo": "Nicotinamide Riboside Enhances In Vitro Beta-adrenergic Brown Adipose Tissue Activity in Humans.",
+   "revista": "J Clin Endocrinol Metab",
+   "anio": "2021",
+   "tipos_publicacion": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "autores": [
+    "Nascimento EBM",
+    "Moonen MPB",
+    "Remie CME",
+    "Gariani K",
+    "Jörgensen JA",
+    "Schaart G"
+   ],
+   "especie_o_modelo": "Ratón; animales alimentados con dieta alta en grasa y expuestos después al frío",
+   "que_midieron": "Tamaño de los adipocitos del tejido adiposo pardo y respuesta a la exposición al frío; lipólisis ex vivo",
+   "resultado_reportado": "En el ratón el NR redujo el tamaño de los adipocitos del tejido adiposo pardo, y la exposición al frío lo redujo aún más, de forma independiente de la lipólisis ex vivo. En el mismo artículo, el brazo humano no reprodujo ese efecto.",
+   "signo_del_resultado": "positivo en ratón y negativo en el brazo humano del mismo artículo",
+   "grupo": "G",
+   "verificado_en_pubmed": true,
+   "fecha_verificacion": "2026-09-23"
   }
  ],
  "protocolos_investigacion_publicados": {
@@ -200,8 +1459,99 @@
    "Pauta reportada",
    "Desenlace medido"
   ],
+  "grupos": [
+   {
+    "clave": "A",
+    "filas": 3,
+    "titulo": "NAD+ administrado como tal",
+    "nota": "Las únicas entradas en las que se administró la molécula que da nombre a esta página."
+   },
+   {
+    "clave": "B",
+    "filas": 2,
+    "titulo": "Precursor por vía no oral"
+   },
+   {
+    "clave": "C",
+    "filas": 14,
+    "titulo": "Mononucleótido de nicotinamida (NMN) por vía oral"
+   },
+   {
+    "clave": "D",
+    "filas": 23,
+    "titulo": "Ribósido de nicotinamida (NR) por vía oral"
+   },
+   {
+    "clave": "E",
+    "filas": 2,
+    "titulo": "Comparaciones directas entre precursores"
+   },
+   {
+    "clave": "F",
+    "filas": 5,
+    "titulo": "Mezclas con otros componentes",
+    "nota": "El precursor de NAD+ es uno de varios ingredientes y ningún brazo lo aísla: el efecto observado no se le puede atribuir."
+   },
+   {
+    "clave": "G",
+    "filas": 1,
+    "titulo": "Modelo animal",
+    "nota": "Cifra por kilogramo de animal. No se convierte a ninguna otra especie."
+   }
+  ],
   "filas": [
    {
+    "grupo": "A",
+    "estudio": "NAD+ intravenoso en insuficiencia cardiaca por miocardiopatía isquémica",
+    "pmid": "40954388",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/40954388/",
+    "modelo": "Humanos; 180 adultos con miocardiopatía isquémica, fracción de eyección del ventrículo izquierdo ≤ 45 % y clase funcional NYHA II-III; ensayo aleatorizado, controlado con placebo, de un solo centro",
+    "via": "Intravenosa",
+    "pauta_reportada": "NAD+ ADMINISTRADO COMO TAL, no un precursor: 10 mg al día por vía intravenosa durante 7 días, frente a un placebo equivalente (glucosa al 5 % o solución salina normal), en ambos brazos sobre el tratamiento médico indicado por las guías",
+    "desenlace_medido": "Cambio de la fracción de eyección del ventrículo izquierdo al mes (desenlace principal); NT-proBNP a 7 y 30 días, un compuesto de eventos cardiovasculares y cerebrovasculares adversos mayores a 6 meses, y clase funcional NYHA"
+   },
+   {
+    "grupo": "A",
+    "estudio": "NAD+ añadido al tratamiento estándar en hipoacusia neurosensorial súbita",
+    "pmid": "41035311",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41035311/",
+    "modelo": "Humanos; 38 pacientes con hipoacusia neurosensorial súbita (18 en el grupo de NAD+ y 20 de control); ensayo aleatorizado y doble ciego realizado entre junio de 2022 y junio de 2024",
+    "via": "No reportada en el resumen",
+    "pauta_reportada": "NAD+ ADMINISTRADO COMO TAL, no un precursor: añadido al tratamiento estándar, frente a tratamiento estándar solo. El resumen NO reporta ni la dosis ni la vía de administración",
+    "desenlace_medido": "Mejoría del promedio de tonos puros, tasa de recuperación según los criterios de Siegel y tiempo medio de recuperación, desde el inicio hasta los 3 meses"
+   },
+   {
+    "grupo": "A",
+    "estudio": "Infusión intravenosa de NAD+ durante 6 horas: metaboloma en plasma y orina",
+    "pmid": "31572171",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/31572171/",
+    "modelo": "Humanos; estudio piloto sin grupo de comparación. El resumen no reporta el número de participantes",
+    "via": "Intravenosa",
+    "pauta_reportada": "NAD+ ADMINISTRADO COMO TAL, no un precursor: infusión intravenosa a 3 µmol/min durante 6 horas. Sin aleatorización y sin placebo",
+    "desenlace_medido": "Concentraciones de NAD+ y de sus metabolitos (nicotinamida, metilnicotinamida, ADP-ribosa y mononucleótido de nicotinamida) en plasma y en orina, durante la infusión y después de ella"
+   },
+   {
+    "grupo": "B",
+    "estudio": "Mononucleótido de nicotinamida por vía intravenosa en voluntarios sanos",
+    "pmid": "36225528",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36225528/",
+    "modelo": "Humanos; 10 voluntarios sanos. El resumen no describe aleatorización ni grupo placebo",
+    "via": "Intravenosa",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: administración intravenosa. El resumen NO reporta ni la dosis ni la duración",
+    "desenlace_medido": "Electrocardiograma, pulso y presión arterial; marcadores metabólicos de hígado, corazón, páncreas y riñón; NAD+ en sangre y triglicéridos en sangre"
+   },
+   {
+    "grupo": "B",
+    "estudio": "NMN sublingual frente a NMN oral: farmacocinética aguda",
+    "pmid": "42304075",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42304075/",
+    "modelo": "Humanos; 14 varones adultos sanos; ensayo cruzado aleatorizado de dos periodos con 8 días de lavado",
+    "via": "Sublingual y oral, comparadas en el mismo participante",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: dosis única por vía sublingual y dosis única por vía oral, separadas por 8 días de lavado, con muestreo durante 60 minutos. El resumen NO reporta la cantidad administrada",
+    "desenlace_medido": "Área bajo la curva incremental de NMN, nicotinamida, NAD+ y los catabolitos terminales 2PY y 4PY, durante los 60 minutos posteriores a una dosis única"
+   },
+   {
+    "grupo": "C",
     "estudio": "Mononucleótido de nicotinamida y grosor retiniano en diabetes",
     "pmid": "42082179",
     "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42082179/",
@@ -211,7 +1561,138 @@
     "desenlace_medido": "Grosor retiniano"
    },
    {
-    "estudio": "Ribósido de nicotinamida e inflamación Th17",
+    "grupo": "C",
+    "estudio": "Concentraciones sanguíneas de NAD tras NMN a tres dosis (análisis post hoc)",
+    "pmid": "41162813",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41162813/",
+    "modelo": "Humanos; 80 participantes sanos de mediana edad (49.4 ± 6.8 años); análisis post hoc de un ensayo aleatorizado y doble ciego",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: 300, 600 o 900 mg al día durante 60 días, frente a placebo",
+    "desenlace_medido": "Concentración sanguínea de dinucleótido de nicotinamida y adenina y su asociación con parámetros de laboratorio"
+   },
+   {
+    "grupo": "C",
+    "estudio": "NMN a dosis crecientes en adultos sanos de mediana edad (ensayo del que sale el análisis anterior)",
+    "pmid": "36482258",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36482258/",
+    "modelo": "Humanos; 80 adultos sanos de mediana edad; ensayo aleatorizado, multicéntrico, doble ciego, de grupos paralelos",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: 300, 600 o 900 mg una vez al día durante 60 días, frente a placebo",
+    "desenlace_medido": "Concentración sanguínea de NAD (objetivo principal); seguridad y tolerabilidad; prueba de marcha de seis minutos, edad biológica sanguínea, índice HOMA-IR y cuestionario SF-36"
+   },
+   {
+    "grupo": "C",
+    "estudio": "NMN durante 12 semanas en adultos mayores: marcha, sueño y NAD en sangre",
+    "pmid": "38789831",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/38789831/",
+    "modelo": "Humanos; 60 adultos mayores asignados al azar a placebo o a NMN; estudio doble ciego de grupos paralelos",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: 250 mg/día durante 12 semanas, frente a placebo",
+    "desenlace_medido": "Prueba de escalón (desenlace principal); tiempo de marcha de 4 metros, metabolitos de NAD en sangre, calidad del sueño por el índice de Pittsburgh y estrés"
+   },
+   {
+    "grupo": "C",
+    "estudio": "NMN durante 12 semanas y rigidez arterial",
+    "pmid": "36797393",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36797393/",
+    "modelo": "Humanos; 36 participantes sanos de mediana edad; ensayo aleatorizado, doble ciego, de grupos paralelos",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: una cápsula de 125 mg dos veces al día (250 mg/día, según los propios autores) durante 12 semanas, frente a placebo",
+    "desenlace_medido": "Metabolitos de NAD+ en suero y velocidad de la onda de pulso como indicador de rigidez arterial"
+   },
+   {
+    "grupo": "C",
+    "estudio": "MIB-626 (NMN microcristalino) en adultos con sobrepeso u obesidad",
+    "pmid": "36740954",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36740954/",
+    "modelo": "Humanos; 30 adultos con sobrepeso u obesidad de 45 años o más, aleatorizados en proporción 2:1",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN) en la formulación MIB-626, no NAD+: 2 comprimidos de 500 mg cada uno, dos veces al día (suma de lo publicado: 2000 mg/día) durante 28 días, frente a placebo",
+    "desenlace_medido": "Seguridad; NAD y su metaboloma; peso corporal; grasa hepática, muscular e intraabdominal; sensibilidad a la insulina; presión arterial; lípidos; rendimiento físico y bioenergética muscular"
+   },
+   {
+    "grupo": "C",
+    "estudio": "MIB-626: farmacocinética y farmacodinámica a 14 días",
+    "pmid": "35182418",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/35182418/",
+    "modelo": "Humanos; 32 adultos con sobrepeso u obesidad de 55 a 80 años, aleatorizados en bloques y estratificados por sexo; estudio doble ciego controlado con placebo",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN) en la formulación MIB-626, no NAD+: 1000 mg una vez al día, o 1000 mg dos veces al día, durante 14 días, frente a placebo",
+    "desenlace_medido": "NMN, NAD y metaboloma de NAD medidos por cromatografía líquida acoplada a espectrometría de masas en tándem; eventos adversos; excreción urinaria de NMN"
+   },
+   {
+    "grupo": "C",
+    "estudio": "NMN durante 24 semanas en adultos mayores con diabetes y rendimiento físico reducido",
+    "pmid": "36443648",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36443648/",
+    "modelo": "Humanos; 14 varones con diabetes de 65 años o más (edad media 81.1 ± 6.4) con fuerza de prensión menor de 26 kg o velocidad de marcha menor de 1.0 m/s; estudio doble ciego controlado con placebo",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: 250 mg/día durante 24 semanas, frente a placebo",
+    "desenlace_medido": "Seguridad; cambios en la fuerza de prensión y en la velocidad de marcha; indicadores exploratorios"
+   },
+   {
+    "grupo": "C",
+    "estudio": "Evaluación de seguridad de NMN oral a 1250 mg",
+    "pmid": "36002548",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36002548/",
+    "modelo": "Humanos; 31 varones y mujeres adultos sanos de 20 a 65 años; estudio aleatorizado, doble ciego, controlado con placebo, de grupos paralelos",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (β-NMN), no NAD+: 1250 mg una vez al día durante hasta 4 semanas, frente a placebo",
+    "desenlace_medido": "Antropometría, hematología, bioquímica, orina y composición corporal; eventos adversos"
+   },
+   {
+    "grupo": "C",
+    "estudio": "NMN por la mañana o por la tarde: sueño, fatiga y rendimiento físico",
+    "pmid": "35215405",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/35215405/",
+    "modelo": "Humanos; 108 adultos mayores japoneses repartidos en cuatro grupos (NMN por la mañana, NMN por la tarde, placebo por la mañana, placebo por la tarde); estudio aleatorizado y doble ciego",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: 250 mg una vez al día durante 12 semanas, frente a placebo, comparando la toma matutina con la vespertina",
+    "desenlace_medido": "Calidad del sueño por el índice de Pittsburgh; fatiga por el cuestionario «Jikaku-sho shirabe»; fuerza de prensión, cinco levantadas de silla, prueba de levantarse y andar, y marcha habitual de 5 metros"
+   },
+   {
+    "grupo": "C",
+    "estudio": "NMN a tres dosis y capacidad aeróbica en corredores aficionados",
+    "pmid": "34238308",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/34238308/",
+    "modelo": "Humanos; 48 corredores aficionados jóvenes y de mediana edad de un equipo de Guangzhou, en cuatro brazos de 12 personas cada uno; estudio aleatorizado y doble ciego",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: 300, 600 o 1200 mg al día durante 6 semanas, frente a placebo, sobre un entrenamiento de 40 a 60 minutos, de 5 a 6 veces por semana, igual en todos los brazos",
+    "desenlace_medido": "Capacidad aeróbica por prueba de esfuerzo cardiopulmonar al inicio y a las 6 semanas: consumo de oxígeno, porcentaje del consumo máximo de oxígeno y potencia en el primer y el segundo umbral ventilatorio"
+   },
+   {
+    "grupo": "C",
+    "estudio": "NMN y sensibilidad muscular a la insulina en mujeres prediabéticas",
+    "pmid": "33888596",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/33888596/",
+    "modelo": "Humanos; mujeres posmenopáusicas con prediabetes y con sobrepeso u obesidad; ensayo aleatorizado, doble ciego, controlado con placebo",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: 10 semanas de suplementación, frente a placebo. El resumen NO reporta la dosis diaria",
+    "desenlace_medido": "Eliminación de glucosa estimulada por insulina mediante pinza hiperinsulinémica euglucémica; señalización de insulina en músculo esquelético (fosforilación de AKT y de mTOR); expresión génica relacionada con la remodelación muscular"
+   },
+   {
+    "grupo": "C",
+    "estudio": "NMN e inflamación del músculo esquelético tras ejercicio con restricción del flujo sanguíneo",
+    "pmid": "41705654",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41705654/",
+    "modelo": "Humanos; 11 varones no entrenados (22.8 ± 1.5 años); ensayo cruzado aleatorizado, controlado con placebo y contrabalanceado, con 3 semanas de lavado",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: 1200 mg/día durante 7 días, frente a placebo, en diseño cruzado con 3 semanas de lavado",
+    "desenlace_medido": "ARN mensajero de TNF-α, IL-10 y p21 en biopsias musculares; necrosis muscular; contenido mitocondrial; inmunofluorescencia de TOM20, mieloperoxidasa y COX4"
+   },
+   {
+    "grupo": "C",
+    "estudio": "NMN y pirroloquinolina quinona sobre la interocepción tras ejercicio extenuante",
+    "pmid": "41651893",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41651893/",
+    "modelo": "Humanos; 60 participantes asignados al azar a cuatro brazos; estudio doble ciego controlado con placebo",
+    "via": "Oral",
+    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: dosis única de 300 mg de NMN más 20 mg de harina de maíz, ingerida 60 minutos antes de una prueba de esfuerzo de Bruce en tapiz rodante; frente a placebo (320 mg de harina de maíz), frente a pirroloquinolina quinona 20 mg y frente a la combinación de ambos",
+    "desenlace_medido": "Interocepción por el Body Perception Questionnaire y el Multidimensional Assessment of Interoceptive Awareness, al inicio y tras el ejercicio; indicadores de capacidad de ejercicio"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida e inflamación Th17 en psoriasis",
     "pmid": "42048163",
     "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42048163/",
     "modelo": "Humanos; participantes con psoriasis, con muestras de sangre al inicio y tras la suplementación",
@@ -220,54 +1701,337 @@
     "desenlace_medido": "Señalización SLIT2/ROBO1 y atenuación de la inflamación mediada por Th17"
    },
    {
+    "grupo": "D",
     "estudio": "Ejercicio individualizado y precursor de NAD+ en ataxia de Friedreich",
     "pmid": "42009009",
     "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42009009/",
     "modelo": "Humanos; pacientes con ataxia de Friedreich, en un ensayo aleatorizado factorial 2 × 2 de un solo centro en Estados Unidos",
     "via": "Oral",
     "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+, con dosis según el peso: 300 mg (1 cápsula) de 24 a menos de 48 kg; 600 mg (2 cápsulas) de 48 a menos de 72 kg; y 900 mg (3 cápsulas) por encima de 72 kg. Frente a placebo",
-    "desenlace_medido": "Seguridad y eficacia; consultar el resumen completo para las variables exactas"
+    "desenlace_medido": "Seguridad y eficacia; hay que consultar el texto completo para las variables exactas"
    },
    {
-    "estudio": "Concentraciones sanguíneas de NAD tras NMN a tres dosis",
-    "pmid": "41162813",
-    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41162813/",
-    "modelo": "Humanos; participantes sanos de mediana edad; análisis post hoc de un ensayo aleatorizado y doble ciego",
-    "via": "Oral",
-    "pauta_reportada": "MONONUCLEÓTIDO de nicotinamida (NMN), no NAD+: 300, 600 o 900 mg al día, frente a placebo",
-    "desenlace_medido": "Concentración sanguínea de dinucleótido de nicotinamida y adenina y su asociación con parámetros de laboratorio"
-   },
-   {
+    "grupo": "D",
     "estudio": "Ribósido de nicotinamida y ejercicio en hipertensión",
     "pmid": "40770531",
     "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/40770531/",
     "modelo": "Humanos; 54 adultos sedentarios de 55 años o más con presión arterial sistólica diurna media ≥ 130 mmHg",
     "via": "Oral",
     "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1000 mg/día durante 6 semanas, combinado con 3 sesiones semanales de 30 min de marcha supervisada; frente a placebo con el mismo ejercicio y frente a NR solo",
-    "desenlace_medido": "Presión arterial sistólica diurna media"
+    "desenlace_medido": "Presión arterial sistólica diurna media (desenlace principal); velocidad de la onda de pulso, catabolitos de NAD y presión arterial nocturna"
    },
    {
+    "grupo": "D",
     "estudio": "Ribósido de nicotinamida en síndrome de Werner (cruzado, doble ciego)",
     "pmid": "40459998",
     "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/40459998/",
     "modelo": "Humanos; pacientes con síndrome de Werner",
     "via": "Oral",
     "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1000 mg en cápsulas, una vez al día durante 26 semanas, seguido de cruce al brazo opuesto otras 26 semanas",
-    "desenlace_medido": "Consultar el resumen completo para las variables exactas"
+    "desenlace_medido": "Seguridad (desenlace principal); NAD+ en plasma, número y tamaño de las úlceras cutáneas, analítica, sarcopenia, grosor de la almohadilla del talón, índice vascular corazón-tobillo e índice tobillo-brazo; metaboloma plasmático como exploratorio"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida en deterioro cognitivo leve amnésico (fase II)",
+    "pmid": "42478598",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/42478598/",
+    "modelo": "Humanos; 42 participantes que completaron el estudio (22 con NR y 20 con placebo) con deterioro cognitivo leve amnésico; estudio piloto doble ciego, aleatorizado y controlado con placebo",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 12 semanas, frente a placebo. El resumen NO reporta la dosis diaria",
+    "desenlace_medido": "Seguridad y tolerabilidad; función cognitiva (desenlace principal); flujo sanguíneo cerebral total y presión arterial (secundarios); flujo sanguíneo cerebral regional (exploratorio)"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida en degeneración y regeneración de fibras nerviosas pequeñas (fase 2)",
+    "pmid": "41502156",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41502156/",
+    "modelo": "Humanos; estudio de fase 2, doble ciego y controlado con placebo, sobre un modelo experimental validado de degeneración y regeneración del nervio cutáneo",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+, frente a placebo. El resumen NO reporta ni la dosis ni la duración: los autores se refieren solo a «las dosis usadas en este estudio»",
+    "desenlace_medido": "NAD+ en plasma y en piel; degeneración de las fibras nerviosas sensitivas epidérmicas inducida por capsaicina; reinervación epidérmica a los 60 y a los 90 días"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida e inflamación de la vía aérea en EPOC",
+    "pmid": "39548320",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/39548320/",
+    "modelo": "Humanos; 40 pacientes con enfermedad pulmonar obstructiva crónica estable; ensayo aleatorizado, doble ciego y controlado con placebo",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 6 semanas de tratamiento, con seguimiento 12 semanas después del final, frente a placebo. El resumen NO reporta la dosis diaria",
+    "desenlace_medido": "Cambio de la interleucina 8 en esputo entre el inicio y la semana 6 (desenlace principal); NAD+ en sangre total e interleucina 6 en plasma; vías génicas de integridad genómica y envejecimiento epigenético como exploratorios"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida en enfermedad arterial periférica (ensayo NICE)",
+    "pmid": "38871717",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/38871717/",
+    "modelo": "Humanos; 90 personas con enfermedad arterial periférica de miembros inferiores; ensayo aleatorizado y doble ciego",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 6 meses, con y sin resveratrol, frente a placebo. El resumen NO reporta la dosis diaria",
+    "desenlace_medido": "Distancia recorrida en la prueba de marcha de 6 minutos a los 6 meses, frente a placebo"
+   },
+   {
+    "grupo": "D",
+    "estudio": "NR-SAFE: dosis alta de ribósido de nicotinamida en enfermedad de Parkinson (fase I)",
+    "pmid": "38016950",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/38016950/",
+    "modelo": "Humanos; 20 personas con enfermedad de Parkinson aleatorizadas 1:1; ensayo de fase I de un solo centro, doble ciego y controlado con placebo, en Bergen, Noruega",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1500 mg dos veces al día (suma de lo publicado: 3000 mg/día) durante cuatro semanas, frente a placebo",
+    "desenlace_medido": "Seguridad, definida como frecuencia de eventos adversos moderados y graves (desenlace principal); tolerabilidad, metaboloma de NAD en sangre total y orina, y gravedad clínica por la escala MDS-UPDRS"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida en adultos mayores con deterioro cognitivo leve",
+    "pmid": "37994989",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/37994989/",
+    "modelo": "Humanos; 20 personas con deterioro cognitivo leve; estudio piloto aleatorizado y controlado con placebo",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: escalada de dosis hasta alcanzar y mantener 1 g/día, a lo largo de 10 semanas, frente a placebo",
+    "desenlace_medido": "Seguridad (objetivo principal) y cambio en la evaluación cognitiva de Montreal; flujo sanguíneo cerebral, NAD+ en sangre, pruebas neurocognitivas, psicométricas y de rendimiento físico; metilación del ADN como exploratorio"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Coenzima Q10 y ribósido de nicotinamida en enfermedad renal crónica (cruzado)",
+    "pmid": "37159264",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/37159264/",
+    "modelo": "Humanos; 25 pacientes con filtrado glomerular estimado menor de 60 mL/min/1.73 m² (media 36.9 ± 9.2); ensayo aleatorizado, doble ciego, controlado con placebo y cruzado",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1000 mg/día durante 6 semanas, en diseño cruzado frente a coenzima Q10 1200 mg/día durante 6 semanas y frente a placebo durante 6 semanas",
+    "desenlace_medido": "Capacidad aeróbica por consumo pico de oxígeno y eficiencia de trabajo en cicloergómetro graduado (desenlaces principales); metabolómica y lipidómica plasmáticas semidirigidas"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida y biomarcadores en vesículas extracelulares de origen neuronal",
+    "pmid": "36515353",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36515353/",
+    "modelo": "Humanos; 22 adultos mayores sanos; ensayo aleatorizado, controlado con placebo y cruzado",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 500 mg dos veces al día durante 6 semanas, en diseño cruzado frente a placebo",
+    "desenlace_medido": "NAD+ y biomarcadores (amiloide β 42, pJNK y pERK1/2) en vesículas extracelulares plasmáticas enriquecidas en origen neuronal; proteínas de la vía insulina-Akt"
+   },
+   {
+    "grupo": "D",
+    "estudio": "NADPARK: ribósido de nicotinamida en enfermedad de Parkinson (fase I)",
+    "pmid": "35235774",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/35235774/",
+    "modelo": "Humanos; 30 pacientes con enfermedad de Parkinson recién diagnosticada y sin tratamiento previo; ensayo de fase I doble ciego",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1000 mg/día durante 30 días, frente a placebo",
+    "desenlace_medido": "Seguridad; NAD cerebral por espectroscopia de resonancia magnética de fósforo 31; metabolismo cerebral por tomografía por emisión de positrones con 18-fluorodesoxiglucosa; metaboloma de NAD y citocinas inflamatorias en suero y en líquido cefalorraquídeo"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida y tejido adiposo pardo (brazo humano)",
+    "pmid": "33524145",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/33524145/",
+    "modelo": "Humanos; voluntarios de 45 a 65 años con índice de masa corporal de 27 a 35 kg/m²; estudio aleatorizado, doble ciego, controlado con placebo y cruzado",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1000 mg/día durante 6 semanas, en diseño cruzado frente a placebo",
+    "desenlace_medido": "Actividad del tejido adiposo pardo por captación de 18F-fluorodesoxiglucosa en tomografía por emisión de positrones y tomografía computarizada; termogénesis inducida por frío"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida, composición corporal y acetilcarnitina muscular",
+    "pmid": "32320006",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/32320006/",
+    "modelo": "Humanos; 13 varones y mujeres sanos con sobrepeso u obesidad; estudio aleatorizado, doble ciego, controlado con placebo y cruzado",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1000 mg/día durante 6 semanas, en diseño cruzado frente a placebo",
+    "desenlace_medido": "Sensibilidad a la insulina por pinza hiperinsulinémica euglucémica; función mitocondrial ex vivo; espectroscopia por resonancia magnética; biopsias musculares; metabolismo energético in vivo"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida y mitocondria del músculo esquelético en varones obesos",
+    "pmid": "31710095",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/31710095/",
+    "modelo": "Humanos; 40 varones de mediana edad, obesos y con resistencia a la insulina; ensayo aleatorizado y controlado con placebo",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1000 mg dos veces al día (suma de lo publicado: 2000 mg/día) durante 12 semanas, frente a placebo",
+    "desenlace_medido": "Capacidad respiratoria mitocondrial por respirometría de alta resolución en fibras musculares aisladas; abundancia proteica y expresión génica; área fraccional y morfología mitocondrial por microscopia confocal en un subgrupo"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida y metaboloma de NAD+ en músculo de varones mayores",
+    "pmid": "31412242",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/31412242/",
+    "modelo": "Humanos; 12 varones de edad avanzada; ensayo aleatorizado, doble ciego, controlado con placebo y cruzado",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1 g/día durante 21 días, en diseño cruzado frente a placebo",
+    "desenlace_medido": "Metaboloma de NAD+ en músculo esquelético por metabolómica dirigida; bioenergética mitocondrial; transcriptoma muscular por secuenciación de ARN; citocinas inflamatorias circulantes"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida, función pancreática endocrina y hormonas incretinas",
+    "pmid": "31390002",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/31390002/",
+    "modelo": "Humanos; 40 varones con obesidad y resistencia a la insulina (20 por brazo); ensayo aleatorizado, doble ciego, controlado con placebo y de grupos paralelos",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1000 mg dos veces al día (suma de lo publicado: 2000 mg/día) durante 12 semanas, frente a placebo",
+    "desenlace_medido": "Glucosa, insulina, péptido C, glucagón, péptido similar al glucagón tipo 1 y polipéptido insulinotrópico dependiente de glucosa en pruebas de tolerancia oral a la glucosa de 75 g; índices de función de la célula β; ácidos biliares plasmáticos en ayuno"
+   },
+   {
+    "grupo": "D",
+    "estudio": "NIAGEN (cloruro de ribósido de nicotinamida): seguridad y cinética a tres dosis",
+    "pmid": "31278280",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/31278280/",
+    "modelo": "Humanos; varones y mujeres con sobrepeso pero por lo demás sanos; ensayo aleatorizado, doble ciego y controlado con placebo, de 8 semanas",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 100, 300 o 1000 mg al día durante 8 semanas, frente a placebo",
+    "desenlace_medido": "NAD+ en sangre total y otros metabolitos de NAD+; eventos adversos; colesterol de lipoproteínas de baja densidad; metabolismo de un carbono"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida en varones obesos: seguridad, sensibilidad a la insulina y movilización de lípidos",
+    "pmid": "29992272",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/29992272/",
+    "modelo": "Humanos; 40 varones sanos y sedentarios con índice de masa corporal mayor de 30 kg/m² y de 40 a 70 años; ensayo aleatorizado, doble ciego, controlado con placebo y de grupos paralelos",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 1000 mg dos veces al día (los propios autores lo describen como 2000 mg/día) durante 12 semanas, frente a placebo",
+    "desenlace_medido": "Sensibilidad a la insulina por pinza hiperinsulinémica euglucémica; metabolismo de sustratos por calorimetría indirecta con glucosa tritiada y palmitato marcado; composición corporal por absorciometría dual de rayos X y resonancia magnética; lípido intrahepático por espectroscopia"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Suplementación crónica con ribósido de nicotinamida en adultos sanos de mediana y avanzada edad",
+    "pmid": "29599478",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/29599478/",
+    "modelo": "Humanos; adultos sanos de mediana y avanzada edad; ensayo aleatorizado, doble ciego, controlado con placebo y cruzado",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: dos periodos de 6 semanas en diseño cruzado, frente a placebo. El resumen NO reporta la dosis diaria",
+    "desenlace_medido": "Tolerabilidad; metabolismo del NAD+; función fisiológica, con atención a la presión arterial y la rigidez arterial"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ejercicio por telesalud con o sin ribósido de nicotinamida en supervivientes de cáncer infantil",
+    "pmid": "39387327",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/39387327/",
+    "modelo": "Humanos; 20 supervivientes de cáncer infantil con prediabetes; ensayo piloto de viabilidad, aleatorizado 1:1, de 6 semanas",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 6 semanas, añadido a un programa estructurado de ejercicio por telesalud, frente al mismo ejercicio sin NR. El resumen NO reporta la dosis diaria",
+    "desenlace_medido": "Métricas de viabilidad (reclutamiento, cumplimiento y retención); biomarcadores de homeostasis de la glucosa y de salud muscular; miostatina, tejido adiposo intramuscular y área transversal muscular"
+   },
+   {
+    "grupo": "D",
+    "estudio": "Ribósido de nicotinamida en enfermedad arterial periférica: piloto abierto de 4 semanas",
+    "pmid": "40479886",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/40479886/",
+    "modelo": "Humanos; 8 participantes con enfermedad arterial periférica; ensayo piloto ABIERTO, sin aleatorización y sin placebo",
+    "via": "Oral",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 4 semanas en diseño abierto. El resumen NO reporta la dosis diaria",
+    "desenlace_medido": "Función endotelial periférica; respuestas cerebrovasculares funcionales; rendimiento cognitivo; y el efecto del suero de los pacientes sobre el estrés oxidativo y la función mitocondrial en células endoteliales cerebromicrovasculares en cultivo"
+   },
+   {
+    "grupo": "E",
+    "estudio": "Comparación directa de tres potenciadores de NAD+ en personas",
+    "pmid": "41540253",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/41540253/",
+    "modelo": "Humanos; 65 participantes sanos; estudio aleatorizado, abierto y controlado con placebo, complementado con fermentación ex vivo de microbiota humana y con ensayos ex vivo en sangre total",
+    "via": "Oral",
+    "pauta_reportada": "NICOTINAMIDA (Nam), RIBÓSIDO de nicotinamida (NR) y MONONUCLEÓTIDO de nicotinamida (NMN), ninguno de ellos NAD+: 14 días de suplementación, comparados entre sí y frente a placebo. El resumen NO reporta las dosis",
+    "desenlace_medido": "NAD+ circulante y metaboloma de NAD+ en sangre total, de forma aguda y crónica; producción de ácido nicotínico por la microbiota; crecimiento y metabolismo microbianos"
+   },
+   {
+    "grupo": "E",
+    "estudio": "Efecto agudo de distintos precursores de NAD+ dentro de activadores metabólicos combinados",
+    "pmid": "37271226",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/37271226/",
+    "modelo": "Humanos; estudio clínico de un solo día, doble ciego y controlado con placebo, con metabolómica global",
+    "via": "Oral",
+    "pauta_reportada": "Seis formulaciones de activadores metabólicos combinados, cada una con 1 g de un precursor de NAD+ distinto —nicotinamida, ácido nicotínico, RIBÓSIDO de nicotinamida, MONONUCLEÓTIDO de nicotinamida y ácido nicotínico sin rubefacción—, más una sin precursor. Ninguna administró NAD+. Dosis única, un día",
+    "desenlace_medido": "Seguridad y efectos agudos sobre el metaboloma plasmático de seis formulaciones distintas de activadores metabólicos combinados"
+   },
+   {
+    "grupo": "F",
+    "estudio": "Ribósido de nicotinamida con pterostilbeno en hígado graso no alcohólico",
+    "pmid": "36082508",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36082508/",
+    "modelo": "Humanos; 111 adultos con hígado graso no alcohólico; ensayo prospectivo aleatorizado, doble ciego y controlado con placebo, de 6 meses, en tres brazos",
+    "via": "Oral",
+    "pauta_reportada": "COMBINACIÓN de RIBÓSIDO de nicotinamida y pterostilbeno (NRPT), no NAD+: la dosis diaria recomendada del producto y el doble de esa dosis, durante 6 meses, frente a placebo. El resumen NO reporta las cantidades en miligramos",
+    "desenlace_medido": "Fracción de grasa hepática (desenlace principal); alanina aminotransferasa, gamma-glutamiltransferasa y ceramida 14:0 como secundarios preespecificados"
+   },
+   {
+    "grupo": "F",
+    "estudio": "Ribósido de nicotinamida con pterostilbeno en lesión muscular experimental en personas mayores",
+    "pmid": "35998039",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/35998039/",
+    "modelo": "Humanos; 32 personas de 55 a 80 años; ensayo aleatorizado y controlado con placebo, con lesión muscular inducida por trabajo excéntrico estimulado eléctricamente",
+    "via": "Oral",
+    "pauta_reportada": "COMBINACIÓN de 1000 mg de RIBÓSIDO de nicotinamida y 200 mg de pterostilbeno al día, no NAD+; la lesión muscular se indujo 2 semanas después de iniciar la suplementación. Frente a placebo equiparado",
+    "desenlace_medido": "Contenido, proliferación y tamaño de las células madre musculares; área de fibra muscular, núcleos centrales y cadena pesada de miosina embrionaria, en biopsias antes de la lesión y a las 2 horas y a los 2, 8 y 30 días"
+   },
+   {
+    "grupo": "F",
+    "estudio": "Ribósido de nicotinamida con pterostilbeno en lesión renal aguda (escalada de dosis)",
+    "pmid": "32791973",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/32791973/",
+    "modelo": "Humanos; 24 pacientes hospitalizados con lesión renal aguda, en cuatro escalones de 5 tratados y 1 con placebo cada uno; estudio aleatorizado, doble ciego y controlado con placebo",
+    "via": "Oral",
+    "pauta_reportada": "COMBINACIÓN de RIBÓSIDO de nicotinamida y pterostilbeno (NRPT), no NAD+, en escalada: 250/50 mg, 500/100 mg, 750/150 mg y 1000/200 mg, dos veces al día durante 2 días, frente a placebo",
+    "desenlace_medido": "NAD+ en sangre total por cromatografía líquida acoplada a espectrometría de masas; seguridad por historia clínica, exploración física y analítica (creatinina, filtrado glomerular estimado, electrolitos, pruebas hepáticas y hemograma)"
+   },
+   {
+    "grupo": "F",
+    "estudio": "Activadores metabólicos combinados en enfermedad de Alzheimer (fase II)",
+    "pmid": "36703196",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/36703196/",
+    "modelo": "Humanos; pacientes con enfermedad de Alzheimer; ensayo aleatorizado, doble ciego y controlado con placebo, de fase II",
+    "via": "Oral",
+    "pauta_reportada": "MEZCLA DE CUATRO COMPONENTES, no NAD+: cada dosis llevó 12.35 g de L-serina (61.75 %), 1 g de RIBÓSIDO de nicotinamida (5 %), 2.55 g de N-acetil-L-cisteína (12.75 %) y 3.73 g de tartrato de L-carnitina (18.65 %). Una dosis diaria los primeros 28 días y dos dosis diarias entre el día 28 y el día 84, frente a placebo",
+    "desenlace_medido": "Función cognitiva y actividades de la vida diaria (desenlace principal); seguridad y tolerabilidad; metaboloma y proteoma plasmáticos; volumen hipocampal y grosor cortical por imagen"
+   },
+   {
+    "grupo": "F",
+    "estudio": "Activadores metabólicos combinados en COVID-19 leve a moderado",
+    "pmid": "34180141",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/34180141/",
+    "modelo": "Humanos; pacientes ambulatorios con COVID-19 leve a moderado; un estudio de fase 2 abierto y controlado con placebo, y un ensayo de fase 3 doble ciego",
+    "via": "Oral",
+    "pauta_reportada": "MEZCLA DE CUATRO COMPONENTES, no NAD+: L-serina, N-acetil-L-cisteína, RIBÓSIDO de nicotinamida y tartrato de L-carnitina. El resumen NO reporta las cantidades de cada componente",
+    "desenlace_medido": "Tiempo hasta la recuperación completa sin síntomas; metaboloma y proteoma plasmáticos"
+   },
+   {
+    "grupo": "G",
+    "estudio": "Ribósido de nicotinamida y tejido adiposo pardo (brazo en ratón del mismo artículo)",
+    "pmid": "33524145",
+    "pmid_url": "https://pubmed.ncbi.nlm.nih.gov/33524145/",
+    "modelo": "Ratón; animales alimentados con dieta alta en grasa y expuestos después al frío",
+    "via": "Oral (en la dieta)",
+    "pauta_reportada": "RIBÓSIDO de nicotinamida (NR), no NAD+: 400 mg/kg/día durante 4 semanas en ratón, seguido de exposición al frío. ESTA CIFRA ES POR KILOGRAMO DE RATÓN Y NO SE CONVIERTE A NINGUNA OTRA ESPECIE",
+    "desenlace_medido": "Tamaño de los adipocitos del tejido adiposo pardo y respuesta a la exposición al frío; lipólisis ex vivo"
    }
   ],
   "pie_de_cita": "Los valores anteriores son los que publican los autores en cada referencia. Describen lo que hicieron esos estudios, no son una recomendación, y las dosis de modelos animales no se extrapolan directamente a otras especies. El diseño de cualquier protocolo experimental queda a criterio del investigador responsable."
  },
  "avisos": [
-  "NINGUNA de estas filas administró NAD+ como tal: todas usaron un precursor. La monografía tiene que decirlo antes de la tabla, no en una nota al pie.",
-  "NAD+ no es un péptido. Si la monografía va en un grupo titulado «péptidos», hay que decir qué es: un dinucleótido."
+  "AVISO CAPITAL, CORREGIDO EL 2026-09-23. La versión anterior de este archivo decía que NINGÚN ensayo había administrado NAD+ como tal. Eso ya NO es cierto y no puede publicarse así. Se localizaron y verificaron tres estudios en personas que administraron NAD+ intacto: PMID 40954388 (aleatorizado, 180 personas, 10 mg/día intravenosos durante 7 días, insuficiencia cardiaca isquémica), PMID 41035311 (aleatorizado, 38 personas, hipoacusia neurosensorial súbita, sin dosis ni vía en el resumen) y PMID 31572171 (infusión intravenosa de 3 µmol/min durante 6 horas, sin grupo de control). La formulación correcta es la de sustancia, no la de ausencia: la inmensa mayoría de la evidencia es sobre PRECURSORES por vía oral, y cada fila tiene que nombrar la molécula que se administró de verdad.",
+  "Cada fila nombra en mayúsculas la molécula administrada (NAD+, RIBÓSIDO de nicotinamida, MONONUCLEÓTIDO de nicotinamida, NICOTINAMIDA o MEZCLA). Ese marcado no es decorativo: es lo que impide que el lector lea un resultado de precursor como si fuera un resultado de NAD+.",
+  "NAD+ no es un péptido. Si la monografía va en un grupo titulado «péptidos», hay que decir qué es: un dinucleótido.",
+  "El h2 número 3 de la estructura congelada debe llamarse «Qué se ha medido en personas»: 49 de las 50 entradas son estudios en personas. La única entrada en animal es el brazo en ratón del PMID 33524145, que va con su cifra por kilogramo de ratón y con la advertencia de que no se convierte.",
+  "Los resultados NEGATIVOS son mayoría en los desenlaces clínicos y tienen que ir dentro con el mismo peso. Están marcados en cada estudio con el campo «signo_del_resultado». El patrón que recorre toda la tabla: el compromiso bioquímico (subir el NAD+ en sangre) está demostrado una y otra vez; el beneficio clínico no.",
+  "Tres hallazgos incómodos que NO se pueden omitir: (1) PMID 41502156, donde el NR oral ni siquiera elevó el NAD+ plasmático y los autores escriben que a esas dosis no puede recomendarse; (2) PMID 41705654, donde el NMN ABOLIÓ la adaptación mitocondrial al entrenamiento; (3) PMID 41540253, donde el efecto del NR y del NMN parece pasar por su conversión microbiana a ácido nicotínico, y donde NMN, NR y nicotinamida no elevaron el NAD+ directamente en sangre total.",
+  "Las filas del grupo F (mezclas) tienen un resultado positivo que NO es atribuible al precursor de NAD+: en PMID 36703196 el ribósido de nicotinamida es el 5 % de la mezcla. Si esas filas se publican, la frase de no atribución va en la misma fila, no en una nota al pie.",
+  "La tabla tiene 50 filas. No es obligatorio publicarlas todas: el campo «grupo» permite partirla en subtablas con los encabezados de «grupos», que además es más legible. Lo que no se puede es publicar solo las positivas."
  ],
  "pendientes": [
-  "Buscar específicamente ensayos que administren NAD+ intacto (oral o intravenoso). Si no existen, eso mismo es el aviso de estado de la evidencia y hay que publicarlo con la consulta que lo demuestre."
+  "RESUELTO el 2026-09-23. El pendiente anterior era «buscar específicamente ensayos que administren NAD+ intacto (oral o intravenoso)». Sí existen, por vía intravenosa: PMID 40954388, 41035311 y 31572171, ya incorporados. NO se encontró ningún ensayo que administre NAD+ intacto por VÍA ORAL en personas, que es precisamente la vía de este producto. Ese vacío es publicable tal cual, y la consulta de títulos que lo demuestra (62 registros) está en «consultas_pubmed».",
+  "14 entradas no reportan la cantidad administrada en el resumen de PubMed (PMID 41035311, 36225528, 42304075, 33888596, 42478598, 41502156, 39548320, 38871717, 29599478, 39387327, 40479886, 41540253, 36082508, 34180141). Se han dejado declaradas como «no reportada en el resumen», que es lo correcto. Resolverlas exigiría el texto completo: es la decisión D9 del plan de construcción y tiene coste.",
+  "PMID 42082179 y 42048163 y 42009009 siguen con el desenlace sin dirección declarada porque el resumen recuperado no la da. Si se compra el texto completo, actualizar «resultado_reportado» y «signo_del_resultado».",
+  "PMID 36443648 y 42082179 son del mismo grupo, con la misma pauta (NMN 250 mg/día, 24 semanas) y en la misma población de adultos mayores con diabetes; el primero menciona el grosor retiniano central como hallazgo limítrofe y el segundo lo tiene como desenlace. Probablemente comparten cohorte. Comprobarlo antes de presentarlos como dos evidencias independientes.",
+  "PMID 41162813 es un análisis post hoc de PMID 36482258. Están los dos en la tabla a propósito, pero no son dos ensayos: es un ensayo y su reanálisis. Decirlo si se publican juntos."
  ],
  "generado": "2026-09-22",
+ "actualizado": "2026-09-23",
+ "cambios_de_esta_revision": {
+  "fecha": "2026-09-23",
+  "motivo": "La ficha de venta del producto 1131 cita una revisión sistemática con 113 estudios y 33 de intervención en personas, mientras que este archivo solo tenía 6 ensayos: la monografía habría salido peor informada que su propia ficha.",
+  "estudios_antes": 6,
+  "estudios_despues": 50,
+  "resumen": "Se verificó el PMID 41655607 contra NCBI y se incorporó como revisión de ancla con sus cifras y sus conclusiones textuales. Se localizaron y verificaron uno a uno en PubMed 44 estudios nuevos. Se corrigió el aviso capital, que afirmaba un hecho que ha dejado de ser cierto."
+ },
  "fuentes": [
-  "PubMed E-utilities (esearch/efetch), NCBI, 2026-09-22",
-  "PubChem PUG REST, NCBI, 2026-09-22"
+  "PubMed E-utilities (esearch/efetch/elink), NCBI, 2026-09-22 y 2026-09-23",
+  "PubChem PUG REST, NCBI, 2026-09-22 y 2026-09-23",
+  "Todos los registros bibliográficos de «estudios» (título, revista, año, autores y tipos de publicación) proceden literalmente del registro de PubMed de cada PMID, no de una transcripción manual."
  ]
 }
