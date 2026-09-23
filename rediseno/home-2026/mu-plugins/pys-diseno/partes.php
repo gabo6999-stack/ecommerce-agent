@@ -935,11 +935,6 @@ function pys_dis_coa_lotes() {
 			. 'con el número impreso en la etiqueta de tu vial.</p>';
 	}
 
-	$fecha = static function ( $iso ) {
-		$t = $iso ? strtotime( $iso ) : false;
-		return $t ? date_i18n( 'j \d\e F \d\e Y', $t ) : '';
-	};
-
 	$out = '<p>Hay <strong>' . (int) $n . '</strong> ';
 	$out .= ( 1 === $n ? 'certificado publicado' : 'certificados publicados' );
 	if ( $total ) {
@@ -987,12 +982,11 @@ function pys_dis_coa_lotes() {
 		if ( ! empty( $coa['lab_num'] ) ) {
 			$out .= pys_dis_coa_fila( 'Referencia del laboratorio', esc_html( $coa['lab_num'] ) );
 		}
-		if ( ! empty( $coa['fecha_analisis'] ) ) {
-			$out .= pys_dis_coa_fila( 'Fecha de análisis', esc_html( $fecha( $coa['fecha_analisis'] ) ) );
-		}
-		if ( ! empty( $coa['fecha_emision'] ) ) {
-			$out .= pys_dis_coa_fila( 'Fecha de emisión', esc_html( $fecha( $coa['fecha_emision'] ) ) );
-		}
+		/* Ni la fecha de análisis ni la de emisión salen a la página: siguen
+		   en el meta y dentro del PDF. Un lote analizado hace un año sigue
+		   siendo bueno —liofilizado y congelado aguanta más de dos—, pero el
+		   público no lo sabe y la fecha se lee como producto viejo. Regla del
+		   dueño, 2026-09-23. */
 		$out .= '</tbody></table>';
 		$out .= '<p><a href="' . esc_url( $coa['pdf_url'] ) . '" target="_blank" rel="noopener">'
 			. 'Ver el certificado completo del lote ' . esc_html( $lote ) . ' (PDF)</a> &middot; '

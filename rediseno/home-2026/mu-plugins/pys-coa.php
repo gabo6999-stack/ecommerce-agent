@@ -161,10 +161,6 @@ add_action(
 		if ( ! $coa ) {
 			return;
 		}
-		$fecha = static function ( $iso ) {
-			$t = $iso ? strtotime( $iso ) : false;
-			return $t ? date_i18n( 'j \d\e F \d\e Y', $t ) : '';
-		};
 		$filas = array();
 		if ( ! empty( $coa['pureza'] ) ) {
 			$filas[] = array( 'Pureza cromatográfica', $coa['pureza'] . ' %' );
@@ -202,9 +198,12 @@ add_action(
 				if ( ! empty( $coa['lab_num'] ) ) {
 					$partes[] = 'referencia ' . $coa['lab_num'];
 				}
-				if ( ! empty( $coa['fecha_emision'] ) ) {
-					$partes[] = 'emitido el ' . $fecha( $coa['fecha_emision'] );
-				}
+				/* Las fechas de análisis y de emisión NO se publican: se guardan en
+				   el meta y están dentro del PDF, que es el documento del
+				   laboratorio. Un péptido liofilizado y congelado aguanta más de
+				   dos años, pero quien llega a la ficha no lo sabe y lee una
+				   fecha del año pasado como producto viejo. Regla del dueño,
+				   2026-09-23. */
 				echo esc_html( implode( ' · ', $partes ) );
 				?>
 			</p>
