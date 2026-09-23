@@ -236,6 +236,28 @@ function pys_cv_shortcode( $atts ) {
 add_shortcode( 'pys_catalogo', 'pys_cv_shortcode' );
 
 /**
+ * `[pys_catalogo_cuenta tipo="peptidos"]` — cuántos productos hay, ahora mismo.
+ *
+ * La frase que presenta el catálogo llevaba el número escrito a mano. El
+ * 2026-09-23 se fusionaron MOTS-c y semaglutida, el catálogo pasó de 18 a 16
+ * péptidos y la página siguió diciendo 18: exactamente el mismo fallo que el
+ * listado de tarjetas tenía antes de leer de WooCommerce. Un dato que se
+ * escribe a mano se queda mintiendo el día que alguien toca el catálogo.
+ */
+function pys_cv_cuenta_shortcode( $atts ) {
+	$a = shortcode_atts(
+		array(
+			'tipo' => 'peptidos',
+			'cat'  => '',
+		),
+		$atts,
+		'pys_catalogo_cuenta'
+	);
+	return (string) count( pys_cv_productos( sanitize_key( $a['tipo'] ), sanitize_title( $a['cat'] ), -1 ) );
+}
+add_shortcode( 'pys_catalogo_cuenta', 'pys_cv_cuenta_shortcode' );
+
+/**
  * ¿La vista actual usa el shortcode?
  *
  * Se mira el contenido Y el documento de Elementor, porque en 1551 el shortcode
