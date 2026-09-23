@@ -165,12 +165,12 @@ $pys_en_stock = count( array_filter( $pys_productos, function ( $p ) { return $p
  */
 /* Orden fijado por el usuario, por demanda del mercado (no por las ventas de
    la tienda, que hoy son dos unidades y no dicen nada). De Semaglutida va la
-   de 5 mg porque la de 20 está agotada, y de MOTS-c su ficha variable, que abre en 10 mg;
+   su ficha variable, que abre en 5 mg porque la de 20 está agotada, y de MOTS-c su ficha variable, que abre en 10 mg;
    sus hermanas caen en el resto. */
 $pys_orden = array(
 	'retatrutida',
 	'tirzepatida',
-	'semaglutida-5-mg',
+	'semaglutida',
 	'mots-c',
 	'cjc-1295-ipamorelina-5mg',
 );

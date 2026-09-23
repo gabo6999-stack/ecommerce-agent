@@ -860,8 +860,10 @@ function pys_dis_vial( $post_id ) {
 	'agua-bacteriostatica-3ml' => 'vial-agua-bacteriostatica-0-9-alcohol-bencilico.jpg',
 	'igf-1-lr3-1mg'            => 'vial-igf-1-lr3-1-mg.jpg',
 	'nad'                      => 'vial-nad-500-mg.jpg',
-	'semaglutida-20mg'         => 'vial-semaglutida-20-mg.jpg',
-	'semaglutida-5-mg'         => 'vial-semaglutida-5-mg.jpg',
+	/* Las dos presentaciones se fusionaron en una ficha variable el 2026-09-23;
+	   la tarjeta usa el render de 5 mg, que es el gramaje de entrada y el único
+	   con existencias. El de 20 mg vive en su variación. */
+	'semaglutida'              => 'vial-semaglutida-5-mg.jpg',
 	'tirzepatida'              => 'vial-tirzepatida-30-mg.jpg',
 	'selank-10-mg'             => 'vial-selank-10-mg.jpg',
 	'sermorelina-10mg'         => 'vial-sermorelin-10-mg.jpg',
